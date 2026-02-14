@@ -1,0 +1,38 @@
+id: claude-code
+name: Claude Code (Max)
+badge: 终端最强
+tagline: Anthropic 官方终端 AI 编程工具，多 Agent 协作，能力天花板
+client: claude-code
+api: claude-builtin
+environment: 终端 CLI
+monthly_cost: "$20-200"
+currency: USD
+scores:
+  coding_ability: 9.6
+  cost_efficiency: 4.0
+  flexibility: 6.0
+  china_friendly: 2.0
+setup_difficulty: 中等
+tags:
+  - cli
+  - power
+  - terminal
+best_for:
+  - 追求极致编程能力
+  - 终端重度用户
+  - 不在乎价格
+quick_start:
+  - "安装: npm install -g @anthropic-ai/claude-code"
+  - 设置 ANTHROPIC_API_KEY 或订阅 Claude Max
+  - "进入项目目录运行: claude"
+  - 使用自然语言描述编程任务
+pros:
+  - 编程能力当前最强（SWE-bench 第一）
+  - 支持 sub-agent 和多文件编辑
+  - Extended Thinking 深度推理
+  - 可作为 CI/CD 环节嵌入
+cons:
+  - 价格昂贵（$20-200/月）
+  - 国内需要代理
+  - 无 GUI，纯终端操作
+  - API 按量付费时成本不可控

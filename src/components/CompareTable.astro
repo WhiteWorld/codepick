@@ -1,0 +1,69 @@
+---
+import type { Plan } from '../lib/data';
+import { overallScore } from '../lib/data';
+
+interface Props {
+  plans: Plan[];
+}
+
+const { plans } = Astro.props;
+
+function scoreClass(s: number): string {
+  if (s >= 9) return 'color: #22c55e';
+  if (s >= 7) return 'color: #6366f1';
+  if (s >= 5) return 'color: #f59e0b';
+  return 'color: #ef4444';
+}
+---
+
+<div class="overflow-x-auto">
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>方案</th>
+        <th>类型</th>
+        <th>月费</th>
+        <th class="text-center">编程</th>
+        <th class="text-center">性价比</th>
+        <th class="text-center">灵活性</th>
+        <th class="text-center">国内</th>
+        <th class="text-center">综合</th>
+      </tr>
+    </thead>
+    <tbody>
+      {plans.map(p => {
+        const overall = overallScore(p.scores);
+        const tags = p.tags || [];
+        return (
+          <tr>
+            <td>
+              <a href={`/plan/${p.id}`} class="text-white font-medium no-underline hover:text-[var(--brand-400)]">
+                {p.name}
+              </a>
+              {p.badge && <span class="badge ml-2">{p.badge}</span>}
+            </td>
+            <td>
+              {tags[0] ? <span class="tag tag-primary">{tags[0]}</span> : '—'}
+            </td>
+            <td class="font-medium">{p.monthly_cost || '—'}</td>
+            <td class="text-center font-medium" style={scoreClass(p.scores.coding_ability)}>
+              {p.scores.coding_ability}
+            </td>
+            <td class="text-center font-medium" style={scoreClass(p.scores.cost_efficiency)}>
+              {p.scores.cost_efficiency}
+            </td>
+            <td class="text-center font-medium" style={scoreClass(p.scores.flexibility)}>
+              {p.scores.flexibility}
+            </td>
+            <td class="text-center font-medium" style={scoreClass(p.scores.china_friendly)}>
+              {p.scores.china_friendly}
+            </td>
+            <td class="text-center font-bold" style={scoreClass(overall)}>
+              {overall}
+            </td>
+          </tr>
+        );
+      })}
+    </tbody>
+  </table>
+</div>

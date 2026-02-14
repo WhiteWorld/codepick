@@ -1,0 +1,128 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'CodePick - AI 编程工具选型指南',
+  description = '帮助中国开发者选择最适合的 AI 编程工具方案，对比 Cursor、Copilot、Cline + 方舟等主流方案的能力、价格和体验。',
+} = Astro.props;
+
+const navLinks = [
+  { href: '/', label: '方案矩阵' },
+  { href: '/tools', label: '工具库' },
+  { href: '/compare', label: '对比' },
+  { href: '/guides', label: '指南' },
+  { href: '/changelog', label: '更新日志' },
+];
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title}</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 border-b border-[var(--surface-border)] bg-[rgba(15,17,23,0.8)] backdrop-blur-xl">
+    <div class="container flex items-center justify-between h-16">
+      <a href="/" class="flex items-center gap-2 text-lg font-bold text-white no-underline">
+        <span class="text-2xl">⚡</span>
+        <span>CodePick</span>
+      </a>
+      <div class="hidden md:flex items-center gap-6">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class="text-sm text-[var(--text-secondary)] hover:text-white transition-colors no-underline"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+      <div class="flex items-center gap-3">
+        <a
+          href="https://github.com/codepick-dev/codepick"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-ghost text-xs"
+        >
+          GitHub ↗
+        </a>
+        <button id="menu-toggle" class="md:hidden btn btn-ghost p-2" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 010 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 010 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 010 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--surface-border)] bg-[var(--surface-bg)]">
+      <div class="container py-3 flex flex-col gap-2">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class="text-sm text-[var(--text-secondary)] hover:text-white py-2 no-underline"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="border-t border-[var(--surface-border)] mt-20">
+    <div class="container py-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-white font-semibold mb-3">⚡ CodePick</h3>
+          <p class="text-sm text-[var(--text-muted)] leading-relaxed">
+            帮助中国开发者选择最适合的 AI 编程工具方案。<br/>
+            数据定期更新，所有信息均经人工验证。
+          </p>
+        </div>
+        <div>
+          <h4 class="text-[var(--text-secondary)] font-semibold mb-3 text-sm">快速导航</h4>
+          <div class="flex flex-col gap-2">
+            {navLinks.map(link => (
+              <a href={link.href} class="text-sm text-[var(--text-muted)] hover:text-white no-underline">{link.label}</a>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h4 class="text-[var(--text-secondary)] font-semibold mb-3 text-sm">关于</h4>
+          <div class="flex flex-col gap-2 text-sm text-[var(--text-muted)]">
+            <span>个人项目 · 非商业推荐</span>
+            <span>数据最后更新: 2025-07</span>
+            <a href="https://github.com/codepick-dev/codepick/issues" target="_blank" rel="noopener" class="hover:text-white no-underline">报告数据错误 →</a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 pt-6 border-t border-[var(--surface-border)] text-center text-xs text-[var(--text-muted)]">
+        © 2025 CodePick. 工具评测数据仅供参考，请以官方信息为准。
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    toggle?.addEventListener('click', () => {
+      menu?.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

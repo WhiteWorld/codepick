@@ -1,0 +1,84 @@
+id: copilot
+name: GitHub Copilot
+type: plugin
+logo: /images/copilot.png
+url: https://github.com/features/copilot
+repo: null
+
+current_version: null
+version_tracked_at: "2026-02-08"
+
+pricing:
+  model: freemium
+  currency: USD
+  plans:
+    - name: Free
+      price: 0
+      limits: "2000次补全/月, 50次Chat/月"
+    - name: Pro
+      price: 10
+      period: month
+      limits: "无限补全, 300次高级请求/月"
+    - name: Pro+
+      price: 39
+      period: month
+      limits: "无限补全, 1500次高级请求/月"
+    - name: Business
+      price: 19
+      period: month
+      per_user: true
+    - name: Enterprise
+      price: 39
+      period: month
+      per_user: true
+  price_updated_at: "2026-02-01"
+
+scores:
+  coding_ability: 8.2
+  cost_efficiency: 8.5
+  flexibility: 4.5
+  china_friendly: 6.5
+  privacy: 6.0
+
+features:
+  code_completion: true
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: true
+  context_window: "128K tokens"
+  supported_models:
+    - Claude Sonnet 4
+    - GPT-4o
+    - Gemini 2.5 Pro
+    - o3-mini
+  ide_base: "插件 (VS Code / JetBrains / Vim / Xcode)"
+  supported_os: [macOS, Windows, Linux]
+  jetbrains_support: true
+  git_integration: true
+
+best_for:
+  - "GitHub 重度用户"
+  - "JetBrains 用户"
+  - "追求性价比的订阅方案"
+not_for:
+  - "需要完全自定义模型的用户"
+  - "对Agent自主编码要求极高的用户"
+
+data_sources:
+  - url: "https://github.com/features/copilot#pricing"
+    type: pricing
+    last_checked: "2026-02-08"
+
+changelog:
+  - date: "2026-01-20"
+    type: feature
+    summary: "Agent模式支持多文件编辑和自动修复"
+  - date: "2025-12-15"
+    type: feature
+    summary: "新增代码审查功能（Code Review）"
+
+last_full_review: "2026-02-08"
+next_review_due: "2026-03-08"
+review_frequency_days: 30
+confidence: high

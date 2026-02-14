@@ -1,0 +1,62 @@
+id: openrouter
+name: OpenRouter
+type: api
+logo: /images/openrouter.png
+url: https://openrouter.ai
+repo: null
+
+current_version: null
+version_tracked_at: "2026-02-01"
+
+pricing:
+  model: pay-as-you-go
+  currency: USD
+  plans:
+    - name: 按量付费
+      price: 0
+      limits: "无月费，按 token 计费（各模型价格不同）"
+  price_updated_at: "2026-02-01"
+  note: "统一 API 接入 200+ 模型，价格透明按量计费"
+
+scores:
+  coding_ability: 9.0
+  cost_efficiency: 7.5
+  flexibility: 10.0
+  china_friendly: 3.0
+  privacy: 5.0
+
+features:
+  supported_models: "200+ 模型（Claude/GPT/Gemini/DeepSeek/Qwen/Llama 等）"
+  api_protocol: "OpenAI 兼容协议"
+  supported_clients:
+    - Cline
+    - Roo Code
+    - OpenCode
+    - Aider
+    - Continue
+  china_native: false
+  unified_billing: true
+  model_comparison: true
+
+best_for:
+  - "想一个 API Key 用遍所有模型"
+  - "按量付费，避免订阅浪费"
+  - "模型切换灵活性要求极高"
+not_for:
+  - "国内直连需求（需代理）"
+  - "对延迟要求极高的场景"
+
+data_sources:
+  - url: "https://openrouter.ai/docs"
+    type: docs
+    last_checked: "2026-02-01"
+
+changelog:
+  - date: "2026-01-25"
+    type: model
+    summary: "支持 Claude Opus 4.6 模型"
+
+last_full_review: "2026-02-01"
+next_review_due: "2026-03-01"
+review_frequency_days: 30
+confidence: high

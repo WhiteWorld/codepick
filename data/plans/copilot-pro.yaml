@@ -1,0 +1,36 @@
+id: copilot-pro
+name: GitHub Copilot Pro
+badge: JetBrains 首选
+tagline: 最广泛 IDE 支持的 AI 编程助手，JetBrains 用户的默认选择
+client: copilot
+api: copilot-builtin
+environment: VS Code / JetBrains / Neovim
+monthly_cost: "$10-39"
+currency: USD
+scores:
+  coding_ability: 8.2
+  cost_efficiency: 8.0
+  flexibility: 4.5
+  china_friendly: 6.5
+setup_difficulty: 极低
+tags:
+  - plugin
+  - easy
+  - jetbrains
+best_for:
+  - JetBrains 用户
+  - 追求开箱即用
+  - 团队统一采购
+quick_start:
+  - 登录 github.com/features/copilot 订阅 Pro 方案
+  - 在 IDE 扩展市场搜索 GitHub Copilot 安装
+  - 登录 GitHub 账号，即刻开始使用
+pros:
+  - IDE 支持最广（VS Code / JetBrains / Neovim / Xcode）
+  - 开箱即用，零配置
+  - 自带 Copilot Chat + Agent 模式
+  - 免费版可用（限额）
+cons:
+  - 国内访问不稳定，偶尔超时
+  - 模型不可自选，绑定 GitHub 平台
+  - Agent 能力弱于 Cursor/Cline

@@ -1,0 +1,90 @@
+---
+import ScoreBar from './ScoreBar.astro';
+import type { Plan } from '../lib/data';
+
+interface Props {
+  plan: Plan;
+}
+
+const { plan } = Astro.props;
+
+// 类型颜色
+const typeColors: Record<string, string> = {
+  ide: '#6366f1',
+  plugin: '#8b5cf6',
+  diy: '#22c55e',
+  cli: '#f59e0b',
+  terminal: '#f59e0b',
+};
+
+const tags = plan.tags || [];
+const primaryTag = tags[0] || 'diy';
+const tagColor = typeColors[primaryTag] || typeColors.diy;
+
+// 类型中文名
+const typeLabels: Record<string, string> = {
+  ide: 'IDE 集成',
+  plugin: '插件',
+  diy: 'DIY 组合',
+  cli: '终端 CLI',
+  terminal: '终端 CLI',
+  budget: '高性价比',
+  china: '国内友好',
+  agent: 'AI Agent',
+  vscode: 'VS Code',
+  privacy: '隐私优先',
+  power: '旗舰',
+};
+
+const bestFor = plan.best_for || [];
+---
+
+<a href={`/plan/${plan.id}`} class="card p-5 block no-underline group">
+  <!-- Header -->
+  <div class="flex items-start justify-between mb-3">
+    <div>
+      <div class="flex items-center gap-2 mb-1">
+        <h3 class="text-base font-semibold text-white group-hover:text-[var(--brand-400)] transition-colors m-0">
+          {plan.name}
+        </h3>
+        {plan.badge && <span class="badge">{plan.badge}</span>}
+      </div>
+      <p class="text-xs text-[var(--text-muted)] m-0">{plan.tagline}</p>
+    </div>
+    <div class="text-right shrink-0 ml-3">
+      <div class="text-lg font-bold text-white">{plan.monthly_cost}</div>
+      <div class="text-xs text-[var(--text-muted)]">{plan.currency}/月</div>
+    </div>
+  </div>
+
+  <!-- Tags -->
+  {tags.length > 0 && (
+    <div class="flex flex-wrap gap-1.5 mb-4">
+      {tags.slice(0, 4).map(tag => (
+        <span
+          class="tag"
+          style={tag === primaryTag ? `background: ${tagColor}20; color: ${tagColor}` : ''}
+        >
+          {typeLabels[tag] || tag}
+        </span>
+      ))}
+    </div>
+  )}
+
+  <!-- Score bars -->
+  <div class="flex flex-col gap-2">
+    <ScoreBar label="编程能力" score={plan.scores.coding_ability} color="auto" />
+    <ScoreBar label="性价比" score={plan.scores.cost_efficiency} color="auto" />
+    <ScoreBar label="灵活性" score={plan.scores.flexibility} color="auto" />
+    <ScoreBar label="国内体验" score={plan.scores.china_friendly} color="auto" />
+  </div>
+
+  <!-- Best for -->
+  {bestFor.length > 0 && (
+    <div class="mt-4 pt-3 border-t border-[var(--surface-border)]">
+      <p class="text-xs text-[var(--text-muted)] m-0">
+        适合：{bestFor.slice(0, 2).join(' · ')}
+      </p>
+    </div>
+  )}
+</a>

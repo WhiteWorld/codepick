@@ -1,0 +1,196 @@
+---
+// 30 秒快速选型器
+---
+
+<div class="card p-6 md:p-8" id="quick-picker">
+  <h2 class="text-xl font-bold text-white mb-2 mt-0">⚡ 30 秒快速选型</h2>
+  <p class="text-sm text-[var(--text-muted)] mb-6">回答 3 个问题，找到最适合你的方案</p>
+
+  <!-- Step 1 -->
+  <div class="picker-step" data-step="1">
+    <p class="text-sm font-medium text-[var(--text-secondary)] mb-3">1/3 · 你的主力开发环境是？</p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+      <button class="picker-option btn btn-ghost justify-center" data-key="env" data-value="vscode">VS Code</button>
+      <button class="picker-option btn btn-ghost justify-center" data-key="env" data-value="jetbrains">JetBrains</button>
+      <button class="picker-option btn btn-ghost justify-center" data-key="env" data-value="terminal">终端 / Vim</button>
+      <button class="picker-option btn btn-ghost justify-center" data-key="env" data-value="any">都可以</button>
+    </div>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="picker-step hidden" data-step="2">
+    <p class="text-sm font-medium text-[var(--text-secondary)] mb-3">2/3 · 你的月预算是？</p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+      <button class="picker-option btn btn-ghost justify-center" data-key="budget" data-value="free">¥0 免费</button>
+      <button class="picker-option btn btn-ghost justify-center" data-key="budget" data-value="low">¥10-50</button>
+      <button class="picker-option btn btn-ghost justify-center" data-key="budget" data-value="mid">¥50-150</button>
+      <button class="picker-option btn btn-ghost justify-center" data-key="budget" data-value="high">不限预算</button>
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="picker-step hidden" data-step="3">
+    <p class="text-sm font-medium text-[var(--text-secondary)] mb-3">3/3 · 你最看重什么？</p>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+      <button class="picker-option btn btn-ghost justify-center" data-key="priority" data-value="power">编程能力最强</button>
+      <button class="picker-option btn btn-ghost justify-center" data-key="priority" data-value="cheap">性价比最高</button>
+      <button class="picker-option btn btn-ghost justify-center" data-key="priority" data-value="china">国内体验好</button>
+      <button class="picker-option btn btn-ghost justify-center" data-key="priority" data-value="flex">灵活可定制</button>
+      <button class="picker-option btn btn-ghost justify-center" data-key="priority" data-value="privacy">数据隐私</button>
+      <button class="picker-option btn btn-ghost justify-center" data-key="priority" data-value="easy">开箱即用</button>
+    </div>
+  </div>
+
+  <!-- Result -->
+  <div class="picker-step hidden" data-step="result">
+    <div class="text-center py-4">
+      <p class="text-sm text-[var(--text-muted)] mb-2">🎯 推荐方案</p>
+      <div id="picker-result" class="text-xl font-bold text-white">计算中...</div>
+      <p id="picker-reason" class="text-sm text-[var(--text-muted)] mt-2"></p>
+      <button class="btn btn-ghost mt-4" id="picker-reset">重新选择</button>
+    </div>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="mt-4 flex gap-1.5">
+    <div class="picker-progress h-1 rounded-full flex-1 bg-[var(--brand-500)]" data-for="1"></div>
+    <div class="picker-progress h-1 rounded-full flex-1 bg-[var(--surface-border)]" data-for="2"></div>
+    <div class="picker-progress h-1 rounded-full flex-1 bg-[var(--surface-border)]" data-for="3"></div>
+  </div>
+</div>
+
+<script>
+  const answers: Record<string, string> = {};
+  let currentStep = 1;
+
+  // Recommendation logic
+  function recommend(a: Record<string, string>): { name: string; id: string; reason: string } {
+    const { env, budget, priority } = a;
+
+    // Terminal users
+    if (env === 'terminal') {
+      if (budget === 'free' || budget === 'low') {
+        return { name: 'OpenCode + 方舟 Coding Plan', id: 'opencode-ark', reason: '终端原生 + 国内 API，低成本高效率' };
+      }
+      return { name: 'Claude Code', id: 'claude-code', reason: '终端最强 AI 编程体验，支持多 Agent 协作' };
+    }
+
+    // JetBrains users
+    if (env === 'jetbrains') {
+      if (priority === 'easy') {
+        return { name: 'GitHub Copilot Pro', id: 'copilot-pro', reason: 'JetBrains 原生支持，开箱即用' };
+      }
+      return { name: 'GitHub Copilot Pro', id: 'copilot-pro', reason: 'JetBrains 生态最成熟的 AI 编程方案' };
+    }
+
+    // Free / budget priority
+    if (budget === 'free' || priority === 'cheap') {
+      if (priority === 'privacy') {
+        return { name: 'Aider + Ollama 本地', id: 'aider-ollama', reason: '完全免费 + 100% 本地，代码不出机器' };
+      }
+      return { name: 'Cline + 方舟 Coding Plan', id: 'cline-ark', reason: '¥8.9/月起享受 Agent 级 AI 编程，性价比之王' };
+    }
+
+    // China friendly
+    if (priority === 'china') {
+      if (budget === 'free' || budget === 'low') {
+        return { name: 'Cline + 方舟 Coding Plan', id: 'cline-ark', reason: '国内 API 直连，低延迟 + 低成本' };
+      }
+      return { name: 'Trae + 方舟 Coding Plan', id: 'trae-ark', reason: '字节出品 IDE，国内体验最优' };
+    }
+
+    // Power / best experience
+    if (priority === 'power' || budget === 'high') {
+      return { name: 'Cursor Pro', id: 'cursor-pro', reason: '当前综合体验最强的 AI IDE，Tab 补全 + Agent 无缝切换' };
+    }
+
+    // Flexibility
+    if (priority === 'flex') {
+      return { name: 'Cline + 方舟 Coding Plan', id: 'cline-ark', reason: '自由切换模型和 API，最大灵活性' };
+    }
+
+    // Privacy
+    if (priority === 'privacy') {
+      return { name: 'Aider + Ollama 本地', id: 'aider-ollama', reason: '完全本地运行，代码零上传' };
+    }
+
+    // Default
+    return { name: 'Cline + 方舟 Coding Plan', id: 'cline-ark', reason: '综合性价比最优的入门方案' };
+  }
+
+  function showStep(step: number | 'result') {
+    document.querySelectorAll('.picker-step').forEach(el => el.classList.add('hidden'));
+    const target = document.querySelector(`.picker-step[data-step="${step}"]`);
+    target?.classList.remove('hidden');
+
+    // Update progress
+    document.querySelectorAll('.picker-progress').forEach(el => {
+      const forStep = parseInt((el as HTMLElement).dataset.for || '0');
+      if (step === 'result' || forStep <= (typeof step === 'number' ? step : 3)) {
+        el.classList.remove('bg-[var(--surface-border)]');
+        el.classList.add('bg-[var(--brand-500)]');
+      } else {
+        el.classList.add('bg-[var(--surface-border)]');
+        el.classList.remove('bg-[var(--brand-500)]');
+      }
+    });
+  }
+
+  // Option click handlers
+  document.querySelectorAll('.picker-option').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const el = btn as HTMLElement;
+      const key = el.dataset.key!;
+      const value = el.dataset.value!;
+      answers[key] = value;
+
+      // Highlight selected
+      el.parentElement?.querySelectorAll('.picker-option').forEach(b => {
+        b.classList.remove('btn-primary');
+        b.classList.add('btn-ghost');
+      });
+      el.classList.remove('btn-ghost');
+      el.classList.add('btn-primary');
+
+      // Next step after brief delay
+      setTimeout(() => {
+        if (currentStep < 3) {
+          currentStep++;
+          showStep(currentStep);
+        } else {
+          // Show result
+          const r = recommend(answers);
+          const resultEl = document.getElementById('picker-result');
+          const reasonEl = document.getElementById('picker-reason');
+          if (resultEl) resultEl.textContent = r.name;
+          if (reasonEl) reasonEl.textContent = r.reason;
+          showStep('result');
+
+          // Highlight matching card in the page
+          document.querySelectorAll('[data-plan-id]').forEach(card => {
+            (card as HTMLElement).style.outline = '';
+          });
+          const matchCard = document.querySelector(`[data-plan-id="${r.id}"]`);
+          if (matchCard) {
+            (matchCard as HTMLElement).style.outline = '2px solid var(--brand-500)';
+            matchCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }
+      }, 300);
+    });
+  });
+
+  // Reset
+  document.getElementById('picker-reset')?.addEventListener('click', () => {
+    Object.keys(answers).forEach(k => delete answers[k]);
+    currentStep = 1;
+    showStep(1);
+    document.querySelectorAll('.picker-option').forEach(b => {
+      b.classList.remove('btn-primary');
+      b.classList.add('btn-ghost');
+    });
+    document.querySelectorAll('[data-plan-id]').forEach(card => {
+      (card as HTMLElement).style.outline = '';
+    });
+  });
+</script>

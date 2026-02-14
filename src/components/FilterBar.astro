@@ -1,0 +1,52 @@
+---
+interface Props {
+  tags: string[];
+  activeTag?: string;
+}
+
+const { tags, activeTag = 'all' } = Astro.props;
+
+const typeLabels: Record<string, string> = {
+  all: '全部方案',
+  ide: 'IDE 集成',
+  plugin: '插件',
+  diy: 'DIY 组合',
+  cli: '终端 CLI',
+  budget: '高性价比',
+  china: '国内友好',
+};
+---
+
+<div class="flex flex-wrap gap-2" id="filter-bar">
+  {tags.map(tag => (
+    <button
+      class={`filter-chip ${tag === activeTag ? 'active' : ''}`}
+      data-filter={tag}
+    >
+      {typeLabels[tag] || tag}
+    </button>
+  ))}
+</div>
+
+<script>
+  document.querySelectorAll('#filter-bar .filter-chip').forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Update active state
+      document.querySelectorAll('#filter-bar .filter-chip').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = (btn as HTMLElement).dataset.filter || 'all';
+
+      // Filter plan cards
+      document.querySelectorAll('[data-plan-tags]').forEach(card => {
+        const el = card as HTMLElement;
+        const tags = el.dataset.planTags?.split(',') || [];
+        if (filter === 'all' || tags.includes(filter)) {
+          el.style.display = '';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

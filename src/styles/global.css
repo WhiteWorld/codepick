@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== CSS Variables ===== */
+:root {
+  --surface-bg: #0f1117;
+  --surface-card: #1a1d2e;
+  --surface-hover: #252840;
+  --surface-border: #2e3348;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --brand-400: #818cf8;
+  --brand-500: #6366f1;
+  --brand-600: #4f46e5;
+}
+
+/* ===== Base ===== */
+body {
+  @apply bg-[var(--surface-bg)] text-[var(--text-secondary)] font-sans leading-relaxed m-0;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  @apply text-[var(--text-primary)];
+}
+
+a {
+  @apply text-[var(--brand-400)] transition-colors;
+}
+a:hover {
+  @apply text-white;
+}
+
+/* ===== Layout ===== */
+.container {
+  @apply max-w-6xl mx-auto px-4;
+}
+
+/* ===== Cards ===== */
+.card {
+  @apply bg-[var(--surface-card)] border border-[var(--surface-border)] rounded-xl;
+}
+.card:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+/* ===== Buttons ===== */
+.btn {
+  @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition-all cursor-pointer;
+}
+.btn-primary {
+  @apply bg-[var(--brand-600)] text-white;
+}
+.btn-primary:hover {
+  @apply bg-[var(--brand-500)];
+}
+.btn-ghost {
+  @apply bg-transparent text-[var(--text-secondary)] border border-[var(--surface-border)];
+}
+.btn-ghost:hover {
+  @apply bg-[var(--surface-hover)] text-white;
+}
+
+/* ===== Tags & Badges ===== */
+.tag {
+  @apply inline-block px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--surface-hover)] text-[var(--text-secondary)];
+}
+.tag-primary {
+  background-color: rgba(79, 70, 229, 0.2); color: var(--brand-400);
+}
+.badge {
+  @apply inline-block px-2 py-0.5 rounded text-xs font-semibold bg-amber-500/20 text-amber-400;
+}
+
+/* ===== Score Bar ===== */
+.score-bar-track {
+  @apply h-2 rounded-full bg-[var(--surface-hover)] overflow-hidden;
+}
+.score-bar-fill {
+  @apply h-full rounded-full transition-all duration-500;
+}
+
+/* ===== Compare Table ===== */
+.compare-table {
+  @apply w-full text-sm border-collapse;
+}
+.compare-table th {
+  @apply text-left text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wider px-4 py-3 border-b border-[var(--surface-border)];
+}
+.compare-table td {
+  @apply px-4 py-3 border-b border-[var(--surface-border)] text-[var(--text-secondary)];
+}
+.compare-table tr:hover td {
+  background-color: rgba(37, 40, 64, 0.5);
+}
+
+/* ===== Filter Chips ===== */
+.filter-chip {
+  @apply px-3 py-1.5 rounded-full text-xs font-medium cursor-pointer transition-all border border-[var(--surface-border)] text-[var(--text-secondary)] bg-transparent;
+}
+.filter-chip:hover {
+  @apply border-[var(--brand-500)] text-[var(--brand-400)];
+}
+.filter-chip.active {
+  @apply bg-[var(--brand-600)] text-white border-[var(--brand-600)];
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+::-webkit-scrollbar-track {
+  @apply bg-[var(--surface-bg)];
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-[var(--surface-border)] rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[var(--text-muted)];
+}

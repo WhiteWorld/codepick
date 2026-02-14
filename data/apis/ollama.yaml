@@ -1,0 +1,66 @@
+id: ollama
+name: Ollama (本地模型)
+type: api
+logo: /images/ollama.png
+url: https://ollama.com
+repo: https://github.com/ollama/ollama
+
+current_version: "v0.6"
+version_tracked_at: "2026-02-01"
+
+pricing:
+  model: free
+  currency: null
+  plans:
+    - name: 完全免费
+      price: 0
+      limits: "无限制（需本地 GPU，建议 8GB+ 显存）"
+  price_updated_at: "2026-02-01"
+
+scores:
+  coding_ability: 5.5
+  cost_efficiency: 10.0
+  flexibility: 8.0
+  china_friendly: 9.5
+  privacy: 10.0
+
+features:
+  supported_models:
+    - Qwen3-Coder
+    - DeepSeek-Coder-V3
+    - CodeLlama
+    - StarCoder2
+    - Phi-4
+  local_only: true
+  api_protocol: "OpenAI 兼容协议"
+  supported_clients:
+    - Aider
+    - Cline
+    - Continue
+    - OpenCode
+  gpu_required: true
+  min_vram: "8GB"
+
+best_for:
+  - "隐私极度敏感，代码不出本机"
+  - "有独显的开发者"
+  - "完全免费方案"
+not_for:
+  - "没有 GPU 的用户"
+  - "追求顶级编码能力的用户"
+  - "大型项目（本地模型能力有限）"
+
+data_sources:
+  - url: "https://github.com/ollama/ollama/releases"
+    type: release
+    last_checked: "2026-02-01"
+
+changelog:
+  - date: "2026-01-15"
+    type: model
+    summary: "支持 Qwen3-Coder 模型"
+
+last_full_review: "2026-02-01"
+next_review_due: "2026-03-01"
+review_frequency_days: 30
+confidence: high

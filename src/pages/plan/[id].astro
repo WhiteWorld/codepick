@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ScoreBar from '../../components/ScoreBar.astro';
+import { getAllPlans, getTool, getApi, overallScore } from '../../lib/data';
+import type { Plan } from '../../lib/data';
+
+export function getStaticPaths() {
+  const plans = getAllPlans();
+  return plans.map(plan => ({
+    params: { id: plan.id },
+    props: { plan },
+  }));
+}
+
+interface Props { plan: Plan }
+const { plan } = Astro.props;
+
+const clientTool = getTool(plan.client);
+const apiSource = getApi(plan.api);
+const overall = overallScore(plan.scores);
+const bestFor = plan.best_for || [];
+const quickStart = plan.quick_start || [];
+const pros = plan.pros || [];
+const cons = plan.cons || [];
+const tags = plan.tags || [];
+---
+
+<BaseLayout title={`${plan.name} 方案详解 | CodePick`} description={plan.tagline || ''}>
+  <article class="container py-12 max-w-4xl">
+    <!-- Breadcrumb -->
+    <nav class="text-xs text-[var(--text-muted)] mb-6">
+      <a href="/" class="hover:text-white no-underline">首页</a>
+      <span class="mx-1">/</span>
+      <span class="text-[var(--text-secondary)]">{plan.name}</span>
+    </nav>
+
+    <!-- Header -->
+    <div class="mb-8">
+      <div class="flex items-center gap-3 mb-2">
+        <h1 class="text-2xl md:text-3xl font-bold text-white m-0">{plan.name}</h1>
+        {plan.badge && <span class="badge text-sm">{plan.badge}</span>}
+      </div>
+      <p class="text-[var(--text-secondary)] m-0 mb-4">{plan.tagline}</p>
+      <div class="flex items-center gap-4">
+        <span class="text-2xl font-bold text-white">{plan.monthly_cost}</span>
+        <span class="text-[var(--text-muted)]">{plan.currency}/月</span>
+        <span class="text-[var(--text-muted)]">·</span>
+        <span class="tag tag-primary">综合 {overall}</span>
+      </div>
+    </div>
+
+    <!-- Scores -->
+    <section class="card p-6 mb-8">
+      <h2 class="text-lg font-semibold text-white mb-4 mt-0">📊 方案评分</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="flex flex-col gap-3">
+          <ScoreBar label="编程能力" score={plan.scores.coding_ability} color="auto" />
+          <ScoreBar label="性价比" score={plan.scores.cost_efficiency} color="auto" />
+        </div>
+        <div class="flex flex-col gap-3">
+          <ScoreBar label="灵活性" score={plan.scores.flexibility} color="auto" />
+          <ScoreBar label="国内体验" score={plan.scores.china_friendly} color="auto" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Composition -->
+    <section class="card p-6 mb-8">
+      <h2 class="text-lg font-semibold text-white mb-4 mt-0">🧩 方案组成</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-[var(--surface-hover)] rounded-lg p-4">
+          <div class="text-xs text-[var(--text-muted)] mb-1">客户端</div>
+          <div class="font-semibold text-white">{clientTool?.name || plan.client}</div>
+          {clientTool && (
+            <a href={`/tool/${clientTool.id}`} class="text-xs text-[var(--brand-400)] no-underline">查看详情 →</a>
+          )}
+        </div>
+        <div class="bg-[var(--surface-hover)] rounded-lg p-4">
+          <div class="text-xs text-[var(--text-muted)] mb-1">模型 API</div>
+          <div class="font-semibold text-white">{apiSource?.name || plan.api}</div>
+          {apiSource && (
+            <span class="text-xs text-[var(--text-muted)]">{apiSource.provider}</span>
+          )}
+        </div>
+        <div class="bg-[var(--surface-hover)] rounded-lg p-4">
+          <div class="text-xs text-[var(--text-muted)] mb-1">运行环境</div>
+          <div class="font-semibold text-white">{plan.environment || '—'}</div>
+          <span class="text-xs text-[var(--text-muted)]">配置难度: {plan.setup_difficulty}</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Start -->
+    {quickStart.length > 0 && (
+      <section class="card p-6 mb-8">
+        <h2 class="text-lg font-semibold text-white mb-4 mt-0">🚀 快速开始</h2>
+        <ol class="list-decimal list-inside text-sm text-[var(--text-secondary)] space-y-2 m-0 pl-0">
+          {quickStart.map(step => <li>{step}</li>)}
+        </ol>
+      </section>
+    )}
+
+    <!-- Pros & Cons -->
+    {(pros.length > 0 || cons.length > 0) && (
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+        {pros.length > 0 && (
+          <div class="card p-6">
+            <h3 class="text-base font-semibold text-green-400 mb-3 mt-0">✅ 优势</h3>
+            <ul class="list-none text-sm text-[var(--text-secondary)] space-y-1.5 m-0 p-0">
+              {pros.map(p => <li>+ {p}</li>)}
+            </ul>
+          </div>
+        )}
+        {cons.length > 0 && (
+          <div class="card p-6">
+            <h3 class="text-base font-semibold text-red-400 mb-3 mt-0">⚠️ 劣势</h3>
+            <ul class="list-none text-sm text-[var(--text-secondary)] space-y-1.5 m-0 p-0">
+              {cons.map(c => <li>- {c}</li>)}
+            </ul>
+          </div>
+        )}
+      </div>
+    )}
+
+    <!-- Best For -->
+    {bestFor.length > 0 && (
+      <section class="card p-6 mb-8">
+        <h2 class="text-lg font-semibold text-white mb-4 mt-0">🎯 最适合</h2>
+        <div class="flex flex-wrap gap-2">
+          {bestFor.map(b => <span class="tag tag-primary">{b}</span>)}
+        </div>
+      </section>
+    )}
+
+    <!-- Tags -->
+    {tags.length > 0 && (
+      <div class="flex flex-wrap gap-2 mb-8">
+        {tags.map(t => <span class="tag">{t}</span>)}
+      </div>
+    )}
+  </article>
+</BaseLayout>

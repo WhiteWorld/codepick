@@ -1,0 +1,28 @@
+id: opencode-ark
+name: OpenCode + 方舟 Coding Plan
+badge: 终端党之选
+type: cli
+
+composition:
+  client: opencode
+  api: ark-coding-plan
+  environment: 终端
+
+monthly_cost:
+  min: "¥8.9"
+  typical: "¥29"
+  max: "¥89"
+
+scores:
+  coding_ability: 7.5
+  cost_efficiency: 9.5
+  flexibility: 9.6
+  china_friendly: 8.8
+
+description: "终端党的国产平替方案。开源CLI客户端，支持75+模型提供商，多会话管理，接方舟API国内直连。"
+
+setup_guide: "/guides/opencode-ark-setup"
+comparison_pages:
+  - "/compare/opencode-ark-vs-claude-code"
+
+tags: [cli, budget, china, terminal]

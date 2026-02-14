@@ -1,0 +1,38 @@
+id: trae-ark
+name: Trae + 方舟 Coding Plan
+badge: 国内体验最优
+tagline: 字节出品 IDE + 方舟 API，国内开发者的首选全套方案
+client: trae
+api: ark-coding-plan
+environment: Trae IDE (独立 IDE)
+monthly_cost: "¥8.9-89"
+currency: CNY
+scores:
+  coding_ability: 7.8
+  cost_efficiency: 8.5
+  flexibility: 5.5
+  china_friendly: 10.0
+setup_difficulty: 低
+tags:
+  - ide
+  - china
+  - budget
+  - easy
+best_for:
+  - 追求国内最优体验
+  - 不想折腾配置
+  - 中文优先的开发者
+quick_start:
+  - 下载安装 Trae IDE (trae.ai)
+  - 注册火山方舟账号并开通 Coding Plan
+  - 在 Trae 设置中配置方舟 API Key
+  - 开始使用 Builder 模式进行 AI 编程
+pros:
+  - 国内直连，延迟极低
+  - IDE 原生集成，体验流畅
+  - 中文对话和文档支持好
+  - 月费低至 ¥8.9
+cons:
+  - IDE 成熟度不如 VS Code/Cursor
+  - 插件生态较弱
+  - 模型能力与 Claude 有差距

@@ -1,0 +1,29 @@
+id: cline-ark
+name: Cline + 方舟 Coding Plan
+badge: 性价比之王
+type: diy
+
+composition:
+  client: cline
+  api: ark-coding-plan
+  environment: VS Code
+
+monthly_cost:
+  min: "¥8.9"
+  typical: "¥29"
+  max: "¥89"
+
+scores:
+  coding_ability: 8.2
+  cost_efficiency: 9.6
+  flexibility: 9.5
+  china_friendly: 9.0
+
+description: "最具性价比的Agent方案。Cline免费开源，Plan/Act双模式，接方舟API国内直连，月花不到30元。"
+
+setup_guide: "/guides/cline-ark-setup"
+comparison_pages:
+  - "/compare/cline-ark-vs-cursor"
+  - "/compare/cline-ark-vs-copilot"
+
+tags: [diy, budget, china, agent, vscode]

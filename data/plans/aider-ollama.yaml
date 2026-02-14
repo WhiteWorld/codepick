@@ -1,0 +1,38 @@
+id: aider-ollama
+name: Aider + Ollama 本地
+badge: 隐私之王
+tagline: 完全本地运行，代码零上传，100% 隐私保障
+client: aider
+api: ollama
+environment: 终端 CLI
+monthly_cost: "¥0"
+currency: CNY
+scores:
+  coding_ability: 6.5
+  cost_efficiency: 10.0
+  flexibility: 8.5
+  china_friendly: 10.0
+setup_difficulty: 中等
+tags:
+  - cli
+  - budget
+  - privacy
+  - free
+best_for:
+  - 隐私敏感项目
+  - 无预算开发者
+  - 离线环境
+quick_start:
+  - "安装 Ollama: curl -fsSL https://ollama.ai/install.sh | sh"
+  - "拉取模型: ollama pull qwen3-coder"
+  - "安装 Aider: pip install aider-chat"
+  - "启动: aider --model ollama/qwen3-coder"
+pros:
+  - 完全免费，零成本
+  - 代码不出本机，100% 隐私
+  - 离线可用，不依赖网络
+  - Git 集成自动提交
+cons:
+  - 模型能力受限于本地硬件
+  - 需要 8GB+ 显存才有好体验
+  - 复杂项目上下文处理较弱

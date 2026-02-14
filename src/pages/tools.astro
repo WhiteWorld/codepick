@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ScoreBar from '../components/ScoreBar.astro';
+import { getAllTools } from '../lib/data';
+
+const tools = getAllTools();
+
+const typeLabels: Record<string, string> = {
+  ide: 'IDE 集成',
+  'ide-plugin': '插件',
+  'vscode-extension': 'VS Code 扩展',
+  cli: '终端 CLI',
+};
+---
+
+<BaseLayout title="AI 编程工具库 - CodePick" description="浏览所有 AI 编程工具，查看详细评测和评分。">
+  <section class="container py-12">
+    <h1 class="text-3xl font-bold text-white mb-2">🛠️ AI 编程工具库</h1>
+    <p class="text-[var(--text-secondary)] mb-8">
+      共 {tools.length} 款工具，数据定期更新验证。点击查看详情。
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {tools.map(tool => {
+        const meta = tool.meta || {} as any;
+        const scores = tool.scores || {} as any;
+        return (
+          <a href={`/tool/${tool.id}`} class="card p-5 no-underline group block">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-lg bg-[var(--surface-hover)] flex items-center justify-center text-lg font-bold text-[var(--brand-400)]">
+                {tool.name.charAt(0)}
+              </div>
+              <div>
+                <h3 class="text-base font-semibold text-white group-hover:text-[var(--brand-400)] m-0">{tool.name}</h3>
+                <span class="tag text-xs">{typeLabels[tool.type] || tool.type || '工具'}</span>
+              </div>
+            </div>
+            <p class="text-xs text-[var(--text-muted)] mb-3 m-0">{tool.tagline || ''}</p>
+            <div class="flex flex-col gap-1.5">
+              <ScoreBar label="编程" score={scores.coding_ability ?? 5} color="auto" />
+              <ScoreBar label="性价比" score={scores.cost_efficiency ?? 5} color="auto" />
+              <ScoreBar label="灵活性" score={scores.flexibility ?? 5} color="auto" />
+              <ScoreBar label="国内" score={scores.china_friendly ?? 5} color="auto" />
+            </div>
+            {(meta.last_verified || meta.confidence) && (
+              <div class="mt-3 text-xs text-[var(--text-muted)]">
+                {meta.last_verified && <span>验证: {meta.last_verified}</span>}
+                {meta.last_verified && meta.confidence && <span> · </span>}
+                {meta.confidence && <span>信心: {meta.confidence}</span>}
+              </div>
+            )}
+          </a>
+        );
+      })}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,49 @@
+name: Weekly Data Monitor
+
+on:
+  schedule:
+    # 每周一 UTC 1:00 (北京时间 9:00)
+    - cron: '0 1 * * 1'
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Run monitor
+        id: monitor
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/monitor.py
+
+      - name: Commit cache updates
+        run: |
+          git config user.name "CodePick Bot"
+          git config user.email "bot@codepick.dev"
+          git add scripts/.cache/
+          git diff --cached --quiet || git commit -m "chore: update monitor cache [skip ci]"
+          git push || true
+
+      - name: Create issue if alerts found
+        if: steps.monitor.outputs.alerts > 0
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const alerts = '${{ steps.monitor.outputs.alerts }}';
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🔔 数据更新提醒: ${alerts} 个待处理项`,
+              body: `监控脚本检测到 ${alerts} 个数据更新项，请检查 Action 日志并手动更新相应 YAML 文件。\n\n[查看运行日志](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})`,
+              labels: ['data-update'],
+            });

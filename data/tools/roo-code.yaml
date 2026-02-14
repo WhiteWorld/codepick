@@ -1,0 +1,75 @@
+id: roo-code
+name: Roo Code
+type: client
+logo: /images/roo-code.png
+url: https://roocode.com
+repo: https://github.com/RooVetGit/Roo-Code
+
+current_version: "v2.0"
+version_tracked_at: "2026-01-28"
+
+pricing:
+  model: free
+  currency: null
+  plans:
+    - name: 开源免费
+      price: 0
+      limits: "无限制（需自备 API Key）"
+  price_updated_at: "2026-01-28"
+  note: "客户端免费，模型费用取决于你接的 API"
+
+scores:
+  coding_ability: 8.5
+  cost_efficiency: 9.0
+  flexibility: 9.8
+  china_friendly: 3.5
+  privacy: 7.0
+
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: true
+  context_window: "取决于所选模型"
+  supported_models: "任意 OpenAI / Anthropic / Google / 自定义 API 兼容模型"
+  ide_base: "VS Code 插件"
+  supported_os: [macOS, Windows, Linux]
+  jetbrains_support: false
+  git_integration: true
+  multi_role: true
+  roles:
+    - Code (编码)
+    - Architect (架构设计)
+    - Debug (调试)
+    - Ask (问答)
+
+best_for:
+  - "需要多角色 Agent 的进阶用户"
+  - "搭配 OpenRouter 用全球模型"
+  - "复杂项目需要架构分析+编码"
+not_for:
+  - "国内直连需求（OpenRouter 需代理）"
+  - "新手用户"
+
+compatible_apis:
+  - openrouter
+  - anthropic
+  - openai
+  - ark-coding-plan
+  - ollama
+
+data_sources:
+  - url: "https://github.com/RooVetGit/Roo-Code/releases"
+    type: release
+    last_checked: "2026-01-28"
+
+changelog:
+  - date: "2026-01-28"
+    type: release
+    summary: "v2.0: 新增 Architect 角色模式"
+
+last_full_review: "2026-01-25"
+next_review_due: "2026-02-25"
+review_frequency_days: 30
+confidence: medium

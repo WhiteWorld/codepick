@@ -1,0 +1,74 @@
+---
+interface Scenario {
+  emoji: string;
+  title: string;
+  desc: string;
+  href: string;
+}
+
+const scenarios: Scenario[] = [
+  {
+    emoji: '💰',
+    title: '零成本入门 AI 编程',
+    desc: '完全免费的 AI 编程方案盘点',
+    href: '/compare/free-ai-coding',
+  },
+  {
+    emoji: '🇨🇳',
+    title: '国内直连，告别梯子',
+    desc: '无需翻墙的 AI 编程工具',
+    href: '/compare/china-friendly',
+  },
+  {
+    emoji: '🏆',
+    title: 'Cursor vs Copilot',
+    desc: '两大付费方案终极对比',
+    href: '/compare/cursor-vs-copilot',
+  },
+  {
+    emoji: '🔧',
+    title: '自建 AI 编程方案',
+    desc: 'Cline/OpenCode + API 组合攻略',
+    href: '/guides/diy-ai-coding',
+  },
+  {
+    emoji: '🔒',
+    title: '代码不出本机',
+    desc: 'Ollama 本地部署方案',
+    href: '/guides/local-ai-coding',
+  },
+  {
+    emoji: '⌨️',
+    title: '终端党专属',
+    desc: 'Claude Code / OpenCode / Aider 对比',
+    href: '/compare/cli-tools',
+  },
+  {
+    emoji: '🏢',
+    title: '团队选型指南',
+    desc: '3-20 人团队怎么选',
+    href: '/guides/team-selection',
+  },
+  {
+    emoji: '🔥',
+    title: '方舟 Coding Plan 实测',
+    desc: '火山方舟 ¥8.9 方案值不值',
+    href: '/guides/ark-coding-review',
+  },
+];
+---
+
+<section>
+  <h2 class="text-xl font-bold text-white mb-6 mt-0">📌 场景速查</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+    {scenarios.map(s => (
+      <a href={s.href} class="card p-4 no-underline group block">
+        <div class="text-2xl mb-2">{s.emoji}</div>
+        <h3 class="text-sm font-semibold text-white group-hover:text-[var(--brand-400)] transition-colors m-0 mb-1">
+          {s.title}
+        </h3>
+        <p class="text-xs text-[var(--text-muted)] m-0">{s.desc}</p>
+      </a>
+    ))}
+  </div>
+</section>

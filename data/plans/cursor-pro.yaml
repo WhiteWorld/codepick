@@ -1,0 +1,29 @@
+id: cursor-pro
+name: Cursor Pro
+badge: 最强体验
+type: ide
+
+composition:
+  client: cursor
+  api: null  # 内置模型
+  environment: Cursor IDE
+
+monthly_cost:
+  min: "$20"
+  typical: "$20"
+  max: "$60"
+
+scores:
+  coding_ability: 9.5
+  cost_efficiency: 6.0
+  flexibility: 5.0
+  china_friendly: 4.0
+
+description: "当前最强AI IDE。Agent模式支持多文件自主编辑，Tab补全丝滑，代码库级上下文理解。"
+
+setup_guide: "/guides/cursor-setup"
+comparison_pages:
+  - "/compare/cursor-vs-copilot"
+  - "/compare/cursor-vs-cline-ark"
+
+tags: [ide, premium, agent]

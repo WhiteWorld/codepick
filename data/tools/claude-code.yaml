@@ -1,0 +1,82 @@
+id: claude-code
+name: Claude Code
+type: cli
+logo: /images/claude-code.png
+url: https://docs.anthropic.com/en/docs/claude-code
+repo: null
+
+current_version: null
+version_tracked_at: "2026-02-06"
+
+pricing:
+  model: subscription
+  currency: USD
+  plans:
+    - name: Pro
+      price: 20
+      period: month
+      limits: "基础用量"
+    - name: Max 5x
+      price: 100
+      period: month
+      limits: "5倍用量"
+    - name: Max 20x
+      price: 200
+      period: month
+      limits: "20倍用量"
+    - name: Team
+      price: 150
+      period: month
+      per_user: true
+  price_updated_at: "2026-02-01"
+
+scores:
+  coding_ability: 9.6
+  cost_efficiency: 3.5
+  flexibility: 3.0
+  china_friendly: 2.0
+  privacy: 6.0
+
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: true
+  context_window: "200K tokens (Opus 4.6 支持 1M)"
+  supported_models:
+    - Claude Sonnet 4
+    - Claude Opus 4
+    - Claude Opus 4.6
+  ide_base: "终端 CLI"
+  supported_os: [macOS, Windows, Linux]
+  sub_agent: true
+  multi_agent: true
+  git_integration: true
+
+best_for:
+  - "终端党追求最强编码能力"
+  - "复杂大型项目自主开发"
+  - "需要 Multi-Agent 协作"
+not_for:
+  - "预算有限的用户"
+  - "国内直连需求"
+  - "想自由换模型的用户"
+
+data_sources:
+  - url: "https://docs.anthropic.com/en/docs/claude-code"
+    type: docs
+    last_checked: "2026-02-06"
+
+changelog:
+  - date: "2026-02-06"
+    type: feature
+    summary: "支持 Multi-Agent 协作模式"
+  - date: "2026-01-20"
+    type: feature
+    summary: "Sub-Agent 支持自定义角色"
+
+last_full_review: "2026-02-06"
+next_review_due: "2026-03-06"
+review_frequency_days: 30
+confidence: high
