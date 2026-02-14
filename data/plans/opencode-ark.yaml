@@ -9,9 +9,11 @@ composition:
   environment: 终端
 
 monthly_cost:
-  min: "¥8.9"
-  typical: "¥29"
-  max: "¥89"
+  min: "¥9.9"
+  typical: "¥9.9"
+  max: "¥49.9"
+
+currency: CNY
 
 scores:
   coding_ability: 7.5
@@ -19,10 +21,31 @@ scores:
   flexibility: 9.6
   china_friendly: 8.8
 
-description: "终端党的国产平替方案。开源CLI客户端，支持75+模型提供商，多会话管理，接方舟API国内直连。"
+description: "终端党的国产平替方案。开源CLI客户端，支持75+模型提供商，多会话管理，接方舟API国内直连。Lite套餐首购仅¥9.9/月，支持4款国产编程模型。"
 
 setup_guide: "/guides/opencode-ark-setup"
 comparison_pages:
   - "/compare/opencode-ark-vs-claude-code"
 
 tags: [cli, budget, china, terminal]
+
+best_for:
+  - 终端重度用户
+  - 预算有限的国内开发者
+  - 想要 Claude Code 体验但用国产模型
+
+quick_start:
+  - "安装 OpenCode CLI"
+  - "注册火山方舟账号，订阅 Coding Plan Lite (¥9.9首购)"
+  - "配置方舟 API Key 和 Base URL"
+  - "选择模型（推荐 Auto 模式）"
+
+pros:
+  - 开源免费客户端 + 方舟 Lite 仅 ¥9.9/月
+  - 支持75+模型提供商
+  - 多会话管理
+  - 国内直连，无需代理
+cons:
+  - 终端交互，学习曲线略高
+  - 模型能力不如 Claude Code 原生
+  - 社区较小，文档不够完善

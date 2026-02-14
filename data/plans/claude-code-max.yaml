@@ -20,19 +20,24 @@ tags:
 best_for:
   - 追求极致编程能力
   - 终端重度用户
-  - 不在乎价格
+  - 需要 Multi-Agent 协作
 quick_start:
   - "安装: npm install -g @anthropic-ai/claude-code"
-  - 设置 ANTHROPIC_API_KEY 或订阅 Claude Max
+  - "订阅 Claude Pro ($20/月, 年付$17/月) 或 Max ($100-200/月)"
   - "进入项目目录运行: claude"
-  - 使用自然语言描述编程任务
+  - "使用自然语言描述编程任务"
+  - "可选: 配置方舟 Coding Plan 实现国内直连"
 pros:
   - 编程能力当前最强（SWE-bench 第一）
-  - 支持 sub-agent 和多文件编辑
+  - Agent Teams 多Agent协作
+  - Opus 4.6 支持 1M 上下文窗口
   - Extended Thinking 深度推理
-  - 可作为 CI/CD 环节嵌入
+  - 可通过方舟 Coding Plan 国内直连
+  - Pro 年付仅 $17/月
 cons:
-  - 价格昂贵（$20-200/月）
-  - 国内需要代理
+  - Max 套餐价格昂贵（$100-200/月）
+  - 原生需要代理（方舟中转可解决）
   - 无 GUI，纯终端操作
   - API 按量付费时成本不可控
+
+description: "Anthropic 官方终端 AI 编程工具，能力天花板。Pro $20/月(年付$17), Max 5x $100/月, Max 20x $200/月。Opus 4.6 支持1M上下文和Agent Teams。可通过方舟Coding Plan国内直连。"

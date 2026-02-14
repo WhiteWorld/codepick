@@ -11,7 +11,9 @@ composition:
 monthly_cost:
   min: "$20"
   typical: "$20"
-  max: "$60"
+  max: "$200"
+
+currency: USD
 
 scores:
   coding_ability: 9.5
@@ -19,7 +21,7 @@ scores:
   flexibility: 5.0
   china_friendly: 4.0
 
-description: "当前最强AI IDE。Agent模式支持多文件自主编辑，Tab补全丝滑，代码库级上下文理解。"
+description: "当前最强AI IDE。Agent模式支持多文件自主编辑，Tab补全丝滑，代码库级上下文理解。Pro $20/月含$20额度池+Auto无限用, Pro+ $60/月3倍用量, Ultra $200/月20倍用量。"
 
 setup_guide: "/guides/cursor-setup"
 comparison_pages:
@@ -27,3 +29,24 @@ comparison_pages:
   - "/compare/cursor-vs-cline-ark"
 
 tags: [ide, premium, agent]
+
+best_for:
+  - 追求最强编码体验
+  - Agent 自主开发重度用户
+  - 大型项目多文件重构
+
+quick_start:
+  - "下载安装 Cursor IDE (cursor.com)"
+  - "选择 Pro ($20/月) 或更高套餐"
+  - "开箱即用，支持 Claude/GPT/Gemini 前沿模型"
+
+pros:
+  - Agent模式当前最强，多文件自主编辑
+  - Tab补全丝滑，代码库级上下文
+  - Cloud Agents 支持后台异步开发
+  - Auto模式无限使用前沿模型
+cons:
+  - 价格较高（$20-200/月）
+  - 国内需代理访问
+  - 封闭生态，不可自定义模型来源
+  - VS Code Fork, 不支持 JetBrains

@@ -2,29 +2,30 @@ id: ark-coding-plan
 name: 火山方舟 Coding Plan
 type: api
 logo: /images/ark.png
-url: https://www.volcengine.com/docs/82379/2160841
+url: https://www.volcengine.com/L/s3lNTNYxaEc/
 repo: null
 
 current_version: "v2"
-version_tracked_at: "2026-02-10"
+version_tracked_at: "2026-02-14"
 
 pricing:
   model: subscription
   currency: CNY
   plans:
-    - name: 体验版
-      price: 8.9
+    - name: Lite
+      price: 9.9
+      original_price: 40
       period: month
-      limits: "基础 token 额度"
-    - name: 基础版
-      price: 29
+      limits: "每5小时约1200次请求"
+      note: "首购优惠¥9.9/月, 原价¥40/月"
+    - name: Pro
+      price: 49.9
+      original_price: 200
       period: month
-      limits: "中等 token 额度"
-    - name: 专业版
-      price: 89
-      period: month
-      limits: "大额 token 额度"
-  price_updated_at: "2026-02-05"
+      limits: "每5小时约6000次请求, Lite的5倍用量"
+      note: "首购优惠¥49.9/月, 原价¥200/月"
+  price_updated_at: "2026-02-14"
+  note: "推荐好友订阅享额外9折; 叠加优惠券首月最低¥8.9; 支持Auto模式自动匹配最优模型"
 
 scores:
   coding_ability: 8.0
@@ -34,35 +35,44 @@ scores:
   privacy: 7.0
 
 features:
+  auto_mode: true
   supported_models:
     - Doubao-Seed-Code
     - GLM-4.7
     - DeepSeek-V3.2
-    - Kimi-K2
+    - Kimi-K2-Thinking
     - Kimi-K2.5
   api_protocol: "兼容 OpenAI / Anthropic 协议"
   supported_clients:
+    - Claude Code
+    - Cursor
     - Cline
+    - Codex CLI
+    - Kilo Code
     - Roo Code
     - OpenCode
     - Trae
     - Aider
-    - Continue
     - OpenClaw
+    - Moltbot
   china_native: true
 
 best_for:
   - "搭配开源客户端（Cline/OpenCode）的国内开发者"
   - "想用多款国产编程模型的用户"
   - "预算有限，追求性价比"
+  - "Claude Code 用户的国内中转方案"
 not_for:
-  - "只想用 Claude/GPT 等海外模型的用户"
+  - "只想用 Claude/GPT 原版模型的用户"
   - "需要 API 直接调用（非编程场景）的用户"
 
 data_sources:
-  - url: "https://www.volcengine.com/docs/82379/2160841"
-    type: docs
-    last_checked: "2026-02-10"
+  - url: "https://www.volcengine.com/L/s3lNTNYxaEc/"
+    type: pricing
+    last_checked: "2026-02-14"
+  - url: "https://developer.volcengine.com/articles/7595502342175195187"
+    type: announcement
+    last_checked: "2026-02-14"
 
 changelog:
   - date: "2026-02-05"
@@ -70,12 +80,15 @@ changelog:
     summary: "新增 Kimi-K2.5 模型支持"
   - date: "2026-01-20"
     type: pricing
-    summary: "首月体验价降至 ¥8.9"
+    summary: "套餐改为 Lite(¥9.9首购) / Pro(¥49.9首购) 双层级"
+  - date: "2026-01-15"
+    type: feature
+    summary: "权益扩展: 支持四大编程模型自由切换 + Auto模式"
   - date: "2026-01-10"
     type: feature
-    summary: "支持接入 TRAE 作为自定义模型服务商"
+    summary: "支持接入 Trae / Claude Code / Cursor 等更多客户端"
 
-last_full_review: "2026-02-10"
-next_review_due: "2026-03-10"
+last_full_review: "2026-02-14"
+next_review_due: "2026-03-14"
 review_frequency_days: 30
 confidence: high

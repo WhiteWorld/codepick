@@ -5,7 +5,7 @@ tagline: 字节出品 IDE + 方舟 API，国内开发者的首选全套方案
 client: trae
 api: ark-coding-plan
 environment: Trae IDE (独立 IDE)
-monthly_cost: "¥8.9-89"
+monthly_cost: "¥0-49.9"
 currency: CNY
 scores:
   coding_ability: 7.8
@@ -22,17 +22,22 @@ best_for:
   - 追求国内最优体验
   - 不想折腾配置
   - 中文优先的开发者
+  - 零预算入门（Trae免费版 + 方舟Lite）
 quick_start:
-  - 下载安装 Trae IDE (trae.ai)
-  - 注册火山方舟账号并开通 Coding Plan
-  - 在 Trae 设置中配置方舟 API Key
-  - 开始使用 Builder 模式进行 AI 编程
+  - "下载安装 Trae IDE (trae.ai), 免费版即可使用"
+  - "可选: 注册火山方舟账号并开通 Coding Plan Lite (¥9.9首购)"
+  - "在 Trae 设置中配置方舟 API Key（获得更多模型选择）"
+  - "开始使用 Builder / SOLO 模式进行 AI 编程"
 pros:
   - 国内直连，延迟极低
+  - Trae 免费版即可使用，搭配方舟Lite低至¥9.9/月
   - IDE 原生集成，体验流畅
   - 中文对话和文档支持好
-  - 月费低至 ¥8.9
+  - 14天免费Pro试用（新用户）
 cons:
   - IDE 成熟度不如 VS Code/Cursor
   - 插件生态较弱
   - 模型能力与 Claude 有差距
+  - Pro 定价新模式尚未完全稳定
+
+description: "国内开发者的首选方案。Trae IDE 免费版可用，搭配方舟Coding Plan Lite首购仅¥9.9/月。支持Doubao-Seed-Code等国产模型，国内直连零延迟。Builder/SOLO模式体验流畅。"

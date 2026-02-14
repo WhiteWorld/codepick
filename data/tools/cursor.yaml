@@ -6,7 +6,7 @@ url: https://cursor.com
 repo: null
 
 current_version: "0.48"
-version_tracked_at: "2026-02-10"
+version_tracked_at: "2026-02-14"
 
 pricing:
   model: subscription
@@ -14,21 +14,31 @@ pricing:
   plans:
     - name: Hobby
       price: 0
-      limits: "2000次补全/月, 50次高级请求/月"
+      limits: "有限Agent请求, 有限Tab补全"
     - name: Pro
       price: 20
       period: month
-      limits: "无限补全, 500次高级请求/月"
+      limits: "无限Tab补全, $20 Agent用量额度/月, Auto模式无限使用"
     - name: Pro+
       price: 60
       period: month
-      limits: "无限补全, 无限高级请求"
+      limits: "无限Tab补全, $70 Agent用量额度/月, 3倍模型用量"
+    - name: Ultra
+      price: 200
+      period: month
+      limits: "无限Tab补全, $400 Agent用量额度/月, 20倍模型用量, 优先体验新功能"
     - name: Teams
       price: 40
       period: month
       per_user: true
-      limits: "集中管理, 用量池共享"
-  price_updated_at: "2026-02-01"
+      limits: "集中管理, $20/用户 Agent用量, 共享聊天/命令/规则"
+    - name: Enterprise
+      price: null
+      period: month
+      per_user: true
+      limits: "定制用量池, 发票/PO支付, SCIM, 审计日志"
+  price_updated_at: "2026-02-14"
+  note: "2025年6月起从请求制改为额度池制($20 included usage), Auto模式可无限使用"
 
 scores:
   coding_ability: 9.5
@@ -43,13 +53,18 @@ features:
   agent_mode: true
   multi_file_edit: true
   mcp_support: true
-  context_window: "200K tokens"
+  cloud_agents: true
+  code_review: true
+  sub_agents: true
+  cursor_cli: true
+  context_window: "最大上下文窗口"
   supported_models:
-    - Claude Sonnet 4
-    - Claude Opus 4
-    - GPT-4o
+    - Claude Sonnet 4.5
+    - Claude Opus 4.6
+    - GPT-5
+    - GPT-5-medium
     - Gemini 2.5 Pro
-    - cursor-small
+    - cursor-small (Auto)
   ide_base: "VS Code Fork"
   supported_os: [macOS, Windows, Linux]
   jetbrains_support: false
@@ -73,20 +88,23 @@ plans_using_this:
 data_sources:
   - url: "https://cursor.com/pricing"
     type: pricing
-    last_checked: "2026-02-10"
+    last_checked: "2026-02-14"
   - url: "https://cursor.com/changelog"
     type: changelog
-    last_checked: "2026-02-10"
+    last_checked: "2026-02-14"
 
 changelog:
   - date: "2026-02-01"
     type: feature
-    summary: "新增 Background Agent，支持后台自主完成开发任务"
+    summary: "新增 Cloud Agents，支持后台自主完成开发任务"
   - date: "2026-01-15"
     type: pricing
-    summary: "新增 Pro+ 套餐 ($60/月)"
+    summary: "新增 Pro+ ($60/月) 和 Ultra ($200/月) 套餐"
+  - date: "2025-06-01"
+    type: pricing
+    summary: "Pro 从500次请求制改为$20额度池制, Auto模式无限使用"
 
-last_full_review: "2026-02-10"
-next_review_due: "2026-03-10"
+last_full_review: "2026-02-14"
+next_review_due: "2026-03-14"
 review_frequency_days: 30
 confidence: high

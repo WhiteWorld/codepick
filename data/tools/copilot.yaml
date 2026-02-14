@@ -6,7 +6,7 @@ url: https://github.com/features/copilot
 repo: null
 
 current_version: null
-version_tracked_at: "2026-02-08"
+version_tracked_at: "2026-02-14"
 
 pricing:
   model: freemium
@@ -14,24 +14,29 @@ pricing:
   plans:
     - name: Free
       price: 0
-      limits: "2000次补全/月, 50次Chat/月"
+      limits: "50次Agent/Chat请求/月, 2000次补全/月, Haiku 4.5/GPT-5 mini等基础模型"
     - name: Pro
       price: 10
       period: month
-      limits: "无限补全, 300次高级请求/月"
+      annual_price: 100
+      limits: "无限补全, 无限GPT-5 mini Agent, 300次高级请求/月(可加购)"
     - name: Pro+
       price: 39
       period: month
-      limits: "无限补全, 1500次高级请求/月"
+      annual_price: 390
+      limits: "所有Pro功能, Claude Opus 4.6(快速模式), 1500次高级请求/月(5倍Pro)"
     - name: Business
       price: 19
       period: month
       per_user: true
+      limits: "Pro全部功能, 集中管理, 策略控制"
     - name: Enterprise
       price: 39
       period: month
       per_user: true
-  price_updated_at: "2026-02-01"
+      limits: "Business全部功能, 自定义模型微调, 高级安全"
+  price_updated_at: "2026-02-14"
+  note: "Free版永久免费; Pro支持年付$100/年; 学生/教师/开源维护者免费Pro"
 
 scores:
   coding_ability: 8.2
@@ -44,41 +49,56 @@ features:
   code_completion: true
   chat: true
   agent_mode: true
+  coding_agent: true
+  code_review: true
   multi_file_edit: true
   mcp_support: true
   context_window: "128K tokens"
   supported_models:
-    - Claude Sonnet 4
-    - GPT-4o
+    - Claude Sonnet 4.5
+    - Claude Opus 4.6
+    - GPT-5
+    - GPT-5 mini
     - Gemini 2.5 Pro
     - o3-mini
   ide_base: "插件 (VS Code / JetBrains / Vim / Xcode)"
   supported_os: [macOS, Windows, Linux]
   jetbrains_support: true
   git_integration: true
+  copilot_cli: true
 
 best_for:
   - "GitHub 重度用户"
   - "JetBrains 用户"
   - "追求性价比的订阅方案"
+  - "零预算入门（Free版）"
 not_for:
   - "需要完全自定义模型的用户"
   - "对Agent自主编码要求极高的用户"
 
 data_sources:
-  - url: "https://github.com/features/copilot#pricing"
+  - url: "https://github.com/features/copilot/plans"
     type: pricing
-    last_checked: "2026-02-08"
+    last_checked: "2026-02-14"
+  - url: "https://docs.github.com/en/copilot"
+    type: docs
+    last_checked: "2026-02-14"
 
 changelog:
+  - date: "2026-02-01"
+    type: feature
+    summary: "Coding Agent 正式发布, 支持自动创建PR"
   - date: "2026-01-20"
     type: feature
     summary: "Agent模式支持多文件编辑和自动修复"
   - date: "2025-12-15"
     type: feature
     summary: "新增代码审查功能（Code Review）"
+  - date: "2025-10-01"
+    type: pricing
+    summary: "推出永久免费版 Copilot Free"
 
-last_full_review: "2026-02-08"
-next_review_due: "2026-03-08"
+last_full_review: "2026-02-14"
+next_review_due: "2026-03-14"
 review_frequency_days: 30
 confidence: high

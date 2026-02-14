@@ -6,21 +6,22 @@ url: https://trae.ai
 repo: null
 
 current_version: null
-version_tracked_at: "2026-02-05"
+version_tracked_at: "2026-02-14"
 
 pricing:
   model: freemium
-  currency: CNY
+  currency: USD
   plans:
-    - name: 免费版
+    - name: Free
       price: 0
-      limits: "基础补全和Chat"
-    - name: Pro（即将推出）
+      limits: "慢速Premium模型/月, Advanced模型请求/月, 基础功能"
+    - name: Pro
       price: null
       period: month
-      limits: "待定"
-  price_updated_at: "2026-02-05"
-  note: "可接入方舟 Coding Plan 作为自定义模型服务商"
+      limits: "更多Premium模型慢速请求, 全模型访问, SOLO模式"
+      note: "基于token用量计费, 新用户14天免费Pro试用(含$10 Basic Usage)"
+  price_updated_at: "2026-02-14"
+  note: "2026年2月起切换为token计费新模式; 新注册用户享14天Pro免费试用; 可接入方舟Coding Plan"
 
 scores:
   coding_ability: 7.8
@@ -33,22 +34,29 @@ features:
   code_completion: true
   chat: true
   agent_mode: true
+  solo_mode: true
+  builder_mode: true
   multi_file_edit: true
   mcp_support: true
   context_window: "取决于所选模型"
   supported_models:
     - Doubao-Seed-Code（内置）
+    - GPT-5.2-Codex
+    - GPT-5.2
+    - GPT-5.1
+    - Gemini-3-Pro-Preview
+    - Gemini-2.5-Pro
     - 方舟 Coding Plan 全部模型（自定义接入）
   ide_base: "VS Code Fork"
   supported_os: [macOS, Windows, Linux]
   jetbrains_support: false
   git_integration: true
-  builder_mode: true
 
 best_for:
   - "想要一体化IDE体验的国内开发者"
   - "搭配方舟 Coding Plan 使用"
   - "中文开发环境优先"
+  - "零预算入门"
 not_for:
   - "需要完全开源透明的用户"
   - "JetBrains 用户"
@@ -57,11 +65,17 @@ compatible_apis:
   - ark-coding-plan
 
 data_sources:
-  - url: "https://trae.ai"
-    type: product
-    last_checked: "2026-02-05"
+  - url: "https://www.trae.ai/pricing"
+    type: pricing
+    last_checked: "2026-02-14"
+  - url: "https://docs.trae.ai/ide/billing"
+    type: docs
+    last_checked: "2026-02-14"
 
 changelog:
+  - date: "2026-02-01"
+    type: pricing
+    summary: "切换为token计费新模式, 推出Free/Pro双层级"
   - date: "2026-01-28"
     type: feature
     summary: "支持方舟 Coding Plan 作为自定义模型服务商"
@@ -69,7 +83,7 @@ changelog:
     type: feature
     summary: "Builder模式上线（类似Agent自主开发）"
 
-last_full_review: "2026-02-05"
-next_review_due: "2026-03-05"
+last_full_review: "2026-02-14"
+next_review_due: "2026-03-14"
 review_frequency_days: 30
-confidence: high
+confidence: medium

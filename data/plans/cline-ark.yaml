@@ -9,9 +9,11 @@ composition:
   environment: VS Code
 
 monthly_cost:
-  min: "¥8.9"
-  typical: "¥29"
-  max: "¥89"
+  min: "¥9.9"
+  typical: "¥9.9"
+  max: "¥49.9"
+
+currency: CNY
 
 scores:
   coding_ability: 8.2
@@ -19,7 +21,7 @@ scores:
   flexibility: 9.5
   china_friendly: 9.0
 
-description: "最具性价比的Agent方案。Cline免费开源，Plan/Act双模式，接方舟API国内直连，月花不到30元。"
+description: "最具性价比的Agent方案。Cline免费开源，Plan/Act双模式，接方舟API国内直连。Lite套餐首购仅¥9.9/月，支持Doubao-Seed-Code/GLM-4.7/DeepSeek-V3.2/Kimi-K2四款模型自由切换。"
 
 setup_guide: "/guides/cline-ark-setup"
 comparison_pages:
@@ -27,3 +29,24 @@ comparison_pages:
   - "/compare/cline-ark-vs-copilot"
 
 tags: [diy, budget, china, agent, vscode]
+
+best_for:
+  - 预算有限的国内开发者
+  - 想自由选择模型的用户
+  - VS Code 用户
+
+quick_start:
+  - "在 VS Code 扩展市场安装 Cline"
+  - "注册火山方舟账号，订阅 Coding Plan Lite (¥9.9首购)"
+  - "在 Cline 设置中配置方舟 API Key 和 Base URL"
+  - "选择模型（推荐 Doubao-Seed-Code 或 Auto 模式）"
+
+pros:
+  - Cline 免费开源，方舟 Lite 仅 ¥9.9/月
+  - 支持4款国产编程模型自由切换
+  - 国内直连，无需代理
+  - Plan/Act 双模式，Agent 能力强
+cons:
+  - 模型能力与 Claude Opus 有差距
+  - 需要手动配置 API
+  - Cline 社区版更新节奏不如商业产品
