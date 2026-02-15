@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Analytics from '@vercel/analytics/astro';
 
 interface Props {
   title?: string;
@@ -31,7 +32,7 @@ const navLinks = [
   <link rel="preconnect" href="https://fonts.loli.net" />
   <link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
   <link href="https://fonts.loli.net/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <script defer src="https://cdn.vercel-analytics.com/script.js"></script>
+  <Analytics />
 </head>
 <body>
   <!-- Navigation -->
