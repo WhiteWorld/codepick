@@ -7,7 +7,10 @@
     "build": "astro build",
     "preview": "astro preview",
     "monitor": "python scripts/monitor.py",
-    "dashboard": "python scripts/dashboard.py"
+    "dashboard": "python scripts/dashboard.py",
+    "update-github-tools": "node scripts/update-github-tools.mjs",
+    "update-closed-source-tools": "node scripts/update-closed-source-tools.mjs",
+    "update-all-tools": "npm run update-github-tools && npm run update-closed-source-tools"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.0",

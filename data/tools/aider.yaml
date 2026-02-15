@@ -4,49 +4,46 @@ type: cli
 logo: /images/aider.png
 url: https://aider.chat
 repo: https://github.com/Aider-AI/aider
-
-current_version: "v0.72"
-version_tracked_at: "2026-01-28"
-
+current_version: v0.86.0
+version_tracked_at: '2026-02-15'
 pricing:
   model: free
   currency: null
   plans:
     - name: 开源免费
       price: 0
-      limits: "无限制（需自备 API Key 或本地模型）"
-  price_updated_at: "2026-01-28"
-
+      limits: 无限制（需自备 API Key 或本地模型）
+  price_updated_at: '2026-01-28'
 scores:
-  coding_ability: 7.0
-  cost_efficiency: 10.0
+  coding_ability: 7
+  cost_efficiency: 10
   flexibility: 8.5
   china_friendly: 9.5
-  privacy: 10.0
-
+  privacy: 10
 features:
   code_completion: false
   chat: true
   agent_mode: true
   multi_file_edit: true
   mcp_support: false
-  context_window: "取决于所选模型"
-  supported_models: "20+ 提供商 + Ollama 本地模型"
-  ide_base: "终端 CLI"
-  supported_os: [macOS, Windows, Linux]
+  context_window: 取决于所选模型
+  supported_models: 20+ 提供商 + Ollama 本地模型
+  ide_base: 终端 CLI
+  supported_os:
+    - macOS
+    - Windows
+    - Linux
   git_first: true
   auto_commit: true
   lint_integration: true
   test_integration: true
-
 best_for:
-  - "隐私优先，代码不出本机"
-  - "搭配 Ollama 本地模型的完全免费方案"
-  - "Git 重度用户（自动提交+描述）"
+  - 隐私优先，代码不出本机
+  - 搭配 Ollama 本地模型的完全免费方案
+  - Git 重度用户（自动提交+描述）
 not_for:
-  - "没有本地 GPU 的用户（本地模型体验差）"
-  - "追求最强 Agent 能力的用户"
-
+  - 没有本地 GPU 的用户（本地模型体验差）
+  - 追求最强 Agent 能力的用户
 compatible_apis:
   - ollama
   - openrouter
@@ -54,18 +51,18 @@ compatible_apis:
   - openai
   - deepseek
   - ark-coding-plan
-
 data_sources:
-  - url: "https://github.com/Aider-AI/aider/releases"
+  - url: https://github.com/Aider-AI/aider/releases
     type: release
-    last_checked: "2026-01-28"
-
+    last_checked: '2026-01-28'
 changelog:
-  - date: "2026-01-20"
+  - date: '2026-02-15'
     type: release
-    summary: "v0.72: 改进多文件编辑和自动测试运行"
-
-last_full_review: "2026-01-28"
-next_review_due: "2026-02-28"
+    summary: 'v0.86.0: Aider v0.86.0'
+  - date: '2026-01-20'
+    type: release
+    summary: 'v0.72: 改进多文件编辑和自动测试运行'
+last_full_review: '2026-02-15'
+next_review_due: '2026-03-17'
 review_frequency_days: 30
 confidence: medium

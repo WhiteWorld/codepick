@@ -4,48 +4,45 @@ type: cli
 logo: /images/opencode.png
 url: https://opencode.ai
 repo: https://github.com/opencode-ai/opencode
-
-current_version: "v0.5"
-version_tracked_at: "2026-01-20"
-
+current_version: v0.0.55
+version_tracked_at: '2026-02-15'
 pricing:
   model: free
   currency: null
   plans:
     - name: 开源免费
       price: 0
-      limits: "无限制（需自备 API Key）"
-  price_updated_at: "2026-01-20"
-
+      limits: 无限制（需自备 API Key）
+  price_updated_at: '2026-01-20'
 scores:
   coding_ability: 7.5
   cost_efficiency: 9.5
   flexibility: 9.6
   china_friendly: 8.8
-  privacy: 8.0
-
+  privacy: 8
 features:
   code_completion: false
   chat: true
   agent_mode: true
   multi_file_edit: true
   mcp_support: true
-  context_window: "取决于所选模型"
-  supported_models: "75+ 模型提供商"
-  ide_base: "终端 CLI (TUI)"
-  supported_os: [macOS, Windows, Linux]
+  context_window: 取决于所选模型
+  supported_models: 75+ 模型提供商
+  ide_base: 终端 CLI (TUI)
+  supported_os:
+    - macOS
+    - Windows
+    - Linux
   multi_session: true
   lsp_integration: true
   tool_calling: true
-
 best_for:
-  - "终端党 / Vim 用户"
-  - "搭配方舟 Coding Plan 的国产CLI方案"
-  - "喜欢 TUI 界面的开发者"
+  - 终端党 / Vim 用户
+  - 搭配方舟 Coding Plan 的国产CLI方案
+  - 喜欢 TUI 界面的开发者
 not_for:
-  - "习惯 GUI IDE 的用户"
-  - "需要代码补全（Tab）的用户"
-
+  - 习惯 GUI IDE 的用户
+  - 需要代码补全（Tab）的用户
 compatible_apis:
   - ark-coding-plan
   - openrouter
@@ -53,18 +50,18 @@ compatible_apis:
   - openai
   - deepseek
   - ollama
-
 data_sources:
-  - url: "https://github.com/opencode-ai/opencode/releases"
+  - url: https://github.com/opencode-ai/opencode/releases
     type: release
-    last_checked: "2026-01-20"
-
+    last_checked: '2026-01-20'
 changelog:
-  - date: "2026-01-15"
+  - date: '2026-02-15'
     type: release
-    summary: "v0.5: 支持 LSP 集成和多会话管理"
-
-last_full_review: "2026-01-20"
-next_review_due: "2026-02-20"
+    summary: 'v0.0.55: v0.0.55'
+  - date: '2026-01-15'
+    type: release
+    summary: 'v0.5: 支持 LSP 集成和多会话管理'
+last_full_review: '2026-02-15'
+next_review_due: '2026-03-17'
 review_frequency_days: 30
 confidence: low
