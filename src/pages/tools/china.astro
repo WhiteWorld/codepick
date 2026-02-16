@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ToolCard from '../../components/ToolCard.astro';
+import { getAllTools } from '../../lib/data';
+
+const allTools = getAllTools();
+
+// 国内可用：china_friendly 评分 >= 7
+const tools = allTools
+  .filter(tool => (tool.scores.china_friendly ?? 0) >= 7)
+  .sort((a, b) => (b.scores.china_friendly ?? 0) - (a.scores.china_friendly ?? 0));
+
+const siteUrl = 'https://codepick.dev';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: '国内可用 AI 编程工具',
+  description: '无需翻墙或有国内替代接入方式的 AI 编程工具，适合国内开发者使用',
+  url: `${siteUrl}/tools/china`,
+  numberOfItems: tools.length,
+  itemListElement: tools.map((tool, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: tool.name,
+    url: `${siteUrl}/tool/${tool.id}`,
+  })),
+};
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: '首页', item: siteUrl },
+    { '@type': 'ListItem', position: 2, name: '工具库', item: `${siteUrl}/tools` },
+    { '@type': 'ListItem', position: 3, name: '国内可用工具', item: `${siteUrl}/tools/china` },
+  ],
+};
+---
+
+<BaseLayout
+  title="国内可用 AI 编程工具 | 无需翻墙 | CodePick"
+  description={`${tools.length} 款在国内可直接使用的 AI 编程工具：Trae、Cline + 火山方舟、Aider、OpenCode，无需代理，国内直连。`}
+  jsonLd={[jsonLd, breadcrumb]}
+>
+  <section class="container py-12">
+    <!-- Breadcrumb -->
+    <nav class="text-xs text-[var(--text-muted)] mb-6">
+      <a href="/" class="hover:text-white no-underline">首页</a>
+      <span class="mx-1">/</span>
+      <a href="/tools" class="hover:text-white no-underline">工具库</a>
+      <span class="mx-1">/</span>
+      <span class="text-[var(--text-secondary)]">国内可用</span>
+    </nav>
+
+    <h1 class="text-3xl font-bold text-white mb-3">🇨🇳 国内可用 AI 编程工具</h1>
+    <p class="text-[var(--text-secondary)] mb-4 max-w-2xl">
+      国内体验评分 ≥ 7 的工具，支持国内直连或有可用的国内 API 中转方案。
+      共 {tools.length} 款，按国内体验评分排序。
+    </p>
+
+    <!-- China access explanation -->
+    <div class="card p-4 mb-8 border-l-4 border-green-500">
+      <p class="text-sm text-[var(--text-secondary)] m-0">
+        ✅ <strong class="text-white">国内可用方式</strong>：
+        Trae 字节出品，国内直连无需代理；
+        Cline / OpenCode / Aider 支持接入<a href="/guides/cline-ark-setup" class="text-[var(--brand-400)] no-underline hover:underline">火山方舟 Coding Plan</a>（¥9.9/月），国内直连使用主流编程模型。
+      </p>
+    </div>
+
+    <!-- Category nav -->
+    <div class="flex flex-wrap gap-2 mb-8">
+      <a href="/tools" class="btn btn-ghost text-sm no-underline">全部</a>
+      <a href="/tools/free" class="btn btn-ghost text-sm no-underline">💰 免费工具</a>
+      <span class="btn btn-primary text-sm cursor-default">🇨🇳 国内可用</span>
+      <a href="/tools/vscode" class="btn btn-ghost text-sm no-underline">🔵 VS Code 生态</a>
+      <a href="/tools/terminal" class="btn btn-ghost text-sm no-underline">⌨️ 终端工具</a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {tools.map(tool => <ToolCard tool={tool} />)}
+    </div>
+
+    <!-- Related content -->
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <a href="/guides/cline-ark-setup" class="card p-5 no-underline group block">
+        <h3 class="text-sm font-semibold text-white group-hover:text-[var(--brand-400)] m-0 mb-1">Cline + 火山方舟配置指南</h3>
+        <p class="text-xs text-[var(--text-muted)] m-0">指南：10 分钟搞定国内 AI 编程 →</p>
+      </a>
+      <a href="/plan/cline-ark" class="card p-5 no-underline group block">
+        <h3 class="text-sm font-semibold text-white group-hover:text-[var(--brand-400)] m-0 mb-1">Cline + 方舟方案详解</h3>
+        <p class="text-xs text-[var(--text-muted)] m-0">方案：国内性价比之王 ¥9.9/月 →</p>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

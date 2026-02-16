@@ -1,28 +1,45 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import ScoreBar from '../components/ScoreBar.astro';
-import { getAllTools } from '../lib/data';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ScoreBar from '../../components/ScoreBar.astro';
+import { getAllTools } from '../../lib/data';
 
 const tools = getAllTools();
 
 const typeLabels: Record<string, string> = {
-  ide: 'IDE 集成',
-  'ide-plugin': '插件',
-  'vscode-extension': 'VS Code 扩展',
+  ide: 'IDE',
+  plugin: '插件',
+  client: 'VS Code 插件',
   cli: '终端 CLI',
 };
+
+const categories = [
+  { href: '/tools/free',     label: '💰 免费工具' },
+  { href: '/tools/china',    label: '🇨🇳 国内可用' },
+  { href: '/tools/vscode',   label: '🔵 VS Code 生态' },
+  { href: '/tools/terminal', label: '⌨️ 终端工具' },
+];
 ---
 
-<BaseLayout title="AI 编程工具库 - CodePick" description="浏览所有 AI 编程工具，查看详细评测和评分。">
+<BaseLayout
+  title="AI 编程工具库 | CodePick"
+  description={`浏览全部 ${tools.length} 款 AI 编程工具，查看详细评测、评分和定价。覆盖 Cursor、Copilot、Cline、Claude Code 等主流工具。`}
+>
   <section class="container py-12">
     <h1 class="text-3xl font-bold text-white mb-2">🛠️ AI 编程工具库</h1>
-    <p class="text-[var(--text-secondary)] mb-8">
+    <p class="text-[var(--text-secondary)] mb-6">
       共 {tools.length} 款工具，数据定期更新验证。点击查看详情。
     </p>
 
+    <!-- Category links -->
+    <div class="flex flex-wrap gap-2 mb-8">
+      {categories.map(c => (
+        <a href={c.href} class="btn btn-ghost text-sm no-underline">{c.label}</a>
+      ))}
+    </div>
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {tools.map(tool => {
-        const meta = tool.meta || {} as any;
+        const meta = (tool as any).meta || {};
         const scores = tool.scores || {} as any;
         return (
           <a href={`/tool/${tool.id}`} class="card p-5 no-underline group block">
@@ -35,7 +52,7 @@ const typeLabels: Record<string, string> = {
                 <span class="tag text-xs">{typeLabels[tool.type] || tool.type || '工具'}</span>
               </div>
             </div>
-            <p class="text-xs text-[var(--text-muted)] mb-3 m-0">{tool.tagline || ''}</p>
+            <p class="text-xs text-[var(--text-muted)] mb-3 m-0">{(tool as any).tagline || ''}</p>
             <div class="flex flex-col gap-1.5">
               <ScoreBar label="编程" score={scores.coding_ability ?? 5} color="auto" />
               <ScoreBar label="性价比" score={scores.cost_efficiency ?? 5} color="auto" />
