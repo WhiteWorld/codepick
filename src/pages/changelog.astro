@@ -1,23 +1,162 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+import yaml from 'js-yaml';
+
+// ── 1. 站点级 changelog ───────────────────────────────────────────────────
+const siteLog = yaml.load(
+  fs.readFileSync(path.resolve('data/site-changelog.yaml'), 'utf-8')
+) as { entries: { date: string; type: string; title: string; items: string[] }[] };
+
+// ── 2. 聚合工具 / API 的 changelog 条目 ──────────────────────────────────
+interface ToolEntry {
+  date: string;
+  type?: string;
+  summary: string;
+  sourceName: string;
+  sourceId: string;
+  sourceKind: 'tool' | 'api';
+}
+
+function loadDirChangelogs(subdir: string, kind: 'tool' | 'api'): ToolEntry[] {
+  const dir = path.resolve(`data/${subdir}`);
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir)
+    .filter(f => f.endsWith('.yaml') || f.endsWith('.yml'))
+    .flatMap(f => {
+      const raw = yaml.load(fs.readFileSync(path.join(dir, f), 'utf-8')) as any;
+      const entries: any[] = raw.changelog || [];
+      return entries.map(e => ({
+        date: String(e.date),
+        type: e.type || 'update',
+        summary: e.summary || '',
+        sourceName: raw.name || f.replace(/\.ya?ml$/, ''),
+        sourceId: raw.id || f.replace(/\.ya?ml$/, ''),
+        sourceKind: kind,
+      }));
+    });
+}
+
+const toolEntries = [
+  ...loadDirChangelogs('tools', 'tool'),
+  ...loadDirChangelogs('apis', 'api'),
+].sort((a, b) => b.date.localeCompare(a.date));
+
+// ── 3. 按月分组工具条目 ────────────────────────────────────────────────────
+function monthKey(dateStr: string) {
+  return dateStr.slice(0, 7); // "2026-02"
+}
+function monthLabel(key: string) {
+  const [y, m] = key.split('-');
+  const monthNames = ['','1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+  return `${y} 年 ${monthNames[parseInt(m)]}`;
+}
+
+// Collect all months from both sources
+const allMonths = [...new Set([
+  ...siteLog.entries.map(e => monthKey(e.date)),
+  ...toolEntries.map(e => monthKey(e.date)),
+])].sort((a, b) => b.localeCompare(a));
+
+const typeIcon: Record<string, string> = {
+  launch:  '🎉',
+  feature: '✨',
+  content: '📝',
+  seo:     '🔍',
+  pricing: '💰',
+  model:   '🤖',
+  update:  '🔄',
+  fix:     '🐛',
+  announcement: '📢',
+};
+
+const typeLabel: Record<string, string> = {
+  launch:  '发布',
+  feature: '新功能',
+  content: '内容',
+  seo:     'SEO',
+  pricing: '定价',
+  model:   '模型',
+  update:  '更新',
+  fix:     '修复',
+  announcement: '公告',
+};
 ---
 
-<BaseLayout title="更新日志 - CodePick" description="CodePick 数据更新和网站变更记录。">
+<BaseLayout
+  title="更新日志 | CodePick"
+  description="CodePick 站点功能更新和 AI 编程工具动态，包括新工具、定价变化、新模型上线等。"
+>
   <section class="container py-12 max-w-3xl">
-    <h1 class="text-3xl font-bold text-white mb-4">📅 更新日志</h1>
-    <p class="text-[var(--text-secondary)] mb-8">所有数据变更均记录在此，保证透明可追溯。</p>
+    <h1 class="text-3xl font-bold text-white mb-2">📅 更新日志</h1>
+    <p class="text-[var(--text-secondary)] mb-8">
+      站点更新与工具动态，数据变更均记录于此。
+    </p>
 
-    <div class="space-y-6">
-      <div class="border-l-2 border-[var(--brand-500)] pl-4">
-        <div class="text-sm text-[var(--text-muted)] mb-1">2026-02-14</div>
-        <h3 class="text-base font-semibold text-white mt-0 mb-2">🎉 CodePick 上线</h3>
-        <ul class="text-sm text-[var(--text-secondary)] space-y-1 m-0 pl-4">
-          <li>首批收录 8 款 AI 编程工具</li>
-          <li>3 个 API 源：方舟 Coding Plan、OpenRouter、Ollama</li>
-          <li>3 个推荐方案：Cline+方舟、Cursor Pro、OpenCode+方舟</li>
-          <li>30 秒快速选型功能上线</li>
-        </ul>
-      </div>
+    <div class="space-y-12">
+      {allMonths.map(month => {
+        const sitePosts = siteLog.entries.filter(e => monthKey(e.date) === month);
+        const toolPosts = toolEntries.filter(e => monthKey(e.date) === month);
+        if (sitePosts.length === 0 && toolPosts.length === 0) return null;
+
+        return (
+          <div>
+            {/* Month header */}
+            <h2 class="text-base font-semibold text-[var(--brand-400)] mb-4 mt-0 flex items-center gap-2">
+              <span class="inline-block w-2 h-2 rounded-full bg-[var(--brand-400)]"></span>
+              {monthLabel(month)}
+            </h2>
+
+            <div class="space-y-4 pl-4 border-l border-[var(--surface-border)]">
+              {/* Site-level entries */}
+              {sitePosts.map(entry => (
+                <div class="relative">
+                  <div class="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-[var(--brand-500)] border-2 border-[var(--surface-bg)]"></div>
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="text-xs text-[var(--text-muted)]">{entry.date}</span>
+                    <span class="tag tag-primary text-xs">{typeIcon[entry.type]} {typeLabel[entry.type] || entry.type}</span>
+                  </div>
+                  <h3 class="text-sm font-semibold text-white mt-0 mb-2">{entry.title}</h3>
+                  <ul class="text-xs text-[var(--text-secondary)] space-y-1 m-0 pl-4 list-disc">
+                    {entry.items.map(item => <li>{item}</li>)}
+                  </ul>
+                </div>
+              ))}
+
+              {/* Tool / API entries grouped by date */}
+              {toolPosts.length > 0 && (
+                <div class="relative">
+                  <div class="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-[var(--surface-hover)] border-2 border-[var(--surface-border)]"></div>
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="text-xs text-[var(--text-muted)]">{month}</span>
+                    <span class="tag text-xs">🔄 工具动态</span>
+                  </div>
+                  <div class="space-y-2">
+                    {toolPosts.map(e => (
+                      <div class="flex gap-2 text-xs">
+                        <span class="text-[var(--text-muted)] shrink-0 w-20">{e.date}</span>
+                        <a
+                          href={`/${e.sourceKind}/${e.sourceId}`}
+                          class="text-[var(--brand-400)] no-underline hover:underline shrink-0 font-medium"
+                        >
+                          {e.sourceName}
+                        </a>
+                        <span class="text-[var(--text-secondary)]">{e.summary}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <div class="mt-12 text-center text-xs text-[var(--text-muted)]">
+      发现数据有误？
+      <a href="https://github.com/WhiteWorld/codepick/issues/new" target="_blank" rel="noopener" class="text-[var(--brand-400)] no-underline hover:underline">提交 Issue →</a>
     </div>
   </section>
 </BaseLayout>

@@ -11,6 +11,7 @@
     "update-github-tools": "node scripts/update-github-tools.mjs",
     "update-closed-source-tools": "node scripts/update-closed-source-tools.mjs",
     "update-all-tools": "npm run update-github-tools && npm run update-closed-source-tools",
+    "gen-social-post": "node scripts/gen-social-post.mjs",
     "gen-og": "node scripts/gen-og-image.mjs"
   },
   "dependencies": {
