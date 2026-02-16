@@ -58,9 +58,57 @@ const pros = (tool as any).pros || [];
 const cons = (tool as any).cons || [];
 const bestFor = (tool as any).best_for || [];
 const changelog = (tool as any).changelog || [];
+
+const siteUrl = 'https://codepick.dev';
+const toolUrl = `${siteUrl}/tool/${tool.id}`;
+const toolDescription = (tool as any).tagline || `${tool.name} AI 编程工具评测 - 功能、定价、优缺点详解`;
+
+// SoftwareApplication JSON-LD
+const softwareAppSchema: object = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: tool.name,
+  url: (tool as any).url || toolUrl,
+  applicationCategory: 'DeveloperApplication',
+  operatingSystem: ((tool as any).features?.supported_os || ['macOS', 'Windows', 'Linux']).join(', '),
+  description: toolDescription,
+  inLanguage: 'zh-CN',
+  aggregateRating: (tool as any).scores ? {
+    '@type': 'AggregateRating',
+    ratingValue: Math.round(
+      ((tool as any).scores.coding_ability + (tool as any).scores.cost_efficiency +
+       (tool as any).scores.flexibility + (tool as any).scores.china_friendly) / 4 * 10
+    ) / 10,
+    bestRating: 10,
+    worstRating: 1,
+    ratingCount: 1,
+  } : undefined,
+  offers: pricingPlans.length > 0 ? pricingPlans.map((p: any) => ({
+    '@type': 'Offer',
+    name: p.name,
+    price: typeof p.price === 'number' ? p.price : 0,
+    priceCurrency: pricingCurrency === 'CNY' ? 'CNY' : 'USD',
+    description: p.limits || '',
+  })) : undefined,
+};
+
+// BreadcrumbList JSON-LD
+const breadcrumbSchema: object = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: '首页', item: siteUrl },
+    { '@type': 'ListItem', position: 2, name: '工具库', item: `${siteUrl}/tools` },
+    { '@type': 'ListItem', position: 3, name: tool.name, item: toolUrl },
+  ],
+};
 ---
 
-<BaseLayout title={`${tool.name} - AI 编程工具评测 | CodePick`} description={(tool as any).tagline || ''}>
+<BaseLayout
+  title={`${tool.name} - AI 编程工具评测 | CodePick`}
+  description={toolDescription}
+  jsonLd={[softwareAppSchema, breadcrumbSchema]}
+>
   <article class="container py-12 max-w-4xl">
     <!-- Breadcrumb -->
     <nav class="text-xs text-[var(--text-muted)] mb-6">

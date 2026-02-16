@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    question: '最便宜的 AI 编程工具是什么？',
+    answer: '最便宜的方案取决于使用频率。完全免费的选择包括：GitHub Copilot 免费版（有限额度）、Cline/Roo Code 插件（本身免费，按 API 用量付费）。如果需要付费方案，火山方舟 Coding Plan Lite 版 ¥9.9/月（首购优惠）是目前国内最具性价比的选择，含大量请求额度。极致省钱可以用 Ollama 本地运行免费模型 + Aider，完全零成本。',
+  },
+  {
+    question: 'GitHub Copilot 国内可以用吗？',
+    answer: 'GitHub Copilot 在国内需要稳定的代理才能正常使用。即使有代理，偶尔也会遇到连接不稳定的问题。如果你没有代理或代理不稳定，推荐考虑国内可用的替代方案，例如 Cline + 火山方舟 Coding Plan（¥9.9/月，无需代理，国内直连）。',
+  },
+  {
+    question: 'Cursor 和 GitHub Copilot 哪个好？',
+    answer: 'Cursor 的 Agent 模式更强，适合需要 AI 自主完成多文件编辑、大型项目重构的用户，但价格更贵（$20/月起）且只支持 VS Code 系编辑器。GitHub Copilot 价格更低（$10/月）、IDE 兼容性更广（支持 JetBrains、Neovim 等）。简单来说：追求最强 AI 编程体验选 Cursor，用 JetBrains 或预算有限选 Copilot。',
+  },
+  {
+    question: '如何不花钱用 AI 编程？',
+    answer: '有几种方法：1）GitHub Copilot 免费版：每月有限的补全和对话额度；2）Ollama + Aider：本地运行开源模型，完全免费但需要一定硬件配置（建议 16GB+ 内存）；3）各平台试用：很多工具提供 14-30 天免费试用；4）DeepSeek API：价格极低（约 $0.07/百万 token），配合 Aider 月均 $1-2 即可正常使用。',
+  },
+  {
+    question: 'Cline 是什么？怎么用？',
+    answer: 'Cline 是一款开源的 VS Code AI Agent 插件，可以自主读写文件、执行终端命令、调用外部工具。安装方式：在 VS Code 扩展市场搜索 "Cline" 安装即可。它本身免费，费用来自你选择的 AI API。国内推荐搭配火山方舟 Coding Plan（¥9.9/月）使用，无需代理。',
+  },
+  {
+    question: '什么是 AI 编程 Agent？和普通 AI 编程助手有什么区别？',
+    answer: '普通 AI 编程助手（如早期 Copilot）只做代码补全和问答，你需要手动复制代码、修改文件。AI Agent 则可以自主执行操作：读取你的代码文件、修改多个文件、运行终端命令、甚至查阅文档。代表性工具：Cursor Agent 模式、Cline、Claude Code。Agent 模式让 AI 能独立完成"帮我把登录模块重构为 JWT 认证"这类多步骤任务。',
+  },
+  {
+    question: '国内开发者用 Claude Code 需要翻墙吗？',
+    answer: '直接使用 Claude Code 官方 API 需要代理（Anthropic 不支持国内直连）。但你可以通过火山方舟 Coding Plan 中转：火山方舟提供兼容 Anthropic API 协议的接口，Claude Code 可以直接配置指向火山方舟的 API 端点，无需代理即可在国内使用。具体配置见我们的使用指南。',
+  },
+  {
+    question: 'Cursor 值得 $20/月吗？',
+    answer: 'Cursor Pro $20/月 含 $20 额度池（可使用 Claude Opus 4.6、GPT-5 等顶级模型）和无限 Auto 模式。对于专业开发者来说，如果每天使用，性价比较高。对比直接购买 Claude API：同等用量可能要花 $30-50。但如果你只是偶尔用用，可以先从 Cursor 免费版或 Copilot $10/月版本开始。',
+  },
+  {
+    question: '什么是 MCP（Model Context Protocol）？',
+    answer: 'MCP 是 Anthropic 提出的开放标准，让 AI 工具可以连接外部数据源和工具（如数据库、Figma、浏览器、文件系统等）。支持 MCP 的工具（Cursor、Cline、Claude Code 等）可以通过 MCP Server 扩展 AI 的能力边界。例如，安装 MCP 数据库 Server 后，AI 可以直接查询你的数据库来帮助写 SQL 和 API。',
+  },
+  {
+    question: 'Roo Code 和 Cline 哪个更好？',
+    answer: 'Roo Code 是 Cline 的 Fork，功能更丰富（支持多角色模式、Orchestrator 多 Agent 并行等），但稳定性略逊于 Cline。建议初学者从 Cline 开始，熟悉 AI Agent 工作流后再考虑 Roo Code 的高级功能。两者 API 配置完全相同，切换成本很低。',
+  },
+  {
+    question: '本地模型（Ollama）能替代 Claude/GPT 吗？',
+    answer: '目前本地模型在编程能力上与 Claude Sonnet 4.5、GPT-4o 等顶级云端模型仍有差距，但已经能处理大多数日常编程任务。推荐的本地编程模型：Qwen2.5-Coder（32B 版本接近 GPT-4o 水平，需 32GB+ 内存）、DeepSeek-Coder-V2。如果硬件条件有限（8-16GB 内存），建议混合方案：简单任务用本地模型，复杂任务用便宜的云端 API（如 DeepSeek）。',
+  },
+  {
+    question: 'AI 编程工具会不会把我的代码泄露？',
+    answer: '这取决于你使用的工具：云端工具（Cursor、Copilot、Claude Code）会把代码发送到云端服务器处理，需要信任服务商的隐私政策。大多数工具声明不用用户代码训练模型（但需自行验证）。本地方案（Ollama）代码完全不出本机，适合涉密项目。对于商业项目，建议检查工具的企业版隐私条款，或使用本地模型方案。',
+  },
+];
+
+const siteUrl = 'https://codepick.dev';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: '首页', item: siteUrl },
+    { '@type': 'ListItem', position: 2, name: 'FAQ', item: `${siteUrl}/faq` },
+  ],
+};
+---
+
+<BaseLayout
+  title="AI 编程工具常见问题 FAQ | CodePick"
+  description="AI 编程工具常见问题解答：最便宜的工具、国内可用性、Cursor vs Copilot、如何免费使用 AI 编程等。"
+  jsonLd={[faqSchema, breadcrumbSchema]}
+>
+  <section class="container py-12 max-w-3xl">
+    <!-- Breadcrumb -->
+    <nav class="text-xs text-[var(--text-muted)] mb-6">
+      <a href="/" class="hover:text-white no-underline">首页</a>
+      <span class="mx-1">/</span>
+      <span class="text-[var(--text-secondary)]">FAQ</span>
+    </nav>
+
+    <h1 class="text-3xl font-bold text-white mb-4">❓ 常见问题</h1>
+    <p class="text-[var(--text-secondary)] mb-8">关于 AI 编程工具的高频问题解答，持续更新。</p>
+
+    <div class="space-y-4">
+      {faqs.map((faq, i) => (
+        <details class="card group" open={i === 0}>
+          <summary class="p-6 cursor-pointer flex items-center justify-between gap-4 list-none">
+            <h2 class="text-base font-semibold text-white m-0 leading-snug">{faq.question}</h2>
+            <span class="text-[var(--text-muted)] shrink-0 group-open:rotate-180 transition-transform text-lg">▾</span>
+          </summary>
+          <div class="px-6 pb-6 pt-0">
+            <p class="text-sm text-[var(--text-secondary)] leading-relaxed m-0">{faq.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <div class="mt-12 card p-6 text-center">
+      <p class="text-sm text-[var(--text-secondary)] mb-3">还有其他问题？</p>
+      <a
+        href="https://github.com/WhiteWorld/codepick/issues/new"
+        target="_blank"
+        rel="noopener"
+        class="btn btn-primary text-sm no-underline"
+      >
+        提交问题 →
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const articles = (await getCollection('compare'))
+  .filter(a => !a.data.draft)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+---
+
+<BaseLayout
+  title="AI 编程工具对比文章 | CodePick"
+  description="深度对比主流 AI 编程工具方案：Cursor vs Copilot、Cline vs Roo Code、终端 AI 工具横评。"
+>
+  <section class="container py-12 max-w-3xl">
+    <h1 class="text-3xl font-bold text-white mb-4">📝 对比文章</h1>
+    <p class="text-[var(--text-secondary)] mb-8">深度对比主流 AI 编程工具方案，帮你做出最佳选择。</p>
+
+    <div class="space-y-4">
+      {articles.map(article => (
+        <a href={`/compare/${article.slug}`} class="card p-6 block no-underline hover:border-[var(--brand-400)] transition-colors">
+          <div class="flex flex-wrap gap-2 mb-2">
+            {article.data.tags?.slice(0, 3).map((tag: string) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+          <h2 class="text-lg font-semibold text-white mt-2 mb-1">{article.data.title}</h2>
+          <p class="text-sm text-[var(--text-muted)] m-0 mb-2">{article.data.description}</p>
+          <span class="text-xs text-[var(--text-muted)]">{article.data.date}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

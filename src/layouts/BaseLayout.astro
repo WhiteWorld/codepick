@@ -5,18 +5,57 @@ import Analytics from '@vercel/analytics/astro';
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  canonicalURL?: string;
+  jsonLd?: object | object[];
 }
 
 const {
   title = 'CodePick - AI 编程工具选型指南',
   description = '帮助中国开发者选择最适合的 AI 编程工具方案，对比 Cursor、Copilot、Cline + 方舟等主流方案的能力、价格和体验。',
+  image = '/og-image.png',
+  canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
+  jsonLd,
 } = Astro.props;
+
+const siteUrl = 'https://codepick.dev';
+const ogImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
+
+// Default site-level JSON-LD
+const defaultJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'CodePick',
+    url: siteUrl,
+    description: 'AI 编程工具选型指南 - 帮助中国开发者选择最适合的 AI 编程工具方案',
+    inLanguage: 'zh-CN',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${siteUrl}/tools?q={search_term_string}`,
+      'query-input': 'required name=search_term_string',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'CodePick',
+    url: siteUrl,
+    logo: `${siteUrl}/favicon.svg`,
+    sameAs: ['https://github.com/WhiteWorld/codepick'],
+  },
+];
+
+const allJsonLd = jsonLd
+  ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd])
+  : defaultJsonLd;
 
 const navLinks = [
   { href: '/', label: '方案矩阵' },
   { href: '/tools', label: '工具库' },
   { href: '/compare', label: '对比' },
   { href: '/guides', label: '指南' },
+  { href: '/faq', label: 'FAQ' },
   { href: '/changelog', label: '更新日志' },
 ];
 ---
@@ -28,10 +67,38 @@ const navLinks = [
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
   <title>{title}</title>
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:site_name" content="CodePick" />
+  <meta property="og:locale" content="zh_CN" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.loli.net" />
   <link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
   <link href="https://fonts.loli.net/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- JSON-LD Structured Data -->
+  {allJsonLd.map(schema => (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  ))}
+
   <Analytics />
 </head>
 <body>

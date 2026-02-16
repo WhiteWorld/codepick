@@ -23,9 +23,55 @@ const quickStart = plan.quick_start || [];
 const pros = plan.pros || [];
 const cons = plan.cons || [];
 const tags = plan.tags || [];
+
+const siteUrl = 'https://codepick.dev';
+const planUrl = `${siteUrl}/plan/${plan.id}`;
+const planDescription = plan.tagline || `${plan.name} - AI 编程方案详解，包含价格、评分、配置指南`;
+
+// Extract price info for schema
+const costStr = plan.monthly_cost || '';
+const priceNum = parseFloat(costStr.replace(/[^0-9.]/g, '')) || 0;
+const priceCurrency = plan.currency === 'CNY' ? 'CNY' : 'USD';
+
+// Product + Offer JSON-LD
+const productSchema: object = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: plan.name,
+  url: planUrl,
+  description: planDescription,
+  inLanguage: 'zh-CN',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: overall,
+    bestRating: 10,
+    worstRating: 1,
+    ratingCount: 1,
+  },
+  offers: {
+    '@type': 'Offer',
+    price: priceNum,
+    priceCurrency,
+    description: `${plan.name} 每月费用约 ${costStr}`,
+  },
+};
+
+// BreadcrumbList JSON-LD
+const breadcrumbSchema: object = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: '首页', item: siteUrl },
+    { '@type': 'ListItem', position: 2, name: plan.name, item: planUrl },
+  ],
+};
 ---
 
-<BaseLayout title={`${plan.name} 方案详解 | CodePick`} description={plan.tagline || ''}>
+<BaseLayout
+  title={`${plan.name} 方案详解 | CodePick`}
+  description={planDescription}
+  jsonLd={[productSchema, breadcrumbSchema]}
+>
   <article class="container py-12 max-w-4xl">
     <!-- Breadcrumb -->
     <nav class="text-xs text-[var(--text-muted)] mb-6">

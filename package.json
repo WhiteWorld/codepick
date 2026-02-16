@@ -13,7 +13,9 @@
     "update-all-tools": "npm run update-github-tools && npm run update-closed-source-tools"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.0",
     "@astrojs/tailwind": "^5.1.0",
+    "@tailwindcss/typography": "^0.5.19",
     "@vercel/analytics": "^1.6.1",
     "astro": "^5.3.0",
     "js-yaml": "^4.1.0",
