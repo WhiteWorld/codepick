@@ -10,7 +10,8 @@
     "dashboard": "python scripts/dashboard.py",
     "update-github-tools": "node scripts/update-github-tools.mjs",
     "update-closed-source-tools": "node scripts/update-closed-source-tools.mjs",
-    "update-all-tools": "npm run update-github-tools && npm run update-closed-source-tools"
+    "update-all-tools": "npm run update-github-tools && npm run update-closed-source-tools",
+    "gen-og": "node scripts/gen-og-image.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.0",
