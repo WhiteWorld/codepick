@@ -115,6 +115,7 @@ def main():
         "roo-code": ("RooVetGit/Roo-Code", "3.14"),
         "opencode": ("nicepkg/opencode", "0.6"),
         "aider": ("Aider-AI/aider", "0.83"),
+        "gemini-cli": ("google-gemini/gemini-cli", "0.1"),
     }
 
     updates = []
@@ -131,6 +132,10 @@ def main():
     pages = {
         "cursor-pricing": "https://www.cursor.com/pricing",
         "copilot-pricing": "https://github.com/features/copilot",
+        "windsurf-pricing": "https://windsurf.com/pricing",
+        "kiro-pricing": "https://kiro.dev/pricing",
+        "trae-cn-pricing": "https://trae.cn",
+        "antigravity-pricing": "https://antigravity.dev",
     }
     for name, url in pages.items():
         changed = check_page_hash(name, url)

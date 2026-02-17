@@ -48,6 +48,29 @@ const CLOSED_SOURCE_TOOLS = {
       { name: 'docs', url: 'https://docs.trae.ai/ide/billing' },
     ],
   },
+  'trae-cn': {
+    pages: [
+      { name: 'home', url: 'https://trae.cn' },
+      { name: 'docs', url: 'https://docs.trae.cn' },
+    ],
+  },
+  'windsurf': {
+    pages: [
+      { name: 'pricing', url: 'https://windsurf.com/pricing' },
+      { name: 'changelog', url: 'https://windsurf.com/changelog' },
+    ],
+  },
+  'kiro': {
+    pages: [
+      { name: 'pricing', url: 'https://kiro.dev/pricing' },
+      { name: 'docs', url: 'https://kiro.dev/docs' },
+    ],
+  },
+  'antigravity': {
+    pages: [
+      { name: 'home', url: 'https://antigravity.dev' },
+    ],
+  },
 };
 
 async function fetchPageHash(name, url) {

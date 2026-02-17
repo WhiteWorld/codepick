@@ -25,6 +25,7 @@ const GITHUB_TOOLS = {
   'cline': { repo: 'cline/cline' },
   'opencode': { repo: 'opencode-ai/opencode' },
   'roo-code': { repo: 'RooVetGit/Roo-Code' },
+  'gemini-cli': { repo: 'google-gemini/gemini-cli' },
 };
 
 async function fetchLatestRelease(repo) {
