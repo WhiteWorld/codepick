@@ -1,4 +1,11 @@
 entries:
+  - date: "2026-02-17"
+    type: "content"
+    title: "工具库扩充 + 新增对比文章"
+    items:
+      - "新增 6 款工具：Kiro、Windsurf、Gemini CLI、Codex CLI、Codex（macOS App）、Antigravity"
+      - "新增对比文章：Cursor vs Windsurf、Gemini CLI vs Claude Code vs Codex CLI、Kiro vs Cursor"
+      - "FAQ 新增 3 个问题：Windsurf 定价、Gemini CLI 免费限制、Codex App vs CLI 区别"
   - date: "2026-02-15"
     type: "content"
     title: "更新日志上线"

@@ -50,6 +50,18 @@ const faqs = [
     question: 'AI 编程工具会不会把我的代码泄露？',
     answer: '这取决于你使用的工具：云端工具（Cursor、Copilot、Claude Code）会把代码发送到云端服务器处理，需要信任服务商的隐私政策。大多数工具声明不用用户代码训练模型（但需自行验证）。本地方案（Ollama）代码完全不出本机，适合涉密项目。对于商业项目，建议检查工具的企业版隐私条款，或使用本地模型方案。',
   },
+  {
+    question: 'Windsurf 比 Cursor 便宜吗？值得换吗？',
+    answer: 'Windsurf Pro $15/月，比 Cursor Pro $20/月 便宜 $5。两者都是 VS Code Fork IDE，功能相近。主要差异：Windsurf 有 JetBrains 插件（Cursor 没有）；Cursor 支持更多顶级模型（如 Claude Opus 4.6）；Windsurf 的 Cascade 有"主动感知上下文"的独特体验。如果你用 JetBrains 或预算有限，Windsurf 值得考虑；如果你是 Cursor 重度用户且满意现有体验，$5 差价未必值得迁移成本。',
+  },
+  {
+    question: 'Gemini CLI 真的免费吗？有什么限制？',
+    answer: 'Gemini CLI 使用个人 Google 账号登录后确实免费，限制是 60 请求/分钟、1000 请求/天，使用 Gemini 2.5 Pro 模型（100 万 token 上下文）。对大多数开发者来说，1000 次/天已经完全够用。如果超出限制，可以使用 Google AI Studio API Key 按量付费，或切换到 Vertex AI 企业方案。唯一缺点是国内用户需要代理。',
+  },
+  {
+    question: 'Codex App（macOS）和 Codex CLI 有什么区别？',
+    answer: 'Codex CLI 是终端工具，在命令行中交互式地完成编程任务，实时看到 AI 的操作过程。Codex App 是 2026 年 2 月推出的 macOS 原生应用（仅支持 Apple Silicon），核心优势是"多 Agent 并行"——可以同时启动多个 Codex 任务在后台跑，每个任务在独立沙箱中执行，完成后审查 Diff 并合并。简单说：CLI 适合交互式编码，App 适合"扔给 AI 后台处理，我去做别的"的异步工作流。两者都需要 ChatGPT Plus 订阅。',
+  },
 ];
 
 const siteUrl = 'https://codepick.dev';
