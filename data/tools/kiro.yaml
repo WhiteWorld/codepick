@@ -1,0 +1,83 @@
+id: kiro
+name: Kiro
+type: ide
+logo: /images/kiro.png
+url: https://kiro.dev
+repo: https://github.com/kirodotdev/Kiro
+current_version: preview
+version_tracked_at: '2026-02-17'
+pricing:
+  model: subscription
+  currency: USD
+  plans:
+    - name: Free
+      price: 0
+      limits: 50 vibe请求/月
+    - name: Pro
+      price: 20
+      period: month
+      limits: 225 vibe请求 + 125 spec请求/月，额外$0.04/vibe，$0.20/spec
+    - name: Pro+
+      price: null
+      period: month
+      limits: 450 vibe请求 + 250 spec请求/月
+    - name: Power
+      price: 200
+      period: month
+      limits: 2250 vibe请求 + 1250 spec请求/月
+    - name: Enterprise
+      price: null
+      period: month
+      limits: 定制配额，团队管理
+  price_updated_at: '2026-02-17'
+  note: Vibe请求=普通对话/代码补全，Spec请求=规格驱动开发流程（价值是vibe的5倍）；Pro+价格待确认
+scores:
+  coding_ability: 8.5
+  cost_efficiency: 6
+  flexibility: 6
+  china_friendly: 2
+  privacy: 5
+features:
+  code_completion: true
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: true
+  spec_driven: true
+  hooks: true
+  steering_rules: true
+  context_window: 标准上下文窗口
+  supported_models:
+    - Claude Sonnet 4.0
+    - Claude Sonnet 3.7
+  ide_base: VS Code Fork
+  supported_os:
+    - macOS
+    - Windows
+    - Linux
+  jetbrains_support: false
+  git_integration: true
+best_for:
+  - 注重原型到生产全流程的团队
+  - 需要规格驱动开发（Spec-driven）的项目
+  - 喜欢 AWS 生态的开发者
+not_for:
+  - 国内网络用户（无国内节点）
+  - 需要自定义模型 API 的用户
+  - JetBrains 用户
+plans_using_this: []
+data_sources:
+  - url: https://kiro.dev/pricing/
+    type: pricing
+    last_checked: '2026-02-17'
+  - url: https://kiro.dev/blog/introducing-kiro/
+    type: changelog
+    last_checked: '2026-02-17'
+changelog:
+  - date: '2025-07-01'
+    type: launch
+    summary: Kiro 公开预览版发布，AWS 出品的 Spec 驱动 Agentic IDE
+last_full_review: '2026-02-17'
+next_review_due: '2026-03-17'
+review_frequency_days: 30
+confidence: medium
