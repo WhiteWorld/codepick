@@ -53,20 +53,11 @@ tags: ["cline", "火山方舟", "配置", "国内", "性价比"]
 
 ```
 API Key:      你在第二步获取的 Key
-Base URL:     https://ark.cn-beijing.volces.com/api/v3
-Model:        ep-xxxxxxxxxxxxxxxx-xxxxx  （见下方说明）
+Base URL:     https://ark.cn-beijing.volces.com/api/coding/v3
+Model:        ark-code-latest
 ```
 
-### 获取 Model ID（Endpoint ID）
-
-火山方舟的模型需要先创建「推理接入点」：
-
-1. 在方舟控制台进入「在线推理」
-2. 找到 Coding Plan 已开通的模型（如 Doubao-Seed-Code、DeepSeek-V3.2 等）
-3. 创建接入点，复制 **Endpoint ID**（格式：`ep-xxxxxxxx-xxxxx`）
-4. 将此 ID 填入 Cline 的 Model 字段
-
-> 💡 **Auto 模式**：如果 Coding Plan 支持 Auto 模式，可以填写 Auto 模式的 Endpoint ID，方舟会自动选择最优模型。
+> 💡 **说明**：Coding Plan 使用专用地址 `/api/coding/v3`（与普通方舟 API 的 `/api/v3` 不同）。`ark-code-latest` 是 Coding Plan 推荐的模型 ID，方舟会自动路由到最优编程模型，无需手动创建接入点。如需指定特定模型，也可填写 `doubao-seed-code-preview-latest`。
 
 ---
 
@@ -114,8 +105,9 @@ Coding Plan 包含：
 - **Doubao-Seed-Code**：字节自研编程模型
 - **DeepSeek-V3.2**：综合能力强
 - **GLM-4.7**：智谱 AI
-- **Kimi-K2**：月之暗面
-- **Auto 模式**：自动选最优模型
+- **Kimi-K2.5**：月之暗面
+- **Kimi-k2-thinking**：月之暗面推理版
+- **Auto 模式**（`ark-code-latest`）：自动选最优模型
 
 ### Q：和直接用 Claude API 比如何？
 
