@@ -1,5 +1,7 @@
 # CodePick - AI 编程工具选型指南
 
+**🌐 [codepick.dev](https://codepick.dev)**
+
 > 帮助中国开发者选择最适合的 AI 编程工具方案。不只对比工具，更对比**完整方案**。
 
 ## 🌟 特色
