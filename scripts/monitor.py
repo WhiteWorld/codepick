@@ -2,21 +2,18 @@
 """
 CodePick 数据监控脚本
 通过 GitHub Actions 定期运行，检测工具更新并提醒维护者。
+数据新鲜度检查由 check-freshness.mjs 负责，本脚本只做：
+  1. GitHub 新版本检测
+  2. 定价页面 hash 变化检测
 """
 
 import os
 import json
 import hashlib
 import datetime
+import urllib.request
 from pathlib import Path
 
-try:
-    import urllib.request
-    import yaml
-except ImportError:
-    yaml = None
-
-DATA_DIR = Path(__file__).parent.parent / "data"
 CACHE_DIR = Path(__file__).parent / ".cache"
 CACHE_DIR.mkdir(exist_ok=True)
 
@@ -69,46 +66,13 @@ def check_page_hash(name: str, url: str) -> bool:
         return False
 
 
-def check_review_dates() -> list[dict]:
-    """检查哪些数据需要评审"""
-    overdue = []
-    today = datetime.date.today()
-
-    if not yaml:
-        print("  ⚠ PyYAML 未安装，跳过评审日期检查")
-        return overdue
-
-    for subdir in ["tools", "apis", "plans"]:
-        data_path = DATA_DIR / subdir
-        if not data_path.exists():
-            continue
-        for f in data_path.glob("*.yaml"):
-            try:
-                data = yaml.safe_load(f.read_text())
-                meta = data.get("meta", {})
-                due = meta.get("next_review_due")
-                if due:
-                    due_date = datetime.date.fromisoformat(str(due))
-                    if due_date <= today:
-                        overdue.append({
-                            "file": str(f.relative_to(DATA_DIR)),
-                            "name": data.get("name", f.stem),
-                            "due": str(due),
-                            "days_overdue": (today - due_date).days,
-                        })
-            except Exception as e:
-                print(f"  ⚠ 解析 {f} 失败: {e}")
-
-    return overdue
-
-
 def main():
     print("=" * 60)
     print("  CodePick 数据监控")
     print(f"  运行时间: {datetime.datetime.now().isoformat()}")
     print("=" * 60)
 
-    # 1. 检查 GitHub 发布
+    # 1. 检查 GitHub 新版本
     print("\n📦 检查 GitHub 新版本...")
     github_repos = {
         "cline": ("cline/cline", "3.14"),
@@ -137,28 +101,20 @@ def main():
         "trae-cn-pricing": "https://trae.cn",
         "antigravity-pricing": "https://antigravity.dev",
     }
+    page_changes = []
     for name, url in pages.items():
         changed = check_page_hash(name, url)
         if changed:
             print(f"  🔄 {name}: 页面内容已变化！")
+            page_changes.append(name)
         else:
             print(f"  ✅ {name}: 无变化")
 
-    # 3. 检查评审日期
-    print("\n📅 检查数据评审日期...")
-    overdue = check_review_dates()
-    if overdue:
-        for item in overdue:
-            print(f"  ⏰ {item['name']}: 已过期 {item['days_overdue']} 天 (到期: {item['due']})")
-    else:
-        print("  ✅ 所有数据均在有效期内")
-
-    # 4. 输出摘要
+    # 3. 输出摘要
     print("\n" + "=" * 60)
-    total_alerts = len(updates) + len(overdue)
+    total_alerts = len(updates) + len(page_changes)
     if total_alerts > 0:
         print(f"  ⚠ 共 {total_alerts} 个待处理项")
-        # 在 GitHub Actions 中可设置 output
         if os.environ.get("GITHUB_ACTIONS"):
             with open(os.environ.get("GITHUB_OUTPUT", "/dev/null"), "a") as f:
                 f.write(f"alerts={total_alerts}\n")
