@@ -12,7 +12,8 @@
     "update-closed-source-tools": "node scripts/update-closed-source-tools.mjs",
     "update-all-tools": "npm run update-github-tools && npm run update-closed-source-tools",
     "gen-social-post": "node scripts/gen-social-post.mjs",
-    "gen-og": "node scripts/gen-og-image.mjs"
+    "gen-og": "node scripts/gen-og-image.mjs",
+    "gen-juejin": "node scripts/gen-juejin-post.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.0",
