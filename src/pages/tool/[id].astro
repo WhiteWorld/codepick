@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ScoreBar from '../../components/ScoreBar.astro';
+import ToolCard from '../../components/ToolCard.astro';
 import { getAllTools, isFresh } from '../../lib/data';
 import type { Tool } from '../../lib/data';
 
@@ -59,6 +60,30 @@ const cons = (tool as any).cons || [];
 const bestFor = (tool as any).best_for || [];
 const changelog = (tool as any).changelog || [];
 
+// 相关工具：同 type 或同 ide_base，排除自身，最多 3 个
+const allTools = getAllTools();
+const toolType = (tool as any).type;
+const toolIdeBase = ((tool as any).features?.ide_base || '').toLowerCase();
+const relatedTools = allTools
+  .filter(t => t.id !== tool.id && (
+    (t as any).type === toolType ||
+    (toolIdeBase && ((t as any).features?.ide_base || '').toLowerCase() === toolIdeBase)
+  ))
+  .sort((a, b) => (b.scores.coding_ability ?? 0) - (a.scores.coding_ability ?? 0))
+  .slice(0, 3);
+
+// 标题关键词 by type
+const typeKeyword: Record<string, string> = {
+  ide:         'AI IDE',
+  cli:         '终端 AI 编程工具',
+  plugin:      'VS Code AI 插件',
+  client:      'AI 编程客户端',
+  web:         'AI 编程 Web 工具',
+  app:         'AI 编程 App',
+  cloud_agent: 'AI 云端编程 Agent',
+};
+const titleKeyword = typeKeyword[toolType] || 'AI 编程工具';
+
 const siteUrl = 'https://codepick.dev';
 const toolUrl = `${siteUrl}/tool/${tool.id}`;
 const toolDescription = (tool as any).tagline || `${tool.name} AI 编程工具评测 - 功能、定价、优缺点详解`;
@@ -105,7 +130,7 @@ const breadcrumbSchema: object = {
 ---
 
 <BaseLayout
-  title={`${tool.name} - AI 编程工具评测 | CodePick`}
+  title={`${tool.name} - ${titleKeyword}评测 | CodePick`}
   description={toolDescription}
   jsonLd={[softwareAppSchema, breadcrumbSchema]}
 >
@@ -242,6 +267,16 @@ const breadcrumbSchema: object = {
               <span class="text-[var(--text-secondary)]">{log.summary}</span>
             </div>
           ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Related Tools -->
+    {relatedTools.length > 0 && (
+      <section class="mb-8">
+        <h2 class="text-lg font-semibold text-white mb-4 mt-0">🔗 相关工具</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {relatedTools.map(t => <ToolCard tool={t} />)}
         </div>
       </section>
     )}

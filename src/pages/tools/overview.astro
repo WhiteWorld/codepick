@@ -1,0 +1,202 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getAllTools } from '../../lib/data';
+
+const allTools = getAllTools();
+const siteUrl = 'https://codepick.dev';
+
+// 按编程能力降序排列
+const tools = [...allTools].sort((a, b) => (b.scores.coding_ability ?? 0) - (a.scores.coding_ability ?? 0));
+
+const typeLabel: Record<string, string> = {
+  ide:         'IDE',
+  cli:         'CLI',
+  plugin:      '插件',
+  client:      '客户端',
+  web:         'Web',
+  app:         'App',
+  cloud_agent: '云端 Agent',
+};
+
+function priceLabel(tool: any): string {
+  const plans = tool.pricing?.plans || [];
+  const free = plans.find((p: any) => p.price === 0);
+  const paid = plans.find((p: any) => typeof p.price === 'number' && p.price > 0);
+  if (free && paid) return `免费 / $${paid.price}起`;
+  if (free) return '免费';
+  if (paid) {
+    const currency = tool.pricing?.currency === 'CNY' ? '¥' : '$';
+    return `${currency}${paid.price}/月`;
+  }
+  return '按量计费';
+}
+
+function scoreColor(score: number): string {
+  if (score >= 8.5) return 'text-green-400';
+  if (score >= 7) return 'text-[var(--brand-400)]';
+  if (score >= 5) return 'text-yellow-400';
+  return 'text-red-400';
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: '2026 AI 编程工具全景图',
+  description: '所有主流 AI 编程工具横向对比：编程能力、性价比、灵活性、国内可用性评分',
+  url: `${siteUrl}/tools/overview`,
+  numberOfItems: tools.length,
+  itemListElement: tools.map((t, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: t.name,
+    url: `${siteUrl}/tool/${t.id}`,
+  })),
+};
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: '首页', item: siteUrl },
+    { '@type': 'ListItem', position: 2, name: '工具库', item: `${siteUrl}/tools` },
+    { '@type': 'ListItem', position: 3, name: '全景图', item: `${siteUrl}/tools/overview` },
+  ],
+};
+---
+
+<BaseLayout
+  title={`2026 AI 编程工具全景图：${tools.length} 款工具横向对比 | CodePick`}
+  description={`${tools.length} 款 AI 编程工具全面横向对比：Cursor、Copilot、Claude Code、Trae CN、Windsurf、Gemini CLI 等，编程能力、定价、国内可用性一览。`}
+  jsonLd={[jsonLd, breadcrumb]}
+>
+  <section class="container py-12">
+    <!-- Breadcrumb -->
+    <nav class="text-xs text-[var(--text-muted)] mb-6">
+      <a href="/" class="hover:text-white no-underline">首页</a>
+      <span class="mx-1">/</span>
+      <a href="/tools" class="hover:text-white no-underline">工具库</a>
+      <span class="mx-1">/</span>
+      <span class="text-[var(--text-secondary)]">全景图</span>
+    </nav>
+
+    <h1 class="text-3xl font-bold text-white mb-3">🗺️ 2026 AI 编程工具全景图</h1>
+    <p class="text-[var(--text-secondary)] mb-2 max-w-2xl">
+      {tools.length} 款主流 AI 编程工具横向评分对比，按编程能力排序。点击工具名查看详细评测。
+    </p>
+    <p class="text-xs text-[var(--text-muted)] mb-8">
+      评分维度：编程能力 / 性价比 / 灵活性 / 国内体验，满分 10 分。数据持续更新。
+    </p>
+
+    <!-- Score legend -->
+    <div class="flex flex-wrap gap-4 mb-6 text-xs">
+      <span class="text-green-400">● ≥ 8.5 优秀</span>
+      <span class="text-[var(--brand-400)]">● ≥ 7 良好</span>
+      <span class="text-yellow-400">● ≥ 5 一般</span>
+      <span class="text-red-400">● &lt; 5 较差</span>
+    </div>
+
+    <!-- Main table -->
+    <div class="overflow-x-auto mb-12">
+      <table class="compare-table w-full text-sm">
+        <thead>
+          <tr>
+            <th class="text-left">工具</th>
+            <th>类型</th>
+            <th>定价</th>
+            <th>编程能力</th>
+            <th>性价比</th>
+            <th>灵活性</th>
+            <th>国内体验</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tools.map(tool => (
+            <tr>
+              <td>
+                <a href={`/tool/${tool.id}`} class="text-[var(--brand-400)] no-underline hover:underline font-medium">
+                  {tool.name}
+                </a>
+              </td>
+              <td class="text-center">
+                <span class="tag text-xs">{typeLabel[(tool as any).type] || (tool as any).type}</span>
+              </td>
+              <td class="text-center text-[var(--text-muted)] text-xs">{priceLabel(tool as any)}</td>
+              <td class={`text-center font-bold ${scoreColor((tool as any).scores.coding_ability ?? 0)}`}>
+                {(tool as any).scores.coding_ability ?? '—'}
+              </td>
+              <td class={`text-center font-bold ${scoreColor((tool as any).scores.cost_efficiency ?? 0)}`}>
+                {(tool as any).scores.cost_efficiency ?? '—'}
+              </td>
+              <td class={`text-center font-bold ${scoreColor((tool as any).scores.flexibility ?? 0)}`}>
+                {(tool as any).scores.flexibility ?? '—'}
+              </td>
+              <td class={`text-center font-bold ${scoreColor((tool as any).scores.china_friendly ?? 0)}`}>
+                {(tool as any).scores.china_friendly ?? '—'}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 选型决策树 -->
+    <div class="mb-12">
+      <h2 class="text-xl font-bold text-white mb-6 mt-0">🧭 30 秒选型决策树</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <div class="card p-5 border-l-4 border-green-500">
+          <p class="text-xs text-[var(--text-muted)] mb-1">国内用户 · 零成本入门</p>
+          <p class="text-base font-bold text-white mb-2">👉 Trae CN</p>
+          <p class="text-xs text-[var(--text-secondary)] m-0">字节出品，免费，国内直连，豆包/DeepSeek/Kimi 全套</p>
+        </div>
+
+        <div class="card p-5 border-l-4 border-[var(--brand-400)]">
+          <p class="text-xs text-[var(--text-muted)] mb-1">国内用户 · VS Code 插件</p>
+          <p class="text-base font-bold text-white mb-2">👉 Cline + 火山方舟</p>
+          <p class="text-xs text-[var(--text-secondary)] m-0">¥9.9/月，Agent 能力强，支持自定义模型</p>
+        </div>
+
+        <div class="card p-5 border-l-4 border-purple-500">
+          <p class="text-xs text-[var(--text-muted)] mb-1">海外用户 · 最强编程体验</p>
+          <p class="text-base font-bold text-white mb-2">👉 Cursor Pro</p>
+          <p class="text-xs text-[var(--text-secondary)] m-0">$20/月，Claude Opus + GPT-5，市占率第一</p>
+        </div>
+
+        <div class="card p-5 border-l-4 border-blue-500">
+          <p class="text-xs text-[var(--text-muted)] mb-1">海外用户 · 省钱替代</p>
+          <p class="text-base font-bold text-white mb-2">👉 Windsurf Pro</p>
+          <p class="text-xs text-[var(--text-secondary)] m-0">$15/月，Cascade 体验独特，支持 JetBrains</p>
+        </div>
+
+        <div class="card p-5 border-l-4 border-yellow-500">
+          <p class="text-xs text-[var(--text-muted)] mb-1">终端党 · 免费首选</p>
+          <p class="text-base font-bold text-white mb-2">👉 Gemini CLI</p>
+          <p class="text-xs text-[var(--text-secondary)] m-0">完全免费，1000 次/天，Gemini 2.5 Pro 百万 token</p>
+        </div>
+
+        <div class="card p-5 border-l-4 border-orange-500">
+          <p class="text-xs text-[var(--text-muted)] mb-1">代码质量优先 · 不在乎成本</p>
+          <p class="text-base font-bold text-white mb-2">👉 Claude Code Max</p>
+          <p class="text-xs text-[var(--text-secondary)] m-0">$100-200/月，Claude Opus 无限额度，质量天花板</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Category links -->
+    <div class="mb-8">
+      <h2 class="text-xl font-bold text-white mb-4 mt-0">🗂️ 按场景筛选</h2>
+      <div class="flex flex-wrap gap-3">
+        <a href="/tools/free" class="btn btn-ghost text-sm no-underline">💰 免费工具</a>
+        <a href="/tools/china" class="btn btn-ghost text-sm no-underline">🇨🇳 国内可用</a>
+        <a href="/tools/vscode" class="btn btn-ghost text-sm no-underline">🔵 VS Code 生态</a>
+        <a href="/tools/terminal" class="btn btn-ghost text-sm no-underline">⌨️ 终端工具</a>
+        <a href="/tools" class="btn btn-ghost text-sm no-underline">📋 全部工具</a>
+      </div>
+    </div>
+
+    <div class="text-center text-xs text-[var(--text-muted)]">
+      数据有误？<a href="https://github.com/WhiteWorld/codepick/issues/new" target="_blank" rel="noopener" class="text-[var(--brand-400)] no-underline hover:underline">提交 Issue →</a>
+    </div>
+  </section>
+</BaseLayout>
