@@ -207,7 +207,7 @@ Trae CN 会将对话上下文发送至云端处理。如果你的项目涉及商
 
 ### 接入自定义模型
 
-Trae CN 支持自定义模型服务商，可以接入火山方舟的其他模型：
+Trae CN 支持自定义模型服务商，可以接入[火山方舟](https://www.volcengine.com/L/s3lNTNYxaEc/)的其他模型：
 
 1. 设置 → 模型服务商 → 添加
 2. 填入火山方舟的 Base URL 和 API Key
