@@ -18,7 +18,7 @@ pricing:
       period: month
       limits: 225 vibe请求 + 125 spec请求/月，额外$0.04/vibe，$0.20/spec
     - name: Pro+
-      price: null
+      price: 40
       period: month
       limits: 450 vibe请求 + 250 spec请求/月
     - name: Power

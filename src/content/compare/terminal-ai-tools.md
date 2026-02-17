@@ -97,7 +97,7 @@ aider
 - Claude Opus 4.6：$15/百万 input token，$75/百万 output token
 - 重度使用每月 $30-100+
 
-**国内用户**：可搭配 [火山方舟 Coding Plan](/plan/claude-code-ark) 使用，¥9.9/月，通过方舟中转 API 大幅降低成本。
+**国内用户**：可搭配 [火山方舟 Coding Plan](/guides/cline-ark-setup) 使用，¥9.9/月，通过方舟中转 API 大幅降低成本。
 
 ### OpenCode
 
@@ -117,7 +117,7 @@ aider
 
 | 项目 | 国内可用 | 推荐方案 |
 |------|----------|----------|
-| Claude Code | 需代理，或配火山方舟 | [火山方舟方案](/plan/claude-code-ark) |
+| Claude Code | 需代理，或配火山方舟 | [火山方舟方案](/guides/cline-ark-setup) |
 | OpenCode | ✅ 支持国内 API | 火山方舟 / 硅基流动 |
 | Aider | ✅ 支持国内 API | DeepSeek / 火山方舟 |
 
