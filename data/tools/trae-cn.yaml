@@ -1,0 +1,75 @@
+id: trae-cn
+name: Trae CN
+type: ide
+logo: /images/trae.png
+url: https://trae.cn
+repo: null
+current_version: null
+version_tracked_at: '2026-02-17'
+pricing:
+  model: free
+  currency: CNY
+  plans:
+    - name: 免费
+      price: 0
+      limits: 全部内置模型免费调用，无用量限制
+  price_updated_at: '2026-02-17'
+  note: 字节跳动出品，国内专属版本，目前全部功能完全免费；访问 trae.cn，无需代理
+scores:
+  coding_ability: 8
+  cost_efficiency: 10
+  flexibility: 6
+  china_friendly: 10
+  privacy: 6
+features:
+  code_completion: true
+  chat: true
+  agent_mode: true
+  solo_mode: true
+  builder_mode: true
+  multi_file_edit: true
+  mcp_support: true
+  context_window: 取决于所选模型
+  supported_models:
+    - Doubao-Seed-Code（字节自研）
+    - DeepSeek-V3
+    - DeepSeek-R1
+    - Kimi-K2
+    - GLM-4.5
+    - Qwen3-Coder
+  ide_base: VS Code Fork
+  supported_os:
+    - macOS
+    - Windows
+    - Linux
+  jetbrains_support: false
+  git_integration: true
+best_for:
+  - 国内开发者首选免费 AI IDE
+  - 零成本体验国产顶级编程模型
+  - 不想折腾代理和付费的开发者
+  - 企业/学生用户（完全免费）
+not_for:
+  - 需要 Claude / GPT 等海外模型的用户（用 Trae 国际版）
+  - JetBrains 用户
+plans_using_this: []
+compatible_apis:
+  - ark-coding-plan
+data_sources:
+  - url: https://trae.cn
+    type: product
+    last_checked: '2026-02-17'
+  - url: https://docs.trae.cn/ide/models
+    type: docs
+    last_checked: '2026-02-17'
+changelog:
+  - date: '2025-03-04'
+    type: launch
+    summary: Trae CN 正式发布，字节跳动国内专属 AI IDE，免费使用豆包和 DeepSeek
+  - date: '2026-01-01'
+    type: feature
+    summary: 新增 Kimi-K2、GLM-4.5、Qwen3-Coder 等国产顶级模型
+last_full_review: '2026-02-17'
+next_review_due: '2026-03-17'
+review_frequency_days: 30
+confidence: medium
