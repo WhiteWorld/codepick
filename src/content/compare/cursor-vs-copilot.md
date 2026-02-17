@@ -65,7 +65,7 @@ Cursor 原生支持多文件上下文（Codebase Chat），可以跨整个项目
 | 国内访问 | 需代理 | 需代理 |
 | 稳定性 | 一般 | 一般 |
 
-两者均需稳定代理，在国内裸用均有困难。若无代理条件，建议考虑 [Cline + 火山方舟](/plan/cline-ark) 方案。
+两者均需稳定代理，在国内裸用均有困难。若无代理条件，建议考虑 [Cline + 火山方舟 Coding Plan](https://www.volcengine.com/L/s3lNTNYxaEc/)（[方案详情](/plan/cline-ark)）。
 
 ---
 

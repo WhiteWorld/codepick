@@ -108,7 +108,7 @@ codex  # 需要 OPENAI_API_KEY 或 ChatGPT 登录
 - Claude Code → Anthropic API（被屏蔽）
 - Codex CLI → OpenAI API（被屏蔽）
 
-国内开发者建议参考 [Cline + 火山方舟方案](/guides/cline-ark-setup)。
+国内开发者建议参考 [Cline + 火山方舟 Coding Plan](https://www.volcengine.com/L/s3lNTNYxaEc/)（[配置指南](/guides/cline-ark-setup)）。
 
 ---
 

@@ -97,13 +97,13 @@ aider
 - Claude Opus 4.6：$15/百万 input token，$75/百万 output token
 - 重度使用每月 $30-100+
 
-**国内用户**：可搭配 [火山方舟 Coding Plan](/guides/cline-ark-setup) 使用，¥9.9/月，通过方舟中转 API 大幅降低成本。
+**国内用户**：可搭配 [火山方舟 Coding Plan](https://www.volcengine.com/L/s3lNTNYxaEc/)（[配置指南](/guides/cline-ark-setup)）使用，¥9.9/月，通过方舟中转 API 大幅降低成本。
 
 ### OpenCode
 
 - 软件本身免费开源
 - 费用取决于所用 API
-- 搭配火山方舟：¥9.9/月起
+- 搭配 [火山方舟 Coding Plan](https://www.volcengine.com/L/s3lNTNYxaEc/)：¥9.9/月起
 
 ### Aider
 

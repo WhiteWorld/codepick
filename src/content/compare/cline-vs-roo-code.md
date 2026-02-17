@@ -64,7 +64,7 @@ Roo Code 最初是 Cline 的一个 Fork，但现在已经有了大量独有功�
 - OpenAI 兼容接口（Ollama、火山方舟、硅基流动等）
 - Azure OpenAI
 
-**国内用户推荐**：搭配 [火山方舟 Coding Plan](/plan/cline-ark) 使用，¥9.9/月即可获得海量请求额度，完全国内可用。
+**国内用户推荐**：搭配 [火山方舟 Coding Plan](https://www.volcengine.com/L/s3lNTNYxaEc/)（[方案详情](/plan/cline-ark)）使用，¥9.9/月即可获得海量请求额度，完全国内可用。
 
 ---
 
