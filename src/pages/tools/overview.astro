@@ -5,7 +5,7 @@ import { getAllTools } from '../../lib/data';
 const allTools = getAllTools();
 const siteUrl = 'https://codepick.dev';
 
-// 按编程能力降序排列
+// 默认按编程能力降序排列（客户端可重排序）
 const tools = [...allTools].sort((a, b) => (b.scores.coding_ability ?? 0) - (a.scores.coding_ability ?? 0));
 
 const typeLabel: Record<string, string> = {
@@ -81,7 +81,7 @@ const breadcrumb = {
 
     <h1 class="text-3xl font-bold text-white mb-3">🗺️ 2026 AI 编程工具全景图</h1>
     <p class="text-[var(--text-secondary)] mb-2 max-w-2xl">
-      {tools.length} 款主流 AI 编程工具横向评分对比，按编程能力排序。点击工具名查看详细评测。
+      {tools.length} 款主流 AI 编程工具横向评分对比。点击评分列表头可按该维度排序。
     </p>
     <p class="text-xs text-[var(--text-muted)] mb-8">
       评分维度：编程能力 / 性价比 / 灵活性 / 国内体验，满分 10 分。数据持续更新。
@@ -97,21 +97,34 @@ const breadcrumb = {
 
     <!-- Main table -->
     <div class="overflow-x-auto mb-12">
-      <table class="compare-table w-full text-sm">
+      <table id="tool-table" class="compare-table w-full text-sm">
         <thead>
           <tr>
             <th class="text-left">工具</th>
             <th>类型</th>
             <th>定价</th>
-            <th>编程能力</th>
-            <th>性价比</th>
-            <th>灵活性</th>
-            <th>国内体验</th>
+            <th class="sortable-col cursor-pointer select-none whitespace-nowrap" data-col="coding">
+              编程能力 <span class="sort-icon text-[var(--brand-400)]">↓</span>
+            </th>
+            <th class="sortable-col cursor-pointer select-none whitespace-nowrap" data-col="cost">
+              性价比 <span class="sort-icon opacity-40">↕</span>
+            </th>
+            <th class="sortable-col cursor-pointer select-none whitespace-nowrap" data-col="flex">
+              灵活性 <span class="sort-icon opacity-40">↕</span>
+            </th>
+            <th class="sortable-col cursor-pointer select-none whitespace-nowrap" data-col="china">
+              国内体验 <span class="sort-icon opacity-40">↕</span>
+            </th>
           </tr>
         </thead>
         <tbody>
           {tools.map(tool => (
-            <tr>
+            <tr
+              data-coding={String((tool as any).scores.coding_ability ?? 0)}
+              data-cost={String((tool as any).scores.cost_efficiency ?? 0)}
+              data-flex={String((tool as any).scores.flexibility ?? 0)}
+              data-china={String((tool as any).scores.china_friendly ?? 0)}
+            >
               <td>
                 <a href={`/tool/${tool.id}`} class="text-[var(--brand-400)] no-underline hover:underline font-medium">
                   {tool.name}
@@ -200,3 +213,65 @@ const breadcrumb = {
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .sortable-col:hover {
+    color: white;
+    background-color: var(--surface-hover, rgba(255,255,255,0.05));
+  }
+  .sortable-col .sort-icon {
+    font-size: 0.75rem;
+    margin-left: 2px;
+  }
+</style>
+
+<script>
+  const table = document.getElementById('tool-table') as HTMLTableElement | null;
+  if (table) {
+    const tbody = table.querySelector('tbody') as HTMLTableSectionElement;
+    const headers = table.querySelectorAll<HTMLTableCellElement>('thead th[data-col]');
+
+    let sortCol = 'coding';
+    let sortDir = -1; // -1 = desc, 1 = asc
+
+    headers.forEach(th => {
+      th.addEventListener('click', () => {
+        const col = th.dataset.col!;
+        if (col === sortCol) {
+          sortDir *= -1;
+        } else {
+          sortCol = col;
+          sortDir = -1;
+        }
+        sortTable();
+        updateIcons();
+      });
+    });
+
+    function sortTable() {
+      const rows = Array.from(tbody.querySelectorAll<HTMLTableRowElement>('tr'));
+      rows.sort((a, b) => {
+        const av = parseFloat(a.dataset[sortCol] ?? '0');
+        const bv = parseFloat(b.dataset[sortCol] ?? '0');
+        return sortDir * (bv - av);
+      });
+      rows.forEach(r => tbody.appendChild(r));
+    }
+
+    function updateIcons() {
+      headers.forEach(th => {
+        const icon = th.querySelector<HTMLElement>('.sort-icon');
+        if (!icon) return;
+        if (th.dataset.col === sortCol) {
+          icon.textContent = sortDir === -1 ? '↓' : '↑';
+          icon.style.opacity = '1';
+          icon.style.color = 'var(--brand-400)';
+        } else {
+          icon.textContent = '↕';
+          icon.style.opacity = '0.4';
+          icon.style.color = '';
+        }
+      });
+    }
+  }
+</script>
