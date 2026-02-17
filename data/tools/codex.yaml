@@ -1,0 +1,77 @@
+id: codex
+name: Codex
+type: app
+logo: /images/codex.png
+url: https://openai.com/codex/
+repo: null
+current_version: null
+version_tracked_at: '2026-02-17'
+pricing:
+  model: subscription
+  currency: USD
+  plans:
+    - name: ChatGPT Plus
+      price: 20
+      period: month
+      limits: 含 Codex 云端任务额度，5小时内约30-150次；超出可按量购买
+    - name: ChatGPT Pro
+      price: 200
+      period: month
+      limits: 5小时内约300-1500次，2倍速率限制
+    - name: Business / Enterprise
+      price: null
+      period: month
+      per_user: true
+      limits: 团队管理、审计日志、SSO；Enterprise 支持私有代码库接入
+  price_updated_at: '2026-02-17'
+  note: 包含在 ChatGPT 订阅中，无单独定价；任务复杂度越高消耗配额越多（简单脚本 vs 大型代码库差异显著）
+scores:
+  coding_ability: 9
+  cost_efficiency: 6
+  flexibility: 5
+  china_friendly: 1
+  privacy: 4
+features:
+  code_completion: false
+  chat: false
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: false
+  parallel_tasks: true
+  native_sandbox: true
+  pr_proposal: true
+  diff_review: true
+  context_window: 标准上下文窗口
+  supported_models:
+    - o3
+    - o4-mini
+    - codex-1
+  ide_base: macOS 原生 App
+  supported_os:
+    - macOS（Apple Silicon）
+  jetbrains_support: false
+  git_integration: true
+best_for:
+  - 已订阅 ChatGPT Plus/Pro 的 Mac 用户（无额外成本）
+  - 需要并行处理多个独立任务的开发者（多 Agent 同时跑）
+  - 编写 PR、修复 Bug、添加测试等明确的异步任务
+not_for:
+  - Windows / Linux 用户（暂不支持）
+  - 国内网络用户（OpenAI 被封锁）
+  - 需要实时交互逐步确认的工作流
+plans_using_this: []
+data_sources:
+  - url: https://openai.com/codex/
+    type: product
+    last_checked: '2026-02-17'
+  - url: https://developers.openai.com/codex/pricing
+    type: pricing
+    last_checked: '2026-02-17'
+changelog:
+  - date: '2026-02-02'
+    type: launch
+    summary: Codex macOS 原生 App 发布，支持并行多 Agent、原生沙箱、Diff 审查，仅限 Apple Silicon
+last_full_review: '2026-02-17'
+next_review_due: '2026-03-17'
+review_frequency_days: 30
+confidence: medium

@@ -1,0 +1,80 @@
+id: codex-cli
+name: Codex CLI
+type: cli
+logo: /images/codex-cli.png
+url: https://openai.com/codex/
+repo: https://github.com/openai/codex
+current_version: null
+version_tracked_at: '2026-02-17'
+pricing:
+  model: subscription
+  currency: USD
+  plans:
+    - name: ChatGPT Plus
+      price: 20
+      period: month
+      limits: Codex CLI + Web + IDE 扩展，使用 o4-mini / GPT-5.3-Codex
+    - name: ChatGPT Pro
+      price: 200
+      period: month
+      limits: 更高用量，使用 o3 / o4 全系列模型
+    - name: API Key（按量计费）
+      price: null
+      limits: 按 token 计费，支持 o3、o4-mini；灵活但成本不可控
+    - name: Business / Enterprise
+      price: null
+      period: month
+      per_user: true
+      limits: 团队管理，自动 Code Review，Slack 集成，审计日志
+  price_updated_at: '2026-02-17'
+  note: 需要 ChatGPT Plus（$20/月）或 OpenAI API Key；与 Gemini CLI 不同，无免费额度
+scores:
+  coding_ability: 9
+  cost_efficiency: 6
+  flexibility: 8
+  china_friendly: 1
+  privacy: 5
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: true
+  shell_exec: true
+  full_screen_tui: true
+  context_window: 标准上下文窗口
+  supported_models:
+    - o3
+    - o4-mini
+    - GPT-5.3-Codex
+  ide_base: 终端
+  supported_os:
+    - macOS
+    - Windows
+    - Linux
+  jetbrains_support: false
+  git_integration: true
+best_for:
+  - 已订阅 ChatGPT Plus 的开发者（无额外成本）
+  - 需要 OpenAI o3/o4 推理能力的复杂编程任务
+  - 偏好终端工作流的 OpenAI 用户
+not_for:
+  - 国内网络用户（OpenAI 在国内被封锁）
+  - 预算有限、不想订阅 ChatGPT 的用户
+  - 需要 IDE 内补全体验的用户
+plans_using_this: []
+data_sources:
+  - url: https://openai.com/codex/
+    type: product
+    last_checked: '2026-02-17'
+  - url: https://github.com/openai/codex
+    type: changelog
+    last_checked: '2026-02-17'
+changelog:
+  - date: '2025-04-16'
+    type: launch
+    summary: Codex CLI 开源发布，OpenAI 出品的终端 Agent，支持 o3/o4-mini
+last_full_review: '2026-02-17'
+next_review_due: '2026-03-17'
+review_frequency_days: 30
+confidence: medium

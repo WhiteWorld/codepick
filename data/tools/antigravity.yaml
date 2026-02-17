@@ -1,0 +1,75 @@
+id: antigravity
+name: Antigravity
+type: ide
+logo: /images/antigravity.png
+url: https://antigravity.google/
+repo: null
+current_version: preview
+version_tracked_at: '2026-02-17'
+pricing:
+  model: freemium
+  currency: USD
+  plans:
+    - name: Individual
+      price: 0
+      limits: 公开预览阶段免费；Gemini 3 Pro/Flash、Claude Sonnet 4.5、GPT-OSS，含速率限制
+    - name: Pro
+      price: 20
+      period: month
+      limits: 更高配额，优先访问，预计 2026 推出（价格待官方确认）
+    - name: Enterprise
+      price: null
+      period: month
+      per_user: true
+      limits: SSO、数据驻留、管理控制台，价格待官方确认
+  price_updated_at: '2026-02-17'
+  note: 目前公开预览免费；可免费使用 Claude Opus 4.5 (Thinking) 等顶级模型，定价策略后续可能调整
+scores:
+  coding_ability: 9
+  cost_efficiency: 9
+  flexibility: 8
+  china_friendly: 2
+  privacy: 5
+features:
+  code_completion: true
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: true
+  browser_access: true
+  artifacts: true
+  context_window: 超长上下文（Gemini 3 Pro）
+  supported_models:
+    - Gemini 3 Pro
+    - Gemini 3 Flash
+    - Claude Sonnet 4.5
+    - Claude Sonnet 4.5 Thinking
+    - Claude Opus 4.5 Thinking
+    - GPT-OSS 120B
+  ide_base: VS Code Fork
+  supported_os:
+    - macOS
+    - Windows
+    - Linux
+  jetbrains_support: false
+  git_integration: true
+best_for:
+  - 想免费体验 Claude Opus / Gemini 3 顶级模型的开发者
+  - 需要 Agent 自主完成复杂端到端任务的团队
+  - 已在 Google 生态（GCP、Firebase）的开发者
+not_for:
+  - 国内网络用户（Google 服务被屏蔽）
+  - 需要稳定定价/SLA 保障的生产环境（目前仍为预览版）
+plans_using_this: []
+data_sources:
+  - url: https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/
+    type: product
+    last_checked: '2026-02-17'
+changelog:
+  - date: '2025-11-18'
+    type: launch
+    summary: Google Antigravity 公开预览发布，随 Gemini 3 同期推出，VS Code Fork，免费支持多顶级模型
+last_full_review: '2026-02-17'
+next_review_due: '2026-03-17'
+review_frequency_days: 30
+confidence: medium
