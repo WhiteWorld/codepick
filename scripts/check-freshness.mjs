@@ -12,7 +12,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const dataDir = path.join(__dirname, '..', 'src', 'data');
+const dataDir = path.join(__dirname, '..', 'data');
 
 const STALE_DAYS = 30;  // 超过多少天算过时
 const WARNING_DAYS = 14; // 超过多少天发出警告
@@ -25,8 +25,8 @@ function checkDir(subdir) {
   for (const file of fs.readdirSync(dir).filter(f => f.endsWith('.yaml') || f.endsWith('.yml'))) {
     const content = fs.readFileSync(path.join(dir, file), 'utf8');
     
-    // 提取 last_updated 或 last_verified 字段
-    const match = content.match(/(?:last_updated|last_verified|updated_at):\s*['"]?(\d{4}-\d{2}(?:-\d{2})?)/);
+    // 提取日期字段（支持 meta.last_full_review 或顶层 last_updated/last_verified）
+    const match = content.match(/(?:last_full_review|last_updated|last_verified|updated_at):\s*['"]?(\d{4}-\d{2}(?:-\d{2})?)/);
     const dateStr = match ? match[1] : null;
     
     let daysSince = null;
@@ -60,10 +60,10 @@ console.log('║       CodePick 数据新鲜度检查                          �
 console.log('║       Stale > 30d | Warning > 14d                     ║');
 console.log('╚════════════════════════════════════════════════════════╝\n');
 
+// plans 目录无 last_full_review 字段，只检查 tools 和 apis
 const allResults = [
   ...checkDir('tools'),
   ...checkDir('apis'),
-  ...checkDir('plans'),
 ];
 
 // 按状态排序: 过时 > 无日期 > 即将过时 > 新鲜
