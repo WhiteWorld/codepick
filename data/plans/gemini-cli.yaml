@@ -1,0 +1,42 @@
+id: gemini-cli
+name: Gemini CLI（免费）
+badge: 终端免费天花板
+tagline: 每天 1000 次免费请求，Gemini 2.5 Pro 百万 token 上下文
+client: gemini-cli
+api: null
+environment: 终端 CLI
+monthly_cost: "$0"
+currency: USD
+scores:
+  coding_ability: 8.5
+  cost_efficiency: 9.5
+  flexibility: 8.0
+  china_friendly: 2.0
+setup_difficulty: 低
+tags:
+  - cli
+  - budget
+  - free
+  - terminal
+best_for:
+  - 终端重度用户
+  - 预算为零但要求模型质量的开发者
+  - 大型仓库分析（百万 token 上下文）
+  - Google / GCP 生态用户
+quick_start:
+  - "安装 Node.js 18+"
+  - "npm install -g @google/gemini-cli"
+  - "gemini auth login（用个人 Google 账号）"
+  - "在项目目录运行 gemini，开始对话"
+pros:
+  - 完全免费（个人 Google 账号）
+  - 1000 次请求/天，60 次/分钟，日常完全够用
+  - Gemini 2.5 Pro 百万 token 上下文，分析超大仓库
+  - 开源，可审计代码
+  - 支持 MCP 扩展
+cons:
+  - 国内需代理访问 Google 服务
+  - 纯终端，无 IDE 图形界面
+  - 代码补全需配合其他工具
+  - 免费额度超出后需付费 API
+description: "终端 AI 编程的免费天花板。个人 Google 账号每天 1000 次免费请求，使用 Gemini 2.5 Pro 顶级模型，百万 token 上下文可分析超大仓库。Google 开源，适合终端党和预算为零的开发者。"

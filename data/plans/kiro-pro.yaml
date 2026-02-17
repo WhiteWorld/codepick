@@ -1,0 +1,40 @@
+id: kiro-pro
+name: Kiro Pro
+badge: 规格驱动开发
+tagline: AWS 出品，Spec-Driven Agent，需求→设计→代码全自动
+client: kiro
+api: null
+environment: Kiro IDE（VS Code Fork）
+monthly_cost: "$20"
+currency: USD
+scores:
+  coding_ability: 8.0
+  cost_efficiency: 6.0
+  flexibility: 6.5
+  china_friendly: 2.0
+setup_difficulty: 中
+tags:
+  - ide
+  - agent
+  - aws
+best_for:
+  - 企业级结构化开发流程
+  - 需要需求文档→代码全链路自动化的团队
+  - AWS / 云服务重度用户
+  - 追求 AI 编程可审查性和可控性
+quick_start:
+  - "访问 kiro.dev 下载安装"
+  - "AWS 账号登录或 GitHub 账号注册"
+  - "选择 Pro（$20/月）套餐"
+  - "创建 Spec 文件描述需求，让 Agent 自动生成设计和代码"
+pros:
+  - Spec-Driven 工作流：需求→设计文档→任务→代码，全程可审查
+  - Hooks 机制自动触发 lint / test / 安全扫描
+  - AWS 原生集成（CodeWhisperer、Bedrock）
+  - 适合团队协作和企业级规范开发
+cons:
+  - 国内需代理访问
+  - Spec 工作流上手曲线较陡
+  - 相比 Cursor 自由度低，不适合快速原型
+  - 社区和插件生态尚不成熟
+description: "AWS 推出的规格驱动 AI IDE。独特的 Spec-Driven 工作流将开发流程拆解为：需求规格→设计文档→任务列表→代码实现，每步可审查，适合企业级结构化开发。Pro $20/月含 vibe coding 无限额度，有 50 次/月免费试用。"

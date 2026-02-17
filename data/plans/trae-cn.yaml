@@ -1,0 +1,43 @@
+id: trae-cn
+name: Trae CN（免费）
+badge: 国内零成本首选
+tagline: 字节出品国内版，完全免费，无需代理，内置顶级国产模型
+client: trae-cn
+api: null
+environment: Trae CN IDE（trae.cn）
+monthly_cost: "¥0"
+currency: CNY
+scores:
+  coding_ability: 8.0
+  cost_efficiency: 10.0
+  flexibility: 5.0
+  china_friendly: 10.0
+setup_difficulty: 极低
+tags:
+  - ide
+  - china
+  - budget
+  - easy
+  - free
+best_for:
+  - 国内开发者零成本入门 AI 编程
+  - 不想配置 API Key 的用户
+  - 学生 / 独立开发者
+  - 想试用 DeepSeek / Kimi K2 的用户
+quick_start:
+  - "访问 trae.cn 下载安装包"
+  - "手机号注册字节跳动账号并登录"
+  - "选择模型（推荐日常用豆包 Seed Code，复杂任务用 DeepSeek-V3）"
+  - "Cmd/Ctrl+L 进入 SOLO 模式，开始 AI 编程"
+pros:
+  - 完全免费，无需绑卡
+  - 国内直连，无需代理
+  - 内置豆包 Seed Code / DeepSeek-V3/R1 / Kimi K2 等顶级国产模型
+  - SOLO Builder 模式可从零一键搭建全栈应用
+  - 兼容 VS Code 插件（.vsix）
+cons:
+  - 模型能力略逊于 Claude Opus / GPT-5
+  - 代码补全速度不及 Cursor Tab
+  - IDE 成熟度仍在追赶 Cursor
+  - 数据上传云端，商业敏感项目需谨慎
+description: "国内开发者零成本入门 AI 编程的最佳起点。Trae CN 完全免费，国内直连无需代理，内置豆包 Seed Code、DeepSeek-V3/R1、Kimi K2、Qwen3-Coder 等国产顶级模型。SOLO 模式支持 Agent 自主开发，适合快速原型和全栈应用搭建。"
