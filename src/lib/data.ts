@@ -207,3 +207,97 @@ export function isFresh(dateStr: string): boolean {
   const due = new Date(dateStr);
   return due > new Date();
 }
+
+// ── Bilingual support ─────────────────────────────────────────────────────
+import type { Locale } from './i18n';
+
+/** Resolve a field, preferring the locale-specific variant (_en) */
+function localized(obj: any, field: string, lang: Locale): any {
+  if (lang === 'en') {
+    const enValue = obj?.[`${field}_en`];
+    if (enValue !== undefined && enValue !== null) return enValue;
+  }
+  return obj?.[field];
+}
+
+/** Get all tools with locale-resolved text fields */
+export function getAllToolsLocalized(lang: Locale): Tool[] {
+  return getAllTools().map(raw => {
+    const tool = raw as any;
+    return {
+      ...tool,
+      tagline: localized(tool, 'tagline', lang) ?? tool.tagline ?? '',
+      best_for: localized(tool, 'best_for', lang) ?? tool.best_for ?? [],
+      not_for: localized(tool, 'not_for', lang) ?? tool.not_for ?? [],
+      pros: localized(tool, 'pros', lang) ?? tool.pros ?? [],
+      cons: localized(tool, 'cons', lang) ?? tool.cons ?? [],
+      pricing: tool.pricing ? {
+        ...tool.pricing,
+        note: localized(tool.pricing, 'note', lang),
+        plans: (tool.pricing.plans || []).map((p: any) => ({
+          ...p,
+          limits: localized(p, 'limits', lang),
+        })),
+      } : tool.pricing,
+      changelog: (tool.changelog || []).map((c: any) => ({
+        ...c,
+        summary: localized(c, 'summary', lang),
+      })),
+    } as Tool;
+  });
+}
+
+export function getToolLocalized(id: string, lang: Locale): Tool | undefined {
+  return getAllToolsLocalized(lang).find(t => t.id === id);
+}
+
+/** Get all plans with locale-resolved text fields */
+export function getAllPlansLocalized(lang: Locale): Plan[] {
+  return getAllPlans().map(raw => {
+    const plan = raw as any;
+    return {
+      ...plan,
+      badge: localized(plan, 'badge', lang) ?? plan.badge ?? '',
+      tagline: localized(plan, 'tagline', lang) ?? plan.tagline ?? '',
+      best_for: localized(plan, 'best_for', lang) ?? plan.best_for ?? [],
+      quick_start: localized(plan, 'quick_start', lang) ?? plan.quick_start ?? [],
+      pros: localized(plan, 'pros', lang) ?? plan.pros ?? [],
+      cons: localized(plan, 'cons', lang) ?? plan.cons ?? [],
+    } as Plan;
+  });
+}
+
+export function getPlanLocalized(id: string, lang: Locale): Plan | undefined {
+  return getAllPlansLocalized(lang).find(p => p.id === id);
+}
+
+export function getPlanWithDetailsLocalized(id: string, lang: Locale) {
+  const plan = getPlanLocalized(id, lang);
+  if (!plan) return undefined;
+  return {
+    ...plan,
+    clientDetail: getToolLocalized(plan.client, lang),
+    apiDetail: getApi(plan.api), // APIs are less translation-heavy
+  };
+}
+
+/** Get all APIs with locale-resolved text fields */
+export function getAllApisLocalized(lang: Locale): Api[] {
+  return getAllApis().map(raw => {
+    const api = raw as any;
+    return {
+      ...api,
+      tagline: localized(api, 'tagline', lang) ?? api.tagline ?? '',
+      pros: localized(api, 'pros', lang) ?? api.pros ?? [],
+      cons: localized(api, 'cons', lang) ?? api.cons ?? [],
+      pricing: api.pricing ? {
+        ...api.pricing,
+        note: localized(api.pricing, 'note', lang),
+        plans: (api.pricing.plans || []).map((p: any) => ({
+          ...p,
+          limits: localized(p, 'limits', lang),
+        })),
+      } : api.pricing,
+    } as Api;
+  });
+}

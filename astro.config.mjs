@@ -17,7 +17,10 @@ function buildLastmodMap() {
       const data = yaml.load(fs.readFileSync(path.join(toolsDir, f), 'utf-8'));
       const id = data.id || f.replace(/\.ya?ml$/, '');
       const date = data.last_full_review || data.version_tracked_at;
-      if (date) map.set(`${siteUrl}/tool/${id}/`, new Date(date));
+      if (date) {
+        map.set(`${siteUrl}/zh/tool/${id}/`, new Date(date));
+        map.set(`${siteUrl}/en/tool/${id}/`, new Date(date));
+      }
     }
   }
 
@@ -28,7 +31,10 @@ function buildLastmodMap() {
       const data = yaml.load(fs.readFileSync(path.join(plansDir, f), 'utf-8'));
       const id = data.id || f.replace(/\.ya?ml$/, '');
       const date = data.last_full_review || data.last_updated;
-      if (date) map.set(`${siteUrl}/plan/${id}/`, new Date(date));
+      if (date) {
+        map.set(`${siteUrl}/zh/plan/${id}/`, new Date(date));
+        map.set(`${siteUrl}/en/plan/${id}/`, new Date(date));
+      }
     }
   }
 
@@ -39,6 +45,14 @@ const lastmodMap = buildLastmodMap();
 
 export default defineConfig({
   site: 'https://codepick.dev',
+  i18n: {
+    defaultLocale: 'zh',
+    locales: ['zh', 'en'],
+    routing: {
+      prefixDefaultLocale: true,
+      redirectToDefaultLocale: false,
+    },
+  },
   integrations: [
     tailwind(),
     sitemap({

@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Analytics from '@vercel/analytics/astro';
+import { t, localePath, getAlternateLangUrl, type Locale } from '../lib/i18n';
 
 interface Props {
   title?: string;
@@ -8,11 +9,13 @@ interface Props {
   image?: string;
   canonicalURL?: string;
   jsonLd?: object | object[];
+  lang?: Locale;
 }
 
 const {
-  title = 'CodePick - AI 编程工具选型指南',
-  description = '帮助中国开发者选择最适合的 AI 编程工具方案，对比 Cursor、Copilot、Cline + 方舟等主流方案的能力、价格和体验。',
+  lang = 'zh',
+  title = t('seo.defaultTitle', lang),
+  description = t('seo.defaultDesc', lang),
   image = '/og-image.png',
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
   jsonLd,
@@ -20,6 +23,11 @@ const {
 
 const siteUrl = 'https://codepick.dev';
 const ogImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
+const htmlLang = lang === 'zh' ? 'zh-CN' : 'en';
+const ogLocale = lang === 'zh' ? 'zh_CN' : 'en_US';
+const altLangUrl = new URL(getAlternateLangUrl(Astro.url, lang), Astro.site).href;
+const zhUrl = lang === 'zh' ? canonicalURL : altLangUrl;
+const enUrl = lang === 'en' ? canonicalURL : altLangUrl;
 
 // Default site-level JSON-LD
 const defaultJsonLd = [
@@ -28,11 +36,11 @@ const defaultJsonLd = [
     '@type': 'WebSite',
     name: 'CodePick',
     url: siteUrl,
-    description: 'AI 编程工具选型指南 - 帮助中国开发者选择最适合的 AI 编程工具方案',
-    inLanguage: 'zh-CN',
+    description: t('seo.siteDesc', lang),
+    inLanguage: htmlLang,
     potentialAction: {
       '@type': 'SearchAction',
-      target: `${siteUrl}/tools?q={search_term_string}`,
+      target: `${siteUrl}/${lang}/tools?q={search_term_string}`,
       'query-input': 'required name=search_term_string',
     },
   },
@@ -51,18 +59,22 @@ const allJsonLd = jsonLd
   : defaultJsonLd;
 
 const navLinks = [
-  { href: '/', label: '方案矩阵' },
-  { href: '/tools', label: '工具库' },
-  { href: '/tools/overview', label: '全景图' },
-  { href: '/compare', label: '对比' },
-  { href: '/guides', label: '指南' },
-  { href: '/faq', label: 'FAQ' },
-  { href: '/changelog', label: '更新日志' },
+  { href: localePath('/', lang), label: t('nav.plans', lang) },
+  { href: localePath('/tools', lang), label: t('nav.tools', lang) },
+  { href: localePath('/tools/overview', lang), label: t('nav.overview', lang) },
+  { href: localePath('/compare', lang), label: t('nav.compare', lang) },
+  { href: localePath('/guides', lang), label: t('nav.guides', lang) },
+  { href: localePath('/faq', lang), label: t('nav.faq', lang) },
+  { href: localePath('/changelog', lang), label: t('nav.changelog', lang) },
 ];
+
+const otherLang = lang === 'zh' ? 'en' : 'zh';
+const switchLabel = lang === 'zh' ? 'EN' : '中文';
+const switchUrl = getAlternateLangUrl(Astro.url, lang);
 ---
 
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang={htmlLang}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -72,6 +84,11 @@ const navLinks = [
   <!-- Canonical URL -->
   <link rel="canonical" href={canonicalURL} />
 
+  <!-- hreflang alternates -->
+  <link rel="alternate" hreflang="zh" href={zhUrl} />
+  <link rel="alternate" hreflang="en" href={enUrl} />
+  <link rel="alternate" hreflang="x-default" href={zhUrl} />
+
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalURL} />
@@ -79,7 +96,7 @@ const navLinks = [
   <meta property="og:description" content={description} />
   <meta property="og:image" content={ogImage} />
   <meta property="og:site_name" content="CodePick" />
-  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale" content={ogLocale} />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -106,7 +123,7 @@ const navLinks = [
   <!-- Navigation -->
   <nav class="sticky top-0 z-50 border-b border-[var(--surface-border)] bg-[rgba(15,17,23,0.8)] backdrop-blur-xl">
     <div class="container flex items-center justify-between h-16">
-      <a href="/" class="flex items-center gap-2 text-lg font-bold text-white no-underline">
+      <a href={localePath('/', lang)} class="flex items-center gap-2 text-lg font-bold text-white no-underline">
         <span class="text-2xl">⚡</span>
         <span>CodePick</span>
       </a>
@@ -121,6 +138,7 @@ const navLinks = [
         ))}
       </div>
       <div class="flex items-center gap-3">
+        <a href={switchUrl} class="btn btn-ghost text-xs">{switchLabel}</a>
         <a
           href="https://github.com/WhiteWorld/codepick"
           target="_blank"
@@ -129,7 +147,7 @@ const navLinks = [
         >
           GitHub ↗
         </a>
-        <button id="menu-toggle" class="md:hidden btn btn-ghost p-2" aria-label="菜单">
+        <button id="menu-toggle" class="md:hidden btn btn-ghost p-2" aria-label={t('menu.ariaLabel', lang)}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 010 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 010 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 010 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
           </svg>
@@ -160,12 +178,12 @@ const navLinks = [
         <div>
           <h3 class="text-white font-semibold mb-3">⚡ CodePick</h3>
           <p class="text-sm text-[var(--text-muted)] leading-relaxed">
-            帮助中国开发者选择最适合的 AI 编程工具方案。<br/>
-            数据定期更新，所有信息均经人工验证。
+            {t('footer.desc', lang)}<br/>
+            {t('footer.descLine2', lang)}
           </p>
         </div>
         <div>
-          <h4 class="text-[var(--text-secondary)] font-semibold mb-3 text-sm">快速导航</h4>
+          <h4 class="text-[var(--text-secondary)] font-semibold mb-3 text-sm">{t('footer.quickNav', lang)}</h4>
           <div class="flex flex-col gap-2">
             {navLinks.map(link => (
               <a href={link.href} class="text-sm text-[var(--text-muted)] hover:text-white no-underline">{link.label}</a>
@@ -173,16 +191,16 @@ const navLinks = [
           </div>
         </div>
         <div>
-          <h4 class="text-[var(--text-secondary)] font-semibold mb-3 text-sm">关于</h4>
+          <h4 class="text-[var(--text-secondary)] font-semibold mb-3 text-sm">{t('footer.about', lang)}</h4>
           <div class="flex flex-col gap-2 text-sm text-[var(--text-muted)]">
-            <span>个人项目 · 非商业推荐</span>
-            <span>数据最后更新: 2026-02</span>
-            <a href="https://github.com/WhiteWorld/codepick/issues" target="_blank" rel="noopener" class="hover:text-white no-underline">报告数据错误 →</a>
+            <span>{t('footer.personal', lang)}</span>
+            <span>{t('footer.lastUpdate', lang)}</span>
+            <a href="https://github.com/WhiteWorld/codepick/issues" target="_blank" rel="noopener" class="hover:text-white no-underline">{t('footer.reportLink', lang)}</a>
           </div>
         </div>
       </div>
       <div class="mt-8 pt-6 border-t border-[var(--surface-border)] text-center text-xs text-[var(--text-muted)]">
-        © 2026 CodePick. 工具评测数据仅供参考，请以官方信息为准。
+        {t('footer.copyright', lang)}
       </div>
     </div>
   </footer>
