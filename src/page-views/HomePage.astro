@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuickPicker from '../components/QuickPicker.astro';
+import FilterBar from '../components/FilterBar.astro';
+import PlanCard from '../components/PlanCard.astro';
+import CompareTable from '../components/CompareTable.astro';
+import ScenarioCard from '../components/ScenarioCard.astro';
+import { getAllPlansLocalized, overallScore } from '../lib/data';
+import { t, localePath, type Locale } from '../lib/i18n';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+
+const plans = getAllPlansLocalized(lang).sort((a, b) => overallScore(b.scores) - overallScore(a.scores));
+const filterTags = ['all', 'ide', 'diy', 'cli', 'budget', 'china'];
+
+const seoTitle = lang === 'zh'
+  ? `CodePick - AI 编程工具选型指南 | 找到最适合你的 AI 编程方案`
+  : `CodePick - AI Coding Tool Guide | Find Your Perfect AI Coding Solution`;
+---
+<BaseLayout title={seoTitle} lang={lang}>
+  <section class="container pt-16 pb-12 text-center">
+    <h1 class="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
+      {t('home.heroTitle1', lang)}<br/>
+      <span class="bg-gradient-to-r from-[var(--brand-400)] to-[var(--brand-600)] bg-clip-text text-transparent">{t('home.heroHighlight', lang)}</span>
+    </h1>
+    <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto mb-8">
+      {t('home.heroSub1', lang)}<strong class="text-white">{t('home.heroSubBold', lang)}</strong>{t('home.heroSub2', lang)}<br/>
+      {t('home.heroCoverage', lang)} {plans.length} {t('home.heroCombos', lang)}
+    </p>
+    <div class="flex justify-center gap-3">
+      <a href="#quick-picker" class="btn btn-primary">{t('home.ctaQuick', lang)}</a>
+      <a href="#plans" class="btn btn-ghost">{t('home.ctaBrowse', lang)}</a>
+    </div>
+  </section>
+  <section class="container mb-16"><QuickPicker lang={lang} /></section>
+  <section class="container mb-16" id="plans">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-xl font-bold text-white m-0">{t('section.planMatrix', lang)}</h2>
+      <span class="text-xs text-[var(--text-muted)]">{t('home.totalPrefix', lang)}{plans.length} {t('home.planCount', lang)}</span>
+    </div>
+    <div class="mb-6"><FilterBar tags={filterTags} activeTag="all" lang={lang} /></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {plans.map(plan => (
+        <div data-plan-tags={plan.tags.join(',')} data-plan-id={plan.id}><PlanCard plan={plan} lang={lang} /></div>
+      ))}
+    </div>
+  </section>
+  <section class="container mb-16">
+    <h2 class="text-xl font-bold text-white mb-6">{t('section.compareTable', lang)}</h2>
+    <CompareTable plans={plans} lang={lang} />
+  </section>
+  <section class="container mb-16"><ScenarioCard lang={lang} /></section>
+  <section class="container mb-16 text-center">
+    <div class="card p-8 md:p-12 bg-gradient-to-br from-[var(--surface-card)] to-[rgba(49,46,129,0.2)]">
+      <h2 class="text-2xl font-bold text-white mb-3 mt-0">{t('home.notFoundTitle', lang)}</h2>
+      <p class="text-[var(--text-secondary)] mb-6">{t('home.notFoundDesc', lang)}</p>
+      <a href="https://github.com/WhiteWorld/codepick/issues/new" target="_blank" rel="noopener" class="btn btn-primary">{t('link.submitFeedback', lang)}</a>
+    </div>
+  </section>
+</BaseLayout>
