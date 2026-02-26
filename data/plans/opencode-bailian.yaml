@@ -1,0 +1,47 @@
+id: opencode-bailian
+name: OpenCode + 百炼 Coding Plan
+badge: 终端千问方案
+type: cli
+
+composition:
+  client: opencode
+  api: bailian-coding-plan
+  environment: 终端
+
+monthly_cost:
+  min: "¥7.9"
+  typical: "¥7.9"
+  max: "¥39.9"
+
+currency: CNY
+
+scores:
+  coding_ability: 8.0
+  cost_efficiency: 9.5
+  flexibility: 9.5
+  china_friendly: 8.8
+
+description: "终端党的阿里云方案。OpenCode 开源CLI客户端接百炼 API 国内直连。Lite 套餐首购仅¥7.9/月，支持 Qwen3.5-Plus 等8款模型，性价比极高。"
+
+tags: [cli, budget, china, terminal]
+
+best_for:
+  - 终端重度用户
+  - 预算有限的国内开发者
+  - 想用千问模型的 CLI 用户
+
+quick_start:
+  - "安装 OpenCode CLI"
+  - "注册阿里云账号，开通百炼 Coding Plan Lite (首购¥7.9)"
+  - "配置百炼 API Key 和 Base URL"
+  - "选择模型（推荐 qwen3.5-plus）"
+
+pros:
+  - 开源免费客户端 + 百炼 Lite 首购仅 ¥7.9/月
+  - 支持8款编程模型自由切换
+  - 国内直连，无需代理
+  - 多会话管理
+cons:
+  - 终端交互，学习曲线略高
+  - 模型能力不如 Claude Code 原生
+  - 额度用完不自动转按量计费
