@@ -1,0 +1,18 @@
+{
+  "redirects": [
+    { "source": "/tools", "destination": "/zh/tools", "statusCode": 301 },
+    { "source": "/tools/free", "destination": "/zh/tools/free", "statusCode": 301 },
+    { "source": "/tools/china", "destination": "/zh/tools/china", "statusCode": 301 },
+    { "source": "/tools/vscode", "destination": "/zh/tools/vscode", "statusCode": 301 },
+    { "source": "/tools/terminal", "destination": "/zh/tools/terminal", "statusCode": 301 },
+    { "source": "/tools/overview", "destination": "/zh/tools/overview", "statusCode": 301 },
+    { "source": "/tool/:id", "destination": "/zh/tool/:id", "statusCode": 301 },
+    { "source": "/plan/:id", "destination": "/zh/plan/:id", "statusCode": 301 },
+    { "source": "/compare", "destination": "/zh/compare", "statusCode": 301 },
+    { "source": "/compare/:slug", "destination": "/zh/compare/:slug", "statusCode": 301 },
+    { "source": "/guides", "destination": "/zh/guides", "statusCode": 301 },
+    { "source": "/guides/:slug", "destination": "/zh/guides/:slug", "statusCode": 301 },
+    { "source": "/faq", "destination": "/zh/faq", "statusCode": 301 },
+    { "source": "/changelog", "destination": "/zh/changelog", "statusCode": 301 }
+  ]
+}
