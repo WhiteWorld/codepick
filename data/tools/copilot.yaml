@@ -76,10 +76,10 @@ not_for:
 data_sources:
   - url: https://github.com/features/copilot/plans
     type: pricing
-    last_checked: '2026-02-15'
+    last_checked: '2026-02-26'
   - url: https://docs.github.com/en/copilot
     type: docs
-    last_checked: '2026-02-15'
+    last_checked: '2026-02-26'
 changelog:
   - date: '2026-02-01'
     type: feature
@@ -93,7 +93,7 @@ changelog:
   - date: '2025-10-01'
     type: pricing
     summary: 推出永久免费版 Copilot Free
-last_full_review: '2026-02-15'
-next_review_due: '2026-03-17'
+last_full_review: '2026-02-26'
+next_review_due: '2026-03-28'
 review_frequency_days: 30
 confidence: high

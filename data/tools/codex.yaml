@@ -63,15 +63,15 @@ plans_using_this: []
 data_sources:
   - url: https://openai.com/codex/
     type: product
-    last_checked: '2026-02-17'
+    last_checked: '2026-02-26'
   - url: https://developers.openai.com/codex/pricing
     type: pricing
-    last_checked: '2026-02-17'
+    last_checked: '2026-02-26'
 changelog:
   - date: '2026-02-02'
     type: launch
     summary: Codex macOS 原生 App 发布，支持并行多 Agent、原生沙箱、Diff 审查，仅限 Apple Silicon
-last_full_review: '2026-02-17'
-next_review_due: '2026-03-17'
+last_full_review: '2026-02-26'
+next_review_due: '2026-03-28'
 review_frequency_days: 30
 confidence: medium

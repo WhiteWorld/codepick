@@ -74,10 +74,10 @@ compatible_apis:
 data_sources:
   - url: https://claude.ai/pricing
     type: pricing
-    last_checked: '2026-02-15'
+    last_checked: '2026-02-26'
   - url: https://docs.anthropic.com/en/docs/claude-code
     type: docs
-    last_checked: '2026-02-15'
+    last_checked: '2026-02-26'
 changelog:
   - date: '2026-02-06'
     type: feature
@@ -88,7 +88,7 @@ changelog:
   - date: '2025-04-01'
     type: pricing
     summary: 推出 Max 5x ($100) 和 Max 20x ($200) 高用量套餐
-last_full_review: '2026-02-15'
-next_review_due: '2026-03-17'
+last_full_review: '2026-02-26'
+next_review_due: '2026-03-28'
 review_frequency_days: 30
 confidence: high

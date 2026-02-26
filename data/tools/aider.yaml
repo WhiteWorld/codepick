@@ -4,8 +4,8 @@ type: cli
 logo: /images/aider.png
 url: https://aider.chat
 repo: https://github.com/Aider-AI/aider
-current_version: v0.86.0
-version_tracked_at: '2026-02-15'
+current_version: v0.86.2
+version_tracked_at: '2026-02-26'
 pricing:
   model: free
   currency: null
@@ -27,7 +27,7 @@ features:
   multi_file_edit: true
   mcp_support: false
   context_window: 取决于所选模型
-  supported_models: 20+ 提供商 + Ollama 本地模型
+  supported_models: 20+ 提供商 + Ollama 本地模型（含 GPT-4.1、Gemini 2.5 Pro、Grok-3、Claude Sonnet 4/Opus 4）
   ide_base: 终端 CLI
   supported_os:
     - macOS
@@ -54,15 +54,18 @@ compatible_apis:
 data_sources:
   - url: https://github.com/Aider-AI/aider/releases
     type: release
-    last_checked: '2026-01-28'
+    last_checked: '2026-02-26'
 changelog:
+  - date: '2026-02-12'
+    type: release
+    summary: 'v0.86.2: 新增 --upgrade 开关，显示 token 进度和 repo map 更新文件名；废弃 Python 3.9 支持'
   - date: '2026-02-15'
     type: release
-    summary: 'v0.86.0: Aider v0.86.0'
+    summary: 'v0.86.0: 初版 v0.86 系列，改进非流式响应等待动画'
   - date: '2026-01-20'
     type: release
-    summary: 'v0.72: 改进多文件编辑和自动测试运行'
-last_full_review: '2026-02-15'
-next_review_due: '2026-03-17'
+    summary: 新增 GPT-4.1/mini/nano 支持；Gemini 2.5 Pro Architect 模式改进；支持 Grok-3-beta 和新 Claude Sonnet 4/Opus 4 别名
+last_full_review: '2026-02-26'
+next_review_due: '2026-03-28'
 review_frequency_days: 30
 confidence: medium

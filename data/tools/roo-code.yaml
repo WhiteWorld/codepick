@@ -3,7 +3,7 @@ name: Roo Code
 type: client
 logo: /images/roo-code.png
 url: https://roocode.com
-repo: https://github.com/RooVetGit/Roo-Code
+repo: https://github.com/RooCodeInc/Roo-Code
 current_version: v3.47.3
 version_tracked_at: '2026-02-15'
 pricing:
@@ -30,11 +30,12 @@ features:
   context_window: 取决于所选模型
   supported_models: 任意 OpenAI / Anthropic / Google / 自定义 API 兼容模型
   ide_base: VS Code 插件
+  cloud_agents: true
   supported_os:
     - macOS
     - Windows
     - Linux
-  jetbrains_support: false
+  jetbrains_support: true
   git_integration: true
   multi_role: true
   roles:
@@ -42,10 +43,12 @@ features:
     - Architect (架构设计)
     - Debug (调试)
     - Ask (问答)
+    - Custom (自定义角色)
 best_for:
   - 需要多角色 Agent 的进阶用户
   - 搭配 OpenRouter 用全球模型
   - 复杂项目需要架构分析+编码
+  - 需要 Cloud Agents 在 Slack/GitHub 自动跑任务的团队
 not_for:
   - 国内直连需求（OpenRouter 需代理）
   - 新手用户
@@ -56,17 +59,23 @@ compatible_apis:
   - ark-coding-plan
   - ollama
 data_sources:
-  - url: https://github.com/RooVetGit/Roo-Code/releases
+  - url: https://github.com/RooCodeInc/Roo-Code/releases
     type: release
-    last_checked: '2026-01-28'
+    last_checked: '2026-02-26'
 changelog:
+  - date: '2026-02-25'
+    type: feature
+    summary: 仓库迁移至 RooCodeInc/Roo-Code；新增 JetBrains IDE 支持（独立扩展）；Roo Code Cloud Agents 发布（Slack/GitHub 集成）
+  - date: '2026-02-05'
+    type: release
+    summary: 'v3.47.0: 新增 Custom 自定义角色模式；Mode Gallery 社区配置库上线；Unbound provider 接入'
   - date: '2026-02-15'
     type: release
-    summary: 'v3.47.3: Release v3.47.3'
+    summary: 'v3.47.3: 修复 RooProtectedController 路径越界问题；ROO_CODE_DISABLE_TELEMETRY 环境变量支持'
   - date: '2026-01-28'
-    type: release
-    summary: 'v2.0: 新增 Architect 角色模式'
-last_full_review: '2026-02-15'
-next_review_due: '2026-03-17'
+    type: feature
+    summary: 支持 Claude Opus 4.6；tool use 消息改为结构化 delta 流式传输，提升效率
+last_full_review: '2026-02-26'
+next_review_due: '2026-03-28'
 review_frequency_days: 30
-confidence: medium
+confidence: high

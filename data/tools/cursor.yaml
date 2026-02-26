@@ -4,8 +4,8 @@ type: ide
 logo: /images/cursor.png
 url: https://cursor.com
 repo: null
-current_version: '0.48'
-version_tracked_at: '2026-02-14'
+current_version: '2.5'
+version_tracked_at: '2026-02-26'
 pricing:
   model: subscription
   currency: USD
@@ -36,7 +36,7 @@ pricing:
       per_user: true
       limits: 定制用量池, 发票/PO支付, SCIM, 审计日志
   price_updated_at: '2026-02-14'
-  note: 2025年6月起从请求制改为额度池制($20 included usage), Auto模式可无限使用
+  note: 2025年6月起从请求制改为额度池制($20 included usage), Auto模式可无限使用；Ultra/Teams/Enterprise可访问 cursor.com/agents 云端长时任务
 scores:
   coding_ability: 9.5
   cost_efficiency: 6
@@ -84,21 +84,33 @@ plans_using_this:
 data_sources:
   - url: https://cursor.com/pricing
     type: pricing
-    last_checked: '2026-02-15'
+    last_checked: '2026-02-26'
   - url: https://cursor.com/changelog
     type: changelog
-    last_checked: '2026-02-15'
+    last_checked: '2026-02-26'
 changelog:
+  - date: '2026-02-24'
+    type: feature
+    summary: 'v2.5: Cloud Agents 升级，每个 Agent 运行在独立 VM 沙箱中，可自动测试、截图、生成视频，产出含 Artifact 的 Merge-ready PR；可在 Web/桌面/移动/Slack/GitHub 触发'
+  - date: '2026-02-18'
+    type: feature
+    summary: 'v2.5 CLI: 支持将 Plan 从 CLI 移交给云端 Agent 执行；内联渲染 ASCII 图表；持久化决策菜单'
+  - date: '2026-01-22'
+    type: feature
+    summary: 'v2.4: 引入 Sub-agents 并行处理子任务，改进超长任务上下文管理；Composer 1.5 模型上线，20x RL 提升，更快更智能'
+  - date: '2026-01-08'
+    type: feature
+    summary: 'CLI 更新: 新增 models/rules/MCP 命令；Hooks 速度提升 10–20 倍；支持一键 MCP Auth'
   - date: '2026-02-01'
     type: feature
-    summary: 新增 Cloud Agents，支持后台自主完成开发任务
+    summary: 长时 Agent（Long-running Agents）发布，先规划再执行，完成以往 Agent 难以胜任的复杂任务，产出更大更完整的 PR
   - date: '2026-01-15'
     type: pricing
     summary: 新增 Pro+ ($60/月) 和 Ultra ($200/月) 套餐
   - date: '2025-06-01'
     type: pricing
     summary: Pro 从500次请求制改为$20额度池制, Auto模式无限使用
-last_full_review: '2026-02-15'
-next_review_due: '2026-03-17'
+last_full_review: '2026-02-26'
+next_review_due: '2026-03-28'
 review_frequency_days: 30
 confidence: high

@@ -69,15 +69,15 @@ plans_using_this: []
 data_sources:
   - url: https://kiro.dev/pricing/
     type: pricing
-    last_checked: '2026-02-17'
+    last_checked: '2026-02-26'
   - url: https://kiro.dev/blog/introducing-kiro/
     type: changelog
-    last_checked: '2026-02-17'
+    last_checked: '2026-02-26'
 changelog:
   - date: '2025-07-01'
     type: launch
     summary: Kiro 公开预览版发布，AWS 出品的 Spec 驱动 Agentic IDE
-last_full_review: '2026-02-17'
-next_review_due: '2026-03-17'
+last_full_review: '2026-02-26'
+next_review_due: '2026-03-28'
 review_frequency_days: 30
 confidence: medium

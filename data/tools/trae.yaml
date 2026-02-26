@@ -59,7 +59,7 @@ plans_using_this: []
 data_sources:
   - url: https://www.trae.ai/pricing
     type: pricing
-    last_checked: '2026-02-17'
+    last_checked: '2026-02-26'
 changelog:
   - date: '2026-02-01'
     type: pricing
@@ -67,7 +67,7 @@ changelog:
   - date: '2026-01-10'
     type: feature
     summary: Builder 模式上线，支持 Grok-4（Beta）模型
-last_full_review: '2026-02-17'
-next_review_due: '2026-03-17'
+last_full_review: '2026-02-26'
+next_review_due: '2026-03-28'
 review_frequency_days: 30
 confidence: medium

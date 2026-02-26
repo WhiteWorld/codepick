@@ -64,12 +64,12 @@ plans_using_this: []
 data_sources:
   - url: https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/
     type: product
-    last_checked: '2026-02-17'
+    last_checked: '2026-02-26'
 changelog:
   - date: '2025-11-18'
     type: launch
     summary: Google Antigravity 公开预览发布，随 Gemini 3 同期推出，VS Code Fork，免费支持多顶级模型
-last_full_review: '2026-02-17'
-next_review_due: '2026-03-17'
+last_full_review: '2026-02-26'
+next_review_due: '2026-03-28'
 review_frequency_days: 30
 confidence: medium
