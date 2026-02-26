@@ -5,7 +5,7 @@ logo: /images/windsurf.png
 url: https://windsurf.com
 repo: null
 current_version: null
-version_tracked_at: '2026-02-17'
+version_tracked_at: '2026-02-26'
 pricing:
   model: subscription
   currency: USD
@@ -23,12 +23,12 @@ pricing:
       per_user: true
       limits: 500 credits/用户/月，集中计费，管理后台，SSO + RBAC
     - name: Enterprise
-      price: null
+      price: 60
       period: month
       per_user: true
-      limits: 1000 credits/用户/月，混合部署，按量折扣
-  price_updated_at: '2026-02-17'
-  note: Credits 通用于 Cascade 对话和高级补全；Pro 比 Cursor Pro 便宜 $5（$15 vs $20）
+      limits: 1000 credits/用户/月，RBAC + SSO，混合部署，ZDR默认开启，200人以上联系销售
+  price_updated_at: '2026-02-26'
+  note: 1 credit = $0.04；额外购买 $10/250 credits(Pro) 或 $40/1000 credits(Teams/Enterprise)；add-on credits 不过期；Pro 比 Cursor Pro 便宜 $5（$15 vs $20）
 scores:
   coding_ability: 8.5
   cost_efficiency: 8
@@ -45,9 +45,10 @@ features:
   tab_supercomplete: true
   context_window: 标准上下文窗口
   supported_models:
-    - Claude Sonnet 3.5
-    - Claude Sonnet 3.7
-    - GPT-4o
+    - Claude Sonnet 4 (BYOK)
+    - Claude Opus 4 (BYOK)
+    - GPT-5.1
+    - Gemini 3 Pro（付费预览）
     - Gemini 2.5 Pro
     - SWE-1.5（Windsurf 自研）
   ide_base: VS Code Fork
@@ -69,18 +70,30 @@ plans_using_this: []
 data_sources:
   - url: https://windsurf.com/pricing
     type: pricing
-    last_checked: '2026-02-17'
-  - url: https://windsurf.com/
-    type: product
-    last_checked: '2026-02-17'
+    last_checked: '2026-02-26'
+  - url: https://windsurf.com/changelog
+    type: changelog
+    last_checked: '2026-02-26'
 changelog:
+  - date: '2026-02-01'
+    type: feature
+    summary: 新增 BYOK（Bring Your Own API Key），Free/Pro 用户可接入 Claude Sonnet 4 / Opus 4（含 Thinking 模式）
+  - date: '2026-01-15'
+    type: feature
+    summary: GPT-5.1 和 GPT-5.1-Codex 上线；发布期间付费用户可免费使用
+  - date: '2026-01-01'
+    type: feature
+    summary: Gemini 3 Pro（低/高规格）以付费预览形式上线；Tab to Jump 全量发布
+  - date: '2025-12-01'
+    type: feature
+    summary: 新增 Windsurf Directory（社区规则库）和自动信用补充（Auto Credit Refill）
   - date: '2024-11-01'
     type: launch
     summary: Codeium 推出 Windsurf IDE，主打 Cascade Agentic 编码能力
   - date: '2025-01-01'
     type: update
     summary: 推出 SWE-1.5 自研 Agent 模型，速度和代码能力双提升
-last_full_review: '2026-02-17'
-next_review_due: '2026-03-17'
+last_full_review: '2026-02-26'
+next_review_due: '2026-03-28'
 review_frequency_days: 30
-confidence: medium
+confidence: high

@@ -29,12 +29,14 @@ features:
   mcp_support: true
   context_window: 取决于所选模型
   supported_models: 任意 OpenAI / Anthropic / Google / 自定义 API 兼容模型
-  ide_base: VS Code 插件
+  ide_base: VS Code 插件（兼容 Cursor / Windsurf / VSCodium / Zed / Neovim）
+  cli_support: true
+  cli_platforms: macOS / Linux（预览）
   supported_os:
     - macOS
     - Windows
     - Linux
-  jetbrains_support: false
+  jetbrains_support: true
   git_integration: true
   plan_act_mode: true
   auto_approve: true
@@ -56,18 +58,21 @@ compatible_apis:
 data_sources:
   - url: https://github.com/cline/cline/releases
     type: release
-    last_checked: '2026-02-09'
+    last_checked: '2026-02-26'
 changelog:
+  - date: '2026-02-19'
+    type: feature
+    summary: 新增 CLI（macOS/Linux 预览）；扩展支持 JetBrains IDE、Zed、Neovim 等平台；5M+ 用户里程碑
   - date: '2026-02-15'
     type: release
-    summary: 'v3.62.0: v3.62.0'
+    summary: 'v3.62.0: 新增 @url/@problems/@file/@folder 上下文注入；per-task token/费用追踪；.clinerules 文件支持'
   - date: '2026-02-05'
     type: release
     summary: 'v3.5: Plan模式下支持自动回滚'
   - date: '2026-01-10'
     type: feature
     summary: 支持 MCP Server 管理
-last_full_review: '2026-02-15'
-next_review_due: '2026-03-17'
+last_full_review: '2026-02-26'
+next_review_due: '2026-03-28'
 review_frequency_days: 30
 confidence: high

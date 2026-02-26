@@ -58,18 +58,24 @@ compatible_apis:
 data_sources:
   - url: https://trae.cn
     type: product
-    last_checked: '2026-02-17'
+    last_checked: '2026-02-26'
   - url: https://docs.trae.cn/ide/models
     type: docs
-    last_checked: '2026-02-17'
+    last_checked: '2026-02-26'
 changelog:
-  - date: '2025-03-04'
-    type: launch
-    summary: Trae CN 正式发布，字节跳动国内专属 AI IDE，免费使用豆包和 DeepSeek
+  - date: '2026-02-01'
+    type: update
+    summary: TRAE 2.0 即将发布：新增语音交互功能，进入"深度协作+多模态"时代；编码能力全面提升
   - date: '2026-01-01'
     type: feature
     summary: 新增 Kimi-K2、GLM-4.5、Qwen3-Coder 等国产顶级模型
-last_full_review: '2026-02-17'
-next_review_due: '2026-03-17'
+  - date: '2025-11-04'
+    type: update
+    summary: Claude 模型因服务中断从 Trae CN 下线；Pro 会员获补偿：2026-01-31 前每月300次快速请求（+50%）
+  - date: '2025-03-04'
+    type: launch
+    summary: Trae CN 正式发布，字节跳动国内专属 AI IDE，免费使用豆包和 DeepSeek
+last_full_review: '2026-02-26'
+next_review_due: '2026-03-28'
 review_frequency_days: 30
 confidence: medium

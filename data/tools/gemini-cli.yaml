@@ -59,15 +59,15 @@ plans_using_this: []
 data_sources:
   - url: https://github.com/google-gemini/gemini-cli
     type: product
-    last_checked: '2026-02-17'
+    last_checked: '2026-02-26'
   - url: https://ai.google.dev/gemini-api/docs/pricing
     type: pricing
-    last_checked: '2026-02-17'
+    last_checked: '2026-02-26'
 changelog:
   - date: '2025-06-01'
     type: launch
     summary: Gemini CLI 开源发布，免费使用 Gemini 2.5 Pro，1000 次/天
-last_full_review: '2026-02-17'
-next_review_due: '2026-03-17'
+last_full_review: '2026-02-26'
+next_review_due: '2026-03-28'
 review_frequency_days: 30
 confidence: medium
