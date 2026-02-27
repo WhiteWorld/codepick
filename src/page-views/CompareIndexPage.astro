@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+
+const collectionName = getCollectionName('compare', lang) as 'compare' | 'compare-en';
+const articles = (await getCollection(collectionName))
+  .filter(a => !a.data.draft)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const seoTitle = lang === 'zh'
+  ? 'AI 编程工具对比文章 | CodePick'
+  : 'AI Coding Tool Comparisons | CodePick';
+const seoDesc = lang === 'zh'
+  ? '深度对比主流 AI 编程工具方案：Cursor vs Copilot、Cline vs Roo Code、终端 AI 工具横评。'
+  : 'In-depth comparisons of popular AI coding tools: Cursor vs Copilot, Cline vs Roo Code, terminal AI tools.';
+---
+
+<BaseLayout title={seoTitle} description={seoDesc} lang={lang}>
+  <section class="container py-12 max-w-3xl">
+    <h1 class="text-3xl font-bold text-white mb-4">{t('compare.title', lang)}</h1>
+    <p class="text-[var(--text-secondary)] mb-8">{t('compare.subtitle', lang)}</p>
+
+    <div class="space-y-4">
+      {articles.map(article => (
+        <a href={localePath(`/compare/${article.slug}`, lang)} class="card p-6 block no-underline hover:border-[var(--brand-400)] transition-colors">
+          <div class="flex flex-wrap gap-2 mb-2">
+            {article.data.tags?.slice(0, 3).map((tag: string) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+          <h2 class="text-lg font-semibold text-white mt-2 mb-1">{article.data.title}</h2>
+          <p class="text-sm text-[var(--text-muted)] m-0 mb-2">{article.data.description}</p>
+          <span class="text-xs text-[var(--text-muted)]">{article.data.date}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

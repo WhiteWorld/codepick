@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { t, localePath, type Locale } from '../lib/i18n';
+
+interface Props { guide: any; lang: Locale }
+const { guide, lang } = Astro.props;
+const { Content } = await guide.render();
+
+const siteUrl = 'https://codepick.dev';
+const guidePath = localePath(`/guides/${guide.slug}`, lang);
+const guideUrl = `${siteUrl}${guidePath}`;
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t('bread.home', lang), item: siteUrl },
+    { '@type': 'ListItem', position: 2, name: t('bread.guides', lang), item: `${siteUrl}${localePath('/guides', lang)}` },
+    { '@type': 'ListItem', position: 3, name: guide.data.title, item: guideUrl },
+  ],
+};
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: guide.data.title,
+  description: guide.data.description,
+  datePublished: guide.data.date,
+  dateModified: guide.data.date,
+  url: guideUrl,
+  inLanguage: lang === 'zh' ? 'zh-CN' : 'en',
+  author: { '@type': 'Organization', name: 'CodePick', url: siteUrl },
+};
+---
+
+<BaseLayout
+  title={`${guide.data.title} | CodePick`}
+  description={guide.data.description}
+  jsonLd={[articleSchema, breadcrumbSchema]}
+  lang={lang}
+>
+  <article class="container py-12 max-w-3xl">
+    <nav class="text-xs text-[var(--text-muted)] mb-6">
+      <a href={localePath('/', lang)} class="hover:text-white no-underline">{t('bread.home', lang)}</a>
+      <span class="mx-1">/</span>
+      <a href={localePath('/guides', lang)} class="hover:text-white no-underline">{t('bread.guides', lang)}</a>
+      <span class="mx-1">/</span>
+      <span class="text-[var(--text-secondary)]">{guide.data.title}</span>
+    </nav>
+
+    <header class="mb-8">
+      <div class="flex flex-wrap gap-2 mb-3">
+        {guide.data.tags?.map((tag: string) => (
+          <span class="tag">{tag}</span>
+        ))}
+      </div>
+      <h1 class="text-2xl md:text-3xl font-bold text-white mb-3 mt-0">{guide.data.title}</h1>
+      <p class="text-[var(--text-secondary)] text-base mb-3">{guide.data.description}</p>
+      <div class="text-xs text-[var(--text-muted)]">
+        {t('guides.pubDate', lang)} {guide.data.date}
+      </div>
+    </header>
+
+    <div class="prose prose-invert prose-sm max-w-none
+      prose-headings:text-white prose-headings:font-semibold
+      prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4 prose-h2:border-b prose-h2:border-[var(--surface-border)] prose-h2:pb-2
+      prose-h3:text-base prose-h3:mt-6 prose-h3:mb-3
+      prose-p:text-[var(--text-secondary)] prose-p:leading-relaxed
+      prose-a:text-[var(--brand-400)] prose-a:no-underline hover:prose-a:underline
+      prose-strong:text-white
+      prose-code:text-[var(--brand-300)] prose-code:bg-[var(--surface-card)] prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-xs
+      prose-pre:bg-[var(--surface-card)] prose-pre:border prose-pre:border-[var(--surface-border)]
+      prose-table:text-sm
+      prose-th:text-[var(--text-secondary)] prose-th:font-medium prose-th:bg-[var(--surface-card)]
+      prose-td:text-[var(--text-secondary)] prose-td:border-[var(--surface-border)]
+      prose-tr:border-[var(--surface-border)]
+      prose-blockquote:border-l-[var(--brand-400)] prose-blockquote:text-[var(--text-muted)]
+      prose-li:text-[var(--text-secondary)]
+      prose-hr:border-[var(--surface-border)]
+      prose-ol:list-decimal prose-ul:list-disc
+    ">
+      <Content />
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-[var(--surface-border)]">
+      <a href={localePath('/guides', lang)} class="text-sm text-[var(--brand-400)] no-underline hover:underline">{t('link.backGuides', lang)}</a>
+    </div>
+  </article>
+</BaseLayout>

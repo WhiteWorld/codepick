@@ -1,0 +1,15 @@
+---
+import PlanDetailPage from '../../../page-views/PlanDetailPage.astro';
+import { getAllPlansLocalized } from '../../../lib/data';
+
+export function getStaticPaths() {
+  const plans = getAllPlansLocalized('zh');
+  return plans.map(plan => ({
+    params: { id: plan.id },
+    props: { plan },
+  }));
+}
+
+const { plan } = Astro.props;
+---
+<PlanDetailPage plan={plan} lang="zh" />

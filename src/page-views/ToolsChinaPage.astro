@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ToolCard from '../components/ToolCard.astro';
+import { getAllToolsLocalized } from '../lib/data';
+import { t, localePath, type Locale } from '../lib/i18n';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+
+const allTools = getAllToolsLocalized(lang);
+const tools = allTools
+  .filter(tool => (tool.scores.china_friendly ?? 0) >= 7)
+  .sort((a, b) => (b.scores.china_friendly ?? 0) - (a.scores.china_friendly ?? 0));
+
+const siteUrl = 'https://codepick.dev';
+const pagePath = localePath('/tools/china', lang);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: lang === 'zh' ? '国内可用 AI 编程工具' : 'China-Accessible AI Coding Tools',
+  url: `${siteUrl}${pagePath}`,
+  numberOfItems: tools.length,
+  itemListElement: tools.map((tool, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: tool.name,
+    url: `${siteUrl}${localePath(`/tool/${tool.id}`, lang)}`,
+  })),
+};
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t('bread.home', lang), item: siteUrl },
+    { '@type': 'ListItem', position: 2, name: t('bread.toolLibrary', lang), item: `${siteUrl}${localePath('/tools', lang)}` },
+    { '@type': 'ListItem', position: 3, name: t('bread.chinaTools', lang), item: `${siteUrl}${pagePath}` },
+  ],
+};
+
+const seoTitle = lang === 'zh'
+  ? '国内可用 AI 编程工具 | 无需翻墙 | CodePick'
+  : 'China-Accessible AI Coding Tools | CodePick';
+const seoDesc = lang === 'zh'
+  ? `${tools.length} 款在国内可直接使用的 AI 编程工具：Trae、Cline + 火山方舟、Aider、OpenCode，无需代理，国内直连。`
+  : `${tools.length} AI coding tools accessible in China: Trae, Cline + Volcengine Ark, Aider, OpenCode. Direct access without proxy.`;
+---
+
+<BaseLayout title={seoTitle} description={seoDesc} jsonLd={[jsonLd, breadcrumb]} lang={lang}>
+  <section class="container py-12">
+    <nav class="text-xs text-[var(--text-muted)] mb-6">
+      <a href={localePath('/', lang)} class="hover:text-white no-underline">{t('bread.home', lang)}</a>
+      <span class="mx-1">/</span>
+      <a href={localePath('/tools', lang)} class="hover:text-white no-underline">{t('bread.toolLibrary', lang)}</a>
+      <span class="mx-1">/</span>
+      <span class="text-[var(--text-secondary)]">{t('bread.chinaTools', lang)}</span>
+    </nav>
+
+    <h1 class="text-3xl font-bold text-white mb-3">{t('china.title', lang)}</h1>
+    <p class="text-[var(--text-secondary)] mb-4 max-w-2xl">
+      {t('china.subtitle1', lang)}
+      {tools.length} {t('china.subtitle2', lang)}
+    </p>
+
+    <div class="card p-4 mb-8 border-l-4 border-green-500">
+      <p class="text-sm text-[var(--text-secondary)] m-0">
+        ✅ <strong class="text-white">{t('china.methods', lang)}</strong>：
+        {t('china.methodTrae', lang)}
+        {t('china.methodOther1', lang)}<a href={localePath('/guides/cline-ark-setup', lang)} class="text-[var(--brand-400)] no-underline hover:underline">{t('china.methodLink', lang)}</a>{t('china.methodOther2', lang)}
+      </p>
+    </div>
+
+    <div class="flex flex-wrap gap-2 mb-8">
+      <a href={localePath('/tools', lang)} class="btn btn-ghost text-sm no-underline">{t('cat.all', lang)}</a>
+      <a href={localePath('/tools/free', lang)} class="btn btn-ghost text-sm no-underline">{t('cat.free', lang)}</a>
+      <span class="btn btn-primary text-sm cursor-default">{t('cat.china', lang)}</span>
+      <a href={localePath('/tools/vscode', lang)} class="btn btn-ghost text-sm no-underline">{t('cat.vscode', lang)}</a>
+      <a href={localePath('/tools/terminal', lang)} class="btn btn-ghost text-sm no-underline">{t('cat.terminal', lang)}</a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {tools.map(tool => <ToolCard tool={tool} lang={lang} />)}
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <a href={localePath('/guides/cline-ark-setup', lang)} class="card p-5 no-underline group block">
+        <h3 class="text-sm font-semibold text-white group-hover:text-[var(--brand-400)] m-0 mb-1">{t('china.relGuide', lang)}</h3>
+        <p class="text-xs text-[var(--text-muted)] m-0">{t('china.relGuideDesc', lang)}</p>
+      </a>
+      <a href={localePath('/plan/cline-ark', lang)} class="card p-5 no-underline group block">
+        <h3 class="text-sm font-semibold text-white group-hover:text-[var(--brand-400)] m-0 mb-1">{t('china.relPlan', lang)}</h3>
+        <p class="text-xs text-[var(--text-muted)] m-0">{t('china.relPlanDesc', lang)}</p>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

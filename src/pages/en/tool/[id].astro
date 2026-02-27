@@ -1,0 +1,15 @@
+---
+import ToolDetailPage from '../../../page-views/ToolDetailPage.astro';
+import { getAllToolsLocalized } from '../../../lib/data';
+
+export function getStaticPaths() {
+  const tools = getAllToolsLocalized('en');
+  return tools.map(tool => ({
+    params: { id: tool.id },
+    props: { tool },
+  }));
+}
+
+const { tool } = Astro.props;
+---
+<ToolDetailPage tool={tool} lang="en" />

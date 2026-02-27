@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import CompareArticlePage from '../../../page-views/CompareArticlePage.astro';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('compare-en');
+  return articles.map(article => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+---
+<CompareArticlePage article={article} lang="en" />
