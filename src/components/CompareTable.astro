@@ -1,12 +1,14 @@
 ---
 import type { Plan } from '../lib/data';
 import { overallScore } from '../lib/data';
+import { t, localePath, type Locale } from '../lib/i18n';
 
 interface Props {
   plans: Plan[];
+  lang?: Locale;
 }
 
-const { plans } = Astro.props;
+const { plans, lang = 'zh' } = Astro.props;
 
 function scoreClass(s: number): string {
   if (s >= 9) return 'color: #22c55e';
@@ -20,14 +22,14 @@ function scoreClass(s: number): string {
   <table class="compare-table">
     <thead>
       <tr>
-        <th>方案</th>
-        <th>类型</th>
-        <th>月费</th>
-        <th class="text-center">编程</th>
-        <th class="text-center">性价比</th>
-        <th class="text-center">灵活性</th>
-        <th class="text-center">国内</th>
-        <th class="text-center">综合</th>
+        <th>{t('table.plan', lang)}</th>
+        <th>{t('table.type', lang)}</th>
+        <th>{t('table.monthly', lang)}</th>
+        <th class="text-center">{t('score.coding', lang)}</th>
+        <th class="text-center">{t('score.costEfficiency', lang)}</th>
+        <th class="text-center">{t('score.flexibility', lang)}</th>
+        <th class="text-center">{t('score.china', lang)}</th>
+        <th class="text-center">{t('score.overall', lang)}</th>
       </tr>
     </thead>
     <tbody>
@@ -37,7 +39,7 @@ function scoreClass(s: number): string {
         return (
           <tr>
             <td>
-              <a href={`/plan/${p.id}`} class="text-white font-medium no-underline hover:text-[var(--brand-400)]">
+              <a href={localePath(`/plan/${p.id}`, lang)} class="text-white font-medium no-underline hover:text-[var(--brand-400)]">
                 {p.name}
               </a>
               {p.badge && <span class="badge ml-2">{p.badge}</span>}

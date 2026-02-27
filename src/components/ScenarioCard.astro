@@ -1,91 +1,44 @@
 ---
+import { t, localePath, type Locale } from '../lib/i18n';
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = 'zh' } = Astro.props;
+
 interface Scenario {
   emoji: string;
-  title: string;
-  desc: string;
+  titleKey: string;
+  descKey: string;
   href: string;
 }
 
 const scenarios: Scenario[] = [
-  {
-    emoji: '🏆',
-    title: 'Cursor vs Copilot',
-    desc: '两大付费方案终极对比',
-    href: '/compare/cursor-vs-copilot',
-  },
-  {
-    emoji: '⚔️',
-    title: 'Cline vs Roo Code',
-    desc: '开源 VS Code Agent 谁更强',
-    href: '/compare/cline-vs-roo-code',
-  },
-  {
-    emoji: '⌨️',
-    title: '终端 AI 三杰对比',
-    desc: 'Claude Code / OpenCode / Aider',
-    href: '/compare/terminal-ai-tools',
-  },
-  {
-    emoji: '🆚',
-    title: 'Cursor vs Windsurf',
-    desc: 'VS Code Fork IDE 价格与能力对比',
-    href: '/compare/cursor-vs-windsurf',
-  },
-  {
-    emoji: '🖥️',
-    title: 'Kiro vs Cursor',
-    desc: 'AWS Spec 驱动 vs 老牌 AI IDE',
-    href: '/compare/kiro-vs-cursor',
-  },
-  {
-    emoji: '🆓',
-    title: '免费终端 AI 三杰',
-    desc: 'Gemini CLI vs Claude Code vs Codex CLI',
-    href: '/compare/gemini-cli-vs-claude-code-vs-codex-cli',
-  },
-  {
-    emoji: '🔥',
-    title: 'Cline + 火山方舟配置',
-    desc: '¥9.9/月国内 Agent 方案',
-    href: '/guides/cline-ark-setup',
-  },
-  {
-    emoji: '🔒',
-    title: '代码不出本机',
-    desc: 'Ollama + Aider 本地部署',
-    href: '/guides/ollama-aider-local',
-  },
-  {
-    emoji: '💰',
-    title: '如何免费用 AI 编程？',
-    desc: '零成本工具合集',
-    href: '/tools/free',
-  },
-  {
-    emoji: '🇨🇳',
-    title: '国内可用工具',
-    desc: '无需代理的 AI 编程方案',
-    href: '/tools/china',
-  },
-  {
-    emoji: '❓',
-    title: '常见问题 FAQ',
-    desc: '选型、价格、隐私全解答',
-    href: '/faq',
-  },
+  { emoji: '🏆', titleKey: 'sc.cursorCopilot.title', descKey: 'sc.cursorCopilot.desc', href: '/compare/cursor-vs-copilot' },
+  { emoji: '⚔️', titleKey: 'sc.clineRoo.title', descKey: 'sc.clineRoo.desc', href: '/compare/cline-vs-roo-code' },
+  { emoji: '⌨️', titleKey: 'sc.terminalAi.title', descKey: 'sc.terminalAi.desc', href: '/compare/terminal-ai-tools' },
+  { emoji: '🆚', titleKey: 'sc.cursorWindsurf.title', descKey: 'sc.cursorWindsurf.desc', href: '/compare/cursor-vs-windsurf' },
+  { emoji: '🖥️', titleKey: 'sc.kiroCursor.title', descKey: 'sc.kiroCursor.desc', href: '/compare/kiro-vs-cursor' },
+  { emoji: '🆓', titleKey: 'sc.freeTerminal.title', descKey: 'sc.freeTerminal.desc', href: '/compare/gemini-cli-vs-claude-code-vs-codex-cli' },
+  { emoji: '🔥', titleKey: 'sc.clineArk.title', descKey: 'sc.clineArk.desc', href: '/guides/cline-ark-setup' },
+  { emoji: '🔒', titleKey: 'sc.localDeploy.title', descKey: 'sc.localDeploy.desc', href: '/guides/ollama-aider-local' },
+  { emoji: '💰', titleKey: 'sc.freeCoding.title', descKey: 'sc.freeCoding.desc', href: '/tools/free' },
+  { emoji: '🇨🇳', titleKey: 'sc.chinaTools.title', descKey: 'sc.chinaTools.desc', href: '/tools/china' },
+  { emoji: '❓', titleKey: 'sc.faqLink.title', descKey: 'sc.faqLink.desc', href: '/faq' },
 ];
 ---
 
 <section>
-  <h2 class="text-xl font-bold text-white mb-6 mt-0">📌 场景速查</h2>
+  <h2 class="text-xl font-bold text-white mb-6 mt-0">{t('section.scenarios', lang)}</h2>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
     {scenarios.map(s => (
-      <a href={s.href} class="card p-4 no-underline group block">
+      <a href={localePath(s.href, lang)} class="card p-4 no-underline group block">
         <div class="text-2xl mb-2">{s.emoji}</div>
         <h3 class="text-sm font-semibold text-white group-hover:text-[var(--brand-400)] transition-colors m-0 mb-1">
-          {s.title}
+          {t(s.titleKey, lang)}
         </h3>
-        <p class="text-xs text-[var(--text-muted)] m-0">{s.desc}</p>
+        <p class="text-xs text-[var(--text-muted)] m-0">{t(s.descKey, lang)}</p>
       </a>
     ))}
   </div>

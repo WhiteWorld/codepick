@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+
+const collectionName = getCollectionName('guides', lang) as 'guides' | 'guides-en';
+const guides = (await getCollection(collectionName))
+  .filter(g => !g.data.draft)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const seoTitle = lang === 'zh'
+  ? 'AI 编程工具使用指南 | CodePick'
+  : 'AI Coding Tool Guides | CodePick';
+const seoDesc = lang === 'zh'
+  ? '手把手教你配置各种 AI 编程方案：Cline + 火山方舟、Ollama + Aider 本地部署等完整配置教程。'
+  : 'Step-by-step setup guides for AI coding tools: Cline + Volcengine Ark, Ollama + Aider local deployment, and more.';
+---
+
+<BaseLayout title={seoTitle} description={seoDesc} lang={lang}>
+  <section class="container py-12 max-w-3xl">
+    <h1 class="text-3xl font-bold text-white mb-4">{t('guides.title', lang)}</h1>
+    <p class="text-[var(--text-secondary)] mb-8">{t('guides.subtitle', lang)}</p>
+
+    <div class="space-y-4">
+      {guides.map(guide => (
+        <a href={localePath(`/guides/${guide.slug}`, lang)} class="card p-6 block no-underline hover:border-[var(--brand-400)] transition-colors">
+          <div class="flex flex-wrap gap-2 mb-2">
+            {guide.data.tags?.slice(0, 3).map((tag: string) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+          <h2 class="text-lg font-semibold text-white mt-2 mb-1">{guide.data.title}</h2>
+          <p class="text-sm text-[var(--text-muted)] m-0 mb-2">{guide.data.description}</p>
+          <span class="text-xs text-[var(--text-muted)]">{guide.data.date}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

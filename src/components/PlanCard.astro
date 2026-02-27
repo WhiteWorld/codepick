@@ -1,12 +1,14 @@
 ---
 import ScoreBar from './ScoreBar.astro';
 import type { Plan } from '../lib/data';
+import { t, localePath, type Locale } from '../lib/i18n';
 
 interface Props {
   plan: Plan;
+  lang?: Locale;
 }
 
-const { plan } = Astro.props;
+const { plan, lang = 'zh' } = Astro.props;
 
 // 类型颜色
 const typeColors: Record<string, string> = {
@@ -21,25 +23,10 @@ const tags = plan.tags || [];
 const primaryTag = tags[0] || 'diy';
 const tagColor = typeColors[primaryTag] || typeColors.diy;
 
-// 类型中文名
-const typeLabels: Record<string, string> = {
-  ide: 'IDE 集成',
-  plugin: '插件',
-  diy: 'DIY 组合',
-  cli: '终端 CLI',
-  terminal: '终端 CLI',
-  budget: '高性价比',
-  china: '国内友好',
-  agent: 'AI Agent',
-  vscode: 'VS Code',
-  privacy: '隐私优先',
-  power: '旗舰',
-};
-
 const bestFor = plan.best_for || [];
 ---
 
-<a href={`/plan/${plan.id}`} class="card p-5 block no-underline group">
+<a href={localePath(`/plan/${plan.id}`, lang)} class="card p-5 block no-underline group">
   <!-- Header -->
   <div class="flex items-start justify-between mb-3">
     <div>
@@ -53,7 +40,7 @@ const bestFor = plan.best_for || [];
     </div>
     <div class="text-right shrink-0 ml-3">
       <div class="text-lg font-bold text-white">{plan.monthly_cost}</div>
-      <div class="text-xs text-[var(--text-muted)]">{plan.currency}/月</div>
+      <div class="text-xs text-[var(--text-muted)]">{plan.currency}{t('price.perMonth', lang)}</div>
     </div>
   </div>
 
@@ -65,7 +52,7 @@ const bestFor = plan.best_for || [];
           class="tag"
           style={tag === primaryTag ? `background: ${tagColor}20; color: ${tagColor}` : ''}
         >
-          {typeLabels[tag] || tag}
+          {t(`tag.${tag}`, lang) || tag}
         </span>
       ))}
     </div>
@@ -73,17 +60,17 @@ const bestFor = plan.best_for || [];
 
   <!-- Score bars -->
   <div class="flex flex-col gap-2">
-    <ScoreBar label="编程能力" score={plan.scores.coding_ability} color="auto" />
-    <ScoreBar label="性价比" score={plan.scores.cost_efficiency} color="auto" />
-    <ScoreBar label="灵活性" score={plan.scores.flexibility} color="auto" />
-    <ScoreBar label="国内体验" score={plan.scores.china_friendly} color="auto" />
+    <ScoreBar label={t('score.codingAbility', lang)} score={plan.scores.coding_ability} color="auto" />
+    <ScoreBar label={t('score.costEfficiency', lang)} score={plan.scores.cost_efficiency} color="auto" />
+    <ScoreBar label={t('score.flexibility', lang)} score={plan.scores.flexibility} color="auto" />
+    <ScoreBar label={t('score.chinaFriendly', lang)} score={plan.scores.china_friendly} color="auto" />
   </div>
 
   <!-- Best for -->
   {bestFor.length > 0 && (
     <div class="mt-4 pt-3 border-t border-[var(--surface-border)]">
       <p class="text-xs text-[var(--text-muted)] m-0">
-        适合：{bestFor.slice(0, 2).join(' · ')}
+        {t('meta.bestFor', lang)}{bestFor.slice(0, 2).join(' · ')}
       </p>
     </div>
   )}

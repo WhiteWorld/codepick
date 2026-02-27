@@ -1,86 +1,20 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import QuickPicker from '../components/QuickPicker.astro';
-import FilterBar from '../components/FilterBar.astro';
-import PlanCard from '../components/PlanCard.astro';
-import CompareTable from '../components/CompareTable.astro';
-import ScenarioCard from '../components/ScenarioCard.astro';
-import { getAllPlans, overallScore } from '../lib/data';
-
-const plans = getAllPlans().sort((a, b) => overallScore(b.scores) - overallScore(a.scores));
-const filterTags = ['all', 'ide', 'diy', 'cli', 'budget', 'china'];
+// Root redirect: detect browser language and redirect to /zh/ or /en/
 ---
-
-<BaseLayout title="CodePick - AI 编程工具选型指南 | 找到最适合你的 AI 编程方案">
-  <!-- Hero -->
-  <section class="container pt-16 pb-12 text-center">
-    <h1 class="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
-      找到最适合你的<br/>
-      <span class="bg-gradient-to-r from-[var(--brand-400)] to-[var(--brand-600)] bg-clip-text text-transparent">
-        AI 编程方案
-      </span>
-    </h1>
-    <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto mb-8">
-      不只对比工具，更对比<strong class="text-white">完整方案</strong>——客户端 + 模型 API + 实际成本。<br/>
-      覆盖 Cursor、Copilot、Cline + 方舟等 {plans.length} 种主流组合。
-    </p>
-    <div class="flex justify-center gap-3">
-      <a href="#quick-picker" class="btn btn-primary">⚡ 30 秒选型</a>
-      <a href="#plans" class="btn btn-ghost">浏览全部方案 ↓</a>
-    </div>
-  </section>
-
-  <!-- Quick Picker -->
-  <section class="container mb-16">
-    <QuickPicker />
-  </section>
-
-  <!-- Filter + Plan Cards -->
-  <section class="container mb-16" id="plans">
-    <div class="flex items-center justify-between mb-6">
-      <h2 class="text-xl font-bold text-white m-0">📋 方案选型矩阵</h2>
-      <span class="text-xs text-[var(--text-muted)]">共 {plans.length} 个方案</span>
-    </div>
-
-    <div class="mb-6">
-      <FilterBar tags={filterTags} activeTag="all" />
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {plans.map(plan => (
-        <div data-plan-tags={plan.tags.join(',')} data-plan-id={plan.id}>
-          <PlanCard plan={plan} />
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <!-- Compare Table -->
-  <section class="container mb-16">
-    <h2 class="text-xl font-bold text-white mb-6">📊 全方案对比表</h2>
-    <CompareTable plans={plans} />
-  </section>
-
-  <!-- Scenario Cards -->
-  <section class="container mb-16">
-    <ScenarioCard />
-  </section>
-
-  <!-- CTA -->
-  <section class="container mb-16 text-center">
-    <div class="card p-8 md:p-12 bg-gradient-to-br from-[var(--surface-card)] to-[rgba(49,46,129,0.2)]">
-      <h2 class="text-2xl font-bold text-white mb-3 mt-0">找不到合适的方案？</h2>
-      <p class="text-[var(--text-secondary)] mb-6">
-        数据持续更新中。发现信息过时或想要新增工具？欢迎提交 Issue。
-      </p>
-      <a
-        href="https://github.com/WhiteWorld/codepick/issues/new"
-        target="_blank"
-        rel="noopener"
-        class="btn btn-primary"
-      >
-        提交反馈 →
-      </a>
-    </div>
-  </section>
-</BaseLayout>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="refresh" content="0;url=/zh/" />
+  <title>CodePick - Redirecting...</title>
+  <script>
+    const lang = (navigator.language || '').toLowerCase();
+    if (lang.startsWith('en')) {
+      window.location.replace('/en/');
+    } else {
+      window.location.replace('/zh/');
+    }
+  </script>
+</head>
+<body></body>
+</html>

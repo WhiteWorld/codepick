@@ -1,0 +1,276 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ScoreBar from '../components/ScoreBar.astro';
+import ToolCard from '../components/ToolCard.astro';
+import { getAllToolsLocalized, isFresh } from '../lib/data';
+import { t, localePath, type Locale } from '../lib/i18n';
+import type { Tool } from '../lib/data';
+
+interface Props { tool: Tool; lang: Locale }
+const { tool, lang } = Astro.props;
+
+const meta = (tool as any).meta || {};
+const fresh = meta.next_review_due ? isFresh(meta.next_review_due) : true;
+const pricingPlans = (tool as any).pricing?.plans || [];
+const pricingCurrency = (tool as any).pricing?.currency || 'USD';
+
+// features 是对象 {key: value}，转为展示列表
+const rawFeatures = (tool as any).features || {};
+const featureKeys = [
+  'code_completion', 'chat', 'agent_mode', 'multi_file_edit', 'mcp_support',
+  'context_window', 'supported_models', 'git_integration', 'auto_commit',
+  'sub_agent', 'multi_agent', 'extended_thinking', 'multi_role', 'custom_modes',
+  'tui_interface', 'model_providers',
+];
+
+let featureItems: {label: string, value: string}[] = [];
+if (typeof rawFeatures === 'object' && !Array.isArray(rawFeatures)) {
+  for (const [k, v] of Object.entries(rawFeatures)) {
+    const label = featureKeys.includes(k) ? t(`feature.${k}`, lang) : k;
+    if (v === true) featureItems.push({label, value: '✅'});
+    else if (v === false) featureItems.push({label, value: '—'});
+    else if (Array.isArray(v)) featureItems.push({label, value: v.join(', ')});
+    else featureItems.push({label, value: String(v)});
+  }
+} else if (Array.isArray(rawFeatures)) {
+  featureItems = rawFeatures.map(f => ({label: String(f), value: '✅'}));
+}
+
+const pros = (tool as any).pros || [];
+const cons = (tool as any).cons || [];
+const bestFor = (tool as any).best_for || [];
+const changelog = (tool as any).changelog || [];
+
+// 相关工具：同 type 或同 ide_base，排除自身，最多 3 个
+const allTools = getAllToolsLocalized(lang);
+const toolType = (tool as any).type;
+const toolIdeBase = ((tool as any).features?.ide_base || '').toLowerCase();
+const relatedTools = allTools
+  .filter(t => t.id !== tool.id && (
+    (t as any).type === toolType ||
+    (toolIdeBase && ((t as any).features?.ide_base || '').toLowerCase() === toolIdeBase)
+  ))
+  .sort((a, b) => (b.scores.coding_ability ?? 0) - (a.scores.coding_ability ?? 0))
+  .slice(0, 3);
+
+// 标题关键词 by type
+const titleKeyword = t(`typeKw.${toolType}`, lang) || t('typeKw.default', lang);
+
+const siteUrl = 'https://codepick.dev';
+const toolPath = localePath(`/tool/${tool.id}`, lang);
+const toolUrl = `${siteUrl}${toolPath}`;
+const toolDescription = (tool as any).tagline || (lang === 'zh'
+  ? `${tool.name} AI 编程工具评测 - 功能、定价、优缺点详解`
+  : `${tool.name} AI coding tool review - features, pricing, pros & cons`);
+
+// SoftwareApplication JSON-LD
+const softwareAppSchema: object = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: tool.name,
+  url: (tool as any).url || toolUrl,
+  applicationCategory: 'DeveloperApplication',
+  operatingSystem: ((tool as any).features?.supported_os || ['macOS', 'Windows', 'Linux']).join(', '),
+  description: toolDescription,
+  inLanguage: lang === 'zh' ? 'zh-CN' : 'en',
+  aggregateRating: (tool as any).scores ? {
+    '@type': 'AggregateRating',
+    ratingValue: Math.round(
+      ((tool as any).scores.coding_ability + (tool as any).scores.cost_efficiency +
+       (tool as any).scores.flexibility + (tool as any).scores.china_friendly) / 4 * 10
+    ) / 10,
+    bestRating: 10,
+    worstRating: 1,
+    ratingCount: 1,
+  } : undefined,
+  offers: pricingPlans.length > 0 ? pricingPlans.map((p: any) => ({
+    '@type': 'Offer',
+    name: p.name,
+    price: typeof p.price === 'number' ? p.price : 0,
+    priceCurrency: pricingCurrency === 'CNY' ? 'CNY' : 'USD',
+    description: p.limits || '',
+  })) : undefined,
+};
+
+// BreadcrumbList JSON-LD
+const breadcrumbSchema: object = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t('bread.home', lang), item: siteUrl },
+    { '@type': 'ListItem', position: 2, name: t('bread.toolLibrary', lang), item: `${siteUrl}${localePath('/tools', lang)}` },
+    { '@type': 'ListItem', position: 3, name: tool.name, item: toolUrl },
+  ],
+};
+
+const seoTitle = lang === 'zh'
+  ? `${tool.name} - ${titleKeyword}评测 | CodePick`
+  : `${tool.name} - ${titleKeyword} Review | CodePick`;
+---
+
+<BaseLayout
+  title={seoTitle}
+  description={toolDescription}
+  jsonLd={[softwareAppSchema, breadcrumbSchema]}
+  lang={lang}
+>
+  <article class="container py-12 max-w-4xl">
+    <!-- Breadcrumb -->
+    <nav class="text-xs text-[var(--text-muted)] mb-6">
+      <a href={localePath('/', lang)} class="hover:text-white no-underline">{t('bread.home', lang)}</a>
+      <span class="mx-1">/</span>
+      <a href={localePath('/tools', lang)} class="hover:text-white no-underline">{t('bread.toolLibrary', lang)}</a>
+      <span class="mx-1">/</span>
+      <span class="text-[var(--text-secondary)]">{tool.name}</span>
+    </nav>
+
+    <!-- Header -->
+    <div class="flex items-start gap-4 mb-8">
+      <div class="w-16 h-16 rounded-xl bg-[var(--surface-card)] flex items-center justify-center text-2xl font-bold text-[var(--brand-400)] border border-[var(--surface-border)]">
+        {tool.name.charAt(0)}
+      </div>
+      <div class="flex-1">
+        <h1 class="text-2xl md:text-3xl font-bold text-white mb-1 mt-0">{tool.name}</h1>
+        <p class="text-[var(--text-secondary)] m-0 mb-2">{(tool as any).tagline || ''}</p>
+        <div class="flex items-center gap-3 flex-wrap">
+          {(tool as any).type && <span class="tag tag-primary">{(tool as any).type}</span>}
+          {(tool as any).url && (
+            <a href={(tool as any).url} target="_blank" rel="noopener" class="text-xs text-[var(--brand-400)] no-underline">
+              {t('link.official', lang)}
+            </a>
+          )}
+          {!fresh && <span class="text-xs text-amber-400">{t('warn.dataOutdated', lang)}</span>}
+        </div>
+      </div>
+    </div>
+
+    <!-- Scores -->
+    {(tool as any).scores && (
+      <section class="card p-6 mb-8">
+        <h2 class="text-lg font-semibold text-white mb-4 mt-0">{t('section.scores', lang)}</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="flex flex-col gap-3">
+            <ScoreBar label={t('score.codingAbility', lang)} score={(tool as any).scores.coding_ability ?? 5} color="auto" />
+            <ScoreBar label={t('score.costEfficiency', lang)} score={(tool as any).scores.cost_efficiency ?? 5} color="auto" />
+          </div>
+          <div class="flex flex-col gap-3">
+            <ScoreBar label={t('score.flexibility', lang)} score={(tool as any).scores.flexibility ?? 5} color="auto" />
+            <ScoreBar label={t('score.chinaFriendly', lang)} score={(tool as any).scores.china_friendly ?? 5} color="auto" />
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Pricing -->
+    {pricingPlans.length > 0 && (
+      <section class="card p-6 mb-8">
+        <h2 class="text-lg font-semibold text-white mb-4 mt-0">{t('section.pricing', lang)}</h2>
+        <div class="overflow-x-auto">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>{t('table.planName', lang)}</th>
+                <th>{t('table.price', lang)}</th>
+                <th>{t('table.limits', lang)}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {pricingPlans.map((p: any) => (
+                <tr>
+                  <td class="font-medium">{p.name}</td>
+                  <td>{typeof p.price === 'number' ? `${pricingCurrency === 'CNY' ? '¥' : '$'}${p.price}${t('price.perMonth', lang)}` : p.price}</td>
+                  <td class="text-[var(--text-muted)]">{p.limits || '—'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    )}
+
+    <!-- Features -->
+    {featureItems.length > 0 && (
+      <section class="card p-6 mb-8">
+        <h2 class="text-lg font-semibold text-white mb-4 mt-0">{t('section.features', lang)}</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+          {featureItems.map(f => (
+            <div class="flex justify-between text-sm py-1.5 border-b border-[var(--surface-border)]">
+              <span class="text-[var(--text-secondary)]">{f.label}</span>
+              <span class="text-white font-medium">{f.value}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Pros & Cons -->
+    {(Array.isArray(pros) && pros.length > 0 || Array.isArray(cons) && cons.length > 0) && (
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+        {Array.isArray(pros) && pros.length > 0 && (
+          <div class="card p-6">
+            <h3 class="text-base font-semibold text-green-400 mb-3 mt-0">{t('section.pros', lang)}</h3>
+            <ul class="list-none text-sm text-[var(--text-secondary)] space-y-1.5 m-0 p-0">
+              {pros.map((p: string) => <li>+ {p}</li>)}
+            </ul>
+          </div>
+        )}
+        {Array.isArray(cons) && cons.length > 0 && (
+          <div class="card p-6">
+            <h3 class="text-base font-semibold text-red-400 mb-3 mt-0">{t('section.cons', lang)}</h3>
+            <ul class="list-none text-sm text-[var(--text-secondary)] space-y-1.5 m-0 p-0">
+              {cons.map((c: string) => <li>- {c}</li>)}
+            </ul>
+          </div>
+        )}
+      </div>
+    )}
+
+    <!-- Best For -->
+    {Array.isArray(bestFor) && bestFor.length > 0 && (
+      <section class="card p-6 mb-8">
+        <h2 class="text-lg font-semibold text-white mb-4 mt-0">{t('section.bestFor', lang)}</h2>
+        <div class="flex flex-wrap gap-2">
+          {bestFor.map((b: string) => <span class="tag tag-primary">{b}</span>)}
+        </div>
+      </section>
+    )}
+
+    <!-- Changelog -->
+    {Array.isArray(changelog) && changelog.length > 0 && (
+      <section class="card p-6 mb-8">
+        <h2 class="text-lg font-semibold text-white mb-4 mt-0">{t('section.changelog', lang)}</h2>
+        <div class="space-y-3">
+          {changelog.slice(0, 5).map((log: any) => (
+            <div class="flex gap-3 text-sm">
+              <span class="text-[var(--text-muted)] shrink-0 w-24">{log.date}</span>
+              {log.version && <span class="tag shrink-0">{log.version}</span>}
+              <span class="text-[var(--text-secondary)]">{log.summary}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Related Tools -->
+    {relatedTools.length > 0 && (
+      <section class="mb-8">
+        <h2 class="text-lg font-semibold text-white mb-4 mt-0">{t('section.relatedTools', lang)}</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {relatedTools.map(t => <ToolCard tool={t} lang={lang} />)}
+        </div>
+      </section>
+    )}
+
+    <!-- Meta -->
+    {(meta.last_verified || meta.confidence) && (
+      <div class="text-xs text-[var(--text-muted)] flex flex-wrap gap-4 mt-8">
+        {meta.last_verified && <span>{t('meta.lastVerified', lang)} {meta.last_verified}</span>}
+        {meta.next_review_due && <span>{t('meta.nextReview', lang)} {meta.next_review_due}</span>}
+        {meta.confidence && <span>{t('meta.confidence', lang)} {meta.confidence}</span>}
+        <a href="https://github.com/WhiteWorld/codepick/issues/new" target="_blank" rel="noopener" class="text-[var(--brand-400)] no-underline">
+          {t('link.reportError', lang)}
+        </a>
+      </div>
+    )}
+  </article>
+</BaseLayout>

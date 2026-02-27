@@ -1,20 +1,13 @@
 ---
+import { t, type Locale } from '../lib/i18n';
+
 interface Props {
   tags: string[];
   activeTag?: string;
+  lang?: Locale;
 }
 
-const { tags, activeTag = 'all' } = Astro.props;
-
-const typeLabels: Record<string, string> = {
-  all: '全部方案',
-  ide: 'IDE 集成',
-  plugin: '插件',
-  diy: 'DIY 组合',
-  cli: '终端 CLI',
-  budget: '高性价比',
-  china: '国内友好',
-};
+const { tags, activeTag = 'all', lang = 'zh' } = Astro.props;
 ---
 
 <div class="flex flex-wrap gap-2" id="filter-bar">
@@ -23,7 +16,7 @@ const typeLabels: Record<string, string> = {
       class={`filter-chip ${tag === activeTag ? 'active' : ''}`}
       data-filter={tag}
     >
-      {typeLabels[tag] || tag}
+      {t(`tag.${tag}`, lang) || tag}
     </button>
   ))}
 </div>
@@ -31,13 +24,11 @@ const typeLabels: Record<string, string> = {
 <script>
   document.querySelectorAll('#filter-bar .filter-chip').forEach(btn => {
     btn.addEventListener('click', () => {
-      // Update active state
       document.querySelectorAll('#filter-bar .filter-chip').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
       const filter = (btn as HTMLElement).dataset.filter || 'all';
 
-      // Filter plan cards
       document.querySelectorAll('[data-plan-tags]').forEach(card => {
         const el = card as HTMLElement;
         const tags = el.dataset.planTags?.split(',') || [];
