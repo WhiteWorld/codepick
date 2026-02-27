@@ -1,7 +1,9 @@
 id: claude-code
 name: Claude Code (Max)
 badge: 终端最强
+badge_en: Best Terminal Tool
 tagline: Anthropic 官方终端 AI 编程工具，多 Agent 协作，能力天花板
+tagline_en: Anthropic's official terminal AI coding tool — multi-Agent collaboration, top-tier capability
 client: claude-code
 api: claude-builtin
 environment: 终端 CLI
@@ -21,12 +23,22 @@ best_for:
   - 追求极致编程能力
   - 终端重度用户
   - 需要 Multi-Agent 协作
+best_for_en:
+  - Maximum coding capability
+  - Terminal power users
+  - Multi-Agent collaboration needs
 quick_start:
   - "安装: npm install -g @anthropic-ai/claude-code"
   - "订阅 Claude Pro ($20/月, 年付$17/月) 或 Max ($100-200/月)"
   - "进入项目目录运行: claude"
   - "使用自然语言描述编程任务"
   - "可选: 配置方舟 Coding Plan 实现国内直连"
+quick_start_en:
+  - "Install: npm install -g @anthropic-ai/claude-code"
+  - "Subscribe to Claude Pro ($20/mo, $17/mo annual) or Max ($100-200/mo)"
+  - "Navigate to project directory and run: claude"
+  - "Describe coding tasks in natural language"
+  - "Optional: Configure Volcengine Ark Coding Plan for direct China access"
 pros:
   - 编程能力当前最强（SWE-bench 第一）
   - Agent Teams 多Agent协作
@@ -34,10 +46,23 @@ pros:
   - Extended Thinking 深度推理
   - 可通过方舟 Coding Plan 国内直连
   - Pro 年付仅 $17/月
+pros_en:
+  - Top coding ability (SWE-bench #1)
+  - Agent Teams for multi-Agent collaboration
+  - Opus 4.6 with 1M context window
+  - Extended Thinking for deep reasoning
+  - Direct China access via Volcengine Ark Coding Plan
+  - Pro annual plan only $17/mo
 cons:
   - Max 套餐价格昂贵（$100-200/月）
   - 原生需要代理（方舟中转可解决）
   - 无 GUI，纯终端操作
   - API 按量付费时成本不可控
+cons_en:
+  - Max plan is expensive ($100-200/mo)
+  - Requires proxy natively (solvable via Ark relay)
+  - No GUI, terminal-only
+  - Unpredictable costs with pay-per-use API
 
 description: "Anthropic 官方终端 AI 编程工具，能力天花板。Pro $20/月(年付$17), Max 5x $100/月, Max 20x $200/月。Opus 4.6 支持1M上下文和Agent Teams。可通过方舟Coding Plan国内直连。"
+description_en: "Anthropic's official terminal AI coding tool, top-tier capability. Pro $20/mo ($17 annual), Max 5x $100/mo, Max 20x $200/mo. Opus 4.6 with 1M context and Agent Teams. Direct China access via Volcengine Ark Coding Plan."

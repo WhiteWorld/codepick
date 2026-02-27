@@ -13,17 +13,21 @@ pricing:
     - name: Individual
       price: 0
       limits: 公开预览阶段免费；Gemini 3 Pro/Flash、Claude Sonnet 4.5、GPT-OSS，含速率限制
+      limits_en: Free during public preview; Gemini 3 Pro/Flash, Claude Sonnet 4.5, GPT-OSS, with rate limits
     - name: Pro
       price: 20
       period: month
       limits: 更高配额，优先访问，预计 2026 推出（价格待官方确认）
+      limits_en: Higher quota, priority access, expected 2026 (price to be confirmed)
     - name: Enterprise
       price: null
       period: month
       per_user: true
       limits: SSO、数据驻留、管理控制台，价格待官方确认
+      limits_en: SSO, data residency, admin console; price to be confirmed
   price_updated_at: '2026-02-17'
   note: 目前公开预览免费；可免费使用 Claude Opus 4.5 (Thinking) 等顶级模型，定价策略后续可能调整
+  note_en: Currently free in public preview; top-tier models including Claude Opus 4.5 (Thinking) available for free; pricing strategy may change
 scores:
   coding_ability: 9
   cost_efficiency: 9
@@ -57,9 +61,16 @@ best_for:
   - 想免费体验 Claude Opus / Gemini 3 顶级模型的开发者
   - 需要 Agent 自主完成复杂端到端任务的团队
   - 已在 Google 生态（GCP、Firebase）的开发者
+best_for_en:
+  - Developers who want free access to Claude Opus / Gemini 3 top models
+  - Teams that need Agents to autonomously complete complex end-to-end tasks
+  - Developers already in the Google ecosystem (GCP, Firebase)
 not_for:
   - 国内网络用户（Google 服务被屏蔽）
   - 需要稳定定价/SLA 保障的生产环境（目前仍为预览版）
+not_for_en:
+  - Users in China (Google services blocked)
+  - Production environments that need stable pricing/SLA (still in preview)
 plans_using_this: []
 data_sources:
   - url: https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/
@@ -69,6 +80,7 @@ changelog:
   - date: '2025-11-18'
     type: launch
     summary: Google Antigravity 公开预览发布，随 Gemini 3 同期推出，VS Code Fork，免费支持多顶级模型
+    summary_en: Google Antigravity public preview launched alongside Gemini 3 — VS Code Fork, free access to multiple top-tier models
 last_full_review: '2026-02-26'
 next_review_due: '2026-03-28'
 review_frequency_days: 30

@@ -15,26 +15,32 @@ pricing:
       period: month
       annual_price: 204
       limits: 基础用量, ~45次请求/5小时窗口
+      limits_en: Basic usage, ~45 requests per 5-hour window
       note: 年付$17/月($204/年)
     - name: Max 5x
       price: 100
       period: month
       limits: 5倍Pro用量, ~225次请求/5小时窗口, Opus 4.6优先
+      limits_en: 5x Pro usage, ~225 requests per 5-hour window, Opus 4.6 priority
     - name: Max 20x
       price: 200
       period: month
       limits: 20倍Pro用量, Opus 4.6完整访问, Agent Teams
+      limits_en: 20x Pro usage, full Opus 4.6 access, Agent Teams
     - name: Team
       price: 150
       period: month
       per_user: true
       limits: 团队管理, 共享用量
+      limits_en: Team management, shared usage pool
     - name: API
       price: null
       period: null
       limits: 按量付费, Sonnet $3/$15 per 1M tokens, Opus $5/$25
+      limits_en: Pay-as-you-go, Sonnet $3/$15 per 1M tokens, Opus $5/$25
   price_updated_at: '2026-02-14'
   note: Pro可年付$17/月; Max包含Opus 4.6的1M上下文和Agent Teams; 也可通过方舟Coding Plan接入
+  note_en: Pro available at $17/mo billed annually; Max includes Opus 4.6 1M context and Agent Teams; can also connect via Volcengine Ark Coding Plan
 scores:
   coding_ability: 9.6
   cost_efficiency: 3.5
@@ -65,10 +71,18 @@ best_for:
   - 终端党追求最强编码能力
   - 复杂大型项目自主开发
   - 需要 Multi-Agent 协作
+best_for_en:
+  - Terminal users who demand the highest code quality
+  - Complex large-project autonomous development
+  - Teams needing Multi-Agent collaboration
 not_for:
   - 预算有限的用户
   - 国内直连需求（可通过方舟中转）
   - 想要GUI界面的用户
+not_for_en:
+  - Budget-constrained users
+  - Users who need direct China access (can relay via Ark)
+  - Users who prefer a GUI interface
 compatible_apis:
   - ark-coding-plan
 data_sources:
@@ -82,12 +96,15 @@ changelog:
   - date: '2026-02-06'
     type: feature
     summary: 支持 Agent Teams 多Agent协作模式
+    summary_en: Agent Teams multi-agent collaboration mode added
   - date: '2026-01-20'
     type: feature
     summary: Sub-Agent 支持自定义角色
+    summary_en: Sub-Agent custom role support added
   - date: '2025-04-01'
     type: pricing
     summary: 推出 Max 5x ($100) 和 Max 20x ($200) 高用量套餐
+    summary_en: Launched Max 5x ($100) and Max 20x ($200) high-usage tiers
 last_full_review: '2026-02-26'
 next_review_due: '2026-03-28'
 review_frequency_days: 30

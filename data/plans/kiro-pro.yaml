@@ -1,7 +1,9 @@
 id: kiro-pro
 name: Kiro Pro
 badge: 规格驱动开发
+badge_en: Spec-Driven Development
 tagline: AWS 出品，Spec-Driven Agent，需求→设计→代码全自动
+tagline_en: By AWS — Spec-Driven Agent, from requirements to design to code, fully automated
 client: kiro
 api: null
 environment: Kiro IDE（VS Code Fork）
@@ -22,19 +24,40 @@ best_for:
   - 需要需求文档→代码全链路自动化的团队
   - AWS / 云服务重度用户
   - 追求 AI 编程可审查性和可控性
+best_for_en:
+  - Enterprise structured development workflows
+  - Teams needing full requirements-to-code automation
+  - AWS / cloud service power users
+  - Those seeking AI coding auditability and control
 quick_start:
   - "访问 kiro.dev 下载安装"
   - "AWS 账号登录或 GitHub 账号注册"
   - "选择 Pro（$20/月）套餐"
   - "创建 Spec 文件描述需求，让 Agent 自动生成设计和代码"
+quick_start_en:
+  - "Visit kiro.dev to download and install"
+  - "Log in with AWS or GitHub account"
+  - "Choose Pro ($20/mo) plan"
+  - "Create a Spec file describing requirements, let Agent auto-generate design and code"
 pros:
   - Spec-Driven 工作流：需求→设计文档→任务→代码，全程可审查
   - Hooks 机制自动触发 lint / test / 安全扫描
   - AWS 原生集成（CodeWhisperer、Bedrock）
   - 适合团队协作和企业级规范开发
+pros_en:
+  - Spec-Driven workflow: requirements → design docs → tasks → code, fully auditable
+  - Hooks auto-trigger lint / test / security scans
+  - Native AWS integration (CodeWhisperer, Bedrock)
+  - Ideal for team collaboration and enterprise-grade development
 cons:
   - 国内需代理访问
   - Spec 工作流上手曲线较陡
   - 相比 Cursor 自由度低，不适合快速原型
   - 社区和插件生态尚不成熟
+cons_en:
+  - Requires proxy in China
+  - Steep learning curve for Spec workflow
+  - Less freedom than Cursor, not ideal for rapid prototyping
+  - Community and plugin ecosystem still maturing
 description: "AWS 推出的规格驱动 AI IDE。独特的 Spec-Driven 工作流将开发流程拆解为：需求规格→设计文档→任务列表→代码实现，每步可审查，适合企业级结构化开发。Pro $20/月含 vibe coding 无限额度，有 50 次/月免费试用。"
+description_en: "AWS's spec-driven AI IDE. Unique Spec-Driven workflow breaks development into: requirements → design docs → task list → code implementation, each step auditable. Ideal for enterprise structured development. Pro $20/mo with unlimited vibe coding, 50 free uses/mo trial."

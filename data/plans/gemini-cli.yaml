@@ -1,7 +1,10 @@
 id: gemini-cli
 name: Gemini CLI（免费）
+name_en: Gemini CLI (Free)
 badge: 终端免费天花板
+badge_en: Best Free Terminal Tool
 tagline: 每天 1000 次免费请求，Gemini 2.5 Pro 百万 token 上下文
+tagline_en: 1000 free requests/day, Gemini 2.5 Pro with 1M token context
 client: gemini-cli
 api: null
 environment: 终端 CLI
@@ -23,20 +26,42 @@ best_for:
   - 预算为零但要求模型质量的开发者
   - 大型仓库分析（百万 token 上下文）
   - Google / GCP 生态用户
+best_for_en:
+  - Terminal power users
+  - Zero-budget developers who still want quality models
+  - Large repo analysis (1M token context)
+  - Google / GCP ecosystem users
 quick_start:
   - "安装 Node.js 18+"
   - "npm install -g @google/gemini-cli"
   - "gemini auth login（用个人 Google 账号）"
   - "在项目目录运行 gemini，开始对话"
+quick_start_en:
+  - "Install Node.js 18+"
+  - "npm install -g @google/gemini-cli"
+  - "gemini auth login (use personal Google account)"
+  - "Run gemini in your project directory and start chatting"
 pros:
   - 完全免费（个人 Google 账号）
   - 1000 次请求/天，60 次/分钟，日常完全够用
   - Gemini 2.5 Pro 百万 token 上下文，分析超大仓库
   - 开源，可审计代码
   - 支持 MCP 扩展
+pros_en:
+  - Completely free (personal Google account)
+  - 1000 requests/day, 60/min — more than enough for daily use
+  - Gemini 2.5 Pro with 1M token context for analyzing massive repos
+  - Open-source, auditable code
+  - MCP extension support
 cons:
   - 国内需代理访问 Google 服务
   - 纯终端，无 IDE 图形界面
   - 代码补全需配合其他工具
   - 免费额度超出后需付费 API
+cons_en:
+  - Requires proxy to access Google services in China
+  - Terminal-only, no IDE GUI
+  - Code completion requires pairing with other tools
+  - Paid API needed after exceeding free quota
 description: "终端 AI 编程的免费天花板。个人 Google 账号每天 1000 次免费请求，使用 Gemini 2.5 Pro 顶级模型，百万 token 上下文可分析超大仓库。Google 开源，适合终端党和预算为零的开发者。"
+description_en: "The best free terminal AI coding tool. Personal Google accounts get 1000 free requests/day with Gemini 2.5 Pro, featuring 1M token context for analyzing massive repos. Open-source by Google, ideal for terminal enthusiasts and zero-budget developers."

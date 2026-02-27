@@ -13,24 +13,30 @@ pricing:
     - name: Free
       price: 0
       limits: 50 vibe请求/月
+      limits_en: 50 vibe requests/mo
     - name: Pro
       price: 20
       period: month
       limits: 225 vibe请求 + 125 spec请求/月，额外$0.04/vibe，$0.20/spec
+      limits_en: 225 vibe requests + 125 spec requests/mo; extra $0.04/vibe, $0.20/spec
     - name: Pro+
       price: 40
       period: month
       limits: 450 vibe请求 + 250 spec请求/月
+      limits_en: 450 vibe requests + 250 spec requests/mo
     - name: Power
       price: 200
       period: month
       limits: 2250 vibe请求 + 1250 spec请求/月
+      limits_en: 2250 vibe requests + 1250 spec requests/mo
     - name: Enterprise
       price: null
       period: month
       limits: 定制配额，团队管理
+      limits_en: Custom quota, team management
   price_updated_at: '2026-02-17'
   note: Vibe请求=普通对话/代码补全，Spec请求=规格驱动开发流程（价值是vibe的5倍）；Pro+价格待确认
+  note_en: Vibe requests = regular chat/completion; Spec requests = spec-driven development flow (5x the value of vibe); Pro+ price to be confirmed
 scores:
   coding_ability: 8.5
   cost_efficiency: 6
@@ -61,10 +67,18 @@ best_for:
   - 注重原型到生产全流程的团队
   - 需要规格驱动开发（Spec-driven）的项目
   - 喜欢 AWS 生态的开发者
+best_for_en:
+  - Teams focused on the full prototype-to-production workflow
+  - Projects that need spec-driven development
+  - Developers in the AWS ecosystem
 not_for:
   - 国内网络用户（无国内节点）
   - 需要自定义模型 API 的用户
   - JetBrains 用户
+not_for_en:
+  - Users in China (no China servers)
+  - Users who need custom model APIs
+  - JetBrains users
 plans_using_this: []
 data_sources:
   - url: https://kiro.dev/pricing/
@@ -77,6 +91,7 @@ changelog:
   - date: '2025-07-01'
     type: launch
     summary: Kiro 公开预览版发布，AWS 出品的 Spec 驱动 Agentic IDE
+    summary_en: Kiro public preview launched — AWS-built Spec-driven Agentic IDE
 last_full_review: '2026-02-26'
 next_review_due: '2026-03-28'
 review_frequency_days: 30

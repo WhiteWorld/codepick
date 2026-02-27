@@ -1,7 +1,9 @@
 id: copilot-pro
 name: GitHub Copilot Pro
 badge: JetBrains 首选
+badge_en: JetBrains First Choice
 tagline: 最广泛 IDE 支持的 AI 编程助手，JetBrains 用户的默认选择
+tagline_en: The most widely supported AI coding assistant — the default choice for JetBrains users
 client: copilot
 api: copilot-builtin
 environment: VS Code / JetBrains / Neovim / Xcode
@@ -23,21 +25,43 @@ best_for:
   - 追求开箱即用
   - 团队统一采购
   - 零预算入门（Free版永久免费）
+best_for_en:
+  - JetBrains users
+  - Plug-and-play experience seekers
+  - Team-wide procurement
+  - Zero-budget entry (Free tier is permanently free)
 quick_start:
   - "Free版: 在 github.com/copilot 直接开通, 无需付费"
   - "Pro版: 登录 github.com/features/copilot 订阅 ($10/月 或 $100/年)"
   - "在 IDE 扩展市场搜索 GitHub Copilot 安装"
   - "登录 GitHub 账号，即刻开始使用"
+quick_start_en:
+  - "Free tier: Sign up at github.com/copilot, no payment required"
+  - "Pro tier: Subscribe at github.com/features/copilot ($10/mo or $100/yr)"
+  - "Search for GitHub Copilot in your IDE extension marketplace"
+  - "Log in with your GitHub account and start coding"
 pros:
   - IDE 支持最广（VS Code / JetBrains / Neovim / Xcode）
   - 永久免费版可用（50次Chat+2000次补全/月）
   - 开箱即用，零配置
   - Coding Agent 支持自动创建PR
   - 学生/教师/开源维护者免费Pro
+pros_en:
+  - Widest IDE support (VS Code / JetBrains / Neovim / Xcode)
+  - Permanent free tier (50 chats + 2000 completions/mo)
+  - Works out of the box, zero configuration
+  - Coding Agent can auto-create PRs
+  - Free Pro for students, educators, and open-source maintainers
 cons:
   - 国内访问不稳定，偶尔超时
   - 模型不可自选，绑定 GitHub 平台
   - 免费版限额较低
   - Agent 能力弱于 Cursor/Cline
+cons_en:
+  - Unstable access in China, occasional timeouts
+  - No model choice, locked to GitHub platform
+  - Low quotas on free tier
+  - Agent capabilities weaker than Cursor/Cline
 
 description: "IDE支持最广的AI编程助手。永久免费版(50次Chat/月)+Pro($10/月, 300次高级请求)+Pro+($39/月, 1500次高级请求, Claude Opus 4.6)。学生教师免费。"
+description_en: "The most widely supported AI coding assistant. Permanent free tier (50 chats/mo) + Pro ($10/mo, 300 premium requests) + Pro+ ($39/mo, 1500 premium requests, Claude Opus 4.6). Free for students and educators."

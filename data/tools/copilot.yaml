@@ -13,28 +13,34 @@ pricing:
     - name: Free
       price: 0
       limits: 50次Agent/Chat请求/月, 2000次补全/月, Haiku 4.5/GPT-5 mini等基础模型
+      limits_en: 50 Agent/Chat requests/mo, 2000 completions/mo, Haiku 4.5/GPT-5 mini and other base models
     - name: Pro
       price: 10
       period: month
       annual_price: 100
       limits: 无限补全, 无限GPT-5 mini Agent, 300次高级请求/月(可加购)
+      limits_en: Unlimited completions, unlimited GPT-5 mini Agent, 300 premium requests/mo (add-on available)
     - name: Pro+
       price: 39
       period: month
       annual_price: 390
       limits: 所有Pro功能, Claude Opus 4.6(快速模式), 1500次高级请求/月(5倍Pro)
+      limits_en: All Pro features, Claude Opus 4.6 (fast mode), 1500 premium requests/mo (5x Pro)
     - name: Business
       price: 19
       period: month
       per_user: true
       limits: Pro全部功能, 集中管理, 策略控制
+      limits_en: All Pro features, centralized management, policy controls
     - name: Enterprise
       price: 39
       period: month
       per_user: true
       limits: Business全部功能, 自定义模型微调, 高级安全
+      limits_en: All Business features, custom model fine-tuning, advanced security
   price_updated_at: '2026-02-14'
   note: Free版永久免费; Pro支持年付$100/年; 学生/教师/开源维护者免费Pro
+  note_en: Free tier is permanently free; Pro at $100/year; free Pro for students, teachers, and open-source maintainers
 scores:
   coding_ability: 8.2
   cost_efficiency: 8.5
@@ -70,9 +76,17 @@ best_for:
   - JetBrains 用户
   - 追求性价比的订阅方案
   - 零预算入门（Free版）
+best_for_en:
+  - Heavy GitHub users
+  - JetBrains users
+  - Developers looking for a cost-effective subscription
+  - Zero-budget starters (Free tier)
 not_for:
   - 需要完全自定义模型的用户
   - 对Agent自主编码要求极高的用户
+not_for_en:
+  - Users who need full custom model control
+  - Users who demand the strongest Agent autonomy
 data_sources:
   - url: https://github.com/features/copilot/plans
     type: pricing
@@ -84,15 +98,19 @@ changelog:
   - date: '2026-02-01'
     type: feature
     summary: Coding Agent 正式发布, 支持自动创建PR
+    summary_en: Coding Agent officially launched with automatic PR creation
   - date: '2026-01-20'
     type: feature
     summary: Agent模式支持多文件编辑和自动修复
+    summary_en: Agent mode now supports multi-file editing and auto-fix
   - date: '2025-12-15'
     type: feature
     summary: 新增代码审查功能（Code Review）
+    summary_en: Code Review feature added
   - date: '2025-10-01'
     type: pricing
     summary: 推出永久免费版 Copilot Free
+    summary_en: Copilot Free permanently free tier launched
 last_full_review: '2026-02-26'
 next_review_due: '2026-03-28'
 review_frequency_days: 30
