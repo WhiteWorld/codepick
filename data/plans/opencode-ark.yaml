@@ -1,6 +1,8 @@
 id: opencode-ark
 name: OpenCode + 方舟 Coding Plan
+name_en: OpenCode + Volcengine Ark Coding Plan
 badge: 终端党之选
+badge_en: Terminal Enthusiast's Pick
 type: cli
 
 composition:
@@ -22,6 +24,7 @@ scores:
   china_friendly: 8.8
 
 description: "终端党的国产平替方案。开源CLI客户端，支持75+模型提供商，多会话管理，接方舟API国内直连。Lite套餐首购仅¥9.9/月，支持4款国产编程模型。"
+description_en: "A domestic alternative for terminal enthusiasts. Open-source CLI client supporting 75+ model providers, multi-session management, with Volcengine Ark API for direct China access. Lite plan starts at just ¥9.9/mo with 4 domestic coding models."
 
 setup_guide: "/guides/opencode-ark-setup"
 comparison_pages:
@@ -33,19 +36,37 @@ best_for:
   - 终端重度用户
   - 预算有限的国内开发者
   - 想要 Claude Code 体验但用国产模型
+best_for_en:
+  - Terminal power users
+  - Budget-conscious developers in China
+  - Claude Code experience with domestic models
 
 quick_start:
   - "安装 OpenCode CLI"
   - "注册火山方舟账号，订阅 Coding Plan Lite (¥9.9首购)"
   - "配置方舟 API Key 和 Base URL"
   - "选择模型（推荐 Auto 模式）"
+quick_start_en:
+  - "Install OpenCode CLI"
+  - "Register a Volcengine Ark account, subscribe to Coding Plan Lite (¥9.9 first purchase)"
+  - "Configure Ark API Key and Base URL"
+  - "Choose a model (Auto mode recommended)"
 
 pros:
   - 开源免费客户端 + 方舟 Lite 仅 ¥9.9/月
   - 支持75+模型提供商
   - 多会话管理
   - 国内直连，无需代理
+pros_en:
+  - Free open-source client + Ark Lite only ¥9.9/mo
+  - Supports 75+ model providers
+  - Multi-session management
+  - Direct China access, no proxy needed
 cons:
   - 终端交互，学习曲线略高
   - 模型能力不如 Claude Code 原生
   - 社区较小，文档不够完善
+cons_en:
+  - Terminal-based, slightly steeper learning curve
+  - Model capability below native Claude Code
+  - Small community, documentation needs improvement

@@ -13,8 +13,10 @@ pricing:
     - name: 开源免费
       price: 0
       limits: 无限制（需自备 API Key）
+      limits_en: Unlimited (requires your own API Key)
   price_updated_at: '2026-01-28'
   note: 客户端免费，模型费用取决于你接的 API
+  note_en: Client is free; model costs depend on the API you connect
 scores:
   coding_ability: 8.5
   cost_efficiency: 9
@@ -49,9 +51,17 @@ best_for:
   - 搭配 OpenRouter 用全球模型
   - 复杂项目需要架构分析+编码
   - 需要 Cloud Agents 在 Slack/GitHub 自动跑任务的团队
+best_for_en:
+  - Power users who need multi-role Agents
+  - Teams using OpenRouter for global model access
+  - Complex projects needing architecture analysis + coding
+  - Teams who want Cloud Agents to auto-run tasks on Slack/GitHub
 not_for:
   - 国内直连需求（OpenRouter 需代理）
   - 新手用户
+not_for_en:
+  - Users who need direct China access (OpenRouter requires proxy)
+  - Beginner users
 compatible_apis:
   - openrouter
   - anthropic
@@ -66,15 +76,19 @@ changelog:
   - date: '2026-02-25'
     type: feature
     summary: 仓库迁移至 RooCodeInc/Roo-Code；新增 JetBrains IDE 支持（独立扩展）；Roo Code Cloud Agents 发布（Slack/GitHub 集成）
+    summary_en: Repository migrated to RooCodeInc/Roo-Code; JetBrains IDE support added (separate extension); Roo Code Cloud Agents launched (Slack/GitHub integration)
   - date: '2026-02-05'
     type: release
     summary: 'v3.47.0: 新增 Custom 自定义角色模式；Mode Gallery 社区配置库上线；Unbound provider 接入'
+    summary_en: 'v3.47.0: Custom role mode added; Mode Gallery community library launched; Unbound provider integrated'
   - date: '2026-02-15'
     type: release
     summary: 'v3.47.3: 修复 RooProtectedController 路径越界问题；ROO_CODE_DISABLE_TELEMETRY 环境变量支持'
+    summary_en: 'v3.47.3: Fixed RooProtectedController path traversal issue; ROO_CODE_DISABLE_TELEMETRY env var support'
   - date: '2026-01-28'
     type: feature
     summary: 支持 Claude Opus 4.6；tool use 消息改为结构化 delta 流式传输，提升效率
+    summary_en: Claude Opus 4.6 support added; tool use messages switched to structured delta streaming for better performance
 last_full_review: '2026-02-26'
 next_review_due: '2026-03-28'
 review_frequency_days: 30

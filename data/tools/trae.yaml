@@ -13,13 +13,16 @@ pricing:
     - name: Free
       price: 0
       limits: 有限 Premium 模型用量，基础功能
+      limits_en: Limited Premium model usage, basic features
     - name: Pro
       price: 10
       period: month
       annual_price: 90
       limits: 全模型访问，SOLO 模式，更多 Premium 用量；首月 $3 优惠
+      limits_en: Full model access, SOLO mode, more Premium usage; first month $3
   price_updated_at: '2026-02-17'
   note: 国际版，面向海外用户；首月 Pro $3，次月起 $10/月 或 $90/年；国内用户建议用 Trae CN
+  note_en: International edition for global users; first month Pro $3, then $10/mo or $90/year; China users should use Trae CN
 scores:
   coding_ability: 8
   cost_efficiency: 8.5
@@ -52,9 +55,16 @@ best_for:
   - 海外开发者想要免费 Cursor 替代品
   - 需要 Claude / GPT / Gemini 多模型切换
   - 低预算（首月 $3）体验 Pro 功能
+best_for_en:
+  - International developers who want a free Cursor alternative
+  - Users who need multi-model switching (Claude/GPT/Gemini)
+  - Budget-conscious users who want Pro features (first month $3)
 not_for:
   - 国内网络用户（需代理，推荐用 Trae CN）
   - JetBrains 用户
+not_for_en:
+  - China users (requires proxy; use Trae CN instead)
+  - JetBrains users
 plans_using_this: []
 data_sources:
   - url: https://www.trae.ai/pricing
@@ -64,9 +74,11 @@ changelog:
   - date: '2026-02-01'
     type: pricing
     summary: 国际版切换为 token 计费，推出 Free/Pro 双层级，Pro 首月 $3
+    summary_en: International edition switched to token billing; Free/Pro tiers launched, Pro first month $3
   - date: '2026-01-10'
     type: feature
     summary: Builder 模式上线，支持 Grok-4（Beta）模型
+    summary_en: Builder mode launched, Grok-4 (Beta) model support added
 last_full_review: '2026-02-26'
 next_review_due: '2026-03-28'
 review_frequency_days: 30

@@ -1,7 +1,10 @@
 id: trae-cn
 name: Trae CN（免费）
+name_en: Trae CN (Free)
 badge: 国内零成本首选
+badge_en: Best Free Option in China
 tagline: 字节出品国内版，完全免费，无需代理，内置顶级国产模型
+tagline_en: ByteDance's China edition — completely free, no proxy needed, built-in top domestic models
 client: trae-cn
 api: null
 environment: Trae CN IDE（trae.cn）
@@ -24,20 +27,42 @@ best_for:
   - 不想配置 API Key 的用户
   - 学生 / 独立开发者
   - 想试用 DeepSeek / Kimi K2 的用户
+best_for_en:
+  - Zero-cost AI coding entry for China developers
+  - Users who don't want to configure API keys
+  - Students / indie developers
+  - Those wanting to try DeepSeek / Kimi K2
 quick_start:
   - "访问 trae.cn 下载安装包"
   - "手机号注册字节跳动账号并登录"
   - "选择模型（推荐日常用豆包 Seed Code，复杂任务用 DeepSeek-V3）"
   - "Cmd/Ctrl+L 进入 SOLO 模式，开始 AI 编程"
+quick_start_en:
+  - "Visit trae.cn to download the installer"
+  - "Register a ByteDance account with phone number and log in"
+  - "Choose a model (Doubao Seed Code for daily use, DeepSeek-V3 for complex tasks)"
+  - "Cmd/Ctrl+L to enter SOLO mode and start AI coding"
 pros:
   - 完全免费，无需绑卡
   - 国内直连，无需代理
   - 内置豆包 Seed Code / DeepSeek-V3/R1 / Kimi K2 等顶级国产模型
   - SOLO Builder 模式可从零一键搭建全栈应用
   - 兼容 VS Code 插件（.vsix）
+pros_en:
+  - Completely free, no credit card needed
+  - Direct China access, no proxy needed
+  - Built-in Doubao Seed Code / DeepSeek-V3/R1 / Kimi K2 top domestic models
+  - SOLO Builder mode for one-click full-stack app scaffolding
+  - Compatible with VS Code plugins (.vsix)
 cons:
   - 模型能力略逊于 Claude Opus / GPT-5
   - 代码补全速度不及 Cursor Tab
   - IDE 成熟度仍在追赶 Cursor
   - 数据上传云端，商业敏感项目需谨慎
+cons_en:
+  - Model capability slightly behind Claude Opus / GPT-5
+  - Code completion speed below Cursor Tab
+  - IDE maturity still catching up to Cursor
+  - Data uploaded to cloud — caution for commercially sensitive projects
 description: "国内开发者零成本入门 AI 编程的最佳起点。Trae CN 完全免费，国内直连无需代理，内置豆包 Seed Code、DeepSeek-V3/R1、Kimi K2、Qwen3-Coder 等国产顶级模型。SOLO 模式支持 Agent 自主开发，适合快速原型和全栈应用搭建。"
+description_en: "The best starting point for zero-cost AI coding in China. Trae CN is completely free with direct China access, no proxy needed. Built-in top domestic models including Doubao Seed Code, DeepSeek-V3/R1, Kimi K2, and Qwen3-Coder. SOLO mode supports autonomous Agent development for rapid prototyping and full-stack apps."

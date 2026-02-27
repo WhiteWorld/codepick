@@ -13,30 +13,37 @@ pricing:
     - name: Hobby
       price: 0
       limits: 有限Agent请求, 有限Tab补全
+      limits_en: Limited Agent requests, limited Tab completion
     - name: Pro
       price: 20
       period: month
       limits: 无限Tab补全, $20 Agent用量额度/月, Auto模式无限使用
+      limits_en: Unlimited Tab completion, $20 Agent credit pool/mo, unlimited Auto mode
     - name: Pro+
       price: 60
       period: month
       limits: 无限Tab补全, $70 Agent用量额度/月, 3倍模型用量
+      limits_en: Unlimited Tab completion, $70 Agent credit pool/mo, 3x model usage
     - name: Ultra
       price: 200
       period: month
       limits: 无限Tab补全, $400 Agent用量额度/月, 20倍模型用量, 优先体验新功能
+      limits_en: Unlimited Tab completion, $400 Agent credit pool/mo, 20x model usage, priority new features
     - name: Teams
       price: 40
       period: month
       per_user: true
       limits: 集中管理, $20/用户 Agent用量, 共享聊天/命令/规则
+      limits_en: Centralized management, $20/user Agent usage, shared chats/commands/rules
     - name: Enterprise
       price: null
       period: month
       per_user: true
       limits: 定制用量池, 发票/PO支付, SCIM, 审计日志
+      limits_en: Custom usage pool, invoice/PO billing, SCIM, audit logs
   price_updated_at: '2026-02-14'
   note: 2025年6月起从请求制改为额度池制($20 included usage), Auto模式可无限使用；Ultra/Teams/Enterprise可访问 cursor.com/agents 云端长时任务
+  note_en: Since June 2025, switched from request-based to $20 credit pool; unlimited Auto mode; Ultra/Teams/Enterprise can access cursor.com/agents for long-running cloud tasks
 scores:
   coding_ability: 9.5
   cost_efficiency: 6
@@ -72,10 +79,18 @@ best_for:
   - 全栈开发者
   - 需要Agent自主编码的重度用户
   - 大型项目多文件重构
+best_for_en:
+  - Full-stack developers
+  - Heavy users who need autonomous Agent coding
+  - Large-project multi-file refactoring
 not_for:
   - JetBrains用户
   - 预算有限的个人用户
   - 国内网络不稳定的用户
+not_for_en:
+  - JetBrains users
+  - Budget-conscious individual developers
+  - Users with unstable internet in China
 plans_using_this:
   - id: cursor-pro
     name: Cursor Pro
@@ -92,24 +107,31 @@ changelog:
   - date: '2026-02-24'
     type: feature
     summary: 'v2.5: Cloud Agents 升级，每个 Agent 运行在独立 VM 沙箱中，可自动测试、截图、生成视频，产出含 Artifact 的 Merge-ready PR；可在 Web/桌面/移动/Slack/GitHub 触发'
+    summary_en: 'v2.5: Cloud Agents upgraded — each Agent runs in an isolated VM sandbox with auto-test, screenshots, video, Artifact-included Merge-ready PRs; triggerable from Web/desktop/mobile/Slack/GitHub'
   - date: '2026-02-18'
     type: feature
     summary: 'v2.5 CLI: 支持将 Plan 从 CLI 移交给云端 Agent 执行；内联渲染 ASCII 图表；持久化决策菜单'
+    summary_en: 'v2.5 CLI: Transfer Plans from CLI to cloud Agent; inline ASCII chart rendering; persistent decision menus'
   - date: '2026-01-22'
     type: feature
     summary: 'v2.4: 引入 Sub-agents 并行处理子任务，改进超长任务上下文管理；Composer 1.5 模型上线，20x RL 提升，更快更智能'
+    summary_en: 'v2.4: Sub-agents for parallel subtask processing; improved long-task context; Composer 1.5 model with 20x RL improvement'
   - date: '2026-01-08'
     type: feature
     summary: 'CLI 更新: 新增 models/rules/MCP 命令；Hooks 速度提升 10–20 倍；支持一键 MCP Auth'
+    summary_en: 'CLI update: new models/rules/MCP commands; Hooks 10–20x faster; one-click MCP Auth'
   - date: '2026-02-01'
     type: feature
     summary: 长时 Agent（Long-running Agents）发布，先规划再执行，完成以往 Agent 难以胜任的复杂任务，产出更大更完整的 PR
+    summary_en: Long-running Agents launched — plan then execute complex tasks, producing larger and more complete PRs
   - date: '2026-01-15'
     type: pricing
     summary: 新增 Pro+ ($60/月) 和 Ultra ($200/月) 套餐
+    summary_en: Added Pro+ ($60/mo) and Ultra ($200/mo) tiers
   - date: '2025-06-01'
     type: pricing
     summary: Pro 从500次请求制改为$20额度池制, Auto模式无限使用
+    summary_en: Pro switched from 500-request quota to $20 credit pool; unlimited Auto mode
 last_full_review: '2026-02-26'
 next_review_due: '2026-03-28'
 review_frequency_days: 30

@@ -13,14 +13,18 @@ pricing:
     - name: Free（个人 Google 账号）
       price: 0
       limits: 60 请求/分钟，1000 请求/天；免费使用 Gemini 2.5 Pro
+      limits_en: 60 requests/min, 1000 requests/day; free access to Gemini 2.5 Pro
     - name: 付费（AI Studio API Key）
       price: null
       limits: 按 Gemini API 用量计费，无每日上限；适合重度用户
+      limits_en: Billed by Gemini API usage, no daily cap; for heavy users
     - name: Vertex AI
       price: null
       limits: 企业级，支持 VPC、审计日志、区域部署
+      limits_en: Enterprise-grade, VPC support, audit logs, regional deployment
   price_updated_at: '2026-02-17'
   note: 免费层对大多数开发者完全够用（1000次/天）；使用个人 Google 账号登录即可，无需信用卡
+  note_en: Free tier is sufficient for most developers (1000/day); just log in with a personal Google account, no credit card required
 scores:
   coding_ability: 8.5
   cost_efficiency: 9.5
@@ -51,10 +55,18 @@ best_for:
   - 想零成本体验顶级模型的开发者
   - 需要超长上下文（100 万 token）处理大型项目
   - 已有 Google 账号、不想配置 API Key 的用户
+best_for_en:
+  - Developers who want to experience top-tier models at zero cost
+  - Users who need ultra-long context (1M tokens) for large projects
+  - Anyone with a Google account who doesn't want to configure API Keys
 not_for:
   - 国内网络用户（Google 服务被屏蔽）
   - 需要 IDE 内补全体验的用户
   - 需要离线/本地模型的用户
+not_for_en:
+  - Users in China (Google services are blocked)
+  - Users who need in-IDE completion experience
+  - Users who need offline/local models
 plans_using_this: []
 data_sources:
   - url: https://github.com/google-gemini/gemini-cli
@@ -67,6 +79,7 @@ changelog:
   - date: '2025-06-01'
     type: launch
     summary: Gemini CLI 开源发布，免费使用 Gemini 2.5 Pro，1000 次/天
+    summary_en: Gemini CLI open-sourced, free Gemini 2.5 Pro access, 1000 requests/day
 last_full_review: '2026-02-26'
 next_review_due: '2026-03-28'
 review_frequency_days: 30

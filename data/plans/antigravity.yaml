@@ -1,7 +1,10 @@
 id: antigravity
 name: Antigravity（预览免费）
+name_en: Antigravity (Free Preview)
 badge: Agent-First 新秀
+badge_en: Agent-First Newcomer
 tagline: Google 出品，预览期免费用 Claude Opus 4.5 + Gemini 3 Pro
+tagline_en: By Google — free Claude Opus 4.5 + Gemini 3 Pro during preview
 client: antigravity
 api: null
 environment: Antigravity IDE（VS Code Fork）
@@ -23,20 +26,42 @@ best_for:
   - 需要浏览器控制的端到端全栈任务
   - 对 Agent-First 并行架构感兴趣的开发者
   - GCP / Firebase 生态用户
+best_for_en:
+  - Free access to Claude Opus 4.5 / Gemini 3 Pro top-tier models
+  - End-to-end full-stack tasks with browser control
+  - Developers interested in Agent-First parallel architecture
+  - GCP / Firebase ecosystem users
 quick_start:
   - "访问 antigravity.dev 申请访问权限"
   - "Google 账号登录"
   - "下载安装 IDE"
   - "发起任务，观察多 Agent 并行执行（编辑器 + 终端 + 浏览器）"
+quick_start_en:
+  - "Visit antigravity.dev and request access"
+  - "Log in with your Google account"
+  - "Download and install the IDE"
+  - "Start a task and watch multi-Agent parallel execution (editor + terminal + browser)"
 pros:
   - 预览期完全免费，含 Claude Opus 4.5 (Thinking) + Gemini 3 Pro
   - 内置浏览器控制，支持真正端到端任务
   - 多 Agent 并行执行，效率高
   - Artifacts 产出物可在执行前审查逻辑
+pros_en:
+  - Completely free during preview, includes Claude Opus 4.5 (Thinking) + Gemini 3 Pro
+  - Built-in browser control for true end-to-end tasks
+  - Multi-Agent parallel execution for high efficiency
+  - Artifacts allow logic review before execution
 cons:
   - 预览版，稳定性存在风险（发布 24h 内即发现安全漏洞）
   - 暂无企业级合规认证
   - 国内需代理访问
   - 正式定价未知，免费期结束后成本待定
   - 代码补全体验弱于 Cursor
+cons_en:
+  - Preview version with stability risks (security vulnerability found within 24h of launch)
+  - No enterprise compliance certifications yet
+  - Requires proxy in China
+  - Official pricing unknown, post-preview costs TBD
+  - Code completion experience weaker than Cursor
 description: "Google 推出的 Agent-First AI IDE，2025 年 11 月随 Gemini 3 同期发布。预览期完全免费，可使用 Claude Opus 4.5、Gemini 3 Pro 等顶级模型。独特的多 Agent 并行架构支持内置浏览器控制和 Artifacts 产出物审查。适合尝鲜和 Agent 重度任务，生产环境建议谨慎。"
+description_en: "Google's Agent-First AI IDE, launched alongside Gemini 3 in November 2025. Completely free during preview with access to Claude Opus 4.5 and Gemini 3 Pro. Unique multi-Agent parallel architecture with built-in browser control and Artifacts review. Great for early adopters and Agent-heavy tasks; use caution in production."

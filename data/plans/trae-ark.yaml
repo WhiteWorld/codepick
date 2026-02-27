@@ -1,7 +1,10 @@
 id: trae-ark
 name: Trae CN + 方舟 Coding Plan
+name_en: Trae CN + Volcengine Ark Coding Plan
 badge: 国内进阶首选
+badge_en: Best China Advanced Setup
 tagline: Trae CN 免费 IDE + 方舟 API，解锁更多模型和更高额度
+tagline_en: Trae CN free IDE + Ark API — unlock more models and higher quotas
 client: trae-cn
 api: ark-coding-plan
 environment: Trae CN IDE (trae.cn)
@@ -23,22 +26,45 @@ best_for:
   - 不想折腾配置
   - 中文优先的开发者
   - 零预算入门（Trae免费版 + 方舟Lite）
+best_for_en:
+  - Best experience in China
+  - Users who don't want complex setup
+  - Chinese-first developers
+  - Zero-budget entry (Trae free + Ark Lite)
 quick_start:
   - "访问 trae.cn 下载安装 Trae CN"
   - "手机号注册字节跳动账号并登录"
   - "注册火山方舟账号，开通 Coding Plan Lite（首购 ¥9.9/月）"
   - "在 Trae CN 设置 → 模型服务商 → 填入方舟 Base URL 和 API Key"
   - "开始使用 SOLO 模式进行 AI 编程，享受更多模型和更高额度"
+quick_start_en:
+  - "Visit trae.cn to download and install Trae CN"
+  - "Register a ByteDance account with phone number and log in"
+  - "Register a Volcengine Ark account, activate Coding Plan Lite (¥9.9/mo first purchase)"
+  - "In Trae CN Settings → Model Provider → enter Ark Base URL and API Key"
+  - "Start using SOLO mode for AI coding with more models and higher quotas"
 pros:
   - 国内直连，延迟极低
   - Trae 免费版即可使用，搭配方舟Lite低至¥9.9/月
   - IDE 原生集成，体验流畅
   - 中文对话和文档支持好
   - 14天免费Pro试用（新用户）
+pros_en:
+  - Direct China access, ultra-low latency
+  - Trae free version usable, paired with Ark Lite from just ¥9.9/mo
+  - Native IDE integration, smooth experience
+  - Good Chinese conversation and documentation support
+  - 14-day free Pro trial (new users)
 cons:
   - IDE 成熟度不如 VS Code/Cursor
   - 插件生态较弱
   - 模型能力与 Claude 有差距
   - Pro 定价新模式尚未完全稳定
+cons_en:
+  - IDE maturity behind VS Code/Cursor
+  - Weaker plugin ecosystem
+  - Model capability gap vs Claude
+  - New Pro pricing model not yet fully stable
 
 description: "国内开发者的首选方案。Trae IDE 免费版可用，搭配方舟Coding Plan Lite首购仅¥9.9/月。支持Doubao-Seed-Code等国产模型，国内直连零延迟。Builder/SOLO模式体验流畅。"
+description_en: "The go-to setup for China developers. Trae IDE free version available, paired with Ark Coding Plan Lite from just ¥9.9/mo first purchase. Supports domestic models like Doubao-Seed-Code with zero-latency direct China access. Smooth Builder/SOLO mode experience."

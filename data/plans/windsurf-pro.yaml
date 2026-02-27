@@ -1,7 +1,9 @@
 id: windsurf-pro
 name: Windsurf Pro
 badge: 性价比之选
+badge_en: Value Pick
 tagline: $15/月的 Cursor 替代，Cascade Agent + JetBrains 双端支持
+tagline_en: $15/mo Cursor alternative — Cascade Agent + JetBrains dual-platform support
 client: windsurf
 api: null
 environment: Windsurf IDE（VS Code Fork）
@@ -22,19 +24,40 @@ best_for:
   - JetBrains 用户需要 AI IDE
   - 重度 Agent 工作流用户
   - $15 预算内追求最强编程体验
+best_for_en:
+  - Cursor users looking for a cheaper alternative
+  - JetBrains users who need an AI IDE
+  - Heavy Agent workflow users
+  - Best coding experience within $15 budget
 quick_start:
   - "访问 windsurf.com 下载安装"
   - "注册账号，选择 Pro（$15/月）套餐"
   - "JetBrains 用户可在插件市场搜索 Windsurf 安装"
   - "使用 Cascade Agent 进行多步骤自主编程任务"
+quick_start_en:
+  - "Visit windsurf.com to download and install"
+  - "Register an account, choose Pro ($15/mo) plan"
+  - "JetBrains users can search for Windsurf in the plugin marketplace"
+  - "Use Cascade Agent for multi-step autonomous coding tasks"
 pros:
   - $15/月比 Cursor Pro 便宜 25%
   - Cascade Agent 体验独特，多步骤任务连贯性好
   - 支持 JetBrains IDE（Cursor 不支持）
   - 500 credits/月，日常够用
+pros_en:
+  - $15/mo, 25% cheaper than Cursor Pro
+  - Unique Cascade Agent with great multi-step task coherence
+  - JetBrains IDE support (Cursor doesn't offer this)
+  - 500 credits/mo, enough for daily use
 cons:
   - 国内需代理访问
   - 代码补全不如 Cursor Tab 丝滑
   - credits 用完后按量计费，重度用户需注意
   - 生态成熟度略逊于 Cursor
+cons_en:
+  - Requires proxy in China
+  - Code completion not as smooth as Cursor Tab
+  - Pay-per-use after credits exhausted — heavy users beware
+  - Ecosystem maturity slightly behind Cursor
 description: "Cursor 的主要挑战者，$15/月含 500 credits。Cascade Agent 在多步骤自主编程任务上体验独特，是目前唯一同时支持 VS Code 和 JetBrains 的高质量 AI IDE。适合预算有限或 JetBrains 用户。"
+description_en: "Cursor's main challenger at $15/mo with 500 credits. Cascade Agent excels at multi-step autonomous coding tasks. Currently the only high-quality AI IDE supporting both VS Code and JetBrains. Ideal for budget-conscious or JetBrains users."

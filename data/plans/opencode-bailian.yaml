@@ -1,6 +1,8 @@
 id: opencode-bailian
 name: OpenCode + 百炼 Coding Plan
+name_en: OpenCode + Alibaba Bailian Coding Plan
 badge: 终端千问方案
+badge_en: Terminal Qwen Setup
 type: cli
 
 composition:
@@ -22,6 +24,7 @@ scores:
   china_friendly: 8.8
 
 description: "终端党的阿里云方案。OpenCode 开源CLI客户端接百炼 API 国内直连。Lite 套餐首购仅¥7.9/月，支持 Qwen3.5-Plus 等8款模型，性价比极高。"
+description_en: "Alibaba Cloud setup for terminal enthusiasts. OpenCode open-source CLI connected to Bailian API for direct China access. Lite plan starts at just ¥7.9/mo with 8 models including Qwen3.5-Plus, extremely cost-effective."
 
 tags: [cli, budget, china, terminal]
 
@@ -29,19 +32,37 @@ best_for:
   - 终端重度用户
   - 预算有限的国内开发者
   - 想用千问模型的 CLI 用户
+best_for_en:
+  - Terminal power users
+  - Budget-conscious developers in China
+  - CLI users who want Qwen models
 
 quick_start:
   - "安装 OpenCode CLI"
   - "注册阿里云账号，开通百炼 Coding Plan Lite (首购¥7.9)"
   - "配置百炼 API Key 和 Base URL"
   - "选择模型（推荐 qwen3.5-plus）"
+quick_start_en:
+  - "Install OpenCode CLI"
+  - "Register an Alibaba Cloud account, activate Bailian Coding Plan Lite (¥7.9 first purchase)"
+  - "Configure Bailian API Key and Base URL"
+  - "Choose a model (qwen3.5-plus recommended)"
 
 pros:
   - 开源免费客户端 + 百炼 Lite 首购仅 ¥7.9/月
   - 支持8款编程模型自由切换
   - 国内直连，无需代理
   - 多会话管理
+pros_en:
+  - Free open-source client + Bailian Lite starts at just ¥7.9/mo
+  - Freely switch between 8 coding models
+  - Direct China access, no proxy needed
+  - Multi-session management
 cons:
   - 终端交互，学习曲线略高
   - 模型能力不如 Claude Code 原生
   - 额度用完不自动转按量计费
+cons_en:
+  - Terminal-based, slightly steeper learning curve
+  - Model capability below native Claude Code
+  - No automatic pay-per-use fallback when quota runs out

@@ -13,6 +13,7 @@ pricing:
     - name: 开源免费
       price: 0
       limits: 无限制（需自备 API Key 或本地模型）
+      limits_en: Unlimited (requires your own API Key or local model)
   price_updated_at: '2026-01-28'
 scores:
   coding_ability: 7
@@ -41,9 +42,16 @@ best_for:
   - 隐私优先，代码不出本机
   - 搭配 Ollama 本地模型的完全免费方案
   - Git 重度用户（自动提交+描述）
+best_for_en:
+  - Privacy-first users who keep code on-device
+  - Fully free setup paired with Ollama local models
+  - Heavy Git users (auto-commit with descriptive messages)
 not_for:
   - 没有本地 GPU 的用户（本地模型体验差）
   - 追求最强 Agent 能力的用户
+not_for_en:
+  - Users without a local GPU (local model experience is poor)
+  - Users who want the strongest Agent capabilities
 compatible_apis:
   - ollama
   - openrouter
@@ -59,12 +67,15 @@ changelog:
   - date: '2026-02-12'
     type: release
     summary: 'v0.86.2: 新增 --upgrade 开关，显示 token 进度和 repo map 更新文件名；废弃 Python 3.9 支持'
+    summary_en: 'v0.86.2: Added --upgrade flag, token progress and repo map filename display; dropped Python 3.9 support'
   - date: '2026-02-15'
     type: release
     summary: 'v0.86.0: 初版 v0.86 系列，改进非流式响应等待动画'
+    summary_en: 'v0.86.0: Initial v0.86 series, improved non-streaming response wait animation'
   - date: '2026-01-20'
     type: release
     summary: 新增 GPT-4.1/mini/nano 支持；Gemini 2.5 Pro Architect 模式改进；支持 Grok-3-beta 和新 Claude Sonnet 4/Opus 4 别名
+    summary_en: Added GPT-4.1/mini/nano; improved Gemini 2.5 Pro Architect mode; Grok-3-beta and new Claude Sonnet 4/Opus 4 alias support
 last_full_review: '2026-02-26'
 next_review_due: '2026-03-28'
 review_frequency_days: 30
