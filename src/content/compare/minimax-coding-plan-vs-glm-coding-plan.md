@@ -144,4 +144,4 @@ GLM 套餐附赠的 4 个专属 MCP（联网搜索、视觉理解、网页读取
 ---
 
 > 数据基于 2026 年 3 月评测，套餐内容与价格随时可能变更，请以官网最新信息为准。
-> MiniMax：[官网](https://platform.minimax.io/subscribe/coding-plan) | 智谱：[官网](https://bigmodel.cn/glm-coding)
+> MiniMax：[官网](https://platform.minimaxi.com/subscribe/coding-plan) | 智谱：[官网](https://bigmodel.cn/glm-coding)
