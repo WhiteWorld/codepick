@@ -144,4 +144,4 @@ Neither plan offers native Anthropic protocol support. Claude Code connects via 
 ---
 
 > Data based on March 2026 evaluation. Plan contents and pricing are subject to change — please check the official websites for the latest information.
-> MiniMax: [Official site](https://platform.minimax.io/subscribe/coding-plan) | Zhipu: [Official site](https://bigmodel.cn/glm-coding)
+> MiniMax: [Official site](https://platform.minimax.io/subscribe/coding-plan) | Zhipu: [Official site](https://z.ai/subscribe)
