@@ -25,7 +25,7 @@ const categories = [
   description={`浏览全部 ${tools.length} 款 AI 编程工具，查看详细评测、评分和定价。覆盖 Cursor、Copilot、Cline、Claude Code 等主流工具。`}
 >
   <section class="container py-12">
-    <h1 class="text-3xl font-bold text-white mb-2">🛠️ AI 编程工具库</h1>
+    <h1 class="text-3xl font-bold text-[var(--text-primary)] mb-2">🛠️ AI 编程工具库</h1>
     <p class="text-[var(--text-secondary)] mb-6">
       共 {tools.length} 款工具，数据定期更新验证。点击查看详情。
     </p>
@@ -48,7 +48,7 @@ const categories = [
                 {tool.name.charAt(0)}
               </div>
               <div>
-                <h3 class="text-base font-semibold text-white group-hover:text-[var(--brand-400)] m-0">{tool.name}</h3>
+                <h3 class="text-base font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0">{tool.name}</h3>
                 <span class="tag text-xs">{typeLabels[tool.type] || tool.type || '工具'}</span>
               </div>
             </div>

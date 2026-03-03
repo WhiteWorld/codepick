@@ -46,14 +46,14 @@ const breadcrumb = {
   <section class="container py-12">
     <!-- Breadcrumb -->
     <nav class="text-xs text-[var(--text-muted)] mb-6">
-      <a href="/" class="hover:text-white no-underline">首页</a>
+      <a href="/" class="hover:text-[var(--text-primary)] no-underline">首页</a>
       <span class="mx-1">/</span>
-      <a href="/tools" class="hover:text-white no-underline">工具库</a>
+      <a href="/tools" class="hover:text-[var(--text-primary)] no-underline">工具库</a>
       <span class="mx-1">/</span>
       <span class="text-[var(--text-secondary)]">国内可用</span>
     </nav>
 
-    <h1 class="text-3xl font-bold text-white mb-3">🇨🇳 国内可用 AI 编程工具</h1>
+    <h1 class="text-3xl font-bold text-[var(--text-primary)] mb-3">🇨🇳 国内可用 AI 编程工具</h1>
     <p class="text-[var(--text-secondary)] mb-4 max-w-2xl">
       国内体验评分 ≥ 7 的工具，支持国内直连或有可用的国内 API 中转方案。
       共 {tools.length} 款，按国内体验评分排序。
@@ -62,7 +62,7 @@ const breadcrumb = {
     <!-- China access explanation -->
     <div class="card p-4 mb-8 border-l-4 border-green-500">
       <p class="text-sm text-[var(--text-secondary)] m-0">
-        ✅ <strong class="text-white">国内可用方式</strong>：
+        ✅ <strong class="text-[var(--text-primary)]">国内可用方式</strong>：
         Trae 字节出品，国内直连无需代理；
         Cline / OpenCode / Aider 支持接入<a href="/guides/cline-ark-setup" class="text-[var(--brand-400)] no-underline hover:underline">火山方舟 Coding Plan</a>（¥9.9/月），国内直连使用主流编程模型。
       </p>
@@ -84,11 +84,11 @@ const breadcrumb = {
     <!-- Related content -->
     <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
       <a href="/guides/cline-ark-setup" class="card p-5 no-underline group block">
-        <h3 class="text-sm font-semibold text-white group-hover:text-[var(--brand-400)] m-0 mb-1">Cline + 火山方舟配置指南</h3>
+        <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">Cline + 火山方舟配置指南</h3>
         <p class="text-xs text-[var(--text-muted)] m-0">指南：10 分钟搞定国内 AI 编程 →</p>
       </a>
       <a href="/plan/cline-ark" class="card p-5 no-underline group block">
-        <h3 class="text-sm font-semibold text-white group-hover:text-[var(--brand-400)] m-0 mb-1">Cline + 方舟方案详解</h3>
+        <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">Cline + 方舟方案详解</h3>
         <p class="text-xs text-[var(--text-muted)] m-0">方案：国内性价比之王 ¥9.9/月 →</p>
       </a>
     </div>

@@ -39,7 +39,7 @@ function scoreClass(s: number): string {
         return (
           <tr>
             <td>
-              <a href={localePath(`/plan/${p.id}`, lang)} class="text-white font-medium no-underline hover:text-[var(--brand-400)]">
+              <a href={localePath(`/plan/${p.id}`, lang)} class="text-[var(--text-primary)] font-medium no-underline hover:text-[var(--brand-400)]">
                 {p.name}
               </a>
               {p.badge && <span class="badge ml-2">{p.badge}</span>}

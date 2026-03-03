@@ -47,14 +47,14 @@ const breadcrumb = {
   <section class="container py-12">
     <!-- Breadcrumb -->
     <nav class="text-xs text-[var(--text-muted)] mb-6">
-      <a href="/" class="hover:text-white no-underline">首页</a>
+      <a href="/" class="hover:text-[var(--text-primary)] no-underline">首页</a>
       <span class="mx-1">/</span>
-      <a href="/tools" class="hover:text-white no-underline">工具库</a>
+      <a href="/tools" class="hover:text-[var(--text-primary)] no-underline">工具库</a>
       <span class="mx-1">/</span>
       <span class="text-[var(--text-secondary)]">终端工具</span>
     </nav>
 
-    <h1 class="text-3xl font-bold text-white mb-3">⌨️ 终端 AI 编程工具</h1>
+    <h1 class="text-3xl font-bold text-[var(--text-primary)] mb-3">⌨️ 终端 AI 编程工具</h1>
     <p class="text-[var(--text-secondary)] mb-4 max-w-2xl">
       在终端中运行的 AI 编程 CLI 工具，不依赖特定 IDE，适合 Vim/Neovim 用户、服务器开发和偏好终端工作流的开发者。
       共 {tools.length} 款，按编程能力排序。
@@ -63,7 +63,7 @@ const breadcrumb = {
     <!-- Terminal tools explanation -->
     <div class="card p-4 mb-8 border-l-4 border-[var(--brand-400)]">
       <p class="text-sm text-[var(--text-secondary)] m-0">
-        💡 <strong class="text-white">终端工具的优势</strong>：不绑定特定 IDE，可在任意环境（SSH 远程、服务器、Vim）中使用；
+        💡 <strong class="text-[var(--text-primary)]">终端工具的优势</strong>：不绑定特定 IDE，可在任意环境（SSH 远程、服务器、Vim）中使用；
         多数支持自定义模型 API，灵活性最高；Aider 的 Git 集成是所有工具中最完善的。
       </p>
     </div>
@@ -84,11 +84,11 @@ const breadcrumb = {
     <!-- Related content -->
     <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
       <a href="/compare/terminal-ai-tools" class="card p-5 no-underline group block">
-        <h3 class="text-sm font-semibold text-white group-hover:text-[var(--brand-400)] m-0 mb-1">终端 AI 三杰对比</h3>
+        <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">终端 AI 三杰对比</h3>
         <p class="text-xs text-[var(--text-muted)] m-0">对比：Claude Code vs OpenCode vs Aider →</p>
       </a>
       <a href="/guides/ollama-aider-local" class="card p-5 no-underline group block">
-        <h3 class="text-sm font-semibold text-white group-hover:text-[var(--brand-400)] m-0 mb-1">Ollama + Aider 本地部署</h3>
+        <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">Ollama + Aider 本地部署</h3>
         <p class="text-xs text-[var(--text-muted)] m-0">指南：终端 + 本地模型零成本方案 →</p>
       </a>
     </div>

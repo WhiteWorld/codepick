@@ -75,7 +75,7 @@ const breadcrumbSchema: object = {
   <article class="container py-12 max-w-4xl">
     <!-- Breadcrumb -->
     <nav class="text-xs text-[var(--text-muted)] mb-6">
-      <a href="/" class="hover:text-white no-underline">首页</a>
+      <a href="/" class="hover:text-[var(--text-primary)] no-underline">首页</a>
       <span class="mx-1">/</span>
       <span class="text-[var(--text-secondary)]">{plan.name}</span>
     </nav>
@@ -83,12 +83,12 @@ const breadcrumbSchema: object = {
     <!-- Header -->
     <div class="mb-8">
       <div class="flex items-center gap-3 mb-2">
-        <h1 class="text-2xl md:text-3xl font-bold text-white m-0">{plan.name}</h1>
+        <h1 class="text-2xl md:text-3xl font-bold text-[var(--text-primary)] m-0">{plan.name}</h1>
         {plan.badge && <span class="badge text-sm">{plan.badge}</span>}
       </div>
       <p class="text-[var(--text-secondary)] m-0 mb-4">{plan.tagline}</p>
       <div class="flex items-center gap-4">
-        <span class="text-2xl font-bold text-white">{plan.monthly_cost}</span>
+        <span class="text-2xl font-bold text-[var(--text-primary)]">{plan.monthly_cost}</span>
         <span class="text-[var(--text-muted)]">{plan.currency}/月</span>
         <span class="text-[var(--text-muted)]">·</span>
         <span class="tag tag-primary">综合 {overall}</span>
@@ -97,7 +97,7 @@ const breadcrumbSchema: object = {
 
     <!-- Scores -->
     <section class="card p-6 mb-8">
-      <h2 class="text-lg font-semibold text-white mb-4 mt-0">📊 方案评分</h2>
+      <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">📊 方案评分</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="flex flex-col gap-3">
           <ScoreBar label="编程能力" score={plan.scores.coding_ability} color="auto" />
@@ -112,25 +112,25 @@ const breadcrumbSchema: object = {
 
     <!-- Composition -->
     <section class="card p-6 mb-8">
-      <h2 class="text-lg font-semibold text-white mb-4 mt-0">🧩 方案组成</h2>
+      <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">🧩 方案组成</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="bg-[var(--surface-hover)] rounded-lg p-4">
           <div class="text-xs text-[var(--text-muted)] mb-1">客户端</div>
-          <div class="font-semibold text-white">{clientTool?.name || plan.client}</div>
+          <div class="font-semibold text-[var(--text-primary)]">{clientTool?.name || plan.client}</div>
           {clientTool && (
             <a href={`/tool/${clientTool.id}`} class="text-xs text-[var(--brand-400)] no-underline">查看详情 →</a>
           )}
         </div>
         <div class="bg-[var(--surface-hover)] rounded-lg p-4">
           <div class="text-xs text-[var(--text-muted)] mb-1">模型 API</div>
-          <div class="font-semibold text-white">{apiSource?.name || plan.api}</div>
+          <div class="font-semibold text-[var(--text-primary)]">{apiSource?.name || plan.api}</div>
           {apiSource && (
             <span class="text-xs text-[var(--text-muted)]">{apiSource.provider}</span>
           )}
         </div>
         <div class="bg-[var(--surface-hover)] rounded-lg p-4">
           <div class="text-xs text-[var(--text-muted)] mb-1">运行环境</div>
-          <div class="font-semibold text-white">{plan.environment || '—'}</div>
+          <div class="font-semibold text-[var(--text-primary)]">{plan.environment || '—'}</div>
           <span class="text-xs text-[var(--text-muted)]">配置难度: {plan.setup_difficulty}</span>
         </div>
       </div>
@@ -139,7 +139,7 @@ const breadcrumbSchema: object = {
     <!-- Quick Start -->
     {quickStart.length > 0 && (
       <section class="card p-6 mb-8">
-        <h2 class="text-lg font-semibold text-white mb-4 mt-0">🚀 快速开始</h2>
+        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">🚀 快速开始</h2>
         <ol class="list-decimal list-inside text-sm text-[var(--text-secondary)] space-y-2 m-0 pl-0">
           {quickStart.map(step => <li>{step}</li>)}
         </ol>
@@ -171,7 +171,7 @@ const breadcrumbSchema: object = {
     <!-- Best For -->
     {bestFor.length > 0 && (
       <section class="card p-6 mb-8">
-        <h2 class="text-lg font-semibold text-white mb-4 mt-0">🎯 最适合</h2>
+        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">🎯 最适合</h2>
         <div class="flex flex-wrap gap-2">
           {bestFor.map(b => <span class="tag tag-primary">{b}</span>)}
         </div>

@@ -49,14 +49,14 @@ const seoDesc = lang === 'zh'
 <BaseLayout title={seoTitle} description={seoDesc} jsonLd={[jsonLd, breadcrumb]} lang={lang}>
   <section class="container py-12">
     <nav class="text-xs text-[var(--text-muted)] mb-6">
-      <a href={localePath('/', lang)} class="hover:text-white no-underline">{t('bread.home', lang)}</a>
+      <a href={localePath('/', lang)} class="hover:text-[var(--text-primary)] no-underline">{t('bread.home', lang)}</a>
       <span class="mx-1">/</span>
-      <a href={localePath('/tools', lang)} class="hover:text-white no-underline">{t('bread.toolLibrary', lang)}</a>
+      <a href={localePath('/tools', lang)} class="hover:text-[var(--text-primary)] no-underline">{t('bread.toolLibrary', lang)}</a>
       <span class="mx-1">/</span>
       <span class="text-[var(--text-secondary)]">{t('bread.terminal', lang)}</span>
     </nav>
 
-    <h1 class="text-3xl font-bold text-white mb-3">{t('term.title', lang)}</h1>
+    <h1 class="text-3xl font-bold text-[var(--text-primary)] mb-3">{t('term.title', lang)}</h1>
     <p class="text-[var(--text-secondary)] mb-4 max-w-2xl">
       {t('term.subtitle1', lang)}
       {tools.length} {t('term.subtitle2', lang)}
@@ -64,7 +64,7 @@ const seoDesc = lang === 'zh'
 
     <div class="card p-4 mb-8 border-l-4 border-[var(--brand-400)]">
       <p class="text-sm text-[var(--text-secondary)] m-0">
-        💡 <strong class="text-white">{t('term.advTitle', lang)}</strong>：{t('term.advDesc', lang)}
+        💡 <strong class="text-[var(--text-primary)]">{t('term.advTitle', lang)}</strong>：{t('term.advDesc', lang)}
       </p>
     </div>
 
@@ -82,11 +82,11 @@ const seoDesc = lang === 'zh'
 
     <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
       <a href={localePath('/compare/terminal-ai-tools', lang)} class="card p-5 no-underline group block">
-        <h3 class="text-sm font-semibold text-white group-hover:text-[var(--brand-400)] m-0 mb-1">{t('term.relCompare', lang)}</h3>
+        <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{t('term.relCompare', lang)}</h3>
         <p class="text-xs text-[var(--text-muted)] m-0">{t('term.relCompareDesc', lang)}</p>
       </a>
       <a href={localePath('/guides/ollama-aider-local', lang)} class="card p-5 no-underline group block">
-        <h3 class="text-sm font-semibold text-white group-hover:text-[var(--brand-400)] m-0 mb-1">{t('term.relOllama', lang)}</h3>
+        <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{t('term.relOllama', lang)}</h3>
         <p class="text-xs text-[var(--text-muted)] m-0">{t('term.relOllamaDesc', lang)}</p>
       </a>
     </div>

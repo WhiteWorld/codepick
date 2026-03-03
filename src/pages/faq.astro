@@ -97,19 +97,19 @@ const breadcrumbSchema = {
   <section class="container py-12 max-w-3xl">
     <!-- Breadcrumb -->
     <nav class="text-xs text-[var(--text-muted)] mb-6">
-      <a href="/" class="hover:text-white no-underline">首页</a>
+      <a href="/" class="hover:text-[var(--text-primary)] no-underline">首页</a>
       <span class="mx-1">/</span>
       <span class="text-[var(--text-secondary)]">FAQ</span>
     </nav>
 
-    <h1 class="text-3xl font-bold text-white mb-4">❓ 常见问题</h1>
+    <h1 class="text-3xl font-bold text-[var(--text-primary)] mb-4">❓ 常见问题</h1>
     <p class="text-[var(--text-secondary)] mb-8">关于 AI 编程工具的高频问题解答，持续更新。</p>
 
     <div class="space-y-4">
       {faqs.map((faq, i) => (
         <details class="card group" open={i === 0}>
           <summary class="p-6 cursor-pointer flex items-center justify-between gap-4 list-none">
-            <h2 class="text-base font-semibold text-white m-0 leading-snug">{faq.question}</h2>
+            <h2 class="text-base font-semibold text-[var(--text-primary)] m-0 leading-snug">{faq.question}</h2>
             <span class="text-[var(--text-muted)] shrink-0 group-open:rotate-180 transition-transform text-lg">▾</span>
           </summary>
           <div class="px-6 pb-6 pt-0">

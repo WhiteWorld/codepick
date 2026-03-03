@@ -8,12 +8,27 @@
   --surface-card: #1a1d2e;
   --surface-hover: #252840;
   --surface-border: #2e3348;
+  --surface-nav: rgba(15, 17, 23, 0.85);
   --text-primary: #f1f5f9;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
   --brand-400: #818cf8;
   --brand-500: #6366f1;
   --brand-600: #4f46e5;
+}
+
+[data-theme="light"] {
+  --surface-bg: #f8fafc;
+  --surface-card: #ffffff;
+  --surface-hover: #f1f5f9;
+  --surface-border: #e2e8f0;
+  --surface-nav: rgba(248, 250, 252, 0.85);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --brand-400: #4f46e5;
+  --brand-500: #4338ca;
+  --brand-600: #3730a3;
 }
 
 /* ===== Base ===== */
@@ -30,7 +45,7 @@ a {
   @apply text-[var(--brand-400)] transition-colors;
 }
 a:hover {
-  @apply text-white;
+  @apply text-[var(--text-primary)];
 }
 
 /* ===== Layout ===== */
@@ -60,7 +75,7 @@ a:hover {
   @apply bg-transparent text-[var(--text-secondary)] border border-[var(--surface-border)];
 }
 .btn-ghost:hover {
-  @apply bg-[var(--surface-hover)] text-white;
+  @apply bg-[var(--surface-hover)] text-[var(--text-primary)];
 }
 
 /* ===== Tags & Badges ===== */
@@ -93,7 +108,7 @@ a:hover {
   @apply px-4 py-3 border-b border-[var(--surface-border)] text-[var(--text-secondary)];
 }
 .compare-table tr:hover td {
-  background-color: rgba(37, 40, 64, 0.5);
+  background-color: var(--surface-hover);
 }
 
 /* ===== Filter Chips ===== */

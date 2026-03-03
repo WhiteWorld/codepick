@@ -73,7 +73,7 @@ const switchUrl = getAlternateLangUrl(Astro.url, lang);
 ---
 
 <!DOCTYPE html>
-<html lang={htmlLang}>
+<html lang={htmlLang} data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -117,12 +117,21 @@ const switchUrl = getAlternateLangUrl(Astro.url, lang);
   ))}
 
   <Analytics />
+
+  <!-- Prevent FOUC: apply saved theme before paint -->
+  <script is:inline>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
 </head>
 <body>
   <!-- Navigation -->
-  <nav class="sticky top-0 z-50 border-b border-[var(--surface-border)] bg-[rgba(15,17,23,0.8)] backdrop-blur-xl">
+  <nav class="sticky top-0 z-50 border-b border-[var(--surface-border)] bg-[var(--surface-nav)] backdrop-blur-xl">
     <div class="container flex items-center justify-between h-16">
-      <a href={localePath('/', lang)} class="flex items-center gap-2 text-lg font-bold text-white no-underline">
+      <a href={localePath('/', lang)} class="flex items-center gap-2 text-lg font-bold text-[var(--text-primary)] no-underline">
         <span class="text-2xl">⚡</span>
         <span>CodePick</span>
       </a>
@@ -130,13 +139,17 @@ const switchUrl = getAlternateLangUrl(Astro.url, lang);
         {navLinks.map(link => (
           <a
             href={link.href}
-            class="text-sm text-[var(--text-secondary)] hover:text-white transition-colors no-underline"
+            class="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors no-underline"
           >
             {link.label}
           </a>
         ))}
       </div>
       <div class="flex items-center gap-3">
+        <button id="theme-toggle" class="btn btn-ghost p-2 text-sm" aria-label={lang === 'zh' ? '切换主题' : 'Toggle theme'}>
+          <span class="theme-icon-light hidden">☀️</span>
+          <span class="theme-icon-dark">🌙</span>
+        </button>
         <a href={switchUrl} class="btn btn-ghost text-xs">{switchLabel}</a>
         <a
           href="https://github.com/WhiteWorld/codepick"
@@ -158,7 +171,7 @@ const switchUrl = getAlternateLangUrl(Astro.url, lang);
         {navLinks.map(link => (
           <a
             href={link.href}
-            class="text-sm text-[var(--text-secondary)] hover:text-white py-2 no-underline"
+            class="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] py-2 no-underline"
           >
             {link.label}
           </a>
@@ -175,7 +188,7 @@ const switchUrl = getAlternateLangUrl(Astro.url, lang);
     <div class="container py-12">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
-          <h3 class="text-white font-semibold mb-3">⚡ CodePick</h3>
+          <h3 class="text-[var(--text-primary)] font-semibold mb-3">⚡ CodePick</h3>
           <p class="text-sm text-[var(--text-muted)] leading-relaxed">
             {t('footer.desc', lang)}<br/>
             {t('footer.descLine2', lang)}
@@ -185,7 +198,7 @@ const switchUrl = getAlternateLangUrl(Astro.url, lang);
           <h4 class="text-[var(--text-secondary)] font-semibold mb-3 text-sm">{t('footer.quickNav', lang)}</h4>
           <div class="flex flex-col gap-2">
             {navLinks.map(link => (
-              <a href={link.href} class="text-sm text-[var(--text-muted)] hover:text-white no-underline">{link.label}</a>
+              <a href={link.href} class="text-sm text-[var(--text-muted)] hover:text-[var(--text-primary)] no-underline">{link.label}</a>
             ))}
           </div>
         </div>
@@ -194,7 +207,7 @@ const switchUrl = getAlternateLangUrl(Astro.url, lang);
           <div class="flex flex-col gap-2 text-sm text-[var(--text-muted)]">
             <span>{t('footer.personal', lang)}</span>
             <span>{t('footer.lastUpdate', lang)}</span>
-            <a href="https://github.com/WhiteWorld/codepick/issues" target="_blank" rel="noopener" class="hover:text-white no-underline">{t('footer.reportLink', lang)}</a>
+            <a href="https://github.com/WhiteWorld/codepick/issues" target="_blank" rel="noopener" class="hover:text-[var(--text-primary)] no-underline">{t('footer.reportLink', lang)}</a>
           </div>
         </div>
       </div>
@@ -205,10 +218,36 @@ const switchUrl = getAlternateLangUrl(Astro.url, lang);
   </footer>
 
   <script>
+    // Mobile menu toggle
     const toggle = document.getElementById('menu-toggle');
     const menu = document.getElementById('mobile-menu');
     toggle?.addEventListener('click', () => {
       menu?.classList.toggle('hidden');
+    });
+
+    // Theme toggle
+    function updateThemeIcons(theme: string) {
+      const lightIcon = document.querySelector('.theme-icon-light') as HTMLElement | null;
+      const darkIcon = document.querySelector('.theme-icon-dark') as HTMLElement | null;
+      if (theme === 'light') {
+        lightIcon?.classList.remove('hidden');
+        darkIcon?.classList.add('hidden');
+      } else {
+        lightIcon?.classList.add('hidden');
+        darkIcon?.classList.remove('hidden');
+      }
+    }
+
+    const themeBtn = document.getElementById('theme-toggle');
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    updateThemeIcons(currentTheme);
+
+    themeBtn?.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateThemeIcons(next);
     });
   </script>
 </body>

@@ -8,7 +8,7 @@ const { lang = 'zh' } = Astro.props;
 ---
 
 <div class="card p-6 md:p-8" id="quick-picker">
-  <h2 class="text-xl font-bold text-white mb-2 mt-0">{t('qp.title', lang)}</h2>
+  <h2 class="text-xl font-bold text-[var(--text-primary)] mb-2 mt-0">{t('qp.title', lang)}</h2>
   <p class="text-sm text-[var(--text-muted)] mb-6">{t('qp.subtitle', lang)}</p>
 
   <!-- Step 1 -->
@@ -50,7 +50,7 @@ const { lang = 'zh' } = Astro.props;
   <div class="picker-step hidden" data-step="result">
     <div class="text-center py-4">
       <p class="text-sm text-[var(--text-muted)] mb-2">{t('qp.resultLabel', lang)}</p>
-      <div id="picker-result" class="text-xl font-bold text-white">{t('qp.calculating', lang)}</div>
+      <div id="picker-result" class="text-xl font-bold text-[var(--text-primary)]">{t('qp.calculating', lang)}</div>
       <p id="picker-reason" class="text-sm text-[var(--text-muted)] mt-2"></p>
       <button class="btn btn-ghost mt-4" id="picker-reset">{t('qp.reset', lang)}</button>
     </div>

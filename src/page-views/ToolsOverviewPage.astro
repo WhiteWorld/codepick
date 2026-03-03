@@ -75,14 +75,14 @@ const dtCards = [
 <BaseLayout title={seoTitle} description={seoDesc} jsonLd={[jsonLd, breadcrumb]} lang={lang}>
   <section class="container py-12">
     <nav class="text-xs text-[var(--text-muted)] mb-6">
-      <a href={localePath('/', lang)} class="hover:text-white no-underline">{t('bread.home', lang)}</a>
+      <a href={localePath('/', lang)} class="hover:text-[var(--text-primary)] no-underline">{t('bread.home', lang)}</a>
       <span class="mx-1">/</span>
-      <a href={localePath('/tools', lang)} class="hover:text-white no-underline">{t('bread.toolLibrary', lang)}</a>
+      <a href={localePath('/tools', lang)} class="hover:text-[var(--text-primary)] no-underline">{t('bread.toolLibrary', lang)}</a>
       <span class="mx-1">/</span>
       <span class="text-[var(--text-secondary)]">{t('bread.overview', lang)}</span>
     </nav>
 
-    <h1 class="text-3xl font-bold text-white mb-3">{t('ov.title', lang)}</h1>
+    <h1 class="text-3xl font-bold text-[var(--text-primary)] mb-3">{t('ov.title', lang)}</h1>
     <p class="text-[var(--text-secondary)] mb-2 max-w-2xl">
       {tools.length} {t('ov.subtitle', lang)}
     </p>
@@ -154,12 +154,12 @@ const dtCards = [
     </div>
 
     <div class="mb-12">
-      <h2 class="text-xl font-bold text-white mb-6 mt-0">{t('section.decisionTree', lang)}</h2>
+      <h2 class="text-xl font-bold text-[var(--text-primary)] mb-6 mt-0">{t('section.decisionTree', lang)}</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {dtCards.map(card => (
           <div class={`card p-5 border-l-4 ${card.border}`}>
             <p class="text-xs text-[var(--text-muted)] mb-1">{t(`dt.${card.key}.sub`, lang)}</p>
-            <p class="text-base font-bold text-white mb-2">{t(`dt.${card.key}.title`, lang)}</p>
+            <p class="text-base font-bold text-[var(--text-primary)] mb-2">{t(`dt.${card.key}.title`, lang)}</p>
             <p class="text-xs text-[var(--text-secondary)] m-0">{t(`dt.${card.key}.desc`, lang)}</p>
           </div>
         ))}
@@ -167,7 +167,7 @@ const dtCards = [
     </div>
 
     <div class="mb-8">
-      <h2 class="text-xl font-bold text-white mb-4 mt-0">{t('section.filterByScene', lang)}</h2>
+      <h2 class="text-xl font-bold text-[var(--text-primary)] mb-4 mt-0">{t('section.filterByScene', lang)}</h2>
       <div class="flex flex-wrap gap-3">
         <a href={localePath('/tools/free', lang)} class="btn btn-ghost text-sm no-underline">{t('cat.free', lang)}</a>
         <a href={localePath('/tools/china', lang)} class="btn btn-ghost text-sm no-underline">{t('cat.china', lang)}</a>

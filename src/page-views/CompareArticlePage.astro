@@ -42,9 +42,9 @@ const articleSchema = {
 >
   <article class="container py-12 max-w-3xl">
     <nav class="text-xs text-[var(--text-muted)] mb-6">
-      <a href={localePath('/', lang)} class="hover:text-white no-underline">{t('bread.home', lang)}</a>
+      <a href={localePath('/', lang)} class="hover:text-[var(--text-primary)] no-underline">{t('bread.home', lang)}</a>
       <span class="mx-1">/</span>
-      <a href={localePath('/compare', lang)} class="hover:text-white no-underline">{t('bread.compare', lang)}</a>
+      <a href={localePath('/compare', lang)} class="hover:text-[var(--text-primary)] no-underline">{t('bread.compare', lang)}</a>
       <span class="mx-1">/</span>
       <span class="text-[var(--text-secondary)]">{article.data.title}</span>
     </nav>
@@ -55,7 +55,7 @@ const articleSchema = {
           <span class="tag">{tag}</span>
         ))}
       </div>
-      <h1 class="text-2xl md:text-3xl font-bold text-white mb-3 mt-0">{article.data.title}</h1>
+      <h1 class="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-3 mt-0">{article.data.title}</h1>
       <p class="text-[var(--text-secondary)] text-base mb-3">{article.data.description}</p>
       <div class="text-xs text-[var(--text-muted)]">
         {t('compare.pubDate', lang)} {article.data.date}
@@ -63,12 +63,12 @@ const articleSchema = {
     </header>
 
     <div class="prose prose-invert prose-sm max-w-none
-      prose-headings:text-white prose-headings:font-semibold
+      prose-headings:text-[var(--text-primary)] prose-headings:font-semibold
       prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4 prose-h2:border-b prose-h2:border-[var(--surface-border)] prose-h2:pb-2
       prose-h3:text-base prose-h3:mt-6 prose-h3:mb-3
       prose-p:text-[var(--text-secondary)] prose-p:leading-relaxed
       prose-a:text-[var(--brand-400)] prose-a:no-underline hover:prose-a:underline
-      prose-strong:text-white
+      prose-strong:text-[var(--text-primary)]
       prose-code:text-[var(--brand-300)] prose-code:bg-[var(--surface-card)] prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-xs
       prose-pre:bg-[var(--surface-card)] prose-pre:border prose-pre:border-[var(--surface-border)]
       prose-table:text-sm

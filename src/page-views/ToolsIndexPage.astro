@@ -26,7 +26,7 @@ const seoDesc = lang === 'zh'
 
 <BaseLayout title={seoTitle} description={seoDesc} lang={lang}>
   <section class="container py-12">
-    <h1 class="text-3xl font-bold text-white mb-2">{t('tools.title', lang)}</h1>
+    <h1 class="text-3xl font-bold text-[var(--text-primary)] mb-2">{t('tools.title', lang)}</h1>
     <p class="text-[var(--text-secondary)] mb-6">
       {tools.length} {t('tools.subtitle', lang)}
     </p>
@@ -48,7 +48,7 @@ const seoDesc = lang === 'zh'
                 {tool.name.charAt(0)}
               </div>
               <div>
-                <h3 class="text-base font-semibold text-white group-hover:text-[var(--brand-400)] m-0">{tool.name}</h3>
+                <h3 class="text-base font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0">{tool.name}</h3>
                 <span class="tag text-xs">{t(`type.${tool.type}`, lang) || tool.type}</span>
               </div>
             </div>
