@@ -9,7 +9,6 @@ const translations: Record<string, Record<Locale, string>> = {
   'nav.compare':   { zh: '对比', en: 'Compare' },
   'nav.guides':    { zh: '指南', en: 'Guides' },
   'nav.faq':       { zh: 'FAQ', en: 'FAQ' },
-  'nav.changelog': { zh: '更新日志', en: 'Changelog' },
 
   // ── Breadcrumbs ─────────────────────────────────────────────────────────
   'bread.home':         { zh: '首页', en: 'Home' },
@@ -142,21 +141,6 @@ const translations: Record<string, Record<Locale, string>> = {
   'typeKw.app':         { zh: 'AI 编程 App', en: 'AI Coding App' },
   'typeKw.cloud_agent': { zh: 'AI 云端编程 Agent', en: 'AI Cloud Coding Agent' },
   'typeKw.default':     { zh: 'AI 编程工具', en: 'AI Coding Tool' },
-
-  // ── Changelog page ──────────────────────────────────────────────────────
-  'cl.title':       { zh: '📅 更新日志', en: '📅 Changelog' },
-  'cl.subtitle':    { zh: '站点更新与工具动态，数据变更均记录于此。', en: 'Site updates and tool changes are recorded here.' },
-  'cl.toolUpdates': { zh: '🔄 工具动态', en: '🔄 Tool Updates' },
-  'cl.dataError':   { zh: '发现数据有误？', en: 'Found incorrect data?' },
-  'cl.launch':      { zh: '发布', en: 'Launch' },
-  'cl.feature':     { zh: '新功能', en: 'Feature' },
-  'cl.content':     { zh: '内容', en: 'Content' },
-  'cl.seo':         { zh: 'SEO', en: 'SEO' },
-  'cl.pricing':     { zh: '定价', en: 'Pricing' },
-  'cl.model':       { zh: '模型', en: 'Model' },
-  'cl.update':      { zh: '更新', en: 'Update' },
-  'cl.fix':         { zh: '修复', en: 'Fix' },
-  'cl.announcement':{ zh: '公告', en: 'Announcement' },
 
   // ── Overview page ───────────────────────────────────────────────────────
   'ov.title':       { zh: '🗺️ 2026 AI 编程工具全景图', en: '🗺️ 2026 AI Coding Tools Overview' },
@@ -358,19 +342,6 @@ const translations: Record<string, Record<Locale, string>> = {
   'ovType.app':         { zh: 'App', en: 'App' },
   'ovType.cloud_agent': { zh: '云端 Agent', en: 'Cloud Agent' },
 
-  // ── Month names for changelog ───────────────────────────────────────────
-  'month.1':  { zh: '1月', en: 'Jan' },
-  'month.2':  { zh: '2月', en: 'Feb' },
-  'month.3':  { zh: '3月', en: 'Mar' },
-  'month.4':  { zh: '4月', en: 'Apr' },
-  'month.5':  { zh: '5月', en: 'May' },
-  'month.6':  { zh: '6月', en: 'Jun' },
-  'month.7':  { zh: '7月', en: 'Jul' },
-  'month.8':  { zh: '8月', en: 'Aug' },
-  'month.9':  { zh: '9月', en: 'Sep' },
-  'month.10': { zh: '10月', en: 'Oct' },
-  'month.11': { zh: '11月', en: 'Nov' },
-  'month.12': { zh: '12月', en: 'Dec' },
 };
 
 type TranslationKey = keyof typeof translations;
@@ -403,14 +374,6 @@ export function getAlternateLangUrl(url: URL, currentLang: Locale): string {
   }
   // /en/tools → /zh/tools
   return path.replace(/^\/en(\/|$)/, '/zh$1');
-}
-
-/** Format month label for changelog */
-export function monthLabel(key: string, lang: Locale): string {
-  const [y, m] = key.split('-');
-  const monthName = t(`month.${parseInt(m)}`, lang);
-  if (lang === 'en') return `${monthName} ${y}`;
-  return `${y} 年 ${monthName}`;
 }
 
 /** Get content collection name for a given base and locale */
