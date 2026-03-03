@@ -25,7 +25,6 @@ data/
   tools/*.yaml        # 工具数据（每个工具一个文件，共 15 个）
   apis/*.yaml         # API 源数据（ark, bailian, ollama, openrouter）
   plans/*.yaml        # 方案数据（工具 + API 组合，共 18 个）
-  site-changelog.yaml # 站点更新日志
 
 src/
   lib/
@@ -33,7 +32,7 @@ src/
     i18n.ts           # 双语翻译系统（150+ 翻译 key，t()、localePath() 等）
     faq-data.ts       # FAQ 内容数据
 
-  page-views/         # 页面模板组件（15 个，含所有页面 UI 逻辑）
+  page-views/         # 页面模板组件（14 个，含所有页面 UI 逻辑）
     HomePage.astro
     ToolDetailPage.astro
     ToolsIndexPage.astro
@@ -43,7 +42,6 @@ src/
     ToolsTerminalPage.astro
     ToolsVscodePage.astro
     PlanDetailPage.astro
-    ChangelogPage.astro
     CompareArticlePage.astro
     CompareIndexPage.astro
     GuidesArticlePage.astro
@@ -54,7 +52,7 @@ src/
     index.astro              # 根路径语言重定向（JS 检测 navigator.language）
     api/openrouter.json.ts   # OpenRouter API 端点
     zh/                      # 中文路由（薄包装，透传 lang="zh" 给 page-views）
-      index.astro / faq.astro / changelog.astro
+      index.astro / faq.astro
       tool/[id].astro / plan/[id].astro
       compare/index.astro / compare/[slug].astro
       guides/index.astro / guides/[slug].astro
@@ -104,7 +102,7 @@ scripts/
 - 所有页面都有 `/zh/...` 和 `/en/...` 两个版本
 - Astro 5 i18n 配置：`defaultLocale: 'zh'`，`prefixDefaultLocale: true`
 - 根路径 `/index.astro` 用 JS 检测 `navigator.language`，自动跳转 `/zh/` 或 `/en/`
-- `vercel.json` 中配置了 16 条 301 重定向，将旧路径（如 `/tools`）重定向到 `/zh/tools`
+- `vercel.json` 中配置了 15 条 301 重定向，将旧路径（如 `/tools`）重定向到 `/zh/tools`
 
 ### page-views 模式
 

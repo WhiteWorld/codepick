@@ -95,7 +95,7 @@ function renderMonthlyHighlights(limitPerMonth = 8) {
 
 const zhihu = `# CodePick 更新日志（${dateRangeLabel}）\n\n## 站点更新\n${renderSiteSection()}\n\n## 工具动态\n${renderToolSection()}\n\n## 按月摘要\n${renderMonthlyHighlights()}\n\n---\n如果你发现信息有误或希望新增工具，欢迎反馈。`;
 
-const v2ex = `# CodePick 更新日志（${dateRangeLabel}）\n\n## 站点更新\n${renderSiteSection()}\n\n## 工具动态\n${renderToolSection(20)}\n\n更多内容：https://codepick.dev/changelog`;
+const v2ex = `# CodePick 更新日志（${dateRangeLabel}）\n\n## 站点更新\n${renderSiteSection()}\n\n## 工具动态\n${renderToolSection(20)}\n\n更多内容：https://codepick.dev`;
 
 const juejin = `# CodePick 更新日志（${dateRangeLabel}）\n\n## 站点更新\n${renderSiteSection()}\n\n## 工具动态\n${renderToolSection()}\n\n## 按月摘要\n${renderMonthlyHighlights()}\n\n> 反馈与建议欢迎提 Issue： https://github.com/WhiteWorld/codepick/issues/new`;
 
