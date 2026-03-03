@@ -132,23 +132,29 @@ const switchUrl = getAlternateLangUrl(Astro.url, lang);
   <nav class="sticky top-0 z-50 border-b border-[var(--surface-border)] bg-[var(--surface-nav)] backdrop-blur-xl">
     <div class="container flex items-center justify-between h-16">
       <a href={localePath('/', lang)} class="flex items-center gap-2 text-lg font-bold text-[var(--text-primary)] no-underline">
-        <span class="text-2xl">⚡</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-[var(--brand-400)]" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
         <span>CodePick</span>
       </a>
       <div class="hidden md:flex items-center gap-6">
-        {navLinks.map(link => (
-          <a
-            href={link.href}
-            class="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors no-underline"
-          >
-            {link.label}
-          </a>
-        ))}
+        {navLinks.map(link => {
+          const isActive = Astro.url.pathname === link.href || (link.href !== localePath('/', lang) && Astro.url.pathname.startsWith(link.href + '/') && !navLinks.some(other => other.href !== link.href && other.href !== localePath('/', lang) && Astro.url.pathname.startsWith(other.href + '/')));
+          return (
+            <a
+              href={link.href}
+              class={`text-sm transition-colors no-underline pb-0.5 ${isActive
+                ? 'text-[var(--text-primary)] border-b-2 border-[var(--brand-400)]'
+                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] border-b-2 border-transparent'
+              }`}
+            >
+              {link.label}
+            </a>
+          );
+        })}
       </div>
       <div class="flex items-center gap-3">
         <button id="theme-toggle" class="btn btn-ghost p-2 text-sm" aria-label={lang === 'zh' ? '切换主题' : 'Toggle theme'}>
-          <span class="theme-icon-light hidden">☀️</span>
-          <span class="theme-icon-dark">🌙</span>
+          <svg class="theme-icon-light hidden w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="theme-icon-dark w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
         <a href={switchUrl} class="btn btn-ghost text-xs">{switchLabel}</a>
         <a
@@ -166,7 +172,7 @@ const switchUrl = getAlternateLangUrl(Astro.url, lang);
         </button>
       </div>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--surface-border)] bg-[var(--surface-bg)]">
+    <div id="mobile-menu" class="overflow-hidden transition-all duration-200 md:hidden border-t border-[var(--surface-border)] bg-[var(--surface-bg)]" style="max-height: 0;">
       <div class="container py-3 flex flex-col gap-2">
         {navLinks.map(link => (
           <a
@@ -188,7 +194,7 @@ const switchUrl = getAlternateLangUrl(Astro.url, lang);
     <div class="container py-12">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
-          <h3 class="text-[var(--text-primary)] font-semibold mb-3">⚡ CodePick</h3>
+          <h3 class="text-[var(--text-primary)] font-semibold mb-3 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[var(--brand-400)]" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>CodePick</h3>
           <p class="text-sm text-[var(--text-muted)] leading-relaxed">
             {t('footer.desc', lang)}<br/>
             {t('footer.descLine2', lang)}
@@ -220,9 +226,13 @@ const switchUrl = getAlternateLangUrl(Astro.url, lang);
   <script>
     // Mobile menu toggle
     const toggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('mobile-menu');
+    const menu = document.getElementById('mobile-menu') as HTMLElement | null;
+    let menuOpen = false;
     toggle?.addEventListener('click', () => {
-      menu?.classList.toggle('hidden');
+      menuOpen = !menuOpen;
+      if (menu) {
+        menu.style.maxHeight = menuOpen ? '400px' : '0';
+      }
     });
 
     // Theme toggle

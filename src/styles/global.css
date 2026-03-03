@@ -15,6 +15,11 @@
   --brand-400: #818cf8;
   --brand-500: #6366f1;
   --brand-600: #4f46e5;
+  --color-success: #4ade80;
+  --color-danger: #f87171;
+  --color-warning: #fbbf24;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.24), 0 2px 6px rgba(0,0,0,0.12);
 }
 
 [data-theme="light"] {
@@ -29,6 +34,11 @@
   --brand-400: #4f46e5;
   --brand-500: #4338ca;
   --brand-600: #3730a3;
+  --color-success: #16a34a;
+  --color-danger: #dc2626;
+  --color-warning: #d97706;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06);
 }
 
 /* ===== Base ===== */
@@ -56,9 +66,13 @@ a:hover {
 /* ===== Cards ===== */
 .card {
   @apply bg-[var(--surface-card)] border border-[var(--surface-border)] rounded-xl;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 .card:hover {
-  border-color: rgba(99, 102, 241, 0.3);
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 /* ===== Buttons ===== */
@@ -87,6 +101,9 @@ a:hover {
 }
 .badge {
   @apply inline-block px-2 py-0.5 rounded text-xs font-semibold bg-amber-500/20 text-amber-400;
+}
+.meta-tag {
+  @apply inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs text-[var(--text-muted)] bg-[var(--surface-hover)];
 }
 
 /* ===== Score Bar ===== */
