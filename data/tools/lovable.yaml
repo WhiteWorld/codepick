@@ -1,0 +1,81 @@
+id: lovable
+name: Lovable
+type: web
+logo: /images/lovable.png
+url: https://lovable.dev
+repo: null
+current_version: null
+version_tracked_at: '2026-03-04'
+
+pricing:
+  model: subscription
+  currency: USD
+  plans:
+    - name: Free
+      price: 0
+      limits: 每月 30 条消息，无限公开项目
+      limits_en: 30 messages/month, unlimited public projects
+    - name: Pro
+      price: 21
+      period: month
+      per_user: true
+      limits: 每月 100 credits，私有项目，代码编辑
+      limits_en: 100 credits/month, private projects, code editing
+    - name: Business
+      price: 50
+      period: month
+      per_user: false
+      limits: 团队共享 100 credits，SSO，角色权限
+      limits_en: Shared 100 credits, SSO, role-based access
+  price_updated_at: '2026-03-04'
+  note: 基于 credit 计费，Pro 每月 100 credits
+
+scores:
+  coding_ability: 8.5
+  cost_efficiency: 7.5
+  flexibility: 6.5
+  china_friendly: 2.0
+  privacy: 5.0
+
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: false
+  builder_mode: true
+  ide_base: "Web Builder"
+  supported_models:
+    - Claude Sonnet 4.5
+    - GPT-4o
+  supported_os: [Web]
+
+best_for:
+  - 独立开发者快速构建 SaaS 产品
+  - 需要 GitHub 版本控制的团队
+best_for_en:
+  - Solo developers building SaaS quickly
+  - Teams needing GitHub version control
+
+not_for:
+  - 需要复杂自定义后端逻辑的项目
+  - 不想依赖 Supabase 的团队
+not_for_en:
+  - Projects needing complex custom backends
+  - Teams avoiding Supabase lock-in
+
+changelog:
+  - date: '2026-03-04'
+    type: announcement
+    summary: 首次收录
+    summary_en: Initial listing
+
+data_sources:
+  - url: https://lovable.dev/pricing
+    type: pricing
+    last_checked: '2026-03-04'
+
+last_full_review: '2026-03-04'
+next_review_due: '2026-06-04'
+review_frequency_days: 90
+confidence: medium

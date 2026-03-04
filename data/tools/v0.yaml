@@ -1,0 +1,80 @@
+id: v0
+name: v0 by Vercel
+type: web
+logo: /images/v0.png
+url: https://v0.dev
+repo: null
+current_version: null
+version_tracked_at: '2026-03-04'
+
+pricing:
+  model: subscription
+  currency: USD
+  plans:
+    - name: Free
+      price: 0
+      limits: 每月 200 credits
+      limits_en: 200 credits/month
+    - name: Premium
+      price: 20
+      period: month
+      per_user: true
+      limits: 每月 5000 credits，API 访问
+      limits_en: 5,000 credits/month, API access
+    - name: Team
+      price: 30
+      period: month
+      per_user: true
+      limits: 共享工作区，团队协作
+      limits_en: Shared workspace, team collaboration
+  price_updated_at: '2026-03-04'
+
+scores:
+  coding_ability: 7.5
+  cost_efficiency: 8.0
+  flexibility: 5.0
+  china_friendly: 2.0
+  privacy: 5.0
+
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: false
+  builder_mode: true
+  ide_base: "Web Builder"
+  supported_models:
+    - GPT-4o
+    - Claude Sonnet 4.5
+  supported_os: [Web]
+
+best_for:
+  - React/Next.js 开发者快速生成 UI
+  - 使用 Vercel 部署的团队
+best_for_en:
+  - React/Next.js developers generating UIs fast
+  - Teams deploying on Vercel
+
+not_for:
+  - 需要后端逻辑的完整应用
+  - 非 Vercel 生态的团队
+not_for_en:
+  - Full apps needing backend logic
+  - Teams outside Vercel ecosystem
+
+changelog:
+  - date: '2026-03-04'
+    type: announcement
+    summary: 首次收录
+    summary_en: Initial listing
+
+data_sources:
+  - url: https://v0.dev/pricing
+    type: pricing
+    last_checked: '2026-03-04'
+
+last_full_review: '2026-03-04'
+next_review_due: '2026-06-04'
+review_frequency_days: 90
+confidence: medium

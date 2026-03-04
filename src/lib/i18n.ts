@@ -17,6 +17,7 @@ const translations: Record<string, Record<Locale, string>> = {
   'bread.chinaTools':   { zh: '国内可用', en: 'China Accessible' },
   'bread.vscode':       { zh: 'VS Code 生态', en: 'VS Code Ecosystem' },
   'bread.terminal':     { zh: '终端工具', en: 'Terminal Tools' },
+  'bread.builderTools': { zh: '构建工具', en: 'Builder Tools' },
   'bread.overview':     { zh: '全景图', en: 'Overview' },
   'bread.compare':      { zh: '对比文章', en: 'Comparisons' },
   'bread.guides':       { zh: '使用指南', en: 'Guides' },
@@ -178,6 +179,7 @@ const translations: Record<string, Record<Locale, string>> = {
   'cat.china':    { zh: '🇨🇳 国内可用', en: '🇨🇳 China Accessible' },
   'cat.vscode':   { zh: '🔵 VS Code 生态', en: '🔵 VS Code Ecosystem' },
   'cat.terminal': { zh: '⌨️ 终端工具', en: '⌨️ Terminal Tools' },
+  'cat.builder':  { zh: '🔨 构建工具', en: '🔨 Builder Tools' },
 
   // ── Home page ───────────────────────────────────────────────────────────
   'home.heroTitle1':     { zh: '找到最适合你的', en: 'Find Your Perfect' },
@@ -264,6 +266,11 @@ const translations: Record<string, Record<Locale, string>> = {
   'term.relCompareDesc': { zh: '对比：Claude Code vs OpenCode vs Aider →', en: 'Compare: Claude Code vs OpenCode vs Aider →' },
   'term.relOllama':      { zh: 'Ollama + Aider 本地部署', en: 'Ollama + Aider Local Setup' },
   'term.relOllamaDesc':  { zh: '指南：终端 + 本地模型零成本方案 →', en: 'Guide: Terminal + local model zero-cost setup →' },
+
+  // ── Builder tools page ─────────────────────────────────────────────────
+  'builder.title':     { zh: '🔨 AI 应用构建器', en: '🔨 AI App Builders' },
+  'builder.subtitle1': { zh: '以下工具可通过自然语言描述，直接生成完整的可部署 Web 应用，共', en: 'Build full web apps from natural language descriptions. ' },
+  'builder.subtitle2': { zh: '款，按生成能力排序。', en: ' tools, sorted by generation quality.' },
 
   // ── QuickPicker ─────────────────────────────────────────────────────────
   'qp.title':     { zh: '⚡ 30 秒快速选型', en: '⚡ 30-Second Quick Pick' },

@@ -1,0 +1,80 @@
+id: youware
+name: Youware
+type: web
+logo: /images/youware.png
+url: https://youware.com
+repo: null
+current_version: null
+version_tracked_at: '2026-03-04'
+
+pricing:
+  model: subscription
+  currency: USD
+  plans:
+    - name: Free
+      price: 0
+      limits: 500 credits，1 个后端项目
+      limits_en: 500 credits, 1 backend project
+    - name: Pro
+      price: 20
+      period: month
+      per_user: true
+      limits: 2000+ credits，4 个后端项目，去除品牌水印
+      limits_en: 2,000+ credits, 4 backend projects, branding removal
+    - name: Ultra
+      price: 200
+      period: month
+      per_user: false
+      limits: 团队版
+      limits_en: Team plan
+  price_updated_at: '2026-03-04'
+
+scores:
+  coding_ability: 7.5
+  cost_efficiency: 8.0
+  flexibility: 6.0
+  china_friendly: 2.0
+  privacy: 4.0
+
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: true
+  builder_mode: true
+  ide_base: "Web Builder"
+  supported_models:
+    - GPT-4o
+    - Veo3
+    - Flux AI
+    - Sora 2
+  supported_os: [Web]
+
+best_for:
+  - 非技术创业者快速构建 Web 应用
+  - 语音输入偏好用户
+best_for_en:
+  - Non-technical founders building web apps
+  - Users preferring voice input
+
+not_for:
+  - 需要精细代码控制的开发者
+not_for_en:
+  - Developers needing fine-grained code control
+
+changelog:
+  - date: '2026-03-04'
+    type: announcement
+    summary: 首次收录
+    summary_en: Initial listing
+
+data_sources:
+  - url: https://youware.com
+    type: pricing
+    last_checked: '2026-03-04'
+
+last_full_review: '2026-03-04'
+next_review_due: '2026-06-04'
+review_frequency_days: 90
+confidence: medium
