@@ -1,0 +1,96 @@
+id: kimi-code
+name: Kimi Code
+type: cli
+logo: /images/kimi-code.png
+url: https://www.kimi.com/code
+repo: https://github.com/MoonshotAI/kimi-cli
+current_version: '1.17.0'
+version_tracked_at: '2026-03-09'
+
+pricing:
+  model: freemium
+  currency: CNY
+  plans:
+    - name: Adagio（免费版）
+      price: 0
+      limits: 基础对话，Kimi Code 额度有限
+      limits_en: Basic conversations, limited Kimi Code quota
+    - name: Andante（基础会员）
+      price: 49
+      period: month
+      limits: 更多 Kimi Code 使用额度，适合轻度开发者
+      limits_en: More Kimi Code quota, suitable for casual developers
+    - name: Moderato（高级会员）
+      price: 99
+      period: month
+      limits: 完整 Kimi Code 额度，适合日常重度开发
+      limits_en: Full Kimi Code quota, ideal for daily heavy development
+  price_updated_at: '2026-03-09'
+  note: 订阅 Kimi 会员即可使用 Kimi Code；Moderato 套餐提供完整编码额度
+  note_en: Subscribe to Kimi membership to use Kimi Code; Moderato plan offers full coding quota
+
+scores:
+  coding_ability: 8.5
+  cost_efficiency: 9.5
+  flexibility: 8.0
+  china_friendly: 10
+  privacy: 5
+
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: true
+  sub_agent: false
+  context_window: null
+  supported_models:
+    - Kimi K2.5
+  ide_base: 终端 CLI
+  supported_os:
+    - macOS
+    - Linux
+    - Windows
+  git_integration: true
+  vscode_extension: true
+  acp_support: true
+
+best_for:
+  - 国内开发者（国产工具，直连无阻）
+  - 预算敏感、希望低价使用 Agent 编程
+  - 终端党 + VS Code 用户
+best_for_en:
+  - China-based developers (native tool, no VPN needed)
+  - Budget-conscious developers seeking affordable agent coding
+  - Terminal users and VS Code fans
+
+not_for:
+  - 需要使用自定义第三方模型（仅支持 Kimi 自有模型）
+  - JetBrains 重度用户（ACP 支持尚处早期）
+  - 追求顶级编码能力的团队
+not_for_en:
+  - Users who need custom third-party models (only Kimi's own models supported)
+  - Heavy JetBrains users (ACP support is still early-stage)
+  - Teams demanding top-tier coding performance
+
+changelog:
+  - date: '2026-03-03'
+    type: feature
+    summary: 发布 v1.17.0，支持 MCP、ACP、VS Code 扩展及 Zsh 集成
+    summary_en: Released v1.17.0 with MCP, ACP, VS Code extension, and Zsh integration support
+
+data_sources:
+  - url: https://www.kimi.com/code
+    type: docs
+    last_checked: '2026-03-09'
+  - url: https://github.com/MoonshotAI/kimi-cli
+    type: changelog
+    last_checked: '2026-03-09'
+  - url: https://www.kimi.com/membership/pricing
+    type: pricing
+    last_checked: '2026-03-09'
+
+last_full_review: '2026-03-09'
+next_review_due: '2026-04-09'
+review_frequency_days: 30
+confidence: medium
