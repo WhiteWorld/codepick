@@ -3,9 +3,9 @@ name: OpenCode
 type: cli
 logo: /images/opencode.png
 url: https://opencode.ai
-repo: https://github.com/opencode-ai/opencode
-current_version: v0.0.55
-version_tracked_at: '2026-02-15'
+repo: https://github.com/anomalyco/opencode
+current_version: v1.2.27
+version_tracked_at: '2026-03-16'
 pricing:
   model: free
   currency: null
@@ -28,8 +28,9 @@ features:
   multi_file_edit: true
   mcp_support: true
   context_window: 取决于所选模型
-  supported_models: 75+ 模型提供商
+  supported_models: 75+ 模型提供商（OpenAI / Anthropic / Gemini / Bedrock / Groq / Azure / OpenRouter）
   ide_base: 终端 CLI (TUI)
+  desktop_app: true
   supported_os:
     - macOS
     - Windows
@@ -59,19 +60,30 @@ compatible_apis:
   - deepseek
   - ollama
 data_sources:
-  - url: https://github.com/opencode-ai/opencode/releases
+  - url: https://github.com/anomalyco/opencode/releases
     type: release
-    last_checked: '2026-01-20'
+    last_checked: '2026-03-16'
+  - url: https://opencode.ai/changelog
+    type: changelog
+    last_checked: '2026-03-16'
 changelog:
+  - date: '2026-03-16'
+    type: release
+    summary: 'v1.2.27: 修复 VCS watcher 逻辑，支持多行 Web 粘贴，默认 chunk 超时从2分钟提升至5分钟'
+    summary_en: 'v1.2.27: Fixed VCS watcher logic, handle multiline web paste, increased default chunk timeout from 2 to 5 minutes'
+  - date: '2026-03-12'
+    type: release
+    summary: 'v1.2.25: 新增 Windows ARM64 发布目标，多类型 ID 品牌化增强类型安全'
+    summary_en: 'v1.2.25: Added ARM64 release targets for Windows CLI and desktop; branded ID types for improved type safety'
+  - date: '2026-03-09'
+    type: feature
+    summary: 'v1.2.24: TUI 新增工作区支持；GitLab 1M 上下文窗口 beta 支持'
+    summary_en: 'v1.2.24: Initial workspace support in TUI; GitLab 1M context window beta header support'
   - date: '2026-02-15'
     type: release
-    summary: 'v0.0.55: v0.0.55'
-    summary_en: 'v0.0.55: maintenance release'
-  - date: '2026-01-15'
-    type: release
-    summary: 'v0.5: 支持 LSP 集成和多会话管理'
-    summary_en: 'v0.5: LSP integration and multi-session management support'
-last_full_review: '2026-02-15'
-next_review_due: '2026-03-17'
+    summary: 'v0.0.55: 旧版本末期'
+    summary_en: 'v0.0.55: final legacy release before v1.0 rewrite'
+last_full_review: '2026-03-16'
+next_review_due: '2026-04-16'
 review_frequency_days: 30
-confidence: low
+confidence: medium

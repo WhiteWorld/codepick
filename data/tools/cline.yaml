@@ -4,8 +4,8 @@ type: client
 logo: /images/cline.png
 url: https://cline.bot
 repo: https://github.com/cline/cline
-current_version: v3.62.0
-version_tracked_at: '2026-02-15'
+current_version: v3.72.0
+version_tracked_at: '2026-03-16'
 pricing:
   model: free
   currency: null
@@ -67,8 +67,24 @@ compatible_apis:
 data_sources:
   - url: https://github.com/cline/cline/releases
     type: release
-    last_checked: '2026-02-26'
+    last_checked: '2026-03-16'
 changelog:
+  - date: '2026-03-12'
+    type: release
+    summary: 'v3.72.0: 新增 Anthropic Claude Opus 4.6 快速模式支持；修复 native tool placeholder 插值'
+    summary_en: 'v3.72.0: Added Anthropic Claude Opus 4.6 fast mode variants; fixed native tool placeholder interpolation'
+  - date: '2026-03-06'
+    type: release
+    summary: 'v3.71.0: 新增 GPT-5.4 模型支持（面向 ChatGPT 订阅用户）；注意力边界通知 hook'
+    summary_en: 'v3.71.0: Added GPT-5.4 models for ChatGPT subscribers; notification hook for attention boundaries'
+  - date: '2026-03-04'
+    type: release
+    summary: 'v3.70.0: 发布 Cline API 文档；token/费用更新即时生效'
+    summary_en: 'v3.70.0: New Cline API documentation; token/cost updates happen immediately during usage chunks'
+  - date: '2026-02-27'
+    type: release
+    summary: 'v3.68.0: 支持从 Cline 端点动态拉取模型列表'
+    summary_en: 'v3.68.0: Dynamic model fetching from Cline endpoint'
   - date: '2026-02-19'
     type: feature
     summary: 新增 CLI（macOS/Linux 预览）；扩展支持 JetBrains IDE、Zed、Neovim 等平台；5M+ 用户里程碑
@@ -85,7 +101,7 @@ changelog:
     type: feature
     summary: 支持 MCP Server 管理
     summary_en: MCP Server management support added
-last_full_review: '2026-02-26'
-next_review_due: '2026-03-28'
+last_full_review: '2026-03-16'
+next_review_due: '2026-04-16'
 review_frequency_days: 30
 confidence: high

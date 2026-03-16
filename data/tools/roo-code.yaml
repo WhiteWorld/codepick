@@ -4,8 +4,8 @@ type: client
 logo: /images/roo-code.png
 url: https://roocode.com
 repo: https://github.com/RooCodeInc/Roo-Code
-current_version: v3.47.3
-version_tracked_at: '2026-02-15'
+current_version: v3.51.1
+version_tracked_at: '2026-03-16'
 pricing:
   model: free
   currency: null
@@ -71,8 +71,16 @@ compatible_apis:
 data_sources:
   - url: https://github.com/RooCodeInc/Roo-Code/releases
     type: release
-    last_checked: '2026-02-26'
+    last_checked: '2026-03-16'
 changelog:
+  - date: '2026-03-08'
+    type: release
+    summary: 'v3.51.1: 自定义 Slash 命令支持；增强 Gemini URL 上下文和 Google Search grounding（实时联网）；消息队列（Roo 工作时继续输入）'
+    summary_en: 'v3.51.1: Custom slash commands; enhanced Gemini URL context and Google Search grounding (real-time web); message queueing while Roo is working'
+  - date: '2026-02-19'
+    type: release
+    summary: 'v3.50.0: 消息排队功能上线，允许 Roo 工作时继续输入下一条指令'
+    summary_en: 'v3.50.0: Message queueing — queue next instructions while Roo is still working'
   - date: '2026-02-25'
     type: feature
     summary: 仓库迁移至 RooCodeInc/Roo-Code；新增 JetBrains IDE 支持（独立扩展）；Roo Code Cloud Agents 发布（Slack/GitHub 集成）
@@ -89,7 +97,7 @@ changelog:
     type: feature
     summary: 支持 Claude Opus 4.6；tool use 消息改为结构化 delta 流式传输，提升效率
     summary_en: Claude Opus 4.6 support added; tool use messages switched to structured delta streaming for better performance
-last_full_review: '2026-02-26'
-next_review_due: '2026-03-28'
+last_full_review: '2026-03-16'
+next_review_due: '2026-04-16'
 review_frequency_days: 30
 confidence: high

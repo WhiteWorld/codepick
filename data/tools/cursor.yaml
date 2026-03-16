@@ -4,8 +4,8 @@ type: ide
 logo: /images/cursor.png
 url: https://cursor.com
 repo: null
-current_version: '2.5'
-version_tracked_at: '2026-02-26'
+current_version: '2.6'
+version_tracked_at: '2026-03-16'
 pricing:
   model: subscription
   currency: USD
@@ -73,7 +73,8 @@ features:
     - macOS
     - Windows
     - Linux
-  jetbrains_support: false
+  jetbrains_support: true
+  jetbrains_via_acp: true
   git_integration: true
 best_for:
   - 全栈开发者
@@ -84,11 +85,9 @@ best_for_en:
   - Heavy users who need autonomous Agent coding
   - Large-project multi-file refactoring
 not_for:
-  - JetBrains用户
   - 预算有限的个人用户
   - 国内网络不稳定的用户
 not_for_en:
-  - JetBrains users
   - Budget-conscious individual developers
   - Users with unstable internet in China
 plans_using_this:
@@ -99,11 +98,15 @@ plans_using_this:
 data_sources:
   - url: https://cursor.com/pricing
     type: pricing
-    last_checked: '2026-02-26'
+    last_checked: '2026-03-16'
   - url: https://cursor.com/changelog
     type: changelog
-    last_checked: '2026-02-26'
+    last_checked: '2026-03-16'
 changelog:
+  - date: '2026-03-04'
+    type: feature
+    summary: 'v2.6: 通过 Agent Client Protocol (ACP) 支持 JetBrains IDE（IntelliJ / PyCharm / WebStorm 等）；MCP Apps 支持 Amplitude/Figma/tldraw 等交互式 UI；Teams/Enterprise 支持私有插件市场'
+    summary_en: 'v2.6: JetBrains IDE support via ACP (IntelliJ/PyCharm/WebStorm); MCP Apps with interactive UIs (Amplitude/Figma/tldraw); team plugin marketplaces for Teams/Enterprise'
   - date: '2026-02-24'
     type: feature
     summary: 'v2.5: Cloud Agents 升级，每个 Agent 运行在独立 VM 沙箱中，可自动测试、截图、生成视频，产出含 Artifact 的 Merge-ready PR；可在 Web/桌面/移动/Slack/GitHub 触发'
@@ -132,7 +135,7 @@ changelog:
     type: pricing
     summary: Pro 从500次请求制改为$20额度池制, Auto模式无限使用
     summary_en: Pro switched from 500-request quota to $20 credit pool; unlimited Auto mode
-last_full_review: '2026-02-26'
-next_review_due: '2026-03-28'
+last_full_review: '2026-03-16'
+next_review_due: '2026-04-16'
 review_frequency_days: 30
 confidence: high
