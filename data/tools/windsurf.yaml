@@ -53,7 +53,9 @@ features:
     - Claude Sonnet 4 (BYOK)
     - Claude Opus 4 (BYOK)
     - GPT-5.1
+    - GPT-5.4
     - Gemini 3 Pro（付费预览）
+    - Gemini 3 Flash
     - Gemini 2.5 Pro
     - SWE-1.5（Windsurf 自研）
   ide_base: VS Code Fork
@@ -82,11 +84,19 @@ plans_using_this: []
 data_sources:
   - url: https://windsurf.com/pricing
     type: pricing
-    last_checked: '2026-02-26'
+    last_checked: '2026-03-16'
   - url: https://windsurf.com/changelog
     type: changelog
-    last_checked: '2026-02-26'
+    last_checked: '2026-03-16'
 changelog:
+  - date: '2026-03-05'
+    type: feature
+    summary: 'Wave 13: 并行多 Agent 会话，Git worktree 隔离沙箱，双侧 Cascade 面板对比；Arena Mode 上线——在同一 IDE 内对比两个模型输出并投票'
+    summary_en: 'Wave 13: parallel multi-agent sessions with Git worktree isolation, side-by-side Cascade panes; Arena Mode — compare two models side-by-side and vote on which performs better'
+  - date: '2026-03-05'
+    type: model
+    summary: 'GPT-5.4 上线（限时促销价）；Gemini 3 Flash 正式可用（78% SWE-bench，3倍速于上代）'
+    summary_en: 'GPT-5.4 available with limited-time promotional pricing; Gemini 3 Flash launched (78% SWE-bench, 3x faster than previous gen)'
   - date: '2026-02-01'
     type: feature
     summary: 新增 BYOK（Bring Your Own API Key），Free/Pro 用户可接入 Claude Sonnet 4 / Opus 4（含 Thinking 模式）
@@ -111,7 +121,7 @@ changelog:
     type: update
     summary: 推出 SWE-1.5 自研 Agent 模型，速度和代码能力双提升
     summary_en: Launched SWE-1.5 proprietary Agent model, improving both speed and code quality
-last_full_review: '2026-02-26'
-next_review_due: '2026-03-28'
+last_full_review: '2026-03-16'
+next_review_due: '2026-04-16'
 review_frequency_days: 30
 confidence: high
