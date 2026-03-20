@@ -94,13 +94,13 @@ a:hover {
 
 /* ===== Tags & Badges ===== */
 .tag {
-  @apply inline-block px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--surface-hover)] text-[var(--text-secondary)];
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--surface-hover)] text-[var(--text-secondary)];
 }
 .tag-primary {
   background-color: rgba(79, 70, 229, 0.2); color: var(--brand-400);
 }
 .badge {
-  @apply inline-block px-2 py-0.5 rounded text-xs font-semibold bg-amber-500/20 text-amber-400;
+  @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-amber-500/20 text-amber-400;
 }
 .meta-tag {
   @apply inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs text-[var(--text-muted)] bg-[var(--surface-hover)];
