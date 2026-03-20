@@ -44,19 +44,19 @@ const svg = `<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http:/
 
   <!-- Tool badges -->
   <rect x="80" y="470" width="160" height="44" rx="8" fill="#1e2030" stroke="#2e3348" stroke-width="1"/>
-  <text x="160" y="498" font-family="system-ui, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">Cursor</text>
+  <text x="160" y="492" font-family="system-ui, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle" dominant-baseline="central">Cursor</text>
 
   <rect x="256" y="470" width="160" height="44" rx="8" fill="#1e2030" stroke="#2e3348" stroke-width="1"/>
-  <text x="336" y="498" font-family="system-ui, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">Copilot</text>
+  <text x="336" y="492" font-family="system-ui, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle" dominant-baseline="central">Copilot</text>
 
   <rect x="432" y="470" width="160" height="44" rx="8" fill="#1e2030" stroke="#2e3348" stroke-width="1"/>
-  <text x="512" y="498" font-family="system-ui, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">Cline</text>
+  <text x="512" y="492" font-family="system-ui, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle" dominant-baseline="central">Cline</text>
 
   <rect x="608" y="470" width="200" height="44" rx="8" fill="#1e2030" stroke="#2e3348" stroke-width="1"/>
-  <text x="708" y="498" font-family="system-ui, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">Claude Code</text>
+  <text x="708" y="492" font-family="system-ui, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle" dominant-baseline="central">Claude Code</text>
 
   <rect x="824" y="470" width="160" height="44" rx="8" fill="#1e2030" stroke="#2e3348" stroke-width="1"/>
-  <text x="904" y="498" font-family="system-ui, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">Aider</text>
+  <text x="904" y="492" font-family="system-ui, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle" dominant-baseline="central">Aider</text>
 
   <!-- URL -->
   <text x="1120" y="598" font-family="system-ui, sans-serif" font-size="22" fill="#4f46e5" text-anchor="end">codepick.dev</text>
