@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 import { t, localePath, getAlternateLangUrl, type Locale } from '../lib/i18n';
 
 interface Props {
@@ -117,6 +118,7 @@ const switchUrl = getAlternateLangUrl(Astro.url, lang);
   ))}
 
   <Analytics />
+  <SpeedInsights />
 
   <!-- Prevent FOUC: apply saved theme before paint -->
   <script is:inline>
