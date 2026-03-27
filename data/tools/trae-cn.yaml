@@ -5,7 +5,7 @@ logo: /images/trae.png
 url: https://trae.cn
 repo: null
 current_version: null
-version_tracked_at: '2026-02-17'
+version_tracked_at: '2026-03-27'
 pricing:
   model: free
   currency: CNY
@@ -14,9 +14,9 @@ pricing:
       price: 0
       limits: 全部内置模型免费调用，无用量限制
       limits_en: All built-in models free, no usage limits
-  price_updated_at: '2026-02-17'
-  note: 字节跳动出品，国内专属版本，目前全部功能完全免费；访问 trae.cn，无需代理
-  note_en: Made by ByteDance, China-exclusive edition, all features completely free; access trae.cn, no proxy required
+  price_updated_at: '2026-03-27'
+  note: 字节跳动出品，国内专属版本，个人用户全部功能完全免费；企业版已上线（支持 10 万文件/1.5 亿行代码，端到端加密）；访问 trae.cn，无需代理
+  note_en: Made by ByteDance, China-exclusive edition, all features completely free for individuals; Enterprise Edition launched (supports 100K files/150M LOC, end-to-end encryption); access trae.cn, no proxy required
 scores:
   coding_ability: 8
   cost_efficiency: 10
@@ -29,6 +29,9 @@ features:
   agent_mode: true
   solo_mode: true
   builder_mode: true
+  voice_interaction: true
+  sub_agent: true
+  context_compression: true
   multi_file_edit: true
   mcp_support: true
   context_window: 取决于所选模型
@@ -68,15 +71,19 @@ compatible_apis:
 data_sources:
   - url: https://trae.cn
     type: product
-    last_checked: '2026-02-26'
+    last_checked: '2026-03-27'
   - url: https://docs.trae.cn/ide/models
     type: docs
-    last_checked: '2026-02-26'
+    last_checked: '2026-03-27'
 changelog:
+  - date: '2026-03-01'
+    type: feature
+    summary: 企业版上线，支持 10 万文件/1.5 亿行代码，端到端代码加密，云端零存储；92% 字节内部工程师使用
+    summary_en: Enterprise Edition launched — supports 100K files/150M LOC, end-to-end code encryption, cloud zero-storage; used by 92% of ByteDance engineers internally
   - date: '2026-02-01'
     type: update
-    summary: TRAE 2.0 即将发布：新增语音交互功能，进入"深度协作+多模态"时代；编码能力全面提升
-    summary_en: TRAE 2.0 coming soon — voice interaction added, entering "deep collaboration + multimodal" era; coding ability significantly improved
+    summary: TRAE 2.0 正式发布：SOLO 模式(Context Engineering)、Plan Mode、多任务并行、Sub Agent、DiffView、上下文压缩、语音交互
+    summary_en: TRAE 2.0 officially launched — SOLO mode (Context Engineering), Plan Mode, multi-task parallelism, Sub Agent, DiffView, context compression, voice interaction
   - date: '2026-01-01'
     type: feature
     summary: 新增 Kimi-K2、GLM-4.5、Qwen3-Coder 等国产顶级模型
@@ -89,7 +96,7 @@ changelog:
     type: launch
     summary: Trae CN 正式发布，字节跳动国内专属 AI IDE，免费使用豆包和 DeepSeek
     summary_en: Trae CN officially launched — ByteDance's China-exclusive AI IDE, free access to Doubao and DeepSeek
-last_full_review: '2026-02-26'
-next_review_due: '2026-03-28'
+last_full_review: '2026-03-27'
+next_review_due: '2026-04-27'
 review_frequency_days: 30
 confidence: medium

@@ -5,7 +5,7 @@ logo: /images/antigravity.png
 url: https://antigravity.google/
 repo: null
 current_version: preview
-version_tracked_at: '2026-02-17'
+version_tracked_at: '2026-03-27'
 pricing:
   model: freemium
   currency: USD
@@ -75,13 +75,13 @@ plans_using_this: []
 data_sources:
   - url: https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/
     type: product
-    last_checked: '2026-02-26'
+    last_checked: '2026-03-27'
 changelog:
   - date: '2025-11-18'
     type: launch
     summary: Google Antigravity 公开预览发布，随 Gemini 3 同期推出，VS Code Fork，免费支持多顶级模型
     summary_en: Google Antigravity public preview launched alongside Gemini 3 — VS Code Fork, free access to multiple top-tier models
-last_full_review: '2026-02-26'
-next_review_due: '2026-03-28'
+last_full_review: '2026-03-27'
+next_review_due: '2026-04-27'
 review_frequency_days: 30
 confidence: medium
