@@ -88,7 +88,7 @@ changelog:
     type: feature
     summary: "支持接入 Trae / Claude Code / Cursor 等更多客户端"
 
-last_full_review: "2026-02-14"
-next_review_due: "2026-03-14"
+last_full_review: "2026-03-27"
+next_review_due: "2026-04-27"
 review_frequency_days: 30
 confidence: high

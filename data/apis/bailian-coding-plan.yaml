@@ -81,7 +81,7 @@ changelog:
     type: pricing
     summary: "推出首购优惠活动: Lite ¥7.9/月, Pro ¥39.9/月"
 
-last_full_review: "2026-02-26"
-next_review_due: "2026-03-26"
+last_full_review: "2026-03-27"
+next_review_due: "2026-04-27"
 review_frequency_days: 30
 confidence: high
