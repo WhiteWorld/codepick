@@ -4,8 +4,8 @@ type: cli
 logo: /images/claude-code.png
 url: https://docs.anthropic.com/en/docs/claude-code
 repo: null
-current_version: null
-version_tracked_at: '2026-02-14'
+current_version: '2.1.80'
+version_tracked_at: '2026-03-27'
 pricing:
   model: subscription
   currency: USD
@@ -27,20 +27,20 @@ pricing:
       period: month
       limits: 20倍Pro用量, Opus 4.6完整访问, Agent Teams
       limits_en: 20x Pro usage, full Opus 4.6 access, Agent Teams
-    - name: Team
-      price: 150
+    - name: Team (Premium Seat)
+      price: 100
       period: month
       per_user: true
-      limits: 团队管理, 共享用量
-      limits_en: Team management, shared usage pool
+      limits: 含 Claude Code, 6.25倍Pro用量, 年付$100/月(月付$125-150); 另有Standard座席$25-30不含Code
+      limits_en: Includes Claude Code, 6.25x Pro usage, $100/mo annual ($125-150 monthly); Standard seats $25-30 without Code
     - name: API
       price: null
       period: null
-      limits: 按量付费, Sonnet $3/$15 per 1M tokens, Opus $5/$25
-      limits_en: Pay-as-you-go, Sonnet $3/$15 per 1M tokens, Opus $5/$25
-  price_updated_at: '2026-02-14'
-  note: Pro可年付$17/月; Max包含Opus 4.6的1M上下文和Agent Teams; 也可通过方舟Coding Plan接入
-  note_en: Pro available at $17/mo billed annually; Max includes Opus 4.6 1M context and Agent Teams; can also connect via Volcengine Ark Coding Plan
+      limits: 按量付费, Sonnet 4.6 $3/$15, Opus 4.6 $5/$25, Haiku 4.5 $1/$5 per 1M tokens
+      limits_en: Pay-as-you-go, Sonnet 4.6 $3/$15, Opus 4.6 $5/$25, Haiku 4.5 $1/$5 per 1M tokens
+  price_updated_at: '2026-03-27'
+  note: Pro可年付$17/月; Max包含Opus 4.6的1M上下文(GA)和Agent Teams; Team有Standard/Premium两种座席; 也可通过方舟Coding Plan接入
+  note_en: Pro available at $17/mo billed annually; Max includes Opus 4.6 1M context (GA) and Agent Teams; Team offers Standard/Premium seat types; can also connect via Volcengine Ark Coding Plan
 scores:
   coding_ability: 9.6
   cost_efficiency: 3.5
@@ -57,10 +57,13 @@ features:
   multi_agent: true
   agent_teams: true
   adaptive_thinking: true
-  context_window: 200K tokens (Opus 4.6 支持 1M beta)
+  voice_mode: true
+  computer_use: true
+  context_window: 1M tokens (Opus 4.6 / Sonnet 4.6 GA)
   supported_models:
-    - Claude Sonnet 4.5
     - Claude Opus 4.6
+    - Claude Sonnet 4.6
+    - Claude Haiku 4.5
   ide_base: 终端 CLI
   supported_os:
     - macOS
@@ -88,11 +91,31 @@ compatible_apis:
 data_sources:
   - url: https://claude.ai/pricing
     type: pricing
-    last_checked: '2026-02-26'
+    last_checked: '2026-03-27'
   - url: https://docs.anthropic.com/en/docs/claude-code
     type: docs
-    last_checked: '2026-02-26'
+    last_checked: '2026-03-27'
 changelog:
+  - date: '2026-03-25'
+    type: feature
+    summary: 新增 Transcript 搜索功能
+    summary_en: Transcript search feature added
+  - date: '2026-03-17'
+    type: model
+    summary: Opus 4.6 成为默认模型, 最大输出 64K token（上限 128K）; 1M 上下文窗口正式 GA
+    summary_en: Opus 4.6 now default model, max output 64K tokens (upper bound 128K); 1M context window GA
+  - date: '2026-03-14'
+    type: feature
+    summary: MCP elicitation 支持; /effort 命令控制推理深度; Voice 模式支持 20 种语言
+    summary_en: MCP elicitation support; /effort command for reasoning depth control; Voice mode supports 20 languages
+  - date: '2026-03-01'
+    type: feature
+    summary: 新增 Voice 模式(/voice)、/loop 定时监控、Computer Use、--bare 和 --channels 标志
+    summary_en: Added Voice mode (/voice), /loop recurring monitoring, Computer Use, --bare and --channels flags
+  - date: '2026-02-17'
+    type: model
+    summary: Sonnet 4.6 发布, 改进 Agentic 搜索能力, 1M 上下文(beta)
+    summary_en: Sonnet 4.6 launched, improved agentic search capability, 1M context (beta)
   - date: '2026-02-06'
     type: feature
     summary: 支持 Agent Teams 多Agent协作模式
@@ -105,7 +128,7 @@ changelog:
     type: pricing
     summary: 推出 Max 5x ($100) 和 Max 20x ($200) 高用量套餐
     summary_en: Launched Max 5x ($100) and Max 20x ($200) high-usage tiers
-last_full_review: '2026-02-26'
-next_review_due: '2026-03-28'
+last_full_review: '2026-03-27'
+next_review_due: '2026-04-27'
 review_frequency_days: 30
 confidence: high
