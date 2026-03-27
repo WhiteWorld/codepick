@@ -52,12 +52,14 @@ features:
   supported_models:
     - Claude Sonnet 4 (BYOK)
     - Claude Opus 4 (BYOK)
-    - GPT-5.1
+    - GPT-5.2
     - GPT-5.4
+    - GPT-5.4 mini
     - Gemini 3 Pro（付费预览）
     - Gemini 3 Flash
     - Gemini 2.5 Pro
     - SWE-1.5（Windsurf 自研）
+    - SWE-grep / SWE-grep-mini
   ide_base: VS Code Fork
   supported_os:
     - macOS
@@ -84,10 +86,10 @@ plans_using_this: []
 data_sources:
   - url: https://windsurf.com/pricing
     type: pricing
-    last_checked: '2026-03-16'
+    last_checked: '2026-03-27'
   - url: https://windsurf.com/changelog
     type: changelog
-    last_checked: '2026-03-16'
+    last_checked: '2026-03-27'
 changelog:
   - date: '2026-03-05'
     type: feature
@@ -121,7 +123,7 @@ changelog:
     type: update
     summary: 推出 SWE-1.5 自研 Agent 模型，速度和代码能力双提升
     summary_en: Launched SWE-1.5 proprietary Agent model, improving both speed and code quality
-last_full_review: '2026-03-16'
-next_review_due: '2026-04-16'
+last_full_review: '2026-03-27'
+next_review_due: '2026-04-27'
 review_frequency_days: 30
 confidence: high

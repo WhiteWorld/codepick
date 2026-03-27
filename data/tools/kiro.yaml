@@ -4,39 +4,39 @@ type: ide
 logo: /images/kiro.png
 url: https://kiro.dev
 repo: https://github.com/kirodotdev/Kiro
-current_version: preview
-version_tracked_at: '2026-02-17'
+current_version: GA
+version_tracked_at: '2026-03-27'
 pricing:
   model: subscription
   currency: USD
   plans:
     - name: Free
       price: 0
-      limits: 50 vibe请求/月
-      limits_en: 50 vibe requests/mo
+      limits: 50 统一 credits/月
+      limits_en: 50 unified credits/mo
     - name: Pro
       price: 20
       period: month
-      limits: 225 vibe请求 + 125 spec请求/月，额外$0.04/vibe，$0.20/spec
-      limits_en: 225 vibe requests + 125 spec requests/mo; extra $0.04/vibe, $0.20/spec
+      limits: 1,000 credits/月, 超出$0.04/credit
+      limits_en: 1,000 credits/mo, overage $0.04/credit
     - name: Pro+
       price: 40
       period: month
-      limits: 450 vibe请求 + 250 spec请求/月
-      limits_en: 450 vibe requests + 250 spec requests/mo
+      limits: 2,000 credits/月
+      limits_en: 2,000 credits/mo
     - name: Power
       price: 200
       period: month
-      limits: 2250 vibe请求 + 1250 spec请求/月
-      limits_en: 2250 vibe requests + 1250 spec requests/mo
+      limits: 10,000 credits/月
+      limits_en: 10,000 credits/mo
     - name: Enterprise
       price: null
       period: month
       limits: 定制配额，团队管理
       limits_en: Custom quota, team management
-  price_updated_at: '2026-02-17'
-  note: Vibe请求=普通对话/代码补全，Spec请求=规格驱动开发流程（价值是vibe的5倍）；Pro+价格待确认
-  note_en: Vibe requests = regular chat/completion; Spec requests = spec-driven development flow (5x the value of vibe); Pro+ price to be confirmed
+  price_updated_at: '2026-03-27'
+  note: 已改为统一 credit 池（不再区分 vibe/spec）; 不同模型消耗倍率不同(如 Sonnet 4 为 1.3x); 新用户送 500 bonus credits(30天有效)
+  note_en: Unified credit pool (no longer separate vibe/spec); different models consume at different rates (e.g. Sonnet 4 at 1.3x); 500 bonus credits for new users (30-day expiry)
 scores:
   coding_ability: 8.5
   cost_efficiency: 6
@@ -52,10 +52,13 @@ features:
   spec_driven: true
   hooks: true
   steering_rules: true
+  autonomous_agent: true
+  checkpointing: true
+  kiro_cli: true
   context_window: 标准上下文窗口
   supported_models:
-    - Claude Sonnet 4.0
-    - Claude Sonnet 3.7
+    - Claude Sonnet 4 (Auto 模式自动选择)
+    - Claude Sonnet 4.5
   ide_base: VS Code Fork
   supported_os:
     - macOS
@@ -83,16 +86,24 @@ plans_using_this: []
 data_sources:
   - url: https://kiro.dev/pricing/
     type: pricing
-    last_checked: '2026-02-26'
+    last_checked: '2026-03-27'
   - url: https://kiro.dev/blog/introducing-kiro/
     type: changelog
-    last_checked: '2026-02-26'
+    last_checked: '2026-03-27'
 changelog:
+  - date: '2026-01-19'
+    type: feature
+    summary: Kiro CLI 发布，替代 Amazon Q Developer CLI; Autonomous Agent 预览; Checkpointing 回滚功能
+    summary_en: Kiro CLI launched, replacing Amazon Q Developer CLI; Autonomous Agent preview; Checkpointing rollback
+  - date: '2025-11-17'
+    type: launch
+    summary: Kiro GA 正式发布; 统一 credit 池定价取代 vibe/spec 分离模式; Auto 模式自动选模型
+    summary_en: Kiro GA officially launched; unified credit pool pricing replaces separate vibe/spec model; Auto mode for model selection
   - date: '2025-07-01'
     type: launch
     summary: Kiro 公开预览版发布，AWS 出品的 Spec 驱动 Agentic IDE
     summary_en: Kiro public preview launched — AWS-built Spec-driven Agentic IDE
-last_full_review: '2026-02-26'
-next_review_due: '2026-03-28'
+last_full_review: '2026-03-27'
+next_review_due: '2026-04-27'
 review_frequency_days: 30
-confidence: medium
+confidence: high

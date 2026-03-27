@@ -4,8 +4,8 @@ type: cli
 logo: /images/gemini-cli.png
 url: https://github.com/google-gemini/gemini-cli
 repo: https://github.com/google-gemini/gemini-cli
-current_version: null
-version_tracked_at: '2026-02-17'
+current_version: v0.35.0
+version_tracked_at: '2026-03-27'
 pricing:
   model: freemium
   currency: USD
@@ -40,8 +40,15 @@ features:
   google_search_grounding: true
   web_fetch: true
   shell_exec: true
-  context_window: 100万 token（Gemini 2.5 Pro）
+  plan_mode: true
+  sdk_custom_skills: true
+  browser_agent: true
+  memory_manager: true
+  context_window: 100万 token（Gemini 3.1 Pro）
   supported_models:
+    - Gemini 3.1 Pro (Preview)
+    - Gemini 3 Pro
+    - Gemini 3 Flash
     - Gemini 2.5 Pro
     - Gemini 2.5 Flash
   ide_base: 终端
@@ -71,16 +78,24 @@ plans_using_this: []
 data_sources:
   - url: https://github.com/google-gemini/gemini-cli
     type: product
-    last_checked: '2026-02-26'
+    last_checked: '2026-03-27'
   - url: https://ai.google.dev/gemini-api/docs/pricing
     type: pricing
-    last_checked: '2026-02-26'
+    last_checked: '2026-03-27'
 changelog:
+  - date: '2026-03-24'
+    type: release
+    summary: 'v0.35.0: Plan Mode 默认启用; 策略引擎支持项目级策略和 MCP Server 通配符'
+    summary_en: 'v0.35.0: Plan Mode enabled by default; policy engine with project-level policies and MCP server wildcards'
+  - date: '2026-02-27'
+    type: model
+    summary: 'v0.31.0: Gemini 3.1 Pro Preview 模型支持; Computer Use 工具; SDK 自定义 Skills; 实验性 Browser Agent 和 Memory Manager'
+    summary_en: 'v0.31.0: Gemini 3.1 Pro Preview model; Computer Use tool; SDK custom Skills; experimental Browser Agent and Memory Manager'
   - date: '2025-06-01'
     type: launch
     summary: Gemini CLI 开源发布，免费使用 Gemini 2.5 Pro，1000 次/天
     summary_en: Gemini CLI open-sourced, free Gemini 2.5 Pro access, 1000 requests/day
-last_full_review: '2026-02-26'
-next_review_due: '2026-03-28'
+last_full_review: '2026-03-27'
+next_review_due: '2026-04-27'
 review_frequency_days: 30
-confidence: medium
+confidence: high

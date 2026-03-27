@@ -40,51 +40,64 @@ features:
   chat: false
   agent_mode: true
   multi_file_edit: true
-  mcp_support: false
+  mcp_support: true
   parallel_tasks: true
   native_sandbox: true
   pr_proposal: true
   diff_review: true
+  codex_integrations: true
+  skills_automations: true
   context_window: 标准上下文窗口
   supported_models:
+    - GPT-5.4
+    - GPT-5.3-Codex
+    - GPT-5.4 mini
     - o3
     - o4-mini
-    - codex-1
-  ide_base: macOS 原生 App
+  ide_base: macOS/Windows 原生 App + VS Code/Cursor/Windsurf 扩展
   supported_os:
     - macOS（Apple Silicon）
+    - Windows
   jetbrains_support: false
   git_integration: true
 best_for:
-  - 已订阅 ChatGPT Plus/Pro 的 Mac 用户（无额外成本）
+  - 已订阅 ChatGPT Plus/Pro 的用户（无额外成本）
   - 需要并行处理多个独立任务的开发者（多 Agent 同时跑）
   - 编写 PR、修复 Bug、添加测试等明确的异步任务
 best_for_en:
-  - Mac users already subscribed to ChatGPT Plus/Pro (no extra cost)
+  - Users already subscribed to ChatGPT Plus/Pro (no extra cost)
   - Developers who need to run multiple independent tasks in parallel
   - Well-defined async tasks like writing PRs, fixing bugs, adding tests
 not_for:
-  - Windows / Linux 用户（暂不支持）
+  - Linux 用户（暂不支持）
   - 国内网络用户（OpenAI 被封锁）
   - 需要实时交互逐步确认的工作流
 not_for_en:
-  - Windows / Linux users (not supported yet)
+  - Linux users (not supported yet)
   - Users in China (OpenAI is blocked)
   - Workflows that require real-time interactive step-by-step confirmation
 plans_using_this: []
 data_sources:
   - url: https://openai.com/codex/
     type: product
-    last_checked: '2026-02-26'
+    last_checked: '2026-03-27'
   - url: https://developers.openai.com/codex/pricing
     type: pricing
-    last_checked: '2026-02-26'
+    last_checked: '2026-03-27'
 changelog:
+  - date: '2026-03-10'
+    type: feature
+    summary: GPT-5.3-Codex 上线, 25% 更快, 支持 mid-turn steering 实时交互; @Codex 集成 GitHub PR/Issues/Slack; Skills & Automations 自动化任务
+    summary_en: GPT-5.3-Codex launched, 25% faster, mid-turn steering for real-time interaction; @Codex integrations with GitHub PRs/Issues/Slack; Skills & Automations
+  - date: '2026-03-04'
+    type: feature
+    summary: Windows App 发布; Codex IDE 扩展上线(VS Code/Cursor/Windsurf); MCP 支持; on-demand credits 超额购买
+    summary_en: Windows App launched; Codex IDE extension available (VS Code/Cursor/Windsurf); MCP support added; on-demand credits for overages
   - date: '2026-02-02'
     type: launch
     summary: Codex macOS 原生 App 发布，支持并行多 Agent、原生沙箱、Diff 审查，仅限 Apple Silicon
     summary_en: Codex macOS native App launched — parallel multi-Agent, native sandbox, Diff review; Apple Silicon only
-last_full_review: '2026-02-26'
-next_review_due: '2026-03-28'
+last_full_review: '2026-03-27'
+next_review_due: '2026-04-27'
 review_frequency_days: 30
 confidence: medium
