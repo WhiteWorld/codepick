@@ -1,10 +1,26 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { t, localePath, type Locale } from '../lib/i18n';
+import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
+import { getCollection } from 'astro:content';
 
 interface Props { article: any; lang: Locale }
 const { article, lang } = Astro.props;
 const { Content } = await article.render();
+
+// 相关文章：共享 tag 最多的文章，排除自身，最多 3 篇
+const collectionName = getCollectionName('compare', lang) as 'compare' | 'compare-en';
+const allArticles = await getCollection(collectionName);
+const currentTags: string[] = (article.data.tags || []).map((t: string) => t.toLowerCase());
+const relatedArticles = allArticles
+  .filter(a => a.slug !== article.slug && !a.data.draft)
+  .map(a => ({
+    article: a,
+    shared: (a.data.tags || []).filter((t: string) => currentTags.includes(t.toLowerCase())).length,
+  }))
+  .filter(x => x.shared > 0)
+  .sort((a, b) => b.shared - a.shared)
+  .slice(0, 3)
+  .map(x => x.article);
 
 const siteUrl = 'https://codepick.dev';
 const articlePath = localePath(`/compare/${article.slug}`, lang);
@@ -82,7 +98,22 @@ const articleSchema = {
       <Content />
     </div>
 
-    <div class="mt-12 pt-6 border-t border-[var(--surface-border)]">
+    <!-- Related Articles -->
+    {relatedArticles.length > 0 && (
+      <section class="mt-12 pt-6 border-t border-[var(--surface-border)]">
+        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">{t('section.relatedArticles', lang)}</h2>
+        <div class="grid grid-cols-1 gap-3">
+          {relatedArticles.map(a => (
+            <a href={localePath(`/compare/${a.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
+              <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{a.data.title}</h3>
+              <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{a.data.description}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <div class="mt-6">
       <a href={localePath('/compare', lang)} class="text-sm text-[var(--brand-400)] no-underline hover:underline">{t('link.backCompare', lang)}</a>
     </div>
   </article>

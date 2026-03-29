@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ScoreBar from '../components/ScoreBar.astro';
-import { getToolLocalized, getApi, overallScore } from '../lib/data';
+import PlanCard from '../components/PlanCard.astro';
+import { getToolLocalized, getApi, overallScore, getAllPlansLocalized } from '../lib/data';
 import { t, localePath, type Locale } from '../lib/i18n';
 import type { Plan } from '../lib/data';
 
@@ -16,6 +17,16 @@ const quickStart = plan.quick_start || [];
 const pros = plan.pros || [];
 const cons = plan.cons || [];
 const tags = plan.tags || [];
+
+// 相关方案：共享 tag 最多的方案，排除自身，最多 3 个
+const allPlans = getAllPlansLocalized(lang);
+const altPlans = allPlans
+  .filter(p => p.id !== plan.id)
+  .map(p => ({ plan: p, shared: p.tags.filter(tg => tags.includes(tg)).length }))
+  .filter(x => x.shared > 0)
+  .sort((a, b) => b.shared - a.shared)
+  .slice(0, 3)
+  .map(x => x.plan);
 
 const siteUrl = 'https://codepick.dev';
 const planPath = localePath(`/plan/${plan.id}`, lang);
@@ -173,6 +184,16 @@ const seoTitle = lang === 'zh'
       <div class="flex flex-wrap gap-2 mb-8">
         {tags.map(tg => <span class="tag">{tg}</span>)}
       </div>
+    )}
+
+    <!-- Alternative Plans -->
+    {altPlans.length > 0 && (
+      <section class="mb-8">
+        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">{t('section.altPlans', lang)}</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {altPlans.map(p => <PlanCard plan={p} lang={lang} />)}
+        </div>
+      </section>
     )}
   </article>
 </BaseLayout>
