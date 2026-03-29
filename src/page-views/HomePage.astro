@@ -51,9 +51,11 @@ const seoTitle = lang === 'zh'
       {t('home.heroTitle1', lang)}<br/>
       <span class="bg-gradient-to-r from-[var(--brand-400)] to-[var(--brand-600)] bg-clip-text text-transparent">{t('home.heroHighlight', lang)}</span>
     </h1>
-    <p class="text-base text-[var(--text-secondary)] max-w-xl mx-auto mb-8 leading-relaxed">
-      {t('home.heroSub1', lang)}<strong class="text-[var(--text-primary)]">{t('home.heroSubBold', lang)}</strong>{t('home.heroSub2', lang)}<br/>
-      {t('home.heroCoverage', lang)} {plans.length} {t('home.heroCombos', lang)}
+    <p class="text-base text-[var(--text-secondary)] max-w-xl mx-auto mb-4 leading-relaxed">
+      {t('home.heroDesc', lang)}
+    </p>
+    <p class="text-sm text-[var(--text-muted)] mb-8">
+      {t('home.heroCoverage', lang)} {tools.length} {t('home.heroToolCount', lang)}{t('home.heroAnd', lang)}{plans.length} {t('home.heroPlanCount', lang)}
     </p>
     <div class="flex justify-center gap-4 flex-wrap">
       <a href={localePath('/tools/overview', lang)} class="btn btn-primary px-6 py-2.5">{t('home.ctaOverview', lang)}</a>

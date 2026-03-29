@@ -187,12 +187,12 @@ const translations: Record<string, Record<Locale, string>> = {
 
   // ── Home page ───────────────────────────────────────────────────────────
   'home.heroTitle1':     { zh: '找到最适合你的', en: 'Find Your Perfect' },
-  'home.heroHighlight':  { zh: 'AI 编程方案', en: 'AI Coding Solution' },
-  'home.heroSub1':       { zh: '不只对比工具，更对比', en: 'Compare not just tools, but' },
-  'home.heroSubBold':    { zh: '完整方案', en: 'complete solutions' },
-  'home.heroSub2':       { zh: '——客户端 + 模型 API + 实际成本。', en: ' — client + model API + real cost.' },
-  'home.heroCoverage':   { zh: '覆盖 Cursor、Copilot、Cline + 方舟等', en: 'Covering Cursor, Copilot, Cline + Ark, and' },
-  'home.heroCombos':     { zh: '种主流组合。', en: ' popular combinations.' },
+  'home.heroHighlight':  { zh: 'AI 编程工具', en: 'AI Coding Tool' },
+  'home.heroDesc':       { zh: '横向对比 Cursor、Copilot、Claude Code、Cline 等主流工具的能力、价格与体验，帮你快速做出选择。', en: 'Compare Cursor, Copilot, Claude Code, Cline and more — by capability, pricing, and experience. Make the right choice, fast.' },
+  'home.heroCoverage':   { zh: '覆盖', en: 'Covering' },
+  'home.heroToolCount':  { zh: '款工具', en: ' tools' },
+  'home.heroAnd':        { zh: '、', en: ' & ' },
+  'home.heroPlanCount':  { zh: '套方案', en: ' plans' },
   'home.ctaOverview':    { zh: '🗺️ 全景图对比', en: '🗺️ Full Overview' },
   'home.ctaBrowse':      { zh: '浏览全部方案 ↓', en: 'Browse All Plans ↓' },
   'home.latestArticles': { zh: '📝 最新文章', en: '📝 Latest Articles' },
@@ -201,7 +201,7 @@ const translations: Record<string, Record<Locale, string>> = {
   'home.moreGuides':     { zh: '查看全部指南 →', en: 'View all guides →' },
   'home.planCount':      { zh: '个方案', en: ' plans' },
   'home.totalPrefix':    { zh: '共 ', en: '' },
-  'home.notFoundTitle':  { zh: '找不到合适的方案？', en: "Can't find the right plan?" },
+  'home.notFoundTitle':  { zh: '找不到想要的工具？', en: "Can't find what you need?" },
   'home.notFoundDesc':   { zh: '数据持续更新中。发现信息过时或想要新增工具？欢迎提交 Issue。', en: "Data is continuously updated. Found outdated info or want to add a tool? Submit an issue." },
 
   // ── FAQ page ────────────────────────────────────────────────────────────
