@@ -183,6 +183,78 @@ AI 工具会把整个对话历史发给模型。对话越长，每次请求的 t
 
 ---
 
+## 外部工具：让节省更自动化
+
+上面讲的是习惯和操作策略，下面介绍几个可以直接安装使用的工具，把一部分节省工作"外包"出去。
+
+### RTK（Rust Token Killer）— 压缩命令输出
+
+AI 工具在 Agent 模式下会频繁执行终端命令（`git status`、`npm test`、`cargo build`……），每次命令的原始输出都会完整塞进 context。一次 `cargo test` 的输出可能有 5,000 token，但 AI 真正需要的只是"哪些测试失败了"——也许 50 token 就够。
+
+RTK 是一个 Rust 写的 CLI 代理，安装后自动拦截命令输出，在进入 AI context 之前做智能压缩：
+
+- 过滤注释、空行、模板噪音
+- 聚合同类错误（`Error: timeout (×347)` 代替 347 行重复日志）
+- 保留结构骨架，丢弃实现细节
+
+**实测数据**：262 个测试的 `cargo test` 输出从 4,823 token → 11 token；大型 `git diff` 从 21,500 → 1,259 token。平均节省 60–90%。
+
+支持：Claude Code、Cursor、Cline、Aider、Gemini CLI、Windsurf。
+
+> 项目地址：[github.com/rtk-ai/rtk](https://github.com/rtk-ai/rtk)
+
+---
+
+### Repomix — 打包仓库喂给 AI
+
+当你需要让 AI 理解整个项目结构（而不是单个文件），直接让它遍历目录代价很高。Repomix 把整个仓库打包成一个结构化的单文件（XML / Markdown / 纯文本），配合 `--compress` 参数用 Tree-sitter AST 提取函数签名和结构，丢弃实现细节，**平均可以减少约 70% 的 token**。
+
+```bash
+# 安装
+npm install -g repomix
+
+# 打包当前项目（压缩模式）
+repomix --compress --output repo-context.md
+
+# 查看各文件 token 占比
+repomix --token-count-tree
+```
+
+打包完成后把输出文件贴给 AI，让它在完整项目视图下工作——比让它一个个读文件便宜得多。
+
+> 项目地址：[github.com/yamadashy/repomix](https://github.com/yamadashy/repomix)
+
+---
+
+### ccusage — 追踪你的真实消耗
+
+不知道自己到底花了多少 token？ccusage 读取 Claude Code 的本地会话日志，生成可视化的用量报告：
+
+```bash
+npx ccusage         # 查看今日/本月用量和费用
+npx ccusage daily   # 按天分布
+npx ccusage session # 按会话查看
+```
+
+用途：定位哪些任务类型最烧 token，针对性调整工作方式。
+
+> 项目地址：[github.com/ryoppippi/ccusage](https://github.com/ryoppippi/ccusage)
+
+---
+
+### MCP vs CLI：一个值得了解的架构差异
+
+如果你在使用 MCP 服务器（Claude Code、Cursor、Cline 都支持），需要知道一个不明显的开销：**每个 MCP 工具定义本身就要消耗 550–1,400 token**（名称 + 参数 schema + 描述）。加载了 GitHub MCP（93 个工具）的 session，光工具定义就要 55,000 token，还没开始干活。
+
+相比之下，让 AI 直接运行 shell 命令（`git`、`npm`、`grep`）的开销接近零，因为这些工具是 AI 训练数据里就有的。
+
+**实用建议**：
+- 频繁使用的简单操作（`git status`、`grep`、`ls`）→ 直接用 shell 命令
+- 需要复杂权限或跨服务操作（GitHub PR 管理、数据库查询）→ MCP 的额外开销是值得的
+- 不要默认开启所有 MCP 服务器，用到哪个开哪个
+
+---
+
 ## 快速检查清单
 
 开始一个新任务前，问自己这几个问题：

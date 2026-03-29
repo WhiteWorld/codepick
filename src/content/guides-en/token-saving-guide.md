@@ -182,6 +182,78 @@ The real goal is **high information density**: conveying maximum meaning with mi
 
 ---
 
+## External Tools: Automate the Savings
+
+The strategies above are habits and workflow changes. These tools go one step further — they do some of the saving work for you automatically.
+
+### RTK (Rust Token Killer) — Compress Command Output
+
+In Agent mode, AI tools run a lot of terminal commands (`git status`, `npm test`, `cargo build`…). The raw output goes straight into the context window every time. A single `cargo test` run might produce 5,000 tokens of output, but all the AI really needs is "which tests failed" — maybe 50 tokens.
+
+RTK is a Rust CLI proxy that intercepts command output before it reaches the AI and compresses it intelligently:
+
+- Filters comments, blank lines, and template noise
+- Aggregates repeated errors (`Error: timeout (×347)` instead of 347 duplicate lines)
+- Preserves code structure, discards implementation bodies
+
+**Benchmarks**: `cargo test` with 262 tests: 4,823 tokens → 11 tokens; large `git diff`: 21,500 → 1,259 tokens. Average savings: 60–90%.
+
+Works with: Claude Code, Cursor, Cline, Aider, Gemini CLI, Windsurf.
+
+> GitHub: [github.com/rtk-ai/rtk](https://github.com/rtk-ai/rtk)
+
+---
+
+### Repomix — Pack Your Repo for AI
+
+When you need the AI to understand your whole project structure (not just one file), having it traverse directories is expensive. Repomix packs the entire repository into a single structured file (XML / Markdown / plain text). With `--compress`, it uses Tree-sitter AST to extract function signatures and structure, dropping implementation bodies — **roughly 70% token reduction on average**.
+
+```bash
+# Install
+npm install -g repomix
+
+# Pack with compression
+repomix --compress --output repo-context.md
+
+# Visualize token distribution by file
+repomix --token-count-tree
+```
+
+Paste the output into your AI conversation for a whole-project overview — far cheaper than asking it to read files one by one.
+
+> GitHub: [github.com/yamadashy/repomix](https://github.com/yamadashy/repomix)
+
+---
+
+### ccusage — Track Your Real Consumption
+
+Not sure where your tokens are actually going? ccusage reads Claude Code's local session logs and generates usage reports:
+
+```bash
+npx ccusage         # Today's / this month's usage and cost
+npx ccusage daily   # Daily breakdown
+npx ccusage session # Per-session view
+```
+
+Use it to figure out which task types are burning the most tokens, then adjust your workflow accordingly.
+
+> GitHub: [github.com/ryoppippi/ccusage](https://github.com/ryoppippi/ccusage)
+
+---
+
+### MCP vs CLI: An Architecture Pattern Worth Knowing
+
+If you use MCP servers (Claude Code, Cursor, and Cline all support them), there's a non-obvious overhead: **each MCP tool definition costs 550–1,400 tokens** (name + parameter schema + description) — before you've sent a single message. Loading the GitHub MCP server (93 tools) adds roughly 55,000 tokens to your context just in tool definitions.
+
+By contrast, asking the AI to run shell commands directly (`git`, `npm`, `grep`) has near-zero overhead, because the AI already knows these tools from training.
+
+**Practical guidance**:
+- Frequent, simple operations (`git status`, `grep`, `ls`) → use shell commands directly
+- Complex cross-service operations (GitHub PR management, database queries) → MCP's overhead is often worth it
+- Don't load all MCP servers by default — only enable what the current task needs
+
+---
+
 ## Quick Checklist
 
 Before starting a new task, ask yourself:
