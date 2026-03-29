@@ -2,8 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ScoreBar from '../components/ScoreBar.astro';
 import ToolCard from '../components/ToolCard.astro';
-import { getAllToolsLocalized, isFresh } from '../lib/data';
-import { t, localePath, type Locale } from '../lib/i18n';
+import PlanCard from '../components/PlanCard.astro';
+import { getAllToolsLocalized, getAllPlansLocalized, isFresh } from '../lib/data';
+import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
+import { getCollection } from 'astro:content';
 import type { Tool } from '../lib/data';
 
 interface Props { tool: Tool; lang: Locale }
@@ -51,6 +53,22 @@ const relatedTools = allTools
     (toolIdeBase && ((t as any).features?.ide_base || '').toLowerCase() === toolIdeBase)
   ))
   .sort((a, b) => (b.scores.coding_ability ?? 0) - (a.scores.coding_ability ?? 0))
+  .slice(0, 3);
+
+// 包含此工具的方案
+const allPlans = getAllPlansLocalized(lang);
+const relatedPlans = allPlans.filter(p => p.client === tool.id).slice(0, 3);
+
+// 相关对比文章（tags 包含工具 id 或工具名）
+const collectionName = getCollectionName('compare', lang) as 'compare' | 'compare-en';
+const allArticles = await getCollection(collectionName);
+const toolNameLower = tool.name.toLowerCase();
+const toolIdLower = tool.id.toLowerCase();
+const relatedArticles = allArticles
+  .filter(a => !a.data.draft && (a.data.tags || []).some((tag: string) => {
+    const tl = tag.toLowerCase();
+    return tl === toolIdLower || tl === toolNameLower || toolIdLower.includes(tl);
+  }))
   .slice(0, 3);
 
 // 标题关键词 by type
@@ -246,6 +264,31 @@ const seoTitle = lang === 'zh'
               {log.version && <span class="tag shrink-0">{log.version}</span>}
               <span class="text-[var(--text-secondary)]">{log.summary}</span>
             </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Related Plans (plans using this tool) -->
+    {relatedPlans.length > 0 && (
+      <section class="mb-8">
+        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">{t('section.relatedPlans', lang)}</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {relatedPlans.map(p => <PlanCard plan={p} lang={lang} />)}
+        </div>
+      </section>
+    )}
+
+    <!-- Related Articles -->
+    {relatedArticles.length > 0 && (
+      <section class="mb-8">
+        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">{t('section.relatedArticles', lang)}</h2>
+        <div class="grid grid-cols-1 gap-3">
+          {relatedArticles.map(a => (
+            <a href={localePath(`/compare/${a.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
+              <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{a.data.title}</h3>
+              <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{a.data.description}</p>
+            </a>
           ))}
         </div>
       </section>
