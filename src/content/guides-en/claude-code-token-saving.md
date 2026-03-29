@@ -213,6 +213,52 @@ Claude Code's Agent mode (letting it autonomously complete multi-step tasks) is 
 
 ---
 
+## External Tools: RTK and ccusage
+
+### RTK — Compress Claude Code's Command Output
+
+When Claude Code runs Bash commands (especially in Agent mode), the raw output goes directly into the context window. A `npm test` run can produce thousands of tokens, but the AI only needs the failing test names and error messages.
+
+[RTK (Rust Token Killer)](https://github.com/rtk-ai/rtk) is a CLI proxy that compresses command output before it enters the context:
+
+```bash
+# Install (macOS/Linux)
+curl -fsSL https://install.rtk-ai.app | sh
+
+# Enable in Claude Code
+claude --rtk
+```
+
+**How RTK compresses**:
+- Aggregates repeated log lines (`Error: timeout` appearing 100 times → shown once with a count)
+- Filters build banners, progress bars, and template noise
+- Preserves structural output, drops implementation details
+
+Benchmarks: `cargo test` (262 tests): 4,823 tokens → 11 tokens; large `git diff`: 21,500 → 1,259 tokens. **Average savings: 60–90%** — most effective in Agent mode with heavy command execution.
+
+---
+
+### ccusage — See Where You're Spending
+
+Claude Code saves every session to local JSONL log files. ccusage reads those logs and shows you exactly what you've spent:
+
+```bash
+# Daily/monthly overview
+npx ccusage
+
+# Day-by-day breakdown
+npx ccusage daily
+
+# Most expensive sessions
+npx ccusage session --top 10
+```
+
+If you're new to Claude Code, run ccusage for a week to see which task types burn the most tokens — then adjust your workflow accordingly.
+
+> GitHub: [github.com/ryoppippi/ccusage](https://github.com/ryoppippi/ccusage)
+
+---
+
 ## Reference: Token Consumption by Task Type
 
 | Task Type | Typical Token Range | Notes |
