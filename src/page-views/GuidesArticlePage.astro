@@ -1,10 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { t, localePath, type Locale } from '../lib/i18n';
+import { getAllToolsLocalized, overallScore } from '../lib/data';
 
 interface Props { guide: any; lang: Locale }
 const { guide, lang } = Astro.props;
 const { Content } = await guide.render();
+
+const allTools = getAllToolsLocalized(lang);
+const tags: string[] = guide.data.tags ?? [];
+const toolIds = new Set(allTools.map(t => t.id));
+const mentionedTools = allTools.filter(tool => tags.includes(tool.id));
+
+function tagHref(tag: string) {
+  return toolIds.has(tag) ? localePath(`/tool/${tag}`, lang) : localePath('/guides', lang);
+}
 
 const siteUrl = 'https://codepick.dev';
 const guidePath = localePath(`/guides/${guide.slug}`, lang);
@@ -51,7 +61,7 @@ const articleSchema = {
     <header class="mb-8">
       <div class="flex flex-wrap gap-2 mb-3">
         {guide.data.tags?.map((tag: string) => (
-          <span class="tag">{tag}</span>
+          <a href={tagHref(tag)} class="tag no-underline hover:border-[var(--brand-400)] hover:text-[var(--brand-400)] transition-colors">{tag}</a>
         ))}
       </div>
       <h1 class="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-3 mt-0">{guide.data.title}</h1>
@@ -61,15 +71,15 @@ const articleSchema = {
       </div>
     </header>
 
-    <div class="prose prose-invert prose-sm max-w-none
+    <div class="prose prose-sm max-w-none
       prose-headings:text-[var(--text-primary)] prose-headings:font-semibold
       prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4 prose-h2:border-b prose-h2:border-[var(--surface-border)] prose-h2:pb-2
       prose-h3:text-base prose-h3:mt-6 prose-h3:mb-3
       prose-p:text-[var(--text-secondary)] prose-p:leading-relaxed
       prose-a:text-[var(--brand-400)] prose-a:no-underline hover:prose-a:underline
       prose-strong:text-[var(--text-primary)]
-      prose-code:text-[var(--brand-300)] prose-code:bg-[var(--surface-card)] prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-xs
-      prose-pre:bg-[var(--surface-card)] prose-pre:border prose-pre:border-[var(--surface-border)]
+      prose-code:text-[var(--brand-400)] prose-code:bg-[var(--surface-hover)] prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-xs
+      prose-pre:bg-[var(--surface-card)] prose-pre:border prose-pre:border-[var(--surface-border)] prose-pre:text-[var(--text-primary)]
       prose-table:text-sm
       prose-th:text-[var(--text-secondary)] prose-th:font-medium prose-th:bg-[var(--surface-card)]
       prose-td:text-[var(--text-secondary)] prose-td:border-[var(--surface-border)]
@@ -82,7 +92,24 @@ const articleSchema = {
       <Content />
     </div>
 
-    <div class="mt-12 pt-6 border-t border-[var(--surface-border)]">
+    {mentionedTools.length > 0 && (
+      <div class="mt-12 pt-8 border-t border-[var(--surface-border)]">
+        <h2 class="text-base font-semibold text-[var(--text-primary)] mb-4">{t('section.mentionedTools', lang)}</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {mentionedTools.map(tool => (
+            <a href={localePath(`/tool/${tool.id}`, lang)} class="card p-4 no-underline flex flex-col items-center text-center gap-2 group">
+              <div class="w-10 h-10 rounded-lg bg-[var(--surface-hover)] flex items-center justify-center text-base font-bold text-[var(--brand-400)] shrink-0">
+                {tool.name.charAt(0)}
+              </div>
+              <span class="text-sm font-medium text-[var(--text-primary)] group-hover:text-[var(--brand-400)] transition-colors leading-tight">{tool.name}</span>
+              <span class="text-xs text-[var(--text-muted)]">{t('score.overall', lang)} {overallScore(tool.scores).toFixed(1)}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <div class="mt-8 pt-6 border-t border-[var(--surface-border)]">
       <a href={localePath('/guides', lang)} class="text-sm text-[var(--brand-400)] no-underline hover:underline">{t('link.backGuides', lang)}</a>
     </div>
   </article>
