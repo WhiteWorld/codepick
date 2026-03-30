@@ -140,11 +140,15 @@ a:hover {
 }
 
 /* ===== Code Blocks ===== */
+/* 代码块始终使用深色背景，保证语法高亮可读性 */
 pre {
-  background-color: var(--surface-card) !important;
-  color: var(--text-primary) !important;
-  border: 1px solid var(--surface-border);
+  background-color: #1e293b !important;
+  color: #e2e8f0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 0.5rem;
+}
+[data-theme="light"] pre {
+  border-color: #cbd5e1;
 }
 pre code {
   background: none !important;
