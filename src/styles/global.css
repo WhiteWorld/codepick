@@ -139,6 +139,20 @@ a:hover {
   @apply bg-[var(--brand-600)] text-white border-[var(--brand-600)];
 }
 
+/* ===== Code Blocks ===== */
+pre {
+  background-color: var(--surface-card) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--surface-border);
+  border-radius: 0.5rem;
+}
+pre code {
+  background: none !important;
+  color: inherit !important;
+  padding: 0 !important;
+  font-size: inherit !important;
+}
+
 /* ===== Scrollbar ===== */
 ::-webkit-scrollbar {
   @apply w-2;

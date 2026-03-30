@@ -25,11 +25,9 @@ const relatedArticles = allArticles
 
 // 文章中提到的工具：tags 中与实际工具 ID 匹配，最多 4 个
 const allTools = getAllToolsLocalized(lang);
-const toolIdSet = new Set(allTools.map((tool: any) => tool.id.toLowerCase()));
-const mentionedTools = currentTags
-  .filter(tag => toolIdSet.has(tag))
-  .map(tag => allTools.find((tool: any) => tool.id.toLowerCase() === tag))
-  .filter(Boolean)
+const toolIds = new Set(allTools.map((tool: any) => tool.id));
+const mentionedTools = allTools
+  .filter((tool: any) => currentTags.includes(tool.id.toLowerCase()))
   .slice(0, 4);
 
 // 相关指南：跨类型推荐，共享 tag 最多，最多 2 篇
@@ -45,6 +43,10 @@ const relatedGuides = allGuides
   .sort((a, b) => b.shared - a.shared)
   .slice(0, 2)
   .map(x => x.guide);
+
+function tagHref(tag: string) {
+  return toolIds.has(tag) ? localePath(`/tool/${tag}`, lang) : localePath('/compare', lang);
+}
 
 const siteUrl = 'https://codepick.dev';
 const articlePath = localePath(`/compare/${article.slug}`, lang);
@@ -92,7 +94,7 @@ const articleSchema = {
     <header class="mb-8">
       <div class="flex flex-wrap gap-2 mb-3">
         {article.data.tags?.map((tag: string) => (
-          <span class="tag">{tag}</span>
+          <a href={tagHref(tag)} class="tag no-underline hover:border-[var(--brand-400)] hover:text-[var(--brand-400)] transition-colors">{tag}</a>
         ))}
       </div>
       <h1 class="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-3 mt-0">{article.data.title}</h1>
@@ -102,15 +104,15 @@ const articleSchema = {
       </div>
     </header>
 
-    <div class="prose prose-invert prose-sm max-w-none
+    <div class="prose prose-sm max-w-none
       prose-headings:text-[var(--text-primary)] prose-headings:font-semibold
       prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4 prose-h2:border-b prose-h2:border-[var(--surface-border)] prose-h2:pb-2
       prose-h3:text-base prose-h3:mt-6 prose-h3:mb-3
       prose-p:text-[var(--text-secondary)] prose-p:leading-relaxed
       prose-a:text-[var(--brand-400)] prose-a:no-underline hover:prose-a:underline
       prose-strong:text-[var(--text-primary)]
-      prose-code:text-[var(--brand-300)] prose-code:bg-[var(--surface-card)] prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-xs
-      prose-pre:bg-[var(--surface-card)] prose-pre:border prose-pre:border-[var(--surface-border)]
+      prose-code:text-[var(--brand-400)] prose-code:bg-[var(--surface-hover)] prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-xs
+      prose-pre:bg-[var(--surface-card)] prose-pre:border prose-pre:border-[var(--surface-border)] prose-pre:text-[var(--text-primary)]
       prose-table:text-sm
       prose-th:text-[var(--text-secondary)] prose-th:font-medium prose-th:bg-[var(--surface-card)]
       prose-td:text-[var(--text-secondary)] prose-td:border-[var(--surface-border)]
@@ -129,9 +131,11 @@ const articleSchema = {
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
           {mentionedTools.map((tool: any) => (
             <a href={localePath(`/tool/${tool.id}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors text-center">
-              {tool.logo && <img src={tool.logo} alt={tool.name} class="w-8 h-8 mx-auto mb-2 rounded" loading="lazy" />}
+              <div class="w-10 h-10 rounded-lg bg-[var(--surface-hover)] flex items-center justify-center text-base font-bold text-[var(--brand-400)] mx-auto mb-2">
+                {tool.name.charAt(0)}
+              </div>
               <div class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] transition-colors">{tool.name}</div>
-              <div class="text-xs text-[var(--text-muted)] mt-1">{lang === 'zh' ? '综合' : 'Score'} {overallScore(tool.scores).toFixed(1)}</div>
+              <div class="text-xs text-[var(--text-muted)] mt-1">{t('score.overall', lang)} {overallScore(tool.scores).toFixed(1)}</div>
             </a>
           ))}
         </div>
