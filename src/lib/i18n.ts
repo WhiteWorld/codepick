@@ -84,6 +84,10 @@ const translations: Record<string, Record<Locale, string>> = {
   'section.changelog':    { zh: '📝 更新记录', en: '📝 Changelog' },
   'section.relatedTools':   { zh: '🔗 相关工具', en: '🔗 Related Tools' },
   'section.mentionedTools': { zh: '🔧 文中提到的工具', en: '🔧 Tools Mentioned' },
+  'section.relatedPlans':   { zh: '📦 包含此工具的方案', en: '📦 Plans Using This Tool' },
+  'section.relatedArticles':{ zh: '📖 相关文章', en: '📖 Related Articles' },
+  'section.altPlans':       { zh: '🔄 其他方案', en: '🔄 Alternative Plans' },
+  'section.relatedGuides':  { zh: '📚 相关指南', en: '📚 Related Guides' },
   'section.quickStart':   { zh: '🚀 快速开始', en: '🚀 Quick Start' },
   'section.composition':  { zh: '🧩 方案组成', en: '🧩 Composition' },
   'section.planMatrix':   { zh: '📋 方案选型矩阵', en: '📋 Plan Matrix' },
@@ -130,6 +134,15 @@ const translations: Record<string, Record<Locale, string>> = {
   'link.submitQuestion': { zh: '提交问题 →', en: 'Submit Question →' },
   'link.backCompare':    { zh: '← 返回对比文章列表', en: '← Back to Comparisons' },
   'link.backGuides':     { zh: '← 返回指南列表', en: '← Back to Guides' },
+
+  // ── Article CTA ─────────────────────────────────────────────────────────
+  'article.ctaTitle':   { zh: '看完对比，准备好选型了？', en: 'Ready to pick your tool?' },
+  'article.ctaDesc':    { zh: '查看全景图，30 秒找到最适合你的 AI 编程方案。', en: 'Check the full overview and find your perfect AI coding setup in 30 seconds.' },
+  'article.ctaBtn':     { zh: '查看全景图 →', en: 'View Full Overview →' },
+  'article.ctaGuideTitle': { zh: '学完指南，准备开始实操了？', en: 'Done reading? Ready to get started?' },
+  'article.ctaGuideDesc':  { zh: '查看全景图对比所有工具，找到最适合你的方案。', en: 'Compare all tools in the full overview and find your best setup.' },
+  'section.relatedCompare':   { zh: '📖 相关对比文章', en: '📖 Related Comparisons' },
+  'section.mentionedTools':   { zh: '🔧 文中提到的工具', en: '🔧 Tools in This Article' },
 
   // ── Warnings ────────────────────────────────────────────────────────────
   'warn.dataOutdated': { zh: '⚠ 数据可能过时，请以官网为准', en: '⚠ Data may be outdated, check official site' },
@@ -184,17 +197,21 @@ const translations: Record<string, Record<Locale, string>> = {
 
   // ── Home page ───────────────────────────────────────────────────────────
   'home.heroTitle1':     { zh: '找到最适合你的', en: 'Find Your Perfect' },
-  'home.heroHighlight':  { zh: 'AI 编程方案', en: 'AI Coding Solution' },
-  'home.heroSub1':       { zh: '不只对比工具，更对比', en: 'Compare not just tools, but' },
-  'home.heroSubBold':    { zh: '完整方案', en: 'complete solutions' },
-  'home.heroSub2':       { zh: '——客户端 + 模型 API + 实际成本。', en: ' — client + model API + real cost.' },
-  'home.heroCoverage':   { zh: '覆盖 Cursor、Copilot、Cline + 方舟等', en: 'Covering Cursor, Copilot, Cline + Ark, and' },
-  'home.heroCombos':     { zh: '种主流组合。', en: ' popular combinations.' },
-  'home.ctaQuick':       { zh: '⚡ 30 秒选型', en: '⚡ Quick Pick' },
+  'home.heroHighlight':  { zh: 'AI 编程工具', en: 'AI Coding Tool' },
+  'home.heroDesc':       { zh: '横向对比 Cursor、Copilot、Claude Code、Cline 等主流工具的能力、价格与体验，帮你快速做出选择。', en: 'Compare Cursor, Copilot, Claude Code, Cline and more — by capability, pricing, and experience. Make the right choice, fast.' },
+  'home.heroCoverage':   { zh: '覆盖', en: 'Covering' },
+  'home.heroToolCount':  { zh: '款工具', en: ' tools' },
+  'home.heroAnd':        { zh: '、', en: ' & ' },
+  'home.heroPlanCount':  { zh: '套方案', en: ' plans' },
+  'home.ctaOverview':    { zh: '🗺️ 全景图对比', en: '🗺️ Full Overview' },
   'home.ctaBrowse':      { zh: '浏览全部方案 ↓', en: 'Browse All Plans ↓' },
+  'home.latestArticles': { zh: '📝 最新文章', en: '📝 Latest Articles' },
+  'home.latestGuides':   { zh: '📖 最新指南', en: '📖 Latest Guides' },
+  'home.moreArticles':   { zh: '查看全部对比文章 →', en: 'View all comparisons →' },
+  'home.moreGuides':     { zh: '查看全部指南 →', en: 'View all guides →' },
   'home.planCount':      { zh: '个方案', en: ' plans' },
   'home.totalPrefix':    { zh: '共 ', en: '' },
-  'home.notFoundTitle':  { zh: '找不到合适的方案？', en: "Can't find the right plan?" },
+  'home.notFoundTitle':  { zh: '找不到想要的工具？', en: "Can't find what you need?" },
   'home.notFoundDesc':   { zh: '数据持续更新中。发现信息过时或想要新增工具？欢迎提交 Issue。', en: "Data is continuously updated. Found outdated info or want to add a tool? Submit an issue." },
 
   // ── FAQ page ────────────────────────────────────────────────────────────

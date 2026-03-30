@@ -1,16 +1,48 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { t, localePath, type Locale } from '../lib/i18n';
+import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
 import { getAllToolsLocalized, overallScore } from '../lib/data';
+import { getCollection } from 'astro:content';
 
 interface Props { guide: any; lang: Locale }
 const { guide, lang } = Astro.props;
 const { Content } = await guide.render();
 
+// 相关指南：共享 tag 最多的指南，排除自身，最多 3 篇
+const guidesCollection = getCollectionName('guides', lang) as 'guides' | 'guides-en';
+const allGuides = await getCollection(guidesCollection);
+const currentTags: string[] = (guide.data.tags || []).map((t: string) => t.toLowerCase());
+const relatedGuides = allGuides
+  .filter(g => g.slug !== guide.slug && !g.data.draft)
+  .map(g => ({
+    guide: g,
+    shared: (g.data.tags || []).filter((t: string) => currentTags.includes(t.toLowerCase())).length,
+  }))
+  .filter(x => x.shared > 0)
+  .sort((a, b) => b.shared - a.shared)
+  .slice(0, 3)
+  .map(x => x.guide);
+
+// 相关对比文章：跨类型推荐，共享 tag 最多，最多 2 篇
+const compareCollection = getCollectionName('compare', lang) as 'compare' | 'compare-en';
+const allArticles = await getCollection(compareCollection);
+const relatedArticles = allArticles
+  .filter(a => !a.data.draft)
+  .map(a => ({
+    article: a,
+    shared: (a.data.tags || []).filter((tag: string) => currentTags.includes(tag.toLowerCase())).length,
+  }))
+  .filter(x => x.shared > 0)
+  .sort((a, b) => b.shared - a.shared)
+  .slice(0, 2)
+  .map(x => x.article);
+
+// 文章中提到的工具：tags 中与实际工具 ID 匹配，最多 4 个
 const allTools = getAllToolsLocalized(lang);
-const tags: string[] = guide.data.tags ?? [];
-const toolIds = new Set(allTools.map(t => t.id));
-const mentionedTools = allTools.filter(tool => tags.includes(tool.id));
+const toolIds = new Set(allTools.map((tool: any) => tool.id));
+const mentionedTools = allTools
+  .filter((tool: any) => currentTags.includes(tool.id.toLowerCase()))
+  .slice(0, 4);
 
 function tagHref(tag: string) {
   return toolIds.has(tag) ? localePath(`/tool/${tag}`, lang) : localePath('/guides', lang);
@@ -92,24 +124,62 @@ const articleSchema = {
       <Content />
     </div>
 
+    <!-- Mentioned Tools -->
     {mentionedTools.length > 0 && (
-      <div class="mt-12 pt-8 border-t border-[var(--surface-border)]">
-        <h2 class="text-base font-semibold text-[var(--text-primary)] mb-4">{t('section.mentionedTools', lang)}</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {mentionedTools.map(tool => (
-            <a href={localePath(`/tool/${tool.id}`, lang)} class="card p-4 no-underline flex flex-col items-center text-center gap-2 group">
-              <div class="w-10 h-10 rounded-lg bg-[var(--surface-hover)] flex items-center justify-center text-base font-bold text-[var(--brand-400)] shrink-0">
+      <section class="mt-12 pt-6 border-t border-[var(--surface-border)]">
+        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">{t('section.mentionedTools', lang)}</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {mentionedTools.map((tool: any) => (
+            <a href={localePath(`/tool/${tool.id}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors text-center">
+              <div class="w-10 h-10 rounded-lg bg-[var(--surface-hover)] flex items-center justify-center text-base font-bold text-[var(--brand-400)] mx-auto mb-2">
                 {tool.name.charAt(0)}
               </div>
-              <span class="text-sm font-medium text-[var(--text-primary)] group-hover:text-[var(--brand-400)] transition-colors leading-tight">{tool.name}</span>
-              <span class="text-xs text-[var(--text-muted)]">{t('score.overall', lang)} {overallScore(tool.scores).toFixed(1)}</span>
+              <div class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] transition-colors">{tool.name}</div>
+              <div class="text-xs text-[var(--text-muted)] mt-1">{t('score.overall', lang)} {overallScore(tool.scores).toFixed(1)}</div>
             </a>
           ))}
         </div>
-      </div>
+      </section>
     )}
 
-    <div class="mt-8 pt-6 border-t border-[var(--surface-border)]">
+    <!-- CTA: 选型入口 -->
+    <section class="mt-12 p-6 rounded-xl border border-[var(--brand-500)] bg-gradient-to-br from-[var(--surface-card)] to-[rgba(49,46,129,0.15)] text-center">
+      <h2 class="text-lg font-bold text-[var(--text-primary)] mb-2 mt-0">{t('article.ctaGuideTitle', lang)}</h2>
+      <p class="text-sm text-[var(--text-secondary)] mb-4">{t('article.ctaGuideDesc', lang)}</p>
+      <a href={localePath('/tools/overview', lang)} class="btn btn-primary">{t('article.ctaBtn', lang)}</a>
+    </section>
+
+    <!-- Related Guides -->
+    {relatedGuides.length > 0 && (
+      <section class="mt-10 pt-6 border-t border-[var(--surface-border)]">
+        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">{t('section.relatedGuides', lang)}</h2>
+        <div class="grid grid-cols-1 gap-3">
+          {relatedGuides.map(g => (
+            <a href={localePath(`/guides/${g.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
+              <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{g.data.title}</h3>
+              <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{g.data.description}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Related Compare Articles (cross-type) -->
+    {relatedArticles.length > 0 && (
+      <section class="mt-8 pt-6 border-t border-[var(--surface-border)]">
+        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">{t('section.relatedCompare', lang)}</h2>
+        <div class="grid grid-cols-1 gap-3">
+          {relatedArticles.map(a => (
+            <a href={localePath(`/compare/${a.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
+              <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{a.data.title}</h3>
+              <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{a.data.description}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <div class="mt-6">
       <a href={localePath('/guides', lang)} class="text-sm text-[var(--brand-400)] no-underline hover:underline">{t('link.backGuides', lang)}</a>
     </div>
   </article>

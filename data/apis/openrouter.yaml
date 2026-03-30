@@ -6,7 +6,7 @@ url: https://openrouter.ai
 repo: null
 
 current_version: null
-version_tracked_at: "2026-02-01"
+version_tracked_at: "2026-03-27"
 
 pricing:
   model: pay-as-you-go
@@ -15,7 +15,7 @@ pricing:
     - name: 按量付费
       price: 0
       limits: "无月费，按 token 计费（各模型价格不同）"
-  price_updated_at: "2026-02-01"
+  price_updated_at: "2026-03-27"
   note: "统一 API 接入 200+ 模型，价格透明按量计费"
 
 scores:
@@ -49,14 +49,14 @@ not_for:
 data_sources:
   - url: "https://openrouter.ai/docs"
     type: docs
-    last_checked: "2026-02-01"
+    last_checked: "2026-03-27"
 
 changelog:
   - date: "2026-01-25"
     type: model
     summary: "支持 Claude Opus 4.6 模型"
 
-last_full_review: "2026-02-01"
-next_review_due: "2026-03-01"
+last_full_review: "2026-03-27"
+next_review_due: "2026-04-27"
 review_frequency_days: 30
 confidence: high

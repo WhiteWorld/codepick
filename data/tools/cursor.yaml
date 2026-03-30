@@ -61,12 +61,19 @@ features:
   sub_agents: true
   cursor_cli: true
   context_window: 最大上下文窗口
+  automations: true
+  self_hosted_agents: true
   supported_models:
     - Claude Sonnet 4.5
     - Claude Opus 4.6
     - GPT-5
-    - GPT-5-medium
+    - GPT-5.4
+    - GPT-5.3-Codex
+    - Gemini 3 Pro
+    - Gemini 3 Flash
     - Gemini 2.5 Pro
+    - Grok 4 (xAI)
+    - Composer 2 (Cursor 自研)
     - cursor-small (Auto)
   ide_base: VS Code Fork
   supported_os:
@@ -98,11 +105,23 @@ plans_using_this:
 data_sources:
   - url: https://cursor.com/pricing
     type: pricing
-    last_checked: '2026-03-16'
+    last_checked: '2026-03-27'
   - url: https://cursor.com/changelog
     type: changelog
-    last_checked: '2026-03-16'
+    last_checked: '2026-03-27'
 changelog:
+  - date: '2026-03-25'
+    type: feature
+    summary: '自托管云端 Agent 发布，代码和构建产物全部在用户自有基础设施中运行'
+    summary_en: 'Self-Hosted Cloud Agents launched — code, secrets, and build outputs stay entirely in your own infrastructure'
+  - date: '2026-03-19'
+    type: model
+    summary: 'Composer 2 模型上线，前沿编程模型，Standard $0.50/$2.50、Fast $1.50/$7.50 每百万 token'
+    summary_en: 'Composer 2 model launched — frontier coding model; Standard $0.50/$2.50, Fast $1.50/$7.50 per M tokens'
+  - date: '2026-03-05'
+    type: feature
+    summary: 'Automations 发布：支持 Slack/Linear/GitHub/PagerDuty/Webhook/定时触发的常驻 Agent，云端沙箱运行'
+    summary_en: 'Automations launched — always-on agents triggered by Slack, Linear, GitHub, PagerDuty, webhooks, or schedules; run in cloud sandboxes'
   - date: '2026-03-04'
     type: feature
     summary: 'v2.6: 通过 Agent Client Protocol (ACP) 支持 JetBrains IDE（IntelliJ / PyCharm / WebStorm 等）；MCP Apps 支持 Amplitude/Figma/tldraw 等交互式 UI；Teams/Enterprise 支持私有插件市场'
@@ -135,7 +154,7 @@ changelog:
     type: pricing
     summary: Pro 从500次请求制改为$20额度池制, Auto模式无限使用
     summary_en: Pro switched from 500-request quota to $20 credit pool; unlimited Auto mode
-last_full_review: '2026-03-16'
-next_review_due: '2026-04-16'
+last_full_review: '2026-03-27'
+next_review_due: '2026-04-27'
 review_frequency_days: 30
 confidence: high

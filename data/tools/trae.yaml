@@ -5,7 +5,7 @@ logo: /images/trae.png
 url: https://trae.ai
 repo: null
 current_version: null
-version_tracked_at: '2026-02-17'
+version_tracked_at: '2026-03-27'
 pricing:
   model: freemium
   currency: USD
@@ -35,6 +35,9 @@ features:
   agent_mode: true
   solo_mode: true
   builder_mode: true
+  cloud_ide: true
+  sub_agent: true
+  context_compression: true
   multi_file_edit: true
   mcp_support: true
   context_window: 取决于所选模型
@@ -69,8 +72,12 @@ plans_using_this: []
 data_sources:
   - url: https://www.trae.ai/pricing
     type: pricing
-    last_checked: '2026-02-26'
+    last_checked: '2026-03-27'
 changelog:
+  - date: '2026-03-01'
+    type: feature
+    summary: TRAE 2.0 SOLO 模式上线(Context Engineering); Cloud IDE 浏览器版发布; Plan Mode、Sub Agent、DiffView、上下文压缩
+    summary_en: TRAE 2.0 SOLO mode (Context Engineering); Cloud IDE browser version launched; Plan Mode, Sub Agent, DiffView, context compression
   - date: '2026-02-01'
     type: pricing
     summary: 国际版切换为 token 计费，推出 Free/Pro 双层级，Pro 首月 $3
@@ -79,7 +86,7 @@ changelog:
     type: feature
     summary: Builder 模式上线，支持 Grok-4（Beta）模型
     summary_en: Builder mode launched, Grok-4 (Beta) model support added
-last_full_review: '2026-02-26'
-next_review_due: '2026-03-28'
+last_full_review: '2026-03-27'
+next_review_due: '2026-04-27'
 review_frequency_days: 30
 confidence: medium

@@ -4,8 +4,8 @@ type: client
 logo: /images/cline.png
 url: https://cline.bot
 repo: https://github.com/cline/cline
-current_version: v3.72.0
-version_tracked_at: '2026-03-16'
+current_version: v3.76.0
+version_tracked_at: '2026-03-27'
 pricing:
   model: free
   currency: null
@@ -67,8 +67,20 @@ compatible_apis:
 data_sources:
   - url: https://github.com/cline/cline/releases
     type: release
-    last_checked: '2026-03-16'
+    last_checked: '2026-03-27'
 changelog:
+  - date: '2026-03-26'
+    type: release
+    summary: 'v3.76.0: Cline Kanban 启动弹窗; Windows CLI spawn 修复'
+    summary_en: 'v3.76.0: Cline Kanban launch modal in webview; Windows CLI spawn fixes'
+  - date: '2026-03-19'
+    type: release
+    summary: 'v3.74.0: Cline SDK API 接口发布，支持编程式访问; Fireworks 无服务器模型接入'
+    summary_en: 'v3.74.0: Cline SDK API interface for programmatic access; Fireworks serverless models/pricing'
+  - date: '2026-03-16'
+    type: release
+    summary: 'v3.73.0: W&B Inference by CoreWeave 作为新 API 提供商(17 模型); MCP prompts 斜杠命令补全; 多根工作区默认启用'
+    summary_en: 'v3.73.0: W&B Inference by CoreWeave as new API provider (17 models); MCP prompts slash command autocomplete; multi-root workspaces enabled by default'
   - date: '2026-03-12'
     type: release
     summary: 'v3.72.0: 新增 Anthropic Claude Opus 4.6 快速模式支持；修复 native tool placeholder 插值'
@@ -101,7 +113,7 @@ changelog:
     type: feature
     summary: 支持 MCP Server 管理
     summary_en: MCP Server management support added
-last_full_review: '2026-03-16'
-next_review_due: '2026-04-16'
+last_full_review: '2026-03-27'
+next_review_due: '2026-04-27'
 review_frequency_days: 30
 confidence: high

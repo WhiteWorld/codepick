@@ -4,8 +4,8 @@ type: cli
 logo: /images/opencode.png
 url: https://opencode.ai
 repo: https://github.com/anomalyco/opencode
-current_version: v1.2.27
-version_tracked_at: '2026-03-16'
+current_version: v1.3.3
+version_tracked_at: '2026-03-27'
 pricing:
   model: free
   currency: null
@@ -62,11 +62,19 @@ compatible_apis:
 data_sources:
   - url: https://github.com/anomalyco/opencode/releases
     type: release
-    last_checked: '2026-03-16'
+    last_checked: '2026-03-27'
   - url: https://opencode.ai/changelog
     type: changelog
-    last_checked: '2026-03-16'
+    last_checked: '2026-03-27'
 changelog:
+  - date: '2026-03-26'
+    type: release
+    summary: 'v1.3.3: TUI 绕过本地 SSE 提升性能; Windows Terminal 1.25+ 图片粘贴修复'
+    summary_en: 'v1.3.3: TUI bypasses local SSE event streaming for performance; image paste fix on Windows Terminal 1.25+'
+  - date: '2026-03-22'
+    type: release
+    summary: 'v1.3.0: 重大更新 — GitLab Agent Platform 支持(WebSocket 自动发现); Git-backed 会话审查(uncommitted + branch diff); 多步认证; Node.js 运行时支持; 桌面端多选文件'
+    summary_en: 'v1.3.0: Major update — GitLab Agent Platform (WebSocket auto-discovery); git-backed session review (uncommitted changes + branch diffs); multistep auth; Node.js runtime support; desktop multi-file selection'
   - date: '2026-03-16'
     type: release
     summary: 'v1.2.27: 修复 VCS watcher 逻辑，支持多行 Web 粘贴，默认 chunk 超时从2分钟提升至5分钟'
@@ -83,7 +91,7 @@ changelog:
     type: release
     summary: 'v0.0.55: 旧版本末期'
     summary_en: 'v0.0.55: final legacy release before v1.0 rewrite'
-last_full_review: '2026-03-16'
-next_review_due: '2026-04-16'
+last_full_review: '2026-03-27'
+next_review_due: '2026-04-27'
 review_frequency_days: 30
 confidence: medium

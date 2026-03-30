@@ -18,14 +18,14 @@ pricing:
       price: 10
       period: month
       annual_price: 100
-      limits: 无限补全, 无限GPT-5 mini Agent, 300次高级请求/月(可加购)
-      limits_en: Unlimited completions, unlimited GPT-5 mini Agent, 300 premium requests/mo (add-on available)
+      limits: 无限补全, 无限GPT-5 mini Agent, 300次高级请求/月, 超出$0.04/次
+      limits_en: Unlimited completions, unlimited GPT-5 mini Agent, 300 premium requests/mo, overage $0.04/req
     - name: Pro+
       price: 39
       period: month
       annual_price: 390
-      limits: 所有Pro功能, Claude Opus 4.6(快速模式), 1500次高级请求/月(5倍Pro)
-      limits_en: All Pro features, Claude Opus 4.6 (fast mode), 1500 premium requests/mo (5x Pro)
+      limits: 所有Pro功能, Claude Opus 4.6(快速模式), 1500次高级请求/月(5倍Pro), GitHub Spark
+      limits_en: All Pro features, Claude Opus 4.6 (fast mode), 1500 premium requests/mo (5x Pro), GitHub Spark
     - name: Business
       price: 19
       period: month
@@ -38,9 +38,9 @@ pricing:
       per_user: true
       limits: Business全部功能, 自定义模型微调, 高级安全
       limits_en: All Business features, custom model fine-tuning, advanced security
-  price_updated_at: '2026-02-14'
-  note: Free版永久免费; Pro支持年付$100/年; 学生/教师/开源维护者免费Pro
-  note_en: Free tier is permanently free; Pro at $100/year; free Pro for students, teachers, and open-source maintainers
+  price_updated_at: '2026-03-27'
+  note: Free版永久免费; Pro支持年付$100/年; 学生/教师/开源维护者免费Pro; 超出高级请求$0.04/次; Auto模式自动选模型享9折
+  note_en: Free tier is permanently free; Pro at $100/year; free Pro for students, teachers, and open-source maintainers; overage $0.04/request; Auto mode picks best model with 10% discount
 scores:
   coding_ability: 8.2
   cost_efficiency: 8.5
@@ -56,13 +56,22 @@ features:
   multi_file_edit: true
   mcp_support: true
   context_window: 128K tokens
+  custom_agents: true
+  copilot_extensions: true
   supported_models:
     - Claude Sonnet 4.5
+    - Claude Sonnet 4.6
+    - Claude Opus 4.5
     - Claude Opus 4.6
     - GPT-5
     - GPT-5 mini
+    - GPT-5.3-Codex
+    - GPT-5.4
+    - GPT-5.4 mini
     - Gemini 2.5 Pro
-    - o3-mini
+    - Gemini 3 Flash
+    - Gemini 3.1 Pro
+    - Grok Code Fast 1 (xAI)
   ide_base: 插件 (VS Code / JetBrains / Vim / Xcode)
   supported_os:
     - macOS
@@ -90,15 +99,27 @@ not_for_en:
 data_sources:
   - url: https://github.com/features/copilot/plans
     type: pricing
-    last_checked: '2026-02-26'
+    last_checked: '2026-03-27'
   - url: https://docs.github.com/en/copilot
     type: docs
-    last_checked: '2026-02-26'
+    last_checked: '2026-03-27'
 changelog:
+  - date: '2026-03-26'
+    type: announcement
+    summary: GitHub 宣布 Free/Pro/Pro+ 用户交互数据将默认用于 AI 训练（4月24日生效，可关闭）
+    summary_en: GitHub announces Free/Pro/Pro+ interaction data will be used for AI training by default (effective April 24, opt-out available)
+  - date: '2026-03-11'
+    type: feature
+    summary: JetBrains 重大更新：自定义 Agent、Sub-agents、Plan Agent 全部 GA
+    summary_en: Major JetBrains update — custom agents, sub-agents, plan agent all GA
+  - date: '2026-03-01'
+    type: model
+    summary: GPT-5.4 GA 上线; GPT-5.3-Codex 成为首个 LTS 模型（Business/Enterprise 可用至 2027-02）; Gemini 3 Pro 于 3/26 下线
+    summary_en: GPT-5.4 GA; GPT-5.3-Codex becomes first LTS model (available through Feb 2027 for Business/Enterprise); Gemini 3 Pro deprecated 3/26
   - date: '2026-02-01'
     type: feature
-    summary: Coding Agent 正式发布, 支持自动创建PR
-    summary_en: Coding Agent officially launched with automatic PR creation
+    summary: Coding Agent 正式发布, 支持自动创建PR, 启动速度提升50%
+    summary_en: Coding Agent officially launched with automatic PR creation, 50% faster startup
   - date: '2026-01-20'
     type: feature
     summary: Agent模式支持多文件编辑和自动修复
@@ -111,7 +132,7 @@ changelog:
     type: pricing
     summary: 推出永久免费版 Copilot Free
     summary_en: Copilot Free permanently free tier launched
-last_full_review: '2026-02-26'
-next_review_due: '2026-03-28'
+last_full_review: '2026-03-27'
+next_review_due: '2026-04-27'
 review_frequency_days: 30
 confidence: high
