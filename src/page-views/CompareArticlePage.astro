@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
+import { getAllToolsLocalized, overallScore } from '../lib/data';
 import { getCollection } from 'astro:content';
 
 interface Props { article: any; lang: Locale }
@@ -21,6 +22,15 @@ const relatedArticles = allArticles
   .sort((a, b) => b.shared - a.shared)
   .slice(0, 3)
   .map(x => x.article);
+
+// 文章中提到的工具：tags 中与实际工具 ID 匹配，最多 4 个
+const allTools = getAllToolsLocalized(lang);
+const toolIdSet = new Set(allTools.map((tool: any) => tool.id.toLowerCase()));
+const mentionedTools = currentTags
+  .filter(tag => toolIdSet.has(tag))
+  .map(tag => allTools.find((tool: any) => tool.id.toLowerCase() === tag))
+  .filter(Boolean)
+  .slice(0, 4);
 
 // 相关指南：跨类型推荐，共享 tag 最多，最多 2 篇
 const guidesCollection = getCollectionName('guides', lang) as 'guides' | 'guides-en';
@@ -111,6 +121,22 @@ const articleSchema = {
     ">
       <Content />
     </div>
+
+    <!-- Mentioned Tools -->
+    {mentionedTools.length > 0 && (
+      <section class="mt-12 pt-6 border-t border-[var(--surface-border)]">
+        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">{t('section.mentionedTools', lang)}</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {mentionedTools.map((tool: any) => (
+            <a href={localePath(`/tool/${tool.id}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors text-center">
+              {tool.logo && <img src={tool.logo} alt={tool.name} class="w-8 h-8 mx-auto mb-2 rounded" loading="lazy" />}
+              <div class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] transition-colors">{tool.name}</div>
+              <div class="text-xs text-[var(--text-muted)] mt-1">{lang === 'zh' ? '综合' : 'Score'} {overallScore(tool.scores).toFixed(1)}</div>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
 
     <!-- CTA: 选型入口 -->
     <section class="mt-12 p-6 rounded-xl border border-[var(--brand-500)] bg-gradient-to-br from-[var(--surface-card)] to-[rgba(49,46,129,0.15)] text-center">

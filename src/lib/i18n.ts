@@ -140,7 +140,8 @@ const translations: Record<string, Record<Locale, string>> = {
   'article.ctaBtn':     { zh: '查看全景图 →', en: 'View Full Overview →' },
   'article.ctaGuideTitle': { zh: '学完指南，准备开始实操了？', en: 'Done reading? Ready to get started?' },
   'article.ctaGuideDesc':  { zh: '查看全景图对比所有工具，找到最适合你的方案。', en: 'Compare all tools in the full overview and find your best setup.' },
-  'section.relatedCompare': { zh: '📖 相关对比文章', en: '📖 Related Comparisons' },
+  'section.relatedCompare':   { zh: '📖 相关对比文章', en: '📖 Related Comparisons' },
+  'section.mentionedTools':   { zh: '🔧 文中提到的工具', en: '🔧 Tools in This Article' },
 
   // ── Warnings ────────────────────────────────────────────────────────────
   'warn.dataOutdated': { zh: '⚠ 数据可能过时，请以官网为准', en: '⚠ Data may be outdated, check official site' },

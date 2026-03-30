@@ -2,7 +2,7 @@
 title: "2026 GitHub Copilot 替代品推荐：8 款最佳 AI 编程工具"
 description: "不满意 GitHub Copilot？这 8 款替代工具在 Agent 能力、价格、模型选择或国内可用性上各有优势，帮你找到最适合的方案。"
 date: "2026-03-27"
-tags: ["github-copilot", "替代品", "对比", "ai编程"]
+tags: ["copilot", "cursor", "windsurf", "cline", "claude-code", "trae-cn", "kiro", "aider", "roo-code", "替代品", "对比"]
 ---
 
 GitHub Copilot 是最早普及的 AI 编程助手，但它并非唯一选择。无论你是嫌 Copilot Agent 能力不够强、想省钱、需要更多模型选择，还是在国内无法稳定使用，都有更适合的替代方案。

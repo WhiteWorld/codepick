@@ -2,7 +2,7 @@
 title: "2026 Cursor 替代品推荐：7 款最佳 AI IDE 与编程工具"
 description: "Cursor 太贵或不够灵活？这 7 款替代方案从免费到专业级覆盖全场景，包含终端工具、VS Code 插件和国内可用方案。"
 date: "2026-03-27"
-tags: ["cursor", "替代品", "对比", "ai-ide"]
+tags: ["cursor", "windsurf", "cline", "claude-code", "trae-cn", "kiro", "aider", "copilot", "roo-code", "替代品", "对比"]
 ---
 
 Cursor 是 2025-2026 年最火的 AI IDE，Agent 能力确实强大。但 $20/月起步的价格、VS Code 系的限制、以及国内连接问题，让很多开发者寻找替代方案。
