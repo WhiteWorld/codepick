@@ -88,6 +88,7 @@ const translations: Record<string, Record<Locale, string>> = {
   'section.relatedArticles':{ zh: '📖 相关文章', en: '📖 Related Articles' },
   'section.altPlans':       { zh: '🔄 其他方案', en: '🔄 Alternative Plans' },
   'section.relatedGuides':  { zh: '📚 相关指南', en: '📚 Related Guides' },
+  'section.toc':            { zh: '📑 目录', en: '📑 Table of Contents' },
   'section.quickStart':   { zh: '🚀 快速开始', en: '🚀 Quick Start' },
   'section.composition':  { zh: '🧩 方案组成', en: '🧩 Composition' },
   'section.planMatrix':   { zh: '📋 方案选型矩阵', en: '📋 Plan Matrix' },

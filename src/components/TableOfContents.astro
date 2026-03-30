@@ -1,0 +1,121 @@
+---
+import { t, type Locale } from '../lib/i18n';
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings: Heading[];
+  lang?: Locale;
+}
+
+const { headings, lang = 'zh' } = Astro.props;
+
+// Only show H2 and H3
+const tocItems = headings.filter(h => h.depth === 2 || h.depth === 3);
+---
+
+{tocItems.length > 0 && (
+  <nav class="toc card p-5 mb-8" aria-label="Table of Contents">
+    <button class="toc-toggle w-full flex items-center justify-between text-left" aria-expanded="true">
+      <h2 class="text-sm font-semibold text-[var(--text-primary)] m-0">{t('section.toc', lang)}</h2>
+      <svg class="toc-chevron w-4 h-4 text-[var(--text-muted)] transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <ul class="toc-list mt-3 flex flex-col gap-0.5 list-none m-0 p-0">
+      {tocItems.map(item => (
+        <li class={item.depth === 3 ? 'pl-4' : ''}>
+          <a
+            href={`#${item.slug}`}
+            class={`toc-link block py-1 text-sm no-underline transition-colors rounded px-2 -mx-2 ${
+              item.depth === 2
+                ? 'text-[var(--text-secondary)] font-medium hover:text-[var(--brand-400)] hover:bg-[var(--surface-hover)]'
+                : 'text-[var(--text-muted)] hover:text-[var(--brand-400)] hover:bg-[var(--surface-hover)]'
+            }`}
+            data-toc-slug={item.slug}
+          >
+            {item.text}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)}
+
+<script>
+  // Toggle TOC collapse
+  const toggle = document.querySelector('.toc-toggle');
+  const list = document.querySelector('.toc-list') as HTMLElement | null;
+  const chevron = document.querySelector('.toc-chevron') as HTMLElement | null;
+  let expanded = true;
+
+  toggle?.addEventListener('click', () => {
+    expanded = !expanded;
+    toggle.setAttribute('aria-expanded', String(expanded));
+    if (list) {
+      list.style.maxHeight = expanded ? list.scrollHeight + 'px' : '0';
+      list.style.opacity = expanded ? '1' : '0';
+      list.style.overflow = 'hidden';
+    }
+    if (chevron) {
+      chevron.style.transform = expanded ? '' : 'rotate(-90deg)';
+    }
+  });
+
+  // Initialize list max-height for smooth animation
+  if (list) {
+    list.style.maxHeight = list.scrollHeight + 'px';
+    list.style.transition = 'max-height 0.3s ease, opacity 0.2s ease';
+  }
+
+  // Active heading highlight on scroll
+  const tocLinks = document.querySelectorAll<HTMLAnchorElement>('.toc-link');
+  const headingEls = Array.from(tocLinks).map(link => {
+    const slug = link.dataset.tocSlug;
+    return slug ? document.getElementById(slug) : null;
+  }).filter(Boolean) as HTMLElement[];
+
+  if (headingEls.length > 0 && 'IntersectionObserver' in window) {
+    let activeSlug = '';
+
+    function updateActive(slug: string) {
+      if (slug === activeSlug) return;
+      activeSlug = slug;
+      tocLinks.forEach(link => {
+        if (link.dataset.tocSlug === slug) {
+          link.classList.add('!text-[var(--brand-400)]', 'bg-[var(--surface-hover)]');
+        } else {
+          link.classList.remove('!text-[var(--brand-400)]', 'bg-[var(--surface-hover)]');
+        }
+      });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      // Find the first visible heading
+      const visible = entries.filter(e => e.isIntersecting);
+      if (visible.length > 0) {
+        updateActive(visible[0].target.id);
+      }
+    }, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
+
+    headingEls.forEach(el => observer.observe(el));
+
+    // Also handle scroll to set active on manual scroll
+    let scrollTimeout: ReturnType<typeof setTimeout>;
+    window.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const scrollPos = window.scrollY + 120;
+        let current = '';
+        for (const el of headingEls) {
+          if (el.offsetTop <= scrollPos) {
+            current = el.id;
+          }
+        }
+        if (current) updateActive(current);
+      }, 50);
+    }, { passive: true });
+  }
+</script>

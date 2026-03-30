@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import TableOfContents from '../components/TableOfContents.astro';
 import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
 import { getAllToolsLocalized, overallScore } from '../lib/data';
 import { getCollection } from 'astro:content';
 
 interface Props { guide: any; lang: Locale }
 const { guide, lang } = Astro.props;
-const { Content } = await guide.render();
+const { Content, headings } = await guide.render();
 
 // 相关指南：共享 tag 最多的指南，排除自身，最多 3 篇
 const guidesCollection = getCollectionName('guides', lang) as 'guides' | 'guides-en';
@@ -102,6 +103,8 @@ const articleSchema = {
         {t('guides.pubDate', lang)} {guide.data.date}
       </div>
     </header>
+
+    <TableOfContents headings={headings} lang={lang} />
 
     <div class="prose prose-sm max-w-none
       prose-headings:text-[var(--text-primary)] prose-headings:font-semibold
