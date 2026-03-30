@@ -108,10 +108,10 @@ a:hover {
 
 /* ===== Score Bar ===== */
 .score-bar-track {
-  @apply h-2 rounded-full bg-[var(--surface-hover)] overflow-hidden;
+  @apply h-2.5 rounded-full bg-[var(--surface-hover)] overflow-hidden;
 }
 .score-bar-fill {
-  @apply h-full rounded-full transition-all duration-500;
+  @apply h-full rounded-full transition-all duration-700 ease-out;
 }
 
 /* ===== Compare Table ===== */
@@ -155,6 +155,93 @@ pre code {
   color: inherit !important;
   padding: 0 !important;
   font-size: inherit !important;
+}
+
+/* ===== Scroll Reveal Animation ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ===== Hero Gradient Background ===== */
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero-glow::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0.05) 40%, transparent 70%);
+  animation: hero-pulse 6s ease-in-out infinite;
+}
+[data-theme="light"] .hero-glow::before {
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.12) 0%, rgba(79, 70, 229, 0.04) 40%, transparent 70%);
+}
+@keyframes hero-pulse {
+  0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.15); }
+}
+
+/* ===== Gradient Letter Avatar ===== */
+.avatar-gradient {
+  @apply flex items-center justify-center font-bold text-white;
+  background: linear-gradient(135deg, var(--brand-500), var(--brand-600));
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
+}
+
+/* ===== Section Divider ===== */
+.section-divider {
+  @apply border-0 h-px mx-auto;
+  max-width: 120px;
+  background: linear-gradient(90deg, transparent, var(--surface-border), transparent);
+}
+
+/* ===== Enhanced Card Variants ===== */
+.card-highlight {
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: var(--shadow-sm), 0 0 0 1px rgba(99, 102, 241, 0.1);
+}
+.card-highlight:hover {
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: var(--shadow-md), 0 0 20px rgba(99, 102, 241, 0.1);
+}
+
+/* ===== Stat Number ===== */
+.stat-number {
+  @apply text-3xl font-bold;
+  background: linear-gradient(135deg, var(--brand-400), var(--brand-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== Category Card Icon ===== */
+.cat-icon {
+  @apply w-10 h-10 rounded-xl flex items-center justify-center text-lg mb-2 mx-auto;
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--brand-400);
+  transition: background 0.2s, transform 0.2s;
+}
+.group:hover .cat-icon {
+  background: rgba(99, 102, 241, 0.2);
+  transform: scale(1.1);
 }
 
 /* ===== Scrollbar ===== */

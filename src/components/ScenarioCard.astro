@@ -33,12 +33,14 @@ const scenarios: Scenario[] = [
   <h2 class="text-xl font-bold text-[var(--text-primary)] mb-6 mt-0">{t('section.scenarios', lang)}</h2>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
     {scenarios.map(s => (
-      <a href={localePath(s.href, lang)} class="card p-4 no-underline group block">
-        <div class="text-2xl mb-2">{s.emoji}</div>
-        <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] transition-colors m-0 mb-1">
-          {t(s.titleKey, lang)}
-        </h3>
-        <p class="text-xs text-[var(--text-muted)] m-0">{t(s.descKey, lang)}</p>
+      <a href={localePath(s.href, lang)} class="card p-4 no-underline group block flex gap-3 items-start">
+        <div class="text-2xl shrink-0 mt-0.5">{s.emoji}</div>
+        <div>
+          <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] transition-colors m-0 mb-1">
+            {t(s.titleKey, lang)}
+          </h3>
+          <p class="text-xs text-[var(--text-muted)] m-0 leading-relaxed">{t(s.descKey, lang)}</p>
+        </div>
       </a>
     ))}
   </div>

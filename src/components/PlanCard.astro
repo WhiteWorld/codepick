@@ -26,7 +26,7 @@ const tagColor = typeColors[primaryTag] || typeColors.diy;
 const bestFor = plan.best_for || [];
 ---
 
-<a href={localePath(`/plan/${plan.id}`, lang)} class="card p-5 block no-underline group">
+<a href={localePath(`/plan/${plan.id}`, lang)} class={`card p-5 block no-underline group ${plan.badge ? 'card-highlight' : ''}`}>
   <!-- Header -->
   <div class="flex items-start justify-between mb-3">
     <div>

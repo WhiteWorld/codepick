@@ -4,6 +4,7 @@ import FilterBar from '../components/FilterBar.astro';
 import PlanCard from '../components/PlanCard.astro';
 import CompareTable from '../components/CompareTable.astro';
 import ScenarioCard from '../components/ScenarioCard.astro';
+import QuickPicker from '../components/QuickPicker.astro';
 import { getAllPlansLocalized, getAllToolsLocalized, overallScore } from '../lib/data';
 import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
 import { getCollection } from 'astro:content';
@@ -31,12 +32,12 @@ const latestGuides = (await getCollection(guidesCollection))
 
 // 分类导航
 const categories = [
-  { key: 'cat.allTools', href: '/tools', count: tools.length },
-  { key: 'cat.free', href: '/tools/free', count: tools.filter((t: any) => t.pricing?.plans?.some((p: any) => p.price === 0)).length },
-  { key: 'cat.china', href: '/tools/china', count: tools.filter((t: any) => t.scores?.china_friendly >= 7).length },
-  { key: 'cat.vscode', href: '/tools/vscode', count: tools.filter((t: any) => /vs\s?code/i.test((t as any).features?.ide_base || '')).length },
-  { key: 'cat.terminal', href: '/tools/terminal', count: tools.filter((t: any) => (t as any).type === 'cli' || /终端|tui|cli/i.test((t as any).features?.ide_base || '')).length },
-  { key: 'cat.builder', href: '/tools/builder', count: tools.filter((t: any) => (t as any).type === 'web' || (t as any).type === 'cloud_agent').length },
+  { key: 'cat.allTools', href: '/tools', count: tools.length, icon: '📦' },
+  { key: 'cat.free', href: '/tools/free', count: tools.filter((t: any) => t.pricing?.plans?.some((p: any) => p.price === 0)).length, icon: '🆓' },
+  { key: 'cat.china', href: '/tools/china', count: tools.filter((t: any) => t.scores?.china_friendly >= 7).length, icon: '🇨🇳' },
+  { key: 'cat.vscode', href: '/tools/vscode', count: tools.filter((t: any) => /vs\s?code/i.test((t as any).features?.ide_base || '')).length, icon: '💻' },
+  { key: 'cat.terminal', href: '/tools/terminal', count: tools.filter((t: any) => (t as any).type === 'cli' || /终端|tui|cli/i.test((t as any).features?.ide_base || '')).length, icon: '⌨️' },
+  { key: 'cat.builder', href: '/tools/builder', count: tools.filter((t: any) => (t as any).type === 'web' || (t as any).type === 'cloud_agent').length, icon: '🏗️' },
 ];
 
 const seoTitle = lang === 'zh'
@@ -45,30 +46,40 @@ const seoTitle = lang === 'zh'
 ---
 <BaseLayout title={seoTitle} lang={lang}>
   <!-- Hero -->
-  <section class="relative container pt-16 pb-12 text-center">
-    <div class="absolute inset-0 -z-10 pointer-events-none" aria-hidden="true" style="background-image: radial-gradient(var(--surface-border) 1px, transparent 1px); background-size: 24px 24px; opacity: 0.5;"></div>
-    <h1 class="text-4xl md:text-6xl font-bold text-[var(--text-primary)] mb-5 leading-tight tracking-tight">
+  <section class="relative container pt-20 pb-16 text-center overflow-hidden">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="absolute inset-0 -z-10 pointer-events-none" aria-hidden="true" style="background-image: radial-gradient(var(--surface-border) 1px, transparent 1px); background-size: 24px 24px; opacity: 0.35;"></div>
+    <h1 class="text-4xl md:text-6xl font-bold text-[var(--text-primary)] mb-6 leading-tight tracking-tight">
       {t('home.heroTitle1', lang)}<br/>
       <span class="bg-gradient-to-r from-[var(--brand-400)] to-[var(--brand-600)] bg-clip-text text-transparent">{t('home.heroHighlight', lang)}</span>
     </h1>
-    <p class="text-base text-[var(--text-secondary)] max-w-xl mx-auto mb-4 leading-relaxed">
+    <p class="text-base md:text-lg text-[var(--text-secondary)] max-w-xl mx-auto mb-5 leading-relaxed">
       {t('home.heroDesc', lang)}
     </p>
-    <p class="text-sm text-[var(--text-muted)] mb-8">
-      {t('home.heroCoverage', lang)} {tools.length} {t('home.heroToolCount', lang)}{t('home.heroAnd', lang)}{plans.length} {t('home.heroPlanCount', lang)}
-    </p>
+    <div class="flex justify-center gap-6 mb-8">
+      <div class="text-center">
+        <div class="stat-number">{tools.length}</div>
+        <div class="text-xs text-[var(--text-muted)] mt-1">{t('home.heroToolCount', lang)}</div>
+      </div>
+      <div class="w-px bg-[var(--surface-border)]"></div>
+      <div class="text-center">
+        <div class="stat-number">{plans.length}</div>
+        <div class="text-xs text-[var(--text-muted)] mt-1">{t('home.heroPlanCount', lang)}</div>
+      </div>
+    </div>
     <div class="flex justify-center gap-4 flex-wrap">
-      <a href={localePath('/tools/overview', lang)} class="btn btn-primary px-6 py-2.5">{t('home.ctaOverview', lang)}</a>
-      <a href="#plans" class="btn btn-ghost">{t('home.ctaBrowse', lang)}</a>
+      <a href={localePath('/tools/overview', lang)} class="btn btn-primary px-6 py-2.5 text-base">{t('home.ctaOverview', lang)}</a>
+      <a href="#plans" class="btn btn-ghost px-6 py-2.5">{t('home.ctaBrowse', lang)}</a>
     </div>
   </section>
 
   <!-- Category Navigation -->
-  <section class="container mb-16">
+  <section class="container mb-16 reveal">
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
       {categories.map(cat => (
         <a href={localePath(cat.href, lang)} class="card p-4 no-underline group block text-center hover:border-[var(--brand-500)] transition-colors">
-          <div class="text-lg font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] transition-colors mb-1">
+          <div class="cat-icon">{cat.icon}</div>
+          <div class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] transition-colors mb-1">
             {t(cat.key, lang)}
           </div>
           <div class="text-xs text-[var(--text-muted)]">{cat.count} {lang === 'zh' ? '款' : 'tools'}</div>
@@ -77,11 +88,16 @@ const seoTitle = lang === 'zh'
     </div>
   </section>
 
+  <!-- Quick Picker -->
+  <section class="container mb-16 reveal"><QuickPicker lang={lang} /></section>
+
   <!-- Scenario Quick Links -->
-  <section class="container mb-16"><ScenarioCard lang={lang} /></section>
+  <hr class="section-divider my-16" />
+  <section class="container mb-16 reveal"><ScenarioCard lang={lang} /></section>
 
   <!-- Plan Matrix -->
-  <section class="container mb-16" id="plans">
+  <hr class="section-divider my-16" />
+  <section class="container mb-16 reveal" id="plans">
     <div class="flex items-center justify-between mb-6">
       <div>
         <h2 class="text-xl font-bold text-[var(--text-primary)] m-0">{t('section.planMatrix', lang)}</h2>
@@ -97,7 +113,8 @@ const seoTitle = lang === 'zh'
   </section>
 
   <!-- Latest Articles & Guides -->
-  <section class="container mb-16">
+  <hr class="section-divider my-16" />
+  <section class="container mb-16 reveal">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <!-- Latest Compare Articles -->
       <div>
@@ -105,7 +122,10 @@ const seoTitle = lang === 'zh'
         <div class="flex flex-col gap-3">
           {latestArticles.map(a => (
             <a href={localePath(`/compare/${a.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
-              <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{a.data.title}</h3>
+              <div class="flex items-center gap-2 mb-1.5">
+                <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 flex-1">{a.data.title}</h3>
+                <span class="text-xs text-[var(--text-muted)] shrink-0">{a.data.date}</span>
+              </div>
               <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{a.data.description}</p>
             </a>
           ))}
@@ -118,7 +138,10 @@ const seoTitle = lang === 'zh'
         <div class="flex flex-col gap-3">
           {latestGuides.map(g => (
             <a href={localePath(`/guides/${g.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
-              <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{g.data.title}</h3>
+              <div class="flex items-center gap-2 mb-1.5">
+                <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 flex-1">{g.data.title}</h3>
+                <span class="text-xs text-[var(--text-muted)] shrink-0">{g.data.date}</span>
+              </div>
               <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{g.data.description}</p>
             </a>
           ))}
@@ -129,13 +152,13 @@ const seoTitle = lang === 'zh'
   </section>
 
   <!-- Full Compare Table -->
-  <section class="container mb-16">
+  <section class="container mb-16 reveal">
     <h2 class="text-xl font-bold text-[var(--text-primary)] mb-6">{t('section.compareTable', lang)}</h2>
     <CompareTable plans={plans} lang={lang} />
   </section>
 
   <!-- Feedback CTA -->
-  <section class="container mb-16 text-center">
+  <section class="container mb-16 text-center reveal">
     <div class="card p-8 md:p-12 bg-gradient-to-br from-[var(--surface-card)] to-[rgba(49,46,129,0.2)]">
       <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-3 mt-0">{t('home.notFoundTitle', lang)}</h2>
       <p class="text-[var(--text-secondary)] mb-6">{t('home.notFoundDesc', lang)}</p>
