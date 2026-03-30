@@ -235,6 +235,21 @@ const switchUrl = getAlternateLangUrl(Astro.url, lang);
       }
     });
 
+    // Scroll reveal
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('revealed'));
+    }
+
     // Theme toggle
     function updateThemeIcons(theme: string) {
       const lightIcon = document.querySelector('.theme-icon-light') as HTMLElement | null;

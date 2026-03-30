@@ -27,9 +27,9 @@ const seoDesc = lang === 'zh'
 
 <BaseLayout title={seoTitle} description={seoDesc} lang={lang}>
   <section class="container py-12">
-    <h1 class="text-3xl font-bold text-[var(--text-primary)] mb-1">{t('tools.title', lang)}</h1>
+    <h1 class="text-3xl font-bold text-[var(--text-primary)] mb-2">{t('tools.title', lang)}</h1>
     <p class="text-[var(--text-secondary)] mb-8 text-sm">
-      {tools.length} {t('tools.subtitle', lang)}
+      <span class="stat-number text-xl mr-1">{tools.length}</span> {t('tools.subtitle', lang)}
     </p>
 
     <div class="sticky top-16 z-40 -mx-4 px-4 py-3 mb-6 bg-[var(--surface-bg)]/90 backdrop-blur-sm border-b border-[var(--surface-border)]">

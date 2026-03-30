@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import TableOfContents from '../components/TableOfContents.astro';
 import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
 import { getAllToolsLocalized, overallScore } from '../lib/data';
 import { getCollection } from 'astro:content';
 
 interface Props { article: any; lang: Locale }
 const { article, lang } = Astro.props;
-const { Content } = await article.render();
+const { Content, headings } = await article.render();
 
 // 相关文章：共享 tag 最多的文章，排除自身，最多 3 篇
 const collectionName = getCollectionName('compare', lang) as 'compare' | 'compare-en';
@@ -103,6 +104,8 @@ const articleSchema = {
         {t('compare.pubDate', lang)} {article.data.date}
       </div>
     </header>
+
+    <TableOfContents headings={headings} lang={lang} />
 
     <div class="prose prose-sm max-w-none
       prose-headings:text-[var(--text-primary)] prose-headings:font-semibold
