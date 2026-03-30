@@ -22,6 +22,20 @@ const relatedGuides = allGuides
   .slice(0, 3)
   .map(x => x.guide);
 
+// 相关对比文章：跨类型推荐，共享 tag 最多，最多 2 篇
+const compareCollection = getCollectionName('compare', lang) as 'compare' | 'compare-en';
+const allArticles = await getCollection(compareCollection);
+const relatedArticles = allArticles
+  .filter(a => !a.data.draft)
+  .map(a => ({
+    article: a,
+    shared: (a.data.tags || []).filter((tag: string) => currentTags.includes(tag.toLowerCase())).length,
+  }))
+  .filter(x => x.shared > 0)
+  .sort((a, b) => b.shared - a.shared)
+  .slice(0, 2)
+  .map(x => x.article);
+
 const siteUrl = 'https://codepick.dev';
 const guidePath = localePath(`/guides/${guide.slug}`, lang);
 const guideUrl = `${siteUrl}${guidePath}`;
@@ -98,15 +112,37 @@ const articleSchema = {
       <Content />
     </div>
 
+    <!-- CTA: 选型入口 -->
+    <section class="mt-12 p-6 rounded-xl border border-[var(--brand-500)] bg-gradient-to-br from-[var(--surface-card)] to-[rgba(49,46,129,0.15)] text-center">
+      <h2 class="text-lg font-bold text-[var(--text-primary)] mb-2 mt-0">{t('article.ctaGuideTitle', lang)}</h2>
+      <p class="text-sm text-[var(--text-secondary)] mb-4">{t('article.ctaGuideDesc', lang)}</p>
+      <a href={localePath('/tools/overview', lang)} class="btn btn-primary">{t('article.ctaBtn', lang)}</a>
+    </section>
+
     <!-- Related Guides -->
     {relatedGuides.length > 0 && (
-      <section class="mt-12 pt-6 border-t border-[var(--surface-border)]">
+      <section class="mt-10 pt-6 border-t border-[var(--surface-border)]">
         <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">{t('section.relatedGuides', lang)}</h2>
         <div class="grid grid-cols-1 gap-3">
           {relatedGuides.map(g => (
             <a href={localePath(`/guides/${g.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
               <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{g.data.title}</h3>
               <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{g.data.description}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Related Compare Articles (cross-type) -->
+    {relatedArticles.length > 0 && (
+      <section class="mt-8 pt-6 border-t border-[var(--surface-border)]">
+        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">{t('section.relatedCompare', lang)}</h2>
+        <div class="grid grid-cols-1 gap-3">
+          {relatedArticles.map(a => (
+            <a href={localePath(`/compare/${a.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
+              <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{a.data.title}</h3>
+              <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{a.data.description}</p>
             </a>
           ))}
         </div>

@@ -134,6 +134,14 @@ const translations: Record<string, Record<Locale, string>> = {
   'link.backCompare':    { zh: '← 返回对比文章列表', en: '← Back to Comparisons' },
   'link.backGuides':     { zh: '← 返回指南列表', en: '← Back to Guides' },
 
+  // ── Article CTA ─────────────────────────────────────────────────────────
+  'article.ctaTitle':   { zh: '看完对比，准备好选型了？', en: 'Ready to pick your tool?' },
+  'article.ctaDesc':    { zh: '查看全景图，30 秒找到最适合你的 AI 编程方案。', en: 'Check the full overview and find your perfect AI coding setup in 30 seconds.' },
+  'article.ctaBtn':     { zh: '查看全景图 →', en: 'View Full Overview →' },
+  'article.ctaGuideTitle': { zh: '学完指南，准备开始实操了？', en: 'Done reading? Ready to get started?' },
+  'article.ctaGuideDesc':  { zh: '查看全景图对比所有工具，找到最适合你的方案。', en: 'Compare all tools in the full overview and find your best setup.' },
+  'section.relatedCompare': { zh: '📖 相关对比文章', en: '📖 Related Comparisons' },
+
   // ── Warnings ────────────────────────────────────────────────────────────
   'warn.dataOutdated': { zh: '⚠ 数据可能过时，请以官网为准', en: '⚠ Data may be outdated, check official site' },
 
