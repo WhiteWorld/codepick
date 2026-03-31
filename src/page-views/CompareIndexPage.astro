@@ -88,32 +88,30 @@ const seoDesc = lang === 'zh'
   const listEl = document.getElementById('compare-list');
 
   filterEl?.addEventListener('click', (e) => {
-    const btn = (e.target as HTMLElement).closest('button[data-cat]') as HTMLButtonElement | null;
+    const btn = e.target.closest('button[data-cat]');
     if (!btn) return;
     const activeCat = btn.dataset.cat;
 
     // Update button styles
     filterEl.querySelectorAll('button[data-cat]').forEach(b => {
-      const el = b as HTMLButtonElement;
-      if (el.dataset.cat === activeCat) {
-        el.classList.add('bg-[var(--brand-500)]', 'text-white', 'border-[var(--brand-500)]');
-        el.classList.remove('bg-transparent', 'text-[var(--text-secondary)]', 'border-[var(--surface-border)]', 'hover:border-[var(--brand-400)]', 'hover:text-[var(--brand-400)]');
+      if (b.dataset.cat === activeCat) {
+        b.classList.add('bg-[var(--brand-500)]', 'text-white', 'border-[var(--brand-500)]');
+        b.classList.remove('bg-transparent', 'text-[var(--text-secondary)]', 'border-[var(--surface-border)]', 'hover:border-[var(--brand-400)]', 'hover:text-[var(--brand-400)]');
       } else {
-        el.classList.remove('bg-[var(--brand-500)]', 'text-white', 'border-[var(--brand-500)]');
-        el.classList.add('bg-transparent', 'text-[var(--text-secondary)]', 'border-[var(--surface-border)]', 'hover:border-[var(--brand-400)]', 'hover:text-[var(--brand-400)]');
+        b.classList.remove('bg-[var(--brand-500)]', 'text-white', 'border-[var(--brand-500)]');
+        b.classList.add('bg-transparent', 'text-[var(--text-secondary)]', 'border-[var(--surface-border)]', 'hover:border-[var(--brand-400)]', 'hover:text-[var(--brand-400)]');
       }
     });
 
     // Filter articles
-    const catData = cats.find((c: any) => c.key === activeCat);
-    const catTags: string[] = catData?.tags || [];
+    const catData = cats.find(c => c.key === activeCat);
+    const catTags = catData?.tags || [];
     listEl?.querySelectorAll('a[data-tags]').forEach(card => {
-      const el = card as HTMLElement;
-      const articleTags: string[] = JSON.parse(el.dataset.tags || '[]');
-      const visible = catTags.length === 0 || catTags.some((ct: string) =>
+      const articleTags = JSON.parse(card.dataset.tags || '[]');
+      const visible = catTags.length === 0 || catTags.some(ct =>
         articleTags.some(at => at.includes(ct.toLowerCase()) || ct.toLowerCase().includes(at))
       );
-      el.style.display = visible ? '' : 'none';
+      card.style.display = visible ? '' : 'none';
     });
   });
 </script>
