@@ -22,22 +22,33 @@ const { tags, activeTag = 'all', lang = 'zh' } = Astro.props;
 </div>
 
 <script>
+  function applyFilter(filter: string) {
+    document.querySelectorAll('#filter-bar .filter-chip').forEach(b => b.classList.remove('active'));
+    const activeBtn = document.querySelector(`#filter-bar .filter-chip[data-filter="${filter}"]`);
+    if (activeBtn) activeBtn.classList.add('active');
+
+    document.querySelectorAll('[data-plan-tags]').forEach(card => {
+      const el = card as HTMLElement;
+      const tags = el.dataset.planTags?.split(',') || [];
+      if (filter === 'all' || tags.includes(filter)) {
+        el.style.display = '';
+      } else {
+        el.style.display = 'none';
+      }
+    });
+  }
+
   document.querySelectorAll('#filter-bar .filter-chip').forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('#filter-bar .filter-chip').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
       const filter = (btn as HTMLElement).dataset.filter || 'all';
-
-      document.querySelectorAll('[data-plan-tags]').forEach(card => {
-        const el = card as HTMLElement;
-        const tags = el.dataset.planTags?.split(',') || [];
-        if (filter === 'all' || tags.includes(filter)) {
-          el.style.display = '';
-        } else {
-          el.style.display = 'none';
-        }
-      });
+      applyFilter(filter);
     });
   });
+
+  // Auto-activate filter from URL ?tag= param
+  const urlTag = new URLSearchParams(window.location.search).get('tag');
+  if (urlTag) {
+    applyFilter(urlTag);
+    document.getElementById('plans')?.scrollIntoView({ behavior: 'smooth' });
+  }
 </script>

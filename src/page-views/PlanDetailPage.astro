@@ -182,7 +182,9 @@ const seoTitle = lang === 'zh'
 
     {tags.length > 0 && (
       <div class="flex flex-wrap gap-2 mb-8">
-        {tags.map(tg => <span class="tag">{tg}</span>)}
+        {tags.map(tg => (
+          <a href={localePath('/', lang) + '?tag=' + tg} class="tag hover:bg-[var(--surface-border)] hover:text-[var(--text-primary)] transition-colors">{tg}</a>
+        ))}
       </div>
     )}
 
