@@ -382,6 +382,19 @@ const translations: Record<string, Record<Locale, string>> = {
   'cta.freeAvailable':  { zh: '提供免费版，无需信用卡', en: 'Free plan available — no credit card required' },
   'cta.paidOnly':       { zh: '提供付费订阅，支持免费试用期', en: 'Paid subscription with free trial period' },
 
+  // ── Deals page ───────────────────────────────────────────────────────────
+  'nav.deals':              { zh: '推广优惠', en: 'Deals' },
+  'deals.seoTitle':         { zh: 'AI 编程工具推广优惠汇总 | CodePick', en: 'AI Coding Tools Deals & Free Trials | CodePick' },
+  'deals.seoDesc':          { zh: '汇总所有 AI 编程工具和 Coding Plan 的推广链接、免费试用和限时优惠，一站式找到最适合的方案。', en: 'All AI coding tool deals, free trials, and promotional links in one place — tools and coding plans.' },
+  'deals.title':            { zh: '🎁 推广优惠 & 免费试用', en: '🎁 Deals & Free Trials' },
+  'deals.subtitle':         { zh: '汇总所有工具和 Coding Plan 的免费试用入口与推广链接，随时更新。', en: 'All free trial links and promotional offers for AI coding tools and plans, kept up to date.' },
+  'deals.toolsTitle':       { zh: '🛠 AI 编程工具', en: '🛠 AI Coding Tools' },
+  'deals.plansTitle':       { zh: '📦 Coding Plan 方案', en: '📦 Coding Plans' },
+  'deals.free':             { zh: '免费', en: 'Free' },
+  'deals.freeTag':          { zh: '🎁 有免费版', en: '🎁 Free plan' },
+  'deals.affiliateTag':     { zh: '⭐ 推广链接', en: '⭐ Partner link' },
+  'deals.note':             { zh: '带 ⭐ 标记的链接为推广链接，点击后我们可能获得佣金，不影响你的实际费用。', en: 'Links marked ⭐ are affiliate links. We may earn a commission at no extra cost to you.' },
+
   // ── Prompts library page ────────────────────────────────────────────────
   'nav.prompts':            { zh: '提示词库', en: 'Prompts' },
   'prompts.seoTitle':       { zh: 'AI 编程提示词模板库 | CodePick', en: 'AI Coding Prompt Templates | CodePick' },
