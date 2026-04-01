@@ -74,6 +74,19 @@ not_for_en:
   - Users in China (Google services are blocked)
   - Users who need in-IDE completion experience
   - Users who need offline/local models
+quick_start:
+  - 安装 Node.js 18+，运行：npm install -g @google/gemini-cli
+  - 在项目目录运行：gemini（首次运行会弹出浏览器引导 Google 账号授权）
+  - 授权完成后立即免费使用 Gemini 2.5 Pro，每天 1000 次请求，无需信用卡
+  - 重度用户可在 aistudio.google.com 获取 API Key 以突破免费额度限制
+quick_start_en:
+  - "Install Node.js 18+, run: npm install -g @google/gemini-cli"
+  - "Run: gemini in your project directory (first run opens browser for Google account auth)"
+  - After auth, use Gemini 2.5 Pro for free immediately — 1000 requests/day, no credit card needed
+  - Heavy users can get an API Key at aistudio.google.com to bypass free tier limits
+china_note: 需要 Google 账号，中国大陆访问 Google 服务需要代理；无国内镜像；国内用户推荐 Kimi Code 或 Trae CN 作为替代
+china_note_en: Requires Google account; accessing Google services from mainland China requires a proxy; no domestic mirror; China users can try Kimi Code or Trae CN as alternatives
+
 plans_using_this: []
 data_sources:
   - url: https://github.com/google-gemini/gemini-cli

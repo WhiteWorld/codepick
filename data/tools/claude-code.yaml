@@ -86,6 +86,20 @@ not_for_en:
   - Budget-constrained users
   - Users who need direct China access (can relay via Ark)
   - Users who prefer a GUI interface
+quick_start:
+  - 订阅 Claude.ai Pro（$20/月），或 Max 5x/20x 套餐获取更高用量
+  - 安装 Node.js 18+，运行：npm install -g @anthropic-ai/claude-code
+  - 在项目目录运行：claude（首次自动跳转浏览器完成账号授权）
+  - 也可通过火山方舟 Coding Plan（¥9.9/月）在国内低成本使用
+quick_start_en:
+  - Subscribe to Claude.ai Pro ($20/mo), or Max 5x/20x for higher usage
+  - "Install Node.js 18+, run: npm install -g @anthropic-ai/claude-code"
+  - "Run: claude in your project directory (first run opens browser for account auth)"
+  - Alternatively, use via Volcengine Ark Coding Plan (¥9.9/mo) for budget-friendly China access
+register_url: https://claude.ai/upgrade
+china_note: 官方不支持国内直连；推荐通过火山方舟 Coding Plan 中转（¥9.9/月起），或配置代理后使用
+china_note_en: No official direct China access; recommend Volcengine Ark Coding Plan (¥9.9/mo) as a relay, or configure a proxy
+
 compatible_apis:
   - ark-coding-plan
 data_sources:

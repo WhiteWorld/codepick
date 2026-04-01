@@ -76,6 +76,19 @@ not_for_en:
   - Linux users (not supported yet)
   - Users in China (OpenAI is blocked)
   - Workflows that require real-time interactive step-by-step confirmation
+quick_start:
+  - 订阅 ChatGPT Plus（$20/月）或 Pro（$200/月），Codex 包含在订阅内
+  - 访问 openai.com/codex 下载 macOS 或 Windows 客户端（需 Apple Silicon 或 Windows 设备）
+  - 连接 GitHub 仓库（授权 GitHub App），描述编程任务
+  - Codex 在云端沙箱中自动执行任务，完成后生成 PR 等待审查
+quick_start_en:
+  - Subscribe to ChatGPT Plus ($20/mo) or Pro ($200/mo); Codex is included
+  - Download the macOS or Windows client from openai.com/codex (requires Apple Silicon or Windows)
+  - Connect your GitHub repo (authorize GitHub App), then describe your coding task
+  - Codex executes the task in a cloud sandbox and opens a PR for review when done
+china_note: 需要翻墙访问，OpenAI 账号在中国大陆受限；国内用户可考虑使用 Kimi Code 或 Claude Code + 方舟替代
+china_note_en: Requires VPN; OpenAI accounts are restricted in mainland China; China users may consider Kimi Code or Claude Code + Volcengine Ark as alternatives
+
 plans_using_this: []
 data_sources:
   - url: https://openai.com/codex/

@@ -68,6 +68,20 @@ not_for:
 not_for_en:
   - China users (requires proxy; use Trae CN instead)
   - JetBrains users
+quick_start:
+  - 访问 trae.ai/download，下载并安装 Trae（支持 macOS/Windows，Linux 版即将推出）
+  - 用邮箱或 GitHub 账号注册，Pro 首月仅 $3（无需 VPN 注册，但使用需代理）
+  - 打开项目，体验 SOLO 模式（上下文工程）和 Builder 模式构建应用
+  - 国内用户建议改用 Trae CN（trae.cn），完全免费且无需代理
+quick_start_en:
+  - Visit trae.ai/download, download and install Trae (macOS/Windows; Linux coming soon)
+  - Sign up with email or GitHub; Pro first month is only $3 (registration may work without VPN, but usage requires proxy)
+  - Open your project and try SOLO mode (Context Engineering) and Builder mode for app building
+  - China users should use Trae CN (trae.cn) instead — completely free and no proxy needed
+register_url: https://trae.ai
+china_note: 国际版需要代理，国内访问不稳定；请使用 Trae CN（trae.cn）国内专属版，完全免费，豆包/DeepSeek/Kimi 模型全套
+china_note_en: International edition requires a proxy; unstable from China; use Trae CN (trae.cn) for the domestic edition — completely free with Doubao/DeepSeek/Kimi models
+
 plans_using_this: []
 data_sources:
   - url: https://www.trae.ai/pricing

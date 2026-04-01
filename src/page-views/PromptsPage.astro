@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { t, localePath, type Locale } from '../lib/i18n';
+import yaml from 'js-yaml';
+import fs from 'node:fs';
+import path from 'node:path';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+
+// Load prompts data
+const promptsRaw = yaml.load(fs.readFileSync(path.resolve('data/prompts.yaml'), 'utf-8')) as any[];
+const prompts = (promptsRaw || []).map((p: any) => ({
+  id: p.id,
+  title: lang === 'en' ? (p.title_en || p.title) : p.title,
+  category: p.category,
+  scenario: p.scenario,
+  template: lang === 'en' ? (p.template_en || p.template_zh) : p.template_zh,
+}));
+
+const categories = ['python', 'java', 'frontend', 'devops'] as const;
+const scenarios = ['debug', 'refactor', 'test', 'explain'] as const;
+
+const siteUrl = 'https://codepick.dev';
+const pageUrl = `${siteUrl}${localePath('/prompts', lang)}`;
+---
+
+<BaseLayout
+  title={t('prompts.seoTitle', lang)}
+  description={t('prompts.seoDesc', lang)}
+  lang={lang}
+  canonicalURL={pageUrl}
+>
+  <div class="container py-12 max-w-5xl">
+    <!-- Breadcrumb -->
+    <nav class="text-xs text-[var(--text-muted)] mb-6">
+      <a href={localePath('/', lang)} class="hover:text-[var(--text-primary)] no-underline">{t('bread.home', lang)}</a>
+      <span class="mx-1">/</span>
+      <span class="text-[var(--text-secondary)]">{t('bread.prompts', lang)}</span>
+    </nav>
+
+    <!-- Header -->
+    <div class="mb-8">
+      <h1 class="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-2">{t('prompts.title', lang)}</h1>
+      <p class="text-[var(--text-secondary)]">{t('prompts.subtitle', lang)}</p>
+    </div>
+
+    <!-- Filters -->
+    <div class="flex flex-wrap gap-6 mb-8 p-4 card">
+      <div>
+        <p class="text-xs font-medium text-[var(--text-muted)] uppercase tracking-wide mb-2">{t('prompts.filterLang', lang)}</p>
+        <div class="flex flex-wrap gap-2" id="filter-category">
+          <button class="filter-btn active" data-filter="all">{t('prompts.all', lang)}</button>
+          {categories.map(c => (
+            <button class="filter-btn" data-filter={c}>{t(`prompts.lang.${c}`, lang)}</button>
+          ))}
+        </div>
+      </div>
+      <div>
+        <p class="text-xs font-medium text-[var(--text-muted)] uppercase tracking-wide mb-2">{t('prompts.filterScenario', lang)}</p>
+        <div class="flex flex-wrap gap-2" id="filter-scenario">
+          <button class="filter-btn active" data-filter="all">{t('prompts.all', lang)}</button>
+          {scenarios.map(s => (
+            <button class="filter-btn" data-filter={s}>{t(`prompts.scenario.${s}`, lang)}</button>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Hint -->
+    <p class="text-xs text-[var(--text-muted)] mb-6">{t('prompts.hint', lang)}</p>
+
+    <!-- Prompt cards -->
+    <div class="grid grid-cols-1 gap-6" id="prompts-grid">
+      {prompts.map(p => (
+        <div
+          class="prompt-card card p-6"
+          data-category={p.category}
+          data-scenario={p.scenario}
+        >
+          <div class="flex items-start justify-between mb-4 gap-3">
+            <div>
+              <h2 class="text-base font-semibold text-[var(--text-primary)] m-0">{p.title}</h2>
+              <div class="flex gap-2 mt-1.5">
+                <span class="tag tag-primary text-xs">{t(`prompts.lang.${p.category}`, lang)}</span>
+                <span class="tag text-xs">{t(`prompts.scenario.${p.scenario}`, lang)}</span>
+              </div>
+            </div>
+            <button
+              class="copy-btn shrink-0 text-xs bg-[var(--surface-2)] hover:bg-[var(--brand-500)] text-[var(--text-secondary)] hover:text-white px-3 py-1.5 rounded-md transition-colors font-medium"
+              data-template={p.template}
+            >
+              {t('prompts.copy', lang)}
+            </button>
+          </div>
+          <pre class="text-xs text-[var(--text-secondary)] bg-[var(--surface-2)] rounded-lg p-4 overflow-x-auto whitespace-pre-wrap leading-relaxed m-0">{p.template}</pre>
+        </div>
+      ))}
+    </div>
+
+    <!-- Empty state -->
+    <div id="no-results" class="hidden text-center py-16 text-[var(--text-muted)]">
+      {t('prompts.noResults', lang)}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .filter-btn {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid var(--surface-border);
+    background: transparent;
+    color: var(--text-secondary);
+    transition: all 0.15s;
+  }
+  .filter-btn:hover {
+    background: var(--surface-2);
+    color: var(--text-primary);
+  }
+  .filter-btn.active {
+    background: var(--brand-500);
+    border-color: var(--brand-500);
+    color: white;
+  }
+</style>
+
+<script>
+  const copiedText = document.querySelector('[data-copied-label]')?.getAttribute('data-copied-label') || 'Copied!';
+
+  // Copy buttons
+  document.querySelectorAll<HTMLButtonElement>('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const template = btn.getAttribute('data-template') || '';
+      try {
+        await navigator.clipboard.writeText(template);
+        const orig = btn.textContent;
+        btn.textContent = '✓';
+        btn.classList.add('bg-green-600', '!text-white');
+        setTimeout(() => {
+          btn.textContent = orig;
+          btn.classList.remove('bg-green-600', '!text-white');
+        }, 1500);
+      } catch {}
+    });
+  });
+
+  // Filter logic
+  let activeCategory = 'all';
+  let activeScenario = 'all';
+
+  function applyFilters() {
+    const cards = document.querySelectorAll<HTMLElement>('.prompt-card');
+    let visible = 0;
+    cards.forEach(card => {
+      const matchCat = activeCategory === 'all' || card.dataset.category === activeCategory;
+      const matchSc = activeScenario === 'all' || card.dataset.scenario === activeScenario;
+      const show = matchCat && matchSc;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    const noResults = document.getElementById('no-results');
+    if (noResults) noResults.classList.toggle('hidden', visible > 0);
+  }
+
+  function bindFilters(containerId: string, onSelect: (val: string) => void) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    container.querySelectorAll<HTMLButtonElement>('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        container.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        onSelect(btn.dataset.filter || 'all');
+        applyFilters();
+      });
+    });
+  }
+
+  bindFilters('filter-category', v => { activeCategory = v; });
+  bindFilters('filter-scenario', v => { activeScenario = v; });
+</script>

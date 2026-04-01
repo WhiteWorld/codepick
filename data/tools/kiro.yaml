@@ -82,6 +82,20 @@ not_for_en:
   - Users in China (no China servers)
   - Users who need custom model APIs
   - JetBrains users
+quick_start:
+  - 访问 kiro.dev，下载并安装 Kiro IDE（支持 macOS/Windows/Linux）
+  - 用 AWS 账号或邮箱注册登录（新用户赠送 500 bonus credits，30 天内有效）
+  - 打开项目，在 Spec 面板用自然语言编写需求规格，Kiro 自动分析并生成实现方案
+  - 使用 Kiro CLI（kiro 命令）可在终端执行 Agent 任务
+quick_start_en:
+  - Visit kiro.dev, download and install Kiro IDE (macOS/Windows/Linux)
+  - Sign up with AWS account or email (new users get 500 bonus credits, valid 30 days)
+  - Open your project, write requirements in the Spec panel in natural language; Kiro auto-generates implementation
+  - Use Kiro CLI (kiro command) to run Agent tasks in the terminal
+register_url: https://kiro.dev
+china_note: 需要代理访问，AWS 服务在中国大陆受限；无官方国内镜像；不支持自定义模型 API
+china_note_en: Requires a proxy; AWS services are restricted in mainland China; no official domestic mirror; custom model APIs not supported
+
 plans_using_this: []
 data_sources:
   - url: https://kiro.dev/pricing/

@@ -82,6 +82,20 @@ not_for:
 not_for_en:
   - Users in China (no China-based servers)
   - Users who need self-hosting or local models
+quick_start:
+  - 访问 windsurf.com/download，下载并安装 Windsurf（支持 macOS/Windows/Linux）
+  - 注册 Codeium 账号（Free 套餐每月 25 credits，可直接体验），或用 GitHub 登录
+  - 打开项目，使用 Cascade 面板（右侧）进行 AI 对话，支持多文件编辑和 Agent 模式
+  - JetBrains / Vim 用户：在插件市场搜索 Windsurf 插件，安装后同样支持 Cascade
+quick_start_en:
+  - Visit windsurf.com/download, download and install Windsurf (macOS/Windows/Linux)
+  - "Sign up for a Codeium account (Free plan: 25 credits/month, ready to use) or log in with GitHub"
+  - Open your project and use the Cascade panel (right side) for AI chat with multi-file editing and Agent mode
+  - "JetBrains/Vim users: search for the Windsurf plugin in the marketplace; Cascade works there too"
+register_url: https://windsurf.com
+china_note: 需要翻墙，暂无官方国内镜像；国内用户可考虑 Trae CN（免费）或 Cline + 火山方舟（¥9.9/月）作为替代
+china_note_en: Requires VPN from China; no official domestic mirror; China users can consider Trae CN (free) or Cline + Volcengine Ark (¥9.9/mo) as alternatives
+
 plans_using_this: []
 data_sources:
   - url: https://windsurf.com/pricing

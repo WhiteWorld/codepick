@@ -57,6 +57,18 @@ not_for:
 not_for_en:
   - Beginners who don't want to configure APIs
   - Users who need Tab code completion
+quick_start:
+  - 打开 VS Code，在扩展商店搜索 "Cline" 并安装（或访问 cline.bot）
+  - 在侧边栏点击 Cline 图标，选择模型提供商并填写 API Key
+  - 推荐搭配火山方舟 Coding Plan（¥9.9/月），国内直连无需翻墙
+  - 在聊天框描述任务，Cline 自动读写文件并执行终端命令
+quick_start_en:
+  - Open VS Code, search for "Cline" in the extension marketplace and install
+  - Click the Cline icon in the sidebar, select model provider and enter API Key
+  - "Recommended: pair with Volcengine Ark Coding Plan (¥9.9/mo) for direct China access without VPN"
+  - Describe tasks in chat; Cline reads/edits files and runs terminal commands automatically
+china_note: 插件本身无需翻墙，强烈推荐搭配火山方舟 Coding Plan（¥9.9/月），DeepSeek V3 等模型国内直连
+china_note_en: Plugin requires no VPN; strongly recommend pairing with Volcengine Ark Coding Plan (¥9.9/mo) for direct access to DeepSeek V3 and other models from China
 compatible_apis:
   - ark-coding-plan
   - openrouter

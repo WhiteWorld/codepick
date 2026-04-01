@@ -63,6 +63,20 @@ not_for:
 not_for_en:
   - Developers needing fine-grained code control
 
+quick_start:
+  - 访问 youware.com，用邮箱或 GitHub 注册账号（Free 套餐含 500 credits）
+  - 在输入框用自然语言描述你想构建的应用，也支持语音输入
+  - AI 自动生成完整 Web 应用并提供实时预览，可继续对话修改
+  - 满意后可直接在平台托管，或导出代码继续开发
+quick_start_en:
+  - "Visit youware.com and sign up with email or GitHub (Free plan: 500 credits)"
+  - Describe the app you want in natural language in the input box; voice input is also supported
+  - AI generates a complete web app with live preview; keep chatting to refine
+  - Host directly on the platform when satisfied, or export code for further development
+register_url: https://youware.com
+china_note: 国内可直连访问，无需翻墙；适合快速构建 Web 应用原型，支持语音输入
+china_note_en: Directly accessible from China without VPN; ideal for quickly building web app prototypes; supports voice input
+
 changelog:
   - date: '2026-03-04'
     type: announcement

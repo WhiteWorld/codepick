@@ -97,6 +97,20 @@ not_for:
 not_for_en:
   - Budget-conscious individual developers
   - Users with unstable internet in China
+quick_start:
+  - 访问 cursor.com/download，下载并安装 Cursor（支持 macOS/Windows/Linux）
+  - 注册账号或用 GitHub/Google 登录，Free 套餐无需绑卡即可体验
+  - 打开项目，按 Cmd/Ctrl+L 开启 AI 对话，Tab 键接受代码补全建议
+  - 想体验 Agent 能力：在聊天框选择 Agent 模式，让 AI 自主完成多步任务
+quick_start_en:
+  - Visit cursor.com/download, download and install Cursor (macOS/Windows/Linux)
+  - Sign up or log in with GitHub/Google; Free plan works with no credit card required
+  - Open your project; press Cmd/Ctrl+L for AI chat, Tab to accept completions
+  - "For Agent mode: select Agent in the chat panel to let AI complete multi-step tasks autonomously"
+register_url: https://cursor.com/signup
+china_note: 需要翻墙，国内网络不稳定；暂无官方国内镜像；国内用户可考虑 Trae CN（免费）或 Cline + 火山方舟（¥9.9/月）替代
+china_note_en: Requires VPN from China; no official domestic mirror; China users may try Trae CN (free) or Cline + Volcengine Ark (¥9.9/mo) as alternatives
+
 plans_using_this:
   - id: cursor-pro
     name: Cursor Pro

@@ -71,6 +71,19 @@ not_for:
 not_for_en:
   - Users in China (Google services blocked)
   - Production environments that need stable pricing/SLA (still in preview)
+quick_start:
+  - 访问 antigravity.google，申请公开预览访问权限（需 Google 账号）
+  - 下载并安装 Antigravity IDE（VS Code Fork，支持 macOS/Windows/Linux）
+  - 登录 Google 账号，免费使用 Gemini 3 Pro、Claude Sonnet 4.5 等顶级模型
+  - 打开项目，通过 AI 面板开始 Agent 对话和代码生成
+quick_start_en:
+  - Visit antigravity.google and apply for public preview access (Google account required)
+  - Download and install Antigravity IDE (VS Code Fork, supports macOS/Windows/Linux)
+  - Sign in with your Google account to use Gemini 3 Pro, Claude Sonnet 4.5, and more for free
+  - Open your project and start Agent chats and code generation via the AI panel
+china_note: Google 服务在中国大陆被屏蔽，需要代理才能访问；暂无国内镜像版本
+china_note_en: Google services are blocked in mainland China; a proxy is required; no domestic mirror available
+
 plans_using_this: []
 data_sources:
   - url: https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/

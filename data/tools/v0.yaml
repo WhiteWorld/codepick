@@ -63,6 +63,20 @@ not_for_en:
   - Full apps needing backend logic
   - Teams outside Vercel ecosystem
 
+quick_start:
+  - 访问 v0.dev，用 Vercel 账号（可 GitHub 一键登录）注册，Free 套餐每月 200 credits
+  - 在输入框描述你想要的 UI 组件（如"带搜索的数据表格，使用 shadcn/ui 风格"）
+  - AI 生成 React + shadcn/ui 组件代码，可继续对话调整样式和功能
+  - 一键复制代码到项目，或直接在 v0 中关联 Vercel 项目一键部署
+quick_start_en:
+  - "Visit v0.dev and sign up with a Vercel account (GitHub one-click login supported); Free plan: 200 credits/month"
+  - Describe the UI component you need (e.g. "a data table with search in shadcn/ui style")
+  - AI generates React + shadcn/ui component code; keep chatting to refine style and functionality
+  - Copy code to your project with one click, or link a Vercel project for direct deployment
+register_url: https://v0.dev
+china_note: 需要翻墙，Vercel 域名在国内访问受限；专注前端 UI 组件生成，非全栈应用
+china_note_en: Requires VPN from China; Vercel domain is restricted in China; focuses on frontend UI component generation, not full-stack apps
+
 changelog:
   - date: '2026-03-04'
     type: announcement

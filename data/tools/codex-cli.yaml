@@ -80,6 +80,19 @@ not_for_en:
   - Users in China (OpenAI is blocked)
   - Budget-conscious users who don't want a ChatGPT subscription
   - Users who need in-IDE completion experience
+quick_start:
+  - 订阅 ChatGPT Plus（$20/月），CLI 包含在订阅内；或准备 OpenAI API Key
+  - 安装 Node.js 22+，运行：npm install -g @openai/codex
+  - 使用 ChatGPT 账号登录：codex login；或设置 API Key：export OPENAI_API_KEY=sk-xxx
+  - 进入项目目录运行：codex "描述你的任务"
+quick_start_en:
+  - Subscribe to ChatGPT Plus ($20/mo, CLI included); or get an OpenAI API Key
+  - "Install Node.js 22+, run: npm install -g @openai/codex"
+  - "Sign in with ChatGPT: codex login; or set API Key: export OPENAI_API_KEY=sk-xxx"
+  - 'Run in your project directory: codex "describe your task"'
+china_note: 需要 OpenAI 账号，国内访问 OpenAI 需要代理；可替换为支持 OpenAI 格式的国内 API（如 DeepSeek、月之暗面）
+china_note_en: Requires OpenAI account; accessing OpenAI from China requires a proxy; can substitute with OpenAI-compatible Chinese APIs (e.g. DeepSeek, Moonshot)
+
 plans_using_this: []
 data_sources:
   - url: https://openai.com/codex/
