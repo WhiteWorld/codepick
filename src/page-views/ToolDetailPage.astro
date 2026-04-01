@@ -46,6 +46,7 @@ const changelog = (tool as any).changelog || [];
 const quickStart = (tool as any).quick_start || [];
 const chinaNote = (tool as any).china_note || '';
 const registerUrl = (tool as any).register_url || (tool as any).url || '';
+const hasFree = pricingPlans.some((p: any) => p.price === 0);
 
 // 相关工具：同 type 或同 ide_base，排除自身，最多 3 个
 const allTools = getAllToolsLocalized(lang);
@@ -161,6 +162,18 @@ const seoTitle = lang === 'zh'
               {t('link.official', lang)}
             </a>
           )}
+          {hasFree && registerUrl && (
+            <a href={registerUrl} target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-1 text-xs bg-emerald-600 hover:bg-emerald-500 text-white px-2.5 py-1 rounded-md no-underline transition-colors font-medium">
+              🎁 {t('cta.freeTrial', lang)}
+            </a>
+          )}
+          {!hasFree && registerUrl && (tool as any).url !== registerUrl && (
+            <a href={registerUrl} target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-1 text-xs border border-[var(--brand-500)] text-[var(--brand-400)] hover:bg-[var(--brand-500)] hover:text-white px-2.5 py-1 rounded-md no-underline transition-colors font-medium">
+              {t('cta.tryNow', lang)} ↗
+            </a>
+          )}
           {!fresh && <span class="text-xs text-amber-400">{t('warn.dataOutdated', lang)}</span>}
         </div>
       </div>
@@ -241,6 +254,24 @@ const seoTitle = lang === 'zh'
           </table>
         </div>
       </section>
+    )}
+
+    <!-- Free Trial CTA -->
+    {registerUrl && (
+      <div class={`flex flex-col sm:flex-row items-center justify-between gap-4 rounded-xl px-6 py-5 mb-8 border ${hasFree ? 'border-emerald-600 bg-emerald-950/30' : 'border-[var(--brand-500)] bg-[var(--surface-2)]'}`}>
+        <div>
+          <p class="text-sm font-semibold text-[var(--text-primary)] m-0">
+            {tool.name}
+          </p>
+          <p class="text-xs text-[var(--text-muted)] mt-1 m-0">
+            {hasFree ? t('cta.freeAvailable', lang) : t('cta.paidOnly', lang)}
+          </p>
+        </div>
+        <a href={registerUrl} target="_blank" rel="noopener noreferrer"
+           class={`shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold px-5 py-2.5 rounded-lg no-underline transition-colors ${hasFree ? 'bg-emerald-600 hover:bg-emerald-500 text-white' : 'bg-[var(--brand-500)] hover:bg-[var(--brand-400)] text-white'}`}>
+          {hasFree ? `🎁 ${t('cta.freeTrial', lang)}` : t('cta.tryNow', lang)} ↗
+        </a>
+      </div>
     )}
 
     <!-- Features -->
