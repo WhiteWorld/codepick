@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ScoreBar from '../components/ScoreBar.astro';
 import ToolCard from '../components/ToolCard.astro';
 import PlanCard from '../components/PlanCard.astro';
+import Comments from '../components/Comments.astro';
 import { getAllToolsLocalized, getAllPlansLocalized, isFresh } from '../lib/data';
 import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
 import { getCollection } from 'astro:content';
@@ -303,6 +304,9 @@ const seoTitle = lang === 'zh'
         </div>
       </section>
     )}
+
+    <!-- Comments -->
+    <Comments lang={lang} term={tool.id} />
 
     <!-- Meta -->
     {(meta.last_verified || meta.confidence) && (

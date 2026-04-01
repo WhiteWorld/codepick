@@ -1,0 +1,70 @@
+---
+import type { Locale } from '../lib/i18n';
+
+interface Props {
+  lang: Locale;
+  term?: string; // discussion mapping term (e.g. tool id)
+}
+
+const { lang, term } = Astro.props;
+const giscusLang = lang === 'zh' ? 'zh-CN' : 'en';
+---
+
+<section class="card p-6 mb-8" id="comments">
+  <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">
+    {lang === 'zh' ? '💬 用户评论' : '💬 Comments'}
+  </h2>
+  <div class="giscus-wrapper">
+    <script
+      is:inline
+      src="https://giscus.app/client.js"
+      data-repo="WhiteWorld/codepick"
+      data-repo-id="R_kgDORP-oeA"
+      data-category="Comments"
+      data-category-id="DIC_kwDORP-oeM4C5zno"
+      data-mapping="specific"
+      data-term={term}
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="dark"
+      data-lang={giscusLang}
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async
+    ></script>
+  </div>
+</section>
+
+<script>
+  // Sync Giscus theme with site theme
+  function updateGiscusTheme() {
+    const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+    const giscusTheme = theme === 'light' ? 'light' : 'dark';
+    const iframe = document.querySelector<HTMLIFrameElement>('iframe.giscus-frame');
+    if (iframe) {
+      iframe.contentWindow?.postMessage(
+        { giscus: { setConfig: { theme: giscusTheme } } },
+        'https://giscus.app'
+      );
+    }
+  }
+
+  // Watch for theme changes
+  const observer = new MutationObserver((mutations) => {
+    for (const mutation of mutations) {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+        updateGiscusTheme();
+      }
+    }
+  });
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+  // Set initial theme once Giscus loads
+  window.addEventListener('message', (event) => {
+    if (event.origin !== 'https://giscus.app') return;
+    if (typeof event.data !== 'object' || !event.data.giscus) return;
+    updateGiscusTheme();
+  });
+</script>
