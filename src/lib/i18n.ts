@@ -6,9 +6,10 @@ const translations: Record<string, Record<Locale, string>> = {
   'nav.plans':     { zh: '方案矩阵', en: 'Plans' },
   'nav.tools':     { zh: '工具库', en: 'Tools' },
   'nav.overview':  { zh: '全景图', en: 'Overview' },
-  'nav.compare':   { zh: '对比', en: 'Compare' },
-  'nav.guides':    { zh: '指南', en: 'Guides' },
-  'nav.faq':       { zh: 'FAQ', en: 'FAQ' },
+  'nav.compare':     { zh: '对比', en: 'Compare' },
+  'nav.comparator':  { zh: '对比器', en: 'Comparator' },
+  'nav.guides':      { zh: '指南', en: 'Guides' },
+  'nav.faq':         { zh: 'FAQ', en: 'FAQ' },
 
   // ── Breadcrumbs ─────────────────────────────────────────────────────────
   'bread.home':         { zh: '首页', en: 'Home' },
