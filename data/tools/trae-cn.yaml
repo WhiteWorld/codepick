@@ -65,6 +65,20 @@ not_for:
 not_for_en:
   - Users who need Claude/GPT or other overseas models (use Trae international)
   - JetBrains users
+quick_start:
+  - 访问 trae.cn，下载并安装 Trae（国内版，支持 macOS/Windows/Linux）
+  - 用手机号注册/登录（支持抖音账号一键登录），全程无需翻墙
+  - 无需任何额外配置，打开项目即可开始 AI 对话和代码生成
+  - 免费使用豆包-Seed-Code、DeepSeek-V3、Kimi-K2、通义等国产顶级编程模型
+quick_start_en:
+  - Visit trae.cn, download and install Trae (China edition, macOS/Windows/Linux)
+  - Register with phone number or Douyin one-click login — no VPN needed throughout
+  - No additional configuration needed; open your project and start AI chat and code generation
+  - "Free access to top Chinese coding models: Doubao-Seed-Code, DeepSeek-V3, Kimi-K2, Qwen, and more"
+register_url: https://trae.cn
+china_note: 专为国内用户设计，直连无需代理，全部功能完全免费；个人版完全免费，企业版支持 10 万文件/1.5 亿行代码
+china_note_en: Designed for China users — direct access without proxy, all features completely free; Enterprise edition supports 100K files/150M lines of code
+
 plans_using_this: []
 compatible_apis:
   - ark-coding-plan

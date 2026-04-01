@@ -243,6 +243,8 @@ export function getAllToolsLocalized(lang: Locale): Tool[] {
         ...c,
         summary: localized(c, 'summary', lang),
       })),
+      quick_start: localized(tool, 'quick_start', lang) ?? tool.quick_start ?? [],
+      china_note: localized(tool, 'china_note', lang) ?? tool.china_note ?? '',
     } as Tool;
   });
 }

@@ -52,6 +52,19 @@ not_for:
 not_for_en:
   - Users without a local GPU (local model experience is poor)
   - Users who want the strongest Agent capabilities
+quick_start:
+  - 安装 Python 3.10+，运行：pip install aider-install && aider-install
+  - 配置 API Key：export OPENAI_API_KEY=sk-xxx（支持 DeepSeek、通义千问、火山方舟等）
+  - 进入项目目录，运行：aider（首次会引导配置模型）
+  - 用自然语言描述改动，Aider 自动修改文件并提交到 Git
+quick_start_en:
+  - "Install Python 3.10+, run: pip install aider-install && aider-install"
+  - "Set API Key: export OPENAI_API_KEY=sk-xxx (supports DeepSeek, Tongyi Qianwen, Volcengine Ark, etc.)"
+  - "cd to your project directory and run: aider (first run guides model setup)"
+  - Describe changes in natural language; Aider edits files and commits to Git automatically
+china_note: 支持国内模型（DeepSeek、通义千问、火山方舟等），无需翻墙；安装包可通过国内 PyPI 镜像（如阿里云）加速
+china_note_en: Supports Chinese models (DeepSeek, Tongyi Qianwen, Volcengine Ark, etc.); no VPN needed; install faster via domestic PyPI mirrors (e.g. Alibaba Cloud)
+
 compatible_apis:
   - ollama
   - openrouter

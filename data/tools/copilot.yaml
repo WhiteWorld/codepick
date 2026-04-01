@@ -96,6 +96,20 @@ not_for:
 not_for_en:
   - Users who need full custom model control
   - Users who demand the strongest Agent autonomy
+quick_start:
+  - 访问 github.com/features/copilot/plans，选择套餐（Free 免费，Pro $10/月）
+  - 打开 VS Code，在扩展商店搜索并安装 "GitHub Copilot" 和 "GitHub Copilot Chat"
+  - 使用 GitHub 账号登录授权，代码补全和聊天功能立即可用
+  - JetBrains 用户：在插件市场搜索 "GitHub Copilot" 插件安装后同样登录即可
+quick_start_en:
+  - Visit github.com/features/copilot/plans, choose a plan (Free is free, Pro $10/mo)
+  - Open VS Code, search and install "GitHub Copilot" and "GitHub Copilot Chat" extensions
+  - Sign in with your GitHub account; code completion and chat are immediately available
+  - 'JetBrains users: search "GitHub Copilot" in the plugin marketplace and sign in'
+register_url: https://github.com/features/copilot
+china_note: 需要翻墙，国内网络访问不稳定；GitHub 服务部分地区可直连，但 Copilot AI 接口稳定性较差；学生/教师可免费申请 Pro
+china_note_en: Requires VPN from China; GitHub services are partially accessible but Copilot AI endpoints are unreliable; students and teachers can apply for free Pro access
+
 data_sources:
   - url: https://github.com/features/copilot/plans
     type: pricing

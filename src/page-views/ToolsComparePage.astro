@@ -1,0 +1,257 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getAllToolsLocalized } from '../lib/data';
+import { t, localePath, type Locale } from '../lib/i18n';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+
+const allTools = getAllToolsLocalized(lang);
+
+// Build a compact JSON payload for client-side use
+const toolsData = allTools.map((tool: any) => ({
+  id: tool.id,
+  name: tool.name,
+  type: tool.type,
+  tagline: tool.tagline || '',
+  url: tool.url || '',
+  pricing: (() => {
+    const plans = tool.pricing?.plans || [];
+    const free = plans.find((p: any) => p.price === 0);
+    const paid = plans.find((p: any) => typeof p.price === 'number' && p.price > 0);
+    const currency = tool.pricing?.currency === 'CNY' ? '¥' : '$';
+    if (free && paid) return lang === 'zh' ? `免费 / ${currency}${paid.price}起` : `Free / ${currency}${paid.price}+`;
+    if (free) return lang === 'zh' ? '免费' : 'Free';
+    if (paid) return `${currency}${paid.price}${lang === 'zh' ? '/月' : '/mo'}`;
+    return lang === 'zh' ? '按量计费' : 'Pay-as-you-go';
+  })(),
+  scores: {
+    coding_ability: tool.scores?.coding_ability ?? 0,
+    cost_efficiency: tool.scores?.cost_efficiency ?? 0,
+    flexibility: tool.scores?.flexibility ?? 0,
+    china_friendly: tool.scores?.china_friendly ?? 0,
+  },
+  features: {
+    code_completion: !!(tool.features?.code_completion),
+    chat: !!(tool.features?.chat),
+    agent_mode: !!(tool.features?.agent_mode),
+    multi_file_edit: !!(tool.features?.multi_file_edit),
+    mcp_support: !!(tool.features?.mcp_support),
+    git_integration: !!(tool.features?.git_integration),
+    jetbrains_support: !!(tool.features?.jetbrains_support),
+  },
+  best_for: Array.isArray(tool.best_for) ? tool.best_for : [],
+}));
+
+const toolsJson = JSON.stringify(toolsData);
+
+const seoTitle = lang === 'zh'
+  ? 'AI 编程工具对比器 | CodePick'
+  : 'AI Coding Tool Comparator | CodePick';
+const seoDesc = lang === 'zh'
+  ? '勾选 2-3 个 AI 编程工具，自动生成横向对比表格。对比 Cursor、Copilot、Cline、Claude Code 等主流工具的评分、定价和功能。'
+  : 'Select 2–3 AI coding tools and instantly generate a comparison table. Compare Cursor, Copilot, Cline, Claude Code, and more by scores, pricing, and features.';
+
+const pagePath = localePath('/tools/compare', lang);
+---
+
+<BaseLayout title={seoTitle} description={seoDesc} lang={lang} canonicalURL={`https://codepick.dev${pagePath}`}>
+  <div class="container py-12 max-w-5xl">
+    <!-- Breadcrumb -->
+    <nav class="text-xs text-[var(--text-muted)] mb-6">
+      <a href={localePath('/', lang)} class="hover:text-[var(--text-primary)] no-underline">{t('bread.home', lang)}</a>
+      <span class="mx-1">/</span>
+      <a href={localePath('/tools', lang)} class="hover:text-[var(--text-primary)] no-underline">{t('bread.toolLibrary', lang)}</a>
+      <span class="mx-1">/</span>
+      <span class="text-[var(--text-secondary)]">{lang === 'zh' ? '对比器' : 'Compare'}</span>
+    </nav>
+
+    <!-- Header -->
+    <div class="mb-8">
+      <h1 class="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-2">
+        {lang === 'zh' ? '⚖️ 工具对比器' : '⚖️ Tool Comparator'}
+      </h1>
+      <p class="text-[var(--text-secondary)]">
+        {lang === 'zh' ? '勾选 2～3 个工具，立即生成横向对比表格。' : 'Select 2–3 tools to instantly generate a side-by-side comparison.'}
+      </p>
+    </div>
+
+    <!-- Tool selector -->
+    <section class="card p-6 mb-8">
+      <p class="text-sm font-medium text-[var(--text-secondary)] mb-4">
+        {lang === 'zh' ? '选择工具（最多 3 个）：' : 'Select tools (up to 3):'}
+      </p>
+      <div id="tool-selector" class="flex flex-wrap gap-2">
+        {allTools.map((tool: any) => (
+          <button
+            class="tool-toggle text-xs px-3 py-1.5 rounded-full border border-[var(--surface-border)] text-[var(--text-secondary)] hover:border-[var(--brand-500)] hover:text-[var(--brand-400)] transition-colors"
+            data-id={tool.id}
+          >
+            {tool.name}
+          </button>
+        ))}
+      </div>
+      <p id="select-hint" class="text-xs text-[var(--text-muted)] mt-3">
+        {lang === 'zh' ? '已选 0 个，至少选 2 个工具' : '0 selected — pick at least 2 tools'}
+      </p>
+    </section>
+
+    <!-- Comparison result -->
+    <div id="compare-result" class="hidden">
+      <div class="overflow-x-auto">
+        <table id="compare-table" class="compare-table w-full text-sm">
+          <thead id="compare-head"></thead>
+          <tbody id="compare-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Empty state placeholder -->
+    <div id="compare-empty" class="text-center py-16 text-[var(--text-muted)] text-sm">
+      {lang === 'zh' ? '👆 请先在上方勾选至少 2 个工具' : '👆 Select at least 2 tools above to start comparing'}
+    </div>
+  </div>
+</BaseLayout>
+
+<script define:vars={{ toolsJson, lang }}>
+  const tools = JSON.parse(toolsJson);
+  const toolsById = Object.fromEntries(tools.map(t => [t.id, t]));
+  let selected = [];
+
+  const MAX_SELECT = 3;
+
+  const scoreLabel = {
+    coding_ability: lang === 'zh' ? '编程能力' : 'Coding',
+    cost_efficiency: lang === 'zh' ? '性价比' : 'Value',
+    flexibility:     lang === 'zh' ? '灵活性' : 'Flexibility',
+    china_friendly:  lang === 'zh' ? '国内体验' : 'China Access',
+  };
+
+  const featureLabel = {
+    code_completion:  lang === 'zh' ? '代码补全' : 'Code Completion',
+    chat:             lang === 'zh' ? '对话' : 'Chat',
+    agent_mode:       lang === 'zh' ? 'Agent 模式' : 'Agent Mode',
+    multi_file_edit:  lang === 'zh' ? '多文件编辑' : 'Multi-file Edit',
+    mcp_support:      lang === 'zh' ? 'MCP 支持' : 'MCP Support',
+    git_integration:  lang === 'zh' ? 'Git 集成' : 'Git Integration',
+    jetbrains_support:lang === 'zh' ? 'JetBrains' : 'JetBrains',
+  };
+
+  function scoreColor(s) {
+    if (s >= 8.5) return '#4ade80';
+    if (s >= 7)   return '#60a5fa';
+    if (s >= 5)   return '#facc15';
+    return '#f87171';
+  }
+
+  function renderTable() {
+    const head = document.getElementById('compare-head');
+    const body = document.getElementById('compare-body');
+    const result = document.getElementById('compare-result');
+    const empty = document.getElementById('compare-empty');
+
+    if (selected.length < 2) {
+      result.classList.add('hidden');
+      empty.classList.remove('hidden');
+      return;
+    }
+
+    result.classList.remove('hidden');
+    empty.classList.add('hidden');
+
+    const toolObjs = selected.map(id => toolsById[id]);
+
+    // Header row
+    head.innerHTML = `<tr>
+      <th class="text-left">${lang === 'zh' ? '项目' : 'Item'}</th>
+      ${toolObjs.map(t => `<th><a href="/${lang}/tool/${t.id}" class="text-[var(--brand-400)] no-underline hover:underline">${t.name}</a></th>`).join('')}
+    </tr>`;
+
+    const rows = [];
+
+    // Type
+    rows.push(`<tr>
+      <td class="text-[var(--text-muted)]">${lang === 'zh' ? '类型' : 'Type'}</td>
+      ${toolObjs.map(t => `<td>${t.type}</td>`).join('')}
+    </tr>`);
+
+    // Pricing
+    rows.push(`<tr>
+      <td class="text-[var(--text-muted)]">${lang === 'zh' ? '定价' : 'Pricing'}</td>
+      ${toolObjs.map(t => `<td class="font-medium">${t.pricing}</td>`).join('')}
+    </tr>`);
+
+    // Scores
+    for (const [key, label] of Object.entries(scoreLabel)) {
+      rows.push(`<tr>
+        <td class="text-[var(--text-muted)]">${label}</td>
+        ${toolObjs.map(t => {
+          const s = t.scores[key];
+          return `<td><span style="color:${scoreColor(s)};font-weight:600">${s}</span><span class="text-[var(--text-muted)] text-xs">/10</span></td>`;
+        }).join('')}
+      </tr>`);
+    }
+
+    // Features
+    for (const [key, label] of Object.entries(featureLabel)) {
+      rows.push(`<tr>
+        <td class="text-[var(--text-muted)]">${label}</td>
+        ${toolObjs.map(t => {
+          const v = t.features[key];
+          return `<td>${v ? '<span style="color:#4ade80">✓</span>' : '<span style="color:#6b7280">—</span>'}</td>`;
+        }).join('')}
+      </tr>`);
+    }
+
+    // Best for
+    rows.push(`<tr>
+      <td class="text-[var(--text-muted)] align-top">${lang === 'zh' ? '适合人群' : 'Best For'}</td>
+      ${toolObjs.map(t => `<td class="text-xs leading-relaxed">${t.best_for.slice(0, 3).join('<br>')}</td>`).join('')}
+    </tr>`);
+
+    // Official link
+    rows.push(`<tr>
+      <td class="text-[var(--text-muted)]">${lang === 'zh' ? '官网' : 'Website'}</td>
+      ${toolObjs.map(t => `<td><a href="${t.url}" target="_blank" rel="noopener" class="text-[var(--brand-400)] no-underline hover:underline text-xs">${lang === 'zh' ? '官网 ↗' : 'Visit ↗'}</a></td>`).join('')}
+    </tr>`);
+
+    body.innerHTML = rows.join('');
+  }
+
+  function updateHint() {
+    const hint = document.getElementById('select-hint');
+    if (!hint) return;
+    const n = selected.length;
+    if (lang === 'zh') {
+      hint.textContent = n === 0
+        ? '已选 0 个，至少选 2 个工具'
+        : n < 2
+          ? `已选 ${n} 个，还需选 ${2 - n} 个`
+          : `已选 ${n} 个${n >= MAX_SELECT ? '（已达上限）' : '，最多可选 3 个'}`;
+    } else {
+      hint.textContent = n === 0
+        ? '0 selected — pick at least 2 tools'
+        : n < 2
+          ? `${n} selected — pick ${2 - n} more`
+          : `${n} selected${n >= MAX_SELECT ? ' (max reached)' : ' — up to 3 total'}`;
+    }
+  }
+
+  document.querySelectorAll('.tool-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.id;
+      if (selected.includes(id)) {
+        selected = selected.filter(s => s !== id);
+        btn.classList.remove('bg-[var(--brand-500)]', 'border-[var(--brand-500)]', 'text-white');
+        btn.classList.add('text-[var(--text-secondary)]');
+      } else {
+        if (selected.length >= MAX_SELECT) return;
+        selected.push(id);
+        btn.classList.add('bg-[var(--brand-500)]', 'border-[var(--brand-500)]', 'text-white');
+        btn.classList.remove('text-[var(--text-secondary)]');
+      }
+      updateHint();
+      renderTable();
+    });
+  });
+</script>

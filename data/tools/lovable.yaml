@@ -64,6 +64,20 @@ not_for_en:
   - Projects needing complex custom backends
   - Teams avoiding Supabase lock-in
 
+quick_start:
+  - 访问 lovable.dev，用 GitHub 账号或邮箱注册（Free 套餐每月 30 条消息）
+  - 在输入框用自然语言描述你想构建的 Web 应用（如"构建一个带用户登录的 SaaS 定价页"）
+  - AI 自动生成完整 React 应用并实时预览，可继续对话迭代修改
+  - 连接 Supabase 后端，或将代码推送到 GitHub 后继续本地开发
+quick_start_en:
+  - "Visit lovable.dev and sign up with GitHub or email (Free plan: 30 messages/month)"
+  - Describe the web app you want in natural language (e.g. "build a SaaS pricing page with user login")
+  - AI generates a full React app with live preview; keep chatting to iterate and refine
+  - Connect Supabase backend, or push code to GitHub for continued local development
+register_url: https://lovable.dev
+china_note: 需要翻墙访问，国内暂无镜像；以全栈 React Web 应用生成为主，适合快速原型验证
+china_note_en: Requires VPN from China; no domestic mirror; focused on full-stack React web app generation, great for rapid prototyping
+
 changelog:
   - date: '2026-03-04'
     type: announcement

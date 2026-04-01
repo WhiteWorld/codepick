@@ -63,6 +63,19 @@ not_for:
 not_for_en:
   - Long-term projects needing stable production
 
+quick_start:
+  - 访问 bolt.new，用 GitHub 账号或邮箱注册（Free 套餐无需绑卡）
+  - 在输入框用自然语言描述你要构建的应用（如"构建一个带用户登录的 Todo 应用"）
+  - AI 生成完整代码并提供实时预览，可继续对话迭代修改
+  - 满意后一键导出代码到本地，或部署到 Netlify/Vercel
+quick_start_en:
+  - Visit bolt.new and sign up with GitHub or email (Free plan, no credit card needed)
+  - Describe the app you want in natural language (e.g. "build a Todo app with user login")
+  - AI generates complete code with live preview; keep chatting to iterate
+  - Export code locally or deploy to Netlify/Vercel with one click
+china_note: 需要翻墙访问，暂无国内镜像；开源版 bolt.diy 可自行搭建，支持接入国内模型 API
+china_note_en: Requires VPN from China; no domestic mirror; open-source bolt.diy can be self-hosted with Chinese model APIs
+
 changelog:
   - date: '2026-03-04'
     type: announcement

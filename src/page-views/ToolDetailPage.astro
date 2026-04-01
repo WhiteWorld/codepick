@@ -43,6 +43,9 @@ const pros = (tool as any).pros || [];
 const cons = (tool as any).cons || [];
 const bestFor = (tool as any).best_for || [];
 const changelog = (tool as any).changelog || [];
+const quickStart = (tool as any).quick_start || [];
+const chinaNote = (tool as any).china_note || '';
+const registerUrl = (tool as any).register_url || (tool as any).url || '';
 
 // 相关工具：同 type 或同 ide_base，排除自身，最多 3 个
 const allTools = getAllToolsLocalized(lang);
@@ -175,6 +178,39 @@ const seoTitle = lang === 'zh'
           <div class="flex flex-col gap-3">
             <ScoreBar label={t('score.flexibility', lang)} score={(tool as any).scores.flexibility ?? 5} color="auto" />
             <ScoreBar label={t('score.chinaFriendly', lang)} score={(tool as any).scores.china_friendly ?? 5} color="auto" />
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Quick Start -->
+    {quickStart.length > 0 && (
+      <section class="card p-6 mb-8">
+        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">{t('section.quickStart', lang)}</h2>
+        <div class="space-y-4">
+          <div>
+            <p class="text-xs font-medium text-[var(--text-muted)] uppercase tracking-wide mb-2">{t('quickStart.steps', lang)}</p>
+            <ol class="list-none m-0 p-0 space-y-2">
+              {quickStart.map((step: string, i: number) => (
+                <li class="flex gap-3 text-sm text-[var(--text-secondary)]">
+                  <span class="shrink-0 w-5 h-5 rounded-full bg-[var(--brand-500)] text-white text-xs flex items-center justify-center font-medium">{i + 1}</span>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+          <div class="flex flex-wrap gap-3 pt-2 border-t border-[var(--surface-border)]">
+            {registerUrl && (
+              <a href={registerUrl} target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-xs bg-[var(--brand-500)] hover:bg-[var(--brand-400)] text-white px-3 py-1.5 rounded-md no-underline transition-colors font-medium">
+                {t('quickStart.register', lang)} ↗
+              </a>
+            )}
+            {chinaNote && (
+              <div class="flex items-start gap-2 text-xs text-[var(--text-muted)] bg-[var(--surface-2)] rounded-md px-3 py-1.5">
+                <span class="font-medium text-amber-400 shrink-0">{t('quickStart.chinaNote', lang)}:</span>
+                <span>{chinaNote}</span>
+              </div>
+            )}
           </div>
         </div>
       </section>

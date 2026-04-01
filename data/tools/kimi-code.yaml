@@ -73,6 +73,20 @@ not_for_en:
   - Heavy JetBrains users (ACP support is still early-stage)
   - Teams demanding top-tier coding performance
 
+quick_start:
+  - 安装 Node.js 18+（CLI 用户），运行：npm install -g kimi-code；或打开 VS Code 安装 Kimi Code 插件
+  - 访问 kimi.com，用手机号注册 Moonshot AI 账号（支持微信/手机号登录）
+  - 在终端运行 kimi-code 登录，或在 VS Code 侧边栏打开 Kimi Code 面板并授权
+  - 订阅 Andante（¥49/月）或 Moderato（¥99/月）套餐获取完整编码额度
+quick_start_en:
+  - "Install Node.js 18+ (for CLI), run: npm install -g kimi-code; or install Kimi Code extension in VS Code"
+  - Visit kimi.com and register a Moonshot AI account (WeChat or phone number login supported)
+  - Run kimi-code login in terminal, or open the Kimi Code panel in VS Code sidebar and authorize
+  - Subscribe to Andante (¥49/mo) or Moderato (¥99/mo) for full coding quota
+register_url: https://kimi.ai
+china_note: 国产工具，国内直连无需翻墙；支持中文对话；Kimi K2.5 模型专为编程优化，月之暗面自研
+china_note_en: Domestic tool, directly accessible in China without VPN; supports Chinese conversation; Kimi K2.5 model optimized for coding, developed by Moonshot AI
+
 changelog:
   - date: '2026-03-03'
     type: feature

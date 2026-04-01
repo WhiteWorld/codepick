@@ -52,6 +52,19 @@ not_for:
 not_for_en:
   - Users accustomed to GUI IDEs
   - Users who need Tab code completion
+quick_start:
+  - 安装 Bun 或 Node.js 18+，运行：bun install -g opencode-ai（或 npm install -g opencode-ai）
+  - 配置模型 API Key，支持 75+ 提供商：export ANTHROPIC_API_KEY=xxx 或通过 TUI 配置向导设置
+  - 进入项目目录运行：opencode，进入美观的 TUI 界面
+  - 国内用户推荐搭配火山方舟 Coding Plan（¥9.9/月），无需翻墙
+quick_start_en:
+  - "Install Bun or Node.js 18+, run: bun install -g opencode-ai (or npm install -g opencode-ai)"
+  - "Configure model API Key (supports 75+ providers): export ANTHROPIC_API_KEY=xxx or use TUI setup wizard"
+  - "cd to your project directory and run: opencode to launch the TUI interface"
+  - "China users: pair with Volcengine Ark Coding Plan (¥9.9/mo) for access without VPN"
+china_note: 支持火山方舟 Coding Plan（¥9.9/月），国内直连使用 DeepSeek 等主流模型，无需翻墙；也支持阿里百炼、月之暗面等国内 API
+china_note_en: Supports Volcengine Ark Coding Plan (¥9.9/mo) for direct access to DeepSeek and other models without VPN; also supports Alibaba Bailian, Moonshot, and other Chinese APIs
+
 compatible_apis:
   - ark-coding-plan
   - openrouter

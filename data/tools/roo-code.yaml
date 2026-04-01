@@ -62,6 +62,19 @@ not_for:
 not_for_en:
   - Users who need direct China access (OpenRouter requires proxy)
   - Beginner users
+quick_start:
+  - 打开 VS Code，在扩展商店搜索 "Roo Code" 并安装（或直接访问 roocode.com）
+  - 在侧边栏打开 Roo Code 面板，选择角色（Code / Architect / Debug）和模型提供商
+  - 填写 API Key，推荐搭配火山方舟 Coding Plan（¥9.9/月）国内低成本使用
+  - JetBrains 用户：在插件市场搜索并安装独立的 Roo Code 扩展
+quick_start_en:
+  - Open VS Code, search for "Roo Code" in the extension marketplace and install
+  - Open the Roo Code panel in the sidebar, select a role (Code/Architect/Debug) and model provider
+  - "Enter your API Key; recommended: Volcengine Ark Coding Plan (¥9.9/mo) for budget-friendly China access"
+  - "JetBrains users: search and install the separate Roo Code extension in the plugin marketplace"
+china_note: 插件本身无需翻墙，支持国内 API（火山方舟、阿里百炼、月之暗面等）；OpenRouter 需要代理，推荐改用国内 API
+china_note_en: Plugin requires no VPN; supports Chinese APIs (Volcengine Ark, Alibaba Bailian, Moonshot, etc.); OpenRouter needs a proxy — switch to a domestic API instead
+
 compatible_apis:
   - openrouter
   - anthropic
