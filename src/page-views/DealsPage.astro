@@ -1,13 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getAllToolsLocalized, getAllPlansLocalized } from '../lib/data';
+import { getAllToolsLocalized, getAllApisLocalized } from '../lib/data';
 import { t, localePath, type Locale } from '../lib/i18n';
 
 interface Props { lang: Locale }
 const { lang } = Astro.props;
 
 const allTools = getAllToolsLocalized(lang);
-const allPlans = getAllPlansLocalized(lang);
+const allApis = getAllApisLocalized(lang);
 
 // 工具：按有无推广链接、有无免费版排序（推广链接优先，免费版次之）
 const tools = allTools.map(tool => {
@@ -38,43 +38,28 @@ const tools = allTools.map(tool => {
   return 0;
 });
 
-// 方案：同样排序
-const plans = allPlans.map(plan => {
-  const affiliateUrl  = (plan as any).affiliate_url || '';
-  const ctaUrl        = affiliateUrl || (plan as any).url || '';
-  const hasAffiliate  = !!affiliateUrl;
-  const affiliateNote = lang === 'en'
-    ? (plan as any).affiliate_note_en || (plan as any).affiliate_note || ''
-    : (plan as any).affiliate_note || '';
+// Coding Plan API 源：仅展示 id 含 coding-plan 的条目
+const codingPlanApis = allApis
+  .filter(api => (api as any).id?.includes('coding-plan'))
+  .map(api => {
+    const raw = api as any;
+    const ctaUrl = raw.affiliate_url || raw.url || '';
+    const hasAffiliate = !!raw.affiliate_url;
+    const affiliateNote = lang === 'en'
+      ? raw.affiliate_note_en || raw.affiliate_note || ''
+      : raw.affiliate_note || '';
+    const currency = raw.pricing?.currency === 'CNY' ? '¥' : '$';
+    const pricingPlans: any[] = raw.pricing?.plans || [];
+    const lowestPlan = pricingPlans
+      .filter(p => typeof p.price === 'number' && p.price > 0)
+      .sort((a: any, b: any) => a.price - b.price)[0];
+    const priceLabel = lowestPlan ? `${currency}${lowestPlan.price}/月起` : '—';
+    const pricingNote: string = raw.pricing?.note || '';
+    const bestFor: string[] = raw.best_for || [];
+    return { api: raw, ctaUrl, hasAffiliate, affiliateNote, priceLabel, pricingNote, bestFor };
+  });
 
-  const cost = (plan as any).monthly_cost;
-  const costLabel = typeof cost === 'object'
-    ? cost.min || cost.typical || '—'
-    : cost || '—';
-
-  const badge = lang === 'en'
-    ? (plan as any).badge_en || (plan as any).badge || ''
-    : (plan as any).badge || '';
-
-  const bestFor: string[] = (plan as any).best_for || [];
-
-  // fallback CTA url: find client tool's register_url
-  let fallbackUrl = ctaUrl;
-  if (!fallbackUrl) {
-    const clientId = (plan as any).composition?.client || (plan as any).client;
-    const clientTool = allTools.find(t => t.id === clientId);
-    fallbackUrl = (clientTool as any)?.affiliate_url
-      || (clientTool as any)?.register_url
-      || (clientTool as any)?.url || '';
-  }
-
-  return { plan, ctaUrl: fallbackUrl, hasAffiliate, affiliateNote, costLabel, badge, bestFor };
-}).sort((a, b) => {
-  if (a.hasAffiliate !== b.hasAffiliate) return a.hasAffiliate ? -1 : 1;
-  return 0;
-});
-
-const hasAnyAffiliate = tools.some(t => t.hasAffiliate) || plans.some(p => p.hasAffiliate);
+const hasAnyAffiliate = tools.some(t => t.hasAffiliate) || codingPlanApis.some(p => p.hasAffiliate);
 
 const seoTitle = t('deals.seoTitle', lang);
 const seoDesc  = t('deals.seoDesc', lang);
@@ -142,27 +127,23 @@ const seoDesc  = t('deals.seoDesc', lang);
       </div>
     </section>
 
-    <!-- Plans Section -->
+    <!-- Coding Plan APIs Section -->
     <section class="mb-10">
       <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-5">{t('deals.plansTitle', lang)}</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {plans.map(({ plan, ctaUrl, hasAffiliate, affiliateNote, costLabel, badge, bestFor }) => (
+        {codingPlanApis.map(({ api, ctaUrl, hasAffiliate, affiliateNote, priceLabel, pricingNote, bestFor }) => (
           <div class="card p-5 flex flex-col gap-3">
-            <!-- Plan Header -->
-            <div>
-              <div class="flex items-start justify-between gap-2 mb-1">
-                <a href={localePath(`/plan/${plan.id}`, lang)} class="text-sm font-semibold text-[var(--text-primary)] no-underline hover:text-[var(--brand-400)] leading-snug">
-                  {plan.name}
-                </a>
-                {badge && (
-                  <span class="text-xs bg-[var(--brand-900,#1e1b4b)] text-[var(--brand-400)] border border-[var(--brand-700,#4338ca)] px-2 py-0.5 rounded-full shrink-0 whitespace-nowrap">
-                    {badge}
-                  </span>
+            <!-- API Header -->
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg avatar-gradient text-base shrink-0 flex items-center justify-center font-bold text-white">
+                {api.name.charAt(0)}
+              </div>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-[var(--text-primary)] m-0">{api.name}</p>
+                {bestFor[0] && (
+                  <p class="text-xs text-[var(--text-muted)] m-0 truncate">{bestFor[0]}</p>
                 )}
               </div>
-              {bestFor[0] && (
-                <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{bestFor[0]}</p>
-              )}
             </div>
 
             <!-- Tags -->
@@ -173,9 +154,14 @@ const seoDesc  = t('deals.seoDesc', lang);
                 </span>
               )}
               <span class="text-xs bg-[var(--surface-2)] text-[var(--text-muted)] px-2 py-0.5 rounded-full font-medium">
-                {costLabel}{lang === 'zh' ? '/月起' : '/mo'}
+                {priceLabel}
               </span>
             </div>
+
+            <!-- Pricing note -->
+            {pricingNote && (
+              <p class="text-xs text-amber-400 m-0">{pricingNote}</p>
+            )}
 
             <!-- Affiliate note -->
             {affiliateNote && (
