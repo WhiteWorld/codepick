@@ -17,7 +17,7 @@ tags: ["cline", "火山方舟", "配置", "国内", "性价比"]
 
 ## 第一步：订阅火山方舟 Coding Plan
 
-1. 访问 [火山方舟 Coding Plan 页面](https://volcengine.com/L/GHwMUAPkBr0/)
+1. 访问 [火山方舟 Coding Plan 页面](https://www.volcengine.com/L/s3lNTNYxaEc/)
 2. 选择套餐：
    - **Lite 版**：¥9.9/月（首购优惠，原价 ¥40）—— 适合个人日常使用
    - **Pro 版**：¥49.9/月（首购优惠，原价 ¥200）—— 适合重度用户

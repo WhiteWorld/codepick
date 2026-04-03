@@ -65,7 +65,7 @@ Both support:
 - OpenAI-compatible endpoints (Ollama, Volcengine Ark, SiliconFlow, etc.)
 - Azure OpenAI
 
-**Recommended for users in China**: Pair with the [Volcengine Ark Coding Plan](https://volcengine.com/L/GHwMUAPkBr0/) ([plan details](/plan/cline-ark)) for just 9.9 CNY/month with generous request quotas and full domestic accessibility.
+**Recommended for users in China**: Pair with the [Volcengine Ark Coding Plan](https://www.volcengine.com/L/s3lNTNYxaEc/) ([plan details](/plan/cline-ark)) for just 9.9 CNY/month with generous request quotas and full domestic accessibility.
 
 ---
 

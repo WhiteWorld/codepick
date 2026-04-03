@@ -91,7 +91,7 @@ Antigravity is a preview release from November 2025. The community has already d
 
 ## China Accessibility
 
-Both require proxy access, resulting in a comparable experience in China. If you need a China-accessible solution, consider [Trae CN](/tool/trae-cn) or [Cline + Volcengine Ark Coding Plan](https://volcengine.com/L/GHwMUAPkBr0/) ([setup guide](/guides/cline-ark-setup)).
+Both require proxy access, resulting in a comparable experience in China. If you need a China-accessible solution, consider [Trae CN](/tool/trae-cn) or [Cline + Volcengine Ark Coding Plan](https://www.volcengine.com/L/s3lNTNYxaEc/) ([setup guide](/guides/cline-ark-setup)).
 
 ---
 

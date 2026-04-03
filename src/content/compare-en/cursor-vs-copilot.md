@@ -66,7 +66,7 @@ This is where the gap between the two is largest:
 | Domestic Access | Requires proxy | Requires proxy |
 | Stability | Average | Average |
 
-Both require a stable proxy and are difficult to use in China without one. If you don't have proxy access, consider [Cline + Volcengine Ark Coding Plan](https://volcengine.com/L/GHwMUAPkBr0/) ([plan details](/plan/cline-ark)).
+Both require a stable proxy and are difficult to use in China without one. If you don't have proxy access, consider [Cline + Volcengine Ark Coding Plan](https://www.volcengine.com/L/s3lNTNYxaEc/) ([plan details](/plan/cline-ark)).
 
 ---
 
