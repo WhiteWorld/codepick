@@ -208,7 +208,7 @@ Create `.trae/rules.md` in your project root (similar to `.cursorrules`) to let 
 
 ### Connect Custom Models
 
-Trae CN supports custom model providers. You can connect to additional models on [Volcengine Ark](https://volcengine.com/L/GHwMUAPkBr0/):
+Trae CN supports custom model providers. You can connect to additional models on [Volcengine Ark](https://www.volcengine.com/L/s3lNTNYxaEc/):
 
 1. Go to Settings → Model Providers → Add
 2. Enter the Volcengine Ark Base URL and API Key

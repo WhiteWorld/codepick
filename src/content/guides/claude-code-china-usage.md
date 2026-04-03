@@ -161,7 +161,7 @@ claude
 ### 配置步骤
 
 1. **订阅 Coding Plan**
-   - 访问 [火山方舟 Coding Plan 页面](https://volcengine.com/L/GHwMUAPkBr0/)
+   - 访问 [火山方舟 Coding Plan 页面](https://www.volcengine.com/L/s3lNTNYxaEc/)
    - 选择 **Lite 版 ¥9.9/月**（首购优惠）或 **Pro 版 ¥49.9/月**
    - 支持支付宝/微信支付
 
