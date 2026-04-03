@@ -109,7 +109,7 @@ All three require access to overseas APIs and cannot be used directly from withi
 - Claude Code -> Anthropic API (blocked)
 - Codex CLI -> OpenAI API (blocked)
 
-Developers in China may consider [Cline + Volcengine Ark Coding Plan](https://www.volcengine.com/L/s3lNTNYxaEc/) ([setup guide](/guides/cline-ark-setup)) as an alternative.
+Developers in China may consider [Cline + Volcengine Ark Coding Plan](https://volcengine.com/L/GHwMUAPkBr0/) ([setup guide](/guides/cline-ark-setup)) as an alternative.
 
 ---
 

@@ -2,7 +2,7 @@ id: ark-coding-plan
 name: 火山方舟 Coding Plan
 type: api
 logo: /images/ark.png
-url: https://www.volcengine.com/L/s3lNTNYxaEc/
+url: https://volcengine.com/L/GHwMUAPkBr0/
 repo: null
 
 current_version: "v2"
@@ -67,7 +67,7 @@ not_for:
   - "需要 API 直接调用（非编程场景）的用户"
 
 data_sources:
-  - url: "https://www.volcengine.com/L/s3lNTNYxaEc/"
+  - url: "https://volcengine.com/L/GHwMUAPkBr0/"
     type: pricing
     last_checked: "2026-02-14"
   - url: "https://developer.volcengine.com/articles/7595502342175195187"

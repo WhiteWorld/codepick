@@ -11,7 +11,7 @@
 | Cursor | https://cursor.com/pricing | 高（季度调价） |
 | GitHub Copilot | https://github.com/features/copilot/plans | 中 |
 | Claude Code | https://claude.ai/pricing/max | 中 |
-| 方舟 Coding Plan | https://www.volcengine.com/L/s3lNTNYxaEc/ | 高（促销频繁） |
+| 方舟 Coding Plan | https://volcengine.com/L/GHwMUAPkBr0/ | 高（促销频繁） |
 | Trae | https://www.trae.ai/pricing | 中 |
 | Cline | https://cline.bot | 低（免费开源） |
 | OpenCode | https://opencode.ai | 低（免费开源） |

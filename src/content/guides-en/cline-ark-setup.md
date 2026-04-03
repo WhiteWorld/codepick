@@ -18,7 +18,7 @@ This guide walks you through setting up the **Cline + Volcengine Ark Coding Plan
 
 ## Step 1: Subscribe to the Volcengine Ark Coding Plan
 
-1. Visit the [Volcengine Ark Coding Plan page](https://www.volcengine.com/L/s3lNTNYxaEc/)
+1. Visit the [Volcengine Ark Coding Plan page](https://volcengine.com/L/GHwMUAPkBr0/)
 2. Choose a plan:
    - **Lite**: 9.9 CNY/month (first-purchase discount, regular price 40 CNY) — suitable for personal daily use
    - **Pro**: 49.9 CNY/month (first-purchase discount, regular price 200 CNY) — suitable for heavy users
