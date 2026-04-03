@@ -98,13 +98,13 @@ Billed directly through the Anthropic API:
 - Claude Opus 4.6: $15/million input tokens, $75/million output tokens
 - Heavy usage: $30-100+/month
 
-**For users in China**: Can be paired with [Volcengine Ark Coding Plan](https://www.volcengine.com/L/s3lNTNYxaEc/) ([setup guide](/guides/cline-ark-setup)) at CNY 9.9/month, significantly reducing costs by routing through the Ark API.
+**For users in China**: Can be paired with [Volcengine Ark Coding Plan](https://volcengine.com/L/GHwMUAPkBr0/) ([setup guide](/guides/cline-ark-setup)) at CNY 9.9/month, significantly reducing costs by routing through the Ark API.
 
 ### OpenCode
 
 - The software itself is free and open source
 - Costs depend on which API you use
-- Paired with [Volcengine Ark Coding Plan](https://www.volcengine.com/L/s3lNTNYxaEc/): from CNY 9.9/month
+- Paired with [Volcengine Ark Coding Plan](https://volcengine.com/L/GHwMUAPkBr0/): from CNY 9.9/month
 
 ### Aider
 
