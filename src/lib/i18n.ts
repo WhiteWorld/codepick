@@ -346,7 +346,7 @@ const translations: Record<string, Record<Locale, string>> = {
   'footer.quickNav':   { zh: '快速导航', en: 'Quick Navigation' },
   'footer.about':      { zh: '关于', en: 'About' },
   'footer.personal':   { zh: '个人项目 · 非商业推荐', en: 'Personal project · Non-commercial' },
-  'footer.lastUpdate': { zh: '数据最后更新: 2026-02', en: 'Last updated: 2026-02' },
+  'footer.lastUpdate': { zh: '数据最后更新:', en: 'Last updated:' },
   'footer.reportLink': { zh: '报告数据错误 →', en: 'Report Data Error →' },
   'footer.copyright':  { zh: '© 2026 CodePick. 工具评测数据仅供参考，请以官方信息为准。', en: '© 2026 CodePick. Tool data is for reference only. Please verify with official sources.' },
 

@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Analytics from '@vercel/analytics/astro';
+import { getCollection } from 'astro:content';
 import { t, localePath, getAlternateLangUrl, type Locale } from '../lib/i18n';
 
 interface Props {
@@ -73,6 +74,24 @@ const navLinks = [
 const otherLang = lang === 'zh' ? 'en' : 'zh';
 const switchLabel = lang === 'zh' ? 'EN' : '中文';
 const switchUrl = getAlternateLangUrl(Astro.url, lang);
+
+// Compute the most recent content date across all collections for the footer
+const allCollections = await Promise.all([
+  getCollection('compare'),
+  getCollection('compare-en'),
+  getCollection('guides'),
+  getCollection('guides-en'),
+]);
+const latestDate = allCollections
+  .flat()
+  .filter(entry => !entry.data.draft)
+  .map(entry => entry.data.date)
+  .filter(Boolean)
+  .sort()
+  .at(-1);
+const latestUpdateMonth = latestDate
+  ? latestDate.slice(0, 7)   // YYYY-MM
+  : '2026-04';
 ---
 
 <!DOCTYPE html>
@@ -215,7 +234,7 @@ const switchUrl = getAlternateLangUrl(Astro.url, lang);
           <h4 class="text-[var(--text-secondary)] font-semibold mb-3 text-sm">{t('footer.about', lang)}</h4>
           <div class="flex flex-col gap-2 text-sm text-[var(--text-muted)]">
             <span>{t('footer.personal', lang)}</span>
-            <span>{t('footer.lastUpdate', lang)}</span>
+            <span>{t('footer.lastUpdate', lang)} {latestUpdateMonth}</span>
             <a href="https://github.com/WhiteWorld/codepick/issues" target="_blank" rel="noopener" class="hover:text-[var(--text-primary)] no-underline">{t('footer.reportLink', lang)}</a>
           </div>
         </div>
