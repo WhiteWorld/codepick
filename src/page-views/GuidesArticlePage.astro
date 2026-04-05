@@ -35,7 +35,7 @@ const relatedArticles = allArticles
   }))
   .filter(x => x.shared > 0)
   .sort((a, b) => b.shared - a.shared)
-  .slice(0, 2)
+  .slice(0, 3)
   .map(x => x.article);
 
 // 文章中提到的工具：tags 中与实际工具 ID 匹配，最多 4 个
@@ -63,6 +63,17 @@ const breadcrumbSchema = {
   ],
 };
 
+// Build HowTo steps from h2/h3 headings (skip intro-like headings)
+const howToSteps = headings
+  .filter((h: any) => h.depth <= 3)
+  .slice(0, 8)
+  .map((h: any, i: number) => ({
+    '@type': 'HowToStep',
+    position: i + 1,
+    name: h.text,
+    url: `${guideUrl}#${h.slug}`,
+  }));
+
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
@@ -71,8 +82,10 @@ const articleSchema = {
   datePublished: guide.data.date,
   dateModified: guide.data.date,
   url: guideUrl,
+  image: `${siteUrl}/og-image.png`,
   inLanguage: lang === 'zh' ? 'zh-CN' : 'en',
   author: { '@type': 'Organization', name: 'CodePick', url: siteUrl },
+  ...(howToSteps.length > 0 ? { step: howToSteps } : {}),
 };
 ---
 
