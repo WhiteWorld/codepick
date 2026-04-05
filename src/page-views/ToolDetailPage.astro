@@ -74,6 +74,16 @@ const relatedArticles = allArticles
     const tl = tag.toLowerCase();
     return tl === toolIdLower || tl === toolNameLower || toolIdLower.includes(tl);
   }))
+  .slice(0, 5);
+
+// 相关指南（tags 包含工具 id 或工具名）
+const guidesCollName = getCollectionName('guides', lang) as 'guides' | 'guides-en';
+const allGuides = await getCollection(guidesCollName);
+const relatedGuides = allGuides
+  .filter(g => !g.data.draft && (g.data.tags || []).some((tag: string) => {
+    const tl = tag.toLowerCase();
+    return tl === toolIdLower || tl === toolNameLower;
+  }))
   .slice(0, 3);
 
 // 标题关键词 by type
@@ -129,12 +139,60 @@ const breadcrumbSchema: object = {
 const seoTitle = lang === 'zh'
   ? `${tool.name} - ${titleKeyword}评测 | CodePick`
   : `${tool.name} - ${titleKeyword} Review | CodePick`;
+
+// FAQPage schema：常见问题（定价 / 适合人群 / 国内可用性）
+const faqEntries: { q: string; a: string }[] = [];
+if (lang === 'zh') {
+  if (toolDescription) faqEntries.push({ q: `${tool.name} 是什么？`, a: toolDescription });
+  if (pricingPlans.length > 0) {
+    const freePlan = pricingPlans.find((p: any) => p.price === 0);
+    const cheapest = pricingPlans.filter((p: any) => typeof p.price === 'number' && p.price > 0).sort((a: any, b: any) => a.price - b.price)[0];
+    const priceSummary = freePlan
+      ? `${tool.name} 有免费版本${cheapest ? `，付费方案最低 ¥${cheapest.price}/${cheapest.period === 'month' ? '月' : '次'}` : ''}。`
+      : cheapest
+        ? `${tool.name} 付费方案起价 $${cheapest.price}${cheapest.period === 'month' ? '/月' : ''} (${pricingCurrency})。`
+        : `${tool.name} 为免费开源工具，模型费用自定。`;
+    faqEntries.push({ q: `${tool.name} 多少钱？`, a: priceSummary });
+  }
+  const bf = (tool as any).best_for;
+  if (Array.isArray(bf) && bf.length > 0) faqEntries.push({ q: `${tool.name} 适合哪些开发者？`, a: bf.join('；') });
+  const cn = (tool as any).china_note;
+  if (cn) faqEntries.push({ q: `${tool.name} 在中国大陆可以使用吗？`, a: cn });
+} else {
+  if (toolDescription) faqEntries.push({ q: `What is ${tool.name}?`, a: toolDescription });
+  if (pricingPlans.length > 0) {
+    const freePlan = pricingPlans.find((p: any) => p.price === 0);
+    const cheapest = pricingPlans.filter((p: any) => typeof p.price === 'number' && p.price > 0).sort((a: any, b: any) => a.price - b.price)[0];
+    const priceSummary = freePlan
+      ? `${tool.name} has a free tier${cheapest ? `. Paid plans start at $${cheapest.price}/${cheapest.period === 'month' ? 'month' : 'use'}` : ''}.`
+      : cheapest
+        ? `${tool.name} paid plans start at $${cheapest.price}${cheapest.period === 'month' ? '/month' : ''} (${pricingCurrency}).`
+        : `${tool.name} is free and open-source; model API costs vary.`;
+    faqEntries.push({ q: `How much does ${tool.name} cost?`, a: priceSummary });
+  }
+  const bfe = (tool as any).best_for_en || (tool as any).best_for;
+  if (Array.isArray(bfe) && bfe.length > 0) faqEntries.push({ q: `Who is ${tool.name} best for?`, a: bfe.join('; ') });
+  const cne = (tool as any).china_note_en || (tool as any).china_note;
+  if (cne) faqEntries.push({ q: `Can I use ${tool.name} in China?`, a: cne });
+}
+
+const faqSchema = faqEntries.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqEntries.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+} : null;
+
+const allJsonLd = [softwareAppSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema] : [])];
 ---
 
 <BaseLayout
   title={seoTitle}
   description={toolDescription}
-  jsonLd={[softwareAppSchema, breadcrumbSchema]}
+  jsonLd={allJsonLd}
   lang={lang}
 >
   <article class="container py-12 max-w-4xl">
@@ -356,6 +414,21 @@ const seoTitle = lang === 'zh'
             <a href={localePath(`/compare/${a.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
               <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{a.data.title}</h3>
               <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{a.data.description}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Related Guides -->
+    {relatedGuides.length > 0 && (
+      <section class="mb-8">
+        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">{t('section.relatedGuides', lang)}</h2>
+        <div class="grid grid-cols-1 gap-3">
+          {relatedGuides.map(g => (
+            <a href={localePath(`/guides/${g.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
+              <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{g.data.title}</h3>
+              <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{g.data.description}</p>
             </a>
           ))}
         </div>
