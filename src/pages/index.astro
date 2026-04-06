@@ -8,8 +8,13 @@
   <meta http-equiv="refresh" content="0;url=/zh/" />
   <title>CodePick - Redirecting...</title>
   <script>
-    const lang = (navigator.language || '').toLowerCase();
-    if (lang.startsWith('en')) {
+    const savedLocale = localStorage.getItem('preferred-locale');
+    const browserLang = (navigator.language || '').toLowerCase();
+    const locale = savedLocale === 'zh' || savedLocale === 'en'
+      ? savedLocale
+      : (browserLang.startsWith('en') ? 'en' : 'zh');
+
+    if (locale === 'en') {
       window.location.replace('/en/');
     } else {
       window.location.replace('/zh/');
