@@ -3,6 +3,7 @@ export type Locale = 'zh' | 'en';
 
 const translations: Record<string, Record<Locale, string>> = {
   // ── Navigation ──────────────────────────────────────────────────────────
+  'nav.codingPlan': { zh: 'Coding Plan', en: 'Coding Plans' },
   'nav.plans':     { zh: '方案矩阵', en: 'Plans' },
   'nav.tools':     { zh: '工具库', en: 'Tools' },
   'nav.overview':  { zh: '全景图', en: 'Overview' },
@@ -417,6 +418,35 @@ const translations: Record<string, Record<Locale, string>> = {
   'prompts.hint':           { zh: '💡 将 {变量} 替换为实际内容后使用', en: '💡 Replace {variable} placeholders with your actual content' },
   'prompts.noResults':      { zh: '暂无匹配模板', en: 'No matching templates' },
   'bread.prompts':          { zh: '提示词模板库', en: 'Prompt Templates' },
+  'bread.codingPlan':       { zh: 'Coding Plan', en: 'Coding Plans' },
+
+  // ── Coding Plan Page ────────────────────────────────────────────────────
+  'codingPlan.heroTitle':      { zh: '找到最适合你的 AI 编程方案', en: 'Find Your Perfect AI Coding Plan' },
+  'codingPlan.heroSubtitle':   { zh: 'Coding Plan = 客户端工具 + API 订阅 + 开发环境。一次配置，全面提效。', en: 'Coding Plan = Client Tool + API Subscription + Dev Environment. One setup, full productivity.' },
+  'codingPlan.whyTitle':       { zh: '为什么 Coding Plan 很重要', en: 'Why Coding Plans Matter' },
+  'codingPlan.howTitle':       { zh: '如何组合一套方案', en: 'How to Build a Plan' },
+  'codingPlan.apiPlansTitle':  { zh: '🔥 Coding Plan API 订阅推荐', en: '🔥 Recommended Coding Plan APIs' },
+  'codingPlan.apiPlansDesc':   { zh: '国内专属 AI 编程订阅服务，低至 ¥7.9 首购，接入顶级编程模型', en: 'China-native AI coding subscription services, starting from ¥7.9 first purchase' },
+  'codingPlan.allPlansTitle':  { zh: '📋 全部编程方案', en: '📋 All Coding Plans' },
+  'codingPlan.step1':          { zh: '选择客户端', en: 'Pick a Client' },
+  'codingPlan.step1Desc':      { zh: '选择你喜欢的 IDE 插件或终端工具（Cline、Cursor、Claude Code…）', en: 'Choose your preferred IDE plugin or CLI tool (Cline, Cursor, Claude Code…)' },
+  'codingPlan.step2':          { zh: '接入 API', en: 'Connect an API' },
+  'codingPlan.step2Desc':      { zh: '订阅 Coding Plan 套餐，获取 API Key，填入客户端设置', en: 'Subscribe to a Coding Plan, get your API key, paste into client settings' },
+  'codingPlan.step3':          { zh: '开始编程', en: 'Start Coding' },
+  'codingPlan.step3Desc':      { zh: '享受 AI 辅助编程，随时切换模型，按需升级套餐', en: 'Enjoy AI-assisted coding, switch models freely, upgrade plans as needed' },
+  'codingPlan.why1Title':      { zh: '大幅降低成本', en: 'Slash Costs' },
+  'codingPlan.why1Desc':       { zh: '国内 Coding Plan 首购低至 ¥7.9/月，比直接订阅海外 IDE 便宜 10 倍以上', en: 'Starting from ¥7.9/mo — over 10× cheaper than subscribing to overseas IDEs directly' },
+  'codingPlan.why2Title':      { zh: '自由切换模型', en: 'Switch Models Freely' },
+  'codingPlan.why2Desc':       { zh: '一套订阅支持 Doubao、DeepSeek、Qwen、Kimi 等多款顶级编程模型随时切换', en: 'One subscription unlocks Doubao, DeepSeek, Qwen, Kimi and more — switch anytime' },
+  'codingPlan.why3Title':      { zh: '国内直连无忧', en: 'China-Native Access' },
+  'codingPlan.why3Desc':       { zh: '方舟、百炼均为国内服务，无需代理，稳定低延迟，随时可用', en: 'Ark and Bailian are China-native — no VPN needed, stable low-latency access' },
+  'codingPlan.supportedClients': { zh: '支持的客户端', en: 'Supported Clients' },
+  'codingPlan.models':         { zh: '可用模型', en: 'Available Models' },
+  'codingPlan.viewPlan':       { zh: '查看详情', en: 'View Details' },
+  'codingPlan.subscribe':      { zh: '立即订阅', en: 'Subscribe Now' },
+  'codingPlan.litePrice':      { zh: '首购优惠价', en: 'First Purchase' },
+  'codingPlan.metaTitle':      { zh: 'Coding Plan 选型指南 | CodePick', en: 'AI Coding Plans Guide | CodePick' },
+  'codingPlan.metaDesc':       { zh: '全面对比 AI 编程方案，了解 Coding Plan 的重要性，找到最适合你的客户端 + API 组合', en: 'Compare AI coding plans comprehensively. Understand what Coding Plans are and find the best client + API combination for you.' },
 
 };
 
