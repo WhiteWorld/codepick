@@ -106,7 +106,7 @@ Google 出品，每天 1000 次免费，100 万 token 上下文。Plan Mode、Br
 
 **综合评分：8.5/10 | 编码能力：8.2 | 价格：免费（+API）**
 
-开源 VS Code Agent 插件，支持任意 API。搭配方舟 Coding Plan ¥9.9/月国内直连。
+开源 VS Code Agent 插件，支持任意 API。搭配方舟 Coding Plan 可国内直连，活动价以官网为准。
 
 → [查看详情](/zh/tool/cline)
 
@@ -179,8 +179,8 @@ OpenAI 的终端 Agent，GPT-5.4 + Codex-Spark 模型，支持 Web 搜索和 Hoo
 
 ### 🇨🇳 国内开发者首选
 1. **Trae CN**（免费）→ 零成本入门
-2. **Cline + 方舟 Coding Plan**（¥9.9/月）→ 性价比最优
-3. **OpenCode + 方舟**（¥9.9/月）→ 终端用户
+2. **Cline + 方舟 Coding Plan**（官网活动价）→ 性价比最优
+3. **OpenCode + 方舟**（官网活动价）→ 终端用户
 
 ### 💰 预算有限
 1. **Trae CN**（免费）

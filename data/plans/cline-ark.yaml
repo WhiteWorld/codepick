@@ -11,9 +11,9 @@ composition:
   environment: VS Code
 
 monthly_cost:
-  min: "¥9.9"
-  typical: "¥9.9"
-  max: "¥49.9"
+  min: "官网活动价"
+  typical: "官网活动价"
+  max: "官网活动价"
 
 currency: CNY
 
@@ -23,8 +23,8 @@ scores:
   flexibility: 9.5
   china_friendly: 9.0
 
-description: "最具性价比的Agent方案。Cline免费开源，Plan/Act双模式，接方舟API国内直连。Lite套餐首购仅¥9.9/月，支持Doubao-Seed-Code/GLM-4.7/DeepSeek-V3.2/Kimi-K2四款模型自由切换。"
-description_en: "The best value Agent setup. Cline is free and open-source with Plan/Act dual mode, connected to Volcengine Ark API for direct China access. Lite plan starts at just ¥9.9/mo, supporting 4 models including Doubao-Seed-Code/GLM-4.7/DeepSeek-V3.2/Kimi-K2."
+description: "最具性价比的 Agent 方案。Cline 免费开源，Plan/Act 双模式，接方舟 API 国内直连。方舟提供 Lite / Pro 双层级套餐；新用户订阅入口自 2026-03-13 起改为每日 10:30 限量开放，支持 Doubao-Seed-Code/GLM-4.7/DeepSeek-V3.2/Kimi-K2.5 等模型。"
+description_en: "A high-value Agent setup. Cline is free and open-source with Plan/Act dual mode, connected to Volcengine Ark API for direct China access. Ark offers Lite and Pro tiers; since March 13, 2026, new-user subscriptions open in limited quantities each day at 10:30, with models including Doubao-Seed-Code/GLM-4.7/DeepSeek-V3.2/Kimi-K2.5."
 
 setup_guide: "/guides/cline-ark-setup"
 comparison_pages:
@@ -44,30 +44,32 @@ best_for_en:
 
 quick_start:
   - "在 VS Code 扩展市场安装 Cline"
-  - "注册火山方舟账号，订阅 Coding Plan Lite (¥9.9首购)"
+  - "注册火山方舟账号，在每日 10:30 开放时订阅 Coding Plan"
   - "在 Cline 设置中配置方舟 API Key 和 Base URL"
   - "选择模型（推荐 Doubao-Seed-Code 或 Auto 模式）"
 quick_start_en:
   - "Install Cline from VS Code extension marketplace"
-  - "Register a Volcengine Ark account, subscribe to Coding Plan Lite (¥9.9 first purchase)"
+  - "Register a Volcengine Ark account and subscribe to Coding Plan during the daily 10:30 opening window"
   - "Configure Ark API Key and Base URL in Cline settings"
   - "Choose a model (Doubao-Seed-Code or Auto mode recommended)"
 
 pros:
-  - Cline 免费开源，方舟 Lite 仅 ¥9.9/月
-  - 支持4款国产编程模型自由切换
+  - Cline 免费开源，搭配方舟活动价门槛较低
+  - 支持多款国产编程模型自由切换
   - 国内直连，无需代理
   - Plan/Act 双模式，Agent 能力强
 pros_en:
-  - Cline is free and open-source, Ark Lite only ¥9.9/mo
-  - Freely switch between 4 domestic coding models
+  - Cline is free and open-source, with a relatively low entry point when Ark promotions are available
+  - Freely switch between multiple domestic coding models
   - Direct China access, no proxy needed
   - Plan/Act dual mode with strong Agent capabilities
 cons:
   - 模型能力与 Claude Opus 有差距
   - 需要手动配置 API
+  - 新用户订阅需要卡每日 10:30 开放时间
   - Cline 社区版更新节奏不如商业产品
 cons_en:
   - Model capability gap vs Claude Opus
   - Manual API configuration required
+  - New-user subscriptions require catching the daily 10:30 opening window
   - Cline community edition updates slower than commercial products

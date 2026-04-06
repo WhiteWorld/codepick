@@ -99,7 +99,7 @@ Cursor Pro's Tab completion **does not consume credits**. Many developers forget
 
 If your $20 pool runs out before month end, here are fallback options:
 
-**Option A: Cline + Volcengine Ark (¥9.9/mo)**
+**Option A: Cline + Volcengine Ark (official promo pricing)**
 - Access DeepSeek V3 and other models with capability close to Claude Sonnet
 - Works in VS Code, minimal switching friction
 - [Setup guide here](/en/guides/cline-ark-setup)
@@ -142,5 +142,5 @@ For Cursor Pro users, here's a practical allocation:
 ## Related
 
 - [Windsurf vs Cursor](/en/compare/cursor-vs-windsurf) — $5 cheaper alternative
-- [Cline + Volcengine Ark Setup](/en/guides/cline-ark-setup) — ¥9.9/mo backup plan
+- [Cline + Volcengine Ark Setup](/en/guides/cline-ark-setup) — backup plan with official promo pricing
 - [Claude Code Token Saving Guide](/en/guides/claude-code-token-saving)

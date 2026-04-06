@@ -11,58 +11,60 @@ composition:
   environment: 终端
 
 monthly_cost:
-  min: "¥7.9"
-  typical: "¥7.9"
-  max: "¥39.9"
+  min: "官网为准"
+  typical: "官网为准"
+  max: "官网为准"
 
 currency: CNY
 
 scores:
   coding_ability: 8.0
-  cost_efficiency: 9.5
+  cost_efficiency: 7.1
   flexibility: 9.5
   china_friendly: 8.8
 
-description: "终端党的阿里云方案。OpenCode 开源CLI客户端接百炼 API 国内直连。Lite 套餐首购仅¥7.9/月，支持 Qwen3.5-Plus 等8款模型，性价比极高。"
-description_en: "Alibaba Cloud setup for terminal enthusiasts. OpenCode open-source CLI connected to Bailian API for direct China access. Lite plan starts at just ¥7.9/mo with 8 models including Qwen3.5-Plus, extremely cost-effective."
+description: "终端党的阿里云千问方案。OpenCode 开源 CLI 客户端接百炼 API 国内直连。当前新购仅开放 Pro 套餐，支持 Qwen3.5-Plus 等 8 款模型。"
+description_en: "Alibaba Cloud Qwen setup for terminal enthusiasts. OpenCode open-source CLI connected to Bailian API for direct China access. New purchases currently offer Pro only with 8 models including Qwen3.5-Plus."
 
-tags: [cli, budget, china, terminal]
+tags: [cli, china, terminal]
 
 best_for:
   - 终端重度用户
-  - 预算有限的国内开发者
   - 想用千问模型的 CLI 用户
+  - 月度高频使用者
 best_for_en:
   - Terminal power users
-  - Budget-conscious developers in China
   - CLI users who want Qwen models
+  - High-frequency monthly users
 
 quick_start:
   - "安装 OpenCode CLI"
-  - "注册阿里云账号，开通百炼 Coding Plan Lite (首购¥7.9)"
+  - "注册阿里云账号，开通百炼 Coding Plan Pro（价格以官网为准）"
   - "配置百炼 API Key 和 Base URL"
   - "选择模型（推荐 qwen3.5-plus）"
 quick_start_en:
   - "Install OpenCode CLI"
-  - "Register an Alibaba Cloud account, activate Bailian Coding Plan Lite (¥7.9 first purchase)"
+  - "Register an Alibaba Cloud account and activate Bailian Coding Plan Pro (check official pricing)"
   - "Configure Bailian API Key and Base URL"
   - "Choose a model (qwen3.5-plus recommended)"
 
 pros:
-  - 开源免费客户端 + 百炼 Lite 首购仅 ¥7.9/月
+  - 开源免费客户端，接入千问生态顺滑
   - 支持8款编程模型自由切换
   - 国内直连，无需代理
   - 多会话管理
 pros_en:
-  - Free open-source client + Bailian Lite starts at just ¥7.9/mo
+  - Free open-source client with smooth access to the Qwen ecosystem
   - Freely switch between 8 coding models
   - Direct China access, no proxy needed
   - Multi-session management
 cons:
+  - 当前新购门槛提高，仅开放 Pro
   - 终端交互，学习曲线略高
   - 模型能力不如 Claude Code 原生
   - 额度用完不自动转按量计费
 cons_en:
+  - New-purchase entry cost is higher with Pro-only availability
   - Terminal-based, slightly steeper learning curve
   - Model capability below native Claude Code
   - No automatic pay-per-use fallback when quota runs out

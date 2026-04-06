@@ -165,7 +165,7 @@ Windsurf 和 GitHub Copilot 都是当前最主流的 AI 编程工具，但出发
 | 访问稳定性 | 较差 | GitHub 部分可直连，但 AI 接口不稳定 |
 | 官方国内替代 | 无（推荐 Trae CN 或 Cline + 方舟） | 无 |
 
-国内开发者如果不能稳定翻墙，建议考虑 [Trae CN（免费）](/zh/tool/trae-cn) 或 [Cline + 火山方舟（¥9.9/月）](/zh/plan/cline-ark)。
+国内开发者如果不能稳定翻墙，建议考虑 [Trae CN（免费）](/zh/tool/trae-cn) 或 [Cline + 火山方舟（活动价以官网为准）](/zh/plan/cline-ark)。
 
 ---
 

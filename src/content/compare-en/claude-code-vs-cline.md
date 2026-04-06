@@ -50,12 +50,12 @@ This is where the two tools diverge most sharply.
 
 | Setup | Typical Monthly Cost | Notes |
 |-------|---------------------|-------|
-| Cline + Volcengine Ark | ¥9.9/mo | China-direct, DeepSeek V3 and more |
+| Cline + Volcengine Ark | Official promo | China-direct, DeepSeek V3 and more |
 | Cline + OpenRouter | $5–30/mo (usage-based) | Global model marketplace, PAYG |
 | Cline + Anthropic API | Pay-as-you-go | Direct Claude access, same cost as Claude Code |
 | Cline + Ollama (local) | $0/mo | Fully local, no API cost |
 
-> **Key difference**: Cline paired with a budget API plan can cost as little as ¥9.9/mo, while Claude Code starts at $20/mo. For heavy Agent usage the total cost may converge — but Cline's flexibility is unmatched.
+> **Key difference**: Cline paired with a budget API plan can have a much lower entry barrier than Claude Code, which starts at $20/mo. For heavy Agent usage the total cost may converge — but Cline's flexibility is unmatched.
 
 ---
 
@@ -141,9 +141,9 @@ This is Cline's single biggest advantage.
 |-|-------------|-------|
 | China friendly score | 2 / 10 | 9 / 10 |
 | Tool itself requires VPN | Yes | No |
-| Recommended China setup | Ark Coding Plan relay | Ark / Bailian (¥9.9/mo, direct) |
+| Recommended China setup | Ark Coding Plan relay | Ark / Bailian (official pricing, direct) |
 
-The Cline plugin itself doesn't require access to overseas services. Paired with Volcengine Ark or Bailian Coding Plan, developers in China get a smooth AI Agent experience at ¥9.9/month with no VPN. Claude Code, even with the Ark relay workaround, still requires network configuration.
+The Cline plugin itself doesn't require access to overseas services. Paired with Volcengine Ark or Bailian Coding Plan, developers in China get a smooth AI Agent experience with no VPN and often a lower entry cost. Claude Code, even with the Ark relay workaround, still requires network configuration.
 
 ---
 
@@ -170,7 +170,7 @@ The Cline plugin itself doesn't require access to overseas services. Paired with
 - Are outside China or can configure a proxy easily
 
 **Choose Cline if you:**
-- Want AI Agent capability at minimal cost (as low as ¥9.9/mo)
+- Want AI Agent capability at a lower entry cost
 - Are in mainland China and need direct access without a VPN
 - Want full freedom to switch between models (domestic and international)
 - Develop in VS Code and want the Agent embedded in the IDE

@@ -40,7 +40,7 @@ Roo Code is an advanced open-source fork of Cline, featuring multi-role Agents (
 
 | Setup | Typical Monthly Cost |
 |-------|---------------------|
-| Roo Code + Volcengine Ark | ¥9.9/mo |
+| Roo Code + Volcengine Ark | Official promo |
 | Roo Code + OpenRouter | $5–30/mo (usage-based) |
 | Roo Code + Anthropic API | Pay-as-you-go |
 | Roo Code + Ollama (local) | $0/mo |

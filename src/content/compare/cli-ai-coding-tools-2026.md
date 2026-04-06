@@ -203,7 +203,7 @@ tags: ["cli", "终端", "claude-code", "gemini-cli", "codex-cli", "kiro-cli", "c
 **核心优势**：
 - **模型完全自由**：接入任何兼容 API
 - **与 Cline VS Code 插件同源**，生态统一
-- 搭配方舟 Coding Plan ¥9.9/月，**国内直连**
+- 搭配方舟 Coding Plan，**国内直连**，活动价以官网为准
 
 **劣势**：
 - 仍在预览阶段（macOS/Linux）
@@ -259,7 +259,7 @@ tags: ["cli", "终端", "claude-code", "gemini-cli", "codex-cli", "kiro-cli", "c
 |------|---------|---------|-----------|
 | Gemini CLI | $0 | $0（免费层够用） | ✅ |
 | Aider | $0 | $0（Ollama 本地） | ✅（本地模型） |
-| Cline CLI | ¥9.9 | ¥9.9（方舟 Lite） | ❌（需 API） |
+| Cline CLI | 官网活动价 | 官网活动价（方舟） | ❌（需 API） |
 | Copilot CLI | $10 | $10（Pro） | ❌ |
 | Claude Code | $20 | $100（Max 5x） | ❌ |
 | Codex CLI | $20 | $20（Plus） | ❌ |
@@ -315,7 +315,7 @@ tags: ["cli", "终端", "claude-code", "gemini-cli", "codex-cli", "kiro-cli", "c
 ```
 你在国内吗？
 ├── 是 → 你有预算吗？
-│   ├── 有 → Cline CLI + 方舟（¥9.9/月）
+│   ├── 有 → Cline CLI + 方舟（官网活动价）
 │   └── 没有 → Aider + Ollama（完全免费）
 └── 否 → 你追求什么？
     ├── 最强编码 → Claude Code（$100/月 Max）

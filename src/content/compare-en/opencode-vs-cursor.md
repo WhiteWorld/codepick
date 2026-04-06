@@ -40,7 +40,7 @@ OpenCode is a fast-rising open-source terminal AI Agent; Cursor is the most wide
 
 | Setup | Typical Monthly Cost |
 |-------|---------------------|
-| OpenCode + Volcengine Ark | ¥9.9/mo |
+| OpenCode + Volcengine Ark | Official promo |
 | OpenCode + OpenRouter | $5–20/mo (usage-based) |
 | OpenCode + Anthropic API | Pay-as-you-go |
 | OpenCode + Ollama (local) | $0/mo |
@@ -54,7 +54,7 @@ OpenCode is a fast-rising open-source terminal AI Agent; Cursor is the most wide
 | Pro+ | $60/mo | Unlimited Tab, $70 Agent credit pool/mo |
 | Ultra | $200/mo | Unlimited Tab, $400 Agent credit pool/mo |
 
-> **Key difference**: China users pairing OpenCode with Ark Coding Plan pay as little as ¥9.9/mo. Cursor starts at $20/mo and requires a VPN. For developers who need the best IDE experience and have budget, Cursor's premium is worth it. For terminal users or anyone cost-conscious, OpenCode is highly competitive.
+> **Key difference**: China users pairing OpenCode with Ark Coding Plan can get a low-entry China-direct setup. Cursor starts at $20/mo and requires a VPN. For developers who need the best IDE experience and have budget, Cursor's premium is worth it. For terminal users or anyone cost-conscious, OpenCode is highly competitive.
 
 ---
 
@@ -119,7 +119,7 @@ OpenCode supports Volcengine Ark, Alibaba Bailian, Moonshot, and other domestic 
 
 **Choose OpenCode if you:**
 - Prefer a terminal-first or TUI workflow
-- Are budget-conscious (as low as ¥9.9/mo)
+- Are budget-conscious and want a lower-entry setup
 - Are in mainland China and need direct API access without VPN
 - Want to run multiple AI sessions in parallel
 - Already have a preferred editor and don't want to migrate to a new IDE

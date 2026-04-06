@@ -8,11 +8,11 @@ interface FaqItem {
 const faqsZh: FaqItem[] = [
   {
     question: '最便宜的 AI 编程工具是什么？',
-    answer: '最便宜的方案取决于使用频率。完全免费的选择包括：GitHub Copilot 免费版（有限额度）、Cline/Roo Code 插件（本身免费，按 API 用量付费）。如果需要付费方案，火山方舟 Coding Plan Lite 版 ¥9.9/月（首购优惠）是目前国内最具性价比的选择，含大量请求额度。极致省钱可以用 Ollama 本地运行免费模型 + Aider，完全零成本。',
+    answer: '最便宜的方案取决于使用频率。完全免费的选择包括：GitHub Copilot 免费版（有限额度）、Cline/Roo Code 插件（本身免费，按 API 用量付费）。如果需要付费方案，火山方舟 Coding Plan 通常是目前国内很有性价比的选择，含大量请求额度。极致省钱可以用 Ollama 本地运行免费模型 + Aider，完全零成本。',
   },
   {
     question: 'GitHub Copilot 国内可以用吗？',
-    answer: 'GitHub Copilot 在国内需要稳定的代理才能正常使用。即使有代理，偶尔也会遇到连接不稳定的问题。如果你没有代理或代理不稳定，推荐考虑国内可用的替代方案，例如 Cline + 火山方舟 Coding Plan（¥9.9/月，无需代理，国内直连）。',
+    answer: 'GitHub Copilot 在国内需要稳定的代理才能正常使用。即使有代理，偶尔也会遇到连接不稳定的问题。如果你没有代理或代理不稳定，推荐考虑国内可用的替代方案，例如 Cline + 火山方舟 Coding Plan（无需代理，国内直连）。',
   },
   {
     question: 'Cursor 和 GitHub Copilot 哪个好？',
@@ -24,7 +24,7 @@ const faqsZh: FaqItem[] = [
   },
   {
     question: 'Cline 是什么？怎么用？',
-    answer: 'Cline 是一款开源的 VS Code AI Agent 插件，可以自主读写文件、执行终端命令、调用外部工具。安装方式：在 VS Code 扩展市场搜索 "Cline" 安装即可。它本身免费，费用来自你选择的 AI API。国内推荐搭配火山方舟 Coding Plan（¥9.9/月）使用，无需代理。',
+    answer: 'Cline 是一款开源的 VS Code AI Agent 插件，可以自主读写文件、执行终端命令、调用外部工具。安装方式：在 VS Code 扩展市场搜索 "Cline" 安装即可。它本身免费，费用来自你选择的 AI API。国内推荐搭配火山方舟 Coding Plan 使用，无需代理。',
   },
   {
     question: '什么是 AI 编程 Agent？和普通 AI 编程助手有什么区别？',
@@ -71,11 +71,11 @@ const faqsZh: FaqItem[] = [
 const faqsEn: FaqItem[] = [
   {
     question: 'What is the cheapest AI coding tool?',
-    answer: 'It depends on usage. Completely free options include: GitHub Copilot Free (limited quota), Cline/Roo Code plugins (free plugins, pay per API usage). For paid plans, Volcengine Ark Coding Plan Lite at ¥9.9/mo is the best value in China. For zero cost, use Ollama + Aider with local open-source models.',
+    answer: 'It depends on usage. Completely free options include: GitHub Copilot Free (limited quota), Cline/Roo Code plugins (free plugins, pay per API usage). For paid plans, Volcengine Ark Coding Plan is often one of the best-value options in China. For zero cost, use Ollama + Aider with local open-source models.',
   },
   {
     question: 'Can GitHub Copilot be used in China?',
-    answer: 'GitHub Copilot requires a stable proxy in China. Even with a proxy, connection instability may occur. If you lack a reliable proxy, consider alternatives like Cline + Volcengine Ark Coding Plan (¥9.9/mo, no proxy needed, direct China access).',
+    answer: 'GitHub Copilot requires a stable proxy in China. Even with a proxy, connection instability may occur. If you lack a reliable proxy, consider alternatives like Cline + Volcengine Ark Coding Plan (no proxy needed, direct China access).',
   },
   {
     question: 'Cursor or GitHub Copilot — which is better?',
@@ -87,7 +87,7 @@ const faqsEn: FaqItem[] = [
   },
   {
     question: 'What is Cline and how to use it?',
-    answer: 'Cline is an open-source VS Code AI Agent plugin that can autonomously read/write files, run terminal commands, and call external tools. Install it from the VS Code marketplace by searching "Cline". It\'s free; costs come from your chosen AI API. In China, pair it with Volcengine Ark Coding Plan (¥9.9/mo) for proxy-free access.',
+    answer: 'Cline is an open-source VS Code AI Agent plugin that can autonomously read/write files, run terminal commands, and call external tools. Install it from the VS Code marketplace by searching "Cline". It\'s free; costs come from your chosen AI API. In China, pair it with Volcengine Ark Coding Plan for proxy-free access.',
   },
   {
     question: 'What is an AI coding Agent? How is it different from a regular AI assistant?',

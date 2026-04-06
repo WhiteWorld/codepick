@@ -24,12 +24,12 @@ const apiCards = [
   {
     raw: arkRaw,
     accentColor: '#f97316',
-    badge: lang === 'zh' ? '🔥 首购 ¥9.9/月' : '🔥 From ¥9.9/mo',
+    badge: lang === 'zh' ? '🔥 官网活动价' : '🔥 Official promo',
   },
   {
     raw: bailianRaw,
     accentColor: '#8b5cf6',
-    badge: lang === 'zh' ? '💜 首购 ¥7.9/月' : '💜 From ¥7.9/mo',
+    badge: lang === 'zh' ? '💜 Lite 停止新购' : '💜 Lite no longer sold',
   },
 ];
 
@@ -171,7 +171,7 @@ const howSteps = [
 
           <!-- Pricing Tiers -->
           {raw.pricing?.plans && (
-            <div class="grid grid-cols-2 gap-3 mb-4">
+            <div class={`grid gap-3 mb-4 ${raw.pricing.plans.length > 1 ? 'grid-cols-2' : 'grid-cols-1'}`}>
               {raw.pricing.plans.map((plan: any) => (
                 <div class="rounded-lg p-3 border border-[var(--surface-border)]" style={`background: ${accentColor}08;`}>
                   <div class="text-xs text-[var(--text-muted)] mb-1">{plan.name}</div>

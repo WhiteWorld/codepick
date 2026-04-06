@@ -99,7 +99,7 @@ Cursor Pro 的 Tab 补全**不消耗额度池**，可以无限使用。很多开
 
 如果月底 $20 额度快用完，还有大量工作要做，有几个选项：
 
-**选项 A：Cline + 火山方舟（¥9.9/月）**
+**选项 A：Cline + 火山方舟（官网活动价）**
 - 接入 DeepSeek V3 / Kimi 等国内模型，能力接近 Claude Sonnet
 - 在 VS Code 里用，切换成本低
 - [查看详细设置教程](/zh/guides/cline-ark-setup)
@@ -143,5 +143,5 @@ Cursor Pro 的 Tab 补全**不消耗额度池**，可以无限使用。很多开
 ## 相关推荐
 
 - [Cursor vs Windsurf 对比](/zh/compare/cursor-vs-windsurf)（便宜 $5 的替代品）
-- [Cline + 火山方舟设置教程](/zh/guides/cline-ark-setup)（¥9.9/月备用方案）
+- [Cline + 火山方舟设置教程](/zh/guides/cline-ark-setup)（官网活动价备用方案）
 - [Claude Code Token 节省指南](/zh/guides/claude-code-token-saving)

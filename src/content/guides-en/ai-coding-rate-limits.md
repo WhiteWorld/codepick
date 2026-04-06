@@ -71,7 +71,7 @@ The most effective approach: when your primary tool hits a limit, switch to a ba
 
 **Recommended pairings:**
 - Primary: Claude Code Pro → Backup: Cline + Anthropic API (same model, pay-as-you-go)
-- Primary: Claude Code Pro → Backup: Cline + Volcengine Ark (¥9.9/mo, China-friendly)
+- Primary: Claude Code Pro → Backup: Cline + Volcengine Ark (official promo pricing, China-friendly)
 - Primary: Cursor Pro → Backup: Windsurf Free (25 credits/mo) or Cline + Ark
 - Primary: Copilot Pro → Backup: Cursor Hobby or Cline
 

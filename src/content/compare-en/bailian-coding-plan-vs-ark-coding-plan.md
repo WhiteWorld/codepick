@@ -19,10 +19,10 @@ Bailian Coding Plan (by Alibaba Cloud) and Volcengine Ark Coding Plan (by ByteDa
 
 | Plan | Bailian Lite | Bailian Pro | Ark Lite | Ark Pro |
 |------|-------------|-------------|----------|---------|
-| First-purchase promo price | CNY 7.9/month | CNY 39.9/month | CNY 9.9/month | CNY 49.9/month |
-| Regular price | CNY 40/month | CNY 200/month | CNY 40/month | CNY 200/month |
+| Current new-purchase note | Lite no longer sold | Check official site | Official promo | Official promo |
+| Pricing policy | Check official site | Check official site | Check official site | Check official site |
 
-Regular prices are identical. During promotional periods, Bailian is cheaper (Lite by CNY 2, Pro by CNY 10). Bailian's promotional pricing runs until 2026-04-01; check the Ark official website for its current promotion end date.
+Historically the two platforms had similar regular price ladders, but their promo strategies now change quickly. Bailian no longer sells Lite to new users, and Ark's entry windows and promo pricing should also be verified on the official site.
 
 ---
 
@@ -127,7 +127,7 @@ Ark additionally supports the Anthropic protocol, allowing Claude Code to connec
 **Choose Bailian Coding Plan if you:**
 - Prefer Qwen-series models (qwen3-coder-next / qwen3.5-plus)
 - Need occasional high-intensity burst usage (the monthly total quota mechanism is more forgiving)
-- Have an extremely tight budget (first-purchase Lite at CNY 7.9, saving CNY 2)
+- Prefer monthly-total quotas and can accept Pro-only availability for new purchases
 - Are already in the Alibaba Cloud ecosystem (RAM primary account)
 
 **Choose Volcengine Ark Coding Plan if you:**
@@ -142,8 +142,8 @@ Ark additionally supports the Anthropic protocol, allowing Claude Code to connec
 
 Both platforms have ready-to-use configuration plans:
 
-- [Cline + Bailian Coding Plan](/plan/cline-bailian): The fastest way to get started with the Bailian ecosystem — Lite first purchase at CNY 7.9/month
-- [Cline + Ark Coding Plan](/plan/cline-ark): The best value plan in the Ark ecosystem — Lite first purchase at CNY 9.9/month
+- [Cline + Bailian Coding Plan](/plan/cline-bailian): The fastest way to get started with the Bailian ecosystem — current new-purchase policy on the official site
+- [Cline + Ark Coding Plan](/plan/cline-ark): A high-value plan in the Ark ecosystem — promo pricing and entry windows vary by official site
 - [OpenCode + Bailian Coding Plan](/plan/opencode-bailian): Top pick for terminal developers
 - [OpenCode + Ark Coding Plan](/plan/opencode-ark): A terminal plan with Auto mode support
 

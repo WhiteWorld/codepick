@@ -11,9 +11,9 @@ composition:
   environment: 终端
 
 monthly_cost:
-  min: "¥9.9"
-  typical: "¥9.9"
-  max: "¥49.9"
+  min: "官网活动价"
+  typical: "官网活动价"
+  max: "官网活动价"
 
 currency: CNY
 
@@ -23,8 +23,8 @@ scores:
   flexibility: 9.6
   china_friendly: 8.8
 
-description: "终端党的国产平替方案。开源CLI客户端，支持75+模型提供商，多会话管理，接方舟API国内直连。Lite套餐首购仅¥9.9/月，支持4款国产编程模型。"
-description_en: "A domestic alternative for terminal enthusiasts. Open-source CLI client supporting 75+ model providers, multi-session management, with Volcengine Ark API for direct China access. Lite plan starts at just ¥9.9/mo with 4 domestic coding models."
+description: "终端党的国产平替方案。开源 CLI 客户端，支持 75+ 模型提供商、多会话管理，接方舟 API 国内直连。方舟提供 Lite / Pro 双层级套餐；新用户订阅入口自 2026-03-13 起改为每日 10:30 限量开放。"
+description_en: "A domestic alternative for terminal enthusiasts. Open-source CLI client supporting 75+ model providers and multi-session management, with Volcengine Ark API for direct China access. Ark offers Lite and Pro tiers; since March 13, 2026, new-user subscriptions open in limited quantities each day at 10:30."
 
 setup_guide: "/guides/opencode-ark-setup"
 comparison_pages:
@@ -43,30 +43,32 @@ best_for_en:
 
 quick_start:
   - "安装 OpenCode CLI"
-  - "注册火山方舟账号，订阅 Coding Plan Lite (¥9.9首购)"
+  - "注册火山方舟账号，在每日 10:30 开放时订阅 Coding Plan"
   - "配置方舟 API Key 和 Base URL"
   - "选择模型（推荐 Auto 模式）"
 quick_start_en:
   - "Install OpenCode CLI"
-  - "Register a Volcengine Ark account, subscribe to Coding Plan Lite (¥9.9 first purchase)"
+  - "Register a Volcengine Ark account and subscribe to Coding Plan during the daily 10:30 opening window"
   - "Configure Ark API Key and Base URL"
   - "Choose a model (Auto mode recommended)"
 
 pros:
-  - 开源免费客户端 + 方舟 Lite 仅 ¥9.9/月
+  - 开源免费客户端 + 方舟活动价门槛较低
   - 支持75+模型提供商
   - 多会话管理
   - 国内直连，无需代理
 pros_en:
-  - Free open-source client + Ark Lite only ¥9.9/mo
+  - Free open-source client with a relatively low entry point when Ark promotions are available
   - Supports 75+ model providers
   - Multi-session management
   - Direct China access, no proxy needed
 cons:
   - 终端交互，学习曲线略高
   - 模型能力不如 Claude Code 原生
+  - 新用户订阅需要卡每日 10:30 开放时间
   - 社区较小，文档不够完善
 cons_en:
   - Terminal-based, slightly steeper learning curve
   - Model capability below native Claude Code
+  - New-user subscriptions require catching the daily 10:30 opening window
   - Small community, documentation needs improvement

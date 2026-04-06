@@ -11,58 +11,60 @@ composition:
   environment: VS Code
 
 monthly_cost:
-  min: "¥7.9"
-  typical: "¥7.9"
-  max: "¥39.9"
+  min: "官网为准"
+  typical: "官网为准"
+  max: "官网为准"
 
 currency: CNY
 
 scores:
   coding_ability: 8.5
-  cost_efficiency: 9.6
+  cost_efficiency: 7.3
   flexibility: 9.0
   china_friendly: 9.0
 
-description: "阿里云百炼 Coding Plan 搭配 Cline 的高性价比方案。Cline 免费开源，接百炼 API 国内直连。Lite 套餐首购仅¥7.9/月，支持 Qwen3.5-Plus/Qwen3-Coder-Next/GLM-5/Kimi-K2.5 等8款模型自由切换。"
-description_en: "High-value setup pairing Alibaba Cloud Bailian Coding Plan with Cline. Cline is free and open-source, connected to Bailian API for direct China access. Lite plan starts at just ¥7.9/mo, supporting 8 models including Qwen3.5-Plus/Qwen3-Coder-Next/GLM-5/Kimi-K2.5."
+description: "阿里云百炼 Coding Plan 搭配 Cline 的千问生态方案。Cline 免费开源，接百炼 API 国内直连。当前新购仅开放 Pro 套餐，支持 Qwen3.5-Plus/Qwen3-Coder-Next/GLM-5/Kimi-K2.5 等 8 款模型自由切换。"
+description_en: "A Qwen-centric setup pairing Alibaba Cloud Bailian Coding Plan with Cline. Cline is free and open-source, connected to Bailian API for direct China access. New purchases currently offer Pro only, with 8 switchable models including Qwen3.5-Plus/Qwen3-Coder-Next/GLM-5/Kimi-K2.5."
 
-tags: [diy, budget, china, agent, vscode]
+tags: [diy, china, agent, vscode]
 
 best_for:
-  - 预算有限的国内开发者
   - 想用千问最新模型的用户
   - VS Code 用户
+  - 月度高频使用者
 best_for_en:
-  - Budget-conscious developers in China
   - Users wanting Qwen's latest models
   - VS Code users
+  - High-frequency monthly users
 
 quick_start:
   - "在 VS Code 扩展市场安装 Cline"
-  - "注册阿里云账号，开通百炼 Coding Plan Lite (首购¥7.9)"
+  - "注册阿里云账号，开通百炼 Coding Plan Pro（价格以官网为准）"
   - "在 Cline 设置中配置百炼 API Key 和 Base URL"
   - "选择模型（推荐 qwen3.5-plus 或 qwen3-coder-next）"
 quick_start_en:
   - "Install Cline from VS Code extension marketplace"
-  - "Register an Alibaba Cloud account, activate Bailian Coding Plan Lite (¥7.9 first purchase)"
+  - "Register an Alibaba Cloud account and activate Bailian Coding Plan Pro (check official pricing)"
   - "Configure Bailian API Key and Base URL in Cline settings"
   - "Choose a model (qwen3.5-plus or qwen3-coder-next recommended)"
 
 pros:
-  - Cline 免费开源，百炼 Lite 首购仅 ¥7.9/月
+  - Cline 免费开源，千问生态接入顺滑
   - 支持8款编程模型自由切换，含千问最新模型
   - 国内直连，无需代理
   - Plan/Act 双模式，Agent 能力强
 pros_en:
-  - Cline is free and open-source, Bailian Lite starts at just ¥7.9/mo
+  - Cline is free and open-source with smooth Qwen ecosystem access
   - Freely switch between 8 coding models including latest Qwen
   - Direct China access, no proxy needed
   - Plan/Act dual mode with strong Agent capabilities
 cons:
+  - 当前新购门槛提高，仅开放 Pro
   - 模型能力与 Claude Opus 有差距
   - 需要手动配置 API
   - 额度用完不自动转按量计费
 cons_en:
+  - New-purchase entry cost is higher with Pro-only availability
   - Model capability gap vs Claude Opus
   - Manual API configuration required
   - No automatic pay-per-use fallback when quota runs out

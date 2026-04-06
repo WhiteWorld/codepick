@@ -71,7 +71,7 @@ Cline 本身没有速率限制，限制来自你接入的 API 提供商。使用
 
 **推荐搭配**：
 - 主力：Claude Code Pro → 备用：Cline + Anthropic API（同模型，按量付费）
-- 主力：Claude Code Pro → 备用：Cline + 火山方舟（国内，¥9.9/月）
+- 主力：Claude Code Pro → 备用：Cline + 火山方舟（国内，官网活动价）
 - 主力：Cursor Pro → 备用：Windsurf Free（25 credits/月）或 Cline + 火山方舟
 - 主力：Copilot Pro → 备用：Cursor Hobby 或 Cline
 

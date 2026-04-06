@@ -43,7 +43,7 @@ Both tools are free — you only pay for model API usage.
 | Setup | Monthly Cost |
 |-------|-------------|
 | Aider + Ollama (local) | $0 — completely free |
-| Aider + DeepSeek / Volcengine Ark | ¥9.9/mo |
+| Aider + DeepSeek / Volcengine Ark | Official promo |
 | Aider + OpenRouter | $5–20/mo (usage-based) |
 | Aider + Anthropic API | Pay-as-you-go |
 
@@ -51,8 +51,8 @@ Both tools are free — you only pay for model API usage.
 
 | Setup | Monthly Cost |
 |-------|-------------|
-| Cline + Volcengine Ark Coding Plan | ¥9.9/mo |
-| Cline + Bailian Coding Plan | ¥9.9/mo |
+| Cline + Volcengine Ark Coding Plan | Official promo |
+| Cline + Bailian Coding Plan | Official site |
 | Cline + OpenRouter | $5–30/mo (usage-based) |
 | Cline + Anthropic API | Pay-as-you-go |
 
@@ -153,7 +153,7 @@ Both tools work well in China:
 |-|-------|-------|
 | China friendly score | 9.5 / 10 | 9 / 10 |
 | Tool requires VPN | ❌ | ❌ |
-| Recommended China setup | DeepSeek / Volcengine Ark / Ollama | Volcengine Ark / Bailian (¥9.9/mo) |
+| Recommended China setup | DeepSeek / Volcengine Ark / Ollama | Volcengine Ark / Bailian (official pricing) |
 
 Aider even supports installation via domestic PyPI mirrors (e.g. Alibaba Cloud), making it easier to use in fully air-gapped corporate environments than Cline.
 
@@ -173,7 +173,7 @@ Aider even supports installation via domestic PyPI mirrors (e.g. Alibaba Cloud),
 - Need MCP integrations (external tools, APIs, databases)
 - Want Plan mode to confirm approach before execution
 - Need browser preview or @url context injection
-- Are in China on a budget (¥9.9/mo with Volcengine Ark)
+- Are in China on a budget (Ark often has a lower entry barrier than overseas subscriptions)
 
 ---
 

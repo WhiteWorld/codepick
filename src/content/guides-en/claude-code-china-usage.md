@@ -14,7 +14,7 @@ Claude Code has the highest coding ability score of any AI coding tool, but main
 
 | Method | Monthly Cost | VPN Required | Effort | Best For |
 |--------|-------------|-------------|--------|---------|
-| Volcengine Ark Coding Plan relay | ¥9.9/mo | ❌ No | ⭐⭐ | Budget-first, no VPN |
+| Volcengine Ark Coding Plan relay | Official promo | ❌ No | ⭐⭐ | Budget-first, no VPN |
 | Official Claude.ai subscription | ≥$20 | ✅ Yes | ⭐⭐⭐ | Full Claude experience |
 | Anthropic API (pay-as-you-go) | Variable | ✅ Yes | ⭐⭐⭐ | Variable usage patterns |
 | Kiro (AWS) | ~1/10 of Claude Code | ✅ Yes | ⭐⭐ | Real Claude models, lower cost |
@@ -31,7 +31,7 @@ Volcengine Ark (ByteDance's cloud platform) provides an Anthropic API-compatible
 **Setup:**
 
 ```bash
-# 1. Subscribe to Volcengine Ark Coding Plan (¥9.9/mo Lite)
+# 1. Subscribe to Volcengine Ark Coding Plan
 # Visit: volcengine.com — search for "Ark Coding Plan"
 # Supports Alipay and WeChat Pay
 
@@ -52,7 +52,7 @@ claude
 - Daily free quota: 500K tokens per model
 
 **Cost:**
-- Lite plan: ¥9.9/month (introductory price)
+- Choose the tier that fits your usage; pricing changes, so check the official site
 - Average cost ~63% lower than official Claude Code Pro pricing
 
 **Limitation**: You're using Doubao / DeepSeek models rather than genuine Claude. For tasks where only Claude's reasoning matters, this is a trade-off.
@@ -161,7 +161,7 @@ claude
 
 ```
 Need to avoid VPN entirely?
-└── Volcengine Ark Coding Plan (¥9.9/mo, Doubao/DeepSeek models)
+└── Volcengine Ark Coding Plan (official pricing, Doubao/DeepSeek models)
 
 Have VPN + international payment?
 ├── Budget-first → Kiro subscription (~1/10 of Claude Code cost)
@@ -196,7 +196,7 @@ Yes — Kiro is an official AWS product with real Anthropic model integration. T
 
 ## Related
 
-- [Cline + Volcengine Ark Setup Guide](/en/guides/cline-ark-setup) — VS Code alternative, same ¥9.9/mo
+- [Cline + Volcengine Ark Setup Guide](/en/guides/cline-ark-setup) — VS Code alternative, same provider and pricing policy
 - [Claude Code Is Too Expensive: Budget Alternatives](/en/guides/claude-code-budget-alternatives)
 - [Claude Code vs Cline Comparison](/en/compare/claude-code-vs-cline)
 - [AI Coding Rate Limits Guide](/en/guides/ai-coding-rate-limits)

@@ -164,7 +164,7 @@ Both tools require a VPN from China, but Copilot has a slight edge:
 | Access stability | Poor | GitHub partially accessible, AI endpoints unreliable |
 | Official China workaround | None | None |
 
-For developers in China who can't reliably use a VPN, consider [Trae CN (free)](/en/tool/trae-cn) or [Cline + Volcengine Ark (¥9.9/mo)](/en/plan/cline-ark) as alternatives.
+For developers in China who can't reliably use a VPN, consider [Trae CN (free)](/en/tool/trae-cn) or [Cline + Volcengine Ark (official promo pricing)](/en/plan/cline-ark) as alternatives.
 
 ---
 

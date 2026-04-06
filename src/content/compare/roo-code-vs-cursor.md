@@ -40,7 +40,7 @@ Roo Code 是 Cline 的高级开源分支，主打多角色 Agent（Code / Archit
 
 | 搭配方案 | 月均费用 |
 |----------|----------|
-| Roo Code + 火山方舟 Coding Plan | ¥9.9/月起 |
+| Roo Code + 火山方舟 Coding Plan | 官网活动价 |
 | Roo Code + OpenRouter | $5–30/月（按量） |
 | Roo Code + Anthropic API | 按量付费 |
 | Roo Code + Ollama（本地） | $0/月 |

@@ -1,6 +1,6 @@
 ---
 title: "Claude Code Is Too Expensive: 5 Budget Alternatives That Actually Work"
-description: "Claude Code Pro at $20/mo, Max at $100–200/mo feeling steep? Here are 5 alternatives that get you close to the same AI Agent coding capability — from ¥9.9/mo to completely free."
+description: "Claude Code Pro at $20/mo, Max at $100–200/mo feeling steep? Here are 5 alternatives that get you close to the same AI Agent coding capability — from low-entry plans to completely free."
 date: "2026-04-05"
 tags: ["claude-code", "budget", "alternatives", "cline", "volcengine-ark", "cost-saving"]
 draft: false
@@ -20,19 +20,19 @@ For most individual developers, especially in regions with currency exchange ove
 
 | Option | Monthly Cost | Capability Match | China-Friendly | Best For |
 |--------|-------------|-----------------|---------------|----------|
-| Cline + Volcengine Ark | ¥9.9/mo | Medium (DeepSeek V3) | ✅ | Budget first |
+| Cline + Volcengine Ark | Official promo | Medium (DeepSeek V3) | ✅ | Budget first |
 | Cline + Anthropic API | Pay-as-you-go | High (real Claude) | Needs proxy | Variable usage |
-| OpenCode + Ark | ¥9.9/mo | Medium (terminal) | ✅ | Terminal workflow |
+| OpenCode + Ark | Official promo | Medium (terminal) | ✅ | Terminal workflow |
 | Aider + Ollama | $0 | Medium (local model) | ✅ | Zero cost |
 | Windsurf Pro | $15/mo | Medium-high (SWE-1.5) | Needs proxy | IDE experience |
 
 ---
 
-## Option 1: Cline + Volcengine Ark Coding Plan (¥9.9/mo)
+## Option 1: Cline + Volcengine Ark Coding Plan (official promo pricing)
 
 **The recommended budget option for China-based developers**
 
-Cline is a free open-source VS Code plugin. Paired with Volcengine Ark Coding Plan (ByteDance's cloud, direct from China), monthly cost starts at ¥9.9.
+Cline is a free open-source VS Code plugin. Paired with Volcengine Ark Coding Plan (ByteDance's cloud, direct from China), it usually offers a low-entry path.
 
 **Capability in practice:**
 - With DeepSeek V3 or Kimi: handles complex tasks at roughly Claude Sonnet level — sufficient for daily development
@@ -74,7 +74,7 @@ With an Anthropic API key, Cline connects directly to Claude Sonnet 4.6 or Opus 
 
 ---
 
-## Option 3: OpenCode + Volcengine Ark (¥9.9/mo, Terminal Users)
+## Option 3: OpenCode + Volcengine Ark (official promo pricing, Terminal Users)
 
 If you prefer terminal workflow, OpenCode is an open-source Claude Code alternative supporting 75+ model providers with direct access to Volcengine Ark from China.
 
@@ -134,10 +134,10 @@ Terminal or IDE workflow?
 │              or OpenCode + Ark (better TUI)
 │              or Aider + Ollama (zero cost)
 └── IDE →      Windsurf Pro ($15/mo, closest experience)
-               or Cline in VS Code (¥9.9/mo, most affordable)
+               or Cline in VS Code (official promo pricing, most affordable)
 
 How critical is coding quality?
-├── Good enough for daily dev → Cline + DeepSeek / Volcengine Ark (¥9.9)
+├── Good enough for daily dev → Cline + DeepSeek / Volcengine Ark (official promo pricing)
 ├── Must use Claude models → Cline + Anthropic API (pay-as-you-go)
 └── Need maximum capability → Only Claude Code Max, no substitute
 ```

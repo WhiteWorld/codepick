@@ -50,12 +50,12 @@ Claude Code 和 Cline 都是当前最受开发者关注的 AI 编程 Agent，但
 
 | 搭配方案 | 月均费用 | 说明 |
 |----------|----------|------|
-| [Cline + 火山方舟 Coding Plan](/plan/cline-ark) | ¥9.9/月起 | 国内直连，DeepSeek V3 等模型 |
-| [Cline + 百炼 Coding Plan](/plan/cline-bailian) | ¥9.9/月起 | 阿里云，通义系列模型 |
+| [Cline + 火山方舟 Coding Plan](/plan/cline-ark) | 官网活动价 | 国内直连，DeepSeek V3 等模型 |
+| [Cline + 百炼 Coding Plan](/plan/cline-bailian) | 官网为准 | 阿里云，通义系列模型 |
 | Cline + OpenRouter | $5–30/月（按量） | 全球模型市场，PAYG |
 | Cline + Anthropic API | 按量付费 | 直连 Claude，同 Claude Code Pro |
 
-> **关键差异**：Cline 在国内搭配方舟或百炼方案，月费低至 ¥9.9，而 Claude Code 最低 $20/月，且国内需代理。重度 Agent 使用下，两者成本可能相近，但 Cline 的灵活性远高于 Claude Code。
+> **关键差异**：Cline 在国内搭配方舟或百炼方案，通常能以更低门槛获得直连体验；Claude Code 最低 $20/月，且国内需代理。重度 Agent 使用下，两者成本可能相近，但 Cline 的灵活性远高于 Claude Code。
 
 ---
 
@@ -141,9 +141,9 @@ Claude Code 的 Agent Teams 是多 Agent 协同的独特优势：可启动多个
 |-|-------------|-------|
 | 国内友好度评分 | 2 / 10 | 9 / 10 |
 | 插件/工具本身 | 需代理 | 无需代理 |
-| 推荐国内方案 | 方舟 Coding Plan 中转 | 方舟 / 百炼（¥9.9/月，直连） |
+| 推荐国内方案 | 方舟 Coding Plan 中转 | 方舟 / 百炼（官网价格，直连） |
 
-Cline 插件本身不需要访问境外服务，搭配火山方舟或百炼 Coding Plan，国内开发者可以 ¥9.9/月获得流畅的 AI Agent 体验，无需翻墙。Claude Code 即使通过方舟中转，也仍需要一定的网络配置。
+Cline 插件本身不需要访问境外服务，搭配火山方舟或百炼 Coding Plan，国内开发者可以用较低门槛获得流畅的 AI Agent 体验，无需翻墙。Claude Code 即使通过方舟中转，也仍需要一定的网络配置。
 
 ---
 
@@ -170,7 +170,7 @@ Cline 插件本身不需要访问境外服务，搭配火山方舟或百炼 Codi
 - 不在国内，或可以配置代理
 
 **选 Cline 如果你：**
-- 预算有限，希望以 ¥9.9/月 获得 AI Agent 能力
+- 预算有限，希望以更低门槛获得 AI Agent 能力
 - 在中国大陆，需要无代理直连
 - 想自由切换模型（国内外模型都想试）
 - 日常在 VS Code 中开发，希望 Agent 内嵌 IDE

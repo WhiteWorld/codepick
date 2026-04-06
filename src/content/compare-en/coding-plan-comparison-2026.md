@@ -10,9 +10,9 @@ The China-native Coding Plan space has heated up rapidly in 2026, with five plat
 
 ## One-Line Summary
 
-- **Bailian Coding Plan**: Cheapest entry at CNY 7.9/month (promo), monthly total quota, the most complete Qwen model lineup — best for budget-conscious developers and Qwen power users
+- **Bailian Coding Plan**: Monthly total quota with the most complete Qwen lineup — best for Qwen power users; current new-purchase policy should be verified on the official site
 - **Volcengine Ark Coding Plan**: Auto mode + dual Anthropic protocol, broadest client coverage (11 clients) — the top choice for Claude Code users
-- **MiniMax Coding Plan**: CNY 9.9 first month, entry at just CNY 29/month, excellent M2.5 coding value, optional highspeed tier
+- **MiniMax Coding Plan**: Excellent M2.5 coding value with optional highspeed tier; exact pricing should be checked on the official site
 - **Zhipu GLM Coding Plan**: Bundled with 4 exclusive MCPs (web search, vision, etc.), 20+ client compatibility — the richest value-added offering
 - **Kimi Coding Plan**: Token-based quota (the only one without a 5-hour window), best suited for long continuous coding sessions
 
@@ -20,17 +20,17 @@ The China-native Coding Plan space has heated up rapidly in 2026, with five plat
 
 ## Pricing Overview
 
-| Platform | Entry Tier | Mid Tier | High Tier | First-Purchase Promo |
+| Platform | Entry Tier | Mid Tier | High Tier | Promo Notes |
 |----------|-----------|----------|-----------|---------------------|
-| Bailian | CNY 40/mo (promo CNY 7.9) | CNY 200/mo (promo CNY 39.9) | — | ✅ Until 2026-04-01 |
-| Ark | CNY 40/mo (promo CNY 9.9) | CNY 200/mo (promo CNY 49.9) | — | ✅ Check official site |
-| MiniMax | CNY 29/mo (first month CNY 9.9) | CNY 49/mo | CNY 119/mo | ✅ First month CNY 9.9 |
-| Zhipu GLM | CNY 49/mo (annual CNY 34) | CNY 149/mo (annual CNY 104) | CNY 469/mo (annual CNY 328) | ❌ Quarterly/annual discount |
-| Kimi | CNY 49/mo | CNY 99/mo | CNY 199/mo | ❌ |
+| Bailian | Official site | Official site | — | Lite is no longer sold for new purchases; check official site |
+| Ark | Official site | Official site | — | New-user entry windows and promos vary; check official site |
+| MiniMax | Official site | Official site | Official site | Tier pricing changes; check official site |
+| Zhipu GLM | Official site | Official site | Official site | Quarterly/annual discounts vary |
+| Kimi | Official site | Official site | Official site | Check official site |
 
-MiniMax also offers highspeed tiers (with M2.5-highspeed): Plus-Highspeed CNY 98/mo, Max-Highspeed CNY 199/mo, Ultra-Highspeed CNY 899/mo.
+MiniMax also offers highspeed tiers (with M2.5-highspeed); exact tier pricing should be checked on the official site.
 
-> Bailian, Ark, and MiniMax all offer first-purchase promotions, with entry costs as low as CNY 7.9, CNY 9.9, and CNY 9.9 respectively. All five platforms price in CNY for convenient domestic payment. Kimi uses token-based billing without a 5-hour window mechanism.
+> Bailian, Ark, and MiniMax may all run periodic promotions, but pricing and availability change quickly. Check the official site before subscribing. All five platforms price in CNY for convenient domestic payment. Kimi uses token-based billing without a 5-hour window mechanism.
 
 ---
 
@@ -92,9 +92,9 @@ Each platform's key differentiator:
 
 | Platform | Differentiator |
 |----------|---------------|
-| Bailian | Monthly total quota (unique), full Qwen lineup, lowest entry price at CNY 7.9 |
+| Bailian | Monthly total quota (unique), full Qwen lineup, good fit for heavy monthly usage |
 | Ark | Auto mode (automatic model selection), native Anthropic protocol, most clients |
-| MiniMax | Entry at just CNY 29/mo (first month CNY 9.9), excellent M2.5 coding value, optional highspeed tier |
+| MiniMax | Excellent M2.5 coding value, optional highspeed tier |
 | Zhipu GLM | 4 exclusive MCPs (web search, vision, page reader, repo), 200K context window |
 | Kimi | Token-based quota (unique), no 5h window limit, best for long coding sessions |
 
@@ -114,17 +114,17 @@ Each platform's key differentiator:
 
 ## Scenario-Based Selection Advice
 
-**Budget-first (< CNY 15/month) → Bailian Lite**
-- First-purchase at CNY 7.9/month — the lowest entry price across all platforms
-- 18,000 monthly requests is sufficient for light usage
+**Budget-first / low-entry trial → Start with whichever platform currently has the best promo**
+- Promo pricing and entry windows change quickly, so check the official site first
+- If you prefer monthly-total quotas, see whether Bailian currently has a suitable new-purchase path
 
 **Heavy Claude Code users → Ark**
 - The only platform with native Anthropic protocol support — no proxy needed
 - Auto mode picks the best model automatically, saving effort and quota
 
 **Best value + speed → MiniMax**
-- Entry at CNY 29/month (first month CNY 9.9), CNY billing
-- Max at CNY 119/month — far cheaper than GLM Max (CNY 469), with optional M2.5-highspeed tier
+- Clean tiering and CNY billing
+- Optional M2.5-highspeed for users who care about throughput
 
 **Need MCP value-adds → Zhipu GLM**
 - Web search, vision, page reader, and repo MCPs work out of the box

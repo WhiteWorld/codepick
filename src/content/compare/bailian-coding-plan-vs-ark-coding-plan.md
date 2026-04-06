@@ -19,10 +19,10 @@ draft: false
 
 | 套餐 | 百炼 Lite | 百炼 Pro | 方舟 Lite | 方舟 Pro |
 |------|-----------|----------|-----------|----------|
-| 首购优惠价 | ¥7.9/月 | ¥39.9/月 | ¥9.9/月 | ¥49.9/月 |
-| 原价 | ¥40/月 | ¥200/月 | ¥40/月 | ¥200/月 |
+| 当前新购说明 | Lite 停止新购 | 当前新购以官网为准 | 官网活动价 | 官网活动价 |
+| 价格策略 | 以官网为准 | 以官网为准 | 以官网为准 | 以官网为准 |
 
-原价相同，首购优惠期间百炼更便宜（Lite 便宜 ¥2，Pro 便宜 ¥10）。百炼优惠截至 2026-04-01，方舟优惠截至时间请以官网为准。
+历史上两家的原价层级接近，但活动策略变动很快。当前百炼已停止 Lite 新购，方舟的新用户入口和活动价也应以官网为准。
 
 ---
 
@@ -127,7 +127,7 @@ Claude Code、Cursor、Cline、Codex CLI、Kilo Code、Roo Code、OpenCode、Tra
 **选百炼 Coding Plan 如果你：**
 - 偏好 Qwen 系模型（qwen3-coder-next / qwen3.5-plus）
 - 需要偶发性高强度调用（月度总额度机制更友好）
-- 预算极度有限（首购 Lite ¥7.9，便宜 ¥2）
+- 更看重月度总量制，且愿意接受当前仅开放 Pro 新购
 - 已是阿里云生态用户（RAM 主账号）
 
 **选火山方舟 Coding Plan 如果你：**
@@ -142,8 +142,8 @@ Claude Code、Cursor、Cline、Codex CLI、Kilo Code、Roo Code、OpenCode、Tra
 
 两个平台都有对应的开箱即用配置方案：
 
-- [Cline + 百炼 Coding Plan](/plan/cline-bailian)：百炼生态最快上手方案，Lite 首购 ¥7.9/月
-- [Cline + 方舟 Coding Plan](/plan/cline-ark)：方舟生态最具性价比方案，Lite 首购 ¥9.9/月
+- [Cline + 百炼 Coding Plan](/plan/cline-bailian)：百炼生态最快上手方案，当前新购策略以官网为准
+- [Cline + 方舟 Coding Plan](/plan/cline-ark)：方舟生态高性价比方案，活动价与入口以官网为准
 - [OpenCode + 百炼 Coding Plan](/plan/opencode-bailian)：终端开发者首选
 - [OpenCode + 方舟 Coding Plan](/plan/opencode-ark)：支持 Auto 模式的终端方案
 
