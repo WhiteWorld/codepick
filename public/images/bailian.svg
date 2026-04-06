@@ -1,0 +1,11 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bailian-bg" x1="18" y1="18" x2="108" y2="110" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#6D28D9"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="112" height="112" rx="28" fill="url(#bailian-bg)"/>
+  <circle cx="64" cy="64" r="32" fill="#F5F3FF" fill-opacity="0.18"/>
+  <path d="M47 37.5H58.5V47H70.2V37.5H81V50H88.5V59.3H81V71H70.2V82.8H82.6V92.3H47V82.8H59.4V71H47V59.3H59.4V47H47V37.5Z" fill="#F5F3FF"/>
+</svg>
