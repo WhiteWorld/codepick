@@ -74,61 +74,8 @@ const seoDesc  = t('deals.seoDesc', lang);
       <p class="text-[var(--text-secondary)] max-w-xl mx-auto">{t('deals.subtitle', lang)}</p>
     </div>
 
-    <!-- Tools Section -->
-    <section class="mb-14">
-      <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-5">{t('deals.toolsTitle', lang)}</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {tools.map(({ tool, ctaUrl, hasFree, hasAffiliate, affiliateNote, priceLabel }) => (
-          <div class="card p-5 flex flex-col gap-3">
-            <!-- Tool Header -->
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-lg avatar-gradient text-base shrink-0 flex items-center justify-center font-bold text-white">
-                {tool.name.charAt(0)}
-              </div>
-              <div class="min-w-0">
-                <a href={localePath(`/tool/${tool.id}`, lang)} class="text-sm font-semibold text-[var(--text-primary)] no-underline hover:text-[var(--brand-400)]">
-                  {tool.name}
-                </a>
-                <p class="text-xs text-[var(--text-muted)] m-0 truncate">{(tool as any).tagline || (tool as any).type}</p>
-              </div>
-            </div>
-
-            <!-- Tags -->
-            <div class="flex flex-wrap gap-1.5">
-              {hasFree && (
-                <span class="text-xs bg-emerald-900/50 text-emerald-400 border border-emerald-700 px-2 py-0.5 rounded-full">
-                  {t('deals.freeTag', lang)}
-                </span>
-              )}
-              {hasAffiliate && (
-                <span class="text-xs bg-amber-900/50 text-amber-400 border border-amber-700 px-2 py-0.5 rounded-full">
-                  {t('deals.affiliateTag', lang)}
-                </span>
-              )}
-              <span class="text-xs bg-[var(--surface-2)] text-[var(--text-muted)] px-2 py-0.5 rounded-full">
-                {priceLabel}
-              </span>
-            </div>
-
-            <!-- Affiliate note -->
-            {affiliateNote && (
-              <p class="text-xs text-amber-400 m-0">{affiliateNote}</p>
-            )}
-
-            <!-- CTA -->
-            {ctaUrl && (
-              <a href={ctaUrl} target="_blank" rel="noopener noreferrer"
-                 class={`mt-auto inline-flex items-center justify-center gap-1 text-sm font-semibold px-4 py-2 rounded-lg no-underline transition-colors ${hasFree ? 'bg-emerald-600 hover:bg-emerald-500 text-white' : 'bg-[var(--brand-500)] hover:bg-[var(--brand-400)] text-white'}`}>
-                {hasFree ? t('cta.freeTrial', lang) : t('cta.tryNow', lang)} ↗
-              </a>
-            )}
-          </div>
-        ))}
-      </div>
-    </section>
-
     <!-- Coding Plan APIs Section -->
-    <section class="mb-10">
+    <section class="mb-14">
       <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-5">{t('deals.plansTitle', lang)}</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {codingPlanApis.map(({ api, ctaUrl, hasAffiliate, affiliateNote, priceLabel, pricingNote, bestFor }) => (
@@ -173,6 +120,59 @@ const seoDesc  = t('deals.seoDesc', lang);
               <a href={ctaUrl} target="_blank" rel="noopener noreferrer"
                  class="mt-auto inline-flex items-center justify-center gap-1 text-sm font-semibold bg-[var(--brand-500)] hover:bg-[var(--brand-400)] text-white px-4 py-2 rounded-lg no-underline transition-colors">
                 {t('cta.tryNow', lang)} ↗
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="mb-10">
+      <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-5">{t('deals.toolsTitle', lang)}</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {tools.map(({ tool, ctaUrl, hasFree, hasAffiliate, affiliateNote, priceLabel }) => (
+          <div class="card p-5 flex flex-col gap-3">
+            <!-- Tool Header -->
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg avatar-gradient text-base shrink-0 flex items-center justify-center font-bold text-white">
+                {tool.name.charAt(0)}
+              </div>
+              <div class="min-w-0">
+                <a href={localePath(`/tool/${tool.id}`, lang)} class="text-sm font-semibold text-[var(--text-primary)] no-underline hover:text-[var(--brand-400)]">
+                  {tool.name}
+                </a>
+                <p class="text-xs text-[var(--text-muted)] m-0 truncate">{(tool as any).tagline || (tool as any).type}</p>
+              </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-1.5">
+              {hasFree && (
+                <span class="text-xs bg-emerald-900/50 text-emerald-400 border border-emerald-700 px-2 py-0.5 rounded-full">
+                  {t('deals.freeTag', lang)}
+                </span>
+              )}
+              {hasAffiliate && (
+                <span class="text-xs bg-amber-900/50 text-amber-400 border border-amber-700 px-2 py-0.5 rounded-full">
+                  {t('deals.affiliateTag', lang)}
+                </span>
+              )}
+              <span class="text-xs bg-[var(--surface-2)] text-[var(--text-muted)] px-2 py-0.5 rounded-full">
+                {priceLabel}
+              </span>
+            </div>
+
+            <!-- Affiliate note -->
+            {affiliateNote && (
+              <p class="text-xs text-amber-400 m-0">{affiliateNote}</p>
+            )}
+
+            <!-- CTA -->
+            {ctaUrl && (
+              <a href={ctaUrl} target="_blank" rel="noopener noreferrer"
+                 class={`mt-auto inline-flex items-center justify-center gap-1 text-sm font-semibold px-4 py-2 rounded-lg no-underline transition-colors ${hasFree ? 'bg-emerald-600 hover:bg-emerald-500 text-white' : 'bg-[var(--brand-500)] hover:bg-[var(--brand-400)] text-white'}`}>
+                {hasFree ? t('cta.freeTrial', lang) : t('cta.tryNow', lang)} ↗
               </a>
             )}
           </div>
