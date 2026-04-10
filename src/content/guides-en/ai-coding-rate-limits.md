@@ -2,6 +2,7 @@
 title: "AI Coding Tool Rate Limits Explained: How to Avoid Getting Blocked Mid-Sprint"
 description: "Why does Claude Code, Cursor, or Copilot hit rate limits right when you're busiest? Learn how each tool's limits work and 5 practical strategies to keep working without interruption."
 date: "2026-04-05"
+article_type: "explainer"
 tags: ["rate-limit", "claude-code", "cursor", "cline", "efficiency"]
 draft: false
 ---

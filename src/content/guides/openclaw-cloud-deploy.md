@@ -2,6 +2,7 @@
 title: "OpenClaw 云端部署全攻略：七大国内云厂商方案对比与选型"
 description: "对比阿里云、腾讯云、火山引擎、百度智能云、京东云、华为云等平台的 OpenClaw 一键部署方案，含价格、配置、特色功能与推荐人群。"
 date: "2026-03-19"
+article_type: "howto"
 tags: ["openclaw", "云部署", "国内", "选型", "AI智能体"]
 ---
 

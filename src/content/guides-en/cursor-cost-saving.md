@@ -2,6 +2,7 @@
 title: "How to Save Money on Cursor: 6 Tips to Reduce Your AI IDE Bill"
 description: "How to stretch your Cursor Pro credit pool further — Auto mode, cheaper models, task splitting, lean .cursorrules, and backup tools for when you run out mid-month."
 date: "2026-04-05"
+article_type: "review"
 tags: ["cursor", "cost-saving", "token", "efficiency", "auto-mode", "cursorrules"]
 draft: false
 ---

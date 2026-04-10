@@ -2,6 +2,7 @@
 title: "Cloudflare 开发者入门：不只是 CDN，而是你的全栈开发平台"
 description: "从零了解 Cloudflare 开发者生态：Workers 无服务器函数、Pages 静态部署、D1 数据库、R2 存储、KV 缓存，帮你用最低成本把 App 跑起来。"
 date: "2026-03-21"
+article_type: "explainer"
 tags: ["cloudflare", "部署", "入门", "全栈", "serverless"]
 ---
 

@@ -2,6 +2,7 @@
 title: "switch-ai：一条命令切换 AI API 配置，告别手动改环境变量"
 description: "介绍 switch-ai 命令行小工具，支持在 Anthropic、OpenAI 等多个 AI 服务间一键切换 API 配置，开发者多账号管理利器。"
 date: "2026-03-02"
+article_type: "howto"
 tags: ["switch-ai", "CLI", "API", "环境变量", "工具"]
 ---
 

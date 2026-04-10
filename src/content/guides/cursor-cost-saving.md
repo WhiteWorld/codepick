@@ -2,6 +2,7 @@
 title: "Cursor 怎么省钱：6 个实用技巧降低 AI IDE 月费"
 description: "Cursor Pro 额度怎么用得更久？Auto 模式、廉价模型、任务拆分、.cursorrules 精简……这 6 个方法帮你在不降低开发效率的前提下，把每月账单压到最低。"
 date: "2026-04-05"
+article_type: "review"
 tags: ["cursor", "省钱", "token", "效率", "auto模式", "cursorrules"]
 draft: false
 ---

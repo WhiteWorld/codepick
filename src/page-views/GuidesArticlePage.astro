@@ -74,19 +74,30 @@ const howToSteps = headings
     url: `${guideUrl}#${h.slug}`,
   }));
 
-const articleSchema = {
+const baseArticleSchema = {
   '@context': 'https://schema.org',
-  '@type': 'HowTo',
   name: guide.data.title,
   description: guide.data.description,
   datePublished: guide.data.date,
-  dateModified: guide.data.date,
+  dateModified: guide.data.updated_at || guide.data.date,
   url: guideUrl,
   image: `${siteUrl}/og-image.png`,
   inLanguage: lang === 'zh' ? 'zh-CN' : 'en',
   author: { '@type': 'Organization', name: 'CodePick', url: siteUrl },
-  ...(howToSteps.length > 0 ? { step: howToSteps } : {}),
 };
+
+const canUseHowTo = guide.data.article_type === 'howto' && howToSteps.length > 0;
+
+const articleSchema = canUseHowTo
+  ? {
+      ...baseArticleSchema,
+      '@type': 'HowTo',
+      step: howToSteps,
+    }
+  : {
+      ...baseArticleSchema,
+      '@type': guide.data.article_type === 'explainer' ? 'TechArticle' : 'Article',
+    };
 ---
 
 <BaseLayout

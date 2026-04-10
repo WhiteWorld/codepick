@@ -2,6 +2,7 @@
 title: "AI 编程节省 Token 实用指南：少花钱、不触发限速"
 description: "从 token 是什么到 5 大节省策略，覆盖 Cursor、Claude Code、Cline、Copilot 等主流工具。无论你是订阅用户还是按量付费，读完都能立刻上手。"
 date: "2026-03-29"
+article_type: "explainer"
 tags: ["token", "cursor", "claude-code", "cline", "copilot", "省钱", "效率"]
 draft: false
 ---

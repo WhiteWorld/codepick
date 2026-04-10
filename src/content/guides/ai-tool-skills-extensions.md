@@ -2,6 +2,7 @@
 title: "AI 编程工具的 Skills 与扩展系统：Claude Code、Cursor、Cline 完全指南"
 description: "深入解析 AI 编程工具的扩展能力：Claude Code 的 Skills/Hooks 系统、Cursor Rules、Cline 自定义指令，以及如何用这些机制打造专属 AI 工作流。"
 date: "2026-03-28"
+article_type: "explainer"
 tags: ["skills", "claude-code", "cursor", "cline", "hooks", "自定义", "工作流"]
 ---
 

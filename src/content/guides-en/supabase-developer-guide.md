@@ -2,6 +2,7 @@
 title: "Supabase for Developers: The Open-Source Firebase Alternative for Your Backend"
 description: "A beginner's guide to Supabase: PostgreSQL database, authentication, file storage, real-time subscriptions, and Edge Functions — build a complete backend without managing servers."
 date: "2026-03-21"
+article_type: "explainer"
 tags: ["supabase", "backend", "beginner", "database", "BaaS"]
 ---
 

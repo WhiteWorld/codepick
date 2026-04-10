@@ -2,6 +2,7 @@
 title: "Cline + 火山方舟 Coding Plan 配置指南"
 description: "从注册火山方舟到 Cline 出码，10 分钟搞定国内高性价比的 AI 编程方案，无需代理。"
 date: "2026-02-16"
+article_type: "howto"
 tags: ["cline", "火山方舟", "配置", "国内", "性价比"]
 ---
 

@@ -2,6 +2,7 @@
 title: "Claude Code Is Too Expensive: 5 Budget Alternatives That Actually Work"
 description: "Claude Code Pro at $20/mo, Max at $100–200/mo feeling steep? Here are 5 alternatives that get you close to the same AI Agent coding capability — from low-entry plans to completely free."
 date: "2026-04-05"
+article_type: "review"
 tags: ["claude-code", "budget", "alternatives", "cline", "volcengine-ark", "cost-saving"]
 draft: false
 ---

@@ -2,6 +2,7 @@
 title: "Vercel 开发者入门：写完代码到上线，只需要 git push"
 description: "从零了解 Vercel：前端部署、Serverless Functions、Edge Runtime、AI SDK，帮你把 Next.js 和任何前端项目最快速地推上线。"
 date: "2026-03-21"
+article_type: "explainer"
 tags: ["vercel", "部署", "入门", "Next.js", "前端"]
 ---
 

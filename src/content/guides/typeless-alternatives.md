@@ -2,6 +2,7 @@
 title: "Typeless 及替代者：5 款 AI 语音输入工具深度对比"
 description: "对比 Typeless、Wispr Flow、VoiceInk、Voibe、ByeType 五款 AI 语音输入工具，涵盖价格、隐私、编程支持与平台兼容性，帮你找到最适合的语音编码方案。"
 date: "2026-03-19"
+article_type: "review"
 tags: ["typeless", "语音输入", "vibe-coding", "效率工具", "选型"]
 ---
 

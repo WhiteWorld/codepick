@@ -2,6 +2,7 @@
 title: "AI 编程工作流必备：VS Code 高频插件精选"
 description: "配合 Cursor、Cline、Claude Code 使用的高频 VS Code 插件，覆盖 Git 历史、代码质量、API 调试、可读性增强，帮你构建完整的 AI 辅助开发工作流。"
 date: "2026-04-01"
+article_type: "review"
 tags: ["vscode", "cursor", "cline", "工作流", "插件", "git", "效率"]
 draft: false
 ---

@@ -2,6 +2,7 @@
 title: "Claude Code Token 节省完全指南：从入门到进阶"
 description: "专为 Claude Code 用户写的 token 节省指南：/compact、/clear 的使用时机，CLAUDE.md 的正确写法，@文件引用，任务分解，以及最容易踩的 5 个 token 浪费误区。"
 date: "2026-03-29"
+article_type: "explainer"
 tags: ["claude-code", "token", "省钱", "效率", "CLAUDE.md", "compact"]
 draft: false
 ---

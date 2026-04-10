@@ -2,6 +2,7 @@
 title: "Cloudflare for Developers: More Than a CDN — Your Full-Stack Platform"
 description: "A beginner's guide to Cloudflare's developer ecosystem: Workers serverless functions, Pages static hosting, D1 database, R2 storage, and KV cache — build and ship apps at minimal cost."
 date: "2026-03-21"
+article_type: "explainer"
 tags: ["cloudflare", "deployment", "beginner", "full-stack", "serverless"]
 ---
 
