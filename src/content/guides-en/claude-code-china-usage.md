@@ -2,6 +2,7 @@
 title: "How to Use Claude Code in China: 5 Working Methods in 2026"
 description: "Claude Code is blocked in mainland China, but there are real workarounds. This guide covers 5 methods — from the Volcengine Ark relay (no VPN needed) to direct API and Kiro — with cost and effort compared."
 date: "2026-04-05"
+article_type: "explainer"
 tags: ["claude-code", "china", "volcengine-ark", "kiro", "api", "workaround"]
 draft: false
 ---

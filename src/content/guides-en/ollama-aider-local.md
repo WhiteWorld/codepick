@@ -2,6 +2,7 @@
 title: "Ollama + Aider Local Deployment Complete Guide"
 description: "A zero-cost, zero-data-leak local AI coding setup. Run local models with Ollama and pair them with Aider for AI-assisted coding — completely free, offline-capable, and privacy-first."
 date: "2026-02-16"
+article_type: "howto"
 tags: ["ollama", "aider", "local-deployment", "privacy", "free"]
 draft: false
 ---

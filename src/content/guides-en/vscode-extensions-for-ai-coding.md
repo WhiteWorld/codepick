@@ -2,6 +2,7 @@
 title: "Essential VS Code Extensions for AI-Assisted Development"
 description: "The best VS Code plugins to use alongside Cursor, Cline, and Claude Code — covering Git history, code quality, API testing, and readability. Build a complete AI-augmented workflow."
 date: "2026-04-01"
+article_type: "review"
 tags: ["vscode", "cursor", "cline", "workflow", "extensions", "git", "productivity"]
 draft: false
 ---

@@ -2,6 +2,7 @@
 title: "Claude Code Token Saving: The Complete Guide"
 description: "A dedicated token-saving guide for Claude Code users: when to use /compact vs /clear, how to write an effective CLAUDE.md, precise file referencing, task decomposition, and the 5 most common token-wasting mistakes to avoid."
 date: "2026-03-29"
+article_type: "explainer"
 tags: ["claude-code", "token", "cost", "efficiency", "CLAUDE.md", "compact"]
 draft: false
 ---

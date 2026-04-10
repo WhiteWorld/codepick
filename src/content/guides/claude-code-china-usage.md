@@ -2,6 +2,7 @@
 title: "国内使用 Claude Code 完整指南：8 种可行方案详解"
 description: "汇总 2026 年国内开发者使用 Claude Code 的所有可行方案，包括官方订阅、Apple 礼品卡、Google Play、API 中转、火山方舟平替、Kiro 低价方案等，附费用对比与避坑建议。"
 date: "2026-03-19"
+article_type: "explainer"
 tags: ["claude-code", "国内", "订阅", "API中转", "火山方舟", "kiro"]
 ---
 

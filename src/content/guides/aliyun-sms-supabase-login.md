@@ -2,6 +2,7 @@
 title: "App 增加短信验证码登录：阿里云短信 + Supabase 完整方案"
 description: "手把手教你用阿里云短信服务替换 Twilio，配合 Supabase Edge Functions 实现国内可用的手机验证码登录，无需代理，适合独立开发者和小团队。"
 date: "2026-03-15"
+article_type: "howto"
 tags: ["supabase", "阿里云", "短信验证码", "登录", "edge-functions", "国内"]
 draft: false
 ---

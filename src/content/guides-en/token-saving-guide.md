@@ -2,6 +2,7 @@
 title: "AI Coding Token Saving Guide: Spend Less, Hit Fewer Rate Limits"
 description: "From what tokens are to 5 practical strategies, covering Cursor, Claude Code, Cline, Copilot, and more. Whether you're on a subscription or pay-as-you-go, you can apply these tips immediately."
 date: "2026-03-29"
+article_type: "explainer"
 tags: ["token", "cursor", "claude-code", "cline", "copilot", "cost", "efficiency"]
 draft: false
 ---

@@ -2,6 +2,7 @@
 title: "Trae CN 完全上手指南：国内免费 AI IDE，零成本开始 AI 编程"
 description: "字节跳动出品的 Trae CN 完全免费，无需代理，内置豆包、DeepSeek、Kimi K2 等顶级国产模型。本指南从安装到 SOLO 模式实战，手把手带你入门。"
 date: "2026-02-17"
+article_type: "howto"
 tags: ["trae-cn", "国内", "免费", "入门", "字节跳动"]
 ---
 

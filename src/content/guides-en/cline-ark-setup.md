@@ -2,6 +2,7 @@
 title: "Cline + Volcengine Ark Coding Plan Setup Guide"
 description: "From Volcengine Ark registration to coding with Cline in 10 minutes. The most cost-effective AI coding setup for developers in China — starting at 9.9 CNY/month, no VPN required."
 date: "2026-02-16"
+article_type: "howto"
 tags: ["cline", "volcengine-ark", "setup", "china", "cost-effective"]
 draft: false
 ---

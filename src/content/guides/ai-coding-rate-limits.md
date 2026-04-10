@@ -2,6 +2,7 @@
 title: "AI 编程工具 Rate Limit 怎么处理：触发原因、影响与应对策略"
 description: "Claude Code、Cursor、Cline 的速率限制是什么？为什么总在最忙的时候被限速？本文解释各工具的限制机制，并给出 5 个实用策略让你不再因 rate limit 中断工作。"
 date: "2026-04-05"
+article_type: "explainer"
 tags: ["rate-limit", "claude-code", "cursor", "cline", "效率", "限速"]
 draft: false
 ---

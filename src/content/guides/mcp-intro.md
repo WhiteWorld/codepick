@@ -2,6 +2,7 @@
 title: "MCP 协议入门：让 AI 编程工具连接世界"
 description: "深入了解 MCP（Model Context Protocol）协议：它是什么、为什么重要、哪些 AI 编程工具支持它，以及如何为 Cursor、Claude Code、Cline 等工具配置 MCP 服务器。"
 date: "2026-03-28"
+article_type: "explainer"
 tags: ["mcp", "claude-code", "cursor", "cline", "windsurf", "协议", "扩展"]
 ---
 

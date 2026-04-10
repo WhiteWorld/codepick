@@ -2,6 +2,7 @@
 title: "switch-ai: One Command to Switch AI API Configs — No More Manual Env Vars"
 description: "Introducing switch-ai, a CLI tool for instantly switching between multiple AI API configurations (Anthropic, OpenAI, and more) using YAML profiles."
 date: "2026-03-02"
+article_type: "howto"
 tags: ["switch-ai", "CLI", "API", "environment-variables", "tools"]
 draft: false
 ---

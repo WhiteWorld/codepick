@@ -2,6 +2,7 @@
 title: "MiniMax Token Plan 全解读：从 Coding Plan 到全模态统一订阅"
 description: "MiniMax 将 Coding Plan 升级为 Token Plan，支持 M2.7 模型、全模态统一额度、人民币定价。本文详解 6 档套餐价格、额度机制与选型建议。"
 date: "2026-03-19"
+article_type: "explainer"
 tags: ["minimax", "token-plan", "coding-plan", "M2.7", "订阅", "api"]
 draft: false
 ---

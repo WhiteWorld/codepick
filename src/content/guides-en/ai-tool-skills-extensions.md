@@ -2,6 +2,7 @@
 title: "AI Coding Tool Skills & Extension Systems: Claude Code, Cursor, Cline Complete Guide"
 description: "A deep dive into AI coding tool extension capabilities: Claude Code's Skills/Hooks system, Cursor Rules, Cline custom instructions, and how to build your own AI-powered workflow with these mechanisms."
 date: "2026-03-28"
+article_type: "explainer"
 tags: ["skills", "claude-code", "cursor", "cline", "hooks", "customization", "workflow"]
 draft: false
 ---

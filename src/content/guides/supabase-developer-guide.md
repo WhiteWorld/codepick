@@ -2,6 +2,7 @@
 title: "Supabase 开发者入门：开源的 Firebase 替代品，你的后端即服务平台"
 description: "从零了解 Supabase：PostgreSQL 数据库、认证系统、文件存储、实时订阅、Edge Functions，帮独立开发者快速搭建完整后端。"
 date: "2026-03-21"
+article_type: "explainer"
 tags: ["supabase", "后端", "入门", "数据库", "BaaS"]
 ---
 

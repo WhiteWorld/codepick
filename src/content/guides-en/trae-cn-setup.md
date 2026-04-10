@@ -2,6 +2,7 @@
 title: "Trae CN Complete Getting Started Guide: Free AI IDE for China, Zero-Cost AI Coding"
 description: "ByteDance's Trae CN is completely free, requires no VPN, and includes top Chinese AI models like Doubao, DeepSeek, and Kimi K2. This guide takes you from installation to SOLO mode hands-on."
 date: "2026-02-17"
+article_type: "howto"
 tags: ["trae-cn", "china", "free", "getting-started", "bytedance"]
 draft: false
 ---

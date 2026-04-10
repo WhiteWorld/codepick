@@ -2,6 +2,7 @@
 title: "MCP Protocol Introduction: Connecting AI Coding Tools to the World"
 description: "A comprehensive introduction to MCP (Model Context Protocol): what it is, why it matters, which AI coding tools support it, and how to configure MCP servers for Cursor, Claude Code, Cline, and more."
 date: "2026-03-28"
+article_type: "explainer"
 tags: ["mcp", "claude-code", "cursor", "cline", "windsurf", "protocol", "extensions"]
 draft: false
 ---

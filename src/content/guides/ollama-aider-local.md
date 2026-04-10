@@ -2,6 +2,7 @@
 title: "Ollama + Aider 本地部署完全指南"
 description: "零成本、零数据外泄的本地 AI 编程方案。使用 Ollama 运行本地模型，配合 Aider 实现 AI 辅助编码。"
 date: "2026-02-16"
+article_type: "howto"
 tags: ["ollama", "aider", "本地部署", "隐私", "免费"]
 ---
 

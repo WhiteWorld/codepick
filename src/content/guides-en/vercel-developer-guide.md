@@ -2,6 +2,7 @@
 title: "Vercel for Developers: From Code to Production with Just git push"
 description: "A beginner's guide to Vercel: frontend deployment, Serverless Functions, Edge Runtime, AI SDK — the fastest way to ship your Next.js or any frontend project."
 date: "2026-03-21"
+article_type: "explainer"
 tags: ["vercel", "deployment", "beginner", "Next.js", "frontend"]
 ---
 
