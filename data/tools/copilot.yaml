@@ -118,6 +118,22 @@ data_sources:
     type: docs
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-04-14'
+    type: feature
+    summary: '第三方 Claude / Codex 编程 Agent 支持在 github.com 启动时选择模型；Copilot CLI 新增 Rubber Duck 功能（实验性），显著提升 LLM 编程性能'
+    summary_en: 'Model selection for Claude and Codex third-party coding agents on github.com; Copilot CLI adds experimental Rubber Duck feature for boosted LLM coding performance'
+  - date: '2026-04-08'
+    type: feature
+    summary: 'VS Code Autopilot 模式进入公开预览（完全自主 Agent 会话）；聊天支持图片和视频附件；Agent 可返回截图/录像 Carousel；新增统一自定义指令编辑器'
+    summary_en: 'VS Code Autopilot mode enters public preview (fully autonomous agent sessions); image and video attachments in chat; agents can return screenshot/recording carousels; new unified customization editor'
+  - date: '2026-04-08'
+    type: feature
+    summary: 'Copilot CLI 支持远程会话：在 Web 或 GitHub Mobile 实时监控并发送后续指令、修改计划、控制会话'
+    summary_en: 'Copilot CLI remote sessions: monitor and steer a running CLI session from GitHub web or GitHub Mobile in real time'
+  - date: '2026-04-08'
+    type: feature
+    summary: 'Copilot 新增数据驻留（US/EU），推断数据留在指定地理区域；FedRAMP Moderate 支持上线'
+    summary_en: 'Copilot data residency for US and EU regions; FedRAMP Moderate support for US government customers'
   - date: '2026-03-26'
     type: announcement
     summary: GitHub 宣布 Free/Pro/Pro+ 用户交互数据将默认用于 AI 训练（4月24日生效，可关闭）
@@ -146,7 +162,7 @@ changelog:
     type: pricing
     summary: 推出永久免费版 Copilot Free
     summary_en: Copilot Free permanently free tier launched
-last_full_review: '2026-03-27'
-next_review_due: '2026-04-27'
+last_full_review: '2026-04-16'
+next_review_due: '2026-05-16'
 review_frequency_days: 30
 confidence: high

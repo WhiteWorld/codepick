@@ -4,8 +4,8 @@ type: cli
 logo: /images/claude-code.png
 url: https://docs.anthropic.com/en/docs/claude-code
 repo: null
-current_version: '2.1.80'
-version_tracked_at: '2026-03-27'
+current_version: '2.1.101'
+version_tracked_at: '2026-04-16'
 pricing:
   model: subscription
   currency: USD
@@ -110,6 +110,10 @@ data_sources:
     type: docs
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-04-16'
+    type: feature
+    summary: 'v2.1.69→2.1.101（5周内30+版本）：新增 NO_FLICKER 渲染引擎 + Focus View；Write 工具速度提升 60%；/recap 命令可重新导入会话上下文；新增 ENABLE_PROMPT_CACHING_1H（1小时缓存）和 FORCE_PROMPT_CACHING_5M（5分钟缓存）环境变量；支持 Amazon Bedrock Mantle 后端（CLAUDE_CODE_USE_MANTLE=1）；API/Bedrock/Vertex/Enterprise 默认推理强度改为 high；修复 Bash 工具反斜杠绕过安全漏洞'
+    summary_en: 'v2.1.69→2.1.101 (30+ releases in 5 weeks): NO_FLICKER rendering engine + Focus View; 60% faster Write tool; /recap command to restore session context; ENABLE_PROMPT_CACHING_1H and FORCE_PROMPT_CACHING_5M env vars; Amazon Bedrock Mantle backend support; default effort level raised to high for API/Bedrock/Vertex/Enterprise; fixed Bash tool backslash permission bypass security bug'
   - date: '2026-03-25'
     type: feature
     summary: 新增 Transcript 搜索功能
@@ -142,7 +146,7 @@ changelog:
     type: pricing
     summary: 推出 Max 5x ($100) 和 Max 20x ($200) 高用量套餐
     summary_en: Launched Max 5x ($100) and Max 20x ($200) high-usage tiers
-last_full_review: '2026-03-27'
-next_review_due: '2026-04-27'
+last_full_review: '2026-04-16'
+next_review_due: '2026-05-16'
 review_frequency_days: 30
 confidence: high
