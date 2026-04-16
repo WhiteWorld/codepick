@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ScoreBar from '../components/ScoreBar.astro';
 import PlanCard from '../components/PlanCard.astro';
+import ShareBar from '../components/ShareBar.astro';
 import { getToolLocalized, getApi, overallScore, getAllPlansLocalized } from '../lib/data';
 import { t, localePath, type Locale } from '../lib/i18n';
 import type { Plan } from '../lib/data';
@@ -197,5 +198,7 @@ const seoTitle = lang === 'zh'
         </div>
       </section>
     )}
+
+    <ShareBar url={planUrl} title={plan.name} description={plan.tagline} lang={lang} />
   </article>
 </BaseLayout>

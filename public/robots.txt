@@ -2,3 +2,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://codepick.dev/sitemap-index.xml
+
+# RSS feeds (for aggregators & humans)
+# https://codepick.dev/zh/rss.xml
+# https://codepick.dev/en/rss.xml

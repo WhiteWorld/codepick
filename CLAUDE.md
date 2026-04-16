@@ -58,11 +58,13 @@ src/
     api/openrouter.json.ts   # OpenRouter API 端点
     zh/                      # 中文路由（薄包装，透传 lang="zh" 给 page-views）
       index.astro / faq.astro / coding-plan.astro / deals.astro / prompts.astro
+      rss.xml.ts             # 中文 RSS feed（聚合 compare + guides）
       tool/[id].astro / plan/[id].astro
       compare/index.astro / compare/[slug].astro
       guides/index.astro / guides/[slug].astro
       tools/index|free|china|vscode|terminal|overview|builder|compare.astro
     en/                      # 英文路由（结构与 zh/ 完全镜像，透传 lang="en"）
+      rss.xml.ts             # 英文 RSS feed
 
   content/
     config.ts         # Content Collections 定义（4 个集合）
@@ -84,6 +86,7 @@ src/
     FilterBar.astro      # 工具筛选控件
     TableOfContents.astro  # 文章目录组件
     Comments.astro       # 评论组件
+    ShareBar.astro       # 文章/工具/方案底部分享栏（zh: X/微博/掘金/复制；en: X/LinkedIn/Reddit/HN/Copy）
 
   styles/
     global.css        # 全局样式（TailwindCSS 指令）
