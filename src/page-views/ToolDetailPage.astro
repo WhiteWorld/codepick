@@ -4,6 +4,7 @@ import ScoreBar from '../components/ScoreBar.astro';
 import ToolCard from '../components/ToolCard.astro';
 import PlanCard from '../components/PlanCard.astro';
 import Comments from '../components/Comments.astro';
+import ShareBar from '../components/ShareBar.astro';
 import { getAllToolsLocalized, getAllPlansLocalized, isFresh } from '../lib/data';
 import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
 import { getCollection } from 'astro:content';
@@ -444,6 +445,8 @@ const allJsonLd = [softwareAppSchema, breadcrumbSchema, ...(faqSchema ? [faqSche
         </div>
       </section>
     )}
+
+    <ShareBar url={toolUrl} title={tool.name} lang={lang} />
 
     <!-- Comments -->
     <Comments lang={lang} term={tool.id} />

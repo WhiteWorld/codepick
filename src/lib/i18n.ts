@@ -349,6 +349,14 @@ const translations: Record<string, Record<Locale, string>> = {
   'footer.personal':   { zh: '个人项目 · 非商业推荐', en: 'Personal project · Non-commercial' },
   'footer.lastUpdate': { zh: '数据最后更新:', en: 'Last updated:' },
   'footer.reportLink': { zh: '报告数据错误 →', en: 'Report Data Error →' },
+  'footer.rss':        { zh: 'RSS 订阅', en: 'RSS Feed' },
+
+  // ── Share bar ───────────────────────────────────────────────────────────
+  'share.title':     { zh: '分享：', en: 'Share:' },
+  'share.copyLink':  { zh: '复制链接', en: 'Copy link' },
+  'share.copied':    { zh: '已复制 ✓', en: 'Copied ✓' },
+  'share.weibo':     { zh: '微博', en: 'Weibo' },
+  'share.juejin':    { zh: '掘金', en: 'Juejin' },
   'footer.copyright':  { zh: '© 2026 CodePick. 工具评测数据仅供参考，请以官方信息为准。', en: '© 2026 CodePick. Tool data is for reference only. Please verify with official sources.' },
 
   // ── Misc / menu ─────────────────────────────────────────────────────────

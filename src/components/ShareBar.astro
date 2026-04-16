@@ -1,0 +1,163 @@
+---
+import { t, type Locale } from '../lib/i18n';
+
+interface Props {
+  url: string;           // Absolute URL to share
+  title: string;         // Title for social posts
+  description?: string;  // Optional 1-line summary
+  lang: Locale;
+}
+
+const { url, title, description = '', lang } = Astro.props;
+
+// Pre-encoded social intents.  For services without a stable web-intent (WeChat),
+// we use "copy link" which is the standard mobile sharing flow in China.
+const shareText = description ? `${title} — ${description}` : title;
+const enc = (s: string) => encodeURIComponent(s);
+
+const intents = {
+  x:      `https://twitter.com/intent/tweet?text=${enc(shareText)}&url=${enc(url)}&via=codepick_dev`,
+  weibo:  `https://service.weibo.com/share/share.php?url=${enc(url)}&title=${enc(shareText)}`,
+  juejin: `https://juejin.cn/editor/drafts/new?v=2&source=${enc(url)}`,
+  linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${enc(url)}`,
+  reddit: `https://www.reddit.com/submit?url=${enc(url)}&title=${enc(title)}`,
+  hn:     `https://news.ycombinator.com/submitlink?u=${enc(url)}&t=${enc(title)}`,
+};
+
+// Show China-oriented channels on zh pages, Western-oriented on en pages.
+const zhOrder = ['x', 'weibo', 'juejin', 'copy'] as const;
+const enOrder = ['x', 'linkedin', 'reddit', 'hn', 'copy'] as const;
+const channels = (lang === 'zh' ? zhOrder : enOrder) as readonly string[];
+---
+
+<section
+  class="share-bar mt-8 pt-6 border-t border-[var(--surface-border)]"
+  aria-label={t('share.title', lang)}
+  data-share-url={url}
+  data-copy-label={t('share.copyLink', lang)}
+  data-copied-label={t('share.copied', lang)}
+>
+  <div class="flex flex-wrap items-center gap-3">
+    <span class="text-sm text-[var(--text-muted)] mr-1">{t('share.title', lang)}</span>
+
+    {channels.includes('x') && (
+      <a
+        href={intents.x}
+        target="_blank"
+        rel="noopener nofollow"
+        class="btn btn-ghost text-xs inline-flex items-center gap-1.5 no-underline"
+        aria-label="Share on X"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3.5 h-3.5" aria-hidden="true"><path d="M18.244 2H21.5l-7.51 8.584L22.75 22h-6.9l-5.41-7.066L4.24 22H.98l8.03-9.184L.75 2h7.07l4.89 6.467L18.244 2zm-1.21 18h1.82L6.92 3.9H5.05l11.984 16.1z"/></svg>
+        X
+      </a>
+    )}
+
+    {channels.includes('weibo') && (
+      <a
+        href={intents.weibo}
+        target="_blank"
+        rel="noopener nofollow"
+        class="btn btn-ghost text-xs inline-flex items-center gap-1.5 no-underline"
+        aria-label="分享到微博"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14c.8-1.6 3.5-2 5.5-.8"/><path d="M7 10c2-1 5-1 7 0"/></svg>
+        {t('share.weibo', lang)}
+      </a>
+    )}
+
+    {channels.includes('juejin') && (
+      <a
+        href={intents.juejin}
+        target="_blank"
+        rel="noopener nofollow"
+        class="btn btn-ghost text-xs inline-flex items-center gap-1.5 no-underline"
+        aria-label="分享到掘金"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3.5 h-3.5" aria-hidden="true"><path d="M12 3 2 11l2 1.6L12 6.3l8 6.3L22 11 12 3zm0 7.8-4.8 3.8L12 18.4l4.8-3.8L12 10.8zm0 7.3-8-6.3-2 1.6 10 7.8 10-7.8-2-1.6-8 6.3z"/></svg>
+        {t('share.juejin', lang)}
+      </a>
+    )}
+
+    {channels.includes('linkedin') && (
+      <a
+        href={intents.linkedin}
+        target="_blank"
+        rel="noopener nofollow"
+        class="btn btn-ghost text-xs inline-flex items-center gap-1.5 no-underline"
+        aria-label="Share on LinkedIn"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3.5 h-3.5" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.36 4.24 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        LinkedIn
+      </a>
+    )}
+
+    {channels.includes('reddit') && (
+      <a
+        href={intents.reddit}
+        target="_blank"
+        rel="noopener nofollow"
+        class="btn btn-ghost text-xs inline-flex items-center gap-1.5 no-underline"
+        aria-label="Share on Reddit"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3.5 h-3.5" aria-hidden="true"><path d="M22 12c0-1.1-.9-2-2-2a2 2 0 0 0-1.4.56c-1.5-1-3.47-1.65-5.62-1.73l1.17-3.68 3.15.75a1.5 1.5 0 1 0 .15-1l-3.7-.88a.5.5 0 0 0-.58.33l-1.3 4.13c-2.24.05-4.3.7-5.85 1.73A2 2 0 0 0 4 10a2 2 0 0 0-.97 3.74 5 5 0 0 0-.03.49c0 3.19 3.58 5.77 8 5.77s8-2.58 8-5.77a5 5 0 0 0-.03-.5A2 2 0 0 0 22 12zM8 13.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0zm7.35 3.65c-.76.76-2.2 1.02-3.35 1.02s-2.59-.26-3.35-1.02a.36.36 0 0 1 .5-.5c.5.5 1.55.68 2.85.68s2.35-.18 2.85-.68a.36.36 0 1 1 .5.5zM14.5 15a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg>
+        Reddit
+      </a>
+    )}
+
+    {channels.includes('hn') && (
+      <a
+        href={intents.hn}
+        target="_blank"
+        rel="noopener nofollow"
+        class="btn btn-ghost text-xs inline-flex items-center gap-1.5 no-underline"
+        aria-label="Share on Hacker News"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3.5 h-3.5" aria-hidden="true"><path d="M3 3h18v18H3V3zm9.5 10.3L9 7h2l2.5 4.5L16 7h2l-3.5 6.3V17h-2v-3.7z"/></svg>
+        HN
+      </a>
+    )}
+
+    {channels.includes('copy') && (
+      <button
+        type="button"
+        data-share-copy
+        class="btn btn-ghost text-xs inline-flex items-center gap-1.5"
+        aria-label={t('share.copyLink', lang)}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        <span data-share-copy-label>{t('share.copyLink', lang)}</span>
+      </button>
+    )}
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.share-bar').forEach((bar) => {
+    const url = bar.dataset.shareUrl || '';
+    const copyBtn = bar.querySelector<HTMLButtonElement>('[data-share-copy]');
+    const label = bar.querySelector<HTMLElement>('[data-share-copy-label]');
+    const copyLabel = bar.dataset.copyLabel || 'Copy link';
+    const copiedLabel = bar.dataset.copiedLabel || 'Copied!';
+
+    copyBtn?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(url);
+      } catch {
+        // Fallback for older browsers / insecure contexts
+        const ta = document.createElement('textarea');
+        ta.value = url;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch {}
+        ta.remove();
+      }
+      if (label) {
+        label.textContent = copiedLabel;
+        setTimeout(() => { label.textContent = copyLabel; }, 1800);
+      }
+    });
+  });
+</script>

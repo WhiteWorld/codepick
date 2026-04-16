@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TableOfContents from '../components/TableOfContents.astro';
+import ShareBar from '../components/ShareBar.astro';
 import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
 import { getAllToolsLocalized, overallScore } from '../lib/data';
 import { getCollection } from 'astro:content';
@@ -150,6 +151,8 @@ const articleSchema = canUseHowTo
     ">
       <Content />
     </div>
+
+    <ShareBar url={guideUrl} title={guide.data.title} description={guide.data.description} lang={lang} />
 
     <!-- Mentioned Tools -->
     {mentionedTools.length > 0 && (
