@@ -22,9 +22,9 @@ npm run update-all-tools       # 同时运行上面两个脚本
 
 ```
 data/
-  tools/*.yaml        # 工具数据（每个工具一个文件，共 15 个）
+  tools/*.yaml        # 工具数据（每个工具一个文件，共 20 个）
   apis/*.yaml         # API 源数据（ark, bailian, ollama, openrouter）
-  plans/*.yaml        # 方案数据（工具 + API 组合，共 18 个）
+  plans/*.yaml        # 方案数据（工具 + API 组合，共 14 个）
 
 src/
   lib/
@@ -32,7 +32,7 @@ src/
     i18n.ts           # 双语翻译系统（150+ 翻译 key，t()、localePath() 等）
     faq-data.ts       # FAQ 内容数据
 
-  page-views/         # 页面模板组件（14 个，含所有页面 UI 逻辑）
+  page-views/         # 页面模板组件（19 个，含所有页面 UI 逻辑）
     HomePage.astro
     ToolDetailPage.astro
     ToolsIndexPage.astro
@@ -41,22 +41,27 @@ src/
     ToolsChinaPage.astro
     ToolsTerminalPage.astro
     ToolsVscodePage.astro
+    ToolsBuilderPage.astro     # 应用构建型工具（Bolt / v0 / Lovable 等）
+    ToolsComparePage.astro     # 工具对比矩阵页
     PlanDetailPage.astro
     CompareArticlePage.astro
     CompareIndexPage.astro
     GuidesArticlePage.astro
     GuidesIndexPage.astro
     FaqPage.astro
+    CodingPlanPage.astro       # Coding Plan 专题页
+    DealsPage.astro            # 优惠/折扣汇总页
+    PromptsPage.astro          # 提示词 / 规则模板页
 
   pages/
     index.astro              # 根路径语言重定向（JS 检测 navigator.language）
     api/openrouter.json.ts   # OpenRouter API 端点
     zh/                      # 中文路由（薄包装，透传 lang="zh" 给 page-views）
-      index.astro / faq.astro
+      index.astro / faq.astro / coding-plan.astro / deals.astro / prompts.astro
       tool/[id].astro / plan/[id].astro
       compare/index.astro / compare/[slug].astro
       guides/index.astro / guides/[slug].astro
-      tools/index|free|china|vscode|terminal|overview.astro
+      tools/index|free|china|vscode|terminal|overview|builder|compare.astro
     en/                      # 英文路由（结构与 zh/ 完全镜像，透传 lang="en"）
 
   content/
@@ -77,6 +82,8 @@ src/
     ScoreBar.astro       # 评分可视化条形图
     CompareTable.astro   # 功能对比矩阵
     FilterBar.astro      # 工具筛选控件
+    TableOfContents.astro  # 文章目录组件
+    Comments.astro       # 评论组件
 
   styles/
     global.css        # 全局样式（TailwindCSS 指令）
@@ -301,6 +308,8 @@ setup_difficulty: 简单|中等|复杂
 - `/tools/china`：`scores.china_friendly >= 7`
 - `/tools/vscode`：`features.ide_base` 含 "vs code" 或 "vscode"（大小写不敏感）
 - `/tools/terminal`：`type === 'cli'` 或 `features.ide_base` 含 "终端/tui/cli"
+- `/tools/builder`：`type === 'web'`（AI 应用构建器：Lovable / Bolt.new / v0 / Youware）
+- `/tools/compare`：客户端 JS 交互式对比矩阵（不过滤，展示全部工具）
 
 ## 内容文章规范
 
@@ -357,11 +366,11 @@ isFresh(dateStr) → boolean      # 检查 next_review_due 是否未过期
 
 ## 当前工具库
 
-15 个工具（`data/tools/`）：
-`aider`, `antigravity`, `claude-code`, `cline`, `codex`, `codex-cli`, `copilot`, `cursor`, `gemini-cli`, `kiro`, `opencode`, `roo-code`, `trae`, `trae-cn`, `windsurf`
+20 个工具（`data/tools/`）：
+`aider`, `antigravity`, `bolt`, `claude-code`, `cline`, `codex`, `codex-cli`, `copilot`, `cursor`, `gemini-cli`, `kimi-code`, `kiro`, `lovable`, `opencode`, `roo-code`, `trae`, `trae-cn`, `v0`, `windsurf`, `youware`
 
 4 个 API 源（`data/apis/`）：
 `ark-coding-plan`, `bailian-coding-plan`, `ollama`, `openrouter`
 
-18 个方案（`data/plans/`）：
-`aider-ollama`, `antigravity`, `claude-code-max`, `cline-ark`, `cline-bailian`, `copilot-pro`, `cursor-pro`, `gemini-cli`, `kiro-pro`, `opencode-ark`, `opencode-bailian`, `trae-ark`, `trae-cn`, `windsurf-pro` 等
+14 个方案（`data/plans/`）：
+`aider-ollama`, `antigravity`, `claude-code-max`, `cline-ark`, `cline-bailian`, `copilot-pro`, `cursor-pro`, `gemini-cli`, `kiro-pro`, `opencode-ark`, `opencode-bailian`, `trae-ark`, `trae-cn`, `windsurf-pro`

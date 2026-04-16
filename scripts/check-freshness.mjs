@@ -25,8 +25,9 @@ function checkDir(subdir) {
   for (const file of fs.readdirSync(dir).filter(f => f.endsWith('.yaml') || f.endsWith('.yml'))) {
     const content = fs.readFileSync(path.join(dir, file), 'utf8');
     
-    // 提取日期字段（支持 meta.last_full_review 或顶层 last_updated/last_verified）
-    const match = content.match(/(?:last_full_review|last_updated|last_verified|updated_at):\s*['"]?(\d{4}-\d{2}(?:-\d{2})?)/);
+    // 提取日期字段（优先顶层 last_full_review，其次 last_updated/last_verified）
+    // 使用行首锚点避免误匹配嵌套的 price_updated_at 等字段
+    const match = content.match(/^(?:last_full_review|last_updated|last_verified|updated_at):\s*['"]?(\d{4}-\d{2}(?:-\d{2})?)/m);
     const dateStr = match ? match[1] : null;
     
     let daysSince = null;

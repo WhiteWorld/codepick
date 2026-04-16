@@ -5,7 +5,7 @@ logo: /images/aider.png
 url: https://aider.chat
 repo: https://github.com/Aider-AI/aider
 current_version: v0.86.2
-version_tracked_at: '2026-02-26'
+version_tracked_at: '2026-04-16'
 pricing:
   model: free
   currency: null
@@ -14,7 +14,7 @@ pricing:
       price: 0
       limits: 无限制（需自备 API Key 或本地模型）
       limits_en: Unlimited (requires your own API Key or local model)
-  price_updated_at: '2026-01-28'
+  price_updated_at: '2026-04-16'
 scores:
   coding_ability: 7
   cost_efficiency: 10
@@ -75,8 +75,12 @@ compatible_apis:
 data_sources:
   - url: https://github.com/Aider-AI/aider/releases
     type: release
-    last_checked: '2026-03-16'
+    last_checked: '2026-04-16'
 changelog:
+  - date: '2026-04-16'
+    type: announcement
+    summary: 数据月度复核：版本、定价、模型支持列表均无重大变更
+    summary_en: Monthly data review — no material changes to version, pricing, or model support list
   - date: '2026-02-12'
     type: release
     summary: 'v0.86.2: 新增 --upgrade 开关，显示 token 进度和 repo map 更新文件名；废弃 Python 3.9 支持'
@@ -89,7 +93,7 @@ changelog:
     type: release
     summary: 新增 GPT-4.1/mini/nano 支持；Gemini 2.5 Pro Architect 模式改进；支持 Grok-3-beta 和新 Claude Sonnet 4/Opus 4 别名
     summary_en: Added GPT-4.1/mini/nano; improved Gemini 2.5 Pro Architect mode; Grok-3-beta and new Claude Sonnet 4/Opus 4 alias support
-last_full_review: '2026-03-16'
-next_review_due: '2026-04-16'
+last_full_review: '2026-04-16'
+next_review_due: '2026-05-16'
 review_frequency_days: 30
 confidence: medium
