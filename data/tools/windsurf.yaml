@@ -15,25 +15,30 @@ pricing:
       limits: 25 credits/月，支持全部高级模型
       limits_en: 25 credits/mo, access to all premium models
     - name: Pro
-      price: 15
+      price: 20
       period: month
-      limits: 500 credits/月，SWE-1.5 模型，Fast Context；额外 $10/250 credits
-      limits_en: 500 credits/mo, SWE-1.5 model, Fast Context; extra $10/250 credits
+      limits: 标准每日/每周配额，全部高级模型（SWE-1/1.5、Sonnet 4.6、GPT-5、Gemini 3.1 Pro），无限 Tab 补全和命令行编辑，含 Devin 云端 Agent
+      limits_en: Standard daily/weekly quota, all premium models (SWE-1/1.5, Sonnet 4.6, GPT-5, Gemini 3.1 Pro), unlimited Tab & Command, Devin Cloud Agent included
+    - name: Max
+      price: 200
+      period: month
+      limits: 高用量配额，适合高强度使用场景，含 Devin 云端 Agent
+      limits_en: Higher usage quota for power users, Devin Cloud Agent included
     - name: Teams
-      price: 30
+      price: 40
       period: month
       per_user: true
-      limits: 500 credits/用户/月，集中计费，管理后台，SSO + RBAC
-      limits_en: 500 credits/user/mo, centralized billing, admin dashboard, SSO + RBAC
+      limits: 每用户标准配额，集中计费，管理后台，SSO + RBAC，含 Devin 云端 Agent
+      limits_en: Standard quota per user, centralized billing, admin dashboard, SSO + RBAC, Devin Cloud Agent included
     - name: Enterprise
-      price: 60
+      price: null
       period: month
       per_user: true
-      limits: 1000 credits/用户/月，RBAC + SSO，混合部署，ZDR默认开启，200人以上联系销售
-      limits_en: 1000 credits/user/mo, RBAC + SSO, hybrid deployment, ZDR enabled by default; 200+ contact sales
-  price_updated_at: '2026-02-26'
-  note: 1 credit = $0.04；额外购买 $10/250 credits(Pro) 或 $40/1000 credits(Teams/Enterprise)；add-on credits 不过期；Pro 比 Cursor Pro 便宜 $5（$15 vs $20）
-  note_en: 1 credit = $0.04; add-on credits at $10/250 (Pro) or $40/1000 (Teams/Enterprise); add-on credits never expire; Pro is $5 cheaper than Cursor Pro ($15 vs $20)
+      limits: 企业级配额，RBAC + SSO，混合部署，ZDR，200人以上联系销售
+      limits_en: Enterprise quota, RBAC + SSO, hybrid deployment, ZDR; 200+ contact sales
+  price_updated_at: '2026-04-16'
+  note: 2026年3月19日起新订阅者 Pro 从 $15 升至 $20，改为每日/每周刷新配额制；2026年3月19日前订阅者保留旧 $15 价格；学生认证可享 50%+ 折扣
+  note_en: From March 19, 2026, new Pro subscribers pay $20 (up from $15); daily/weekly quota system replaces monthly credits; pre-March-19 subscribers keep $15 rate; 50%+ student discount with .edu email
 scores:
   coding_ability: 8.5
   cost_efficiency: 8
@@ -105,6 +110,14 @@ data_sources:
     type: changelog
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-04-15'
+    type: feature
+    summary: 'Windsurf 2.0：Devin 云端 Agent 集成进 IDE，一键将本地会话移交 Devin 执行，运行于独立 VM；新增看板式多 Agent 管理视图（Kanban）；Spaces 功能可将 Agent、PR、文件和上下文组织成任务空间；Gemini 3 Flash 向所有用户开放'
+    summary_en: 'Windsurf 2.0: Devin Cloud Agent integrated — one-click handoff from local Cascade to Devin running on its own VM; new Kanban view for all local/cloud agent sessions; Spaces to group agents, PRs, files and context into task workspaces; Gemini 3 Flash available to all users'
+  - date: '2026-03-19'
+    type: pricing
+    summary: '定价改革：Pro 从 $15 升至 $20（2026-03-19 前订阅者保留旧价），信用额度制改为每日/每周刷新配额制；新增 Max 套餐 $200/月'
+    summary_en: 'Pricing overhaul: Pro raised from $15 to $20 (pre-March-19 subscribers grandfathered at $15); monthly credits replaced by daily/weekly quota system; new Max plan at $200/mo'
   - date: '2026-03-05'
     type: feature
     summary: 'Wave 13: 并行多 Agent 会话，Git worktree 隔离沙箱，双侧 Cascade 面板对比；Arena Mode 上线——在同一 IDE 内对比两个模型输出并投票'
@@ -137,7 +150,7 @@ changelog:
     type: update
     summary: 推出 SWE-1.5 自研 Agent 模型，速度和代码能力双提升
     summary_en: Launched SWE-1.5 proprietary Agent model, improving both speed and code quality
-last_full_review: '2026-03-27'
-next_review_due: '2026-04-27'
+last_full_review: '2026-04-16'
+next_review_due: '2026-05-16'
 review_frequency_days: 30
 confidence: high

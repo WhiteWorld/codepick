@@ -4,8 +4,8 @@ type: ide
 logo: /images/cursor.png
 url: https://cursor.com
 repo: null
-current_version: '2.6'
-version_tracked_at: '2026-03-16'
+current_version: '3.0'
+version_tracked_at: '2026-04-16'
 pricing:
   model: subscription
   currency: USD
@@ -124,6 +124,10 @@ data_sources:
     type: changelog
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-04-02'
+    type: feature
+    summary: 'v3.0：全新 Agents Window 支持多 Agent 并行运行（本地/worktree/云端/SSH）；Design Mode 直接在浏览器标注 UI 元素精确指向；/worktree 隔离沙箱命令；/best-of-n 多模型并行跑同一任务再对比；Bugbot 支持 MCP 与自我进化，解决率升至 78%'
+    summary_en: 'v3.0: New Agents Window for parallel agents across local/worktree/cloud/SSH; Design Mode annotates browser UI directly; /worktree command for isolated sandboxes; /best-of-n runs the same task in parallel across models; Bugbot with MCP support and self-improvement, 78% resolution rate'
   - date: '2026-03-25'
     type: feature
     summary: '自托管云端 Agent 发布，代码和构建产物全部在用户自有基础设施中运行'
@@ -168,7 +172,7 @@ changelog:
     type: pricing
     summary: Pro 从500次请求制改为$20额度池制, Auto模式无限使用
     summary_en: Pro switched from 500-request quota to $20 credit pool; unlimited Auto mode
-last_full_review: '2026-03-27'
-next_review_due: '2026-04-27'
+last_full_review: '2026-04-16'
+next_review_due: '2026-05-16'
 review_frequency_days: 30
 confidence: high
