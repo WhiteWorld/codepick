@@ -47,6 +47,9 @@ features:
   diff_review: true
   codex_integrations: true
   skills_automations: true
+  in_app_browser: true
+  memory: true
+  image_generation: true
   context_window: 标准上下文窗口
   supported_models:
     - GPT-5.4
@@ -98,6 +101,14 @@ data_sources:
     type: pricing
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-04-16'
+    type: feature
+    summary: 大幅增强 Agent 能力：新增应用内浏览器（可执行 Web 任务）；Memory 功能预览（记忆历史工作会话）；图片生成工具（设计稿/幻灯片/占位图）；90+ 插件集成（GitLab/CodeRabbit 等）
+    summary_en: Major agentic upgrade — in-app browser for web tasks; Memory preview (recalls past sessions); image generation tool (designs/slides/mockups); 90+ new plugin integrations (GitLab, CodeRabbit, etc.)
+  - date: '2026-04-02'
+    type: pricing
+    summary: 计费改为基于 API token 使用量；ChatGPT Pro 用户 5 月底前享 2 倍 Codex 用量
+    summary_en: Billing switched to API token usage; ChatGPT Pro users get 2x Codex usage through end of May 2026
   - date: '2026-03-10'
     type: feature
     summary: GPT-5.3-Codex 上线, 25% 更快, 支持 mid-turn steering 实时交互; @Codex 集成 GitHub PR/Issues/Slack; Skills & Automations 自动化任务
@@ -110,7 +121,7 @@ changelog:
     type: launch
     summary: Codex macOS 原生 App 发布，支持并行多 Agent、原生沙箱、Diff 审查，仅限 Apple Silicon
     summary_en: Codex macOS native App launched — parallel multi-Agent, native sandbox, Diff review; Apple Silicon only
-last_full_review: '2026-03-27'
-next_review_due: '2026-04-27'
+last_full_review: '2026-04-19'
+next_review_due: '2026-05-19'
 review_frequency_days: 30
 confidence: medium

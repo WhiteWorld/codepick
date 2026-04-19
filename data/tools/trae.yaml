@@ -18,8 +18,8 @@ pricing:
       price: 10
       period: month
       annual_price: 90
-      limits: 全模型访问，SOLO 模式，更多 Premium 用量；首月 $3 优惠
-      limits_en: Full model access, SOLO mode, more Premium usage; first month $3
+      limits: 全模型访问，SOLO 模式，每月 600 次 Premium 模型快速请求；首月 $3 优惠
+      limits_en: Full model access, SOLO mode, 600 fast Premium model requests/month; first month $3
   price_updated_at: '2026-02-17'
   note: 国际版，面向海外用户；首月 Pro $3，次月起 $10/月 或 $90/年；国内用户建议用 Trae CN
   note_en: International edition for global users; first month Pro $3, then $10/mo or $90/year; China users should use Trae CN
@@ -88,6 +88,10 @@ data_sources:
     type: pricing
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-04-19'
+    type: announcement
+    summary: 数据月度复核：Pro 套餐每月 600 次 Premium 模型快速请求；定价不变（$10/月，首月 $3）；整体功能保持稳定
+    summary_en: Monthly data review — Pro plan confirmed at 600 fast Premium model requests/month; pricing unchanged ($10/mo, first month $3); feature set stable
   - date: '2026-03-01'
     type: feature
     summary: TRAE 2.0 SOLO 模式上线(Context Engineering); Cloud IDE 浏览器版发布; Plan Mode、Sub Agent、DiffView、上下文压缩
@@ -100,7 +104,7 @@ changelog:
     type: feature
     summary: Builder 模式上线，支持 Grok-4（Beta）模型
     summary_en: Builder mode launched, Grok-4 (Beta) model support added
-last_full_review: '2026-03-27'
-next_review_due: '2026-04-27'
+last_full_review: '2026-04-19'
+next_review_due: '2026-05-19'
 review_frequency_days: 30
 confidence: medium

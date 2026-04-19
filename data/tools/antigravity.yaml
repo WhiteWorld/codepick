@@ -4,30 +4,35 @@ type: ide
 logo: /images/antigravity.png
 url: https://antigravity.google/
 repo: null
-current_version: preview
-version_tracked_at: '2026-03-27'
+current_version: '1.22.2'
+version_tracked_at: '2026-04-19'
 pricing:
   model: freemium
   currency: USD
   plans:
-    - name: Individual
+    - name: Free
       price: 0
-      limits: 公开预览阶段免费；Gemini 3 Pro/Flash、Claude Sonnet 4.5、GPT-OSS，含速率限制
-      limits_en: Free during public preview; Gemini 3 Pro/Flash, Claude Sonnet 4.5, GPT-OSS, with rate limits
-    - name: Pro
+      limits: 约每天 20 次请求，Gemini 3 Flash 速率受限
+      limits_en: ~20 requests/day, Gemini 3 Flash with rate limits
+    - name: AI Pro
       price: 20
       period: month
-      limits: 更高配额，优先访问，预计 2026 推出（价格待官方确认）
-      limits_en: Higher quota, priority access, expected 2026 (price to be confirmed)
+      limits: 更高模型配额，优先访问，含 AI credits
+      limits_en: Higher model quota, priority access, includes AI credits
+    - name: Ultra
+      price: 249.99
+      period: month
+      limits: 最高配额，所有顶级模型访问，适合重度用户
+      limits_en: Maximum quota, all top-tier model access, for power users
     - name: Enterprise
       price: null
       period: month
       per_user: true
-      limits: SSO、数据驻留、管理控制台，价格待官方确认
-      limits_en: SSO, data residency, admin console; price to be confirmed
-  price_updated_at: '2026-02-17'
-  note: 目前公开预览免费；可免费使用 Claude Opus 4.5 (Thinking) 等顶级模型，定价策略后续可能调整
-  note_en: Currently free in public preview; top-tier models including Claude Opus 4.5 (Thinking) available for free; pricing strategy may change
+      limits: SSO、数据驻留、管理控制台、优先支持
+      limits_en: SSO, data residency, admin console, priority support
+  price_updated_at: '2026-04-19'
+  note: Free 套餐约每天 20 次；AI credits 可单独购买（$25 购 2500 credits）
+  note_en: Free tier ~20 requests/day; AI credits available separately ($25 for 2,500 credits)
 scores:
   coding_ability: 9
   cost_efficiency: 9
@@ -42,7 +47,9 @@ features:
   mcp_support: true
   browser_access: true
   artifacts: true
-  context_window: 超长上下文（Gemini 3 Pro）
+  linux_sandbox: true
+  agents_md_support: true
+  context_window: 超长上下文（Gemini 3 Pro 2M token）
   supported_models:
     - Gemini 3 Pro
     - Gemini 3 Flash
@@ -90,11 +97,19 @@ data_sources:
     type: product
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-04-19'
+    type: announcement
+    summary: v1.22.2：新增 Linux 沙盒支持；支持从 AGENTS.md 读取规则（原只支持 GEMINI.md）；新统一权限系统；Auto-continue 默认开启；修复 MCP 服务器加载 Bug
+    summary_en: v1.22.2 — Linux sandboxing added; AGENTS.md rules support (alongside GEMINI.md); unified permissions system; Auto-continue now on by default; MCP server loading bug fixed
+  - date: '2026-04-01'
+    type: pricing
+    summary: 正式推出付费套餐：AI Pro $20/月、Ultra $249.99/月；AI credits 可单独购买（$25/2500）；Free 每天约 20 次
+    summary_en: Paid plans officially launched — AI Pro $20/mo, Ultra $249.99/mo; AI credits sold separately ($25/2,500); Free ~20 requests/day
   - date: '2025-11-18'
     type: launch
     summary: Google Antigravity 公开预览发布，随 Gemini 3 同期推出，VS Code Fork，免费支持多顶级模型
     summary_en: Google Antigravity public preview launched alongside Gemini 3 — VS Code Fork, free access to multiple top-tier models
-last_full_review: '2026-03-27'
-next_review_due: '2026-04-27'
+last_full_review: '2026-04-19'
+next_review_due: '2026-05-19'
 review_frequency_days: 30
 confidence: medium
