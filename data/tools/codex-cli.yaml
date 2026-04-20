@@ -5,7 +5,7 @@ logo: /images/codex-cli.png
 url: https://openai.com/codex/
 repo: https://github.com/openai/codex
 current_version: v0.121.0
-version_tracked_at: '2026-04-15'
+version_tracked_at: '2026-04-17'
 pricing:
   model: subscription
   currency: USD
@@ -13,13 +13,18 @@ pricing:
     - name: ChatGPT Plus
       price: 20
       period: month
-      limits: Codex CLI + Web + IDE 扩展，使用 o4-mini / GPT-5.3-Codex
-      limits_en: Codex CLI + Web + IDE extension, uses o4-mini / GPT-5.3-Codex
+      limits: Codex CLI + Web + IDE 扩展，token 计费，基础用量
+      limits_en: Codex CLI + Web + IDE extension, token billing, base usage
     - name: ChatGPT Pro
+      price: 100
+      period: month
+      limits: Plus 5 倍用量（促销期至 2026-05-31 享 10 倍）；全部 Pro 专属模型
+      limits_en: 5x usage vs Plus (10x promo through 2026-05-31); full Pro exclusive models
+    - name: ChatGPT Premium
       price: 200
       period: month
-      limits: 更高用量，使用 o3 / o4 全系列模型
-      limits_en: Higher usage, access to full o3 / o4 model series
+      limits: 最高用量，全系列 o3/o4 模型
+      limits_en: Highest usage, full o3/o4 model series
     - name: API Key（按量计费）
       price: null
       limits: 按 token 计费，支持 o3、o4-mini；灵活但成本不可控
@@ -30,9 +35,9 @@ pricing:
       per_user: true
       limits: 团队管理，自动 Code Review，Slack 集成，审计日志
       limits_en: Team management, automated Code Review, Slack integration, audit logs
-  price_updated_at: '2026-02-17'
-  note: 需要 ChatGPT Plus（$20/月）或 OpenAI API Key；与 Gemini CLI 不同，无免费额度
-  note_en: Requires ChatGPT Plus ($20/mo) or OpenAI API Key; unlike Gemini CLI, there is no free tier
+  price_updated_at: '2026-04-17'
+  note: 需要 ChatGPT Plus（$20/月）、Pro（$100/月）或 OpenAI API Key；2026-04-02 定价切换为 token 计费；与 Gemini CLI 不同，无免费额度
+  note_en: Requires ChatGPT Plus ($20/mo), Pro ($100/mo), or OpenAI API Key; switched to token-based billing 2026-04-02; unlike Gemini CLI, no free tier
 scores:
   coding_ability: 9
   cost_efficiency: 6
@@ -104,8 +109,12 @@ data_sources:
 changelog:
   - date: '2026-04-15'
     type: release
-    summary: 'v0.121.0: Marketplace 插件安装命令(codex marketplace add); TUI 历史搜索(Ctrl+R); Memory 模式控制; Realtime V2 后台 Agent 流式传输; MCP 工具调用支持增强'
-    summary_en: 'v0.121.0: Marketplace plugin install (codex marketplace add); TUI history search (Ctrl+R); memory mode controls; Realtime V2 background agent streaming; enhanced MCP tool call support'
+    summary: 'v0.121.0: 插件市场（支持 GitHub/git/本地目录安装）; TUI 提示历史 Ctrl+R 搜索; Memory 模式控制; MCP Apps 命名空间注册; Realtime API 多模态输出; 安全 devcontainer + bubblewrap'
+    summary_en: 'v0.121.0: Plugin marketplace (GitHub/git/local install); TUI prompt history Ctrl+R search; Memory mode controls; MCP Apps namespaced registration; Realtime API output modality; secure devcontainer + bubblewrap'
+  - date: '2026-04-11'
+    type: release
+    summary: 'v0.120.0: Realtime V2 后台 Agent 进度流; Hook 活动 TUI 显示; 自定义状态栏支持线程标题; MCP outputSchema 结构化结果'
+    summary_en: 'v0.120.0: Realtime V2 background agent progress streaming; Hook activity in TUI; custom status line with thread titles; MCP outputSchema for structured tool results'
   - date: '2026-03-19'
     type: release
     summary: 'v0.116.0: ChatGPT device-code 登录; GPT-5.4 支持; Codex-Spark 研究预览(Pro用户); Web 搜索集成; Hooks 引擎(CI/策略集成)'

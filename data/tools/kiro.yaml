@@ -29,6 +29,10 @@ pricing:
       period: month
       limits: 10,000 credits/月
       limits_en: 10,000 credits/mo
+    - name: Students
+      price: 0
+      limits: 高校学生专属，1,000 credits/月，免费 1 年
+      limits_en: University students only, 1,000 credits/mo, free for 1 year
     - name: Enterprise
       price: null
       period: month
@@ -57,8 +61,9 @@ features:
   kiro_cli: true
   context_window: 标准上下文窗口
   supported_models:
-    - Claude Sonnet 4 (Auto 模式自动选择)
+    - Claude Opus 4.7（2.2x credit，1M context，实验性）
     - Claude Sonnet 4.5
+    - GLM-5（200K context，稀疏 MoE）
   ide_base: VS Code Fork
   supported_os:
     - macOS
@@ -105,6 +110,22 @@ data_sources:
     type: changelog
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-04-17'
+    type: model
+    summary: 'Claude Opus 4.7 上线（实验性，2.2x credit 倍率，1M token 上下文，3 倍视觉分辨率）；向 Pro/Pro+/Power IAM 用户灰度发布'
+    summary_en: 'Claude Opus 4.7 launched (experimental, 2.2x credit multiplier, 1M context, 3x vision resolution); rolling out to Pro/Pro+/Power IAM users'
+  - date: '2026-04-13'
+    type: feature
+    summary: 'Kiro CLI 2.0：原生支持 Windows 11，Headless 无头模式（CI/CD）；TUI 设为默认界面；并行会话与 crew 监控'
+    summary_en: 'Kiro CLI 2.0: native Windows 11 support, headless mode for CI/CD; TUI now default interface; parallel sessions and crew monitoring'
+  - date: '2026-04-02'
+    type: model
+    summary: 'GLM-5 上线：稀疏 MoE 架构，200K token 上下文，适合复杂系统工程和跨代码库长程任务'
+    summary_en: 'GLM-5 added: sparse MoE architecture, 200K context window, designed for complex systems engineering and long-horizon codebase tasks'
+  - date: '2026-03-18'
+    type: feature
+    summary: 'Kiro for Students：认证高校学生免费获取 1 年 Pro 权益（1,000 credits/月）'
+    summary_en: 'Kiro for Students: eligible university students get 1 year of Pro access free (1,000 credits/month)'
   - date: '2026-01-19'
     type: feature
     summary: Kiro CLI 发布，替代 Amazon Q Developer CLI; Autonomous Agent 预览; Checkpointing 回滚功能
@@ -117,7 +138,7 @@ changelog:
     type: launch
     summary: Kiro 公开预览版发布，AWS 出品的 Spec 驱动 Agentic IDE
     summary_en: Kiro public preview launched — AWS-built Spec-driven Agentic IDE
-last_full_review: '2026-03-27'
-next_review_due: '2026-04-27'
+last_full_review: '2026-04-17'
+next_review_due: '2026-05-17'
 review_frequency_days: 30
 confidence: high
