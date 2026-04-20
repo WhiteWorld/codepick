@@ -52,6 +52,9 @@ features:
   diff_review: true
   codex_integrations: true
   skills_automations: true
+  in_app_browser: true
+  memory: true
+  image_generation: true
   context_window: 标准上下文窗口
   supported_models:
     - GPT-5.4
@@ -133,7 +136,7 @@ changelog:
     type: launch
     summary: Codex macOS 原生 App 发布，支持并行多 Agent、原生沙箱、Diff 审查，仅限 Apple Silicon
     summary_en: Codex macOS native App launched — parallel multi-Agent, native sandbox, Diff review; Apple Silicon only
-last_full_review: '2026-04-17'
-next_review_due: '2026-05-17'
+last_full_review: '2026-04-19'
+next_review_due: '2026-05-19'
 review_frequency_days: 30
 confidence: medium

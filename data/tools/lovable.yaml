@@ -13,22 +13,22 @@ pricing:
   plans:
     - name: Free
       price: 0
-      limits: 每月 30 条消息，无限公开项目
-      limits_en: 30 messages/month, unlimited public projects
+      limits: 每天 5 credits（每月最多 30 credits），无限公开项目
+      limits_en: 5 credits/day (max 30/month), unlimited public projects
     - name: Pro
-      price: 21
+      price: 25
       period: month
       per_user: true
-      limits: 每月 100 credits，私有项目，代码编辑
-      limits_en: 100 credits/month, private projects, code editing
+      limits: 每月 100 credits，私有项目，代码编辑，未用 credits 可滚存
+      limits_en: 100 credits/month, private projects, code editing, unused credits roll over
     - name: Business
       price: 50
       period: month
       per_user: false
-      limits: 团队共享 100 credits，SSO，角色权限
-      limits_en: Shared 100 credits, SSO, role-based access
-  price_updated_at: '2026-03-04'
-  note: 基于 credit 计费，Pro 每月 100 credits
+      limits: 团队共享 100 credits，SSO，角色权限，数据训练退出
+      limits_en: Shared 100 credits, SSO, role-based access, training opt-out
+  price_updated_at: '2026-04-19'
+  note: 基于 credit 计费，Pro 每月 100 credits；Pro/Business 未用 credits 可滚存到下月
 
 scores:
   coding_ability: 8.5
@@ -79,6 +79,10 @@ china_note: 需要翻墙访问，国内暂无镜像；以全栈 React Web 应用
 china_note_en: Requires VPN from China; no domestic mirror; focused on full-stack React web app generation, great for rapid prototyping
 
 changelog:
+  - date: '2026-04-19'
+    type: pricing
+    summary: Pro 套餐价格从 $21 涨至 $25/月；Free 套餐改为每天 5 credits（原为 30 条消息/月）；引入 credits 滚存机制
+    summary_en: Pro plan price increased from $21 to $25/month; Free plan now 5 credits/day (was 30 messages/month); credit rollover introduced
   - date: '2026-03-04'
     type: announcement
     summary: 首次收录
@@ -87,9 +91,12 @@ changelog:
 data_sources:
   - url: https://lovable.dev/pricing
     type: pricing
-    last_checked: '2026-03-04'
+    last_checked: '2026-04-19'
+  - url: https://docs.lovable.dev/introduction/plans-and-credits
+    type: docs
+    last_checked: '2026-04-19'
 
-last_full_review: '2026-03-04'
-next_review_due: '2026-06-04'
-review_frequency_days: 90
-confidence: medium
+last_full_review: '2026-04-19'
+next_review_due: '2026-05-19'
+review_frequency_days: 30
+confidence: high
