@@ -55,6 +55,11 @@ features:
   in_app_browser: true
   memory: true
   image_generation: true
+  computer_use: true
+  memories: true
+  plugins_marketplace: true
+  artifact_viewer: true
+  remote_ssh: true
   context_window: 标准上下文窗口
   supported_models:
     - GPT-5.4
@@ -62,12 +67,6 @@ features:
     - GPT-5.4 mini
     - o3
     - o4-mini
-  in_app_browser: true
-  computer_use: true
-  memories: true
-  plugins_marketplace: true
-  artifact_viewer: true
-  remote_ssh: true
   ide_base: macOS/Windows 原生 App + VS Code/Cursor/Windsurf 扩展
   supported_os:
     - macOS（Apple Silicon）
