@@ -13,22 +13,27 @@ pricing:
     - name: ChatGPT Plus
       price: 20
       period: month
-      limits: 含 Codex 云端任务额度，5小时内约30-150次；超出可按量购买
-      limits_en: Includes Codex cloud task quota, ~30-150 tasks per 5-hour window; overage available
+      limits: 含 Codex 云端任务额度，按 token 计费；超出可按量购买
+      limits_en: Includes Codex cloud task quota, token-based billing; overage available
     - name: ChatGPT Pro
+      price: 100
+      period: month
+      limits: Plus 5 倍 Codex 用量（促销期至 2026-05-31 享 10 倍）；全部 Pro 专属模型
+      limits_en: 5x Codex usage vs Plus (10x promo through 2026-05-31); full Pro exclusive model access
+    - name: ChatGPT Premium
       price: 200
       period: month
-      limits: 5小时内约300-1500次，2倍速率限制
-      limits_en: ~300-1500 tasks per 5-hour window, 2x rate limit
+      limits: 最高用量，原 Pro 计划；Codex 用量约为 Plus 的 10-20 倍
+      limits_en: Highest usage, original Pro plan; ~10-20x Codex usage vs Plus
     - name: Business / Enterprise
       price: null
       period: month
       per_user: true
-      limits: 团队管理、审计日志、SSO；Enterprise 支持私有代码库接入
-      limits_en: Team management, audit logs, SSO; Enterprise supports private repo integration
-  price_updated_at: '2026-02-17'
-  note: 包含在 ChatGPT 订阅中，无单独定价；任务复杂度越高消耗配额越多（简单脚本 vs 大型代码库差异显著）
-  note_en: Included in ChatGPT subscription, no separate pricing; higher task complexity consumes more quota (simple script vs large codebase varies significantly)
+      limits: 按量计费 Codex 专属席位；团队管理、审计日志、SSO；Enterprise 支持私有代码库
+      limits_en: Pay-as-you-go Codex-only seats; team management, audit logs, SSO; Enterprise supports private repos
+  price_updated_at: '2026-04-17'
+  note: 2026-04-09 新增 $100/月 Pro 计划（介于 Plus 和原 $200 Pro 之间）；2026-04-02 定价切换为 token 计费；Business 可按量添加 Codex 专属席位
+  note_en: New $100/mo Pro plan added 2026-04-09 (between Plus and $200 tier); pricing switched to token-based billing on 2026-04-02; Business can add pay-as-you-go Codex-only seats
 scores:
   coding_ability: 9
   cost_efficiency: 6
@@ -54,6 +59,12 @@ features:
     - GPT-5.4 mini
     - o3
     - o4-mini
+  in_app_browser: true
+  computer_use: true
+  memories: true
+  plugins_marketplace: true
+  artifact_viewer: true
+  remote_ssh: true
   ide_base: macOS/Windows 原生 App + VS Code/Cursor/Windsurf 扩展
   supported_os:
     - macOS（Apple Silicon）
@@ -98,6 +109,18 @@ data_sources:
     type: pricing
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-04-16'
+    type: feature
+    summary: Codex 26.415 大版本更新：内置浏览器（Atlas 引擎）、Computer Use（AI 操控 macOS）、Memories 记忆持久化、100+ 精选插件市场、Chats 无项目线程、PR 工作流集成、Artifact 查看器（PDF/表格/文档）、Remote SSH（Alpha）、多终端支持
+    summary_en: Codex 26.415 major update — in-app browser (Atlas engine), Computer Use (AI controls macOS), Memories for persistent context, 100+ curated plugin marketplace, Chats (projectless threads), PR workflow integration, Artifact viewer (PDF/spreadsheet/docs), Remote SSH (alpha), multi-terminal support
+  - date: '2026-04-09'
+    type: pricing
+    summary: 新增 $100/月 Pro 计划（介于 Plus $20 与原 Pro $200 之间），提供 Plus 5 倍 Codex 用量；促销期至 2026-05-31 享 10 倍用量
+    summary_en: New $100/mo Pro plan added (between Plus $20 and $200 tier), offering 5x Codex usage vs Plus; promo 10x through 2026-05-31
+  - date: '2026-04-02'
+    type: pricing
+    summary: Codex 定价切换为 API token 计费（替代原消息计费）；Business 年费从 $25 降至 $20/席位；支持按量购买 Codex 专属席位
+    summary_en: Codex pricing switched to API token-based billing (replacing per-message model); Business annual price cut from $25 to $20/seat; pay-as-you-go Codex-only seats for teams
   - date: '2026-03-10'
     type: feature
     summary: GPT-5.3-Codex 上线, 25% 更快, 支持 mid-turn steering 实时交互; @Codex 集成 GitHub PR/Issues/Slack; Skills & Automations 自动化任务
@@ -110,7 +133,7 @@ changelog:
     type: launch
     summary: Codex macOS 原生 App 发布，支持并行多 Agent、原生沙箱、Diff 审查，仅限 Apple Silicon
     summary_en: Codex macOS native App launched — parallel multi-Agent, native sandbox, Diff review; Apple Silicon only
-last_full_review: '2026-03-27'
-next_review_due: '2026-04-27'
+last_full_review: '2026-04-17'
+next_review_due: '2026-05-17'
 review_frequency_days: 30
 confidence: medium

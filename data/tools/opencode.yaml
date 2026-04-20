@@ -3,9 +3,9 @@ name: OpenCode
 type: cli
 logo: /images/opencode.png
 url: https://opencode.ai
-repo: https://github.com/anomalyco/opencode
-current_version: v1.3.3
-version_tracked_at: '2026-03-27'
+repo: https://github.com/sst/opencode
+current_version: v1.4.9
+version_tracked_at: '2026-04-17'
 pricing:
   model: free
   currency: null
@@ -73,13 +73,21 @@ compatible_apis:
   - deepseek
   - ollama
 data_sources:
-  - url: https://github.com/anomalyco/opencode/releases
+  - url: https://github.com/sst/opencode/releases
     type: release
     last_checked: '2026-03-27'
   - url: https://opencode.ai/changelog
     type: changelog
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-04-17'
+    type: release
+    summary: 'v1.4.9: LLM Gateway provider 支持; GitHub Copilot Opus 4.7 限制为 medium reasoning; 改善远程工作区断线重连（指数退避）'
+    summary_en: 'v1.4.9: LLM Gateway provider support; GitHub Copilot Opus 4.7 limited to medium reasoning effort; improved remote workspace reconnection with exponential backoff'
+  - date: '2026-04-16'
+    type: release
+    summary: 'v1.4.7: Claude Opus 4.7 默认显示摘要 thinking; GitHub Copilot gpt-5-mini 使用 low reasoning; 跨会话工作区 auth 上下文'
+    summary_en: 'v1.4.7: Claude Opus 4.7 shows summarized thinking by default; gpt-5-mini uses low reasoning for compatibility; workspaces receive auth context across sessions'
   - date: '2026-03-26'
     type: release
     summary: 'v1.3.3: TUI 绕过本地 SSE 提升性能; Windows Terminal 1.25+ 图片粘贴修复'
@@ -104,7 +112,7 @@ changelog:
     type: release
     summary: 'v0.0.55: 旧版本末期'
     summary_en: 'v0.0.55: final legacy release before v1.0 rewrite'
-last_full_review: '2026-03-27'
-next_review_due: '2026-04-27'
+last_full_review: '2026-04-17'
+next_review_due: '2026-05-17'
 review_frequency_days: 30
 confidence: medium

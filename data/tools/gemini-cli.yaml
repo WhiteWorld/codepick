@@ -4,8 +4,8 @@ type: cli
 logo: /images/gemini-cli.png
 url: https://github.com/google-gemini/gemini-cli
 repo: https://github.com/google-gemini/gemini-cli
-current_version: v0.35.0
-version_tracked_at: '2026-03-27'
+current_version: v0.38.2
+version_tracked_at: '2026-04-17'
 pricing:
   model: freemium
   currency: USD
@@ -96,6 +96,14 @@ data_sources:
     type: pricing
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-04-17'
+    type: release
+    summary: 'v0.38.2: Cherry-pick 修复补丁，提升稳定性'
+    summary_en: 'v0.38.2: Cherry-picked stability fixes patch release'
+  - date: '2026-04-15'
+    type: release
+    summary: 'v0.38.1: Chapters 叙事流（工具调用话题分组，长任务结构更清晰）; 上下文压缩服务（蒸馏历史对话）; Terminal Buffer 模式消除渲染闪烁; 上下文感知策略批准（持久化工具授权）; 后台进程监控工具'
+    summary_en: 'v0.38.1: Chapters narrative flow (tool-based topic grouping for long tasks); context compression service (distills conversation history); Terminal Buffer mode eliminates rendering flicker; context-aware policy approvals (persistent tool authorization); background process monitoring tools'
   - date: '2026-03-24'
     type: release
     summary: 'v0.35.0: Plan Mode 默认启用; 策略引擎支持项目级策略和 MCP Server 通配符'
@@ -108,7 +116,7 @@ changelog:
     type: launch
     summary: Gemini CLI 开源发布，免费使用 Gemini 2.5 Pro，1000 次/天
     summary_en: Gemini CLI open-sourced, free Gemini 2.5 Pro access, 1000 requests/day
-last_full_review: '2026-03-27'
-next_review_due: '2026-04-27'
+last_full_review: '2026-04-17'
+next_review_due: '2026-05-17'
 review_frequency_days: 30
 confidence: high
