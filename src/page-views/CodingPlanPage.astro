@@ -13,6 +13,18 @@ const { lang } = Astro.props;
 import { getApi } from '../lib/data';
 const arkRaw = getApi('ark-coding-plan') as any;
 const bailianRaw = getApi('bailian-coding-plan') as any;
+const glmRaw = getApi('glm-coding-plan') as any;
+const minimaxRaw = getApi('minimax-coding-plan') as any;
+
+// Prefer locale-specific field on an object: returns value_en when lang === 'en' and a *_en field exists.
+function pick<T = any>(obj: any, field: string, l: Locale): T | undefined {
+  if (!obj) return undefined;
+  if (l === 'en') {
+    const en = obj[`${field}_en`];
+    if (en !== undefined && en !== null && en !== '') return en as T;
+  }
+  return obj[field] as T;
+}
 
 const plans = getAllPlansLocalized(lang).sort((a, b) => overallScore(b.scores) - overallScore(a.scores));
 const filterTags = ['all', 'ide', 'diy', 'cli', 'budget', 'china', 'agent'];
@@ -30,6 +42,16 @@ const apiCards = [
     raw: bailianRaw,
     accentColor: '#8b5cf6',
     badge: lang === 'zh' ? '💜 Lite 停止新购' : '💜 Lite no longer sold',
+  },
+  {
+    raw: glmRaw,
+    accentColor: '#2563eb',
+    badge: lang === 'zh' ? '💙 MCP 权益丰富' : '💙 Rich MCP perks',
+  },
+  {
+    raw: minimaxRaw,
+    accentColor: '#10b981',
+    badge: lang === 'zh' ? '💚 M2.7 新升级' : '💚 New M2.7 upgrade',
   },
 ];
 
@@ -158,10 +180,10 @@ const howSteps = [
           <div class="flex items-start justify-between mb-4">
             <div class="flex items-center gap-3">
               {raw.logo && (
-                <img src={raw.logo} alt={raw.name} class="w-10 h-10 rounded-lg object-contain" loading="lazy" />
+                <img src={raw.logo} alt={pick(raw, 'name', lang) || raw.name} class="w-10 h-10 rounded-lg object-contain" loading="lazy" />
               )}
               <div>
-                <h3 class="text-base font-bold text-[var(--text-primary)] m-0">{raw.name}</h3>
+                <h3 class="text-base font-bold text-[var(--text-primary)] m-0">{pick(raw, 'name', lang) || raw.name}</h3>
                 <span class="text-xs font-semibold px-2 py-0.5 rounded-full" style={`background: ${accentColor}20; color: ${accentColor};`}>
                   {badge}
                 </span>
@@ -172,20 +194,31 @@ const howSteps = [
           <!-- Pricing Tiers -->
           {raw.pricing?.plans && (
             <div class={`grid gap-3 mb-4 ${raw.pricing.plans.length > 1 ? 'grid-cols-2' : 'grid-cols-1'}`}>
-              {raw.pricing.plans.map((plan: any) => (
-                <div class="rounded-lg p-3 border border-[var(--surface-border)]" style={`background: ${accentColor}08;`}>
-                  <div class="text-xs text-[var(--text-muted)] mb-1">{plan.name}</div>
-                  <div class="text-xl font-bold" style={`color: ${accentColor};`}>
-                    ¥{plan.price}<span class="text-xs font-normal text-[var(--text-muted)]">/月</span>
+              {raw.pricing.plans.map((plan: any) => {
+                const priceValue = pick(plan, 'price', lang);
+                const priceIsNumber = typeof priceValue === 'number';
+                const priceLabel = priceIsNumber
+                  ? `¥${priceValue}`
+                  : (priceValue ?? (lang === 'zh' ? '官网为准' : 'See official site'));
+                const periodSuffix = lang === 'zh' ? '/月' : '/mo';
+                return (
+                  <div class="rounded-lg p-3 border border-[var(--surface-border)]" style={`background: ${accentColor}08;`}>
+                    <div class="text-xs text-[var(--text-muted)] mb-1">{pick(plan, 'name', lang) || plan.name}</div>
+                    <div class="text-xl font-bold" style={`color: ${accentColor};`}>
+                      {priceLabel}
+                      {priceIsNumber && (
+                        <span class="text-xs font-normal text-[var(--text-muted)]">{periodSuffix}</span>
+                      )}
+                    </div>
+                    {priceIsNumber && plan.original_price && (
+                      <div class="text-xs text-[var(--text-muted)] line-through">¥{plan.original_price}{periodSuffix}</div>
+                    )}
+                    {pick(plan, 'limits', lang) && (
+                      <div class="text-xs text-[var(--text-secondary)] mt-1">{pick(plan, 'limits', lang)}</div>
+                    )}
                   </div>
-                  {plan.original_price && (
-                    <div class="text-xs text-[var(--text-muted)] line-through">¥{plan.original_price}/月</div>
-                  )}
-                  {plan.limits && (
-                    <div class="text-xs text-[var(--text-secondary)] mt-1">{plan.limits}</div>
-                  )}
-                </div>
-              ))}
+                );
+              })}
             </div>
           )}
 
@@ -220,7 +253,7 @@ const howSteps = [
 
           <!-- CTA -->
           <a
-            href={raw.affiliate_url || raw.url}
+            href={raw.affiliate_url || pick(raw, 'url', lang) || raw.url}
             target="_blank"
             rel="noopener noreferrer"
             class="btn w-full text-center py-2 text-sm font-semibold rounded-lg transition-colors"

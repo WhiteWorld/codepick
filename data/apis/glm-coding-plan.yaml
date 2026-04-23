@@ -1,0 +1,120 @@
+id: glm-coding-plan
+name: 智谱 GLM Coding Plan
+name_en: Zhipu GLM Coding Plan
+type: api
+logo: null
+# 中文站点 bigmodel.cn；国际站 z.ai（英文）
+url: https://bigmodel.cn/glm-coding
+url_en: https://z.ai/subscribe
+
+current_version: "v1"
+version_tracked_at: "2026-04-23"
+
+pricing:
+  model: subscription
+  currency: CNY
+  plans:
+    - name: Lite
+      name_en: Lite
+      price: "官网为准"
+      price_en: "from $18"
+      period: month
+      limits: "每5小时约80次 prompts / 每周约400次"
+      limits_en: "~80 prompts per 5h / ~400 prompts per week"
+    - name: Pro
+      name_en: Pro
+      price: "官网为准"
+      price_en: "See official site"
+      period: month
+      limits: "每5小时约400次 prompts / 每周约2,000次"
+      limits_en: "~400 prompts per 5h / ~2,000 prompts per week"
+    - name: Max
+      name_en: Max
+      price: "官网为准"
+      price_en: "See official site"
+      period: month
+      limits: "每5小时约1,600次 prompts / 每周约8,000次"
+      limits_en: "~1,600 prompts per 5h / ~8,000 prompts per week"
+  price_updated_at: "2026-04-23"
+  note: "每日 10:00 (UTC+8) 限量释放新库存，续订/升级用户不受影响；高峰期 (14:00-18:00) GLM-5.1/5-Turbo 消耗 3 倍，非高峰 2 倍（限时福利至 4 月底非高峰按 1 倍抵扣）。套餐仅限官方支持的工具中使用，其他工具调用 API 不享用配额。"
+  note_en: "New stock opens daily at 10:00 (UTC+8); renewals/upgrades are unaffected. GLM-5.1/5-Turbo costs 3x during peak (14:00-18:00 UTC+8) and 2x off-peak (1x off-peak through end of April as a limited-time benefit). The plan is strictly limited to officially supported tools — using the API in other tools does not consume the plan quota."
+
+scores:
+  coding_ability: 8.5
+  cost_efficiency: 8.0
+  flexibility: 8.5
+  china_friendly: 9.5
+  privacy: 7.0
+
+features:
+  auto_mode: false
+  supported_models:
+    - GLM-5.1
+    - GLM-5-Turbo
+    - GLM-4.7
+    - GLM-4.5-Air
+  api_protocol: "兼容 OpenAI / Anthropic 协议"
+  api_protocol_en: "OpenAI / Anthropic compatible"
+  supported_clients:
+    - Claude Code
+    - Roo Code
+    - OpenClaw
+    - Kilo Code
+    - Cline
+    - OpenCode
+    - Crush
+    - Goose
+    - TRAE
+    - CodeBuddy
+  bundled_mcp:
+    - 联网搜索 MCP
+    - 网页读取 MCP
+    - 视觉理解 MCP
+    - 开源仓库 MCP (Zread)
+  bundled_mcp_en:
+    - Web Search MCP
+    - Web Reader MCP
+    - Vision MCP
+    - Open-source Repo MCP (Zread)
+  china_native: true
+
+best_for:
+  - "需要 MCP 增值能力（联网搜索/视觉/网页读取）"
+  - "要在 20+ 客户端中自由切换的用户"
+  - "GLM 模型重度用户"
+best_for_en:
+  - "Users who need bundled MCP perks (web search, vision, web reader)"
+  - "Users who want to switch freely across 20+ supported clients"
+  - "Heavy users of the GLM model family"
+not_for:
+  - "不愿意受官方工具白名单限制的用户"
+  - "只想用 Claude/GPT 原版模型的用户"
+not_for_en:
+  - "Users who don't want to be limited to an officially supported tool whitelist"
+  - "Users who only want native Claude/GPT models"
+
+data_sources:
+  - url: "https://bigmodel.cn/glm-coding"
+    type: pricing
+    last_checked: "2026-04-23"
+  - url: "https://z.ai/subscribe"
+    type: pricing
+    last_checked: "2026-04-23"
+  - url: "https://docs.z.ai/devpack/overview"
+    type: documentation
+    last_checked: "2026-04-23"
+
+changelog:
+  - date: "2026-02-12"
+    type: pricing
+    summary: "GLM Coding Plan 调价约 30%，移除首购折扣；季付 9 折 / 年付 7 折"
+    summary_en: "GLM Coding Plan raised prices by ~30%, removed first-purchase discounts; 10% off quarterly / 30% off annual"
+  - date: "2026-01-23"
+    type: pricing
+    summary: "改为每日 10:00 限量开放新库存，三档套餐每日可售数量相同"
+    summary_en: "Switched to daily 10:00 (UTC+8) limited restock; three tiers have equal daily availability"
+
+last_full_review: "2026-04-23"
+next_review_due: "2026-05-23"
+review_frequency_days: 30
+confidence: medium
