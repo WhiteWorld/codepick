@@ -7,7 +7,7 @@ affiliate_url: https://volcengine.com/L/GHwMUAPkBr0/
 repo: null
 
 current_version: "v2"
-version_tracked_at: "2026-04-03"
+version_tracked_at: "2026-04-23"
 
 pricing:
   model: subscription
@@ -18,15 +18,15 @@ pricing:
       original_price: 40
       period: month
       limits: "每5小时约1200次请求"
-      note: "价格与活动以官网实时页面为准"
+      note: "首月最低 2.2 折，叠加推荐优惠券可低至 8.9 元；价格与活动以官网实时页面为准"
     - name: Pro
       price: 49.9
       original_price: 200
       period: month
       limits: "每5小时约6000次请求, Lite的5倍用量"
-      note: "价格与活动以官网实时页面为准"
-  price_updated_at: "2026-04-03"
-  note: "新用户订阅入口自 2026-03-13 起改为每日 10:30 限量开放；推荐好友订阅可享额外 9 折；支持 Auto 模式自动匹配最优模型。"
+      note: "首购一次性下单三个月可享 5 折；价格与活动以官网实时页面为准"
+  price_updated_at: "2026-04-23"
+  note: "新用户订阅入口自 2026-03-13 起改为每日 10:30 限量开放；推荐好友订阅可享额外 9 折，推荐人可获订单 10% 优惠券（无上限）；支持 Auto 模式基于效果+速度自动匹配模型。"
 
 scores:
   coding_ability: 8.0
@@ -41,8 +41,9 @@ features:
     - Doubao-Seed-Code
     - GLM-4.7
     - DeepSeek-V3.2
-    - Kimi-K2.5
+    - Kimi-K2-Thinking
   api_protocol: "兼容 OpenAI / Anthropic 协议"
+  api_endpoint: "https://ark.cn-beijing.volces.com/api/coding"
   supported_clients:
     - Claude Code
     - Cursor
@@ -51,11 +52,10 @@ features:
     - Kilo Code
     - Roo Code
     - OpenCode
+    - OpenClaw
+    - Hermes Agent
     - Trae
     - OpenViking
-    - Aider
-    - OpenClaw
-    - Moltbot
   china_native: true
 
 best_for:
@@ -70,21 +70,24 @@ not_for:
 data_sources:
   - url: "https://www.volcengine.com/L/s3lNTNYxaEc/"
     type: pricing
-    last_checked: "2026-04-03"
+    last_checked: "2026-04-23"
   - url: "https://www.volcengine.com/docs/82379/1925114"
     type: documentation
-    last_checked: "2026-04-03"
+    last_checked: "2026-04-23"
   - url: "https://developer.volcengine.com/articles/7595502342175195187"
     type: announcement
-    last_checked: "2026-04-03"
+    last_checked: "2026-04-23"
 
 changelog:
+  - date: "2026-04-15"
+    type: model
+    summary: "公告明确四大模型组合：Doubao-Seed-Code / GLM-4.7 / DeepSeek-V3.2 / Kimi-K2-Thinking，支持 Auto 模式"
   - date: "2026-03-13"
     type: pricing
     summary: "新用户订阅入口调整为每日 10:30 限量开放"
   - date: "2026-02-05"
     type: model
-    summary: "新增 Kimi-K2.5 模型支持"
+    summary: "新增 Kimi 系列模型支持"
   - date: "2026-01-20"
     type: pricing
     summary: "套餐改为 Lite / Pro 双层级，具体活动价以官网为准"
@@ -95,7 +98,7 @@ changelog:
     type: feature
     summary: "支持接入 Trae / Claude Code / Cursor 等更多客户端"
 
-last_full_review: "2026-04-06"
-next_review_due: "2026-05-06"
+last_full_review: "2026-04-23"
+next_review_due: "2026-05-23"
 review_frequency_days: 30
 confidence: high

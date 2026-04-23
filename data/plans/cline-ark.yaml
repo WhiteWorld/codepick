@@ -23,8 +23,8 @@ scores:
   flexibility: 9.5
   china_friendly: 9.0
 
-description: "最具性价比的 Agent 方案。Cline 免费开源，Plan/Act 双模式，接方舟 API 国内直连。方舟提供 Lite / Pro 双层级套餐；新用户订阅入口自 2026-03-13 起改为每日 10:30 限量开放，支持 Doubao-Seed-Code/GLM-4.7/DeepSeek-V3.2/Kimi-K2.5 等模型。"
-description_en: "A high-value Agent setup. Cline is free and open-source with Plan/Act dual mode, connected to Volcengine Ark API for direct China access. Ark offers Lite and Pro tiers; since March 13, 2026, new-user subscriptions open in limited quantities each day at 10:30, with models including Doubao-Seed-Code/GLM-4.7/DeepSeek-V3.2/Kimi-K2.5."
+description: "最具性价比的 Agent 方案。Cline 免费开源，Plan/Act 双模式，接方舟 API 国内直连。方舟提供 Lite / Pro 双层级套餐；新用户订阅入口自 2026-03-13 起改为每日 10:30 限量开放，支持 Doubao-Seed-Code/GLM-4.7/DeepSeek-V3.2/Kimi-K2-Thinking 等模型。"
+description_en: "A high-value Agent setup. Cline is free and open-source with Plan/Act dual mode, connected to Volcengine Ark API for direct China access. Ark offers Lite and Pro tiers; since March 13, 2026, new-user subscriptions open in limited quantities each day at 10:30, with models including Doubao-Seed-Code/GLM-4.7/DeepSeek-V3.2/Kimi-K2-Thinking."
 
 setup_guide: "/guides/cline-ark-setup"
 comparison_pages:
