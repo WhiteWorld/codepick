@@ -4,8 +4,8 @@ type: ide
 logo: /images/windsurf.png
 url: https://windsurf.com
 repo: null
-current_version: null
-version_tracked_at: '2026-02-26'
+current_version: '2.0.67'
+version_tracked_at: '2026-04-21'
 pricing:
   model: subscription
   currency: USD
@@ -105,11 +105,23 @@ plans_using_this: []
 data_sources:
   - url: https://windsurf.com/pricing
     type: pricing
-    last_checked: '2026-03-27'
+    last_checked: '2026-04-24'
   - url: https://windsurf.com/changelog
     type: changelog
-    last_checked: '2026-03-27'
+    last_checked: '2026-04-24'
 changelog:
+  - date: '2026-04-21'
+    type: fix
+    summary: 'v2.0.67：修复 MCP 服务器 OAuth 认证问题'
+    summary_en: 'v2.0.67: Fixed OAuth auth for MCP servers'
+  - date: '2026-04-20'
+    type: fix
+    summary: 'v2.0.63：修复 OAuth/MCP 回归问题，提升 Devin Cloud 连接稳定性'
+    summary_en: 'v2.0.63: Fixed OAuth/MCP regression; improved Devin Cloud connection reliability'
+  - date: '2026-04-17'
+    type: fix
+    summary: 'v2.0.61：杂项 bug 修复'
+    summary_en: 'v2.0.61: Misc bug fixes'
   - date: '2026-04-15'
     type: feature
     summary: 'Windsurf 2.0：Devin 云端 Agent 集成进 IDE，一键将本地会话移交 Devin 执行，运行于独立 VM；新增看板式多 Agent 管理视图（Kanban）；Spaces 功能可将 Agent、PR、文件和上下文组织成任务空间；Gemini 3 Flash 向所有用户开放'
@@ -150,7 +162,7 @@ changelog:
     type: update
     summary: 推出 SWE-1.5 自研 Agent 模型，速度和代码能力双提升
     summary_en: Launched SWE-1.5 proprietary Agent model, improving both speed and code quality
-last_full_review: '2026-04-16'
-next_review_due: '2026-05-16'
+last_full_review: '2026-04-24'
+next_review_due: '2026-05-24'
 review_frequency_days: 30
 confidence: high

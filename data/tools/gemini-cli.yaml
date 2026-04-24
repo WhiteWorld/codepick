@@ -4,8 +4,8 @@ type: cli
 logo: /images/gemini-cli.png
 url: https://github.com/google-gemini/gemini-cli
 repo: https://github.com/google-gemini/gemini-cli
-current_version: v0.38.2
-version_tracked_at: '2026-04-17'
+current_version: v0.39.1
+version_tracked_at: '2026-04-24'
 pricing:
   model: freemium
   currency: USD
@@ -96,6 +96,14 @@ data_sources:
     type: pricing
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-04-24'
+    type: release
+    summary: 'v0.39.1: v0.39.0 基础上的补丁修复版本'
+    summary_en: 'v0.39.1: Patch fixes on top of v0.39.0'
+  - date: '2026-04-23'
+    type: feature
+    summary: 'v0.39.0: /memory inbox 内存管理命令；子 Agent 委托集成；对话记录迁移至 JSONL 流式格式；40+ 贡献者里程碑'
+    summary_en: 'v0.39.0: /memory inbox command for memory management; subagent delegation integration; chat recording migrated to JSONL streaming format; 40+ contributors milestone'
   - date: '2026-04-17'
     type: release
     summary: 'v0.38.2: Cherry-pick 修复补丁，提升稳定性'
@@ -116,7 +124,7 @@ changelog:
     type: launch
     summary: Gemini CLI 开源发布，免费使用 Gemini 2.5 Pro，1000 次/天
     summary_en: Gemini CLI open-sourced, free Gemini 2.5 Pro access, 1000 requests/day
-last_full_review: '2026-04-17'
-next_review_due: '2026-05-17'
+last_full_review: '2026-04-24'
+next_review_due: '2026-05-24'
 review_frequency_days: 30
 confidence: high

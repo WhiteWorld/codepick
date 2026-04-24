@@ -93,7 +93,7 @@ changelog:
     type: release
     summary: 新增 GPT-4.1/mini/nano 支持；Gemini 2.5 Pro Architect 模式改进；支持 Grok-3-beta 和新 Claude Sonnet 4/Opus 4 别名
     summary_en: Added GPT-4.1/mini/nano; improved Gemini 2.5 Pro Architect mode; Grok-3-beta and new Claude Sonnet 4/Opus 4 alias support
-last_full_review: '2026-04-16'
-next_review_due: '2026-05-16'
+last_full_review: '2026-04-24'
+next_review_due: '2026-05-24'
 review_frequency_days: 30
 confidence: medium
