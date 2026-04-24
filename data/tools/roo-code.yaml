@@ -4,8 +4,8 @@ type: client
 logo: /images/roo-code.png
 url: https://roocode.com
 repo: https://github.com/RooCodeInc/Roo-Code
-current_version: v3.51.1
-version_tracked_at: '2026-04-16'
+current_version: v3.53.0
+version_tracked_at: '2026-04-23'
 pricing:
   model: free
   currency: null
@@ -86,6 +86,18 @@ data_sources:
     type: release
     last_checked: '2026-04-16'
 changelog:
+  - date: '2026-04-23'
+    type: feature
+    summary: 'v3.53.0: 社区团队接管公告（"Roo Code 插件不会消失"）；GPT-5.5 支持（via OpenAI Codex provider）；Claude Opus 4.7 支持（Vertex AI）；Checkpoint 导航控件（含 i18n）；Roomote banner + 紫色视觉重设计'
+    summary_en: 'v3.53.0: Community team takeover announcement ("Roo Code plugin is not going away"); GPT-5.5 via OpenAI Codex provider; Claude Opus 4.7 on Vertex AI; checkpoint navigation controls with i18n; Roomote banner and violet branding redesign'
+  - date: '2026-04-13'
+    type: fix
+    summary: 'v3.52.1: 修复 .roomodes 配置文件 JSON Schema；移除 VS Code UI 中的招聘公告'
+    summary_en: 'v3.52.1: Fixed JSON schema for .roomodes config files; removed hiring announcement from VS Code UI'
+  - date: '2026-04-08'
+    type: release
+    summary: 'v3.52.0: Poe 作为新 AI 提供商；xAI 迁移至 Responses API；xAI Grok-4.20 模型；OpenAI GPT-5.4 mini 和 nano 模型支持'
+    summary_en: 'v3.52.0: Poe as new AI provider; xAI migrated to Responses API; xAI Grok-4.20 models; OpenAI GPT-5.4 mini and nano models'
   - date: '2026-04-16'
     type: announcement
     summary: 数据月度复核：版本、定价与能力列表均无重大变更
@@ -114,7 +126,7 @@ changelog:
     type: feature
     summary: 支持 Claude Opus 4.6；tool use 消息改为结构化 delta 流式传输，提升效率
     summary_en: Claude Opus 4.6 support added; tool use messages switched to structured delta streaming for better performance
-last_full_review: '2026-04-16'
-next_review_due: '2026-05-16'
+last_full_review: '2026-04-24'
+next_review_due: '2026-05-24'
 review_frequency_days: 30
 confidence: high

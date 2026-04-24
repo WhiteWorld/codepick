@@ -24,8 +24,8 @@ pricing:
       price: 39
       period: month
       annual_price: 390
-      limits: 所有Pro功能, Claude Opus 4.6(快速模式), 1500次高级请求/月(5倍Pro), GitHub Spark
-      limits_en: All Pro features, Claude Opus 4.6 (fast mode), 1500 premium requests/mo (5x Pro), GitHub Spark
+      limits: 所有Pro功能, Claude Opus 4.7(快速模式, Pro+专属), 1500次高级请求/月(5倍Pro), GitHub Spark; Opus系列模型仅限Pro+，Pro套餐不可用
+      limits_en: All Pro features, Claude Opus 4.7 (fast mode, Pro+ exclusive), 1500 premium requests/mo (5x Pro), GitHub Spark; Opus models are Pro+ only, not available on Pro
     - name: Business
       price: 19
       period: month
@@ -38,9 +38,9 @@ pricing:
       per_user: true
       limits: Business全部功能, 自定义模型微调, 高级安全
       limits_en: All Business features, custom model fine-tuning, advanced security
-  price_updated_at: '2026-03-27'
-  note: Free版永久免费; Pro支持年付$100/年; 学生/教师/开源维护者免费Pro; 超出高级请求$0.04/次; Auto模式自动选模型享9折
-  note_en: Free tier is permanently free; Pro at $100/year; free Pro for students, teachers, and open-source maintainers; overage $0.04/request; Auto mode picks best model with 10% discount
+  price_updated_at: '2026-04-20'
+  note: Free版永久免费; Pro支持年付$100/年; 学生/教师/开源维护者免费Pro; 超出高级请求$0.04/次; Auto模式自动选模型享9折; Opus系列模型仅限Pro+; 2026-04-20起新注册暂停(Pro/Pro+/Business)，已有订阅不受影响
+  note_en: Free tier is permanently free; Pro at $100/year; free Pro for students, teachers, and open-source maintainers; overage $0.04/request; Auto mode with 10% discount; Opus models are Pro+ only; new signups paused since 2026-04-20 (Pro/Pro+/Business), existing subscribers unaffected
 scores:
   coding_ability: 8.2
   cost_efficiency: 8.5
@@ -61,8 +61,7 @@ features:
   supported_models:
     - Claude Sonnet 4.5
     - Claude Sonnet 4.6
-    - Claude Opus 4.5
-    - Claude Opus 4.6
+    - Claude Opus 4.7 (Pro+ 专属)
     - GPT-5
     - GPT-5 mini
     - GPT-5.3-Codex
@@ -70,7 +69,6 @@ features:
     - GPT-5.4 mini
     - Gemini 2.5 Pro
     - Gemini 3 Flash
-    - Gemini 3.1 Pro
     - Grok Code Fast 1 (xAI)
   ide_base: 插件 (VS Code / JetBrains / Vim / Xcode)
   supported_os:
@@ -113,11 +111,23 @@ china_note_en: Requires VPN from China; GitHub services are partially accessible
 data_sources:
   - url: https://github.com/features/copilot/plans
     type: pricing
-    last_checked: '2026-03-27'
+    last_checked: '2026-04-24'
   - url: https://docs.github.com/en/copilot
     type: docs
-    last_checked: '2026-03-27'
+    last_checked: '2026-04-24'
 changelog:
+  - date: '2026-04-22'
+    type: announcement
+    summary: Copilot Business 新注册（GitHub Free/Team 组织）也暂停；Claude Opus 4.7 在 Pro+ 上 4月30日前享7.5倍高级请求乘数促销价
+    summary_en: Copilot Business self-serve signups (for orgs on GitHub Free/Team) also paused; Claude Opus 4.7 on Pro+ gets 7.5× premium request multiplier promotional pricing through April 30
+  - date: '2026-04-20'
+    type: pricing
+    summary: Pro/Pro+/学生套餐新注册暂停（已有订阅不受影响，可申请退款至5月20日）；Pro用量上限收紧；Opus系列模型全面移至Pro+，Pro套餐不再可用
+    summary_en: New signups for Pro/Pro+/Student plans paused (existing subscribers unaffected, refunds available until May 20); Pro usage limits tightened; all Opus models moved to Pro+ only, no longer available on Pro
+  - date: '2026-04-16'
+    type: model
+    summary: Claude Opus 4.7 正式上线 Copilot（仅限 Pro+）；Opus 4.5/4.6 同步退出 Pro 套餐
+    summary_en: Claude Opus 4.7 generally available on Copilot (Pro+ only); Opus 4.5/4.6 removed from Pro plan
   - date: '2026-04-14'
     type: feature
     summary: '第三方 Claude / Codex 编程 Agent 支持在 github.com 启动时选择模型；Copilot CLI 新增 Rubber Duck 功能（实验性），显著提升 LLM 编程性能'
@@ -162,7 +172,7 @@ changelog:
     type: pricing
     summary: 推出永久免费版 Copilot Free
     summary_en: Copilot Free permanently free tier launched
-last_full_review: '2026-04-16'
-next_review_due: '2026-05-16'
+last_full_review: '2026-04-24'
+next_review_due: '2026-05-24'
 review_frequency_days: 30
 confidence: high

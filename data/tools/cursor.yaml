@@ -4,8 +4,8 @@ type: ide
 logo: /images/cursor.png
 url: https://cursor.com
 repo: null
-current_version: '3.0'
-version_tracked_at: '2026-04-16'
+current_version: '3.1'
+version_tracked_at: '2026-04-15'
 pricing:
   model: subscription
   currency: USD
@@ -119,11 +119,15 @@ plans_using_this:
 data_sources:
   - url: https://cursor.com/pricing
     type: pricing
-    last_checked: '2026-03-27'
+    last_checked: '2026-04-24'
   - url: https://cursor.com/changelog
     type: changelog
-    last_checked: '2026-03-27'
+    last_checked: '2026-04-24'
 changelog:
+  - date: '2026-04-15'
+    type: feature
+    summary: 'v3.1：Interactive Canvases——Agent 可在 Agents Window 侧面板生成持久化交互式看板（表格/图表/关系图）；CLI 新增 /debug（根因分析+日志注入）、/btw（不打断 Agent 的旁白问题）、/config（交互式设置面板）；Agents Window 支持平铺布局以并行管理多 Agent；语音输入精度提升（批量 STT）'
+    summary_en: 'v3.1: Interactive Canvases — agents can create durable interactive dashboards (tables, diagrams, charts) in the Agents Window side panel; CLI adds /debug (root-cause analysis with log injection), /btw (side questions without derailing agent), /config (interactive settings panel); Agents Window tiled layout for parallel agent management; improved voice input accuracy (batch STT)'
   - date: '2026-04-02'
     type: feature
     summary: 'v3.0：全新 Agents Window 支持多 Agent 并行运行（本地/worktree/云端/SSH）；Design Mode 直接在浏览器标注 UI 元素精确指向；/worktree 隔离沙箱命令；/best-of-n 多模型并行跑同一任务再对比；Bugbot 支持 MCP 与自我进化，解决率升至 78%'
@@ -172,7 +176,7 @@ changelog:
     type: pricing
     summary: Pro 从500次请求制改为$20额度池制, Auto模式无限使用
     summary_en: Pro switched from 500-request quota to $20 credit pool; unlimited Auto mode
-last_full_review: '2026-04-16'
-next_review_due: '2026-05-16'
+last_full_review: '2026-04-24'
+next_review_due: '2026-05-24'
 review_frequency_days: 30
 confidence: high

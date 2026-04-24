@@ -4,8 +4,8 @@ type: client
 logo: /images/cline.png
 url: https://cline.bot
 repo: https://github.com/cline/cline
-current_version: v3.78.0
-version_tracked_at: '2026-04-16'
+current_version: v3.80.0
+version_tracked_at: '2026-04-22'
 pricing:
   model: free
   currency: null
@@ -81,6 +81,14 @@ data_sources:
     type: release
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-04-22'
+    type: release
+    summary: 'v3.80.0: Enterprise Skills 远程配置（alwaysEnabled 策略）；动态模型推荐（引导流程）；--max-old-space-size=8192 修复长会话 OOM 崩溃；Quota Exceeded 错误 UI；彻底移除前台终端模式（所有终端执行改为后台模式）'
+    summary_en: 'v3.80.0: Enterprise Skills remote config with alwaysEnabled enforcement; dynamic model recommendations in onboarding; --max-old-space-size=8192 prevents OOM crashes in long sessions; Quota Exceeded error UI; foreground terminal mode removed — all terminal execution now background-only'
+  - date: '2026-04-16'
+    type: release
+    summary: 'v3.79.0: Claude Opus 4.7 模型支持；Azure Blob Storage 作为存储提供商；API handler 缓存反射；终端命令超时修复'
+    summary_en: 'v3.79.0: Claude Opus 4.7 model support; Azure Blob Storage as storage provider; API handler cache reflection; terminal command timeout fixes'
   - date: '2026-03-26'
     type: release
     summary: 'v3.76.0: Cline Kanban 启动弹窗; Windows CLI spawn 修复'
@@ -125,7 +133,7 @@ changelog:
     type: feature
     summary: 支持 MCP Server 管理
     summary_en: MCP Server management support added
-last_full_review: '2026-04-16'
-next_review_due: '2026-05-16'
+last_full_review: '2026-04-24'
+next_review_due: '2026-05-24'
 review_frequency_days: 30
 confidence: high

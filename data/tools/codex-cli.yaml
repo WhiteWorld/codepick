@@ -4,8 +4,8 @@ type: cli
 logo: /images/codex-cli.png
 url: https://openai.com/codex/
 repo: https://github.com/openai/codex
-current_version: v0.121.0
-version_tracked_at: '2026-04-17'
+current_version: v0.124.0
+version_tracked_at: '2026-04-23'
 pricing:
   model: subscription
   currency: USD
@@ -107,6 +107,14 @@ data_sources:
     type: changelog
     last_checked: '2026-04-19'
 changelog:
+  - date: '2026-04-23'
+    type: release
+    summary: 'v0.124.0: TUI 推理深度键盘快捷键（Alt+,/Alt+.）；Amazon Bedrock 支持转为稳定版；hooks 配置统一至 config.toml；ChatGPT Fast 服务层成为符合条件套餐的默认选项'
+    summary_en: 'v0.124.0: TUI reasoning depth keyboard shortcuts (Alt+, and Alt+.); Amazon Bedrock support stable; hooks configuration moved to config.toml; ChatGPT Fast service tier as default for eligible plans'
+  - date: '2026-04-23'
+    type: release
+    summary: 'v0.123.0: 内置 Amazon Bedrock 模型提供商（AWS SigV4 Auth + AWS Profile 支持）；增强 /mcp verbose 诊断；MCP 文件格式兼容性；主机级远程沙箱配置'
+    summary_en: 'v0.123.0: Built-in Amazon Bedrock model provider with AWS SigV4 auth and AWS profile support; enhanced /mcp verbose diagnostics; MCP file format compatibility; host-specific remote sandbox config'
   - date: '2026-04-15'
     type: release
     summary: 'v0.121.0: 插件市场（支持 GitHub/git/本地目录安装）; TUI 提示历史 Ctrl+R 搜索; Memory 模式控制; MCP Apps 命名空间注册; Realtime API 多模态输出; 安全 devcontainer + bubblewrap'
@@ -123,7 +131,7 @@ changelog:
     type: launch
     summary: Codex CLI 开源发布，OpenAI 出品的终端 Agent，支持 o3/o4-mini
     summary_en: Codex CLI open-sourced — OpenAI's terminal Agent, supports o3/o4-mini
-last_full_review: '2026-04-19'
-next_review_due: '2026-05-19'
+last_full_review: '2026-04-24'
+next_review_due: '2026-05-24'
 review_frequency_days: 30
 confidence: medium

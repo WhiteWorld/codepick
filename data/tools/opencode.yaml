@@ -4,8 +4,8 @@ type: cli
 logo: /images/opencode.png
 url: https://opencode.ai
 repo: https://github.com/sst/opencode
-current_version: v1.4.9
-version_tracked_at: '2026-04-17'
+current_version: v1.14.22
+version_tracked_at: '2026-04-23'
 pricing:
   model: free
   currency: null
@@ -80,6 +80,22 @@ data_sources:
     type: changelog
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-04-23'
+    type: release
+    summary: 'v1.14.21–v1.14.22: LSP Pull Diagnostics 支持（C# via Roslyn、Kotlin）；Mistral Small 高推理变体；.npmrc 配置生效；自定义图标持久化；会话视图状态切换修复'
+    summary_en: 'v1.14.21–v1.14.22: LSP pull diagnostics support (C# via Roslyn, Kotlin); Mistral Small high-reasoning variant; respects .npmrc settings; custom icon persistence; fixed session view state switching'
+  - date: '2026-04-21'
+    type: release
+    summary: 'v1.14.20: TUI 系统主题回归修复；实验性 HTTP API GET /config 端点；Windows 插件动态导入；内置 JetBrainsMono Nerd Font 终端字体设置'
+    summary_en: 'v1.14.20: Fixed system theme regression in TUI; GET /config endpoint in experimental HTTP API; Windows dynamic imports for plugins; terminal font setting with bundled JetBrainsMono Nerd Font'
+  - date: '2026-04-20'
+    type: release
+    summary: 'v1.14.19: NVIDIA 作为内置 provider；保留并发文件编辑；压缩时保留最近对话原文'
+    summary_en: 'v1.14.19: NVIDIA as built-in provider; preserved concurrent file edits; kept recent turns verbatim during compaction'
+  - date: '2026-04-19'
+    type: release
+    summary: 'v1.14.17–v1.14.18: 保留 Docker 构建前可执行权限；OTEL_RESOURCE_ATTRIBUTES 遥测支持；恢复 ripgrep 原生后端用于文件搜索和列表'
+    summary_en: 'v1.14.17–v1.14.18: Preserve executable permissions before Docker builds; OTEL_RESOURCE_ATTRIBUTES telemetry support; restored native ripgrep backend for file search and listing'
   - date: '2026-04-17'
     type: release
     summary: 'v1.4.9: LLM Gateway provider 支持; GitHub Copilot Opus 4.7 限制为 medium reasoning; 改善远程工作区断线重连（指数退避）'
@@ -112,7 +128,7 @@ changelog:
     type: release
     summary: 'v0.0.55: 旧版本末期'
     summary_en: 'v0.0.55: final legacy release before v1.0 rewrite'
-last_full_review: '2026-04-17'
-next_review_due: '2026-05-17'
+last_full_review: '2026-04-24'
+next_review_due: '2026-05-24'
 review_frequency_days: 30
 confidence: medium
