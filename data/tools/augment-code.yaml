@@ -1,0 +1,132 @@
+id: augment-code
+name: Augment Code
+type: plugin
+logo: /images/augment-code.png
+url: https://www.augmentcode.com
+repo: null
+current_version: null
+version_tracked_at: '2026-04-27'
+
+pricing:
+  model: subscription
+  currency: USD
+  plans:
+    - name: Indie
+      price: 20
+      period: month
+      limits: 40,000 credits/月，适合个人开发者日常补全与轻量 Agent 任务
+      limits_en: 40,000 credits/mo, suitable for individual devs with daily completions and light Agent tasks
+    - name: Standard
+      price: 60
+      period: month
+      limits: 130,000 credits/月，适合日常重度 Agent 使用
+      limits_en: 130,000 credits/mo, suitable for heavy daily Agent use
+    - name: Max
+      price: 200
+      period: month
+      limits: 450,000 credits/月，适合 Remote Agent、CLI 自动化与多 Agent 编排
+      limits_en: 450,000 credits/mo, for Remote Agents, CLI automation, and multi-agent orchestration
+    - name: Enterprise
+      price: null
+      period: month
+      per_user: true
+      limits: 自定义配额，企业级安全合规（SOC 2 Type II、零数据保留）
+      limits_en: Custom quota, enterprise compliance (SOC 2 Type II, zero-retention policy)
+  price_updated_at: '2026-04-27'
+  note: 信用积分制（不按消息数/Token 计费）；注册可申领试用积分；Claude Opus 4.7 在 2026年4月30日前享50%折扣
+  note_en: Credit-based pricing (not per message or token); trial credits available on signup; Claude Opus 4.7 at 50% discount through April 30, 2026
+
+scores:
+  coding_ability: 8.5
+  cost_efficiency: 6.5
+  flexibility: 9.0
+  china_friendly: 2
+  privacy: 8.5
+
+features:
+  code_completion: true
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: true
+  ide_base: VS Code Plugin, JetBrains Plugin
+  context_engine: true
+  next_edit: true
+  remote_agent: true
+  supported_models:
+    - Claude Sonnet 4.6
+    - Claude Opus 4.7
+    - Claude Haiku 4.5
+    - GPT-5
+    - Gemini 3.1 Pro
+  supported_os:
+    - macOS
+    - Windows
+    - Linux
+  jetbrains_support: true
+  vim_support: true
+  git_integration: true
+
+best_for:
+  - 大型/遗留代码库开发者（需要跨文件、跨仓库的深度上下文理解）
+  - JetBrains 重度用户（IntelliJ、PyCharm、WebStorm、GoLand）
+  - 不想切换 IDE 但想要强 Agent 能力的 VS Code 用户
+  - 对数据安全合规要求高的企业团队
+best_for_en:
+  - Developers on large or legacy codebases who need deep cross-file context understanding
+  - Heavy JetBrains users (IntelliJ, PyCharm, WebStorm, GoLand)
+  - VS Code users who want strong Agent capabilities without switching editors
+  - Enterprise teams with strict data security and compliance requirements
+
+not_for:
+  - 预算低于 $20/月的个人开发者（无永久免费方案）
+  - 需要离线/本地模型的用户
+  - 国内网络用户（无国内节点）
+  - 习惯一体化 AI IDE（如 Cursor/Windsurf）的用户
+not_for_en:
+  - Individual developers on a budget below $20/month (no permanent free tier)
+  - Users needing offline or local model support
+  - Users in China (no China-based servers, requires VPN)
+  - Developers who prefer an all-in-one AI IDE like Cursor or Windsurf
+
+changelog:
+  - date: '2026-04-15'
+    type: model
+    summary: Claude Opus 4.7 上线，2026年4月30日前享50%折扣（约244积分/中等任务）
+    summary_en: Claude Opus 4.7 added with 50% launch discount through April 30, 2026 (~244 credits per medium task)
+  - date: '2026-02-01'
+    type: feature
+    summary: Context Engine 开放为 MCP Server，可在 Cursor、Claude Code、Zed 等任意 MCP 客户端中使用 Augment 的代码库语义理解能力
+    summary_en: Context Engine released as MCP Server — any MCP-compatible client (Cursor, Claude Code, Zed) can now use Augment's codebase semantic understanding
+  - date: '2025-12-01'
+    type: feature
+    summary: Intent 上线——macOS 独立多 Agent 编排工作台，Coordinator Agent 生成 Living Spec 并分发给并行 Implementor Agent
+    summary_en: Intent launched — macOS standalone multi-agent workspace; Coordinator Agent creates a Living Spec and delegates to parallel Implementor Agents
+  - date: '2025-10-20'
+    type: pricing
+    summary: 定价从"按消息数"改为"积分制"：Indie $20/4万积分、Standard $60/13万积分、Max $200/45万积分
+    summary_en: Pricing shifted from per-message to credit-based model; Indie $20/40K credits, Standard $60/130K credits, Max $200/450K credits
+  - date: '2025-06-01'
+    type: feature
+    summary: Next Edit 上线——自动检测代码变更的涟漪效应，并在依赖文件中提示联动修改
+    summary_en: Next Edit launched — automatically detects ripple effects of code changes and suggests linked edits across dependent files
+  - date: '2024-01-01'
+    type: launch
+    summary: Augment Code 公开发布，主打大型代码库的语义 Context Engine，支持 VS Code 和 JetBrains
+    summary_en: Augment Code publicly launched, featuring semantic Context Engine for large codebases, with VS Code and JetBrains support
+
+data_sources:
+  - url: https://www.augmentcode.com/pricing
+    type: pricing
+    last_checked: '2026-04-27'
+  - url: https://docs.augmentcode.com/models/credit-based-pricing
+    type: pricing
+    last_checked: '2026-04-27'
+  - url: https://www.augmentcode.com/blog/augment-codes-pricing-is-changing
+    type: pricing
+    last_checked: '2026-04-27'
+
+last_full_review: '2026-04-27'
+next_review_due: '2026-07-27'
+review_frequency_days: 90
+confidence: medium
