@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ScenarioCard from '../components/ScenarioCard.astro';
-import QuickPicker from '../components/QuickPicker.astro';
 import PlanCard from '../components/PlanCard.astro';
 import { getAllPlansLocalized, getAllToolsLocalized, overallScore } from '../lib/data';
 import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
@@ -101,11 +100,6 @@ const seoTitle = lang === 'zh'
         </a>
       ))}
     </div>
-  </section>
-
-  <!-- Quick Picker -->
-  <section class="container mb-16 reveal">
-    <QuickPicker lang={lang} />
   </section>
 
   <!-- Featured Plans (Editor's Pick) -->
