@@ -264,6 +264,38 @@ const translations: Record<string, Record<Locale, string>> = {
   'seo.defaultDesc':   { zh: '帮助中国开发者选择最适合的 AI 编程工具方案，对比 Cursor、Copilot、Cline + 方舟等主流方案的能力、价格和体验。', en: 'Compare AI coding tools: Cursor, Copilot, Cline + Ark, and more. Find the best plan by ability, price, and experience.' },
   'seo.siteDesc':      { zh: 'AI 编程工具选型指南 - 帮助中国开发者选择最适合的 AI 编程工具方案', en: 'AI Coding Tool Guide - Compare and choose the best AI coding tools' },
 
+  // ── Page titles ─────────────────────────────────────────────────────────
+  'tools.title':    { zh: '工具库', en: 'Tools' },
+  'tools.subtitle': { zh: '款 AI 编程工具', en: 'AI coding tools' },
+  'compare.title':    { zh: '对比文章', en: 'Comparisons' },
+  'compare.subtitle': { zh: '深度对比主流 AI 编程工具的能力、定价与体验', en: 'In-depth comparisons of AI coding tools by capability, pricing, and experience' },
+  'guides.title':    { zh: '使用指南', en: 'Guides' },
+  'guides.subtitle': { zh: '手把手教你配置各种 AI 编程方案', en: 'Step-by-step setup guides for AI coding setups' },
+
+  // ── Quick Picker (30-second survey) ─────────────────────────────────────
+  'qp.title':       { zh: '30 秒选型问卷', en: '30-Second Picker' },
+  'qp.subtitle':    { zh: '回答 3 个问题，找到最适合你的 AI 编程方案', en: 'Answer 3 questions to find your best AI coding setup' },
+  'qp.step1':       { zh: '1. 你常用的开发环境是？', en: '1. Your dev environment?' },
+  'qp.envVscode':   { zh: 'VS Code', en: 'VS Code' },
+  'qp.envJetbrains':{ zh: 'JetBrains', en: 'JetBrains' },
+  'qp.envTerminal': { zh: '终端 / 命令行', en: 'Terminal / CLI' },
+  'qp.envAny':      { zh: '都可以', en: 'Any' },
+  'qp.step2':       { zh: '2. 你的预算范围？', en: '2. Your budget?' },
+  'qp.budgetFree':  { zh: '免费', en: 'Free' },
+  'qp.budgetLow':   { zh: '¥0–50 / 月', en: '$0–10 / mo' },
+  'qp.budgetMid':   { zh: '¥50–150 / 月', en: '$10–20 / mo' },
+  'qp.budgetHigh':  { zh: '¥150+ / 月', en: '$20+ / mo' },
+  'qp.step3':       { zh: '3. 你最看重什么？', en: '3. Top priority?' },
+  'qp.priPower':    { zh: '编程能力最强', en: 'Best coding AI' },
+  'qp.priCheap':    { zh: '性价比最高', en: 'Best value' },
+  'qp.priChina':    { zh: '国内可用', en: 'China access' },
+  'qp.priFlex':     { zh: '灵活自由', en: 'Flexibility' },
+  'qp.priPrivacy':  { zh: '隐私 / 本地', en: 'Privacy / Local' },
+  'qp.priEasy':     { zh: '开箱即用', en: 'Easy setup' },
+  'qp.resultLabel': { zh: '推荐方案', en: 'Recommended Plan' },
+  'qp.calculating': { zh: '计算中…', en: 'Calculating…' },
+  'qp.reset':       { zh: '重新选择', en: 'Start Over' },
+
   // ── Overview page type labels ───────────────────────────────────────────
   'ovType.ide':         { zh: 'IDE', en: 'IDE' },
   'ovType.cli':         { zh: 'CLI', en: 'CLI' },
