@@ -12,7 +12,6 @@
     { "source": "/compare/:slug", "destination": "/zh/compare/:slug", "statusCode": 301 },
     { "source": "/guides", "destination": "/zh/guides", "statusCode": 301 },
     { "source": "/guides/:slug", "destination": "/zh/guides/:slug", "statusCode": 301 },
-    { "source": "/faq", "destination": "/zh/faq", "statusCode": 301 },
     { "source": "/deals", "destination": "/zh/deals", "statusCode": 301 },
 
     { "source": "/compare/cloudflare-pages-vs-vercel", "destination": "/zh/practices/cloudflare-pages-vs-vercel", "statusCode": 301 },

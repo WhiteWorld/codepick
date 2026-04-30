@@ -11,7 +11,6 @@ const translations: Record<string, Record<Locale, string>> = {
   'nav.guides':    { zh: '使用指南', en: 'Guides' },
   'nav.practices': { zh: '开发实践', en: 'Practices' },
   'nav.deals':     { zh: '优惠福利', en: 'Deals' },
-  'nav.faq':       { zh: '常见问题', en: 'FAQ' },
 
   // ── Breadcrumbs ─────────────────────────────────────────────────────────
   'bread.home':         { zh: '首页', en: 'Home' },
@@ -215,106 +214,6 @@ const translations: Record<string, Record<Locale, string>> = {
   'home.notFoundTitle':  { zh: '找不到想要的工具？', en: "Can't find what you need?" },
   'home.notFoundDesc':   { zh: '数据持续更新中。发现信息过时或想要新增工具？欢迎提交 Issue。', en: "Data is continuously updated. Found outdated info or want to add a tool? Submit an issue." },
 
-  // ── FAQ page ────────────────────────────────────────────────────────────
-  'faq.title':        { zh: '❓ 常见问题', en: '❓ FAQ' },
-  'faq.subtitle':     { zh: '关于 AI 编程工具的高频问题解答，持续更新。', en: 'Frequently asked questions about AI coding tools. Updated regularly.' },
-  'faq.moreQuestions': { zh: '还有其他问题？', en: 'Have more questions?' },
-  'faq.seoTitle':     { zh: 'AI 编程工具常见问题 FAQ | CodePick', en: 'AI Coding Tools FAQ | CodePick' },
-  'faq.seoDesc':      { zh: 'AI 编程工具常见问题解答：最便宜的工具、国内可用性、Cursor vs Copilot、如何免费使用 AI 编程等。', en: 'AI coding tools FAQ: cheapest tools, China access, Cursor vs Copilot, free AI coding, and more.' },
-
-  // ── Compare page ───────────────────────────────────────────────────────
-  'compare.title':   { zh: '📝 对比文章', en: '📝 Comparisons' },
-  'compare.subtitle':{ zh: '深度对比主流 AI 编程工具方案，帮你做出最佳选择。', en: 'In-depth comparisons of popular AI coding tools to help you choose.' },
-  'compare.pubDate': { zh: '发布于', en: 'Published' },
-
-  // ── Guides page ─────────────────────────────────────────────────────────
-  'guides.title':    { zh: '📖 使用指南', en: '📖 Guides' },
-  'guides.subtitle': { zh: '手把手教你配置各种 AI 编程方案。', en: 'Step-by-step setup guides for AI coding tools.' },
-  'guides.pubDate':  { zh: '发布于', en: 'Published' },
-
-  // ── Tools index page ───────────────────────────────────────────────────
-  'tools.title':    { zh: '🛠️ AI 编程工具库', en: '🛠️ AI Coding Tools' },
-  'tools.subtitle': { zh: '款工具，数据定期更新验证。点击查看详情。', en: ' tools with regularly updated data. Click for details.' },
-
-  // ── Free tools page ────────────────────────────────────────────────────
-  'free.title':     { zh: '💰 免费 AI 编程工具', en: '💰 Free AI Coding Tools' },
-  'free.subtitle1': { zh: '以下工具均有免费版本可用——包括插件本身免费（需自备 API Key）以及提供免费套餐的付费工具。', en: 'All tools below have a free tier — including free plugins (bring your own API key) and paid tools with free plans.' },
-  'free.subtitle2': { zh: '款，按性价比排序。', en: ' tools, sorted by value.' },
-  'free.twoForms':  { zh: '两种免费形式', en: 'Two Types of Free' },
-  'free.form1':     { zh: 'Cline、Roo Code、Aider、OpenCode 插件/CLI 本身完全免费，但需自备 AI 模型 API（可接火山方舟等国内 Coding Plan）；', en: 'Cline, Roo Code, Aider, OpenCode plugins/CLIs are completely free, but require your own AI model API (for example Volcengine Ark or other China-native Coding Plans);' },
-  'free.form2':     { zh: 'Cursor、Copilot、Trae 有有限额度的免费套餐。', en: 'Cursor, Copilot, Trae offer limited free plans.' },
-  'free.relFaq':    { zh: '如何不花钱用 AI 编程？', en: 'How to code with AI for free?' },
-  'free.relFaqDesc':{ zh: 'FAQ：免费方案详细说明 →', en: 'FAQ: Free plans explained →' },
-  'free.relOllama': { zh: 'Ollama + Aider 本地部署', en: 'Ollama + Aider Local Setup' },
-  'free.relOllamaDesc': { zh: '指南：零成本本地 AI 编程 →', en: 'Guide: Zero-cost local AI coding →' },
-
-  // ── China tools page ───────────────────────────────────────────────────
-  'china.title':    { zh: '🇨🇳 国内可用 AI 编程工具', en: '🇨🇳 China-Accessible AI Coding Tools' },
-  'china.subtitle1':{ zh: '国内体验评分 ≥ 7 的工具，支持国内直连或有可用的国内 API 中转方案。', en: 'Tools with China Access score ≥ 7, supporting direct access or China API relay.' },
-  'china.subtitle2':{ zh: '款，按国内体验评分排序。', en: ' tools, sorted by China Access score.' },
-  'china.methods':  { zh: '国内可用方式', en: 'China Access Methods' },
-  'china.methodTrae':  { zh: 'Trae 字节出品，国内直连无需代理；', en: 'Trae by ByteDance, direct China access without proxy;' },
-  'china.methodOther1':{ zh: 'Cline / OpenCode / Aider 支持接入', en: 'Cline / OpenCode / Aider support' },
-  'china.methodLink':  { zh: '火山方舟 Coding Plan', en: 'Volcengine Ark Coding Plan' },
-  'china.methodOther2':{ zh: '，国内直连使用主流编程模型。', en: ', with direct China access to mainstream coding models.' },
-  'china.relGuide':    { zh: 'Cline + 火山方舟配置指南', en: 'Cline + Volcengine Ark Setup Guide' },
-  'china.relGuideDesc':{ zh: '指南：10 分钟搞定国内 AI 编程 →', en: 'Guide: Set up China AI coding in 10 min →' },
-  'china.relPlan':     { zh: 'Cline + 方舟方案详解', en: 'Cline + Ark Plan Details' },
-  'china.relPlanDesc': { zh: '方案：国内高性价比 Agent 组合 →', en: 'Plan: High-value China Agent setup →' },
-
-  // ── VS Code tools page ─────────────────────────────────────────────────
-  'vscode.title':    { zh: '🔵 VS Code 生态 AI 编程工具', en: '🔵 VS Code AI Coding Tools' },
-  'vscode.subtitle1':{ zh: '基于 VS Code 的 AI 编程工具，包括 VS Code Fork IDE（Cursor、Trae）和 VS Code 插件（Cline、Roo Code、Copilot）。', en: 'VS Code-based AI coding tools, including VS Code fork IDEs (Cursor, Trae) and VS Code plugins (Cline, Roo Code, Copilot).' },
-  'vscode.subtitle2':{ zh: '款，按编程能力排序。', en: ' tools, sorted by coding ability.' },
-  'vscode.forkTitle': { zh: '🖥️ VS Code Fork IDE', en: '🖥️ VS Code Fork IDEs' },
-  'vscode.forkDesc':  { zh: '深度定制 VS Code，内置 AI 能力，开箱即用体验最佳。代表：Cursor、Trae。', en: 'Deeply customized VS Code with built-in AI. Best out-of-box experience. Examples: Cursor, Trae.' },
-  'vscode.pluginTitle':{ zh: '🧩 VS Code 插件', en: '🧩 VS Code Plugins' },
-  'vscode.pluginDesc': { zh: '安装在 VS Code / Cursor 中，灵活自定义模型和 API。代表：Cline、Roo Code、Copilot。', en: 'Install in VS Code/Cursor, flexible model and API customization. Examples: Cline, Roo Code, Copilot.' },
-  'vscode.relCursorCopilot':    { zh: 'Cursor vs GitHub Copilot', en: 'Cursor vs GitHub Copilot' },
-  'vscode.relCursorCopilotDesc':{ zh: '对比：两大 VS Code 付费方案终极对比 →', en: 'Compare: Ultimate comparison of the two VS Code paid plans →' },
-  'vscode.relClineRoo':         { zh: 'Cline vs Roo Code', en: 'Cline vs Roo Code' },
-  'vscode.relClineRooDesc':     { zh: '对比：VS Code 开源 Agent 谁更强 →', en: 'Compare: Which open-source VS Code Agent is better →' },
-
-  // ── Terminal tools page ─────────────────────────────────────────────────
-  'term.title':    { zh: '⌨️ 终端 AI 编程工具', en: '⌨️ Terminal AI Coding Tools' },
-  'term.subtitle1':{ zh: '在终端中运行的 AI 编程 CLI 工具，不依赖特定 IDE，适合 Vim/Neovim 用户、服务器开发和偏好终端工作流的开发者。', en: 'Terminal-based AI coding CLI tools. IDE-independent, ideal for Vim/Neovim users, server development, and terminal workflows.' },
-  'term.subtitle2':{ zh: '款，按编程能力排序。', en: ' tools, sorted by coding ability.' },
-  'term.advTitle':  { zh: '终端工具的优势', en: 'Terminal Tool Advantages' },
-  'term.advDesc':   { zh: '不绑定特定 IDE，可在任意环境（SSH 远程、服务器、Vim）中使用；多数支持自定义模型 API，灵活性最高；Aider 的 Git 集成是所有工具中最完善的。', en: "Not tied to any IDE, works in any environment (SSH, servers, Vim); most support custom model APIs for maximum flexibility; Aider's Git integration is the best of all tools." },
-  'term.relCompare':     { zh: '终端 AI 三杰对比', en: 'Terminal AI Tool Comparison' },
-  'term.relCompareDesc': { zh: '对比：Claude Code vs OpenCode vs Aider →', en: 'Compare: Claude Code vs OpenCode vs Aider →' },
-  'term.relOllama':      { zh: 'Ollama + Aider 本地部署', en: 'Ollama + Aider Local Setup' },
-  'term.relOllamaDesc':  { zh: '指南：终端 + 本地模型零成本方案 →', en: 'Guide: Terminal + local model zero-cost setup →' },
-
-  // ── Builder tools page ─────────────────────────────────────────────────
-  'builder.title':     { zh: '🔨 AI 应用构建器', en: '🔨 AI App Builders' },
-  'builder.subtitle1': { zh: '以下工具可通过自然语言描述，直接生成完整的可部署 Web 应用，共', en: 'Build full web apps from natural language descriptions. ' },
-  'builder.subtitle2': { zh: '款，按生成能力排序。', en: ' tools, sorted by generation quality.' },
-
-  // ── QuickPicker ─────────────────────────────────────────────────────────
-  'qp.title':     { zh: '⚡ 30 秒快速选型', en: '⚡ 30-Second Quick Pick' },
-  'qp.subtitle':  { zh: '回答 3 个问题，找到最适合你的方案', en: 'Answer 3 questions to find your ideal plan' },
-  'qp.step1':     { zh: '1/3 · 你的主力开发环境是？', en: '1/3 · Your primary dev environment?' },
-  'qp.envVscode':   { zh: 'VS Code', en: 'VS Code' },
-  'qp.envJetbrains':{ zh: 'JetBrains', en: 'JetBrains' },
-  'qp.envTerminal': { zh: '终端 / Vim', en: 'Terminal / Vim' },
-  'qp.envAny':      { zh: '都可以', en: 'Any' },
-  'qp.step2':       { zh: '2/3 · 你的月预算是？', en: '2/3 · Your monthly budget?' },
-  'qp.budgetFree':  { zh: '¥0 免费', en: '$0 Free' },
-  'qp.budgetLow':   { zh: '¥10-50', en: '$10-50' },
-  'qp.budgetMid':   { zh: '¥50-150', en: '$50-150' },
-  'qp.budgetHigh':  { zh: '不限预算', en: 'No limit' },
-  'qp.step3':       { zh: '3/3 · 你最看重什么？', en: '3/3 · What matters most?' },
-  'qp.priPower':    { zh: '编程能力最强', en: 'Best Coding' },
-  'qp.priCheap':    { zh: '性价比最高', en: 'Best Value' },
-  'qp.priChina':    { zh: '国内体验好', en: 'China Access' },
-  'qp.priFlex':     { zh: '灵活可定制', en: 'Flexible' },
-  'qp.priPrivacy':  { zh: '数据隐私', en: 'Privacy' },
-  'qp.priEasy':     { zh: '开箱即用', en: 'Easy Setup' },
-  'qp.resultLabel': { zh: '🎯 推荐方案', en: '🎯 Recommended Plan' },
-  'qp.calculating': { zh: '计算中...', en: 'Calculating...' },
-  'qp.reset':       { zh: '重新选择', en: 'Start Over' },
-
   // ── Scenario cards ──────────────────────────────────────────────────────
   'sc.cursorHub.title':      { zh: 'Cursor 完全指南', en: 'Cursor Guide' },
   'sc.cursorHub.desc':       { zh: '评分、定价、替代方案与深度文章', en: 'Scores, pricing, alternatives & deep reads' },
@@ -338,8 +237,6 @@ const translations: Record<string, Record<Locale, string>> = {
   'sc.localDeploy.desc':     { zh: 'Ollama + Aider 本地部署', en: 'Ollama + Aider Local Deployment' },
   'sc.freeCoding.title':     { zh: '如何免费用 AI 编程？', en: 'Free AI Coding?' },
   'sc.freeCoding.desc':      { zh: '零成本工具合集', en: 'Zero-cost tool collection' },
-  'sc.faqLink.title':        { zh: '常见问题 FAQ', en: 'FAQ' },
-  'sc.faqLink.desc':         { zh: '选型、价格、隐私全解答', en: 'Selection, pricing, privacy answered' },
 
   // ── Footer ──────────────────────────────────────────────────────────────
   'footer.desc':       { zh: '帮助中国开发者选择最适合的 AI 编程工具方案。', en: 'Helping developers choose the best AI coding solution.' },
