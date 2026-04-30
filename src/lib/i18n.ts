@@ -316,6 +316,10 @@ const translations: Record<string, Record<Locale, string>> = {
   'qp.reset':       { zh: '重新选择', en: 'Start Over' },
 
   // ── Scenario cards ──────────────────────────────────────────────────────
+  'sc.cursorHub.title':      { zh: 'Cursor 完全指南', en: 'Cursor Guide' },
+  'sc.cursorHub.desc':       { zh: '评分、定价、替代方案与深度文章', en: 'Scores, pricing, alternatives & deep reads' },
+  'sc.chinaHub.title':       { zh: '国内开发者选型', en: 'China Developer Guide' },
+  'sc.chinaHub.desc':        { zh: '无需翻墙的 AI 编程方案', en: 'No-VPN AI coding plans for China' },
   'sc.cursorCopilot.title':  { zh: 'Cursor vs Copilot', en: 'Cursor vs Copilot' },
   'sc.cursorCopilot.desc':   { zh: '两大付费方案终极对比', en: 'Ultimate comparison of two paid plans' },
   'sc.clineRoo.title':       { zh: 'Cline vs Roo Code', en: 'Cline vs Roo Code' },
@@ -334,8 +338,6 @@ const translations: Record<string, Record<Locale, string>> = {
   'sc.localDeploy.desc':     { zh: 'Ollama + Aider 本地部署', en: 'Ollama + Aider Local Deployment' },
   'sc.freeCoding.title':     { zh: '如何免费用 AI 编程？', en: 'Free AI Coding?' },
   'sc.freeCoding.desc':      { zh: '零成本工具合集', en: 'Zero-cost tool collection' },
-  'sc.chinaTools.title':     { zh: '国内可用工具', en: 'China Accessible Tools' },
-  'sc.chinaTools.desc':      { zh: '无需代理的 AI 编程方案', en: 'AI coding without a proxy' },
   'sc.faqLink.title':        { zh: '常见问题 FAQ', en: 'FAQ' },
   'sc.faqLink.desc':         { zh: '选型、价格、隐私全解答', en: 'Selection, pricing, privacy answered' },
 
