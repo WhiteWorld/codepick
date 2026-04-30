@@ -16,7 +16,6 @@
     "gen-juejin": "node scripts/gen-juejin-post.mjs"
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.0",
     "@astrojs/tailwind": "^5.1.0",
     "@tailwindcss/typography": "^0.5.19",

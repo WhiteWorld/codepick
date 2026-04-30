@@ -13,8 +13,6 @@ const { lang } = Astro.props;
 import { getApi } from '../lib/data';
 const arkRaw = getApi('ark-coding-plan') as any;
 const bailianRaw = getApi('bailian-coding-plan') as any;
-const glmRaw = getApi('glm-coding-plan') as any;
-const minimaxRaw = getApi('minimax-coding-plan') as any;
 
 // Prefer locale-specific field on an object: returns value_en when lang === 'en' and a *_en field exists.
 function pick<T = any>(obj: any, field: string, l: Locale): T | undefined {
@@ -42,16 +40,6 @@ const apiCards = [
     raw: bailianRaw,
     accentColor: '#8b5cf6',
     badge: lang === 'zh' ? '💜 Lite 停止新购' : '💜 Lite no longer sold',
-  },
-  {
-    raw: glmRaw,
-    accentColor: '#2563eb',
-    badge: lang === 'zh' ? '💙 MCP 权益丰富' : '💙 Rich MCP perks',
-  },
-  {
-    raw: minimaxRaw,
-    accentColor: '#10b981',
-    badge: lang === 'zh' ? '💚 M2.7 新升级' : '💚 New M2.7 upgrade',
   },
 ];
 

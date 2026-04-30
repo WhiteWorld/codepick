@@ -85,7 +85,6 @@ const translations: Record<string, Record<Locale, string>> = {
   'section.bestFor':      { zh: '🎯 最适合', en: '🎯 Best For' },
   'section.changelog':    { zh: '📝 更新记录', en: '📝 Changelog' },
   'section.relatedTools':   { zh: '🔗 相关工具', en: '🔗 Related Tools' },
-  'section.mentionedTools': { zh: '🔧 文中提到的工具', en: '🔧 Tools Mentioned' },
   'section.relatedPlans':   { zh: '📦 包含此工具的方案', en: '📦 Plans Using This Tool' },
   'section.relatedArticles':{ zh: '📖 相关文章', en: '📖 Related Articles' },
   'section.altPlans':       { zh: '🔄 其他方案', en: '🔄 Alternative Plans' },
@@ -202,9 +201,7 @@ const translations: Record<string, Record<Locale, string>> = {
   'home.heroTitle1':     { zh: '找到最适合你的', en: 'Find Your Perfect' },
   'home.heroHighlight':  { zh: 'AI 编程工具', en: 'AI Coding Tool' },
   'home.heroDesc':       { zh: '横向对比 Cursor、Copilot、Claude Code、Cline 等主流工具的能力、价格与体验，帮你快速做出选择。', en: 'Compare Cursor, Copilot, Claude Code, Cline and more — by capability, pricing, and experience. Make the right choice, fast.' },
-  'home.heroCoverage':   { zh: '覆盖', en: 'Covering' },
   'home.heroToolCount':  { zh: '款工具', en: ' tools' },
-  'home.heroAnd':        { zh: '、', en: ' & ' },
   'home.heroPlanCount':  { zh: '套方案', en: ' plans' },
   'home.ctaOverview':    { zh: '🗺️ 全景图对比', en: '🗺️ Full Overview' },
   'home.ctaBrowse':      { zh: '浏览全部方案 ↓', en: 'Browse All Plans ↓' },
@@ -361,8 +358,6 @@ const translations: Record<string, Record<Locale, string>> = {
 
   // ── Misc / menu ─────────────────────────────────────────────────────────
   'menu.ariaLabel': { zh: '菜单', en: 'Menu' },
-  'notAvailable':   { zh: '此内容尚无英文版', en: 'This content is not yet available in English' },
-  'viewInChinese':  { zh: '查看中文版 →', en: 'View Chinese version →' },
 
   // ── Site-level SEO defaults ─────────────────────────────────────────────
   'seo.defaultTitle':  { zh: 'CodePick - AI 编程工具选型指南', en: 'CodePick - AI Coding Tool Guide' },
@@ -381,13 +376,11 @@ const translations: Record<string, Record<Locale, string>> = {
   // ── Quick Start section (tool detail page) ──────────────────────────────
   'quickStart.steps':       { zh: '安装步骤', en: 'Install Steps' },
   'quickStart.register':    { zh: '注册 / 获取账号', en: 'Register / Get Account' },
-  'quickStart.visitPage':   { zh: '前往注册页 ↗', en: 'Open Registration Page ↗' },
   'quickStart.chinaNote':   { zh: '🇨🇳 国内使用提示', en: '🇨🇳 China Access Note' },
 
   // ── Free trial CTA ───────────────────────────────────────────────────────
   'cta.freeTrial':      { zh: '免费开始', en: 'Start for Free' },
   'cta.tryNow':         { zh: '立即试用', en: 'Try Now' },
-  'cta.viewPricing':    { zh: '查看定价', en: 'View Pricing' },
   'cta.freeAvailable':  { zh: '提供免费版，无需信用卡', en: 'Free plan available — no credit card required' },
   'cta.paidOnly':       { zh: '提供付费订阅，支持免费试用期', en: 'Paid subscription with free trial period' },
 
@@ -422,11 +415,9 @@ const translations: Record<string, Record<Locale, string>> = {
   'prompts.scenario.test':     { zh: '写单测', en: 'Write Tests' },
   'prompts.scenario.explain':  { zh: '解释代码', en: 'Explain Code' },
   'prompts.copy':           { zh: '复制', en: 'Copy' },
-  'prompts.copied':         { zh: '已复制！', en: 'Copied!' },
   'prompts.hint':           { zh: '💡 将 {变量} 替换为实际内容后使用', en: '💡 Replace {variable} placeholders with your actual content' },
   'prompts.noResults':      { zh: '暂无匹配模板', en: 'No matching templates' },
   'bread.prompts':          { zh: '提示词模板库', en: 'Prompt Templates' },
-  'bread.codingPlan':       { zh: 'Coding Plan', en: 'Coding Plans' },
 
   // ── Coding Plan Page ────────────────────────────────────────────────────
   'codingPlan.heroTitle':      { zh: '找到最适合你的 AI 编程方案', en: 'Find Your Perfect AI Coding Plan' },
@@ -450,9 +441,7 @@ const translations: Record<string, Record<Locale, string>> = {
   'codingPlan.why3Desc':       { zh: '方舟、百炼均为国内服务，无需代理，稳定低延迟，随时可用', en: 'Ark and Bailian are China-native — no VPN needed, stable low-latency access' },
   'codingPlan.supportedClients': { zh: '支持的客户端', en: 'Supported Clients' },
   'codingPlan.models':         { zh: '可用模型', en: 'Available Models' },
-  'codingPlan.viewPlan':       { zh: '查看详情', en: 'View Details' },
   'codingPlan.subscribe':      { zh: '立即订阅', en: 'Subscribe Now' },
-  'codingPlan.litePrice':      { zh: '活动价', en: 'Promo Price' },
   'codingPlan.metaTitle':      { zh: 'Coding Plan 选型指南 | CodePick', en: 'AI Coding Plans Guide | CodePick' },
   'codingPlan.metaDesc':       { zh: '全面对比 AI 编程方案，了解 Coding Plan 的重要性，找到最适合你的客户端 + API 组合', en: 'Compare AI coding plans comprehensively. Understand what Coding Plans are and find the best client + API combination for you.' },
 
