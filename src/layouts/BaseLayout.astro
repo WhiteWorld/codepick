@@ -182,10 +182,17 @@ const latestUpdateMonth = latestDate
         </button>
         <a href={switchUrl} class="btn btn-ghost text-xs" data-locale-switch={otherLang}>{switchLabel}</a>
         <a
+          href={localePath('/search', lang)}
+          class="btn btn-ghost p-2 text-sm"
+          aria-label={lang === 'zh' ? '搜索' : 'Search'}
+        >
+          <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </a>
+        <a
           href="https://github.com/WhiteWorld/codepick"
           target="_blank"
           rel="noopener"
-          class="btn btn-ghost text-xs"
+          class="btn btn-ghost text-xs hidden md:inline-flex"
         >
           GitHub ↗
         </a>
@@ -198,6 +205,13 @@ const latestUpdateMonth = latestDate
     </div>
     <div id="mobile-menu" class="overflow-hidden transition-all duration-200 md:hidden border-t border-[var(--surface-border)] bg-[var(--surface-bg)]" style="max-height: 0;">
       <div class="container py-3 flex flex-col gap-2">
+        <a
+          href={localePath('/search', lang)}
+          class="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] py-2 no-underline inline-flex items-center gap-2"
+        >
+          <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          {lang === 'zh' ? '搜索' : 'Search'}
+        </a>
         {navLinks.map(link => (
           <a
             href={link.href}

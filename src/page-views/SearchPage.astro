@@ -1,0 +1,243 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
+import { getAllToolsLocalized, getAllPlansLocalized, overallScore } from '../lib/data';
+import { getCollection } from 'astro:content';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+
+const tools = getAllToolsLocalized(lang);
+const plans = getAllPlansLocalized(lang);
+
+// Articles from all collections
+const compareCollection = getCollectionName('compare', lang) as 'compare' | 'compare-en';
+const guidesCollection = getCollectionName('guides', lang) as 'guides' | 'guides-en';
+const practicesCollection = getCollectionName('practices', lang) as 'practices' | 'practices-en';
+
+const [compareArticles, guidesArticles, practicesArticles] = await Promise.all([
+  getCollection(compareCollection),
+  getCollection(guidesCollection),
+  getCollection(practicesCollection),
+]);
+
+// Build search index
+const searchIndex = [
+  ...tools.map(t => ({
+    type: 'tool' as const,
+    id: t.id,
+    title: t.name,
+    description: t.tagline,
+    tags: [...(t.best_for || []), t.type],
+    url: localePath(`/tool/${t.id}`, lang),
+    score: overallScore(t.scores),
+  })),
+  ...plans.map(p => ({
+    type: 'plan' as const,
+    id: p.id,
+    title: p.name,
+    description: p.tagline,
+    tags: p.tags || [],
+    url: localePath(`/plan/${p.id}`, lang),
+    score: overallScore(p.scores),
+  })),
+  ...compareArticles.filter(a => !a.data.draft).map(a => ({
+    type: 'article' as const,
+    id: a.slug,
+    title: a.data.title,
+    description: a.data.description,
+    tags: a.data.tags || [],
+    url: localePath(`/compare/${a.slug}`, lang),
+    category: lang === 'zh' ? '对比文章' : 'Comparison',
+  })),
+  ...guidesArticles.filter(a => !a.data.draft).map(a => ({
+    type: 'article' as const,
+    id: a.slug,
+    title: a.data.title,
+    description: a.data.description,
+    tags: a.data.tags || [],
+    url: localePath(`/guides/${a.slug}`, lang),
+    category: lang === 'zh' ? '使用指南' : 'Guide',
+  })),
+  ...practicesArticles.filter(a => !a.data.draft).map(a => ({
+    type: 'article' as const,
+    id: a.slug,
+    title: a.data.title,
+    description: a.data.description,
+    tags: a.data.tags || [],
+    url: localePath(`/practices/${a.slug}`, lang),
+    category: lang === 'zh' ? '开发实践' : 'Practice',
+  })),
+];
+
+const seoTitle = lang === 'zh'
+  ? '搜索 | CodePick'
+  : 'Search | CodePick';
+const seoDesc = lang === 'zh'
+  ? '搜索 AI 编程工具、方案、对比文章和使用指南。'
+  : 'Search AI coding tools, plans, comparisons, and guides.';
+---
+
+<BaseLayout title={seoTitle} description={seoDesc} lang={lang}>
+  <section class="container py-12 max-w-2xl">
+    <h1 class="text-3xl font-bold text-[var(--text-primary)] mb-2">
+      {lang === 'zh' ? '搜索' : 'Search'}
+    </h1>
+    <p class="text-[var(--text-secondary)] mb-8">
+      {lang === 'zh'
+        ? '搜索工具、方案、文章… 按 Enter 或点击结果跳转'
+        : 'Search tools, plans, articles… Press Enter or click a result to navigate'}
+    </p>
+
+    <!-- Search Input -->
+    <div class="relative mb-8">
+      <input
+        id="search-input"
+        type="text"
+        class="w-full px-4 py-3 pl-11 rounded-xl border border-[var(--surface-border)] bg-[var(--surface-card)] text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--brand-400)] focus:ring-1 focus:ring-[var(--brand-400)] transition-colors"
+        placeholder={lang === 'zh' ? '输入关键词，例如：Cursor、免费、国内可用…' : 'Type a keyword, e.g. Cursor, free, China…'}
+        autocomplete="off"
+      />
+      <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-[var(--text-muted)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <kbd class="absolute right-3 top-1/2 -translate-y-1/2 hidden md:inline-block px-2 py-0.5 text-xs rounded bg-[var(--surface-hover)] text-[var(--text-muted)] border border-[var(--surface-border)]">ESC</kbd>
+    </div>
+
+    <!-- Results -->
+    <div id="search-results" class="space-y-3"></div>
+
+    <!-- Empty State -->
+    <div id="search-empty" class="hidden text-center py-12">
+      <div class="text-4xl mb-3">🔍</div>
+      <p class="text-[var(--text-muted)]">
+        {lang === 'zh' ? '没有找到匹配的结果' : 'No matching results found'}
+      </p>
+    </div>
+
+    <!-- Stats -->
+    <div id="search-stats" class="hidden text-xs text-[var(--text-muted)] mt-4"></div>
+  </section>
+</BaseLayout>
+
+<script define:vars={{ index: JSON.stringify(searchIndex), lang }}>
+  const searchIndex = JSON.parse(index);
+  const input = document.getElementById('search-input');
+  const resultsEl = document.getElementById('search-results');
+  const emptyEl = document.getElementById('search-empty');
+  const statsEl = document.getElementById('search-stats');
+
+  function normalize(str) {
+    return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
+  function score(item, query) {
+    const q = normalize(query);
+    const title = normalize(item.title);
+    const desc = normalize(item.description);
+    const tags = (item.tags || []).map(normalize).join(' ');
+    let s = 0;
+    if (title === q) s += 100;
+    else if (title.startsWith(q)) s += 80;
+    else if (title.includes(q)) s += 60;
+    if (desc.includes(q)) s += 30;
+    if (tags.includes(q)) s += 20;
+    // Boost tools/plans with higher scores
+    if (item.score && item.score > 8) s += 5;
+    return s;
+  }
+
+  function render(items) {
+    resultsEl.innerHTML = '';
+    if (items.length === 0) {
+      resultsEl.classList.add('hidden');
+      emptyEl.classList.remove('hidden');
+      statsEl.classList.add('hidden');
+      return;
+    }
+    resultsEl.classList.remove('hidden');
+    emptyEl.classList.add('hidden');
+    statsEl.classList.remove('hidden');
+    statsEl.textContent = lang === 'zh'
+      ? `找到 ${items.length} 个结果`
+      : `${items.length} result${items.length > 1 ? 's' : ''} found`;
+
+    items.forEach((item, idx) => {
+      const typeLabel = {
+        tool: lang === 'zh' ? '工具' : 'Tool',
+        plan: lang === 'zh' ? '方案' : 'Plan',
+        article: item.category || (lang === 'zh' ? '文章' : 'Article'),
+      }[item.type];
+
+      const typeColor = {
+        tool: 'bg-blue-500/10 text-blue-400',
+        plan: 'bg-amber-500/10 text-amber-400',
+        article: 'bg-green-500/10 text-green-400',
+      }[item.type];
+
+      const card = document.createElement('a');
+      card.href = item.url;
+      card.className = 'card p-4 block no-underline hover:border-[var(--brand-400)] transition-colors group';
+      card.innerHTML = `
+        <div class="flex items-start gap-3">
+          <div class="shrink-0">
+            <span class="inline-block px-2 py-0.5 rounded text-xs font-medium ${typeColor}">${typeLabel}</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] transition-colors m-0 mb-1">${escapeHtml(item.title)}</h3>
+            <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-2">${escapeHtml(item.description)}</p>
+            ${item.tags?.length ? `<div class="flex flex-wrap gap-1 mt-2">${item.tags.slice(0, 4).map(t => `<span class="tag text-xs">${escapeHtml(t)}</span>`).join('')}</div>` : ''}
+          </div>
+          <svg class="shrink-0 w-4 h-4 text-[var(--text-muted)] opacity-0 group-hover:opacity-100 transition-opacity mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </div>
+      `;
+      resultsEl.appendChild(card);
+    });
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function doSearch(query) {
+    const q = query.trim();
+    if (!q) {
+      resultsEl.innerHTML = '';
+      resultsEl.classList.add('hidden');
+      emptyEl.classList.add('hidden');
+      statsEl.classList.add('hidden');
+      return;
+    }
+    const scored = searchIndex
+      .map(item => ({ item, score: score(item, q) }))
+      .filter(x => x.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 15)
+      .map(x => x.item);
+    render(scored);
+  }
+
+  input?.addEventListener('input', (e) => {
+    doSearch(e.target.value);
+  });
+
+  // Focus input on load
+  input?.focus();
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      input.value = '';
+      doSearch('');
+      input.blur();
+    }
+  });
+
+  // Check for query param
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get('q');
+  if (q) {
+    input.value = q;
+    doSearch(q);
+  }
+</script>
