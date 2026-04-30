@@ -399,27 +399,6 @@ const translations: Record<string, Record<Locale, string>> = {
   'deals.affiliateTag':     { zh: '⭐ 推广链接', en: '⭐ Partner link' },
   'deals.note':             { zh: '带 ⭐ 标记的链接为推广链接，点击后我们可能获得佣金，不影响你的实际费用。', en: 'Links marked ⭐ are affiliate links. We may earn a commission at no extra cost to you.' },
 
-  // ── Prompts library page ────────────────────────────────────────────────
-  'prompts.seoTitle':       { zh: 'AI 编程提示词模板库 | CodePick', en: 'AI Coding Prompt Templates | CodePick' },
-  'prompts.seoDesc':        { zh: '按编程语言和场景分类的 AI 提示词模板：查 Bug、重构、写单测、解释代码，复制即用。', en: 'AI prompt templates by language and scenario: debug, refactor, tests, explain. Copy-ready for any AI coding tool.' },
-  'prompts.title':          { zh: '💬 提示词模板库', en: '💬 Prompt Templates' },
-  'prompts.subtitle':       { zh: '按语言和场景分类，复制后替换变量即可使用。适配所有 AI 编程工具。', en: 'Organized by language and scenario. Copy, fill in the blanks, and use with any AI coding tool.' },
-  'prompts.filterLang':     { zh: '编程语言', en: 'Language' },
-  'prompts.filterScenario': { zh: '使用场景', en: 'Scenario' },
-  'prompts.all':            { zh: '全部', en: 'All' },
-  'prompts.lang.python':    { zh: 'Python', en: 'Python' },
-  'prompts.lang.java':      { zh: 'Java', en: 'Java' },
-  'prompts.lang.frontend':  { zh: '前端 (JS/TS)', en: 'Frontend (JS/TS)' },
-  'prompts.lang.devops':    { zh: '运维 (DevOps)', en: 'DevOps' },
-  'prompts.scenario.debug':    { zh: '查 Bug', en: 'Debug' },
-  'prompts.scenario.refactor': { zh: '重构', en: 'Refactor' },
-  'prompts.scenario.test':     { zh: '写单测', en: 'Write Tests' },
-  'prompts.scenario.explain':  { zh: '解释代码', en: 'Explain Code' },
-  'prompts.copy':           { zh: '复制', en: 'Copy' },
-  'prompts.hint':           { zh: '💡 将 {变量} 替换为实际内容后使用', en: '💡 Replace {variable} placeholders with your actual content' },
-  'prompts.noResults':      { zh: '暂无匹配模板', en: 'No matching templates' },
-  'bread.prompts':          { zh: '提示词模板库', en: 'Prompt Templates' },
-
   // ── Coding Plan Page ────────────────────────────────────────────────────
   'codingPlan.heroTitle':      { zh: '找到最适合你的 AI 编程方案', en: 'Find Your Perfect AI Coding Plan' },
   'codingPlan.heroSubtitle':   { zh: 'Coding Plan = 客户端工具 + API 订阅 + 开发环境。一次配置，全面提效。', en: 'Coding Plan = Client Tool + API Subscription + Dev Environment. One setup, full productivity.' },
