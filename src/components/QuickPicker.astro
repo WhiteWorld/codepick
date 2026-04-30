@@ -14,11 +14,10 @@ const { lang = 'zh' } = Astro.props;
   <!-- Step 1 -->
   <div class="picker-step" data-step="1">
     <p class="text-sm font-medium text-[var(--text-secondary)] mb-3">{t('qp.step1', lang)}</p>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
       <button class="picker-option btn btn-ghost justify-center" data-key="env" data-value="vscode">{t('qp.envVscode', lang)}</button>
       <button class="picker-option btn btn-ghost justify-center" data-key="env" data-value="jetbrains">{t('qp.envJetbrains', lang)}</button>
       <button class="picker-option btn btn-ghost justify-center" data-key="env" data-value="terminal">{t('qp.envTerminal', lang)}</button>
-      <button class="picker-option btn btn-ghost justify-center" data-key="env" data-value="any">{t('qp.envAny', lang)}</button>
     </div>
   </div>
 
