@@ -9,7 +9,7 @@ const translations: Record<string, Record<Locale, string>> = {
   'nav.overview':  { zh: '全景图', en: 'Overview' },
   'nav.compare':   { zh: '对比文章', en: 'Comparisons' },
   'nav.guides':    { zh: '使用指南', en: 'Guides' },
-  'nav.prompts':   { zh: '提示词库', en: 'Prompts' },
+  'nav.practices': { zh: '开发实践', en: 'Practices' },
   'nav.deals':     { zh: '优惠福利', en: 'Deals' },
   'nav.faq':       { zh: '常见问题', en: 'FAQ' },
 

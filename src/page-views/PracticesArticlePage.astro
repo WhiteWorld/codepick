@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import ShareBar from '../components/ShareBar.astro';
+import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
+import { getCollection } from 'astro:content';
+
+interface Props { article: any; lang: Locale }
+const { article, lang } = Astro.props;
+const { Content, headings } = await article.render();
+
+// 相关文章：共享 tag 最多的 practices 文章，排除自身，最多 3 篇
+const collectionName = getCollectionName('practices', lang) as 'practices' | 'practices-en';
+const allArticles = await getCollection(collectionName);
+const currentTags: string[] = (article.data.tags || []).map((t: string) => t.toLowerCase());
+const relatedArticles = allArticles
+  .filter(a => a.slug !== article.slug && !a.data.draft)
+  .map(a => ({
+    article: a,
+    shared: (a.data.tags || []).filter((t: string) => currentTags.includes(t.toLowerCase())).length,
+  }))
+  .filter(x => x.shared > 0)
+  .sort((a, b) => b.shared - a.shared)
+  .slice(0, 3)
+  .map(x => x.article);
+
+const siteUrl = 'https://codepick.dev';
+const articlePath = localePath(`/practices/${article.slug}`, lang);
+const articleUrl = `${siteUrl}${articlePath}`;
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t('bread.home', lang), item: siteUrl },
+    { '@type': 'ListItem', position: 2, name: lang === 'zh' ? '开发实践' : 'Dev Practices', item: `${siteUrl}${localePath('/practices', lang)}` },
+    { '@type': 'ListItem', position: 3, name: article.data.title, item: articleUrl },
+  ],
+};
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: article.data.title,
+  description: article.data.description,
+  datePublished: article.data.date,
+  dateModified: article.data.updated_at || article.data.date,
+  url: articleUrl,
+  image: `${siteUrl}/og-image.png`,
+  inLanguage: lang === 'zh' ? 'zh-CN' : 'en',
+  author: { '@type': 'Organization', name: 'CodePick', url: siteUrl },
+  publisher: { '@type': 'Organization', name: 'CodePick', url: siteUrl, logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon.svg` } },
+};
+---
+
+<BaseLayout
+  title={`${article.data.title} | CodePick`}
+  description={article.data.description}
+  jsonLd={[articleSchema, breadcrumbSchema]}
+  lang={lang}
+>
+  <article class="container py-12 max-w-3xl">
+    <nav class="text-xs text-[var(--text-muted)] mb-6">
+      <a href={localePath('/', lang)} class="hover:text-[var(--text-primary)] no-underline">{t('bread.home', lang)}</a>
+      <span class="mx-1">/</span>
+      <a href={localePath('/practices', lang)} class="hover:text-[var(--text-primary)] no-underline">{lang === 'zh' ? '开发实践' : 'Dev Practices'}</a>
+      <span class="mx-1">/</span>
+      <span class="text-[var(--text-secondary)]">{article.data.title}</span>
+    </nav>
+
+    <header class="mb-8">
+      <div class="flex flex-wrap gap-2 mb-3">
+        {article.data.tags?.map((tag: string) => (
+          <span class="tag">{tag}</span>
+        ))}
+      </div>
+      <h1 class="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-3 mt-0">{article.data.title}</h1>
+      <p class="text-[var(--text-secondary)] text-base mb-3">{article.data.description}</p>
+      <div class="text-xs text-[var(--text-muted)]">
+        {t('compare.pubDate', lang)} {article.data.date}
+        {article.data.updated_at && (
+          <span> · {lang === 'zh' ? '更新于' : 'Updated'} {article.data.updated_at}</span>
+        )}
+      </div>
+    </header>
+
+    <TableOfContents headings={headings} lang={lang} />
+
+    <div class="prose prose-sm max-w-none
+      prose-headings:text-[var(--text-primary)] prose-headings:font-semibold
+      prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4 prose-h2:border-b prose-h2:border-[var(--surface-border)] prose-h2:pb-2
+      prose-h3:text-base prose-h3:mt-6 prose-h3:mb-3
+      prose-p:text-[var(--text-secondary)] prose-p:leading-relaxed
+      prose-a:text-[var(--brand-400)] prose-a:no-underline hover:prose-a:underline
+      prose-strong:text-[var(--text-primary)]
+      prose-code:text-[var(--brand-400)] prose-code:bg-[var(--surface-hover)] prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-xs
+      prose-pre:bg-[var(--surface-card)] prose-pre:border prose-pre:border-[var(--surface-border)] prose-pre:text-[var(--text-primary)]
+      prose-table:text-sm
+      prose-th:text-[var(--text-secondary)] prose-th:font-medium prose-th:bg-[var(--surface-card)]
+      prose-td:text-[var(--text-secondary)] prose-td:border-[var(--surface-border)]
+      prose-tr:border-[var(--surface-border)]
+      prose-blockquote:border-l-[var(--brand-400)] prose-blockquote:text-[var(--text-muted)]
+      prose-li:text-[var(--text-secondary)]
+      prose-hr:border-[var(--surface-border)]
+    ">
+      <Content />
+    </div>
+
+    <ShareBar url={articleUrl} title={article.data.title} description={article.data.description} lang={lang} />
+
+    <!-- Related Articles -->
+    {relatedArticles.length > 0 && (
+      <section class="mt-10 pt-6 border-t border-[var(--surface-border)]">
+        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">{t('section.relatedArticles', lang)}</h2>
+        <div class="grid grid-cols-1 gap-3">
+          {relatedArticles.map(a => (
+            <a href={localePath(`/practices/${a.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
+              <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{a.data.title}</h3>
+              <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{a.data.description}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <div class="mt-6">
+      <a href={localePath('/practices', lang)} class="text-sm text-[var(--brand-400)] no-underline hover:underline">
+        {lang === 'zh' ? '← 返回开发实践' : '← Back to Dev Practices'}
+      </a>
+    </div>
+  </article>
+</BaseLayout>

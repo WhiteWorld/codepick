@@ -13,6 +13,22 @@
     { "source": "/guides", "destination": "/zh/guides", "statusCode": 301 },
     { "source": "/guides/:slug", "destination": "/zh/guides/:slug", "statusCode": 301 },
     { "source": "/faq", "destination": "/zh/faq", "statusCode": 301 },
-    { "source": "/deals", "destination": "/zh/deals", "statusCode": 301 }
+    { "source": "/deals", "destination": "/zh/deals", "statusCode": 301 },
+
+    { "source": "/compare/cloudflare-pages-vs-vercel", "destination": "/zh/practices/cloudflare-pages-vs-vercel", "statusCode": 301 },
+    { "source": "/compare/cloudflare-vs-vercel-vs-supabase", "destination": "/zh/practices/cloudflare-vs-vercel-vs-supabase", "statusCode": 301 },
+    { "source": "/compare/supabase-vs-firebase", "destination": "/zh/practices/supabase-vs-firebase", "statusCode": 301 },
+    { "source": "/guides/cloudflare-developer-guide", "destination": "/zh/practices/cloudflare-developer-guide", "statusCode": 301 },
+    { "source": "/guides/supabase-developer-guide", "destination": "/zh/practices/supabase-developer-guide", "statusCode": 301 },
+    { "source": "/guides/vercel-developer-guide", "destination": "/zh/practices/vercel-developer-guide", "statusCode": 301 },
+    { "source": "/guides/aliyun-sms-supabase-login", "destination": "/zh/practices/aliyun-sms-supabase-login", "statusCode": 301 },
+    { "source": "/guides/openclaw-cloud-deploy", "destination": "/zh/practices/openclaw-cloud-deploy", "statusCode": 301 },
+
+    { "source": "/en/compare/cloudflare-pages-vs-vercel", "destination": "/en/practices/cloudflare-pages-vs-vercel", "statusCode": 301 },
+    { "source": "/en/compare/cloudflare-vs-vercel-vs-supabase", "destination": "/en/practices/cloudflare-vs-vercel-vs-supabase", "statusCode": 301 },
+    { "source": "/en/compare/supabase-vs-firebase", "destination": "/en/practices/supabase-vs-firebase", "statusCode": 301 },
+    { "source": "/en/guides/cloudflare-developer-guide", "destination": "/en/practices/cloudflare-developer-guide", "statusCode": 301 },
+    { "source": "/en/guides/supabase-developer-guide", "destination": "/en/practices/supabase-developer-guide", "statusCode": 301 },
+    { "source": "/en/guides/vercel-developer-guide", "destination": "/en/practices/vercel-developer-guide", "statusCode": 301 }
   ]
 }

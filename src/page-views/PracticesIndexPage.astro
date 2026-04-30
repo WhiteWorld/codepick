@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+
+const collectionName = getCollectionName('practices', lang) as 'practices' | 'practices-en';
+const articles = (await getCollection(collectionName))
+  .filter(a => !a.data.draft)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const seoTitle = lang === 'zh'
+  ? '开发实践 | CodePick'
+  : 'Dev Practices | CodePick';
+const seoDesc = lang === 'zh'
+  ? 'AI 时代开发者需要了解的周边工具、部署方案与工程决策笔记。'
+  : 'Notes on surrounding tools, deployment strategies, and engineering decisions in the AI era.';
+---
+
+<BaseLayout title={seoTitle} description={seoDesc} lang={lang}>
+  <section class="container py-12 max-w-3xl">
+    <h1 class="text-3xl font-bold text-[var(--text-primary)] mb-2">
+      {lang === 'zh' ? '开发实践' : 'Dev Practices'}
+    </h1>
+    <p class="text-[var(--text-secondary)] mb-8">
+      {lang === 'zh'
+        ? 'AI 时代开发者需要了解的周边工具、部署方案与工程决策。不局限于 AI 编程工具本身，但都与「AI 辅助开发」的工作流相关。'
+        : 'Notes on tools, deployment, and engineering decisions every AI-era developer should know. Not limited to AI coding tools, but all relevant to the AI-assisted workflow.'}
+    </p>
+
+    <div class="space-y-4">
+      {articles.map(article => (
+        <a
+          href={localePath(`/practices/${article.slug}`, lang)}
+          class="card p-6 block no-underline hover:border-[var(--brand-400)] transition-colors"
+        >
+          <div class="flex flex-wrap gap-2 mb-2">
+            {article.data.tags?.slice(0, 4).map((tag: string) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+          <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-2 mb-1">{article.data.title}</h2>
+          <p class="text-sm text-[var(--text-muted)] m-0 mb-2">{article.data.description}</p>
+          <span class="text-xs text-[var(--text-muted)]">{article.data.date}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

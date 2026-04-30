@@ -49,9 +49,35 @@ const guidesEn = defineCollection({
   }),
 });
 
+const practices = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    date: z.string(),
+    updated_at: z.string().optional(),
+    tags: z.array(z.string()).optional().default([]),
+    draft: z.boolean().optional().default(false),
+  }),
+});
+
+const practicesEn = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    date: z.string(),
+    updated_at: z.string().optional(),
+    tags: z.array(z.string()).optional().default([]),
+    draft: z.boolean().optional().default(false),
+  }),
+});
+
 export const collections = {
   compare,
   guides,
+  practices,
   'compare-en': compareEn,
   'guides-en': guidesEn,
+  'practices-en': practicesEn,
 };

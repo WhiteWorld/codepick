@@ -1,0 +1,17 @@
+---
+import PracticesArticlePage from '../../../page-views/PracticesArticlePage.astro';
+import { getCollectionName } from '../../../lib/i18n';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const collection = getCollectionName('practices', 'en') as 'practices-en';
+  const articles = await getCollection(collection);
+  return articles.map(a => ({
+    params: { slug: a.slug },
+    props: { article: a },
+  }));
+}
+
+const { article } = Astro.props;
+---
+<PracticesArticlePage article={article} lang="en" />
