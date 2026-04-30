@@ -299,6 +299,7 @@ const allJsonLd = [softwareAppSchema, breadcrumbSchema, ...(faqSchema ? [faqSche
                 <th>{t('table.planName', lang)}</th>
                 <th>{t('table.price', lang)}</th>
                 <th>{t('table.limits', lang)}</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -307,6 +308,13 @@ const allJsonLd = [softwareAppSchema, breadcrumbSchema, ...(faqSchema ? [faqSche
                   <td class="font-medium">{p.name}</td>
                   <td>{typeof p.price === 'number' ? `${pricingCurrency === 'CNY' ? '¥' : '$'}${p.price}${t('price.perMonth', lang)}` : p.price}</td>
                   <td class="text-[var(--text-muted)]">{p.limits || '—'}</td>
+                  <td>
+                    {registerUrl && (
+                      <a href={registerUrl} target="_blank" rel="noopener noreferrer" class="text-xs text-[var(--brand-400)] no-underline hover:underline whitespace-nowrap">
+                        {lang === 'zh' ? '去官网 →' : 'Official →'}
+                      </a>
+                    )}
+                  </td>
                 </tr>
               ))}
             </tbody>

@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import ShareBar from '../components/ShareBar.astro';
 import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
-import { getAllToolsLocalized, overallScore } from '../lib/data';
+import { getAllToolsLocalized, getAllPlansLocalized, overallScore } from '../lib/data';
 import { getCollection } from 'astro:content';
 
 interface Props { article: any; lang: Locale }
@@ -31,6 +31,14 @@ const toolIds = new Set(allTools.map((tool: any) => tool.id));
 const mentionedTools = allTools
   .filter((tool: any) => currentTags.includes(tool.id.toLowerCase()))
   .slice(0, 4);
+
+// 文章中提到的工具对应的推荐方案
+const allPlans = getAllPlansLocalized(lang);
+const mentionedToolIds = mentionedTools.map((t: any) => t.id);
+const recommendedPlans = allPlans
+  .filter(p => mentionedToolIds.includes(p.client))
+  .sort((a, b) => overallScore(b.scores) - overallScore(a.scores))
+  .slice(0, 2);
 
 // 相关指南：跨类型推荐，共享 tag 最多，最多 2 篇
 const guidesCollection = getCollectionName('guides', lang) as 'guides' | 'guides-en';
@@ -148,6 +156,30 @@ const articleSchema = {
               </div>
               <div class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] transition-colors">{tool.name}</div>
               <div class="text-xs text-[var(--text-muted)] mt-1">{t('score.overall', lang)} {overallScore(tool.scores).toFixed(1)}</div>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Recommended Plans -->
+    {recommendedPlans.length > 0 && (
+      <section class="mt-12 pt-6 border-t border-[var(--surface-border)]">
+        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">
+          {lang === 'zh' ? '💡 编辑推荐方案' : '💡 Recommended Plans'}
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {recommendedPlans.map(plan => (
+            <a href={localePath(`/plan/${plan.id}`, lang)} class="card p-5 block no-underline group hover:border-[var(--brand-500)] transition-colors">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] transition-colors m-0">{plan.name}</h3>
+                {plan.badge && <span class="tag tag-primary text-xs">{plan.badge}</span>}
+              </div>
+              <p class="text-xs text-[var(--text-muted)] m-0 mb-3">{plan.tagline}</p>
+              <div class="flex items-center gap-3 text-xs">
+                <span class="text-[var(--text-secondary)]">{plan.monthly_cost}</span>
+                <span class="text-[var(--brand-400)] font-medium">{t('score.overall', lang)} {overallScore(plan.scores).toFixed(1)}</span>
+              </div>
             </a>
           ))}
         </div>

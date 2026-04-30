@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ScoreBar from '../components/ScoreBar.astro';
+import PlanCard from '../components/PlanCard.astro';
+import ToolCard from '../components/ToolCard.astro';
+import { getToolLocalized, getPlanLocalized, getAllPlansLocalized, getAllToolsLocalized, overallScore } from '../lib/data';
+import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
+import { getCollection } from 'astro:content';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+
+const tool = getToolLocalized('cursor', lang);
+const plan = getPlanLocalized('cursor-pro', lang);
+
+// Cursor 相关文章
+const compareCollection = getCollectionName('compare', lang) as 'compare' | 'compare-en';
+const allCompare = await getCollection(compareCollection);
+const cursorArticles = allCompare
+  .filter(a => !a.data.draft && (a.data.tags || []).some((tag: string) => tag.toLowerCase() === 'cursor'))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 6);
+
+// Cursor 替代工具（排除 cursor 自身）
+const allTools = getAllToolsLocalized(lang);
+const alternativeTools = allTools
+  .filter(t => t.id !== 'cursor' && (t as any).type === 'ide')
+  .sort((a, b) => overallScore(b.scores) - overallScore(a.scores))
+  .slice(0, 4);
+
+// 包含 cursor 的其他方案
+const allPlans = getAllPlansLocalized(lang);
+const cursorPlans = allPlans.filter(p => p.client === 'cursor').slice(0, 2);
+
+const seoTitle = lang === 'zh'
+  ? 'Cursor 完全指南 | CodePick'
+  : 'Cursor Complete Guide | CodePick';
+const seoDesc = lang === 'zh'
+  ? 'Cursor 是什么？适合谁？多少钱？替代方案有哪些？一站式了解这款最热门的 AI IDE。'
+  : 'What is Cursor? Who is it for? How much does it cost? What are the alternatives? Your one-stop guide to the hottest AI IDE.';
+---
+
+<BaseLayout title={seoTitle} description={seoDesc} lang={lang}>
+  <article class="container py-12 max-w-4xl">
+    <!-- Hero -->
+    <section class="text-center mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-4 border bg-[var(--surface-card)] border-[var(--surface-border)]">
+        <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+        {lang === 'zh' ? '热门工具' : 'Popular Tool'}
+      </div>
+      <h1 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-4">
+        {lang === 'zh' ? 'Cursor 完全指南' : 'Cursor Complete Guide'}
+      </h1>
+      <p class="text-[var(--text-secondary)] max-w-2xl mx-auto mb-6">
+        {lang === 'zh'
+          ? '目前最热门的 AI 原生 IDE，基于 VS Code 构建，内置 Claude/GPT 模型，支持 Agent 模式。'
+          : 'The hottest AI-native IDE, built on VS Code with built-in Claude/GPT models and Agent mode support.'}
+      </p>
+      {plan && (
+        <a href={localePath(`/plan/${plan.id}`, lang)} class="inline-block">
+          <div class="card p-4 border-2 border-[var(--brand-500)] hover:shadow-lg transition-all text-left max-w-md mx-auto">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-lg">⚡</span>
+              <div>
+                <div class="text-sm font-semibold text-[var(--text-primary)]">{plan.name}</div>
+                <div class="text-xs text-[var(--text-muted)]">{plan.tagline}</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-[var(--brand-400)] font-medium">{t('score.overall', lang)} {overallScore(plan.scores).toFixed(1)}</span>
+              <span class="text-[var(--text-secondary)]">{plan.monthly_cost}</span>
+            </div>
+          </div>
+        </a>
+      )}
+    </section>
+
+    <!-- Overview -->
+    {tool && (
+      <section class="card p-6 mb-8">
+        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">
+          {lang === 'zh' ? 'Cursor 是什么？' : 'What is Cursor?'}
+        </h2>
+        <p class="text-[var(--text-secondary)] text-sm leading-relaxed mb-4">
+          {(tool as any).tagline || ''}
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div class="text-center p-3 rounded-lg bg-[var(--surface-hover)]">
+            <div class="text-lg font-bold text-[var(--brand-400)]">{(tool as any).scores?.coding_ability ?? '—'}</div>
+            <div class="text-xs text-[var(--text-muted)]">{t('score.codingAbility', lang)}</div>
+          </div>
+          <div class="text-center p-3 rounded-lg bg-[var(--surface-hover)]">
+            <div class="text-lg font-bold text-[var(--brand-400)]">{(tool as any).scores?.cost_efficiency ?? '—'}</div>
+            <div class="text-xs text-[var(--text-muted)]">{t('score.costEfficiency', lang)}</div>
+          </div>
+          <div class="text-center p-3 rounded-lg bg-[var(--surface-hover)]">
+            <div class="text-lg font-bold text-[var(--brand-400)]">{(tool as any).scores?.flexibility ?? '—'}</div>
+            <div class="text-xs text-[var(--text-muted)]">{t('score.flexibility', lang)}</div>
+          </div>
+          <div class="text-center p-3 rounded-lg bg-[var(--surface-hover)]">
+            <div class="text-lg font-bold text-[var(--brand-400)]">{(tool as any).scores?.china_friendly ?? '—'}</div>
+            <div class="text-xs text-[var(--text-muted)]">{t('score.chinaFriendly', lang)}</div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Best For / Not For -->
+    {tool && (
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+        <div class="card p-6">
+          <h3 class="text-base font-semibold mb-3 mt-0" style="color: var(--color-success)">
+            {lang === 'zh' ? '✅ 最适合' : '✅ Best For'}
+          </h3>
+          <ul class="list-none text-sm text-[var(--text-secondary)] space-y-1.5 m-0 p-0">
+            {((tool as any).best_for || []).map((b: string) => <li class="flex gap-2"><span>•</span>{b}</li>)}
+          </ul>
+        </div>
+        <div class="card p-6">
+          <h3 class="text-base font-semibold mb-3 mt-0" style="color: var(--color-danger)">
+            {lang === 'zh' ? '❌ 不适合' : '❌ Not For'}
+          </h3>
+          <ul class="list-none text-sm text-[var(--text-secondary)] space-y-1.5 m-0 p-0">
+            {((tool as any).not_for || []).map((n: string) => <li class="flex gap-2"><span>•</span>{n}</li>)}
+          </ul>
+        </div>
+      </div>
+    )}
+
+    <!-- Pricing -->
+    {tool && (tool as any).pricing?.plans?.length > 0 && (
+      <section class="card p-6 mb-8">
+        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">
+          {lang === 'zh' ? '定价方案' : 'Pricing'}
+        </h2>
+        <div class="overflow-x-auto">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>{t('table.planName', lang)}</th>
+                <th>{t('table.price', lang)}</th>
+                <th>{t('table.limits', lang)}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {(tool as any).pricing.plans.map((p: any) => (
+                <tr>
+                  <td class="font-medium">{p.name}</td>
+                  <td>{typeof p.price === 'number' ? `${(tool as any).pricing.currency === 'CNY' ? '¥' : '$'}${p.price}${t('price.perMonth', lang)}` : p.price}</td>
+                  <td class="text-[var(--text-muted)]">{p.limits || '—'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        {(tool as any).register_url && (
+          <div class="mt-4 text-center">
+            <a href={(tool as any).register_url} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              {lang === 'zh' ? '去 Cursor 官网 →' : 'Go to Cursor Official →'}
+            </a>
+          </div>
+        )}
+      </section>
+    )}
+
+    <!-- Alternatives -->
+    {alternativeTools.length > 0 && (
+      <section class="mb-8">
+        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">
+          {lang === 'zh' ? '替代方案' : 'Alternatives'}
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {alternativeTools.map(t => <ToolCard tool={t} lang={lang} />)}
+        </div>
+      </section>
+    )}
+
+    <!-- Related Plans -->
+    {cursorPlans.length > 0 && (
+      <section class="mb-8">
+        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">
+          {lang === 'zh' ? '包含 Cursor 的方案' : 'Plans Using Cursor'}
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {cursorPlans.map(p => <PlanCard plan={p} lang={lang} />)}
+        </div>
+      </section>
+    )}
+
+    <!-- Deep Reading -->
+    {cursorArticles.length > 0 && (
+      <section class="mb-8">
+        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">
+          {lang === 'zh' ? '深度阅读' : 'Deep Reading'}
+        </h2>
+        <div class="grid grid-cols-1 gap-3">
+          {cursorArticles.map(a => (
+            <a href={localePath(`/compare/${a.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
+              <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{a.data.title}</h3>
+              <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{a.data.description}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+  </article>
+</BaseLayout>
