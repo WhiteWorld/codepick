@@ -43,7 +43,7 @@ scores:
   cost_efficiency: 6
   flexibility: 8
   china_friendly: 1
-  privacy: 5
+  privacy: 4
 features:
   code_completion: false
   chat: true

@@ -11,9 +11,9 @@ composition:
   environment: 终端
 
 monthly_cost:
-  min: "官网活动价"
-  typical: "官网活动价"
-  max: "官网活动价"
+  min: "¥9.9"
+  typical: "¥9.9"
+  max: "¥49.9"
 
 currency: CNY
 

@@ -62,6 +62,12 @@ const siteUrl = 'https://codepick.dev';
 const articlePath = localePath(`/compare/${article.slug}`, lang);
 const articleUrl = `${siteUrl}${articlePath}`;
 
+// Freshness check: warn if date is older than 90 days
+const daysSincePublished = article.data.date
+  ? Math.floor((Date.now() - new Date(article.data.date).getTime()) / (1000 * 60 * 60 * 24))
+  : 0;
+const isStale = daysSincePublished > 90;
+
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
@@ -117,6 +123,9 @@ const articleSchema = {
       <p class="text-[var(--text-secondary)] text-base mb-3">{article.data.description}</p>
       <div class="text-xs text-[var(--text-muted)]">
         {t('compare.pubDate', lang)} {article.data.date}
+        {isStale && (
+          <span class="ml-2 text-amber-400">⚠️ {lang === 'zh' ? '内容可能已过时，建议核对最新信息' : 'Content may be outdated. Please verify with official sources.'}</span>
+        )}
       </div>
     </header>
 

@@ -87,6 +87,13 @@ const baseArticleSchema = {
   author: { '@type': 'Organization', name: 'CodePick', url: siteUrl },
 };
 
+// Freshness check: warn if updated_at or date is older than 90 days
+const articleDate = guide.data.updated_at || guide.data.date;
+const daysSinceUpdate = articleDate
+  ? Math.floor((Date.now() - new Date(articleDate).getTime()) / (1000 * 60 * 60 * 24))
+  : 0;
+const isStale = daysSinceUpdate > 90;
+
 const canUseHowTo = guide.data.article_type === 'howto' && howToSteps.length > 0;
 
 const articleSchema = canUseHowTo
@@ -126,6 +133,12 @@ const articleSchema = canUseHowTo
       <p class="text-[var(--text-secondary)] text-base mb-3">{guide.data.description}</p>
       <div class="text-xs text-[var(--text-muted)]">
         {t('guides.pubDate', lang)} {guide.data.date}
+        {guide.data.updated_at && guide.data.updated_at !== guide.data.date && (
+          <span> · {lang === 'zh' ? '更新于' : 'Updated'} {guide.data.updated_at}</span>
+        )}
+        {isStale && (
+          <span class="ml-2 text-amber-400">⚠️ {lang === 'zh' ? '内容可能已过时，建议核对最新信息' : 'Content may be outdated. Please verify with official sources.'}</span>
+        )}
       </div>
     </header>
 

@@ -34,7 +34,7 @@ scores:
   cost_efficiency: 9.5
   flexibility: 8.0
   china_friendly: 10
-  privacy: 5
+  privacy: 4
 
 features:
   code_completion: false

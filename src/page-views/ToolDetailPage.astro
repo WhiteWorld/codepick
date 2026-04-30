@@ -13,8 +13,12 @@ import type { Tool } from '../lib/data';
 interface Props { tool: Tool; lang: Locale }
 const { tool, lang } = Astro.props;
 
-const meta = (tool as any).meta || {};
-const fresh = meta.next_review_due ? isFresh(meta.next_review_due) : true;
+// Freshness: read from flat YAML fields (not nested meta)
+const lastVerified = (tool as any).last_full_review || '';
+const nextReviewDue = (tool as any).next_review_due || '';
+const confidenceLevel = (tool as any).confidence || '';
+const fresh = nextReviewDue ? isFresh(nextReviewDue) : true;
+
 const pricingPlans = (tool as any).pricing?.plans || [];
 const pricingCurrency = (tool as any).pricing?.currency || 'USD';
 
@@ -233,7 +237,13 @@ const allJsonLd = [softwareAppSchema, breadcrumbSchema, ...(faqSchema ? [faqSche
               {t('cta.tryNow', lang)} ↗
             </a>
           )}
-          {!fresh && <span class="text-xs text-amber-400">{t('warn.dataOutdated', lang)}</span>}
+          {lastVerified && (
+            <span class={`inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full border ${fresh ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' : 'bg-amber-500/10 text-amber-400 border-amber-500/20'}`}>
+              <span class={`w-1.5 h-1.5 rounded-full ${fresh ? 'bg-emerald-500' : 'bg-amber-500'}`}></span>
+              {lang === 'zh' ? '数据已核验' : 'Verified'} {lastVerified}
+              {!fresh && ` · ${lang === 'zh' ? '待更新' : 'Stale'}`}
+            </span>
+          )}
         </div>
       </div>
     </div>
@@ -460,11 +470,11 @@ const allJsonLd = [softwareAppSchema, breadcrumbSchema, ...(faqSchema ? [faqSche
     <Comments lang={lang} term={tool.id} />
 
     <!-- Meta -->
-    {(meta.last_verified || meta.confidence) && (
+    {(lastVerified || confidenceLevel) && (
       <div class="flex flex-wrap gap-2 mt-8 pt-6 border-t border-[var(--surface-border)]">
-        {meta.last_verified && <span class="meta-tag">{t('meta.lastVerified', lang)} {meta.last_verified}</span>}
-        {meta.next_review_due && <span class="meta-tag">{t('meta.nextReview', lang)} {meta.next_review_due}</span>}
-        {meta.confidence && <span class="meta-tag">{t('meta.confidence', lang)} {meta.confidence}</span>}
+        {lastVerified && <span class="meta-tag">{t('meta.lastVerified', lang)} {lastVerified}</span>}
+        {nextReviewDue && <span class="meta-tag">{t('meta.nextReview', lang)} {nextReviewDue}</span>}
+        {confidenceLevel && <span class="meta-tag">{t('meta.confidence', lang)} {confidenceLevel}</span>}
         <a href="https://github.com/WhiteWorld/codepick/issues/new" target="_blank" rel="noopener" class="meta-tag text-[var(--brand-400)] no-underline hover:text-[var(--text-primary)]">
           {t('link.reportError', lang)}
         </a>

@@ -11,9 +11,9 @@ composition:
   environment: 终端
 
 monthly_cost:
-  min: "官网为准"
-  typical: "官网为准"
-  max: "官网为准"
+  min: "¥200"
+  typical: "¥200"
+  max: "¥200"
 
 currency: CNY
 

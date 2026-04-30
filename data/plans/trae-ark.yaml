@@ -8,7 +8,10 @@ tagline_en: Trae CN free IDE + Ark API — unlock more models and higher quotas
 client: trae-cn
 api: ark-coding-plan
 environment: Trae CN IDE (trae.cn)
-monthly_cost: "官网活动价"
+monthly_cost:
+  min: "¥9.9"
+  typical: "¥9.9"
+  max: "¥49.9"
 currency: CNY
 scores:
   coding_ability: 7.8
