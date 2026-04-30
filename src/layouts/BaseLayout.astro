@@ -60,14 +60,12 @@ const allJsonLd = jsonLd
   : defaultJsonLd;
 
 const navLinks = [
-  { href: localePath('/coding-plan', lang), label: t('nav.codingPlan', lang) },
-  { href: localePath('/', lang), label: t('nav.plans', lang) },
+  { href: localePath('/', lang), label: t('nav.home', lang) },
   { href: localePath('/tools', lang), label: t('nav.tools', lang) },
+  { href: localePath('/plans', lang), label: t('nav.plans', lang) },
   { href: localePath('/tools/overview', lang), label: t('nav.overview', lang) },
-  { href: localePath('/tools/compare', lang), label: t('nav.comparator', lang) },
   { href: localePath('/compare', lang), label: t('nav.compare', lang) },
   { href: localePath('/guides', lang), label: t('nav.guides', lang) },
-  { href: localePath('/prompts', lang), label: t('nav.prompts', lang) },
   { href: localePath('/deals', lang), label: t('nav.deals', lang) },
   { href: localePath('/faq', lang), label: t('nav.faq', lang) },
 ];
@@ -111,19 +109,7 @@ const latestUpdateMonth = latestDate
   <link rel="alternate" hreflang="en" href={enUrl} />
   <link rel="alternate" hreflang="x-default" href={zhUrl} />
 
-  <!-- RSS / Atom feeds -->
-  <link
-    rel="alternate"
-    type="application/rss+xml"
-    title={lang === 'zh' ? 'CodePick — AI 编程工具选型' : 'CodePick — AI Coding Tool Picker'}
-    href={`${siteUrl}/${lang}/rss.xml`}
-  />
-  <link
-    rel="alternate"
-    type="application/rss+xml"
-    title={lang === 'zh' ? 'CodePick — AI Coding Tool Picker (English)' : 'CodePick — AI 编程工具选型（中文）'}
-    href={`${siteUrl}/${lang === 'zh' ? 'en' : 'zh'}/rss.xml`}
-  />
+  <!-- No RSS feed (removed in cleanup) -->
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -250,10 +236,6 @@ const latestUpdateMonth = latestDate
           <div class="flex flex-col gap-2 text-sm text-[var(--text-muted)]">
             <span>{t('footer.personal', lang)}</span>
             <span>{t('footer.lastUpdate', lang)} {latestUpdateMonth}</span>
-            <a href={`/${lang}/rss.xml`} class="hover:text-[var(--text-primary)] no-underline inline-flex items-center gap-1">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
-              {t('footer.rss', lang)}
-            </a>
             <a href="https://github.com/WhiteWorld/codepick/issues" target="_blank" rel="noopener" class="hover:text-[var(--text-primary)] no-underline">{t('footer.reportLink', lang)}</a>
           </div>
         </div>

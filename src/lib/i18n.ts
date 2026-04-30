@@ -3,14 +3,15 @@ export type Locale = 'zh' | 'en';
 
 const translations: Record<string, Record<Locale, string>> = {
   // ── Navigation ──────────────────────────────────────────────────────────
-  'nav.codingPlan': { zh: 'Coding Plan', en: 'Coding Plans' },
-  'nav.plans':     { zh: '方案矩阵', en: 'Plans' },
+  'nav.home':      { zh: '首页', en: 'Home' },
+  'nav.plans':     { zh: '方案推荐', en: 'Plans' },
   'nav.tools':     { zh: '工具库', en: 'Tools' },
   'nav.overview':  { zh: '全景图', en: 'Overview' },
-  'nav.compare':     { zh: '对比', en: 'Compare' },
-  'nav.comparator':  { zh: '对比器', en: 'Comparator' },
-  'nav.guides':      { zh: '指南', en: 'Guides' },
-  'nav.faq':         { zh: 'FAQ', en: 'FAQ' },
+  'nav.compare':   { zh: '对比文章', en: 'Comparisons' },
+  'nav.guides':    { zh: '使用指南', en: 'Guides' },
+  'nav.prompts':   { zh: '提示词库', en: 'Prompts' },
+  'nav.deals':     { zh: '优惠福利', en: 'Deals' },
+  'nav.faq':       { zh: '常见问题', en: 'FAQ' },
 
   // ── Breadcrumbs ─────────────────────────────────────────────────────────
   'bread.home':         { zh: '首页', en: 'Home' },
@@ -385,7 +386,6 @@ const translations: Record<string, Record<Locale, string>> = {
   'cta.paidOnly':       { zh: '提供付费订阅，支持免费试用期', en: 'Paid subscription with free trial period' },
 
   // ── Deals page ───────────────────────────────────────────────────────────
-  'nav.deals':              { zh: '推广优惠', en: 'Deals' },
   'deals.seoTitle':         { zh: 'AI 编程工具推广优惠汇总 | CodePick', en: 'AI Coding Tools Deals & Free Trials | CodePick' },
   'deals.seoDesc':          { zh: '汇总所有 AI 编程工具和 Coding Plan 的推广链接、免费试用和限时优惠，一站式找到最适合的方案。', en: 'All AI coding tool deals, free trials, and promotional links in one place — tools and coding plans.' },
   'deals.title':            { zh: '🎁 推广优惠 & 免费试用', en: '🎁 Deals & Free Trials' },
@@ -398,7 +398,6 @@ const translations: Record<string, Record<Locale, string>> = {
   'deals.note':             { zh: '带 ⭐ 标记的链接为推广链接，点击后我们可能获得佣金，不影响你的实际费用。', en: 'Links marked ⭐ are affiliate links. We may earn a commission at no extra cost to you.' },
 
   // ── Prompts library page ────────────────────────────────────────────────
-  'nav.prompts':            { zh: '提示词库', en: 'Prompts' },
   'prompts.seoTitle':       { zh: 'AI 编程提示词模板库 | CodePick', en: 'AI Coding Prompt Templates | CodePick' },
   'prompts.seoDesc':        { zh: '按编程语言和场景分类的 AI 提示词模板：查 Bug、重构、写单测、解释代码，复制即用。', en: 'AI prompt templates by language and scenario: debug, refactor, tests, explain. Copy-ready for any AI coding tool.' },
   'prompts.title':          { zh: '💬 提示词模板库', en: '💬 Prompt Templates' },

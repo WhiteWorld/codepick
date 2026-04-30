@@ -1,10 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import FilterBar from '../components/FilterBar.astro';
-import PlanCard from '../components/PlanCard.astro';
-import CompareTable from '../components/CompareTable.astro';
 import ScenarioCard from '../components/ScenarioCard.astro';
 import QuickPicker from '../components/QuickPicker.astro';
+import PlanCard from '../components/PlanCard.astro';
 import { getAllPlansLocalized, getAllToolsLocalized, overallScore } from '../lib/data';
 import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
 import { getCollection } from 'astro:content';
@@ -14,7 +12,9 @@ const { lang } = Astro.props;
 
 const plans = getAllPlansLocalized(lang).sort((a, b) => overallScore(b.scores) - overallScore(a.scores));
 const tools = getAllToolsLocalized(lang);
-const filterTags = ['all', 'ide', 'diy', 'cli', 'budget', 'china'];
+
+// 精选推荐：综合评分 Top 3
+const featuredPlans = plans.slice(0, 3);
 
 // 最新对比文章
 const compareCollection = getCollectionName('compare', lang) as 'compare' | 'compare-en';
@@ -46,30 +46,45 @@ const seoTitle = lang === 'zh'
 ---
 <BaseLayout title={seoTitle} lang={lang}>
   <!-- Hero -->
-  <section class="relative container pt-20 pb-16 text-center overflow-hidden">
+  <section class="relative container pt-20 pb-12 text-center overflow-hidden">
     <div class="hero-glow" aria-hidden="true"></div>
     <div class="absolute inset-0 -z-10 pointer-events-none" aria-hidden="true" style="background-image: radial-gradient(var(--surface-border) 1px, transparent 1px); background-size: 24px 24px; opacity: 0.35;"></div>
     <h1 class="text-4xl md:text-6xl font-bold text-[var(--text-primary)] mb-6 leading-tight tracking-tight">
       {t('home.heroTitle1', lang)}<br/>
       <span class="bg-gradient-to-r from-[var(--brand-400)] to-[var(--brand-600)] bg-clip-text text-transparent">{t('home.heroHighlight', lang)}</span>
     </h1>
-    <p class="text-base md:text-lg text-[var(--text-secondary)] max-w-xl mx-auto mb-5 leading-relaxed">
+    <p class="text-base md:text-lg text-[var(--text-secondary)] max-w-xl mx-auto mb-8 leading-relaxed">
       {t('home.heroDesc', lang)}
     </p>
-    <div class="flex justify-center gap-6 mb-8">
-      <div class="text-center">
-        <div class="stat-number">{tools.length}</div>
-        <div class="text-xs text-[var(--text-muted)] mt-1">{t('home.heroToolCount', lang)}</div>
-      </div>
-      <div class="w-px bg-[var(--surface-border)]"></div>
-      <div class="text-center">
-        <div class="stat-number">{plans.length}</div>
-        <div class="text-xs text-[var(--text-muted)] mt-1">{t('home.heroPlanCount', lang)}</div>
-      </div>
-    </div>
     <div class="flex justify-center gap-4 flex-wrap">
-      <a href={localePath('/tools/overview', lang)} class="btn btn-primary px-6 py-2.5 text-base">{t('home.ctaOverview', lang)}</a>
-      <a href="#plans" class="btn btn-ghost px-6 py-2.5">{t('home.ctaBrowse', lang)}</a>
+      <a href={localePath('/plans', lang)} class="btn btn-primary px-6 py-2.5 text-base">
+        {lang === 'zh' ? '🔥 查看推荐方案' : '🔥 View Recommendations'}
+      </a>
+      <a href={localePath('/tools/overview', lang)} class="btn btn-ghost px-6 py-2.5">
+        {t('home.ctaOverview', lang)}
+      </a>
+    </div>
+  </section>
+
+  <!-- Trust Signals -->
+  <section class="container mb-12">
+    <div class="flex flex-wrap justify-center gap-4 md:gap-8 text-xs text-[var(--text-muted)]">
+      <span class="inline-flex items-center gap-1.5 bg-[var(--surface-card)] px-3 py-1.5 rounded-full border border-[var(--surface-border)]">
+        <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+        {lang === 'zh' ? '数据每月核验' : 'Monthly data verification'}
+      </span>
+      <span class="inline-flex items-center gap-1.5 bg-[var(--surface-card)] px-3 py-1.5 rounded-full border border-[var(--surface-border)]">
+        <span>🌐</span>
+        {lang === 'zh' ? '中英文双语' : 'Bilingual (ZH/EN)'}
+      </span>
+      <span class="inline-flex items-center gap-1.5 bg-[var(--surface-card)] px-3 py-1.5 rounded-full border border-[var(--surface-border)]">
+        <span>🔍</span>
+        {lang === 'zh' ? '21 款工具 · 14 套方案' : '21 tools · 14 plans'}
+      </span>
+      <span class="inline-flex items-center gap-1.5 bg-[var(--surface-card)] px-3 py-1.5 rounded-full border border-[var(--surface-border)]">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        {lang === 'zh' ? '开源项目' : 'Open Source'}
+      </span>
     </div>
   </section>
 
@@ -89,27 +104,39 @@ const seoTitle = lang === 'zh'
   </section>
 
   <!-- Quick Picker -->
-  <section class="container mb-16 reveal"><QuickPicker lang={lang} /></section>
+  <section class="container mb-16 reveal">
+    <QuickPicker lang={lang} />
+  </section>
+
+  <!-- Featured Plans (Editor's Pick) -->
+  <hr class="section-divider my-16" />
+  <section class="container mb-16 reveal">
+    <div class="flex items-center justify-between mb-6">
+      <div>
+        <h2 class="text-xl font-bold text-[var(--text-primary)] m-0">
+          {lang === 'zh' ? '🔥 编辑推荐方案' : '🔥 Editor\'s Picks'}
+        </h2>
+        <p class="text-xs text-[var(--text-muted)] mt-1 mb-0">
+          {lang === 'zh' ? '综合评分最高的 3 套方案' : 'Top 3 plans by overall score'}
+        </p>
+      </div>
+      <a href={localePath('/plans', lang)} class="text-sm text-[var(--brand-400)] no-underline hover:underline">
+        {lang === 'zh' ? '查看全部 →' : 'View all →'}
+      </a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      {featuredPlans.map(plan => (
+        <div data-plan-id={plan.id}>
+          <PlanCard plan={plan} lang={lang} />
+        </div>
+      ))}
+    </div>
+  </section>
 
   <!-- Scenario Quick Links -->
   <hr class="section-divider my-16" />
-  <section class="container mb-16 reveal"><ScenarioCard lang={lang} /></section>
-
-  <!-- Plan Matrix -->
-  <hr class="section-divider my-16" />
-  <section class="container mb-16 reveal" id="plans">
-    <div class="flex items-center justify-between mb-6">
-      <div>
-        <h2 class="text-xl font-bold text-[var(--text-primary)] m-0">{t('section.planMatrix', lang)}</h2>
-        <p class="text-xs text-[var(--text-muted)] mt-1 mb-0">{t('home.totalPrefix', lang)}{plans.length} {t('home.planCount', lang)}</p>
-      </div>
-    </div>
-    <div class="mb-6"><FilterBar tags={filterTags} activeTag="all" lang={lang} /></div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-      {plans.map(plan => (
-        <div data-plan-tags={plan.tags.join(',')} data-plan-id={plan.id}><PlanCard plan={plan} lang={lang} /></div>
-      ))}
-    </div>
+  <section class="container mb-16 reveal">
+    <ScenarioCard lang={lang} />
   </section>
 
   <!-- Latest Articles & Guides -->
@@ -148,21 +175,6 @@ const seoTitle = lang === 'zh'
         </div>
         <a href={localePath('/guides', lang)} class="text-sm text-[var(--brand-400)] no-underline hover:underline mt-3 inline-block">{t('home.moreGuides', lang)}</a>
       </div>
-    </div>
-  </section>
-
-  <!-- Full Compare Table -->
-  <section class="container mb-16 reveal">
-    <h2 class="text-xl font-bold text-[var(--text-primary)] mb-6">{t('section.compareTable', lang)}</h2>
-    <CompareTable plans={plans} lang={lang} />
-  </section>
-
-  <!-- Feedback CTA -->
-  <section class="container mb-16 text-center reveal">
-    <div class="card p-8 md:p-12 bg-gradient-to-br from-[var(--surface-card)] to-[rgba(49,46,129,0.2)]">
-      <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-3 mt-0">{t('home.notFoundTitle', lang)}</h2>
-      <p class="text-[var(--text-secondary)] mb-6">{t('home.notFoundDesc', lang)}</p>
-      <a href="https://github.com/WhiteWorld/codepick/issues/new" target="_blank" rel="noopener" class="btn btn-primary">{t('link.submitFeedback', lang)}</a>
     </div>
   </section>
 </BaseLayout>
