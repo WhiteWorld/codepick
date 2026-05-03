@@ -116,6 +116,10 @@ data_sources:
     type: docs
     last_checked: '2026-04-24'
 changelog:
+  - date: '2026-05-01'
+    type: pricing
+    summary: '2026-06-01 起迁移至 AI Credits 用量计费制：各套餐含月度 Credits 配额（Pro $10 额度，Pro+ $39 额度），超出按 token 计费；代码补全和 Next Edit 建议不消耗 Credits；管理员可在企业/成本中心/用户层设置预算上限；Code Review 将于 6 月 1 日起消耗 GitHub Actions 分钟数'
+    summary_en: 'Transitioning to AI Credits usage-based billing on June 1, 2026: each plan includes monthly AI Credits (Pro $10, Pro+ $39), additional usage billed per token; code completions and Next Edit suggestions remain free; admins get budget controls at enterprise/cost center/user level; Copilot code review will start consuming GitHub Actions minutes from June 1'
   - date: '2026-04-22'
     type: announcement
     summary: Copilot Business 新注册（GitHub Free/Team 组织）也暂停；Claude Opus 4.7 在 Pro+ 上 4月30日前享7.5倍高级请求乘数促销价
@@ -172,7 +176,7 @@ changelog:
     type: pricing
     summary: 推出永久免费版 Copilot Free
     summary_en: Copilot Free permanently free tier launched
-last_full_review: '2026-04-24'
-next_review_due: '2026-05-24'
+last_full_review: '2026-05-03'
+next_review_due: '2026-06-03'
 review_frequency_days: 30
 confidence: high

@@ -4,8 +4,8 @@ type: ide
 logo: /images/cursor.png
 url: https://cursor.com
 repo: null
-current_version: '3.1'
-version_tracked_at: '2026-04-15'
+current_version: '3.2'
+version_tracked_at: '2026-05-03'
 pricing:
   model: subscription
   currency: USD
@@ -124,6 +124,14 @@ data_sources:
     type: changelog
     last_checked: '2026-04-24'
 changelog:
+  - date: '2026-05-01'
+    type: feature
+    summary: 'Security Review Beta（Teams/Enterprise）：两类常驻安全 Agent——Security Reviewer（每次 PR 检查安全漏洞/认证回归/隐私风险/Agent 工具自动批准/提示注入）和 Vulnerability Scanner；Team Marketplace 支持无需关联仓库即可创建，可直接管理一方插件安装行为'
+    summary_en: 'Security Review Beta on Teams/Enterprise: two always-on agents — Security Reviewer (checks every PR for security vulnerabilities, auth regressions, privacy/data risks, agent tool auto-approvals, prompt injection) and Vulnerability Scanner; Team Marketplace can now be created without linking a repo, with direct control over first-party plugin install behavior'
+  - date: '2026-04-24'
+    type: feature
+    summary: 'v3.2：/multitask 命令让 Cursor Agent 运行时并行派生异步子 Agent，将大任务拆分为并发子任务，不再串行排队；Agents Window 新版 Worktrees 支持后台隔离任务（独立分支），一键切到本地前台测试；单个 Agent 会话可跨多个 Repo（multi-root workspace）发起变更'
+    summary_en: 'v3.2: /multitask spawns async subagents in parallel instead of queueing — breaks large tasks into concurrent chunks; improved Worktrees in Agents Window for background-isolated tasks across separate branches, one-click move to foreground; single agent session can now target multi-root workspaces spanning multiple repos'
   - date: '2026-04-15'
     type: feature
     summary: 'v3.1：Interactive Canvases——Agent 可在 Agents Window 侧面板生成持久化交互式看板（表格/图表/关系图）；CLI 新增 /debug（根因分析+日志注入）、/btw（不打断 Agent 的旁白问题）、/config（交互式设置面板）；Agents Window 支持平铺布局以并行管理多 Agent；语音输入精度提升（批量 STT）'
@@ -176,7 +184,7 @@ changelog:
     type: pricing
     summary: Pro 从500次请求制改为$20额度池制, Auto模式无限使用
     summary_en: Pro switched from 500-request quota to $20 credit pool; unlimited Auto mode
-last_full_review: '2026-04-24'
-next_review_due: '2026-05-24'
+last_full_review: '2026-05-03'
+next_review_due: '2026-06-03'
 review_frequency_days: 30
 confidence: high

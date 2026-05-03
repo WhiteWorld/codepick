@@ -4,8 +4,8 @@ type: cli
 logo: /images/claude-code.png
 url: https://docs.anthropic.com/en/docs/claude-code
 repo: null
-current_version: '2.1.119'
-version_tracked_at: '2026-04-23'
+current_version: '2.1.126'
+version_tracked_at: '2026-05-03'
 pricing:
   model: subscription
   currency: USD
@@ -110,6 +110,10 @@ data_sources:
     type: docs
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-05-01'
+    type: feature
+    summary: 'v2.1.126（BREAKING）：新增 claude project purge [path] 命令可删除指定项目的全部 Claude Code 状态（记录/任务/文件历史/配置条目），支持 --dry-run/-y/-i/--all；/model 选择器现可从网关 /v1/models 端点动态拉取模型列表；修复 iTerm2+tmux 渲染撕裂；修复粘贴超过 2000px 图片崩溃（自动缩小并重试）；修复非 git 目录 @ 文件提示每次重新扫描全项目'
+    summary_en: 'v2.1.126 (BREAKING): New claude project purge [path] deletes all Claude Code state for a project (transcripts, tasks, file history, config); /model picker now fetches models dynamically from gateway /v1/models; fixed iTerm2+tmux rendering tears; fixed crash when pasting images >2000px (auto-downscale + retry); fixed @ file suggestions re-scanning entire project on every turn in non-git dirs'
   - date: '2026-04-23'
     type: feature
     summary: 'v2.1.102→2.1.119（4月16日至23日，18个版本）：持续迭代修复与稳定性改进；详细变更见 npm changelog'
@@ -150,7 +154,7 @@ changelog:
     type: pricing
     summary: 推出 Max 5x ($100) 和 Max 20x ($200) 高用量套餐
     summary_en: Launched Max 5x ($100) and Max 20x ($200) high-usage tiers
-last_full_review: '2026-04-24'
-next_review_due: '2026-05-24'
+last_full_review: '2026-05-03'
+next_review_due: '2026-06-03'
 review_frequency_days: 30
 confidence: high

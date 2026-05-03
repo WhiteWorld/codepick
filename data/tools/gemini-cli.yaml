@@ -4,8 +4,8 @@ type: cli
 logo: /images/gemini-cli.png
 url: https://github.com/google-gemini/gemini-cli
 repo: https://github.com/google-gemini/gemini-cli
-current_version: v0.39.1
-version_tracked_at: '2026-04-24'
+current_version: v0.40.1
+version_tracked_at: '2026-05-03'
 pricing:
   model: freemium
   currency: USD
@@ -96,6 +96,14 @@ data_sources:
     type: pricing
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-05-01'
+    type: release
+    summary: 'v0.40.1: 基于 v0.40.0 的补丁修复版本'
+    summary_en: 'v0.40.1: Patch fix cherry-picked from v0.40.0'
+  - date: '2026-04-28'
+    type: feature
+    summary: 'v0.40.0：Gemma 本地模型一键配置（gemini gemma 命令）；提示驱动记忆管理（替换旧版 MemoryManagerAgent，更高效的内存编辑系统）'
+    summary_en: 'v0.40.0: Streamlined local Gemma setup via gemini gemma command; prompt-driven memory management replaces legacy MemoryManagerAgent with a more efficient prompt-based editing system'
   - date: '2026-04-24'
     type: release
     summary: 'v0.39.1: v0.39.0 基础上的补丁修复版本'
@@ -124,7 +132,7 @@ changelog:
     type: launch
     summary: Gemini CLI 开源发布，免费使用 Gemini 2.5 Pro，1000 次/天
     summary_en: Gemini CLI open-sourced, free Gemini 2.5 Pro access, 1000 requests/day
-last_full_review: '2026-04-24'
-next_review_due: '2026-05-24'
+last_full_review: '2026-05-03'
+next_review_due: '2026-06-03'
 review_frequency_days: 30
 confidence: high
