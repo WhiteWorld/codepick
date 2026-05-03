@@ -110,6 +110,10 @@ data_sources:
     type: changelog
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-05-01'
+    type: announcement
+    summary: 'Amazon Q Developer Free Tier 和订阅将于 2026-05-15 停止新注册；新用户将直接引导至 Kiro；最新编程模型（含 Opus 4.7）已仅在 Kiro 提供；Okta / Microsoft Entra ID 与 AWS IAM Identity Center 联合登录（SCIM 自动同步）'
+    summary_en: 'Amazon Q Developer Free Tier and subscription new signups blocked from May 15, 2026; new users redirected to Kiro; latest coding models including Opus 4.7 now exclusive to Kiro; Okta/Microsoft Entra ID federation with AWS IAM Identity Center and SCIM auto-sync for enterprise teams'
   - date: '2026-04-17'
     type: model
     summary: 'Claude Opus 4.7 上线（实验性，2.2x credit 倍率，1M token 上下文，3 倍视觉分辨率）；向 Pro/Pro+/Power IAM 用户灰度发布'
@@ -138,7 +142,7 @@ changelog:
     type: launch
     summary: Kiro 公开预览版发布，AWS 出品的 Spec 驱动 Agentic IDE
     summary_en: Kiro public preview launched — AWS-built Spec-driven Agentic IDE
-last_full_review: '2026-04-17'
-next_review_due: '2026-05-17'
+last_full_review: '2026-05-03'
+next_review_due: '2026-06-03'
 review_frequency_days: 30
 confidence: high

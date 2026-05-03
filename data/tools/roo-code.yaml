@@ -15,8 +15,8 @@ pricing:
       limits: 无限制（需自备 API Key）
       limits_en: Unlimited (requires your own API Key)
   price_updated_at: '2026-04-16'
-  note: 客户端免费，模型费用取决于你接的 API
-  note_en: Client is free; model costs depend on the API you connect
+  note: '⚠️ 停运公告：Roo Code 将于 2026-05-15 关闭云服务和 Router；VS Code 扩展 repo 存档但不推送 kill switch，已安装版本继续可用；团队建议迁移至 Cline。客户端免费，模型费用取决于你接的 API'
+  note_en: '⚠️ Sunset Notice: Roo Code Cloud and Router shut down May 15, 2026; VS Code extension repo archived (no kill switch — installed version keeps working); team recommends migrating to Cline. Client is free; model costs depend on the API you connect'
 scores:
   coding_ability: 8.5
   cost_efficiency: 9
@@ -86,6 +86,10 @@ data_sources:
     type: release
     last_checked: '2026-04-16'
 changelog:
+  - date: '2026-04-20'
+    type: announcement
+    summary: '停运公告：Roo Code Extension、Cloud 和 Router 将于 2026-05-15 全部关闭；Cloud/Router 退还未用余额；Extension repo 存档（无 kill switch）；官方推荐迁移至 Cline；团队转型至 Roomote（Slack 云端 Agent）'
+    summary_en: 'Sunset announcement: Roo Code Extension, Cloud, and Router all shut down May 15, 2026; Cloud/Router balances refunded; extension repo archived (no kill switch); official recommendation to migrate to Cline; team pivoting to Roomote (Slack-based cloud agent)'
   - date: '2026-04-23'
     type: feature
     summary: 'v3.53.0: 社区团队接管公告（"Roo Code 插件不会消失"）；GPT-5.5 支持（via OpenAI Codex provider）；Claude Opus 4.7 支持（Vertex AI）；Checkpoint 导航控件（含 i18n）；Roomote banner + 紫色视觉重设计'
@@ -126,7 +130,7 @@ changelog:
     type: feature
     summary: 支持 Claude Opus 4.6；tool use 消息改为结构化 delta 流式传输，提升效率
     summary_en: Claude Opus 4.6 support added; tool use messages switched to structured delta streaming for better performance
-last_full_review: '2026-04-24'
-next_review_due: '2026-05-24'
+last_full_review: '2026-05-03'
+next_review_due: '2026-06-03'
 review_frequency_days: 30
 confidence: high

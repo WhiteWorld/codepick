@@ -4,8 +4,8 @@ type: client
 logo: /images/cline.png
 url: https://cline.bot
 repo: https://github.com/cline/cline
-current_version: v3.80.0
-version_tracked_at: '2026-04-22'
+current_version: v3.81.0
+version_tracked_at: '2026-05-03'
 pricing:
   model: free
   currency: null
@@ -81,6 +81,10 @@ data_sources:
     type: release
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-04-24'
+    type: release
+    summary: 'v3.81.0: 聊天错误行显示详细错误信息（而非通用"caught error"）；Enterprise remote globalSkills 全 UI 支持（alwaysEnabled 可通过侧边栏切换）；进一步稳定 OOM 修复与终端后台模式'
+    summary_en: 'v3.81.0: Detailed error info shown in chat error row instead of generic caught-error message; Enterprise remote globalSkills with full UI toggle support; continued OOM stability and background-only terminal mode improvements'
   - date: '2026-04-22'
     type: release
     summary: 'v3.80.0: Enterprise Skills 远程配置（alwaysEnabled 策略）；动态模型推荐（引导流程）；--max-old-space-size=8192 修复长会话 OOM 崩溃；Quota Exceeded 错误 UI；彻底移除前台终端模式（所有终端执行改为后台模式）'
@@ -133,7 +137,7 @@ changelog:
     type: feature
     summary: 支持 MCP Server 管理
     summary_en: MCP Server management support added
-last_full_review: '2026-04-24'
-next_review_due: '2026-05-24'
+last_full_review: '2026-05-03'
+next_review_due: '2026-06-03'
 review_frequency_days: 30
 confidence: high

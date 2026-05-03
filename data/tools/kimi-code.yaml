@@ -4,8 +4,8 @@ type: cli
 logo: /images/kimi-code.png
 url: https://www.kimi.com/code
 repo: https://github.com/MoonshotAI/kimi-cli
-current_version: '1.17.0'
-version_tracked_at: '2026-04-16'
+current_version: '1.33.0'
+version_tracked_at: '2026-05-03'
 
 pricing:
   model: freemium
@@ -45,6 +45,7 @@ features:
   sub_agent: false
   context_window: null
   supported_models:
+    - Kimi K2.6 (code-preview)
     - Kimi K2.5
   ide_base: 终端 CLI
   supported_os:
@@ -88,6 +89,10 @@ china_note: 国产工具，国内直连无需翻墙；支持中文对话；Kimi 
 china_note_en: Domestic tool, directly accessible in China without VPN; supports Chinese conversation; Kimi K2.5 model optimized for coding, developed by Moonshot AI
 
 changelog:
+  - date: '2026-04-13'
+    type: model
+    summary: 'v1.33.0：Kimi K2.6-code-preview 正式向所有 Kimi Code 订阅用户开放；CLI 欢迎界面移除硬编码的 K2.5 引用；K2.6 提升了推理深度、Agent 规划、长程代码写作稳定性及指令遵循与自我纠正能力'
+    summary_en: 'v1.33.0: Kimi K2.6-code-preview rolled out to all Kimi Code subscribers; CLI welcome screen drops hardcoded K2.5 references; K2.6 improves reasoning depth, agent planning, long-context code writing stability, and instruction compliance with self-correction'
   - date: '2026-04-16'
     type: announcement
     summary: 数据月度复核：会员定价档位（Adagio/Andante/Moderato）与 Kimi K2.5 模型能力保持不变
@@ -108,7 +113,7 @@ data_sources:
     type: pricing
     last_checked: '2026-04-16'
 
-last_full_review: '2026-04-16'
-next_review_due: '2026-05-16'
+last_full_review: '2026-05-03'
+next_review_due: '2026-06-03'
 review_frequency_days: 30
 confidence: medium

@@ -4,8 +4,8 @@ type: cli
 logo: /images/opencode.png
 url: https://opencode.ai
 repo: https://github.com/sst/opencode
-current_version: v1.14.22
-version_tracked_at: '2026-04-23'
+current_version: v1.14.33
+version_tracked_at: '2026-05-03'
 pricing:
   model: free
   currency: null
@@ -80,6 +80,18 @@ data_sources:
     type: changelog
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-05-02'
+    type: release
+    summary: 'v1.14.33（最新）：opencode agent 创建时自动写入有效的 permissions.deny 配置；per-workspace 图标覆盖与同步状态加载优化；修复 HTTP API workspace adapter 丢失实例上下文（影响 workspace create/sync/routing）'
+    summary_en: 'v1.14.33 (latest): opencode agent now writes a valid permissions.deny config on create; improved per-workspace icon overrides and sync state loading; fixed HTTP API workspace adapter losing instance context (breaks workspace create, sync, routing)'
+  - date: '2026-04-30'
+    type: release
+    summary: 'v1.14.30: 修复 Desktop 会话路径不匹配（含历史数据恢复）；Azure Responses 默认值修复（避免 reasoning item 排序错误）；DeepSeek 兼容性改进；Mistral Medium 3.5 推理支持；全局指令优先于项目/技能指令；切换目录时重连编辑器上下文'
+    summary_en: 'v1.14.30: Fixed missing sessions in Desktop (path mismatch + recovery for existing data); Azure Responses defaults to avoid reasoning item ordering errors; DeepSeek compatibility with variable naming; Mistral Medium 3.5 reasoning support; global instructions apply before project/skill instructions; editor context reconnect when switching to session in another directory'
+  - date: '2026-04-25'
+    type: release
+    summary: 'v1.14.25: permission config 保留规则顺序，暴露工具权限键的完整 IntelliSense；LSP 权限提示包含请求详情；shell 命令保持正确工作目录；新增 Roslyn LSP 支持（Razor/.cshtml/C# 脚本文件）'
+    summary_en: 'v1.14.25: Permission config preserves rule order and exposes full IntelliSense for tool permission keys; LSP permission prompts include request details; shell commands keep correct working directory; Roslyn LSP support for Razor, .cshtml, and C# script files'
   - date: '2026-04-23'
     type: release
     summary: 'v1.14.21–v1.14.22: LSP Pull Diagnostics 支持（C# via Roslyn、Kotlin）；Mistral Small 高推理变体；.npmrc 配置生效；自定义图标持久化；会话视图状态切换修复'
@@ -128,7 +140,7 @@ changelog:
     type: release
     summary: 'v0.0.55: 旧版本末期'
     summary_en: 'v0.0.55: final legacy release before v1.0 rewrite'
-last_full_review: '2026-04-24'
-next_review_due: '2026-05-24'
+last_full_review: '2026-05-03'
+next_review_due: '2026-06-03'
 review_frequency_days: 30
 confidence: medium

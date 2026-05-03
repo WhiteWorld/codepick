@@ -4,8 +4,8 @@ type: ide
 logo: /images/windsurf.png
 url: https://windsurf.com
 repo: null
-current_version: '2.0.67'
-version_tracked_at: '2026-04-21'
+current_version: '2.1.32'
+version_tracked_at: '2026-05-03'
 pricing:
   model: subscription
   currency: USD
@@ -110,6 +110,10 @@ data_sources:
     type: changelog
     last_checked: '2026-04-24'
 changelog:
+  - date: '2026-04-29'
+    type: feature
+    summary: 'v2.1.32：新增配额计费系统支持，IDE 内可查看每日/每周配额用量；GPT-5.4 Mini 上线（1x credits 促销价）；看板视图展示所有本地与云端 Agent 会话；Spaces 功能将 Agent/PR/文件/上下文组织为任务空间；Adaptive 模型选项——智能为每个任务选择最合适的模型以延长配额'
+    summary_en: 'v2.1.32: Added quota billing system with daily/weekly usage visible in IDE; GPT-5.4 Mini available at 1x credits (promo); Kanban-style view for all local and cloud agent sessions; Spaces to group agents, PRs, files, and context into task workspaces; new Adaptive model option that intelligently picks the best model per task to extend quota'
   - date: '2026-04-21'
     type: fix
     summary: 'v2.0.67：修复 MCP 服务器 OAuth 认证问题'
@@ -162,7 +166,7 @@ changelog:
     type: update
     summary: 推出 SWE-1.5 自研 Agent 模型，速度和代码能力双提升
     summary_en: Launched SWE-1.5 proprietary Agent model, improving both speed and code quality
-last_full_review: '2026-04-24'
-next_review_due: '2026-05-24'
+last_full_review: '2026-05-03'
+next_review_due: '2026-06-03'
 review_frequency_days: 30
 confidence: high
