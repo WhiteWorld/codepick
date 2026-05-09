@@ -1,0 +1,107 @@
+id: agentrq
+name: AgentRQ
+type: agent_platform
+logo: /images/agentrq.png
+url: https://agentrq.com
+repo: https://github.com/agentrq/agentrq
+current_version: null
+version_tracked_at: '2026-05-09'
+
+pricing:
+  model: free
+  currency: null
+  plans:
+    - name: Beta (免费)
+      price: 0
+      limits: 无限 Workspace、无限任务、无限 Agent 连接（Beta 期间）
+      limits_en: Unlimited workspaces, tasks, agent connections (during beta)
+  price_updated_at: '2026-05-09'
+  note: Apache-2.0 开源；Beta 期间完全免费；专为 Claude Code MCP Channel 设计；支持 ACP 协议
+  note_en: Apache-2.0 open source; completely free during beta; designed for Claude Code MCP Channel; supports ACP protocol
+
+scores:
+  coding_ability: 8.0
+  cost_efficiency: 9.5
+  flexibility: 8.5
+  china_friendly: 7.5
+  privacy: 9.0
+
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: true
+  sub_agent: false
+  multi_agent: true
+  agent_teams: true
+  task_management: true
+  persistent_memory: false
+  skill_sharing: false
+  runtime_monitoring: true
+  open_source: true
+  self_hosted: true
+  human_in_the_loop: true
+  realtime_collaboration: true
+  task_lifecycle: true
+  scheduled_tasks: true
+  context_window: 取决于所用 runtime
+  supported_runtimes:
+    - Claude Code
+    - Gemini CLI
+    - ACP-compatible agents
+  supported_os:
+    - macOS
+    - Windows
+    - Linux
+  ide_base: "Agent 协作平台"
+
+best_for:
+  - Claude Code 用户需要 Human-in-the-Loop 任务管理
+  - Agent 和人类双向分配任务的协作场景
+  - 需要管理多个并行 Agent Workspace
+best_for_en:
+  - Claude Code users needing human-in-the-loop task management
+  - Bidirectional task assignment between agents and humans
+  - Managing multiple parallel agent workspaces
+
+not_for:
+  - 不使用 Claude Code 的用户（虽支持 ACP 但体验以 Claude 为最佳）
+  - 仅需简单通知无需任务管理的场景
+not_for_en:
+  - Non-Claude Code users (ACP supported but Claude-first experience)
+  - Simple notification-only scenarios without task management
+
+quick_start:
+  - 访问 agentrq.com 注册创建 Workspace
+  - 在 .mcp.json 中添加 AgentRQ MCP Server 配置
+  - 启动 Claude Code 连接 AgentRQ Channel
+  - Agent 和人类通过任务面板双向协作
+quick_start_en:
+  - Sign up at agentrq.com and create a workspace
+  - Add AgentRQ MCP Server config to .mcp.json
+  - Start Claude Code and connect to AgentRQ Channel
+  - Agents and humans collaborate bidirectionally via task board
+
+register_url: https://app.agentrq.com/login
+china_note: 开源可自托管；Web Dashboard 直接访问；需要自行解决 API 访问
+china_note_en: Open source, self-hostable; Web Dashboard accessible directly; requires own API access
+
+data_sources:
+  - url: https://agentrq.com
+    type: docs
+    last_checked: '2026-05-09'
+  - url: https://github.com/agentrq/agentrq
+    type: repo
+    last_checked: '2026-05-09'
+
+changelog:
+  - date: '2026-05-09'
+    type: launch
+    summary: 加入 CodePick Agent 协作栏目
+    summary_en: Added to CodePick Agent Collaboration section
+
+last_full_review: '2026-05-09'
+next_review_due: '2026-06-09'
+review_frequency_days: 30
+confidence: medium

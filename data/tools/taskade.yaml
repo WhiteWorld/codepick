@@ -1,0 +1,109 @@
+id: taskade
+name: Taskade AI Teams
+type: agent_platform
+logo: /images/taskade.png
+url: https://www.taskade.com/agents/teams
+repo: null
+current_version: null
+version_tracked_at: '2026-05-09'
+
+pricing:
+  model: subscription
+  currency: USD
+  plans:
+    - name: Free
+      price: 0
+      limits: 基础 AI 用量，1 个工作区
+      limits_en: Basic AI quota, 1 workspace
+    - name: Pro
+      price: 8
+      period: month
+      limits: 无限 AI 用量，无限工作区
+      limits_en: Unlimited AI, unlimited workspaces
+  price_updated_at: '2026-05-09'
+  note: YC 投资；100 万+ 用户；500K+ AI Agent；AI Team Generator 自动组队；支持 Orchestrate 模式
+  note_en: YC-backed; 1M+ users; 500K+ AI agents; AI Team Generator for auto team formation; Orchestrate mode
+
+scores:
+  coding_ability: 7.5
+  cost_efficiency: 9.0
+  flexibility: 9.0
+  china_friendly: 7.0
+  privacy: 8.0
+
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: true
+  sub_agent: true
+  multi_agent: true
+  agent_teams: true
+  task_management: true
+  persistent_memory: true
+  skill_sharing: false
+  runtime_monitoring: false
+  open_source: false
+  self_hosted: false
+  visual_builder: true
+  ai_team_generator: true
+  agent_marketplace: true
+  vibe_coding: true
+  context_window: 取决于所选模型
+  supported_runtimes:
+    - 内置 AI 引擎
+  supported_os:
+    - macOS
+    - Windows
+    - Linux
+    - iOS
+    - Android
+  ide_base: "Agent 协作平台"
+
+best_for:
+  - 一人公司需要全能 AI 工作台
+  - AI Team Generator 一键生成专业 Agent 团队
+  - 同时需要项目管理 + Agent 协作 + 自动化
+best_for_en:
+  - Solo founders needing an all-in-one AI workspace
+  - One-click AI Team Generator for professional agent teams
+  - Simultaneous project management + agent collaboration + automation
+
+not_for:
+  - 纯编程场景（用专业 IDE 更高效）
+  - 仅需轻量聊天工具的场景
+not_for_en:
+  - Pure coding scenarios (dedicated IDE is more efficient)
+  - Lightweight chat-only scenarios
+
+quick_start:
+  - 注册 taskade.com 免费开始
+  - 使用 AI Team Generator 一键生成 Agent 团队
+  - 在 Workspace 中管理项目、任务和 Agent 协作
+  - 通过 MCP 连接 Claude Code 等外部工具
+quick_start_en:
+  - Sign up at taskade.com to start free
+  - Use AI Team Generator to create agent teams in one click
+  - Manage projects, tasks, and agent collaboration in Workspace
+  - Connect external tools like Claude Code via MCP
+
+register_url: https://www.taskade.com/signup
+china_note: 网页端直接访问；移动端和桌面端 App Store 可下载
+china_note_en: Web accessible directly; mobile and desktop apps available via App Store
+
+data_sources:
+  - url: https://www.taskade.com
+    type: docs
+    last_checked: '2026-05-09'
+
+changelog:
+  - date: '2026-05-09'
+    type: launch
+    summary: 加入 CodePick Agent 协作栏目
+    summary_en: Added to CodePick Agent Collaboration section
+
+last_full_review: '2026-05-09'
+next_review_due: '2026-06-09'
+review_frequency_days: 30
+confidence: medium

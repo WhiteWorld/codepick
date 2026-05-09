@@ -1,0 +1,102 @@
+id: floatboat
+name: Floatboat
+type: agent_platform
+logo: /images/floatboat.png
+url: https://floatboat.ai
+repo: null
+current_version: null
+version_tracked_at: '2026-05-09'
+
+pricing:
+  model: free
+  currency: null
+  plans:
+    - name: Free
+      price: 0
+      limits: 免费下载使用（桌面客户端）
+      limits_en: Free download (desktop client)
+  price_updated_at: '2026-05-09'
+  note: 桌面客户端；AI Agent Workspace for One-Person Companies；Combo Skills 技能复用；Tacit Engine 学习你的工作方式
+  note_en: Desktop client; AI Agent Workspace for One-Person Companies; Combo Skills for reusable capabilities; Tacit Engine learns your work patterns
+
+scores:
+  coding_ability: 7.0
+  cost_efficiency: 9.5
+  flexibility: 8.5
+  china_friendly: 7.5
+  privacy: 9.5
+
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: false
+  sub_agent: false
+  multi_agent: true
+  agent_teams: true
+  task_management: true
+  persistent_memory: true
+  skill_sharing: true
+  runtime_monitoring: false
+  open_source: false
+  self_hosted: false
+  combo_skills: true
+  tacit_engine: true
+  desktop_app: true
+  browser_integration: true
+  context_window: 取决于所选模型
+  supported_runtimes:
+    - 内置 Agent 引擎
+    - OpenClaw
+  supported_os:
+    - macOS
+    - Windows
+  ide_base: "Agent 协作平台"
+
+best_for:
+  - 一人公司需要全功能 AI 工作台
+  - 希望 AI 学习自己工作方式并自动化
+  - 需要桌面端深度集成（文件、浏览器、邮件）
+best_for_en:
+  - Solo founders needing a full-featured AI workspace
+  - Users who want AI to learn their work patterns
+  - Desktop deep integration (files, browser, email)
+
+not_for:
+  - Web 端协作需求（仅有桌面端）
+  - 团队协作场景（定位一人公司）
+not_for_en:
+  - Web-based collaboration needs (desktop only)
+  - Team collaboration scenarios (solo-founder focused)
+
+quick_start:
+  - floatboat.ai 下载桌面客户端
+  - 配置 AI API Key
+  - Agent Chat 界面开始对话
+  - 使用 Combo Skills 复用工作模式
+quick_start_en:
+  - Download desktop client from floatboat.ai
+  - Configure AI API key
+  - Start chatting in Agent Chat interface
+  - Use Combo Skills to reuse work patterns
+
+register_url: https://floatboat.ai/download/success?from=landing
+china_note: 桌面客户端需自行下载；需自行配置 API Key
+china_note_en: Desktop client download required; requires own API key
+
+data_sources:
+  - url: https://floatboat.ai
+    type: docs
+    last_checked: '2026-05-09'
+
+changelog:
+  - date: '2026-05-09'
+    type: launch
+    summary: 加入 CodePick Agent 协作栏目
+    summary_en: Added to CodePick Agent Collaboration section
+
+last_full_review: '2026-05-09'
+next_review_due: '2026-06-09'
+review_frequency_days: 30
+confidence: medium
