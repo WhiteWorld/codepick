@@ -1,0 +1,108 @@
+id: lobehub
+name: LobeHub
+type: agent_platform
+logo: /images/lobehub.png
+url: https://lobehub.com
+repo: https://github.com/lobehub/lobehub
+current_version: null
+version_tracked_at: '2026-05-09'
+
+pricing:
+  model: subscription
+  currency: USD
+  plans:
+    - name: Free
+      price: 0
+      limits: 基础用量，社区版可自部署
+      limits_en: Basic usage, self-hostable community edition
+    - name: Pro
+      price: 20
+      period: month
+      limits: 更高计算额度，优先模型访问
+      limits_en: Higher compute credits, priority model access
+  price_updated_at: '2026-05-09'
+  note: 开源可自部署（Docker）；Cloud 版按计算额度付费；支持 BYO API Key 接入
+  note_en: Open source, self-hostable (Docker); Cloud edition uses compute credits; supports BYO API key
+
+scores:
+  coding_ability: 7.0
+  cost_efficiency: 8.5
+  flexibility: 9.0
+  china_friendly: 7.5
+  privacy: 8.5
+
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: false
+  mcp_support: true
+  sub_agent: false
+  multi_agent: true
+  agent_teams: true
+  task_management: true
+  persistent_memory: true
+  skill_sharing: true
+  runtime_monitoring: false
+  open_source: true
+  self_hosted: true
+  agent_marketplace: true
+  multimodal: true
+  context_window: 取决于所选模型
+  supported_runtimes:
+    - 内置 Agent 引擎
+  supported_os:
+    - macOS
+    - Windows
+    - Linux
+  ide_base: "Agent 协作平台"
+
+best_for:
+  - 需要可视化 Agent 构建和团队协作的通用场景
+  - 想用 Agent Groups 自动组队完成复杂任务
+  - 已有 LLM API Key 想自部署的用户
+best_for_en:
+  - General-purpose visual agent building and team collaboration
+  - Auto team formation with Agent Groups for complex tasks
+  - Users with existing LLM API keys who want to self-host
+
+not_for:
+  - 纯编程场景（用专用编程工具更高效）
+  - 对延迟敏感的实时任务
+not_for_en:
+  - Pure coding scenarios (dedicated coding tools are more efficient)
+  - Latency-sensitive real-time tasks
+
+quick_start:
+  - "访问 lobehub.com 注册 Cloud 版，或: docker run -d -p 3210:3210 lobehub/lobehub"
+  - 配置 LLM API Key（支持 OpenAI / Anthropic / Gemini 等）
+  - 在 Agent Builder 中创建 Agent 或从 Marketplace 发现
+  - 创建 Agent Group 组队协作
+quick_start_en:
+  - "Sign up at lobehub.com for Cloud, or: docker run -d -p 3210:3210 lobehub/lobehub"
+  - "Configure LLM API keys (OpenAI / Anthropic / Gemini etc.)"
+  - "Create agents in Agent Builder or discover from Marketplace"
+  - "Create Agent Groups for team collaboration"
+
+register_url: https://app.lobehub.com
+china_note: 开源可自部署，国内可直接 Docker 部署；Cloud 版国内访问较慢
+china_note_en: Open source, self-hostable via Docker; Cloud edition may have latency in China
+
+data_sources:
+  - url: https://lobehub.com
+    type: docs
+    last_checked: '2026-05-09'
+  - url: https://github.com/lobehub/lobehub
+    type: repo
+    last_checked: '2026-05-09'
+
+changelog:
+  - date: '2026-05-09'
+    type: launch
+    summary: 加入 CodePick Agent 协作栏目
+    summary_en: Added to CodePick Agent Collaboration section
+
+last_full_review: '2026-05-09'
+next_review_due: '2026-06-09'
+review_frequency_days: 30
+confidence: medium

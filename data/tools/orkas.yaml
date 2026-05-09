@@ -1,0 +1,105 @@
+id: orkas
+name: Orkas
+type: agent_platform
+logo: /images/orkas.png
+url: https://github.com/Orkas-AI/Orkas
+repo: https://github.com/Orkas-AI/Orkas
+current_version: 2026.5.8
+version_tracked_at: '2026-05-09'
+
+pricing:
+  model: free
+  currency: null
+  plans:
+    - name: 开源免费
+      price: 0
+      limits: 无限制（需自备 API Key）
+      limits_en: Unlimited (requires own API keys)
+  price_updated_at: '2026-05-09'
+  note: MIT 开源；桌面客户端本地运行；Pro 版提供团队协作和专家 Agent
+  note_en: MIT licensed; desktop client runs locally; Pro edition offers team collaboration and expert agents
+
+scores:
+  coding_ability: 8.0
+  cost_efficiency: 9.5
+  flexibility: 8.0
+  china_friendly: 8.5
+  privacy: 9.5
+
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: false
+  sub_agent: true
+  multi_agent: true
+  agent_teams: true
+  task_management: true
+  persistent_memory: true
+  skill_sharing: false
+  runtime_monitoring: false
+  open_source: true
+  self_hosted: true
+  self_evolving: true
+  commander_dispatch: true
+  local_first: true
+  desktop_app: true
+  context_window: 取决于所选模型
+  supported_runtimes:
+    - Claude Code
+    - Codex
+    - OpenClaw
+    - Hermes-Agent
+  supported_os:
+    - macOS
+    - Windows
+    - Linux
+  ide_base: "Agent 协作平台"
+
+best_for:
+  - 想要桌面端统一管理 Agent 团队的开发者
+  - 需要 Agent 从经验中自演化的场景
+  - Commander 调度多 Agent 并行协作
+best_for_en:
+  - Developers wanting a desktop app to manage agent teams
+  - Scenarios requiring agent self-evolution from experience
+  - Commander-orchestrated multi-agent parallel collaboration
+
+not_for:
+  - 需要 Web 端远程协作的团队
+  - 仅需单一 AI 助手的简单场景
+not_for_en:
+  - Teams needing web-based remote collaboration
+  - Simple single-AI-assistant scenarios
+
+quick_start:
+  - git clone https://github.com/Orkas-AI/Orkas && cd Orkas && ./run.sh
+  - 首次启动自动安装依赖和嵌入模型（~95MB）
+  - 在 Settings → AI Providers 配置 API Key
+  - 通过对话创建 Agent 团队，Commander 自动调度
+quick_start_en:
+  - "git clone https://github.com/Orkas-AI/Orkas && cd Orkas && ./run.sh"
+  - "First launch auto-installs dependencies and embedding model (~95MB)"
+  - "Configure API keys in Settings → AI Providers"
+  - "Create agent teams through conversation, Commander auto-dispatches"
+
+register_url: https://github.com/Orkas-AI/Orkas
+china_note: 开源本地运行，国内可直接 clone 使用；需自行配置国内模型 API（DeepSeek/Kimi/GLM/Qwen 等）
+china_note_en: Open source, runs locally; usable directly in China with domestic model APIs (DeepSeek/Kimi/GLM/Qwen etc.)
+
+data_sources:
+  - url: https://github.com/Orkas-AI/Orkas
+    type: repo
+    last_checked: '2026-05-09'
+
+changelog:
+  - date: '2026-05-09'
+    type: launch
+    summary: 加入 CodePick Agent 协作栏目
+    summary_en: Added to CodePick Agent Collaboration section
+
+last_full_review: '2026-05-09'
+next_review_due: '2026-06-09'
+review_frequency_days: 30
+confidence: medium
