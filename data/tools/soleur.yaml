@@ -1,0 +1,84 @@
+id: soleur
+name: Soleur
+type: agent_platform
+logo: /images/soleur.png
+url: https://www.soleur.ai
+repo: null
+current_version: null
+version_tracked_at: '2026-05-09'
+
+pricing:
+  model: free
+  currency: null
+  plans:
+    - name: Early Access
+      price: 0
+      limits: 早期测试阶段
+      limits_en: Early access stage
+  price_updated_at: '2026-05-09'
+  note: Company-as-a-Service for solo founders；按部门组织 65 个 Agent；概念新颖，适合写趋势文章
+
+scores:
+  coding_ability: 7.0
+  cost_efficiency: 9.0
+  flexibility: 8.0
+  china_friendly: 7.0
+  privacy: 7.5
+
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: false
+  mcp_support: false
+  sub_agent: true
+  multi_agent: true
+  agent_teams: true
+  task_management: true
+  persistent_memory: false
+  skill_sharing: false
+  runtime_monitoring: false
+  open_source: false
+  self_hosted: false
+  department_agents: true
+  context_window: 取决于所选模型
+  supported_runtimes:
+    - 内置 Agent 引擎
+  ide_base: "Agent 协作平台"
+
+best_for:
+  - 一人公司需要按部门组织的 AI Agent 团队
+  - 探索 Company-as-a-Service 概念的早期用户
+best_for_en:
+  - Solo founders needing department-organized AI agent teams
+  - Early adopters exploring the Company-as-a-Service concept
+
+not_for:
+  - 仅需单一 Agent 的场景
+not_for_en:
+  - Single-agent only scenarios
+
+quick_start:
+  - 访问 soleur.ai 申请早期访问
+quick_start_en:
+  - Visit soleur.ai to request early access
+
+register_url: https://www.soleur.ai
+china_note: Web 端访问
+china_note_en: Web accessible
+
+data_sources:
+  - url: https://www.soleur.ai
+    type: docs
+    last_checked: '2026-05-09'
+
+changelog:
+  - date: '2026-05-09'
+    type: launch
+    summary: 加入 CodePick Agent 协作栏目
+    summary_en: Added to CodePick Agent Collaboration section
+
+last_full_review: '2026-05-09'
+next_review_due: '2026-06-09'
+review_frequency_days: 30
+confidence: low
