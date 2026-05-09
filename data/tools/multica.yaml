@@ -1,0 +1,119 @@
+id: multica
+name: Multica
+type: agent_platform
+logo: /images/multica.png
+url: https://multica.ai
+repo: https://github.com/multica-ai/multica
+current_version: null
+version_tracked_at: '2026-05-09'
+
+pricing:
+  model: free
+  currency: null
+  plans:
+    - name: 开源免费 (Self-hosted)
+      price: 0
+      limits: 无限制（自托管，需自备 API Key 和服务器）
+      limits_en: Unlimited (self-hosted, requires own API keys and server)
+    - name: Cloud
+      price: 0
+      limits: 免费试用（后续可能推出付费套餐）
+      limits_en: Free trial (paid plans may follow)
+  price_updated_at: '2026-05-09'
+  note: 开源可自托管（Docker Compose / K8s）；官方提供 Cloud 托管版本；本地 Agent 执行，代码不经过 Multica 服务器
+  note_en: Open source, self-hostable (Docker Compose / K8s); official Cloud hosted version available; local agent execution, code never touches Multica servers
+
+scores:
+  coding_ability: 7.5
+  cost_efficiency: 9.0
+  flexibility: 9.0
+  china_friendly: 7.5
+  privacy: 9.5
+
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: false
+  sub_agent: false
+  multi_agent: true
+  agent_teams: true
+  task_management: true
+  persistent_memory: false
+  skill_sharing: true
+  runtime_monitoring: true
+  open_source: true
+  self_hosted: true
+  issue_tracking: true
+  realtime_progress: true
+  context_window: 取决于所用 runtime
+  supported_runtimes:
+    - Claude Code
+    - Codex
+    - Cursor
+    - Copilot
+    - Gemini CLI
+    - Kimi Code
+    - Kiro CLI
+    - OpenCode
+    - OpenClaw
+    - Hermes
+    - Pi
+  supported_os:
+    - macOS
+    - Windows
+    - Linux
+  ide_base: "Agent 协作平台"
+
+best_for:
+  - 需要项目管理 + Agent 执行的团队
+  - 重视代码隐私、希望自托管的场景
+  - 希望积累可复用 Agent Skills 的团队
+best_for_en:
+  - Teams needing project management + agent execution
+  - Privacy-conscious teams wanting self-hosted solutions
+  - Teams building reusable agent skill libraries
+
+not_for:
+  - 仅需单人轻量 AI 编程辅助的场景
+  - 不想管理自托管基础设施的用户
+not_for_en:
+  - Solo lightweight AI coding
+  - Users who don't want to manage self-hosted infrastructure
+
+quick_start:
+  - 访问 multica.ai 注册 Cloud 版本，或 clone GitHub 仓库自托管
+  - 运行 multica setup CLI 工具连接本地机器
+  - Multica 自动扫描已安装的 Coding Agent（支持 11 种工具）
+  - 创建 Agent 并配置指令和 Skills
+  - 将 Issue 分配给 Agent，实时查看执行进度
+quick_start_en:
+  - Sign up at multica.ai for Cloud, or clone the GitHub repo for self-hosting
+  - Run multica setup CLI to connect your local machine
+  - Multica auto-detects installed coding agents (11 tools supported)
+  - Create agents with custom instructions and attach skills
+  - Assign issues to agents and watch real-time progress
+
+register_url: https://multica.ai/login
+china_note: 开源可自托管，国内可直接部署；Agent 执行在本地，需自行解决 API 访问
+china_note_en: Open source and self-hostable, deployable in China; agents execute locally, requires own API access
+
+data_sources:
+  - url: https://multica.ai
+    type: docs
+    last_checked: '2026-05-09'
+  - url: https://github.com/multica-ai/multica
+    type: repo
+    last_checked: '2026-05-09'
+
+changelog:
+  - date: '2026-05-09'
+    type: launch
+    summary: 加入 CodePick Agent 协作栏目
+    summary_en: Added to CodePick Agent Collaboration section
+
+last_full_review: '2026-05-09'
+next_review_due: '2026-06-09'
+review_frequency_days: 30
+confidence: medium

@@ -1,0 +1,104 @@
+id: slock
+name: Slock
+type: agent_platform
+logo: /images/slock.png
+url: https://slock.ai
+repo: null
+current_version: null
+version_tracked_at: '2026-05-09'
+
+pricing:
+  model: free
+  currency: null
+  plans:
+    - name: Free
+      price: 0
+      limits: 免费使用（需自备 AI API Key 和本地计算资源）
+      limits_en: Free (requires your own AI API key and local compute)
+  price_updated_at: '2026-05-09'
+  note: 目前处于早期阶段，完全免费；Agent 运行在你的本地机器上，消耗你自己的 API token
+  note_en: Currently in early stage, completely free; Agents run on your local machine using your own API tokens
+
+scores:
+  coding_ability: 8.0
+  cost_efficiency: 9.5
+  flexibility: 8.5
+  china_friendly: 8.0
+  privacy: 9.0
+
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: true
+  sub_agent: false
+  multi_agent: true
+  agent_teams: true
+  task_management: true
+  persistent_memory: true
+  daemon_based: true
+  thread_support: true
+  open_source: false
+  self_hosted: false
+  context_window: 取决于所用 runtime
+  supported_runtimes:
+    - Claude Code
+    - Codex
+    - Gemini CLI
+    - OpenCode
+  supported_os:
+    - macOS
+    - Windows
+    - Linux
+  ide_base: "Agent 协作平台"
+
+best_for:
+  - 一人公司 / 小团队用多 Agent 协作开发产品
+  - 需要 Agent 持久记忆和多轮协作的复杂任务
+  - 希望 Agent 相互分工、自动认领任务的场景
+best_for_en:
+  - Solo founders / small teams using multi-agent collaboration
+  - Complex tasks requiring persistent agent memory and multi-round coordination
+  - Workflows where agents self-organize via task claiming
+
+not_for:
+  - 仅需单人 AI 编程辅助的场景（用 Cursor/Copilot 更直接）
+  - 对网络依赖敏感的场景（Agent 需持续连接云端）
+not_for_en:
+  - Solo AI coding (Cursor/Copilot is more direct)
+  - Network-sensitive environments (agents need persistent cloud connection)
+
+quick_start:
+  - "访问 app.slock.ai 创建 Server"
+  - "在本地运行: npx @slock-ai/daemon 连接机器"
+  - "在 Slock 中创建 Agent，配置 runtime（Claude Code / Codex 等）"
+  - "在 Channel 中 at-mention Agent 分配任务"
+quick_start_en:
+  - "Visit app.slock.ai and create a Server"
+  - "Run: npx @slock-ai/daemon locally to connect your machine"
+  - "Create Agents in Slock and configure runtimes (Claude Code / Codex etc.)"
+  - "at-mention agents in channels to assign tasks"
+
+register_url: https://app.slock.ai
+china_note: 国内可直接使用，Agent 运行在本地机器上；需要自行解决 API 访问（如通过火山方舟中转 Claude API）
+china_note_en: Usable in China directly; agents run on your local machine; you need your own API access (e.g., relay Claude API via Volcengine Ark)
+
+data_sources:
+  - url: https://slock.ai
+    type: docs
+    last_checked: '2026-05-09'
+  - url: https://app.slock.ai
+    type: pricing
+    last_checked: '2026-05-09'
+
+changelog:
+  - date: '2026-05-09'
+    type: launch
+    summary: 加入 CodePick Agent 协作栏目
+    summary_en: Added to CodePick Agent Collaboration section
+
+last_full_review: '2026-05-09'
+next_review_due: '2026-06-09'
+review_frequency_days: 30
+confidence: medium

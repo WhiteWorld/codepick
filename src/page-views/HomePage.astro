@@ -37,6 +37,7 @@ const categories = [
   { key: 'cat.vscode', href: '/tools/vscode', count: tools.filter((t: any) => /vs\s?code/i.test((t as any).features?.ide_base || '')).length, icon: '💻' },
   { key: 'cat.terminal', href: '/tools/terminal', count: tools.filter((t: any) => (t as any).type === 'cli' || /终端|tui|cli/i.test((t as any).features?.ide_base || '')).length, icon: '⌨️' },
   { key: 'cat.builder', href: '/tools/builder', count: tools.filter((t: any) => (t as any).type === 'web' || (t as any).type === 'cloud_agent').length, icon: '🏗️' },
+  { key: 'cat.agentPlatform', href: '/agents', count: tools.filter((t: any) => (t as any).type === 'agent_platform').length, icon: '🤖' },
 ];
 
 const seoTitle = lang === 'zh'
@@ -78,7 +79,7 @@ const seoTitle = lang === 'zh'
       </span>
       <span class="inline-flex items-center gap-1.5 bg-[var(--surface-card)] px-3 py-1.5 rounded-full border border-[var(--surface-border)]">
         <span>🔍</span>
-        {lang === 'zh' ? '21 款工具 · 14 套方案' : '21 tools · 14 plans'}
+        {lang === 'zh' ? `${tools.length} 款工具 · ${plans.length} 套方案` : `${tools.length} tools · ${plans.length} plans`}
       </span>
       <span class="inline-flex items-center gap-1.5 bg-[var(--surface-card)] px-3 py-1.5 rounded-full border border-[var(--surface-border)]">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>

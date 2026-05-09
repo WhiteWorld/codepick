@@ -11,6 +11,7 @@ const translations: Record<string, Record<Locale, string>> = {
   'nav.guides':    { zh: '使用指南', en: 'Guides' },
   'nav.practices': { zh: '开发实践', en: 'Practices' },
   'nav.deals':     { zh: '优惠福利', en: 'Deals' },
+  'nav.agents':    { zh: 'Agent 协作', en: 'Agent Collab' },
 
   // ── Breadcrumbs ─────────────────────────────────────────────────────────
   'bread.home':         { zh: '首页', en: 'Home' },
@@ -23,6 +24,7 @@ const translations: Record<string, Record<Locale, string>> = {
   'bread.overview':     { zh: '全景图', en: 'Overview' },
   'bread.compare':      { zh: '对比文章', en: 'Comparisons' },
   'bread.guides':       { zh: '使用指南', en: 'Guides' },
+  'bread.agentPlatforms': { zh: 'Agent 协作', en: 'Agent Collab' },
 
   // ── Score labels ────────────────────────────────────────────────────────
   'score.coding':         { zh: '编程', en: 'Coding' },
@@ -42,6 +44,7 @@ const translations: Record<string, Record<Locale, string>> = {
   'type.web':         { zh: 'Web', en: 'Web' },
   'type.app':         { zh: 'App', en: 'App' },
   'type.cloud_agent': { zh: '云端 Agent', en: 'Cloud Agent' },
+  'type.agent_platform': { zh: 'Agent 协作', en: 'Agent Platform' },
   'type.tool':        { zh: '工具', en: 'Tool' },
 
   // ── Plan type / tag labels ──────────────────────────────────────────────
@@ -74,6 +77,18 @@ const translations: Record<string, Record<Locale, string>> = {
   'feature.custom_modes':     { zh: '自定义模式', en: 'Custom Modes' },
   'feature.tui_interface':    { zh: 'TUI 界面', en: 'TUI Interface' },
   'feature.model_providers':  { zh: '模型提供商', en: 'Model Providers' },
+  'feature.task_management':  { zh: '任务管理', en: 'Task Management' },
+  'feature.skill_sharing':    { zh: '技能共享', en: 'Skill Sharing' },
+  'feature.runtime_monitoring': { zh: '运行时监控', en: 'Runtime Monitoring' },
+  'feature.open_source':      { zh: '开源', en: 'Open Source' },
+  'feature.self_hosted':      { zh: '可自托管', en: 'Self-Hostable' },
+  'feature.agent_teams':      { zh: 'Agent 团队', en: 'Agent Teams' },
+  'feature.persistent_memory': { zh: '持久记忆', en: 'Persistent Memory' },
+  'feature.realtime_progress': { zh: '实时进度', en: 'Realtime Progress' },
+  'feature.issue_tracking':   { zh: 'Issue 追踪', en: 'Issue Tracking' },
+  'feature.daemon_based':     { zh: '本地守护进程', en: 'Local Daemon' },
+  'feature.thread_support':   { zh: '话题线程', en: 'Thread Support' },
+  'feature.supported_runtimes': { zh: '支持 Runtime', en: 'Supported Runtimes' },
 
   // ── Section headings ────────────────────────────────────────────────────
   'section.scores':       { zh: '📊 评分', en: '📊 Scores' },
@@ -157,6 +172,7 @@ const translations: Record<string, Record<Locale, string>> = {
   'typeKw.web':         { zh: 'AI 编程 Web 工具', en: 'AI Web Coding Tool' },
   'typeKw.app':         { zh: 'AI 编程 App', en: 'AI Coding App' },
   'typeKw.cloud_agent': { zh: 'AI 云端编程 Agent', en: 'AI Cloud Coding Agent' },
+  'typeKw.agent_platform': { zh: 'Agent 协作平台', en: 'Agent Collaboration Platform' },
   'typeKw.default':     { zh: 'AI 编程工具', en: 'AI Coding Tool' },
 
   // ── Overview page ───────────────────────────────────────────────────────
@@ -196,6 +212,7 @@ const translations: Record<string, Record<Locale, string>> = {
   'cat.vscode':   { zh: '🔵 VS Code 生态', en: '🔵 VS Code Ecosystem' },
   'cat.terminal': { zh: '⌨️ 终端工具', en: '⌨️ Terminal Tools' },
   'cat.builder':  { zh: '🔨 构建工具', en: '🔨 Builder Tools' },
+  'cat.agentPlatform': { zh: '🤖 Agent 协作', en: '🤖 Agent Collab' },
 
   // ── Home page ───────────────────────────────────────────────────────────
   'home.heroTitle1':     { zh: '找到最适合你的', en: 'Find Your Perfect' },
@@ -272,6 +289,17 @@ const translations: Record<string, Record<Locale, string>> = {
   'guides.title':    { zh: '使用指南', en: 'Guides' },
   'guides.subtitle': { zh: '手把手教你配置各种 AI 编程方案', en: 'Step-by-step setup guides for AI coding setups' },
 
+  // ── Agent Collaboration page ───────────────────────────────────────────────
+  'agents.title':    { zh: 'Agent 协作平台', en: 'Agent Collab Platforms' },
+  'agents.subtitle': { zh: '让人和多个 AI Agent 成为真正的队友，在同一平台上协作、分工、积累技能。', en: 'Where humans and multiple AI agents become real teammates — collaborating, dividing work, and compounding skills.' },
+  'agents.desc1':    { zh: '目前收录 ', en: 'Currently cataloging ' },
+  'agents.desc2':    { zh: ' 款 Agent 协作平台。与 AI 编程工具不同，这些平台解决的是「如何管理人+Agent 团队」，而非「如何辅助个人写代码」。', en: ' agent collaboration platforms. Unlike AI coding tools, these platforms solve "how to manage human+agent teams" rather than "how to assist individual coding".' },
+  'agents.filterTitle': { zh: '快速筛选', en: 'Quick Filters' },
+  'agents.catAll':   { zh: '🤖 全部平台', en: '🤖 All Platforms' },
+  'agents.whyTitle':  { zh: '为什么需要 Agent 协作平台？', en: 'Why Agent Collaboration Platforms?' },
+  'agents.whyDesc1':  { zh: '当你不再满足于单个 AI 编程助手，而是想构建一个由多个 Agent 组成的团队时，你需要一个统一的管理层：任务分配、进度追踪、技能复用、团队协作——这些是编辑器或 CLI 做不到的。', en: "When you're ready to move beyond a single AI coding assistant and build a team of agents, you need a unified management layer: task assignment, progress tracking, skill reuse, team coordination — things editors and CLIs can't do." },
+  'agents.ctaHome':  { zh: '← 返回首页', en: '← Back to Home' },
+
   // ── Quick Picker (30-second survey) ─────────────────────────────────────
   'qp.title':       { zh: '30 秒选型问卷', en: '30-Second Picker' },
   'qp.subtitle':    { zh: '回答 3 个问题，找到最适合你的 AI 编程方案', en: 'Answer 3 questions to find your best AI coding setup' },
@@ -304,6 +332,7 @@ const translations: Record<string, Record<Locale, string>> = {
   'ovType.web':         { zh: 'Web', en: 'Web' },
   'ovType.app':         { zh: 'App', en: 'App' },
   'ovType.cloud_agent': { zh: '云端 Agent', en: 'Cloud Agent' },
+  'ovType.agent_platform': { zh: 'Agent 协作', en: 'Agent Platform' },
 
   // ── Quick Start section (tool detail page) ──────────────────────────────
   'quickStart.steps':       { zh: '安装步骤', en: 'Install Steps' },
