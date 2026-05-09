@@ -1,0 +1,113 @@
+id: dify
+name: Dify
+type: agent_platform
+logo: /images/dify.png
+url: https://dify.ai
+repo: https://github.com/langgenius/dify
+current_version: null
+version_tracked_at: '2026-05-09'
+
+pricing:
+  model: subscription
+  currency: USD
+  plans:
+    - name: 开源免费（自托管）
+      price: 0
+      limits: 无限制（自托管）
+      limits_en: Unlimited (self-hosted)
+    - name: Cloud Sandbox
+      price: 0
+      limits: 200 次免费调用
+      limits_en: 200 free calls
+    - name: Cloud Professional
+      price: 59
+      period: month
+      limits: 按量计费
+      limits_en: Pay-as-you-go
+  price_updated_at: '2026-05-09'
+  note: 50K+ GitHub Stars；开源可自托管；可视化 AI 应用构建器，支持 Agent 工作流、RAG、MCP 发布
+  note_en: 50K+ GitHub Stars; open source, self-hostable; visual AI app builder with agent workflows, RAG, MCP publishing
+
+scores:
+  coding_ability: 7.0
+  cost_efficiency: 8.5
+  flexibility: 9.0
+  china_friendly: 8.0
+  privacy: 9.0
+
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: false
+  mcp_support: true
+  sub_agent: true
+  multi_agent: true
+  agent_teams: true
+  task_management: true
+  persistent_memory: false
+  skill_sharing: true
+  runtime_monitoring: true
+  open_source: true
+  self_hosted: true
+  visual_builder: true
+  rag_support: true
+  human_in_the_loop: true
+  context_window: 取决于所选模型
+  supported_runtimes:
+    - 内置 Agent 引擎
+  supported_os:
+    - macOS
+    - Windows
+    - Linux
+  ide_base: "Agent 协作平台"
+
+best_for:
+  - 快速构建和部署 AI Agent 应用的非技术用户
+  - 需要 RAG + Agent 工作流的场景
+  - 从原型到生产的一站式平台
+best_for_en:
+  - Non-technical users rapidly building AI agent apps
+  - Scenarios requiring RAG + agent workflows
+  - All-in-one platform from prototype to production
+
+not_for:
+  - 纯编程 Agent 协作场景
+  - 需要深度定制的底层 Agent 架构
+not_for_en:
+  - Pure coding agent collaboration scenarios
+  - Deeply customized low-level agent architecture
+
+quick_start:
+  - "docker compose up -d 一键自托管"
+  - 或注册 cloud.dify.ai 免费开始
+  - 在 Web UI 中拖拽构建 Agent 工作流
+  - 支持发布为 API / MCP Server / 嵌入页面
+quick_start_en:
+  - "docker compose up -d for one-click self-hosting"
+  - "Or sign up at cloud.dify.ai to start free"
+  - "Build agent workflows with drag-and-drop Web UI"
+  - "Publish as API / MCP Server / embedded page"
+
+register_url: https://cloud.dify.ai
+china_note: 开源可自托管，国内可 Docker 部署；提供国内可访问的模型集成
+china_note_en: Open source, self-hostable via Docker; domestic model integrations available
+
+data_sources:
+  - url: https://dify.ai
+    type: docs
+    last_checked: '2026-05-09'
+  - url: https://github.com/langgenius/dify
+    type: repo
+    last_checked: '2026-05-09'
+
+changelog:
+  - date: '2026-05-09'
+    type: launch
+    summary: 加入 CodePick Agent 协作栏目
+    summary_en: Added to CodePick Agent Collaboration section
+
+last_full_review: '2026-05-09'
+next_review_due: '2026-06-09'
+review_frequency_days: 30
+confidence: medium

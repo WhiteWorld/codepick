@@ -1,0 +1,113 @@
+id: n8n
+name: n8n
+type: agent_platform
+logo: /images/n8n.png
+url: https://n8n.io
+repo: https://github.com/n8n-io/n8n
+current_version: null
+version_tracked_at: '2026-05-09'
+
+pricing:
+  model: subscription
+  currency: USD
+  plans:
+    - name: 开源免费（自托管）
+      price: 0
+      limits: 无限制（自托管，需自备服务器和 API Key）
+      limits_en: Unlimited (self-hosted, requires own server and API keys)
+    - name: Cloud Starter
+      price: 24
+      period: month
+      limits: 2.5K 执行次数，5 个活跃工作流
+      limits_en: 2.5K executions, 5 active workflows
+    - name: Cloud Pro
+      price: 60
+      period: month
+      limits: 10K 执行次数，无限活跃工作流
+      limits_en: 10K executions, unlimited active workflows
+  price_updated_at: '2026-05-09'
+  note: 187K+ GitHub Stars；开源可自托管（Docker）；500+ 集成；支持 AI Agent 节点、MCP、人机协作
+  note_en: 187K+ GitHub Stars; open source, self-hostable (Docker); 500+ integrations; supports AI Agent nodes, MCP, human-in-the-loop
+
+scores:
+  coding_ability: 7.5
+  cost_efficiency: 9.0
+  flexibility: 9.5
+  china_friendly: 8.0
+  privacy: 9.0
+
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: false
+  mcp_support: true
+  sub_agent: true
+  multi_agent: true
+  agent_teams: true
+  task_management: true
+  persistent_memory: false
+  skill_sharing: false
+  runtime_monitoring: true
+  open_source: true
+  self_hosted: true
+  visual_builder: true
+  human_in_the_loop: true
+  context_window: 取决于所选模型
+  supported_runtimes:
+    - 内置 AI Agent 节点
+  supported_os:
+    - macOS
+    - Windows
+    - Linux
+  ide_base: "Agent 协作平台"
+
+best_for:
+  - 用可视化方式编排 AI Agent 工作流
+  - 一人公司需要连接多个 SaaS 工具自动化运营
+  - 自托管追求完全数据控制
+best_for_en:
+  - Visually orchestrating AI agent workflows
+  - Solo founders automating operations across SaaS tools
+  - Self-hosting for complete data control
+
+not_for:
+  - 纯编程 Agent 协作场景（更偏工作流自动化）
+  - 需要深度 Agent 记忆的复杂项目
+not_for_en:
+  - Pure coding agent collaboration (more workflow automation oriented)
+  - Complex projects requiring deep agent memory
+
+quick_start:
+  - "Docker 自托管: docker run -d -p 5678:5678 n8nio/n8n"
+  - 或注册 n8n.cloud 免费开始
+  - 在可视化画布上拖拽 AI Agent 节点 + 工具节点
+  - 连接 500+ SaaS 工具构建自动化工作流
+quick_start_en:
+  - "Self-host with Docker: docker run -d -p 5678:5678 n8nio/n8n"
+  - "Or sign up at n8n.cloud to start free"
+  - "Drag AI Agent nodes + tool nodes on visual canvas"
+  - "Connect 500+ SaaS tools to build automated workflows"
+
+register_url: https://app.n8n.cloud/register
+china_note: 开源可自托管，国内可直接 Docker 部署；需自行配置模型 API
+china_note_en: Open source, self-hostable via Docker in China; requires own model API configuration
+
+data_sources:
+  - url: https://n8n.io
+    type: docs
+    last_checked: '2026-05-09'
+  - url: https://github.com/n8n-io/n8n
+    type: repo
+    last_checked: '2026-05-09'
+
+changelog:
+  - date: '2026-05-09'
+    type: launch
+    summary: 加入 CodePick Agent 协作栏目
+    summary_en: Added to CodePick Agent Collaboration section
+
+last_full_review: '2026-05-09'
+next_review_due: '2026-06-09'
+review_frequency_days: 30
+confidence: medium
