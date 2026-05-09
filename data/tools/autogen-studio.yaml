@@ -1,0 +1,103 @@
+id: autogen-studio
+name: AutoGen Studio
+type: agent_platform
+logo: /images/autogen.png
+url: https://microsoft.github.io/autogen/
+repo: https://github.com/microsoft/autogen
+current_version: null
+version_tracked_at: '2026-05-09'
+
+pricing:
+  model: free
+  currency: null
+  plans:
+    - name: 开源免费
+      price: 0
+      limits: 无限制（需自备 API Key）
+      limits_en: Unlimited (requires own API keys)
+  price_updated_at: '2026-05-09'
+  note: MIT 开源；Microsoft 维护；AgentChat + Core + Extensions 三层架构；AutoGen Studio 是 Web UI 层
+  note_en: MIT licensed; maintained by Microsoft; three-layer architecture (AgentChat + Core + Extensions); AutoGen Studio is the Web UI layer
+
+scores:
+  coding_ability: 8.0
+  cost_efficiency: 9.0
+  flexibility: 9.5
+  china_friendly: 7.0
+  privacy: 8.5
+
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: false
+  mcp_support: true
+  sub_agent: true
+  multi_agent: true
+  agent_teams: true
+  task_management: true
+  persistent_memory: false
+  skill_sharing: false
+  runtime_monitoring: true
+  open_source: true
+  self_hosted: true
+  visual_builder: true
+  distributed_agents: true
+  context_window: 取决于所选模型
+  supported_runtimes:
+    - 内置 Agent 引擎
+  supported_os:
+    - macOS
+    - Windows
+    - Linux
+  ide_base: "Agent 协作平台"
+
+best_for:
+  - Microsoft 生态用户
+  - 需要可视化 Agent 原型设计的团队
+  - 需要分布式 Agent 架构的复杂场景
+best_for_en:
+  - Microsoft ecosystem users
+  - Teams needing visual agent prototyping
+  - Complex scenarios requiring distributed agent architecture
+
+not_for:
+  - 只需简单开箱即用的场景（框架需要一定学习成本）
+  - 纯编程场景
+not_for_en:
+  - Simple plug-and-play scenarios (framework has a learning curve)
+  - Pure coding scenarios
+
+quick_start:
+  - "pip install -U autogenstudio && autogenstudio ui --port 8080 --appdir ./myapp"
+  - 浏览器打开 http://localhost:8080
+  - 在 Web UI 中拖拽创建 Agent 和 Workflow
+  - 也可用 Python API（AgentChat）做更深度定制
+quick_start_en:
+  - "pip install -U autogenstudio && autogenstudio ui --port 8080 --appdir ./myapp"
+  - "Open http://localhost:8080 in browser"
+  - "Create agents and workflows via drag-and-drop Web UI"
+  - "Or use Python API (AgentChat) for deeper customization"
+
+register_url: https://github.com/microsoft/autogen
+china_note: 开源本地运行，国内可直接 pip install；需自行配置模型 API
+china_note_en: Open source, runs locally; pip install directly; requires own model API
+
+data_sources:
+  - url: https://github.com/microsoft/autogen
+    type: repo
+    last_checked: '2026-05-09'
+  - url: https://microsoft.github.io/autogen/
+    type: docs
+    last_checked: '2026-05-09'
+
+changelog:
+  - date: '2026-05-09'
+    type: launch
+    summary: 加入 CodePick Agent 协作栏目
+    summary_en: Added to CodePick Agent Collaboration section
+
+last_full_review: '2026-05-09'
+next_review_due: '2026-06-09'
+review_frequency_days: 30
+confidence: medium

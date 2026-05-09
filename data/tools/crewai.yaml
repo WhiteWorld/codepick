@@ -1,0 +1,108 @@
+id: crewai
+name: CrewAI
+type: agent_platform
+logo: /images/crewai.png
+url: https://crewai.com
+repo: https://github.com/crewAIInc/crewAI
+current_version: 1.14.4
+version_tracked_at: '2026-05-09'
+
+pricing:
+  model: subscription
+  currency: USD
+  plans:
+    - name: 开源免费
+      price: 0
+      limits: Python 框架，需自备 API Key
+      limits_en: Python framework, requires own API keys
+    - name: CrewAI AMP (Enterprise)
+      price: null
+      limits: Control Plane、监控追踪、24/7 支持，联系销售定价
+      limits_en: Control Plane, monitoring/tracing, 24/7 support, contact sales
+  price_updated_at: '2026-05-09'
+  note: MIT 开源 Python 框架；CrewAI AMP 提供企业级 Control Plane、可观测性和支持；100K+ 认证开发者
+  note_en: MIT licensed Python framework; CrewAI AMP offers enterprise Control Plane, observability, and support; 100K+ certified developers
+
+scores:
+  coding_ability: 8.5
+  cost_efficiency: 9.0
+  flexibility: 9.5
+  china_friendly: 7.5
+  privacy: 8.5
+
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: false
+  mcp_support: true
+  sub_agent: true
+  multi_agent: true
+  agent_teams: true
+  task_management: true
+  persistent_memory: true
+  skill_sharing: true
+  runtime_monitoring: true
+  open_source: true
+  self_hosted: true
+  role_based: true
+  event_driven: true
+  human_in_the_loop: true
+  context_window: 取决于所选模型
+  supported_runtimes:
+    - 内置 Agent 引擎（Python）
+  supported_os:
+    - macOS
+    - Windows
+    - Linux
+  ide_base: "Agent 协作平台"
+
+best_for:
+  - Python 开发者构建多 Agent 自动化
+  - 需要精确工作流控制的企业场景
+  - 角色扮演式 Agent 协作（Crews）
+best_for_en:
+  - Python developers building multi-agent automation
+  - Enterprise scenarios requiring precise workflow control
+  - Role-playing agent collaboration (Crews)
+
+not_for:
+  - 不想写代码的非技术用户
+  - 轻量级单 Agent 任务
+not_for_en:
+  - Non-technical users who don't want to write code
+  - Lightweight single-agent tasks
+
+quick_start:
+  - "pip install crewai"
+  - "crewai create crew my_project 创建项目骨架"
+  - 编辑 agents.yaml 和 tasks.yaml 定义 Agent 角色和任务
+  - "crewai run 执行 Crew"
+quick_start_en:
+  - "pip install crewai"
+  - "crewai create crew my_project to scaffold"
+  - "Edit agents.yaml and tasks.yaml to define agent roles and tasks"
+  - "crewai run to execute the Crew"
+
+register_url: https://app.crewai.com
+china_note: Python 框架可国内直接安装使用；需自行配置模型 API（支持国内模型）
+china_note_en: Python framework installable directly in China; configure model APIs yourself (domestic models supported)
+
+data_sources:
+  - url: https://github.com/crewAIInc/crewAI
+    type: repo
+    last_checked: '2026-05-09'
+  - url: https://crewai.com
+    type: docs
+    last_checked: '2026-05-09'
+
+changelog:
+  - date: '2026-05-09'
+    type: launch
+    summary: 加入 CodePick Agent 协作栏目
+    summary_en: Added to CodePick Agent Collaboration section
+
+last_full_review: '2026-05-09'
+next_review_due: '2026-06-09'
+review_frequency_days: 30
+confidence: medium
