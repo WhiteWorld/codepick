@@ -88,6 +88,10 @@ data_sources:
     type: pricing
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-05-10'
+    type: announcement
+    summary: 数据月度复核：Pro 套餐每月 600 次 Premium 模型快速请求；定价不变（$10/月，首月 $3，年付 $90）；整体功能保持稳定
+    summary_en: Monthly data review — Pro plan at 600 fast Premium model requests/month; pricing unchanged ($10/mo, first month $3, or $90/year); feature set stable
   - date: '2026-04-19'
     type: announcement
     summary: 数据月度复核：Pro 套餐每月 600 次 Premium 模型快速请求；定价不变（$10/月，首月 $3）；整体功能保持稳定
@@ -104,7 +108,7 @@ changelog:
     type: feature
     summary: Builder 模式上线，支持 Grok-4（Beta）模型
     summary_en: Builder mode launched, Grok-4 (Beta) model support added
-last_full_review: '2026-04-19'
-next_review_due: '2026-05-19'
+last_full_review: '2026-05-10'
+next_review_due: '2026-06-10'
 review_frequency_days: 30
 confidence: medium

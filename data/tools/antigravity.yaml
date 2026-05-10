@@ -97,6 +97,10 @@ data_sources:
     type: product
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-05-10'
+    type: feature
+    summary: 'May 2026 更新：AgentKit 2.0 深度集成（与 LangChain/AutoGen 等 A2A 兼容 Agent 互通）；Ollama 和 LM Studio 本地模型连接稳定性提升；Pro 套餐配额进一步放宽；2M token 上下文窗口（Gemini 3.1 Pro）已实用化'
+    summary_en: 'May 2026 update: Deep AgentKit 2.0 integration with A2A inter-agent communication (works with LangChain/AutoGen); stabilized Ollama and LM Studio local model connectivity; Pro tier quota relaxed; 2M token context window (Gemini 3.1 Pro) now practically usable'
   - date: '2026-04-19'
     type: announcement
     summary: v1.22.2：新增 Linux 沙盒支持；支持从 AGENTS.md 读取规则（原只支持 GEMINI.md）；新统一权限系统；Auto-continue 默认开启；修复 MCP 服务器加载 Bug
@@ -109,7 +113,7 @@ changelog:
     type: launch
     summary: Google Antigravity 公开预览发布，随 Gemini 3 同期推出，VS Code Fork，免费支持多顶级模型
     summary_en: Google Antigravity public preview launched alongside Gemini 3 — VS Code Fork, free access to multiple top-tier models
-last_full_review: '2026-04-19'
-next_review_due: '2026-05-19'
+last_full_review: '2026-05-10'
+next_review_due: '2026-06-10'
 review_frequency_days: 30
 confidence: medium

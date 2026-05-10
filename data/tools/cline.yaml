@@ -4,8 +4,8 @@ type: client
 logo: /images/cline.png
 url: https://cline.bot
 repo: https://github.com/cline/cline
-current_version: v3.81.0
-version_tracked_at: '2026-05-03'
+current_version: v3.82.0
+version_tracked_at: '2026-05-10'
 pricing:
   model: free
   currency: null
@@ -81,6 +81,10 @@ data_sources:
     type: release
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-05-01'
+    type: release
+    summary: 'v3.82.0: 恢复 VS Code 前台终端支持（允许需要交互终端的命令在前台运行）；新增 GPT-5.5 模型支持（OpenAI 订阅用户）；修复 hook 模板 JSON 转义问题；修复 ripgrep 错误处理；堆内存快照与周期性日志记录（内存诊断增强）'
+    summary_en: 'v3.82.0: VS Code foreground terminal support restored (allows commands requiring interactive terminal to run in foreground); GPT-5.5 model support for OpenAI subscribers; fixed hook template JSON escaping; fixed ripgrep error handling; heap snapshots and periodic logging for enhanced memory diagnostics'
   - date: '2026-04-24'
     type: release
     summary: 'v3.81.0: 聊天错误行显示详细错误信息（而非通用"caught error"）；Enterprise remote globalSkills 全 UI 支持（alwaysEnabled 可通过侧边栏切换）；进一步稳定 OOM 修复与终端后台模式'
@@ -137,7 +141,7 @@ changelog:
     type: feature
     summary: 支持 MCP Server 管理
     summary_en: MCP Server management support added
-last_full_review: '2026-05-03'
-next_review_due: '2026-06-03'
+last_full_review: '2026-05-10'
+next_review_due: '2026-06-10'
 review_frequency_days: 30
 confidence: high

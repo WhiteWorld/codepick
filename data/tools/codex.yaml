@@ -62,6 +62,7 @@ features:
   remote_ssh: true
   context_window: 标准上下文窗口
   supported_models:
+    - GPT-5.5
     - GPT-5.4
     - GPT-5.3-Codex
     - GPT-5.4 mini
@@ -111,6 +112,10 @@ data_sources:
     type: pricing
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-05-07'
+    type: feature
+    summary: 'Codex Chrome 扩展上线（macOS/Windows，EU/UK 暂缺）：Codex 可直接在浏览器中测试 Web 应用、跨 Tab 获取上下文、调用 DevTools，无需接管浏览器；GPT-5.5 加入 Codex（最强前沿模型，支持复杂编程/Computer Use/知识工作）；GPT-5.4 mini 正式上线（速度比 GPT-5 mini 快 2 倍以上）'
+    summary_en: 'Codex Chrome extension launched (macOS/Windows; EU/UK coming soon): Codex can test web apps, gather context across tabs, and use DevTools directly in the browser without taking it over; GPT-5.5 added to Codex (frontier model for complex coding, Computer Use, knowledge work); GPT-5.4 mini now available (2x+ faster than GPT-5 mini)'
   - date: '2026-04-16'
     type: feature
     summary: Codex 26.415 大版本更新：内置浏览器（Atlas 引擎）、Computer Use（AI 操控 macOS）、Memories 记忆持久化、100+ 精选插件市场、Chats 无项目线程、PR 工作流集成、Artifact 查看器（PDF/表格/文档）、Remote SSH（Alpha）、多终端支持
@@ -135,7 +140,7 @@ changelog:
     type: launch
     summary: Codex macOS 原生 App 发布，支持并行多 Agent、原生沙箱、Diff 审查，仅限 Apple Silicon
     summary_en: Codex macOS native App launched — parallel multi-Agent, native sandbox, Diff review; Apple Silicon only
-last_full_review: '2026-04-19'
-next_review_due: '2026-05-19'
+last_full_review: '2026-05-10'
+next_review_due: '2026-06-10'
 review_frequency_days: 30
 confidence: medium
