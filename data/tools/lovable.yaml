@@ -79,6 +79,10 @@ china_note: 需要翻墙访问，国内暂无镜像；以全栈 React Web 应用
 china_note_en: Requires VPN from China; no domestic mirror; focused on full-stack React web app generation, great for rapid prototyping
 
 changelog:
+  - date: '2026-05-10'
+    type: announcement
+    summary: 数据月度复核：定价不变（Pro $25/月，Business $50/月，Free 5 credits/天）；学生 .edu 邮箱可享 Pro 首年 50% 折扣；年付 Pro 每月 $20.83
+    summary_en: Monthly data review — pricing unchanged (Pro $25/mo, Business $50/mo, Free 5 credits/day); students with .edu email get 50% off Pro for first year; annual Pro billing is $20.83/mo
   - date: '2026-04-19'
     type: pricing
     summary: Pro 套餐价格从 $21 涨至 $25/月；Free 套餐改为每天 5 credits（原为 30 条消息/月）；引入 credits 滚存机制
@@ -96,7 +100,7 @@ data_sources:
     type: docs
     last_checked: '2026-04-19'
 
-last_full_review: '2026-04-19'
-next_review_due: '2026-05-19'
+last_full_review: '2026-05-10'
+next_review_due: '2026-06-10'
 review_frequency_days: 30
 confidence: high

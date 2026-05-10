@@ -4,8 +4,8 @@ type: ide
 logo: /images/cursor.png
 url: https://cursor.com
 repo: null
-current_version: '3.2'
-version_tracked_at: '2026-05-03'
+current_version: '3.3'
+version_tracked_at: '2026-05-10'
 pricing:
   model: subscription
   currency: USD
@@ -124,6 +124,10 @@ data_sources:
     type: changelog
     last_checked: '2026-04-24'
 changelog:
+  - date: '2026-05-07'
+    type: feature
+    summary: 'v3.3：全新 PR 审查体验（Reviews/Commits/Changes 三栏看板，内联评论线程，提交历史聚焦视图）；"Build in Parallel" 一键识别独立子任务并并行派发异步子 Agent；PR Splitter——自动将大变更切分为多个独立 PR 分别提交'
+    summary_en: 'v3.3: New PR review experience with Reviews/Commits/Changes tabs, inline review threads, and focused commit history; "Build in Parallel" identifies independent subtasks and dispatches them as concurrent async subagents; PR Splitter auto-slices large diffs into multiple logically independent PRs'
   - date: '2026-05-01'
     type: feature
     summary: 'Security Review Beta（Teams/Enterprise）：两类常驻安全 Agent——Security Reviewer（每次 PR 检查安全漏洞/认证回归/隐私风险/Agent 工具自动批准/提示注入）和 Vulnerability Scanner；Team Marketplace 支持无需关联仓库即可创建，可直接管理一方插件安装行为'
@@ -184,7 +188,7 @@ changelog:
     type: pricing
     summary: Pro 从500次请求制改为$20额度池制, Auto模式无限使用
     summary_en: Pro switched from 500-request quota to $20 credit pool; unlimited Auto mode
-last_full_review: '2026-05-03'
-next_review_due: '2026-06-03'
+last_full_review: '2026-05-10'
+next_review_due: '2026-06-10'
 review_frequency_days: 30
 confidence: high

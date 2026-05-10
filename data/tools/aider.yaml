@@ -77,6 +77,10 @@ data_sources:
     type: release
     last_checked: '2026-04-16'
 changelog:
+  - date: '2026-05-10'
+    type: announcement
+    summary: 数据月度复核：v0.86.2 仍为最新稳定版；开发分支已支持 Claude 4.5/4.6、Gemini 2.5 Flash/Flash-Lite、DeepSeek Reasoner、GPT-5.1-5.4 系列
+    summary_en: Monthly data review — v0.86.2 remains latest stable; dev branch adds Claude 4.5/4.6, Gemini 2.5 Flash/Flash-Lite, DeepSeek Reasoner, GPT-5.1–5.4 series
   - date: '2026-04-16'
     type: announcement
     summary: 数据月度复核：版本、定价、模型支持列表均无重大变更
@@ -93,7 +97,7 @@ changelog:
     type: release
     summary: 新增 GPT-4.1/mini/nano 支持；Gemini 2.5 Pro Architect 模式改进；支持 Grok-3-beta 和新 Claude Sonnet 4/Opus 4 别名
     summary_en: Added GPT-4.1/mini/nano; improved Gemini 2.5 Pro Architect mode; Grok-3-beta and new Claude Sonnet 4/Opus 4 alias support
-last_full_review: '2026-04-24'
-next_review_due: '2026-05-24'
+last_full_review: '2026-05-10'
+next_review_due: '2026-06-10'
 review_frequency_days: 30
 confidence: medium

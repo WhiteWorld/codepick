@@ -111,7 +111,7 @@ data_sources:
     type: pricing
     last_checked: '2026-04-19'
 
-last_full_review: '2026-04-19'
-next_review_due: '2026-05-19'
+last_full_review: '2026-05-10'
+next_review_due: '2026-06-10'
 review_frequency_days: 30
 confidence: medium
