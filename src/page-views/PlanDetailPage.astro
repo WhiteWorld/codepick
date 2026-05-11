@@ -46,6 +46,7 @@ const productSchema: object = {
   name: plan.name,
   url: planUrl,
   description: planDescription,
+  image: `${siteUrl}/og-image.png`,
   inLanguage: lang === 'zh' ? 'zh-CN' : 'en',
   aggregateRating: {
     '@type': 'AggregateRating',
@@ -79,6 +80,7 @@ const seoTitle = lang === 'zh'
 <BaseLayout
   title={seoTitle}
   description={planDescription}
+  image="/og-image.png"
   jsonLd={[productSchema, breadcrumbSchema]}
   lang={lang}
 >
