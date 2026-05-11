@@ -18,7 +18,11 @@ const {
   title = t('seo.defaultTitle', lang),
   description = t('seo.defaultDesc', lang),
   image = '/og-image.png',
-  canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
+  canonicalURL = (() => {
+    // Ensure trailing slash and absolute URL for consistent canonical
+    const path = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+    return new URL(path, Astro.site).href;
+  })(),
   jsonLd,
 } = Astro.props;
 
@@ -26,7 +30,11 @@ const siteUrl = 'https://codepick.dev';
 const ogImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
 const htmlLang = lang === 'zh' ? 'zh-CN' : 'en';
 const ogLocale = lang === 'zh' ? 'zh_CN' : 'en_US';
-const altLangUrl = new URL(getAlternateLangUrl(Astro.url, lang), Astro.site).href;
+const altLangUrl = (() => {
+    const altPath = getAlternateLangUrl(Astro.url, lang);
+    const path = altPath.endsWith('/') ? altPath : `${altPath}/`;
+    return new URL(path, Astro.site).href;
+  })();
 const zhUrl = lang === 'zh' ? canonicalURL : altLangUrl;
 const enUrl = lang === 'en' ? canonicalURL : altLangUrl;
 
