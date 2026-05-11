@@ -1,5 +1,6 @@
 {
   "redirects": [
+    { "source": "/", "destination": "/zh/", "statusCode": 302 },
     { "source": "/tools", "destination": "/zh/tools", "statusCode": 301 },
     { "source": "/tools/free", "destination": "/zh/tools/free", "statusCode": 301 },
     { "source": "/tools/china", "destination": "/zh/tools/china", "statusCode": 301 },

@@ -1,12 +1,15 @@
 ---
-// Root redirect: detect browser language and redirect to /zh/ or /en/
+// Root redirect: Vercel handles server-side 302 (vercel.json).
+// This page is a fallback with JS language detection.
 ---
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://codepick.dev/zh/" />
   <meta http-equiv="refresh" content="0;url=/zh/" />
-  <title>CodePick - Redirecting...</title>
+  <title>CodePick - AI 编程工具选型指南</title>
   <script>
     const savedLocale = localStorage.getItem('preferred-locale');
     const browserLang = (navigator.language || '').toLowerCase();
