@@ -1,0 +1,127 @@
+id: bailian-token-plan
+name: 百炼 Token Plan（团队版）
+name_en: Bailian Token Plan (Team)
+type: api
+logo: /images/bailian.svg
+url: https://cn.aliyun.com/benefit/scene/tokenplan
+affiliate_url: https://cn.aliyun.com/benefit/scene/tokenplan
+repo: null
+
+current_version: "v1"
+version_tracked_at: "2026-05-13"
+
+pricing:
+  model: subscription
+  currency: CNY
+  plans:
+    - name: 标准坐席
+      name_en: Standard Seat
+      price: 198
+      period: month
+      limits: "25,000 Credits/月，单坐席"
+      limits_en: "25,000 Credits/month, single seat"
+    - name: 高级坐席
+      name_en: Premium Seat
+      price: 698
+      period: month
+      limits: "100,000 Credits/月，单坐席"
+      limits_en: "100,000 Credits/month, single seat"
+    - name: 尊享坐席
+      name_en: Enterprise Seat
+      price: 1398
+      period: month
+      limits: "250,000 Credits/月，单坐席"
+      limits_en: "250,000 Credits/month, single seat"
+  price_updated_at: "2026-05-13"
+  note: "面向团队 / 企业 / 一人公司的多坐席订阅；新用户首购优惠（标准 ¥148 / 高级 ¥558 / 尊享 ¥1118），3 个坐席起 9 折、5 个起 8.5 折；另有 ¥5000 共享用量包（625,000 Credits/月）用于弹性溢出。"
+  note_en: "Multi-seat subscription for teams / enterprises / solopreneurs; new-user discount (Standard ¥148 / Premium ¥558 / Enterprise ¥1,118), 10% off for 3+ seats and 15% off for 5+; an elastic ¥5,000 shared pack (625,000 Credits/mo) is available for overage."
+
+scores:
+  coding_ability: 8.5
+  cost_efficiency: 7.5
+  flexibility: 9.0
+  china_friendly: 9.5
+  privacy: 8.0
+
+features:
+  auto_mode: false
+  supported_models:
+    - qwen3.6-plus
+    - qwen3.6-flash
+    - deepseek-v4-pro
+    - deepseek-v4-flash
+    - deepseek-v3.2
+    - kimi-k2.6
+    - kimi-k2.5
+    - glm-5.1
+    - glm-5
+    - MiniMax-M2.5
+    - qwen-image-2.0
+    - qwen-image-2.0-pro
+    - wan2.7-image
+    - wan2.7-image-pro
+  harness_tools:
+    - 多坐席管理
+    - 共享用量包（弹性溢出）
+    - 多模型 + 多模态（文本/图像）
+    - 数据不入训
+  harness_tools_en:
+    - Multi-seat management
+    - Shared usage pack (elastic overage)
+    - Multi-model + multimodal (text / image)
+    - Data not used for training
+  api_protocol: "兼容 OpenAI / Anthropic 协议"
+  supported_clients:
+    - Claude Code
+    - OpenCode
+    - OpenClaw
+    - Hermes Agent
+    - Qwen Code
+    - Cline
+    - Codex CLI
+  china_native: true
+
+best_for:
+  - "需要多坐席统一管理的研发团队 / 一人公司"
+  - "想用 Qwen / DeepSeek / Kimi / GLM / MiniMax 一站式订阅的国内团队"
+  - "对数据合规与不入训敏感的企业"
+  - "重度使用、能吃满 Credits 的团队"
+best_for_en:
+  - "Dev teams / solopreneurs that need unified multi-seat management"
+  - "China-native teams wanting Qwen / DeepSeek / Kimi / GLM / MiniMax in one subscription"
+  - "Enterprises sensitive to data compliance and no-train-on-data"
+  - "Heavy users who can exhaust the Credits quota"
+not_for:
+  - "只想低月费入门的个人开发者（建议百炼 Coding Plan 个人版）"
+  - "只想用 Claude / GPT 原版模型的用户"
+  - "需要视频 / 语音多模态的多媒体场景（建议 MiniMax Token Plan）"
+not_for_en:
+  - "Solo devs on a tight monthly budget (use Bailian Coding Plan personal version)"
+  - "Users who only want Claude / GPT original models"
+  - "Video / voice multimodal use cases (use MiniMax Token Plan instead)"
+
+data_sources:
+  - url: "https://help.aliyun.com/zh/model-studio/token-plan-overview"
+    type: documentation
+    last_checked: "2026-05-13"
+  - url: "https://cn.aliyun.com/benefit/scene/tokenplan"
+    type: pricing
+    last_checked: "2026-05-13"
+  - url: "https://zhuanlan.zhihu.com/p/2030643575092933740"
+    type: announcement
+    last_checked: "2026-05-13"
+
+changelog:
+  - date: "2026-05-13"
+    type: announcement
+    summary: "纳入 CodePick：百炼 Token Plan 团队版，三档坐席覆盖文本 + 图像多模态、多坐席管理"
+    summary_en: "Added to CodePick: Bailian Token Plan Team edition with three seat tiers covering text + image multimodal and multi-seat management"
+  - date: "2026-04-13"
+    type: pricing
+    summary: "百炼 Coding Plan Lite 停止续费，团队级订阅由 Token Plan 团队版承接"
+    summary_en: "Bailian Coding Plan Lite stopped renewal; team-grade subscriptions are now served by Token Plan team edition"
+
+last_full_review: "2026-05-13"
+next_review_due: "2026-06-13"
+review_frequency_days: 30
+confidence: medium

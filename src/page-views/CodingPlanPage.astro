@@ -14,6 +14,8 @@ import { getApi } from '../lib/data';
 const arkRaw = getApi('ark-coding-plan') as any;
 const arkAgentRaw = getApi('ark-agent-plan') as any;
 const bailianRaw = getApi('bailian-coding-plan') as any;
+const bailianTokenRaw = getApi('bailian-token-plan') as any;
+const minimaxRaw = getApi('minimax-token-plan') as any;
 
 // Prefer locale-specific field on an object: returns value_en when lang === 'en' and a *_en field exists.
 function pick<T = any>(obj: any, field: string, l: Locale): T | undefined {
@@ -43,9 +45,19 @@ const apiCards = [
     badge: lang === 'zh' ? '🆕 业界首个 Agent 套餐' : '🆕 First Agent Bundle',
   },
   {
+    raw: minimaxRaw,
+    accentColor: '#0ea5e9',
+    badge: lang === 'zh' ? '🌐 全模态订阅' : '🌐 All-Modal Sub',
+  },
+  {
     raw: bailianRaw,
     accentColor: '#8b5cf6',
     badge: lang === 'zh' ? '💜 Lite 停止新购' : '💜 Lite no longer sold',
+  },
+  {
+    raw: bailianTokenRaw,
+    accentColor: '#a855f7',
+    badge: lang === 'zh' ? '👥 团队 / 多坐席' : '👥 Team / Multi-seat',
   },
 ];
 
@@ -167,7 +179,7 @@ const howSteps = [
     <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-2 text-center">{t('codingPlan.apiPlansTitle', lang)}</h2>
     <p class="text-sm text-[var(--text-muted)] text-center mb-8">{t('codingPlan.apiPlansDesc', lang)}</p>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {apiCards.map(({ raw, accentColor, badge }) => raw && (
         <div class="card p-6 border-2 transition-all hover:shadow-lg" style={`border-color: ${accentColor}40;`}>
           <!-- Header -->
