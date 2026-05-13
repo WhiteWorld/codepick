@@ -226,6 +226,54 @@ const translations: Record<string, Record<Locale, string>> = {
   'free.relOllama':  { zh: '本地部署指南 →', en: 'Local Deployment Guide →' },
   'free.relOllamaDesc': { zh: '用 Ollama + Aider 打造零成本本地 AI 编程环境', en: 'Build a zero-cost local AI coding setup with Ollama + Aider' },
 
+  // ── Terminal tools page ──────────────────────────────────────────────────
+  'term.title':          { zh: '终端 AI 编程工具', en: 'Terminal AI Coding Tools' },
+  'term.subtitle1':      { zh: '以下', en: 'The following' },
+  'term.subtitle2':      { zh: '款终端/CLI AI 编程工具，适合 Vim 用户、终端党，支持任意编辑器工作流。', en: ' terminal/CLI AI coding tools. Great for Vim users and editor-agnostic workflows.' },
+  'term.advTitle':       { zh: '终端工具的优势', en: 'Why terminal tools?' },
+  'term.advDesc':        { zh: '不绑定特定 IDE，可与 Vim/Neovim/Emacs 等任意编辑器配合使用，且通常支持更灵活的模型切换。', en: 'Not tied to any IDE — works with Vim, Neovim, Emacs, or any editor, and usually supports flexible model switching.' },
+  'term.relCompare':     { zh: '终端 AI 工具横向对比 →', en: 'Terminal AI Tools Comparison →' },
+  'term.relCompareDesc': { zh: 'Claude Code、OpenCode、Aider 功能与定价对比', en: 'Claude Code, OpenCode, Aider — features and pricing compared' },
+  'term.relOllama':      { zh: '本地部署指南 →', en: 'Local Deployment Guide →' },
+  'term.relOllamaDesc':  { zh: '用 Ollama + Aider 打造零成本本地 AI 编程环境', en: 'Build a zero-cost local AI coding setup with Ollama + Aider' },
+
+  // ── China tools page ─────────────────────────────────────────────────────
+  'china.title':         { zh: '国内可用 AI 编程工具', en: 'China-Accessible AI Coding Tools' },
+  'china.subtitle1':     { zh: '以下', en: 'The following' },
+  'china.subtitle2':     { zh: '款工具在国内可直接使用，无需代理或提供国产模型接入。', en: ' tools are directly accessible in China without a proxy, or offer domestic model support.' },
+  'china.methods':       { zh: '国内访问方式', en: 'Access methods in China' },
+  'china.methodTrae':    { zh: 'Trae 国内版直连；', en: 'Trae CN direct access;' },
+  'china.methodOther1':  { zh: 'Cline/OpenCode 等工具通过', en: 'Cline/OpenCode via' },
+  'china.methodLink':    { zh: '火山方舟接入教程', en: 'Volcengine Ark setup guide' },
+  'china.methodOther2':  { zh: '国产模型。', en: 'for domestic models.' },
+  'china.relGuide':      { zh: 'Cline + 火山方舟配置指南 →', en: 'Cline + Volcengine Ark Setup Guide →' },
+  'china.relGuideDesc':  { zh: '手把手配置国内可用的 AI 编程环境', en: 'Step-by-step guide to setting up an AI coding environment accessible in China' },
+  'china.relPlan':       { zh: 'Cline + 方舟方案详情 →', en: 'Cline + Ark Plan Details →' },
+  'china.relPlanDesc':   { zh: '查看推荐配置与成本估算', en: 'View recommended configuration and cost estimates' },
+
+  // ── VS Code tools page ───────────────────────────────────────────────────
+  'vscode.title':              { zh: 'VS Code 生态 AI 编程工具', en: 'VS Code AI Coding Tools' },
+  'vscode.subtitle1':          { zh: '以下', en: 'The following' },
+  'vscode.subtitle2':          { zh: '款工具基于 VS Code 生态，包括 VS Code Fork IDE 和 VS Code 插件两种形态。', en: ' tools are built on the VS Code ecosystem, including VS Code fork IDEs and VS Code extensions.' },
+  'vscode.forkTitle':          { zh: 'VS Code Fork（独立 IDE）', en: 'VS Code Fork (standalone IDE)' },
+  'vscode.forkDesc':           { zh: 'Cursor、Trae、Windsurf 等，深度整合 AI，体验更一体化。', en: 'Cursor, Trae, Windsurf — deeply integrated AI for a more seamless experience.' },
+  'vscode.pluginTitle':        { zh: 'VS Code 插件', en: 'VS Code Extension' },
+  'vscode.pluginDesc':         { zh: 'Cline、Roo Code、Copilot 等，保留原生 VS Code 体验，灵活切换模型。', en: 'Cline, Roo Code, Copilot — preserve the native VS Code experience with flexible model switching.' },
+  'vscode.relCursorCopilot':     { zh: 'Cursor vs Copilot 对比 →', en: 'Cursor vs Copilot →' },
+  'vscode.relCursorCopilotDesc': { zh: '两款主流 VS Code AI 编程工具深度对比', en: 'In-depth comparison of two leading VS Code AI coding tools' },
+  'vscode.relClineRoo':          { zh: 'Cline vs Roo Code 对比 →', en: 'Cline vs Roo Code →' },
+  'vscode.relClineRooDesc':      { zh: '开源 VS Code 插件横向评测', en: 'Open-source VS Code extension head-to-head review' },
+
+  // ── Builder tools page ───────────────────────────────────────────────────
+  'builder.title':     { zh: 'AI 应用构建器', en: 'AI App Builders' },
+  'builder.subtitle1': { zh: '以下', en: 'The following' },
+  'builder.subtitle2': { zh: ' 款 AI 应用构建器，用自然语言描述，直接生成可部署的 Web 应用。', en: ' AI app builders — describe your idea in natural language and get a fully deployable web application.' },
+
+  // ── Misc page-level keys ─────────────────────────────────────────────────
+  'cl.dataError':    { zh: '数据加载失败', en: 'Failed to load data' },
+  'compare.pubDate': { zh: '发布于', en: 'Published' },
+  'guides.pubDate':  { zh: '发布于', en: 'Published' },
+
   // ── Home page ───────────────────────────────────────────────────────────
   'home.heroTitle1':     { zh: '找到最适合你的', en: 'Find Your Perfect' },
   'home.heroHighlight':  { zh: 'AI 编程工具', en: 'AI Coding Tool' },
