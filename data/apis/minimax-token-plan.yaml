@@ -2,7 +2,7 @@ id: minimax-token-plan
 name: MiniMax Token Plan
 name_en: MiniMax Token Plan
 type: api
-logo: null
+logo: /images/minimax.svg
 url: https://platform.minimaxi.com/subscribe/token-plan
 affiliate_url: https://platform.minimaxi.com/subscribe/token-plan
 repo: null
