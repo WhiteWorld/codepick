@@ -38,9 +38,12 @@ const tools = allTools.map(tool => {
   return 0;
 });
 
-// Coding Plan API 源：仅展示 id 含 coding-plan 的条目
+// Coding / Agent / Token Plan API 源
 const codingPlanApis = allApis
-  .filter(api => (api as any).id?.includes('coding-plan'))
+  .filter(api => {
+    const id = (api as any).id || '';
+    return id.includes('coding-plan') || id.includes('agent-plan') || id.includes('token-plan');
+  })
   .map(api => {
     const raw = api as any;
     const ctaUrl = raw.affiliate_url || raw.url || '';

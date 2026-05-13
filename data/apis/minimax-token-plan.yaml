@@ -1,0 +1,123 @@
+id: minimax-token-plan
+name: MiniMax Token Plan
+name_en: MiniMax Token Plan
+type: api
+logo: /images/minimax.svg
+url: https://platform.minimaxi.com/subscribe/token-plan
+affiliate_url: https://platform.minimaxi.com/subscribe/token-plan
+repo: null
+
+current_version: "v1"
+version_tracked_at: "2026-05-13"
+
+pricing:
+  model: subscription
+  currency: CNY
+  plans:
+    - name: Starter
+      price: 29
+      period: month
+      limits: "600 次 M2.7 编程请求/5h"
+      limits_en: "600 M2.7 coding requests / 5h"
+    - name: Plus
+      price: 49
+      period: month
+      limits: "1,500 次/5h + Speech 4,000 字/日 + Image 50 张/日"
+      limits_en: "1,500 req/5h + Speech 4k chars/day + Image 50/day"
+    - name: Max
+      price: 119
+      period: month
+      limits: "4,500 次/5h + Speech 11,000 字/日 + Image 120 张/日 + 视频 2 条/日"
+      limits_en: "4,500 req/5h + Speech 11k/day + Image 120/day + Video 2/day"
+    - name: Ultra（极速版）
+      name_en: Ultra (High-Speed)
+      price: 899
+      period: month
+      limits: "30,000 次 M2.7 极速版/5h + 全模态增强额度"
+      limits_en: "30,000 M2.7-highspeed req/5h + boosted multimodal quotas"
+  price_updated_at: "2026-05-13"
+  note: "2026-03-23 由 Coding Plan 升级为 Token Plan，号称全球首个全模态订阅；编程模型按 5h 滚动窗口刷新，多模态模型按每日配额每天 0 点重置；另有 Plus/Max 极速版（¥98 / ¥199）与年付优惠；所有档位含 Music-2.6 每日 100 首免费生成。"
+  note_en: "Upgraded from Coding Plan to Token Plan on 2026-03-23, billed as the world's first all-modal subscription; coding models refresh on a 5h rolling window, multimodal models reset daily at midnight; high-speed editions of Plus/Max (¥98 / ¥199) and annual discounts are also available; all tiers include 100 free Music-2.6 generations/day."
+
+scores:
+  coding_ability: 7.8
+  cost_efficiency: 9.0
+  flexibility: 9.5
+  china_friendly: 9.5
+  privacy: 7.0
+
+features:
+  auto_mode: false
+  supported_models:
+    - MiniMax-M2.7
+    - MiniMax-M2.7 极速版
+    - Hailuo Video
+    - Speech 2.8
+    - Image-01
+    - Music-2.6
+  harness_tools:
+    - 编程模型 5h 滚动窗口
+    - 多模态独立日额度
+    - 文图音视一体
+  harness_tools_en:
+    - 5h rolling window for coding model
+    - Per-day multimodal quotas
+    - Unified text / image / audio / video
+  api_protocol: "兼容 OpenAI / Anthropic 协议"
+  supported_clients:
+    - Claude Code
+    - Cline
+    - OpenCode
+    - Codex CLI
+    - Cursor
+    - Trae
+  china_native: true
+
+best_for:
+  - "想用一个订阅覆盖编程 + 图像 + 视频 + 语音 + 音乐的全栈开发者"
+  - "对 MiniMax M2.7 / Hailuo 视频感兴趣的多模态创作者"
+  - "预算敏感（¥29 起）的轻度尝鲜用户"
+  - "需要多模态 Agent 能力的国内团队"
+best_for_en:
+  - "Full-stack devs wanting one sub for coding + image + video + audio + music"
+  - "Multimodal creators interested in MiniMax M2.7 / Hailuo video"
+  - "Budget users starting at ¥29 to dabble"
+  - "China-native teams that need multimodal Agent capabilities"
+not_for:
+  - "只想用 Claude / GPT 原版模型的用户"
+  - "纯编程场景、希望性价比最高的重度用户（仍建议 Ark / Bailian Coding Plan）"
+  - "需要长上下文与稳定吞吐的企业级生产环境"
+not_for_en:
+  - "Users who only want Claude / GPT original models"
+  - "Pure-coding heavy users chasing maximum value (Ark / Bailian Coding Plan is still cheaper)"
+  - "Enterprises needing long-context stable throughput"
+
+data_sources:
+  - url: "https://platform.minimaxi.com/subscribe/token-plan"
+    type: pricing
+    last_checked: "2026-05-13"
+  - url: "https://platform.minimaxi.com/docs/guides/pricing-token-plan"
+    type: documentation
+    last_checked: "2026-05-13"
+  - url: "https://www.aibase.com/news/26453"
+    type: announcement
+    last_checked: "2026-05-13"
+
+changelog:
+  - date: "2026-03-23"
+    type: announcement
+    summary: "原 Coding Plan 全量升级为 Token Plan，首发「全球首个全模态订阅」"
+    summary_en: "Coding Plan fully upgraded to Token Plan, launched as the world's first all-modal subscription"
+  - date: "2026-03-23"
+    type: model
+    summary: "纳入 M2.7 编程模型 + Hailuo 视频 + Speech 语音 + Image + Music-2.6 全模态模型"
+    summary_en: "Bundled M2.7 coding + Hailuo video + Speech voice + Image + Music-2.6 multimodal models"
+  - date: "2026-03-23"
+    type: pricing
+    summary: "Starter ¥29 / Plus ¥49 / Max ¥119 三档标准版，另有极速版与 Ultra"
+    summary_en: "Three standard tiers: Starter ¥29 / Plus ¥49 / Max ¥119, plus high-speed and Ultra editions"
+
+last_full_review: "2026-05-13"
+next_review_due: "2026-06-13"
+review_frequency_days: 30
+confidence: medium

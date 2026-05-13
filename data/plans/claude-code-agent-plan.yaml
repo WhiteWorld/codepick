@@ -1,0 +1,81 @@
+id: claude-code-agent-plan
+name: Claude Code + 方舟 Agent Plan
+name_en: Claude Code + Volcano Ark Agent Plan
+badge: Agent 工具链一站式
+badge_en: One-Stop Agent Toolchain
+type: cli
+
+composition:
+  client: claude-code
+  api: ark-agent-plan
+  environment: 终端
+
+monthly_cost:
+  min: "¥40"
+  typical: "¥200"
+  max: "¥1000"
+
+currency: CNY
+
+scores:
+  coding_ability: 8.4
+  cost_efficiency: 7.8
+  flexibility: 9.2
+  china_friendly: 9.8
+
+description: "把 Claude Code 接入 2026-05-11 发布的方舟 Agent Plan：Doubao-Seed 编程主力 + Seedance/Seedream 多模态生成 + 内置联网搜索 / 记忆 / Auto 路由的 Harness 工具链，国内直连。AFP 积分制，Medium 档（¥200）及以上赠送 7×24 在线智能伙伴。"
+description_en: "Wire Claude Code into Volcano Ark Agent Plan (launched 2026-05-11): Doubao-Seed for coding, Seedance/Seedream for multimodal generation, plus built-in web search / memory / Auto routing Harness tooling — all China-native. Billed in AFP credits; Medium tier (¥200) and above include a 24/7 AI companion."
+
+setup_guide: "/guides/ark-agent-plan"
+comparison_pages:
+  - "/compare/coding-plan-vs-agent-plan-vs-token-plan"
+
+tags: [cli, china, agent, terminal, power]
+
+best_for:
+  - 需要多模态 + Agent 工具链的国内开发者
+  - 想用 Doubao Seedance / Seedream 多模态模型的用户
+  - Claude Code 重度用户的国内中转方案
+  - 预算到 Medium 档想白嫖 7×24 智能伙伴
+best_for_en:
+  - China-native developers needing multimodal + Agent toolchain
+  - Users wanting Doubao Seedance / Seedream multimodal models
+  - Heavy Claude Code users looking for a China-native relay
+  - Medium-tier budget users who want the 24/7 AI companion
+
+quick_start:
+  - "安装 Claude Code CLI（npm i -g @anthropic-ai/claude-code）"
+  - "访问方舟 Agent Plan 活动页订阅（每天 00:00 释放库存）"
+  - "在火山引擎控制台创建 API Key"
+  - "用 ANTHROPIC_BASE_URL 指向方舟 Agent 端点 + ANTHROPIC_API_KEY 配置 Key"
+  - "运行 claude，按 AFP 估算挑选模型与上下文长度"
+quick_start_en:
+  - "Install Claude Code CLI (npm i -g @anthropic-ai/claude-code)"
+  - "Subscribe via the Ark Agent Plan page (daily 00:00 inventory release)"
+  - "Create an API key in the Volcano Engine console"
+  - "Point ANTHROPIC_BASE_URL to the Ark Agent endpoint and set ANTHROPIC_API_KEY"
+  - "Run claude and size prompts to your AFP budget and context length"
+
+pros:
+  - 一份订阅同时拿到编程 + 图像/视频 + 联网搜索 + 记忆
+  - 国内直连，无需代理
+  - Anthropic 协议原生兼容，Claude Code 配置最简单
+  - Medium 档起赠送 7×24 在线智能伙伴
+pros_en:
+  - One subscription covers coding + image/video + web search + memory
+  - China-native, no proxy needed
+  - Native Anthropic protocol support — easiest to wire into Claude Code
+  - Medium tier and above include a 24/7 AI companion
+
+cons:
+  - Token 单价相比 Coding Plan 涨 2~2.5×
+  - 长上下文（>128k）触发 7.5× 倍率，AFP 消耗极快
+  - 库存每天 00:00 释放售完即止，热门档位需要抢
+  - 模型仍是 Doubao 系，并非 Claude Opus 原版
+cons_en:
+  - Token unit price is 2~2.5× higher than the legacy Coding Plan
+  - Long context (>128k) triggers a 7.5× multiplier — AFP burns fast
+  - Daily 00:00 inventory release, popular tiers sell out
+  - Models are still Doubao-family, not original Claude Opus
+
+setup_difficulty: 中等
