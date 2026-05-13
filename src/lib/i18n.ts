@@ -214,6 +214,18 @@ const translations: Record<string, Record<Locale, string>> = {
   'cat.builder':  { zh: '🔨 构建工具', en: '🔨 Builder Tools' },
   'cat.agentPlatform': { zh: '🤖 Agent 协作', en: '🤖 Agent Collab' },
 
+  // ── Free tools page ─────────────────────────────────────────────────────
+  'free.title':      { zh: '免费 AI 编程工具合集', en: 'Free AI Coding Tools' },
+  'free.subtitle1':  { zh: '以下', en: 'The following' },
+  'free.subtitle2':  { zh: '款工具提供免费版本或免费额度，涵盖 IDE 插件、终端工具等各种形态。', en: ' tools offer free tiers or free plans, spanning IDE plugins, terminal tools, and more.' },
+  'free.twoForms':   { zh: '两种免费形式', en: 'Two types of free' },
+  'free.form1':      { zh: '永久免费版（功能受限）', en: 'Forever free (limited features)' },
+  'free.form2':      { zh: '与 免费额度（用完需付费）', en: 'and free quota (paid after quota)' },
+  'free.relFaq':     { zh: '常见问题 →', en: 'FAQ →' },
+  'free.relFaqDesc': { zh: '关于免费工具的常见疑问解答', en: 'Answers to common questions about free tools' },
+  'free.relOllama':  { zh: '本地部署指南 →', en: 'Local Deployment Guide →' },
+  'free.relOllamaDesc': { zh: '用 Ollama + Aider 打造零成本本地 AI 编程环境', en: 'Build a zero-cost local AI coding setup with Ollama + Aider' },
+
   // ── Home page ───────────────────────────────────────────────────────────
   'home.heroTitle1':     { zh: '找到最适合你的', en: 'Find Your Perfect' },
   'home.heroHighlight':  { zh: 'AI 编程工具', en: 'AI Coding Tool' },
