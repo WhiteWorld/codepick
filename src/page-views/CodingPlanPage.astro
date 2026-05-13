@@ -12,6 +12,7 @@ const { lang } = Astro.props;
 // Load raw API data (YAML not normalized, access raw fields)
 import { getApi } from '../lib/data';
 const arkRaw = getApi('ark-coding-plan') as any;
+const arkAgentRaw = getApi('ark-agent-plan') as any;
 const bailianRaw = getApi('bailian-coding-plan') as any;
 
 // Prefer locale-specific field on an object: returns value_en when lang === 'en' and a *_en field exists.
@@ -35,6 +36,11 @@ const apiCards = [
     raw: arkRaw,
     accentColor: '#f97316',
     badge: lang === 'zh' ? '🔥 官网活动价' : '🔥 Official promo',
+  },
+  {
+    raw: arkAgentRaw,
+    accentColor: '#ef4444',
+    badge: lang === 'zh' ? '🆕 业界首个 Agent 套餐' : '🆕 First Agent Bundle',
   },
   {
     raw: bailianRaw,
