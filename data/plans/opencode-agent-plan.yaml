@@ -1,0 +1,81 @@
+id: opencode-agent-plan
+name: OpenCode + 方舟 Agent Plan
+name_en: OpenCode + Volcano Ark Agent Plan
+badge: 开源 Agent 终端套件
+badge_en: Open-Source Agent CLI Bundle
+type: cli
+
+composition:
+  client: opencode
+  api: ark-agent-plan
+  environment: 终端
+
+monthly_cost:
+  min: "¥40"
+  typical: "¥200"
+  max: "¥1000"
+
+currency: CNY
+
+scores:
+  coding_ability: 8.0
+  cost_efficiency: 8.0
+  flexibility: 9.5
+  china_friendly: 9.6
+
+description: "开源 CLI 客户端 OpenCode 接入方舟 Agent Plan：在终端里同时拿到 Doubao 编程主力、Seedance 视频、Seedream 图像、Embedding 向量与 Harness 工具链。AFP 积分制按 5h 与日额度滚动消耗，Medium 及以上送 7×24 智能伙伴；适合想要 Claude Code 体验但要国产模型 + Agent 工具的终端党。"
+description_en: "Plug the open-source OpenCode CLI into Ark Agent Plan — get Doubao coding, Seedance video, Seedream image, embedding-vision and the Harness toolchain right in your terminal. Billed in AFP on 5h + daily rolling windows; Medium tier and above include a 24/7 AI companion. A solid pick for terminal users who want a Claude Code-like experience with China-native models and Agent tooling."
+
+setup_guide: "/guides/ark-agent-plan"
+comparison_pages:
+  - "/compare/coding-plan-vs-agent-plan-vs-token-plan"
+
+tags: [cli, china, agent, terminal, power]
+
+best_for:
+  - 想在终端里玩 Agent + 多模态的国内开发者
+  - OpenCode / 开源客户端粉丝
+  - Doubao Seedance / Seedream 多模态深度用户
+  - 重度长流程任务，希望 Auto 模式自动选模型
+best_for_en:
+  - China-native devs running Agent + multimodal workflows in the terminal
+  - Fans of OpenCode and open-source clients
+  - Heavy users of Doubao Seedance / Seedream multimodal models
+  - Long-running flows who want Auto mode to route models automatically
+
+quick_start:
+  - "安装 OpenCode CLI（npm i -g opencode-ai 或参考官方文档）"
+  - "访问方舟 Agent Plan 活动页订阅（每天 00:00 释放库存）"
+  - "在火山引擎控制台创建 API Key"
+  - "在 OpenCode 配置 provider 为 ark + Anthropic 兼容端点 + API Key"
+  - "首跑用 Small 档（¥40）跑一周真实任务再决定升级"
+quick_start_en:
+  - "Install the OpenCode CLI (npm i -g opencode-ai or follow official docs)"
+  - "Subscribe via the Ark Agent Plan page (daily 00:00 inventory release)"
+  - "Create an API key in the Volcano Engine console"
+  - "Configure the OpenCode provider to ark with the Anthropic-compatible endpoint and API key"
+  - "Run a week on Small (¥40) before deciding whether to upgrade"
+
+pros:
+  - 开源免费客户端 + 国产 Agent 工具链
+  - 国内直连，无需代理
+  - 同时覆盖编程、图像、视频、向量四类模型
+  - Auto 模式 + 联网搜索 + 记忆三件套开箱即用
+pros_en:
+  - Free open-source client + China-native Agent toolchain
+  - Direct China access, no proxy needed
+  - Single bundle covers coding, image, video and embedding models
+  - Auto routing + web search + memory work out of the box
+
+cons:
+  - 终端 UI 学习曲线略高
+  - Token 单价较 Coding Plan 上调 2~2.5×
+  - "长上下文（>128k）触发 7.5× 倍率，repo-dump 风格不友好"
+  - 库存每天 00:00 售完即止，需要卡时间
+cons_en:
+  - Terminal UX has a learning curve
+  - Token unit price is 2~2.5× higher than the legacy Coding Plan
+  - 7.5× multiplier above 128k context — unfriendly to repo-dump prompting
+  - Daily inventory release at 00:00; popular tiers sell out
+
+setup_difficulty: 中等
