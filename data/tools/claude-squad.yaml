@@ -1,0 +1,101 @@
+id: claude-squad
+name: Claude Squad
+type: agent_platform
+logo: /images/claude-squad.png
+url: https://github.com/smtg-ai/claude-squad
+repo: https://github.com/smtg-ai/claude-squad
+current_version: null
+version_tracked_at: '2026-05-16'
+
+pricing:
+  model: open_source
+  currency: null
+  plans:
+    - name: 开源免费
+      price: 0
+      limits: 无限制（自备 Claude Code / Codex / Aider 等底层 CLI）
+      limits_en: Unlimited (bring your own Claude Code / Codex / Aider CLI)
+  price_updated_at: '2026-05-16'
+  note: MIT 开源；本质是 tmux 多 pane 管理器，把多个 Agent CLI 放在隔离的 git worktree 里并行跑
+  note_en: MIT open source; essentially a tmux multi-pane manager that runs multiple agent CLIs in parallel isolated git worktrees
+
+scores:
+  coding_ability: 8.5
+  cost_efficiency: 9.5
+  flexibility: 8.5
+  china_friendly: 8.5
+  privacy: 9.5
+
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: false
+  multi_agent: true
+  agent_teams: true
+  parallel_execution: true
+  git_worktree_isolation: true
+  tmux_based: true
+  open_source: true
+  self_hosted: true
+  context_window: 取决于所用 runtime
+  supported_runtimes:
+    - Claude Code
+    - Codex
+    - Aider
+    - Gemini CLI
+  supported_os:
+    - macOS
+    - Linux
+    - Windows (WSL)
+  ide_base: "Agent 并行编排器（终端 / tmux）"
+
+best_for:
+  - 重度终端用户，喜欢 tmux 工作流
+  - 想免费、轻量地并行多个 Claude Code / Codex 实例
+  - 跨平台需求（Mac / Linux / WSL 都能跑）
+best_for_en:
+  - Heavy terminal users with tmux-based workflows
+  - Want lightweight, free parallel execution of Claude Code / Codex
+  - Cross-platform needs (Mac / Linux / WSL)
+
+not_for:
+  - 不熟悉 tmux 的用户（学习曲线陡）
+  - 想要可视化仪表盘和图形化 PR review 的用户
+not_for_en:
+  - Users unfamiliar with tmux (steep learning curve)
+  - Users wanting a visual dashboard and graphical PR review
+
+quick_start:
+  - "安装：brew install claude-squad（或参考 README 用 go install）"
+  - "命令：cs（进入主界面，按 n 新建 instance）"
+  - 每个 instance 自动建独立 worktree + 分支
+  - 可以同时启动多个不同 runtime（Claude Code / Codex / Aider 等）
+  - 用 tmux 快捷键在 instance 间切换
+quick_start_en:
+  - "Install: brew install claude-squad (or use go install per README)"
+  - "Run: cs (enters main UI, press n to create a new instance)"
+  - Each instance auto-creates its own worktree + branch
+  - Launch multiple runtimes side by side (Claude Code / Codex / Aider, etc.)
+  - Switch between instances via tmux keybindings
+
+register_url: https://github.com/smtg-ai/claude-squad
+china_note: 工具本身开源可直接安装；底层 Claude Code / Codex 调用需自行解决 API 访问
+china_note_en: Tool itself is open source and installable directly; underlying Claude Code / Codex calls require your own API access
+
+data_sources:
+  - url: https://github.com/smtg-ai/claude-squad
+    type: repo
+    last_checked: '2026-05-16'
+
+changelog:
+  - date: '2026-05-16'
+    type: launch
+    summary: 加入 CodePick Agent 并行编排器栏目
+    summary_en: Added to CodePick Agent parallel orchestrator section
+
+last_full_review: '2026-05-16'
+next_review_due: '2026-06-16'
+review_frequency_days: 30
+confidence: medium

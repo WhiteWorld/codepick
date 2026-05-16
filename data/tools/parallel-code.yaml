@@ -1,0 +1,104 @@
+id: parallel-code
+name: Parallel Code
+type: agent_platform
+logo: /images/parallel-code.png
+url: https://github.com/johannesjo/parallel-code
+repo: https://github.com/johannesjo/parallel-code
+current_version: null
+version_tracked_at: '2026-05-16'
+
+pricing:
+  model: open_source
+  currency: null
+  plans:
+    - name: 开源免费
+      price: 0
+      limits: 无限制（自备 Claude Code / Codex / Gemini / Copilot CLI 登录）
+      limits_en: Unlimited (bring your own Claude Code / Codex / Gemini / Copilot CLI login)
+  price_updated_at: '2026-05-16'
+  note: 开源跨平台桌面 App，支持的 Agent CLI 种类最多（4 种），主打键盘优先和手机扫码远程查看
+  note_en: Open-source cross-platform desktop app with the widest CLI support (4 runtimes); keyboard-first design with phone-based remote monitoring via QR code
+
+scores:
+  coding_ability: 8.5
+  cost_efficiency: 9.0
+  flexibility: 9.0
+  china_friendly: 7.0
+  privacy: 9.0
+
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: false
+  multi_agent: true
+  agent_teams: true
+  parallel_execution: true
+  git_worktree_isolation: true
+  keyboard_first: true
+  mobile_monitoring: true
+  open_source: true
+  self_hosted: true
+  context_window: 取决于所用 runtime
+  supported_runtimes:
+    - Claude Code
+    - Codex CLI
+    - Gemini CLI
+    - Copilot CLI
+  supported_os:
+    - macOS
+    - Linux
+    - Windows
+  ide_base: "Agent 并行编排器（桌面 App）"
+
+best_for:
+  - 同时使用多种 Agent CLI（Claude / Codex / Gemini / Copilot）的开发者
+  - Windows / Linux 用户（Conductor 用不了）
+  - 喜欢键盘优先操作、不想离开键盘的用户
+  - 想用手机远程查看 Agent 进度（QR 码 + Wi-Fi / Tailscale）
+best_for_en:
+  - Developers using multiple agent CLIs (Claude / Codex / Gemini / Copilot)
+  - Windows / Linux users (Conductor isn't available)
+  - Keyboard-first workflow lovers
+  - Want to monitor agent progress from phone (QR code + Wi-Fi / Tailscale)
+
+not_for:
+  - 需要原生 Linear / GitHub Issue 集成的团队
+  - 偏爱托管 SaaS、不想本地装客户端的用户
+not_for_en:
+  - Teams needing native Linear / GitHub Issue integration
+  - Users preferring hosted SaaS over a local client
+
+quick_start:
+  - 到 GitHub releases 下载对应平台安装包（Mac / Win / Linux）
+  - 启动应用并指向你的本地 git 仓库
+  - 选择想要并行的 Agent CLI（已在本机登录的会自动识别）
+  - 创建并行任务，每个任务自动建 worktree + 分支
+  - 可选：在手机上扫 QR 码远程看进度
+quick_start_en:
+  - Download the installer for your platform from GitHub releases
+  - Launch the app and point it at your local git repo
+  - Pick which agent CLIs to parallelize (locally-logged-in ones are auto-detected)
+  - Create parallel tasks; each gets its own worktree + branch
+  - Optional: scan the QR code on your phone to monitor progress remotely
+
+register_url: https://github.com/johannesjo/parallel-code
+china_note: 工具开源可下载；底层各家 CLI 调用需自行解决 API 访问
+china_note_en: Tool is open source and downloadable; underlying CLI calls require your own API access
+
+data_sources:
+  - url: https://github.com/johannesjo/parallel-code
+    type: repo
+    last_checked: '2026-05-16'
+
+changelog:
+  - date: '2026-05-16'
+    type: launch
+    summary: 加入 CodePick Agent 并行编排器栏目
+    summary_en: Added to CodePick Agent parallel orchestrator section
+
+last_full_review: '2026-05-16'
+next_review_due: '2026-06-16'
+review_frequency_days: 30
+confidence: low

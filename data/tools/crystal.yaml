@@ -1,0 +1,98 @@
+id: crystal
+name: Crystal
+type: agent_platform
+logo: /images/crystal.png
+url: https://github.com/stravu/crystal
+repo: https://github.com/stravu/crystal
+current_version: null
+version_tracked_at: '2026-05-16'
+
+pricing:
+  model: open_source
+  currency: null
+  plans:
+    - name: 开源免费
+      price: 0
+      limits: 无限制（自备 Claude Code / Codex 订阅或 API Key）
+      limits_en: Unlimited (bring your own Claude Code / Codex subscription or API Key)
+  price_updated_at: '2026-05-16'
+  note: MIT 开源桌面 App，并行运行 Claude Code / Codex 会话，可视化管理每个 session 的状态、diff 和 PR
+  note_en: MIT open-source desktop app that runs Claude Code / Codex sessions in parallel with a visual UI for state, diffs, and PRs
+
+scores:
+  coding_ability: 8.5
+  cost_efficiency: 9.0
+  flexibility: 7.5
+  china_friendly: 7.0
+  privacy: 9.0
+
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: false
+  multi_agent: true
+  agent_teams: true
+  parallel_execution: true
+  git_worktree_isolation: true
+  visual_diff_review: true
+  open_source: true
+  self_hosted: true
+  context_window: 取决于所用 runtime
+  supported_runtimes:
+    - Claude Code
+    - Codex
+  supported_os:
+    - macOS
+    - Linux
+  ide_base: "Agent 并行编排器（桌面 App）"
+
+best_for:
+  - 想要 Conductor 的并行体验但需要开源 / 跨平台（Linux）的用户
+  - 偏好图形界面 review diff，而不是终端
+  - 喜欢能自己 fork 修改的开源工具
+best_for_en:
+  - Want Conductor-style parallel UX but need open source / cross-platform (Linux)
+  - Prefer graphical diff review over the terminal
+  - Like open source tools they can fork and modify
+
+not_for:
+  - Windows 用户（暂未原生支持）
+  - 需要 Linear / Issue tracker 深度集成的团队
+not_for_en:
+  - Windows users (no native support yet)
+  - Teams needing deep Linear / issue tracker integration
+
+quick_start:
+  - 到 GitHub releases 下载对应平台安装包（macOS / Linux）
+  - 启动 Crystal，导入你的 GitHub repo
+  - 在 UI 里点 "New Session" 自动建独立 worktree + 分支
+  - 选择 Claude Code 或 Codex 作为该 session 的 runtime
+  - 并行开多个 session 处理不同任务，diff 视图统一 review
+quick_start_en:
+  - Download the installer for your platform (macOS / Linux) from GitHub releases
+  - Launch Crystal and import your GitHub repo
+  - Click "New Session" in the UI to auto-create an isolated worktree + branch
+  - Choose Claude Code or Codex as that session's runtime
+  - Run multiple sessions in parallel; review diffs from one place
+
+register_url: https://github.com/stravu/crystal
+china_note: 工具开源可下载；底层 Claude Code / Codex 调用需自行解决 API 访问
+china_note_en: Tool is open source and downloadable; underlying Claude Code / Codex calls require your own API access
+
+data_sources:
+  - url: https://github.com/stravu/crystal
+    type: repo
+    last_checked: '2026-05-16'
+
+changelog:
+  - date: '2026-05-16'
+    type: launch
+    summary: 加入 CodePick Agent 并行编排器栏目
+    summary_en: Added to CodePick Agent parallel orchestrator section
+
+last_full_review: '2026-05-16'
+next_review_due: '2026-06-16'
+review_frequency_days: 30
+confidence: low
