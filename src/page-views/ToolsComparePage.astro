@@ -53,9 +53,30 @@ const seoDesc = lang === 'zh'
   : 'Select 2–3 AI coding tools and instantly generate a comparison table. Compare Cursor, Copilot, Cline, Claude Code, and more by scores, pricing, and features.';
 
 const pagePath = localePath('/tools/compare', lang);
+const siteUrl = 'https://codepick.dev';
+const pageUrl = `${siteUrl}${pagePath}`;
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t('bread.home', lang), item: siteUrl },
+    { '@type': 'ListItem', position: 2, name: t('bread.toolLibrary', lang), item: `${siteUrl}${localePath('/tools', lang)}` },
+    { '@type': 'ListItem', position: 3, name: lang === 'zh' ? '对比器' : 'Compare', item: pageUrl },
+  ],
+};
+
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: seoTitle,
+  description: seoDesc,
+  url: pageUrl,
+  inLanguage: lang === 'zh' ? 'zh-CN' : 'en',
+};
 ---
 
-<BaseLayout title={seoTitle} description={seoDesc} lang={lang} canonicalURL={`https://codepick.dev${pagePath}`}>
+<BaseLayout title={seoTitle} description={seoDesc} lang={lang} canonicalURL={pageUrl} jsonLd={[webPageSchema, breadcrumbSchema]}>
   <div class="container py-12 max-w-5xl">
     <!-- Breadcrumb -->
     <nav class="text-xs text-[var(--text-muted)] mb-6">

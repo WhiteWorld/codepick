@@ -43,8 +43,29 @@ const categories = [
 const seoTitle = lang === 'zh'
   ? `CodePick - AI 编程工具选型指南 | 找到最适合你的 AI 编程方案`
   : `CodePick - AI Coding Tool Guide | Find Your Perfect AI Coding Solution`;
+
+const siteUrl = 'https://codepick.dev';
+
+// ItemList JSON-LD: featured latest content (helps SERP rich results)
+const featuredItems = [
+  ...latestArticles.map(a => ({ title: a.data.title, slug: `/compare/${a.slug}` })),
+  ...latestGuides.map(g => ({ title: g.data.title, slug: `/guides/${g.slug}` })),
+];
+const itemListSchema = featuredItems.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: lang === 'zh' ? 'CodePick 最新内容' : 'CodePick latest content',
+  itemListElement: featuredItems.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: item.title,
+    url: `${siteUrl}${localePath(item.slug, lang)}`,
+  })),
+} : null;
+
+const homeJsonLd = itemListSchema ? [itemListSchema] : [];
 ---
-<BaseLayout title={seoTitle} lang={lang}>
+<BaseLayout title={seoTitle} lang={lang} jsonLd={homeJsonLd}>
   <!-- Hero -->
   <section class="relative container pt-20 pb-12 text-center overflow-hidden">
     <div class="hero-glow" aria-hidden="true"></div>

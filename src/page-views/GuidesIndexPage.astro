@@ -17,9 +17,43 @@ const seoTitle = lang === 'zh'
 const seoDesc = lang === 'zh'
   ? '手把手教你配置各种 AI 编程方案：Cline + 火山方舟、Ollama + Aider 本地部署等完整配置教程。'
   : 'Step-by-step setup guides for AI coding tools: Cline + Volcengine Ark, Ollama + Aider local deployment, and more.';
+
+const siteUrl = 'https://codepick.dev';
+const pageUrl = `${siteUrl}${localePath('/guides', lang)}`;
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t('bread.home', lang), item: siteUrl },
+    { '@type': 'ListItem', position: 2, name: t('nav.guides', lang), item: pageUrl },
+  ],
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: seoTitle,
+  numberOfItems: guides.length,
+  itemListElement: guides.map((guide, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: guide.data.title,
+    url: `${siteUrl}${localePath(`/guides/${guide.slug}`, lang)}`,
+  })),
+};
+
+const collectionPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: seoTitle,
+  description: seoDesc,
+  url: pageUrl,
+  inLanguage: lang === 'zh' ? 'zh-CN' : 'en',
+};
 ---
 
-<BaseLayout title={seoTitle} description={seoDesc} lang={lang}>
+<BaseLayout title={seoTitle} description={seoDesc} lang={lang} jsonLd={[collectionPageSchema, breadcrumbSchema, itemListSchema]}>
   <section class="container py-12 max-w-3xl">
     <h1 class="text-3xl font-bold text-[var(--text-primary)] mb-4">{t('guides.title', lang)}</h1>
     <p class="text-[var(--text-secondary)] mb-8">{t('guides.subtitle', lang)}</p>

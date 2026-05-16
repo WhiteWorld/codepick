@@ -66,9 +66,48 @@ const hasAnyAffiliate = tools.some(t => t.hasAffiliate) || codingPlanApis.some(p
 
 const seoTitle = t('deals.seoTitle', lang);
 const seoDesc  = t('deals.seoDesc', lang);
+
+const siteUrl = 'https://codepick.dev';
+const pageUrl = `${siteUrl}${localePath('/deals', lang)}`;
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t('bread.home', lang), item: siteUrl },
+    { '@type': 'ListItem', position: 2, name: t('nav.deals', lang), item: pageUrl },
+  ],
+};
+
+const dealItems = [
+  ...codingPlanApis.map(({ api }) => ({ name: api.name, slug: '' })),
+  ...tools.map(({ tool }) => ({ name: tool.name, slug: localePath(`/tool/${tool.id}`, lang) })),
+];
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: seoTitle,
+  numberOfItems: dealItems.length,
+  itemListElement: dealItems.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: item.name,
+    ...(item.slug ? { url: `${siteUrl}${item.slug}` } : {}),
+  })),
+};
+
+const collectionPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: seoTitle,
+  description: seoDesc,
+  url: pageUrl,
+  inLanguage: lang === 'zh' ? 'zh-CN' : 'en',
+};
 ---
 
-<BaseLayout title={seoTitle} description={seoDesc} lang={lang}>
+<BaseLayout title={seoTitle} description={seoDesc} lang={lang} jsonLd={[collectionPageSchema, breadcrumbSchema, itemListSchema]}>
   <div class="container py-12 max-w-5xl">
 
     <!-- Header -->

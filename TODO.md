@@ -16,11 +16,15 @@
 - [x] **P0** 写 `scripts/submit-indexnow.mjs`，从 sitemap 提取 URL 批量提交
 - [x] **P0** 加 GitHub Action `indexnow.yml`，push main 自动构建并提交
 - [x] **P0** 首次种子推送（261 个 URL 全部提交成功）
-- [ ] **P0** 工具详情页加 `SoftwareApplication` JSON-LD（价格 / 评分 / OS）
-- [ ] **P0** Guides + Compare 文章加 `Article` JSON-LD（日期 / 作者 / 描述）
-- [ ] **P0** 所有内页加 `BreadcrumbList` JSON-LD（搜索结果显示路径）
-- [ ] **P1** 方案详情页加 `Product` + `Offer` JSON-LD（月费 / 币种）
-- [ ] **P1** FAQ 页加 `FAQPage` JSON-LD
+- [x] **P0** 工具详情页加 `SoftwareApplication` JSON-LD（已有，且已修复 BaseLayout 合并 bug 让 WebSite/Org 默认生效）
+- [x] **P0** Guides + Compare 文章加 `Article` JSON-LD（已有 HowTo/TechArticle）
+- [x] **P0** 所有内页加 `BreadcrumbList` JSON-LD（已有 + 给 9 个缺 schema 的页面补上）
+- [x] **P0** 修复 BaseLayout jsonLd 合并 bug（页面级 schema 不再覆盖 WebSite/Organization 默认）
+- [x] **P0** HomePage 加 ItemList of latest content
+- [x] **P0** 5 个 index 页加 CollectionPage + BreadcrumbList + ItemList（Tools/Plans/Compare/Guides/Practices）
+- [x] **P0** 4 个 special 页加 schema（ToolsCompare/Deals/CodingPlan/Search）
+- [x] **P1** 方案详情页加 `Product` + `Offer` JSON-LD（已有 AggregateRating）
+- [x] **P1** FAQ 页加 `FAQPage` JSON-LD（ToolDetailPage 已有 FAQPage）
 - [ ] **P1** 检查所有页面是否有独特 H1 + meta description（双语都要）
 - [ ] **P1** 给标题加搜索友好的修饰词（"2026 年""国内能用""免费"等长尾匹配）
 - [ ] **P2** 在 Bing Webmaster 后台手动提交一次 sitemap
@@ -128,3 +132,4 @@
 | 日期 | 完成 | 备注 |
 |------|------|------|
 | 2026-05-16 | Bing Webmaster + IndexNow 全套接入 | 261 URL 首次种子推送成功，HTTP 200 |
+| 2026-05-16 | SEO 结构化数据完善 | 修 BaseLayout 合并 bug + 给 9 个缺 schema 的页面补上 CollectionPage/WebPage/BreadcrumbList/ItemList |

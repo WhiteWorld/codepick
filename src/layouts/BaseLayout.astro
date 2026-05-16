@@ -63,9 +63,10 @@ const defaultJsonLd = [
   },
 ];
 
-const allJsonLd = jsonLd
-  ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd])
-  : defaultJsonLd;
+// Always include site-level defaults (WebSite + Organization);
+// page-specific schemas are appended.
+const pageJsonLd = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+const allJsonLd = [...defaultJsonLd, ...pageJsonLd];
 
 const navLinks = [
   { href: localePath('/', lang), label: t('nav.home', lang) },

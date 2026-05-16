@@ -18,8 +18,42 @@ const seoTitle = lang === 'zh'
 const seoDesc = lang === 'zh'
   ? '横向对比 14 套 AI 编程方案，按综合评分、成本效率、国内可用性等多维度筛选，快速找到最优组合。'
   : 'Compare 14 AI coding plans by overall score, cost efficiency, China accessibility, and more. Find your best match.';
+
+const siteUrl = 'https://codepick.dev';
+const pageUrl = `${siteUrl}${localePath('/plans', lang)}`;
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t('bread.home', lang), item: siteUrl },
+    { '@type': 'ListItem', position: 2, name: t('nav.plans', lang), item: pageUrl },
+  ],
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: seoTitle,
+  numberOfItems: plans.length,
+  itemListElement: plans.map((plan, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: plan.name,
+    url: `${siteUrl}${localePath(`/plan/${plan.id}`, lang)}`,
+  })),
+};
+
+const collectionPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: seoTitle,
+  description: seoDesc,
+  url: pageUrl,
+  inLanguage: lang === 'zh' ? 'zh-CN' : 'en',
+};
 ---
-<BaseLayout title={seoTitle} description={seoDesc} lang={lang}>
+<BaseLayout title={seoTitle} description={seoDesc} lang={lang} jsonLd={[collectionPageSchema, breadcrumbSchema, itemListSchema]}>
   <!-- Hero -->
   <section class="relative container pt-16 pb-12 text-center">
     <div class="hero-glow" aria-hidden="true"></div>
