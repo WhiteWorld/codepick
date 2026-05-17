@@ -4,8 +4,8 @@ type: ide
 logo: /images/cursor.png
 url: https://cursor.com
 repo: null
-current_version: '3.3'
-version_tracked_at: '2026-05-10'
+current_version: '3.4'
+version_tracked_at: '2026-05-13'
 pricing:
   model: subscription
   currency: USD
@@ -124,6 +124,10 @@ data_sources:
     type: changelog
     last_checked: '2026-04-24'
 changelog:
+  - date: '2026-05-13'
+    type: feature
+    summary: 'v3.4：云端 Agent 开发环境，支持多仓库配置（预克隆仓库、预装依赖、内部工具链凭证、构建系统访问）；Dockerfile 环境配置含 Build Secrets 支持；层缓存优化构建速度提升 70%；Agent 引导式环境设置与凭证校验；环境版本历史与审计日志；另 Cursor in Microsoft Teams 支持（@Cursor 委派任务）、Bugbot 支持自定义审查力度'
+    summary_en: 'v3.4: Development environments for cloud agents — multi-repo configs (cloned repos, installed deps, internal toolchain credentials, build system access); Dockerfile-based environment with build secrets; 70% faster builds via layer caching; agent-led credential validation; version history and audit logging; Cursor in Microsoft Teams support; Bugbot customizable effort levels'
   - date: '2026-05-07'
     type: feature
     summary: 'v3.3：全新 PR 审查体验（Reviews/Commits/Changes 三栏看板，内联评论线程，提交历史聚焦视图）；"Build in Parallel" 一键识别独立子任务并并行派发异步子 Agent；PR Splitter——自动将大变更切分为多个独立 PR 分别提交'
@@ -188,7 +192,7 @@ changelog:
     type: pricing
     summary: Pro 从500次请求制改为$20额度池制, Auto模式无限使用
     summary_en: Pro switched from 500-request quota to $20 credit pool; unlimited Auto mode
-last_full_review: '2026-05-10'
-next_review_due: '2026-06-10'
+last_full_review: '2026-05-17'
+next_review_due: '2026-06-17'
 review_frequency_days: 30
 confidence: high

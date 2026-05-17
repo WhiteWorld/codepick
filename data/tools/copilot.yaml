@@ -38,9 +38,9 @@ pricing:
       per_user: true
       limits: Business全部功能, 自定义模型微调, 高级安全
       limits_en: All Business features, custom model fine-tuning, advanced security
-  price_updated_at: '2026-04-20'
-  note: Free版永久免费; Pro支持年付$100/年; 学生/教师/开源维护者免费Pro; 超出高级请求$0.04/次; Auto模式自动选模型享9折; Opus系列模型仅限Pro+; 2026-04-20起新注册暂停(Pro/Pro+/Business)，已有订阅不受影响
-  note_en: Free tier is permanently free; Pro at $100/year; free Pro for students, teachers, and open-source maintainers; overage $0.04/request; Auto mode with 10% discount; Opus models are Pro+ only; new signups paused since 2026-04-20 (Pro/Pro+/Business), existing subscribers unaffected
+  price_updated_at: '2026-05-17'
+  note: Free版永久免费; Pro支持年付$100/年; 学生/教师/开源维护者免费Pro; Auto模式自动选模型享9折; Opus系列模型仅限Pro+; 2026-04-20起新注册暂停(Pro/Pro+/Business)，已有订阅不受影响; ⚠️ 2026-06-01起切换为AI Credits用量计费制（1 credit=$0.01），代码补全仍免费
+  note_en: Free tier is permanently free; Pro at $100/year; free Pro for students, teachers, and open-source maintainers; Auto mode with 10% discount; Opus models are Pro+ only; new signups paused since 2026-04-20 (Pro/Pro+/Business), existing subscribers unaffected; ⚠️ Switching to AI Credits usage billing on June 1, 2026 (1 credit=$0.01); code completions remain free
 scores:
   coding_ability: 8.2
   cost_efficiency: 8.5
@@ -116,6 +116,10 @@ data_sources:
     type: docs
     last_checked: '2026-04-24'
 changelog:
+  - date: '2026-05-17'
+    type: pricing
+    summary: 'AI Credits 计费制详情确认（2026-06-01 生效）：1 credit = $0.01；Pro 含 $10/月 credits，Pro+ 含 $39/月 credits，Business $19/用户，Enterprise $39/用户；所有 Agent 工作流和代码审查均消耗 credits；代码补全和 Next Edit 建议永久免费；Business/Enterprise 6–8 月享推广包含用量；支持组织级 credit 池化和多层预算上限（企业/成本中心/用户）'
+    summary_en: 'AI Credits billing details confirmed (effective June 1, 2026): 1 credit = $0.01; Pro gets $10/mo, Pro+ $39/mo, Business $19/user, Enterprise $39/user; all agentic workflows and code review consume credits; code completions and Next Edit remain permanently free; Business/Enterprise get promotional included usage Jun–Aug; org-level credit pooling and multi-tier budget controls (enterprise/cost center/user)'
   - date: '2026-05-01'
     type: pricing
     summary: '2026-06-01 起迁移至 AI Credits 用量计费制：各套餐含月度 Credits 配额（Pro $10 额度，Pro+ $39 额度），超出按 token 计费；代码补全和 Next Edit 建议不消耗 Credits；管理员可在企业/成本中心/用户层设置预算上限；Code Review 将于 6 月 1 日起消耗 GitHub Actions 分钟数'
@@ -176,7 +180,7 @@ changelog:
     type: pricing
     summary: 推出永久免费版 Copilot Free
     summary_en: Copilot Free permanently free tier launched
-last_full_review: '2026-05-03'
-next_review_due: '2026-06-03'
+last_full_review: '2026-05-17'
+next_review_due: '2026-06-17'
 review_frequency_days: 30
 confidence: high

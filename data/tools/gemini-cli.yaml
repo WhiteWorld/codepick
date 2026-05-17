@@ -4,8 +4,8 @@ type: cli
 logo: /images/gemini-cli.png
 url: https://github.com/google-gemini/gemini-cli
 repo: https://github.com/google-gemini/gemini-cli
-current_version: v0.41.0
-version_tracked_at: '2026-05-10'
+current_version: v0.42.0
+version_tracked_at: '2026-05-12'
 pricing:
   model: freemium
   currency: USD
@@ -96,6 +96,10 @@ data_sources:
     type: pricing
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-05-12'
+    type: release
+    summary: 'v0.42.0：Auto Memory 收件箱流程（规范化补丁合约，更健壮的技能提取）；Gemma 4 成为 Gemini API 默认模型；Voice Mode 新增波浪动画与 Gemini Live 后端隐私/合规警告；/exit 支持 --delete 标志立即删除会话；新增 /bug-memory 命令简化堆诊断；API 默认超时缩短至 60 秒并添加重试机制'
+    summary_en: 'v0.42.0: Auto Memory inbox flow (canonical-patch contract for robust skill extraction); Gemma 4 enabled by default via Gemini API; Voice Mode wave animations and privacy/compliance warnings for Gemini Live backend; --delete flag for /exit to immediately remove sessions; /bug-memory for heap diagnostics; reduced default API timeout to 60s with retry mechanisms'
   - date: '2026-05-05'
     type: release
     summary: 'v0.41.0：实时语音模式（云端+本地双后端）；无头环境强制工作区信任（安全增强）；健壮 shell 命令验证层和核心工具许可名单；新 ContextManager + AgentChatHistory 会话管理；自动记忆便签跨轮次持久化（技能提取）'
@@ -136,7 +140,7 @@ changelog:
     type: launch
     summary: Gemini CLI 开源发布，免费使用 Gemini 2.5 Pro，1000 次/天
     summary_en: Gemini CLI open-sourced, free Gemini 2.5 Pro access, 1000 requests/day
-last_full_review: '2026-05-10'
-next_review_due: '2026-06-10'
+last_full_review: '2026-05-17'
+next_review_due: '2026-06-17'
 review_frequency_days: 30
 confidence: high

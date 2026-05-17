@@ -142,7 +142,7 @@ changelog:
     type: launch
     summary: Kiro 公开预览版发布，AWS 出品的 Spec 驱动 Agentic IDE
     summary_en: Kiro public preview launched — AWS-built Spec-driven Agentic IDE
-last_full_review: '2026-05-03'
-next_review_due: '2026-06-03'
+last_full_review: '2026-05-17'
+next_review_due: '2026-06-17'
 review_frequency_days: 30
 confidence: high

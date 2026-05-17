@@ -86,6 +86,10 @@ data_sources:
     type: release
     last_checked: '2026-04-16'
 changelog:
+  - date: '2026-05-15'
+    type: announcement
+    summary: '⛔ 正式停运：Roo Code Cloud/Router 服务已于今日关闭，VS Code Extension 仓库已归档（无 kill switch，已安装版本继续工作）；Cline 官方声明："Roo Code is shutting down and merging back to Cline"；团队全力转向 Roomote（Slack 云端 Agent）；Kilo Code 提供迁移指南'
+    summary_en: '⛔ Officially shut down: Roo Code Cloud/Router closed today; VS Code extension repo archived (no kill switch — installed versions keep working); Cline official statement: "Roo Code is shutting down and merging back to Cline"; team fully pivoting to Roomote (Slack cloud agent); Kilo Code provides migration guide'
   - date: '2026-05-10'
     type: announcement
     summary: '⚠️ 停运进入倒计时（5 天后）：Roo Code Cloud/Router 将于 2026-05-15 正式关闭；Extension repo 已存档，已安装版本仍可继续使用；社区团队（v3.53.0）宣布接管插件维护；官方推荐迁移至 Cline'
@@ -134,7 +138,7 @@ changelog:
     type: feature
     summary: 支持 Claude Opus 4.6；tool use 消息改为结构化 delta 流式传输，提升效率
     summary_en: Claude Opus 4.6 support added; tool use messages switched to structured delta streaming for better performance
-last_full_review: '2026-05-10'
-next_review_due: '2026-06-10'
-review_frequency_days: 30
-confidence: high
+last_full_review: '2026-05-17'
+next_review_due: '2026-07-17'
+review_frequency_days: 60
+confidence: medium

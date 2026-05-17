@@ -4,8 +4,8 @@ type: client
 logo: /images/cline.png
 url: https://cline.bot
 repo: https://github.com/cline/cline
-current_version: v3.82.0
-version_tracked_at: '2026-05-10'
+current_version: v3.83.0
+version_tracked_at: '2026-05-14'
 pricing:
   model: free
   currency: null
@@ -81,6 +81,14 @@ data_sources:
     type: release
     last_checked: '2026-03-27'
 changelog:
+  - date: '2026-05-14'
+    type: feature
+    summary: 'Cline SDK 正式开源：Agent 运行时核心重构为可插拔 @cline/sdk，同时支持 VS Code / JetBrains / CLI；新 CLI 支持 Agent Teams、CRON 定时任务和连接器（Telegram/WhatsApp/Slack）；Plugins API 支持团队域内行为扩展无需 fork；Roo Code 停运后官方推荐迁移目标'
+    summary_en: 'Cline SDK open-sourced: agent runtime refactored into pluggable @cline/sdk powering VS Code/JetBrains/CLI; rebuilt CLI with agent teams, CRON scheduled jobs, and connectors (Telegram/WhatsApp/Slack); Plugins API for domain-specific extensions without forking; official migration target for Roo Code users after its shutdown'
+  - date: '2026-05-14'
+    type: release
+    summary: 'v3.83.0: 改进 cline-core 内存诊断；新增最新 OpenAI、SAP AI Core 和 Z AI 模型支持；Enterprise remote globalSkills 完整 UI Toggle 支持；修复"配额超出"专属错误 UI；恢复 VS Code 前台终端支持与设置项'
+    summary_en: 'v3.83.0: Improved cline-core memory diagnostics; added latest OpenAI, SAP AI Core, and Z AI models; Enterprise remote globalSkills full UI toggle support; dedicated "Quota Exceeded" error message in chat UI; restored VS Code foreground terminal support and settings'
   - date: '2026-05-01'
     type: release
     summary: 'v3.82.0: 恢复 VS Code 前台终端支持（允许需要交互终端的命令在前台运行）；新增 GPT-5.5 模型支持（OpenAI 订阅用户）；修复 hook 模板 JSON 转义问题；修复 ripgrep 错误处理；堆内存快照与周期性日志记录（内存诊断增强）'
@@ -141,7 +149,7 @@ changelog:
     type: feature
     summary: 支持 MCP Server 管理
     summary_en: MCP Server management support added
-last_full_review: '2026-05-10'
-next_review_due: '2026-06-10'
+last_full_review: '2026-05-17'
+next_review_due: '2026-06-17'
 review_frequency_days: 30
 confidence: high
