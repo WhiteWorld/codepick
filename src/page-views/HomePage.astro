@@ -20,8 +20,8 @@ const guidesCollectionName = getCollectionName('guides', lang) as 'guides' | 'gu
 const practicesCollectionName = getCollectionName('practices', lang) as 'practices' | 'practices-en';
 
 const [compareItems, guidesItems, practicesItems] = await Promise.all([
-  getCollection(compareCollectionName),
-  getCollection(guidesCollectionName),
+  getCollection(compareCollectionName).catch(() => [] as any[]),
+  getCollection(guidesCollectionName).catch(() => [] as any[]),
   getCollection(practicesCollectionName).catch(() => [] as any[]),
 ]);
 
@@ -104,6 +104,8 @@ const itemListSchema = allLatest.length > 0 ? {
 
 const homeJsonLd = itemListSchema ? [itemListSchema] : [];
 
+const allArticlesHref = localePath(`/${featured?.type ?? 'compare'}`, lang);
+
 const rssPath = lang === 'zh' ? '/zh/rss.xml' : '/en/rss.xml';
 const githubUrl = 'https://github.com/WhiteWorld/codepick';
 ---
@@ -125,7 +127,7 @@ const githubUrl = 'https://github.com/WhiteWorld/codepick';
         <h2 class="text-xl font-bold text-[var(--text-primary)] m-0">
           {t('home.latestContent', lang)}
         </h2>
-        <a href={localePath('/compare', lang)} class="text-sm text-[var(--brand-400)] no-underline hover:underline">
+        <a href={allArticlesHref} class="text-sm text-[var(--brand-400)] no-underline hover:underline">
           {t('home.allArticles', lang)}
         </a>
       </div>
