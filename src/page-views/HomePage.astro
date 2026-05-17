@@ -1,7 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PlanCard from '../components/PlanCard.astro';
-import QuickPicker from '../components/QuickPicker.astro';
 import { getAllPlansLocalized, getAllToolsLocalized, overallScore } from '../lib/data';
 import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
 import { getCollection } from 'astro:content';
@@ -11,8 +9,6 @@ const { lang } = Astro.props;
 
 const plans = getAllPlansLocalized(lang).sort((a, b) => overallScore(b.scores) - overallScore(a.scores));
 const tools = getAllToolsLocalized(lang);
-
-const featuredPlans = plans.slice(0, 3);
 
 // Merge compare + guides + practices, sort by date desc, take 6
 const compareCollectionName = getCollectionName('compare', lang) as 'compare' | 'compare-en';
@@ -181,20 +177,6 @@ const githubUrl = 'https://github.com/WhiteWorld/codepick';
     </section>
   )}
 
-  <!-- Quick Picker -->
-  <hr class="section-divider my-12" />
-  <section class="container mb-16 reveal">
-    <div class="mb-5">
-      <h2 class="text-xl font-bold text-[var(--text-primary)] m-0">
-        {t('home.quickPickerTitle', lang)}
-      </h2>
-      <p class="text-xs text-[var(--text-muted)] mt-1 mb-0">
-        {t('home.quickPickerDesc', lang)}
-      </p>
-    </div>
-    <QuickPicker lang={lang} />
-  </section>
-
   <!-- Tool Categories (4 simplified) -->
   <hr class="section-divider my-12" />
   <section class="container mb-16 reveal">
@@ -209,31 +191,6 @@ const githubUrl = 'https://github.com/WhiteWorld/codepick';
           </div>
           <div class="text-xs text-[var(--text-muted)]">{cat.count} {t('cat.toolsCountSuffix', lang)}</div>
         </a>
-      ))}
-    </div>
-  </section>
-
-  <!-- Editor's Picks (3 plans) -->
-  <hr class="section-divider my-12" />
-  <section class="container mb-16 reveal">
-    <div class="flex items-center justify-between mb-6">
-      <div>
-        <h2 class="text-xl font-bold text-[var(--text-primary)] m-0">
-          {t('home.editorPicks', lang)}
-        </h2>
-        <p class="text-xs text-[var(--text-muted)] mt-1 mb-0">
-          {t('home.editorPicksDesc', lang)}
-        </p>
-      </div>
-      <a href={localePath('/plans', lang)} class="text-sm text-[var(--brand-400)] no-underline hover:underline">
-        {t('home.viewAll', lang)}
-      </a>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-      {featuredPlans.map(plan => (
-        <div data-plan-id={plan.id}>
-          <PlanCard plan={plan} lang={lang} />
-        </div>
       ))}
     </div>
   </section>
