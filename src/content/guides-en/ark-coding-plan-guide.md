@@ -3,7 +3,7 @@ title: "Volcengine Ark Coding Plan: Budget Guide — ¥9.9 AI Coding API"
 description: "Volcengine Ark Coding Plan is China's most affordable AI coding API package (from ¥9.9/mo). Covers Lite/Pro tiers, Auto mode, compatible clients, and how to get started at minimum cost."
 date: "2026-05-17"
 article_type: "explainer"
-tags: ["ark", "coding-plan", "bytedance", "api", "cline", "claude code"]
+tags: ["ark", "coding-plan", "bytedance", "api", "cline", "claude-code", "roo-code", "opencode", "trae"]
 ---
 
 Volcengine Ark Coding Plan is ByteDance's AI coding API package, starting at **¥9.9/month with no VPN required**. It's one of the lowest-cost ways for developers in China to get AI coding API access.

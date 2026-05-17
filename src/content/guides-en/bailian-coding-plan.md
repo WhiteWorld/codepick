@@ -3,7 +3,7 @@ title: "Bailian Coding Plan: Complete Guide to Pricing, Quotas, and Client Setup
 description: "Alibaba Cloud's Bailian Coding Plan is a subscription-based API package for AI coding. This guide covers the Pro tier, supported models, compatible clients, and configuration steps."
 date: "2026-05-17"
 article_type: "explainer"
-tags: ["bailian", "coding-plan", "alibaba", "qwen", "api", "claude code", "cline"]
+tags: ["bailian", "coding-plan", "alibaba", "qwen", "api", "claude-code", "cline", "opencode", "cursor"]
 ---
 
 Bailian Coding Plan is Alibaba Cloud's dedicated AI coding API package at ¥200/month (verify current pricing on the official site). It provides guaranteed request quotas plus access to 8 models, ideal for developers who prefer the Qwen model ecosystem. No VPN required — subscribe via Alipay or WeChat Pay.

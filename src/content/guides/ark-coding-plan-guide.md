@@ -3,7 +3,7 @@ title: "火山方舟 Coding Plan 省钱指南：¥9.9 用上国产编程 API"
 description: "火山方舟 Coding Plan 是目前国内最便宜的 AI 编程 API 套餐（¥9.9/月起）。本文拆解 Lite/Pro 套餐、Auto 模式、支持的客户端，以及如何用最低成本上手。"
 date: "2026-05-17"
 article_type: "explainer"
-tags: ["火山方舟", "coding-plan", "ark", "字节跳动", "api", "cline", "claude code"]
+tags: ["火山方舟", "coding-plan", "字节跳动", "api", "cline", "claude-code", "roo-code", "opencode", "trae"]
 ---
 
 火山方舟 Coding Plan 是字节跳动旗下的 AI 编程 API 套餐，**¥9.9/月起，无需代理**，支持支付宝/微信支付。国内开发者接入 AI 编程成本最低的方案之一。

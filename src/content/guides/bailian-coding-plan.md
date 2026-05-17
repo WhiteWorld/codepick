@@ -3,7 +3,7 @@ title: "百炼 Coding Plan 完整攻略：定价、额度、客户端配置"
 description: "阿里云百炼 Coding Plan 是面向 AI 编程场景的订阅制 API 套餐。本文拆解 Pro 套餐额度、支持的模型和客户端、以及 VS Code / 终端配置方法。"
 date: "2026-05-17"
 article_type: "explainer"
-tags: ["百炼", "coding-plan", "阿里云", "千问", "api", "claude code", "cline"]
+tags: ["百炼", "coding-plan", "阿里云", "千问", "api", "claude-code", "cline", "opencode", "cursor"]
 ---
 
 百炼 Coding Plan 是阿里云推出的 AI 编程专属 API 套餐，月付 ¥200（以官网实时价格为准），提供保底额度 + 多款模型，适合想用千问/Qwen 系列模型的国内开发者。无需代理，支付宝/微信支付即可订阅。
