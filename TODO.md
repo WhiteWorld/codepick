@@ -59,23 +59,23 @@
 
 ### 国内使用指南系列（已验证：claude-code-china-usage 51 访客）
 
-- [ ] **P0** Cursor 国内使用完整指南（中 + 英）
-- [ ] **P0** GitHub Copilot 国内访问与计费（中 + 英）
+- [x] **P0** Cursor 国内使用完整指南（中 + 英）
+- [x] **P0** GitHub Copilot 国内访问与计费（中 + 英）
 - [ ] **P1** Codex CLI 国内方案（中 + 英）
 - [ ] **P1** Gemini CLI 国内代理配置（中 + 英）
 - [ ] **P2** Trae 国内版深度评测（中 + 英）
 
 ### Token Plan / 计费方案系列（已验证：minimax-token-plan 69 访客 TOP1）
 
-- [ ] **P0** 百炼 Coding Plan 完整攻略（中 + 英）
-- [ ] **P0** 火山方舟 Coding Plan 省钱指南（中 + 英）
+- [x] **P0** 百炼 Coding Plan 完整攻略（中 + 英）
+- [x] **P0** 火山方舟 Coding Plan 省钱指南（中 + 英）
 - [ ] **P1** OpenRouter 充值与使用指南（中 + 英）
 - [ ] **P1** Claude Max 套餐性价比分析（中 + 英）
 - [ ] **P1** AI 编程 token 消耗实测对比（中 + 英）
 
 ### 对比系列（已验证：cli-ai-coding-tools-2026 62 访客）
 
-- [ ] **P0** Cursor vs Windsurf 2026（中 + 英）
+- [x] **P0** Cursor vs Windsurf 2026（中 + 英）（已存在，2026-02-17）
 - [ ] **P1** Claude Code vs Codex CLI（中 + 英）
 - [ ] **P1** IDE 类 vs CLI 类工具选型（中 + 英）
 - [ ] **P1** 应用构建型工具横评 Bolt/v0/Lovable/Youware（中 + 英）
@@ -133,6 +133,5 @@
 
 | 日期 | 完成 | 备注 |
 |------|------|------|
-| 2026-05-17 | 首页媒体化改版（HomePage 重写） | Hero 极简 + 1 头条 5 副条 + 4 分类 + RSS/GitHub footer；删除编辑推荐+QuickPicker；RSS 路由上线 |
-| 2026-05-16 | SEO 结构化数据完善 | 修 BaseLayout 合并 bug + 给 9 个缺 schema 的页面补上 CollectionPage/WebPage/BreadcrumbList/ItemList |
+| 2026-05-17 | P0 内容矩阵 5 篇完成 | Cursor 国内/Copilot 国内/百炼/方舟 4 篇新写 + cursor-vs-windsurf 已存在标记完成
 | 2026-05-16 | Bing Webmaster + IndexNow 全套接入 | 261 URL 首次种子推送成功，HTTP 200 |
