@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ScenarioCard from '../components/ScenarioCard.astro';
 import PlanCard from '../components/PlanCard.astro';
+import QuickPicker from '../components/QuickPicker.astro';
 import { getAllPlansLocalized, getAllToolsLocalized, overallScore } from '../lib/data';
 import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
 import { getCollection } from 'astro:content';
@@ -12,32 +12,75 @@ const { lang } = Astro.props;
 const plans = getAllPlansLocalized(lang).sort((a, b) => overallScore(b.scores) - overallScore(a.scores));
 const tools = getAllToolsLocalized(lang);
 
-// 精选推荐：综合评分 Top 3
 const featuredPlans = plans.slice(0, 3);
 
-// 最新对比文章
-const compareCollection = getCollectionName('compare', lang) as 'compare' | 'compare-en';
-const latestArticles = (await getCollection(compareCollection))
-  .filter(a => !a.data.draft)
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-  .slice(0, 3);
+// Merge compare + guides + practices, sort by date desc, take 6
+const compareCollectionName = getCollectionName('compare', lang) as 'compare' | 'compare-en';
+const guidesCollectionName = getCollectionName('guides', lang) as 'guides' | 'guides-en';
+const practicesCollectionName = getCollectionName('practices', lang) as 'practices' | 'practices-en';
 
-// 最新指南
-const guidesCollection = getCollectionName('guides', lang) as 'guides' | 'guides-en';
-const latestGuides = (await getCollection(guidesCollection))
-  .filter(g => !g.data.draft)
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-  .slice(0, 3);
+const [compareItems, guidesItems, practicesItems] = await Promise.all([
+  getCollection(compareCollectionName),
+  getCollection(guidesCollectionName),
+  getCollection(practicesCollectionName).catch(() => [] as any[]),
+]);
 
-// 分类导航
+type ContentType = 'compare' | 'guides' | 'practices';
+interface FeedItem {
+  type: ContentType;
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  bodyLength: number;
+}
+
+function toFeedItem(type: ContentType) {
+  return (entry: any): FeedItem => ({
+    type,
+    slug: entry.slug,
+    title: entry.data.title,
+    description: entry.data.description || '',
+    date: entry.data.date,
+    bodyLength: (entry.body || '').length,
+  });
+}
+
+const allLatest: FeedItem[] = [
+  ...compareItems.filter((a: any) => !a.data.draft).map(toFeedItem('compare')),
+  ...guidesItems.filter((a: any) => !a.data.draft).map(toFeedItem('guides')),
+  ...practicesItems.filter((a: any) => !a.data.draft).map(toFeedItem('practices')),
+].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+const featured = allLatest[0];
+const secondary = allLatest.slice(1, 6);
+
+function readingMinutes(charCount: number): number {
+  return Math.max(2, Math.round(charCount / 600));
+}
+
+function feedItemUrl(item: FeedItem): string {
+  return localePath(`/${item.type}/${item.slug}`, lang);
+}
+
+const typeBadgeClass: Record<ContentType, string> = {
+  compare:   'bg-emerald-500/10 text-emerald-400 border-emerald-500/30',
+  guides:    'bg-blue-500/10 text-blue-400 border-blue-500/30',
+  practices: 'bg-purple-500/10 text-purple-400 border-purple-500/30',
+};
+
+const typeBadgeLabel: Record<ContentType, string> = {
+  compare:   t('home.badge.compare', lang),
+  guides:    t('home.badge.guides', lang),
+  practices: t('home.badge.practices', lang),
+};
+
+// 4 simplified category cards
 const categories = [
-  { key: 'cat.allTools', href: '/tools', count: tools.length, icon: '📦' },
-  { key: 'cat.free', href: '/tools/free', count: tools.filter((t: any) => t.pricing?.plans?.some((p: any) => p.price === 0)).length, icon: '🆓' },
-  { key: 'cat.china', href: '/tools/china', count: tools.filter((t: any) => t.scores?.china_friendly >= 7).length, icon: '🇨🇳' },
-  { key: 'cat.vscode', href: '/tools/vscode', count: tools.filter((t: any) => /vs\s?code/i.test((t as any).features?.ide_base || '')).length, icon: '💻' },
-  { key: 'cat.terminal', href: '/tools/terminal', count: tools.filter((t: any) => (t as any).type === 'cli' || /终端|tui|cli/i.test((t as any).features?.ide_base || '')).length, icon: '⌨️' },
-  { key: 'cat.builder', href: '/tools/builder', count: tools.filter((t: any) => (t as any).type === 'web' || (t as any).type === 'cloud_agent').length, icon: '🏗️' },
-  { key: 'cat.agentPlatform', href: '/agents', count: tools.filter((t: any) => (t as any).type === 'agent_platform').length, icon: '🤖' },
+  { label: t('cat.allToolsLabel', lang), href: '/tools',  count: tools.length },
+  { label: t('cat.freeLabel', lang),     href: '/tools/free',  count: tools.filter((tool: any) => tool.pricing?.plans?.some((p: any) => p.price === 0)).length },
+  { label: t('cat.chinaLabel', lang),    href: '/tools/china', count: tools.filter((tool: any) => tool.scores?.china_friendly >= 7).length },
+  { label: t('cat.agentLabel', lang),    href: '/agents',      count: tools.filter((tool: any) => tool.type === 'agent_platform').length },
 ];
 
 const seoTitle = lang === 'zh'
@@ -47,97 +90,141 @@ const seoTitle = lang === 'zh'
 const siteUrl = 'https://codepick.dev';
 
 // ItemList JSON-LD: featured latest content (helps SERP rich results)
-const featuredItems = [
-  ...latestArticles.map(a => ({ title: a.data.title, slug: `/compare/${a.slug}` })),
-  ...latestGuides.map(g => ({ title: g.data.title, slug: `/guides/${g.slug}` })),
-];
-const itemListSchema = featuredItems.length > 0 ? {
+const itemListSchema = allLatest.length > 0 ? {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
   name: lang === 'zh' ? 'CodePick 最新内容' : 'CodePick latest content',
-  itemListElement: featuredItems.map((item, i) => ({
+  itemListElement: allLatest.slice(0, 6).map((item, i) => ({
     '@type': 'ListItem',
     position: i + 1,
     name: item.title,
-    url: `${siteUrl}${localePath(item.slug, lang)}`,
+    url: `${siteUrl}${feedItemUrl(item)}`,
   })),
 } : null;
 
 const homeJsonLd = itemListSchema ? [itemListSchema] : [];
+
+const rssPath = lang === 'zh' ? '/zh/rss.xml' : '/en/rss.xml';
+const githubUrl = 'https://github.com/WhiteWorld/codepick';
 ---
 <BaseLayout title={seoTitle} lang={lang} jsonLd={homeJsonLd}>
-  <!-- Hero -->
-  <section class="relative container pt-20 pb-12 text-center overflow-hidden">
-    <div class="hero-glow" aria-hidden="true"></div>
-    <div class="absolute inset-0 -z-10 pointer-events-none" aria-hidden="true" style="background-image: radial-gradient(var(--surface-border) 1px, transparent 1px); background-size: 24px 24px; opacity: 0.35;"></div>
-    <h1 class="text-4xl md:text-6xl font-bold text-[var(--text-primary)] mb-6 leading-tight tracking-tight">
-      {t('home.heroTitle1', lang)}<br/>
-      <span class="bg-gradient-to-r from-[var(--brand-400)] to-[var(--brand-600)] bg-clip-text text-transparent">{t('home.heroHighlight', lang)}</span>
+  <!-- Hero (compact, ~80px) -->
+  <section class="container pt-12 pb-6 text-center">
+    <h1 class="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-2 leading-tight">
+      {t('home.heroTitleNew', lang)}
     </h1>
-    <p class="text-base md:text-lg text-[var(--text-secondary)] max-w-xl mx-auto mb-8 leading-relaxed">
-      {t('home.heroDesc', lang)}
+    <p class="text-sm text-[var(--text-muted)]">
+      {tools.length} {t('home.dataBadge', lang)} · {plans.length} {t('home.dataBadgePlans', lang)} · {t('home.dataBadgeLang', lang)}
     </p>
-    <div class="flex justify-center gap-4 flex-wrap">
-      <a href={localePath('/plans', lang)} class="btn btn-primary px-6 py-2.5 text-base">
-        {lang === 'zh' ? '🔥 查看推荐方案' : '🔥 View Recommendations'}
-      </a>
-      <a href={localePath('/tools/overview', lang)} class="btn btn-ghost px-6 py-2.5">
-        {t('home.ctaOverview', lang)}
-      </a>
-    </div>
   </section>
 
-  <!-- Trust Signals -->
-  <section class="container mb-12">
-    <div class="flex flex-wrap justify-center gap-4 md:gap-8 text-xs text-[var(--text-muted)]">
-      <span class="inline-flex items-center gap-1.5 bg-[var(--surface-card)] px-3 py-1.5 rounded-full border border-[var(--surface-border)]">
-        <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
-        {lang === 'zh' ? '数据每月核验' : 'Monthly data verification'}
-      </span>
-      <span class="inline-flex items-center gap-1.5 bg-[var(--surface-card)] px-3 py-1.5 rounded-full border border-[var(--surface-border)]">
-        <span>🌐</span>
-        {lang === 'zh' ? '中英文双语' : 'Bilingual (ZH/EN)'}
-      </span>
-      <span class="inline-flex items-center gap-1.5 bg-[var(--surface-card)] px-3 py-1.5 rounded-full border border-[var(--surface-border)]">
-        <span>🔍</span>
-        {lang === 'zh' ? `${tools.length} 款工具 · ${plans.length} 套方案` : `${tools.length} tools · ${plans.length} plans`}
-      </span>
-      <span class="inline-flex items-center gap-1.5 bg-[var(--surface-card)] px-3 py-1.5 rounded-full border border-[var(--surface-border)]">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        {lang === 'zh' ? '开源项目' : 'Open Source'}
-      </span>
-    </div>
-  </section>
+  <!-- Latest Content: 1 featured + 5 secondary -->
+  {featured && (
+    <section class="container mb-16 reveal">
+      <div class="flex items-center justify-between mb-5">
+        <h2 class="text-xl font-bold text-[var(--text-primary)] m-0">
+          {t('home.latestContent', lang)}
+        </h2>
+        <a href={localePath('/compare', lang)} class="text-sm text-[var(--brand-400)] no-underline hover:underline">
+          {t('home.allArticles', lang)}
+        </a>
+      </div>
 
-  <!-- Category Navigation -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <!-- Featured (large) -->
+        <a
+          href={feedItemUrl(featured)}
+          class="md:col-span-2 card p-6 block no-underline group hover:border-[var(--brand-500)] transition-colors flex flex-col"
+        >
+          <div class="mb-3">
+            <span class={`inline-block text-xs px-2 py-0.5 rounded-full border ${typeBadgeClass[featured.type]}`}>
+              {typeBadgeLabel[featured.type]}
+            </span>
+          </div>
+          <h3 class="text-xl md:text-2xl font-bold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-3 line-clamp-2 leading-tight">
+            {featured.title}
+          </h3>
+          <p class="text-sm text-[var(--text-secondary)] m-0 mb-4 line-clamp-2 leading-relaxed flex-1">
+            {featured.description}
+          </p>
+          <div class="flex items-center gap-3 text-xs text-[var(--text-muted)]">
+            <span>{featured.date}</span>
+            <span>·</span>
+            <span>{readingMinutes(featured.bodyLength)} {t('home.readTimeSuffix', lang)}</span>
+          </div>
+        </a>
+
+        <!-- Secondary (compact list) -->
+        <div class="flex flex-col gap-2">
+          {secondary.map(item => (
+            <a
+              href={feedItemUrl(item)}
+              class="card p-3 block no-underline group hover:border-[var(--brand-500)] transition-colors"
+            >
+              <div class="flex items-start gap-2">
+                <span class={`shrink-0 inline-block text-xs px-1.5 py-0.5 rounded border ${typeBadgeClass[item.type]} mt-0.5`}>
+                  {typeBadgeLabel[item.type]}
+                </span>
+                <div class="flex-1 min-w-0">
+                  <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 line-clamp-1">
+                    {item.title}
+                  </h3>
+                  <span class="text-xs text-[var(--text-muted)] block mt-0.5">{item.date}</span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Quick Picker -->
+  <hr class="section-divider my-12" />
   <section class="container mb-16 reveal">
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+    <div class="mb-5">
+      <h2 class="text-xl font-bold text-[var(--text-primary)] m-0">
+        {t('home.quickPickerTitle', lang)}
+      </h2>
+      <p class="text-xs text-[var(--text-muted)] mt-1 mb-0">
+        {t('home.quickPickerDesc', lang)}
+      </p>
+    </div>
+    <QuickPicker lang={lang} />
+  </section>
+
+  <!-- Tool Categories (4 simplified) -->
+  <hr class="section-divider my-12" />
+  <section class="container mb-16 reveal">
+    <h2 class="text-xl font-bold text-[var(--text-primary)] mb-5">
+      {t('home.toolCategories', lang)}
+    </h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
       {categories.map(cat => (
         <a href={localePath(cat.href, lang)} class="card p-4 no-underline group block text-center hover:border-[var(--brand-500)] transition-colors">
-          <div class="cat-icon">{cat.icon}</div>
           <div class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] transition-colors mb-1">
-            {t(cat.key, lang)}
+            {cat.label}
           </div>
-          <div class="text-xs text-[var(--text-muted)]">{cat.count} {lang === 'zh' ? '款' : 'tools'}</div>
+          <div class="text-xs text-[var(--text-muted)]">{cat.count} {t('cat.toolsCountSuffix', lang)}</div>
         </a>
       ))}
     </div>
   </section>
 
-  <!-- Featured Plans (Editor's Pick) -->
-  <hr class="section-divider my-16" />
+  <!-- Editor's Picks (3 plans) -->
+  <hr class="section-divider my-12" />
   <section class="container mb-16 reveal">
     <div class="flex items-center justify-between mb-6">
       <div>
         <h2 class="text-xl font-bold text-[var(--text-primary)] m-0">
-          {lang === 'zh' ? '🔥 编辑推荐方案' : '🔥 Editor\'s Picks'}
+          {t('home.editorPicks', lang)}
         </h2>
         <p class="text-xs text-[var(--text-muted)] mt-1 mb-0">
-          {lang === 'zh' ? '综合评分最高的 3 套方案' : 'Top 3 plans by overall score'}
+          {t('home.editorPicksDesc', lang)}
         </p>
       </div>
       <a href={localePath('/plans', lang)} class="text-sm text-[var(--brand-400)] no-underline hover:underline">
-        {lang === 'zh' ? '查看全部 →' : 'View all →'}
+        {t('home.viewAll', lang)}
       </a>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -149,48 +236,28 @@ const homeJsonLd = itemListSchema ? [itemListSchema] : [];
     </div>
   </section>
 
-  <!-- Scenario Quick Links -->
-  <hr class="section-divider my-16" />
-  <section class="container mb-16 reveal">
-    <ScenarioCard lang={lang} />
-  </section>
-
-  <!-- Latest Articles & Guides -->
-  <hr class="section-divider my-16" />
-  <section class="container mb-16 reveal">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <!-- Latest Compare Articles -->
-      <div>
-        <h2 class="text-xl font-bold text-[var(--text-primary)] mb-4 mt-0">{t('home.latestArticles', lang)}</h2>
-        <div class="flex flex-col gap-3">
-          {latestArticles.map(a => (
-            <a href={localePath(`/compare/${a.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
-              <div class="flex items-center gap-2 mb-1.5">
-                <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 flex-1">{a.data.title}</h3>
-                <span class="text-xs text-[var(--text-muted)] shrink-0">{a.data.date}</span>
-              </div>
-              <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{a.data.description}</p>
-            </a>
-          ))}
-        </div>
-        <a href={localePath('/compare', lang)} class="text-sm text-[var(--brand-400)] no-underline hover:underline mt-3 inline-block">{t('home.moreArticles', lang)}</a>
-      </div>
-      <!-- Latest Guides -->
-      <div>
-        <h2 class="text-xl font-bold text-[var(--text-primary)] mb-4 mt-0">{t('home.latestGuides', lang)}</h2>
-        <div class="flex flex-col gap-3">
-          {latestGuides.map(g => (
-            <a href={localePath(`/guides/${g.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
-              <div class="flex items-center gap-2 mb-1.5">
-                <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 flex-1">{g.data.title}</h3>
-                <span class="text-xs text-[var(--text-muted)] shrink-0">{g.data.date}</span>
-              </div>
-              <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{g.data.description}</p>
-            </a>
-          ))}
-        </div>
-        <a href={localePath('/guides', lang)} class="text-sm text-[var(--brand-400)] no-underline hover:underline mt-3 inline-block">{t('home.moreGuides', lang)}</a>
-      </div>
+  <!-- RSS / GitHub -->
+  <hr class="section-divider my-12" />
+  <section class="container mb-20 reveal">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <a href={rssPath} class="card p-6 no-underline group hover:border-[var(--brand-500)] transition-colors block">
+        <h3 class="text-lg font-bold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-2">
+          {t('home.subscribeTitle', lang)}
+        </h3>
+        <p class="text-sm text-[var(--text-secondary)] m-0 mb-3 leading-relaxed">
+          {t('home.subscribeDesc', lang)}
+        </p>
+        <span class="text-sm text-[var(--brand-400)]">{t('home.subscribeCta', lang)}</span>
+      </a>
+      <a href={githubUrl} target="_blank" rel="noopener" class="card p-6 no-underline group hover:border-[var(--brand-500)] transition-colors block">
+        <h3 class="text-lg font-bold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-2">
+          {t('home.openSourceTitle', lang)}
+        </h3>
+        <p class="text-sm text-[var(--text-secondary)] m-0 mb-3 leading-relaxed">
+          {t('home.openSourceDesc', lang)}
+        </p>
+        <span class="text-sm text-[var(--brand-400)]">{t('home.openSourceCta', lang)}</span>
+      </a>
     </div>
   </section>
 </BaseLayout>
