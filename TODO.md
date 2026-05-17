@@ -31,11 +31,13 @@
 
 ### 首页改版（媒体化）
 
-- [ ] **P0** 第一屏：最新指南/对比 6 篇大卡片（替换工具卡片）
-- [ ] **P0** 第二屏：热门工具速查（精简版，3-6 个）
-- [ ] **P0** 第三屏：放大 QuickPicker 选型问卷入口
-- [ ] **P1** 底部：邮件订阅 + RSS 订阅 CTA
-- [ ] **P1** 文章卡片显示发布日期、阅读时长
+- [x] **P0** 首页重写为 4 个 section：Hero 极简 + 最新内容（1 头条+5 副条）+ 工具分类速查（4 卡）+ RSS/GitHub
+- [x] **P0** 合并 compare/guides/practices 三个集合为统一数据源，按日期倒序排 6
+- [x] **P0** 类型徽章着色（对比绿 指南蓝 实践紫）+ 头条阅读时长
+- [x] **P0** 删除「编辑推荐方案」「快速选型」section（数据印证无转化）
+- [x] **P1** 添加双语 RSS 路由（`/zh/rss.xml` + `/en/rss.xml`，50 篇）+ BaseLayout autodiscovery link
+- [x] **P1** 文章卡片显示发布日期、阅读时长
+- [x] **P1** RSS + GitHub Star 底部 CTA（不做邮件订阅）
 
 ### 内链系统
 
@@ -131,5 +133,6 @@
 
 | 日期 | 完成 | 备注 |
 |------|------|------|
-| 2026-05-16 | Bing Webmaster + IndexNow 全套接入 | 261 URL 首次种子推送成功，HTTP 200 |
+| 2026-05-17 | 首页媒体化改版（HomePage 重写） | Hero 极简 + 1 头条 5 副条 + 4 分类 + RSS/GitHub footer；删除编辑推荐+QuickPicker；RSS 路由上线 |
 | 2026-05-16 | SEO 结构化数据完善 | 修 BaseLayout 合并 bug + 给 9 个缺 schema 的页面补上 CollectionPage/WebPage/BreadcrumbList/ItemList |
+| 2026-05-16 | Bing Webmaster + IndexNow 全套接入 | 261 URL 首次种子推送成功，HTTP 200 |
