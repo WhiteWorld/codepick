@@ -121,7 +121,8 @@ const latestUpdateMonth = latestDate
   <link rel="alternate" hreflang="en" href={enUrl} />
   <link rel="alternate" hreflang="x-default" href={zhUrl} />
 
-  <!-- No RSS feed (removed in cleanup) -->
+  <!-- RSS autodiscovery -->
+  <link rel="alternate" type="application/rss+xml" title={lang === 'zh' ? 'CodePick · 中文 RSS' : 'CodePick RSS'} href={`${siteUrl}/${lang}/rss.xml`} />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
