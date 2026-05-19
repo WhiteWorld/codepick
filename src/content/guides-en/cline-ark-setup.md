@@ -1,13 +1,13 @@
 ---
 title: "Cline + Volcengine Ark Coding Plan Setup Guide"
-description: "From Volcengine Ark registration to coding with Cline in 10 minutes. The most cost-effective AI coding setup for developers in China — starting at 9.9 CNY/month, no VPN required."
+description: "From Volcengine Ark registration to coding with Cline in 10 minutes. The most cost-effective AI coding setup for developers in China — Lite ¥40/month (¥9.9 first month), no VPN required."
 date: "2026-02-16"
 article_type: "howto"
 tags: ["cline", "volcengine-ark", "setup", "china", "cost-effective"]
 draft: false
 ---
 
-This guide walks you through setting up the **Cline + Volcengine Ark Coding Plan** — currently the most cost-effective AI coding solution for developers in China, starting at just 9.9 CNY/month with no VPN required and access to multiple top-tier coding models.
+This guide walks you through setting up the **Cline + Volcengine Ark Coding Plan** — currently the most cost-effective AI coding solution for developers in China, with Lite starting at ¥40/month (¥9.9 first month promo), no VPN required, and access to multiple top-tier coding models.
 
 ## Prerequisites
 
@@ -115,7 +115,7 @@ The Coding Plan includes:
 
 | Comparison | Cline + Ark | Cline + Claude API |
 |------------|-------------|---------------------|
-| Monthly cost | 9.9–49.9 CNY | $30–100+ |
+| Monthly cost | 40–200 CNY (first month 9.9–49.9 promo) | $30–100+ |
 | China access | No VPN required | VPN required |
 | Model quality | 8/10 | 9.5/10 |
 | Cost-effectiveness | ★★★★★ | ★★★☆☆ |

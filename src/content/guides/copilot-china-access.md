@@ -63,9 +63,9 @@ Copilot 正在从「请求次数制」切换到「AI Credits 按 Token 计费制
 | 替代 | 月费 | 网络 | 亮点 |
 |------|------|------|------|
 | [Trae CN](/zh/tool/trae-cn) | 免费 | **无需代理** | 最接近 Copilot 体验的国内免费 IDE |
-| [Cline + 火山方舟](/zh/plan/cline-ark) | ¥9.9/月 | **无需代理** | VS Code 插件 + 国产模型 |
+| [Cline + 火山方舟](/zh/plan/cline-ark) | ¥40/月（首月 ¥9.9） | **无需代理** | VS Code 插件 + 国产模型 |
 | [Cline + 百炼](/zh/plan/cline-bailian) | ¥200/月 | **无需代理** | Qwen Coder 系列 |
-| [Kiwi](/zh/tool/kiro) | ~$2/月 | 需代理 | 原版 Claude 模型 |
+| [Kiro](/zh/tool/kiro) | ~$2/月 | 需代理 | 原版 Claude 模型 |
 
 **总结**：如果你的主要场景是 Tab 补全 + 偶尔 Chat，**Copilot Free 在国内可勉强使用**。如果需要 Agent 模式、多文件编辑、MCP 支持，建议考虑 Cline + 火山方舟，或直接上 Trae CN。
 

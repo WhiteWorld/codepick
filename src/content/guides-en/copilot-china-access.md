@@ -62,7 +62,7 @@ What you actually get with the permanent free plan:
 | Alternative | Cost | Network | Highlight |
 |-------------|------|---------|-----------|
 | [Trae CN](/en/tool/trae-cn) | Free | **No VPN** | Closest domestic Copilot-equivalent IDE |
-| [Cline + Volcengine Ark](/en/plan/cline-ark) | ¥9.9/mo | **No VPN** | VS Code extension + Chinese models |
+| [Cline + Volcengine Ark](/en/plan/cline-ark) | ¥40/mo (¥9.9 first month) | **No VPN** | VS Code extension + Chinese models |
 | [Cline + Bailian](/en/plan/cline-bailian) | ¥200/mo | **No VPN** | Qwen Coder model series |
 | [Kiro IDE](/en/tool/kiro) | ~$2/mo | VPN | Original Claude models at 1/10 cost |
 

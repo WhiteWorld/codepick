@@ -12,8 +12,8 @@ composition:
 
 monthly_cost:
   min: "¥9.9"
-  typical: "¥9.9"
-  max: "¥49.9"
+  typical: "¥40"
+  max: "¥200"
 
 currency: CNY
 

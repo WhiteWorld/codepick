@@ -65,7 +65,7 @@ Both support:
 - OpenAI-compatible endpoints (Ollama, Volcengine Ark, SiliconFlow, etc.)
 - Azure OpenAI
 
-**Recommended for users in China**: Pair with the [Volcengine Ark Coding Plan](https://www.volcengine.com/L/s3lNTNYxaEc/) ([plan details](/plan/cline-ark)) for just 9.9 CNY/month with generous request quotas and full domestic accessibility.
+**Recommended for users in China**: Pair with the [Volcengine Ark Coding Plan](https://www.volcengine.com/L/s3lNTNYxaEc/) ([plan details](/plan/cline-ark)) — Lite starts at 9.9 CNY first month (renews at 40 CNY) with generous request quotas and full domestic accessibility.
 
 ---
 
@@ -76,7 +76,7 @@ Both plugins are free to use; costs come from API usage:
 | Option | Cost | Notes |
 |--------|------|-------|
 | Anthropic Claude API | $15-75/million tokens | Official API, highest quality |
-| Volcengine Ark Coding Plan | 9.9-49.9 CNY/month | Recommended in China, usage-based billing |
+| Volcengine Ark Coding Plan | 40-200 CNY/month (first month 9.9-49.9 promo) | Recommended in China, usage-based billing |
 | SiliconFlow | Per-token pricing | Supports DeepSeek and others |
 | Ollama (local) | Free | Requires a local GPU |
 

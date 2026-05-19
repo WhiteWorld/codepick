@@ -108,8 +108,8 @@ quick_start_en:
   - Open your project; press Cmd/Ctrl+L for AI chat, Tab to accept completions
   - "For Agent mode: select Agent in the chat panel to let AI complete multi-step tasks autonomously"
 register_url: https://cursor.com/signup
-china_note: 需要翻墙，国内网络不稳定；暂无官方国内镜像；国内用户可考虑 Trae CN（免费）或 Cline + 火山方舟（¥9.9/月）替代
-china_note_en: Requires VPN from China; no official domestic mirror; China users may try Trae CN (free) or Cline + Volcengine Ark (¥9.9/mo) as alternatives
+china_note: 需要翻墙，国内网络不稳定；暂无官方国内镜像；国内用户可考虑 Trae CN（免费）或 Cline + 火山方舟（Lite 首月 ¥9.9 / 续费 ¥40）替代
+china_note_en: Requires VPN from China; no official domestic mirror; China users may try Trae CN (free) or Cline + Volcengine Ark (¥9.9 first month / ¥40 renewal) as alternatives
 
 plans_using_this:
   - id: cursor-pro

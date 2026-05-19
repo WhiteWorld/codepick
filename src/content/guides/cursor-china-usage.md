@@ -9,7 +9,7 @@ faq:
   - q: "Cursor 国内不翻墙能用吗？"
     a: |
       不行。Cursor 的 AI 接口全部走 Cursor 自家端点，国内必须代理才能调用。免费 Hobby 套餐也一样。
-      如果完全不想用代理，改用 Trae CN（字节出品、国内直连）或 Cline + 火山方舟（¥9.9/月）这类纯国内方案。
+      如果完全不想用代理，改用 Trae CN（字节出品、国内直连）或 Cline + 火山方舟（Lite ¥40/月，首月 ¥9.9）这类纯国内方案。
   - q: "Cursor 能用支付宝/微信付款吗？"
     a: |
       不能。Cursor 只支持 Visa/Mastercard 双币信用卡，PayPal、支付宝、微信支付一律不收。
@@ -76,11 +76,11 @@ Cursor 提供永久免费 Hobby 套餐：
 |------|------|------|------|
 | [Trae CN](/zh/tool/trae-cn) | 免费 | **无需代理** | 字节跳动出品，国内直连 |
 | [Trae CN 配置指南](/zh/guides/trae-cn-setup) | 免费 | **无需代理** | 完整中文 IDE + AI 功能 |
-| [Cline + 火山方舟](/zh/plan/cline-ark) | ¥9.9/月 | **无需代理** | VS Code 插件 + 国内 API |
+| [Cline + 火山方舟](/zh/plan/cline-ark) | ¥40/月（首月 ¥9.9） | **无需代理** | VS Code 插件 + 国内 API |
 | [Cline + 百炼](/zh/plan/cline-bailian) | ¥200/月 | **无需代理** | 千问 Coder 系列模型 |
 | [Kiro](/zh/tool/kiro) IDE | ~$2/月 | 需代理 | 原版 Claude 模型，价格极低 |
 
-如果你主要用 Cursor 的 Agent 功能和 Tab 补全，**Trae CN** 是体验最接近的国内免费替代。如果你喜欢 VS Code 插件形式 + 更多模型选择，**Cline + 火山方舟**（¥9.9/月）性价比最高。
+如果你主要用 Cursor 的 Agent 功能和 Tab 补全，**Trae CN** 是体验最接近的国内免费替代。如果你喜欢 VS Code 插件形式 + 更多模型选择，**Cline + 火山方舟**（¥40/月，首月 ¥9.9）性价比最高。
 
 ## 相关文章
 

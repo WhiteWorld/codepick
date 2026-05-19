@@ -154,7 +154,7 @@ This is the easiest place to get confused and the most important difference:
 ```
 What's your primary use case?
 ├─ Pure text / code coding
-│   ├─ Solo dev on a budget → Ark Coding Plan (¥9.9+, not in this matchup)
+│   ├─ Solo dev on a budget → Ark Coding Plan (Lite ¥40/mo, ¥9.9 first month, not in this matchup)
 │   └─ Team needing compliance → Bailian Token Plan Team (¥198+)
 │
 ├─ Coding + image/video generation (multimodal Agent)
