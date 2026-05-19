@@ -131,10 +131,10 @@ Orkas 是四个平台里最新的（11 stars），但设计思路很独特。它
 
 ### 按使用场景
 
-- **想用聊天方式管 Agent 团队** → Slock
-- **想用 Issue/Kanban 管 Agent 项目** → Multica
-- **想要最大生态和最全功能** → LobeHub
-- **想要桌面端 + Agent 自演化** → Orkas
+- **想用聊天方式管 Agent 团队** → Slock（[配置指南](/zh/guides/slock-setup/)）
+- **想用 Issue/Kanban 管 Agent 项目** → Multica（[配置指南](/zh/guides/multica-setup/)）
+- **想要最大生态和最全功能** → LobeHub（[配置指南](/zh/guides/lobehub-setup/)）
+- **想要桌面端 + Agent 自演化** → Orkas（[配置指南](/zh/guides/orkas-setup/)）
 
 ### 按技术偏好
 
@@ -163,4 +163,13 @@ Orkas 是四个平台里最新的（11 stars），但设计思路很独特。它
 
 ---
 
-*最后更新：2026-05-09 · 数据持续更新中*
+## 下一步：4 篇 setup guide
+
+- [Slock 配置指南](/zh/guides/slock-setup/) — 10 分钟跑通聊天频道 + Task Claim
+- [Multica 配置指南](/zh/guides/multica-setup/) — Docker 一键自托管 + 11 种 Runtime
+- [LobeHub 配置指南](/zh/guides/lobehub-setup/) — Docker Compose + Agent Marketplace
+- [Orkas 配置指南](/zh/guides/orkas-setup/) — 桌面端 Commander + Workers 体系
+
+---
+
+*最后更新：2026-05-19 · 数据持续更新中*

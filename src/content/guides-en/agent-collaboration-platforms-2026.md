@@ -131,10 +131,10 @@ Orkas is the newest platform (11 stars) but has a unique design. It uses a "Comm
 
 ### By Use Case
 
-- **Chat-style agent team management** → Slock
-- **Issue/Kanban agent project management** → Multica
-- **Largest ecosystem, most features** → LobeHub
-- **Desktop app + agent self-evolution** → Orkas
+- **Chat-style agent team management** → Slock ([setup guide](/en/guides/slock-setup/))
+- **Issue/Kanban agent project management** → Multica ([setup guide](/en/guides/multica-setup/))
+- **Largest ecosystem, most features** → LobeHub ([setup guide](/en/guides/lobehub-setup/))
+- **Desktop app + agent self-evolution** → Orkas ([setup guide](/en/guides/orkas-setup/))
 
 ### By Technical Preference
 
@@ -163,4 +163,13 @@ Orkas is the newest platform (11 stars) but has a unique design. It uses a "Comm
 
 ---
 
-*Last updated: 2026-05-09 · Data updated regularly*
+## Next Up: 4 Setup Guides
+
+- [Slock setup guide](/en/guides/slock-setup/) — 10 minutes to chat channels + Task Claim
+- [Multica setup guide](/en/guides/multica-setup/) — Docker one-line self-host + 11 runtimes
+- [LobeHub setup guide](/en/guides/lobehub-setup/) — Docker Compose + Agent Marketplace
+- [Orkas setup guide](/en/guides/orkas-setup/) — Desktop Commander + Workers architecture
+
+---
+
+*Last updated: 2026-05-19 · Data updated regularly*
