@@ -2,8 +2,26 @@
 title: "Bailian Coding Plan: Complete Guide to Pricing, Quotas, and Client Setup"
 description: "Alibaba Cloud's Bailian Coding Plan is a subscription-based API package for AI coding. This guide covers the Pro tier, supported models, compatible clients, and configuration steps."
 date: "2026-05-17"
+updated_at: "2026-05-19"
 article_type: "explainer"
 tags: ["bailian", "coding-plan", "alibaba", "qwen", "api", "claude-code", "cline", "opencode", "cursor"]
+faq:
+  - q: "Bailian Pro ¥200 vs Ark Lite ¥9.9 — where does the price gap go?"
+    a: |
+      Bailian gives much more quota (~90,000 calls/month), more models (8 including the full Qwen lineup), and a calendar-month allowance.
+      Ark is cheaper but uses a 5h sliding window and only 5 models. Heavy daily users or Qwen Coder fans go with Bailian; light users get by on Ark's ¥9.9.
+  - q: "Can I still buy the Lite tier?"
+    a: |
+      No. Bailian Lite was discontinued for new purchases in March 2026 and stopped renewals in April. Only Pro (¥200/mo) is available now.
+      Lower-budget alternatives: Volcengine Ark Coding Plan (from ¥9.9) or MiniMax Token Plan (from ¥29).
+  - q: "Does Bailian Coding Plan auto-fallback to pay-as-you-go after quota runs out?"
+    a: |
+      **No.** When monthly quota (~90,000 calls) is exhausted the service stops entirely — no surprise overage charges, but you must wait for next month.
+      To avoid month-end blackouts, keep an Ark account as backup (separate billing) or upgrade to enterprise tier for more quota.
+  - q: "Does Bailian have an Auto mode like Ark?"
+    a: |
+      No. Bailian requires manual model selection. Daily coding: `qwen3-coder-next`. Complex reasoning: `qwen3.6-plus`. Fallbacks: `GLM-5` or `Kimi-K2.5`.
+      If you need automatic model routing, only Volcengine Ark offers it today.
 ---
 
 Bailian Coding Plan is Alibaba Cloud's dedicated AI coding API package at ¥200/month (verify current pricing on the official site). It provides guaranteed request quotas plus access to 8 models, ideal for developers who prefer the Qwen model ecosystem. No VPN required — subscribe via Alipay or WeChat Pay.

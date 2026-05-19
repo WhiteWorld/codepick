@@ -2,9 +2,27 @@
 title: "GitHub Copilot 6月起改为 AI Credits 计费：会变贵吗？一文看懂"
 description: "GitHub Copilot 将于 2026 年 6 月 1 日把高级请求额度（PRU）替换为 AI Credits 按 token 计费。本文拆解各套餐含多少额度、各模型实际花费、以及你的账单会怎么变。"
 date: "2026-05-11"
+updated_at: "2026-05-19"
 article_type: "explainer"
 tags: ["github-copilot", "计费", "ai-credits", "token", "定价"]
 draft: false
+faq:
+  - q: "Copilot 6 月新计费会让我变贵吗？"
+    a: |
+      看用什么模型。如果主要用 GPT-5 mini / Grok Code Fast 做日常 Chat，新制下 $10 配额绰绰有余；
+      如果重度用 Claude Sonnet 跑 Agent 任务，Pro 的 $10 大约只能跑 110 次 Agent 任务，可能不够，需升 Pro+ 或迁去 Cursor / Cline。
+  - q: "Tab 自动补全还消耗 Credits 吗？"
+    a: |
+      不消耗。代码补全（inline completion）和 Next Edit Suggestions 在所有套餐（含 Free）**永远免费**，不计入 AI Credits。
+      只有 Chat / Agent / CLI / Spaces 等主动调用模型的功能才扣 Credits。
+  - q: "怎么避免超额扣费？"
+    a: |
+      在账单设置里把「超额上限」设为 **$0**——月度配额用完后即停止服务，不会额外扣费。
+      重度 Agent 用户希望灵活的，再设一个合理的预算上限（比如 $20）。组织管理员可以在成本中心给每个席位单独配额。
+  - q: "年付用户什么时候迁移到新制？"
+    a: |
+      年付 Pro / Pro+ 用户在**年付到期前保持原计划**（按次数算），到期后才转新制；月付用户 6/1 自动切换。
+      Copilot Business / Enterprise 在 6/1 起切，6–8 月还有额外 Credits 促销。
 ---
 
 GitHub Copilot 将于 **2026 年 6 月 1 日**把现行的"高级请求额度（Premium Request Units）"替换为全新的 **AI Credits 按 token 计费制**。套餐价格不变，但计费逻辑彻底改变——对于不同用量习惯的开发者，实际支出可能差距很大。本文帮你算清楚。

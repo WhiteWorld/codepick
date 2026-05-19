@@ -2,9 +2,27 @@
 title: "GitHub Copilot Switches to AI Credits Billing in June: Will You Pay More?"
 description: "GitHub Copilot is replacing Premium Request Units with AI Credits token-based billing on June 1, 2026. Here's a breakdown of what each plan includes, what models cost, and whether your bill goes up or down."
 date: "2026-05-11"
+updated_at: "2026-05-19"
 article_type: "explainer"
 tags: ["github-copilot", "billing", "ai-credits", "token", "pricing"]
 draft: false
+faq:
+  - q: "Will Copilot's June billing change make me pay more?"
+    a: |
+      Depends on which models you use. If you mostly use GPT-5 mini or Grok Code Fast for daily Chat, the new $10 allowance is plenty.
+      Heavy Claude Sonnet Agent users may burn through Pro's $10 with ~110 Agent runs and need to upgrade to Pro+ — or migrate to Cursor / Cline with their own API.
+  - q: "Do code completions still consume Credits?"
+    a: |
+      No. Inline completion and Next Edit Suggestions remain **free in every plan**, including Free — they never count toward AI Credits.
+      Only Chat, Agent, CLI, Spaces and other model-invoking features deduct Credits.
+  - q: "How do I avoid overage charges?"
+    a: |
+      Set your overage cap to **$0** in billing settings — usage stops once the monthly allowance is gone, with no extra charges.
+      Heavy Agent users who want headroom can set a reasonable overage budget (e.g. $20). Org admins can configure per-seat caps in the cost center.
+  - q: "When do annual subscribers migrate?"
+    a: |
+      Annual Pro / Pro+ subscribers stay on the legacy plan (request-count based) until their term ends, then switch to the new model. Monthly subscribers switch automatically on June 1.
+      Copilot Business / Enterprise switches on June 1 with bonus Credits during the June–August promo window.
 ---
 
 GitHub Copilot is switching from **Premium Request Units (PRUs)** to **AI Credits token-based billing** on **June 1, 2026**. Plan prices stay the same, but the billing logic changes completely — and whether you end up paying more depends heavily on which models you use and how agentically you work. Let's break it down.

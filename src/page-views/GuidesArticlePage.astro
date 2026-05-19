@@ -106,12 +106,27 @@ const articleSchema = canUseHowTo
       ...baseArticleSchema,
       '@type': guide.data.article_type === 'explainer' ? 'TechArticle' : 'Article',
     };
+
+const faqItems: { q: string; a: string }[] = guide.data.faq || [];
+const faqSchema = faqItems.length > 0
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqItems.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a },
+      })),
+    }
+  : null;
+
+const jsonLdList = [articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema] : [])];
 ---
 
 <BaseLayout
   title={`${guide.data.title} | CodePick`}
   description={guide.data.description}
-  jsonLd={[articleSchema, breadcrumbSchema]}
+  jsonLd={jsonLdList}
   lang={lang}
 >
   <article class="container py-12 max-w-3xl">
@@ -164,6 +179,26 @@ const articleSchema = canUseHowTo
     ">
       <Content />
     </div>
+
+    {faqItems.length > 0 && (
+      <section class="mt-12 pt-6 border-t border-[var(--surface-border)]">
+        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">
+          {lang === 'zh' ? '常见问题' : 'Frequently Asked Questions'}
+        </h2>
+        <div class="space-y-3">
+          {faqItems.map((item) => (
+            <details class="card p-4 group">
+              <summary class="cursor-pointer text-sm font-semibold text-[var(--text-primary)] group-open:text-[var(--brand-400)]">
+                {item.q}
+              </summary>
+              <div class="mt-3 text-sm text-[var(--text-secondary)] leading-relaxed whitespace-pre-line">
+                {item.a}
+              </div>
+            </details>
+          ))}
+        </div>
+      </section>
+    )}
 
     <ShareBar url={guideUrl} title={guide.data.title} description={guide.data.description} lang={lang} />
 

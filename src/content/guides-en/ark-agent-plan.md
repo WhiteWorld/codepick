@@ -2,9 +2,27 @@
 title: "Volcano Ark Agent Plan Explained: The Industry's First Agent Subscription Bundle"
 description: "On 2026-05-11 Volcano Ark launched Agent Plan, billed as the industry's first Agent subscription bundle. This guide breaks down its four pricing tiers, the AFP credits system, bundled multimodal models and Harness tools, and how it differs from Coding Plan."
 date: "2026-05-13"
+updated_at: "2026-05-19"
 article_type: "explainer"
 tags: ["volcano-ark", "ark", "agent-plan", "agent", "subscription", "AFP", "multimodal"]
 draft: false
+faq:
+  - q: "Should I buy Agent Plan or stick with Coding Plan?"
+    a: |
+      For pure text/code work, stick with Coding Plan — it starts at ¥9.9 and has a lower per-token cost.
+      Only upgrade to Agent Plan if your Agent workflow needs image/video generation, or you frequently rotate between Doubao/GLM/Kimi models. Agent Plan's token rate is 2–2.5× higher.
+  - q: "How are AFP credits charged — per token or per request?"
+    a: |
+      Per token × model multiplier. Simple text tasks consume little; >128k long-context calls cost 7.5×; multimodal image/video generation is billed separately.
+      Daily quota releases at 00:00 and is sold first-come-first-served. Unused monthly quota does not roll over.
+  - q: "Does Agent Plan support Claude Code?"
+    a: |
+      Yes. Agent Plan reuses Coding Plan's Anthropic-protocol endpoint — set the API key in Claude Code and you're done. Models routed are Doubao/GLM/Kimi rather than native Claude.
+      See [Cline + Ark setup guide](/en/guides/cline-ark-setup/).
+  - q: "Is the ¥40 Small tier worth it?"
+    a: |
+      Good for a low-risk trial. 20,000 AFP covers roughly 1–2 hours of light Agent usage per day.
+      Note that Small does **not** include the 7×24 AI companion — that perk starts at Medium (¥200). Run Small for a month to measure real AFP burn before deciding to upgrade.
 ---
 
 On May 11, 2026, Volcano Engine officially launched **Agent Plan**, branded as "the industry's first Agent subscription bundle". Building on the existing [Ark Coding Plan](/en/coding-plan/), Agent Plan rolls additional modalities and Harness tooling into a single subscription, and introduces a new credit unit called **AFP (Agent Fuel Points)**. For China-native developers running Claude Code, OpenCode, Trae, OpenClaw or Hermes Agent, it's worth re-evaluating against the legacy Coding Plan.

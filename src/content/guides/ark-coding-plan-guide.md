@@ -2,8 +2,26 @@
 title: "火山方舟 Coding Plan 省钱指南：¥9.9 用上国产编程 API"
 description: "火山方舟 Coding Plan 是目前国内最便宜的 AI 编程 API 套餐（¥9.9/月起）。本文拆解 Lite/Pro 套餐、Auto 模式、支持的客户端，以及如何用最低成本上手。"
 date: "2026-05-17"
+updated_at: "2026-05-19"
 article_type: "explainer"
 tags: ["火山方舟", "coding-plan", "字节跳动", "api", "cline", "claude-code", "roo-code", "opencode", "trae"]
+faq:
+  - q: "¥9.9 Lite 和 ¥49.9 Pro 怎么选？"
+    a: |
+      日常持续敲代码、不开多个并发 Agent，Lite 够用（5h 滑动窗口约 1,200 次请求）。
+      跑长流程 Agent、多文件编辑或同时开多客户端，建议直接 Pro（5h 约 6,000 次）。Pro 首购三个月有 5 折，平均 ¥25/月。
+  - q: "方舟的 Auto 模式比手动选模型好吗？"
+    a: |
+      多数场景下 Auto 更省额度——按任务复杂度自动选最便宜能完成的模型。
+      但如果明确知道任务要旗舰模型（比如复杂重构），手动指定能避免 Auto 误判。日常推荐开 Auto。
+  - q: "Claude Code 能用方舟吗？"
+    a: |
+      能，且配置简单：方舟提供 Anthropic 协议兼容端点，只需设两个环境变量：
+      `ANTHROPIC_BASE_URL=https://ark.cn-beijing.volces.com/api/coding/anthropic` 加 API Key 即可，无需任何代理或中间层。模型走 Doubao/GLM/Kimi 系列。
+  - q: "方舟 vs 百炼 vs MiniMax 怎么选？"
+    a: |
+      预算优先选**方舟**（¥9.9 起最便宜）；想用千问全家桶选**百炼**（¥200，模型最多）；
+      要全模态（含音频/音乐）选 **MiniMax Token Plan**（¥29 起）。重度 >128k 长上下文避开 Agent Plan（7.5× 倍率）。详见 [百炼 vs 方舟](/zh/compare/bailian-coding-plan-vs-ark-coding-plan/)。
 ---
 
 火山方舟 Coding Plan 是字节跳动旗下的 AI 编程 API 套餐，**¥9.9/月起，无需代理**，支持支付宝/微信支付。国内开发者接入 AI 编程成本最低的方案之一。
