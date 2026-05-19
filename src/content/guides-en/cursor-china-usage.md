@@ -9,7 +9,7 @@ faq:
   - q: "Can I use Cursor from China without a VPN?"
     a: |
       No. All of Cursor's AI endpoints are served from Cursor's own infrastructure and require a proxy from inside China — even the free Hobby tier.
-      For a VPN-free workflow, switch to Trae CN (ByteDance, direct mainland access) or Cline + Volcengine Ark (¥9.9/mo).
+      For a VPN-free workflow, switch to Trae CN (ByteDance, direct mainland access) or Cline + Volcengine Ark (Lite ¥40/mo, ¥9.9 first month).
   - q: "Can I pay Cursor with Alipay or WeChat Pay?"
     a: |
       No. Cursor only accepts Visa/Mastercard dual-currency credit cards. PayPal, Alipay, and WeChat Pay are not supported.
@@ -74,11 +74,11 @@ From $40/user/month with centralized management and invoice/PO billing. Chinese 
 | Alternative | Cost | Network | Best For |
 |-------------|------|---------|----------|
 | [Trae CN](/en/tool/trae-cn) | Free | **No VPN** | ByteDance-made, mainland China direct access |
-| [Cline + Volcengine Ark](/en/plan/cline-ark) | ¥9.9/mo | **No VPN** | VS Code extension + domestic API |
+| [Cline + Volcengine Ark](/en/plan/cline-ark) | ¥40/mo (¥9.9 first month) | **No VPN** | VS Code extension + domestic API |
 | [Cline + Bailian](/en/plan/cline-bailian) | ¥200/mo | **No VPN** | Qwen Coder model series |
 | [Kiro IDE](/en/tool/kiro) | ~$2/mo | VPN | Original Claude models at 1/10 cost |
 
-If you rely heavily on Cursor's Agent mode and Tab completions, **Trae CN** is the closest free domestic alternative. If you prefer the VS Code extension workflow with more model choices, **Cline + Volcengine Ark** (¥9.9/mo) offers the best value.
+If you rely heavily on Cursor's Agent mode and Tab completions, **Trae CN** is the closest free domestic alternative. If you prefer the VS Code extension workflow with more model choices, **Cline + Volcengine Ark** (¥40/mo, ¥9.9 first month) offers the best value.
 
 ## Related Articles
 

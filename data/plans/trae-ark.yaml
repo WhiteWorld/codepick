@@ -10,8 +10,8 @@ api: ark-coding-plan
 environment: Trae CN IDE (trae.cn)
 monthly_cost:
   min: "¥9.9"
-  typical: "¥9.9"
-  max: "¥49.9"
+  typical: "¥40"
+  max: "¥200"
 currency: CNY
 scores:
   coding_ability: 7.8

@@ -65,10 +65,10 @@ best_for_en:
   - "Teams needing true usage-based cost allocation"
 not_for:
   - "预算固定、希望可预测月费的用户（选套餐制 Coding Plan）"
-  - "用量极小的轻度用户（套餐制低门槛 ¥9.9 起更友好）"
+  - "用量极小的轻度用户（套餐制首月低至 ¥9.9 试水更友好）"
 not_for_en:
   - "Users wanting predictable monthly cost (pick a subscription plan)"
-  - "Very light users (subscription plans start at ¥9.9, lower friction)"
+  - "Very light users (subscription plans offer ¥9.9 first-month trial for easier entry)"
 
 data_sources:
   - url: "https://api-docs.deepseek.com/quick_start/pricing"

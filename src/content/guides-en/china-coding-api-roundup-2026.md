@@ -1,16 +1,17 @@
 ---
 title: "China Coding API Roundup 2026: Ark vs Bailian vs MiniMax vs Zhipu vs DeepSeek"
-description: "The most comprehensive 2026 comparison of Chinese AI coding API subscriptions: Volcengine Ark from ¥9.9, Alibaba Bailian ¥200, MiniMax ¥29, Zhipu GLM ¥49+, and DeepSeek pay-as-you-go. One big table, six scenarios, and a decision tree to find your fit in 30 seconds."
+description: "The most comprehensive 2026 comparison of Chinese AI coding API subscriptions: Volcengine Ark Lite ¥40/mo (¥9.9 first month), Alibaba Bailian ¥200, MiniMax ¥29, Zhipu GLM ¥49+, and DeepSeek pay-as-you-go. One big table, six scenarios, and a decision tree to find your fit in 30 seconds."
 date: "2026-05-19"
 updated_at: "2026-05-19"
 article_type: "review"
 tags: ["coding-plan", "comparison", "roundup", "ark", "bailian", "minimax", "glm", "zhipu", "deepseek", "china", "api"]
 draft: false
 faq:
-  - q: "Which Chinese Coding API has the cheapest entry point?"
+  - q: "Which Chinese Coding API is cheapest?"
     a: |
-      **Volcengine Ark Coding Plan Lite ¥9.9/mo** (promo price, original ¥40) is currently the lowest monthly subscription entry point for Chinese coding APIs.
-      MiniMax Token Plan ¥29 (full-modal) is also low. Zhipu GLM starts at ¥49 (Lite). Bailian discontinued Lite and now starts at ¥200 (Pro).
+      Depends on first-month vs long-term:
+      - **First-month lowest**: Volcengine Ark Lite **¥9.9** (¥8.9 with referral coupon) — but renewal returns to ¥40/mo.
+      - **Long-term lowest**: MiniMax Token Plan ¥29 (full-modal), Ark Lite ¥40 renewal, Zhipu GLM Lite ¥49. Bailian discontinued Lite and starts at ¥200 (Pro).
   - q: "I want to use Claude Code — which Chinese gateway is best?"
     a: |
       Depends on model preference: for Doubao + multi-model Auto, pick **Volcengine Ark**; for GLM-5.1 flagship, pick **Zhipu Coding Plan**; for Qwen Coder, pick **Bailian**.
@@ -33,11 +34,11 @@ faq:
       Ark supports sub-accounts but doesn't bill per-seat. Zhipu, MiniMax, and DeepSeek require teams to subscribe individually or self-allocate budgets.
 ---
 
-China's AI coding API subscription market exploded in 2026 — five major providers now offer fundamentally different product shapes: from Ark's ¥9.9 daily flash sales to Zhipu's 30%-off annual deals, from MiniMax's full-modal bundle to DeepSeek's pure pay-as-you-go. **Which one to buy?** This is a roundup for developers actually making the decision.
+China's AI coding API subscription market exploded in 2026 — five major providers now offer fundamentally different product shapes: from Ark's daily first-month flash sales (¥9.9, renew at ¥40) to Zhipu's 30%-off annual deals, from MiniMax's full-modal bundle to DeepSeek's pure pay-as-you-go. **Which one to buy?** This is a roundup for developers actually making the decision.
 
 ## TL;DR — Decide in 4 lines
 
-- **Budget < ¥30, just trying it out**: Ark Coding Plan Lite **¥9.9**
+- **Cheapest first-month trial**: Ark Coding Plan Lite first month **¥9.9** (renews at ¥40)
 - **Want stable GLM-5.1 / maximize annual discount**: Zhipu Coding Plan **Pro ¥149** (¥104/mo annual)
 - **Heavy multimodal (audio/video included)**: MiniMax Token Plan **from ¥29**
 - **Variable usage / want direct V4-Pro flagship**: DeepSeek API (pay-per-token, V4-Pro currently **75% off**)
@@ -50,7 +51,8 @@ For team scenarios or heavy Claude Code users, read on.
 
 | Dimension | Volcengine Ark | Alibaba Bailian | MiniMax | Zhipu GLM | DeepSeek |
 |---|---|---|---|---|---|
-| **Entry price** | ¥9.9/mo (Lite) | ¥200/mo (Pro) | ¥29/mo | ¥49/mo (Lite) | Pay-as-you-go |
+| **Standard monthly** | ¥40 (Lite) / ¥200 (Pro) | ¥200 (Pro) | from ¥29 | ¥49 (Lite) / ¥149 (Pro) / ¥469 (Max) | None (pay-per-token) |
+| **First-month promo** | **¥9.9** (Lite, ¥8.9 with referral) | None | None | **Discontinued** | V4-Pro 75% off until 5/31 |
 | **Pricing model** | Subscription + sliding window | Subscription + monthly quota | Subscription + token pool | Subscription + sliding window | Per-token |
 | **Quota mechanism** | 5h sliding ~1,200 calls | Monthly ~90,000 calls | Token pool | 5h sliding ~80 prompts | True usage |
 | **Models** | 5 (Doubao+others) | 8 (full Qwen lineup) | Full multimodal | 3 (GLM-5/4.7/4.6) | DeepSeek series (V4/R1) |
@@ -61,16 +63,15 @@ For team scenarios or heavy Claude Code users, read on.
 | **Team / multi-seat** | Sub-accounts | **Team edition ¥198+** | Individual focus | Individual focus | Individual focus |
 | **Network** | Mainland direct | Mainland direct | Mainland direct | Mainland direct | Mainland direct |
 | **Payment** | Alipay / WeChat | Alipay / WeChat | Alipay / WeChat | Alipay / WeChat | Alipay / WeChat |
-| **First-buy promo** | Lite ¥9.9 daily flash sale | None | None | **Discontinued** | V4-Pro 75% off until 5/31 |
 
 ---
 
 ## Pick by Scenario
 
 ### 🪙 Scenario A: Budget < ¥30, just want to experience it
-**Verdict: Ark Lite ¥9.9**
+**Verdict: Ark Lite first month ¥9.9 (renews at ¥40)**
 
-Daily flash sale at 10:30 — new users get in and lock the price for a month. Fits daily chat + light agent tasks (1,200 calls per 5h). If the flash sale runs out, fall back to MiniMax ¥29 full-modal.
+Daily flash sale at 10:30 — new users get ¥9.9 first month, down to ¥8.9 with referral coupon. Fits daily chat + light agent tasks (1,200 calls per 5h). **Second month onwards is ¥40** — if you need to stay under ¥30/mo long-term, switch to MiniMax ¥29 full-modal after the first month.
 
 ### 🦀 Scenario B: Claude Code with domestic models
 **Verdict: Ark (multi-model) or Zhipu (GLM-focused)**
@@ -120,12 +121,12 @@ Zhipu has the most aggressive discount: **10% off quarterly / 30% off annually**
 
 **Position**: Lowest entry price in China + broadest client support.
 
-| Tier | Price | Quota |
-|---|---|---|
-| Coding Plan Lite | ¥9.9/mo | 5h ~1,200 calls |
-| Coding Plan Pro | ¥49.9/mo | 5h ~6,000 calls |
-| Agent Plan Small | ¥40/mo | 20,000 AFP (multimodal) |
-| Agent Plan Medium | ¥200/mo | 100,000 AFP + 24/7 AI Companion |
+| Tier | Standard | First month | Quota |
+|---|---|---|---|
+| Coding Plan Lite | ¥40/mo | **¥9.9** (¥8.9 with referral) | 5h ~1,200 calls |
+| Coding Plan Pro | ¥200/mo | ¥49.9 (3-month bundle 50% off, ~¥100/mo) | 5h ~6,000 calls |
+| Agent Plan Small | ¥40/mo | — | 20,000 AFP (multimodal) |
+| Agent Plan Medium | ¥200/mo | — | 100,000 AFP + 24/7 AI Companion |
 
 **Strengths**: Auto mode (routes by task complexity), 11+ client support including native Anthropic protocol for Claude Code, transparent daily 10:30 flash sale.
 
@@ -195,14 +196,14 @@ See [MiniMax Token Plan explainer](/en/guides/minimax-token-plan/).
 
 ```
 What's your monthly budget?
-├─ < ¥20 → Ark Lite ¥9.9 (trial)
+├─ < ¥20 → Ark Lite first month ¥9.9 (renews at ¥40)
 ├─ ¥30~¥100
 │   ├─ Want full-modal → MiniMax ¥29
 │   └─ Want GLM-5.1 → Zhipu Lite ¥49
 ├─ ¥100~¥300
 │   ├─ Need team multi-seat → Bailian Team ¥198
 │   ├─ Maximize annual discount → Zhipu Pro annual ¥104/mo
-│   ├─ Solo heavy coding → Ark Coding Pro ¥49.9 or Agent Plan Small ¥40
+│   ├─ Solo heavy coding → Ark Coding Pro ¥200 (first month ¥49.9) or Agent Plan Small ¥40
 │   └─ Multi-model rotation → Bailian Pro ¥200
 ├─ > ¥300 (heavy Agent)
 │   ├─ Multimodal + Harness → Ark Agent Plan Medium ¥200
@@ -215,7 +216,7 @@ What's your monthly budget?
 
 ## My Final Recommendation
 
-If you want a single **default recommendation**: **start with Ark Lite ¥9.9 for one month**, measure your real consumption, then decide whether to upgrade or migrate. ¥10 buys you data — and solves the "which tier do I actually need" decision paralysis for 80% of users.
+If you want a single **default recommendation**: **start with Ark Lite first month ¥9.9**, measure your real consumption, then decide whether to upgrade or migrate. ¥10 buys you data — and solves the "which tier do I actually need" decision paralysis for 80% of users. Just remember the second month onwards is ¥40 — budget against that.
 
 After one month, if you find yourself:
 - Constantly hitting the 5h window → upgrade to Coding Pro or Agent Plan

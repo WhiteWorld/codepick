@@ -98,8 +98,8 @@ quick_start_en:
   - Open your project and use the Cascade panel (right side) for AI chat with multi-file editing and Agent mode
   - "JetBrains/Vim users: search for the Windsurf plugin in the marketplace; Cascade works there too"
 register_url: https://windsurf.com
-china_note: 需要翻墙，暂无官方国内镜像；国内用户可考虑 Trae CN（免费）或 Cline + 火山方舟（¥9.9/月）作为替代
-china_note_en: Requires VPN from China; no official domestic mirror; China users can consider Trae CN (free) or Cline + Volcengine Ark (¥9.9/mo) as alternatives
+china_note: 需要翻墙，暂无官方国内镜像；国内用户可考虑 Trae CN（免费）或 Cline + 火山方舟（Lite 首月 ¥9.9 / 续费 ¥40）作为替代
+china_note_en: Requires VPN from China; no official domestic mirror; China users can consider Trae CN (free) or Cline + Volcengine Ark (¥9.9 first month / ¥40 renewal) as alternatives
 
 plans_using_this: []
 data_sources:

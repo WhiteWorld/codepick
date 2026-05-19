@@ -1,15 +1,19 @@
 ---
-title: "Volcengine Ark Coding Plan: Budget Guide — ¥9.9 AI Coding API"
-description: "Volcengine Ark Coding Plan is China's most affordable AI coding API package (from ¥9.9/mo). Covers Lite/Pro tiers, Auto mode, compatible clients, and how to get started at minimum cost."
+title: "Volcengine Ark Coding Plan: Complete Guide — Lite ¥40/mo (¥9.9 first month)"
+description: "Volcengine Ark Coding Plan is one of China's most affordable AI coding API packages: Lite ¥40/mo (¥9.9 first month, down to ¥8.9 with referral coupon), Pro ¥200/mo (¥49.9 first month). Covers tier mechanics, renewal rules, Auto mode, supported clients, and how to start at minimum cost."
 date: "2026-05-17"
 updated_at: "2026-05-19"
 article_type: "explainer"
 tags: ["ark", "coding-plan", "bytedance", "api", "cline", "claude-code", "roo-code", "opencode", "trae"]
 faq:
-  - q: "Lite (¥9.9) or Pro (¥49.9) — which should I pick?"
+  - q: "Is Lite really only ¥9.9/month? What's the renewal price?"
+    a: |
+      ¥9.9 is the **first-month promotional price** for Lite (2.5× discount); referral coupons can push it to ¥8.9.
+      **Renewal returns to the standard ¥40/month**. Pro is similar — ¥49.9 first month, ¥200 renewal. Pro's first-time 3-month bundle is 50% off, averaging ¥100/month.
+  - q: "Lite ¥40 or Pro ¥200 — which should I pick?"
     a: |
       For steady daily coding without parallel Agents, Lite is enough (~1,200 requests per 5h sliding window).
-      For long Agent runs, multi-file edits, or multiple clients in parallel, go straight to Pro (~6,000 / 5h). First-time Pro 3-month bundle gets 50% off, averaging ¥25/mo.
+      For long Agent runs, multi-file edits, or multiple clients in parallel, go straight to Pro (~6,000 / 5h, 5× Lite). Best practice: start with Lite at ¥9.9 first month, measure real usage, then decide whether to upgrade.
   - q: "Is Auto mode better than picking models manually?"
     a: |
       In most cases Auto saves more quota — it routes simple tasks to the cheapest capable model.
@@ -20,20 +24,22 @@ faq:
       No proxy, no middleware. Models routed are Doubao / GLM / Kimi.
   - q: "Ark vs Bailian vs MiniMax — how to choose?"
     a: |
-      Cheapest: **Ark** (¥9.9 entry). Want the full Qwen lineup: **Bailian** (¥200, most models). Full multimodal incl. audio/music: **MiniMax Token Plan** (¥29 entry).
+      Cheapest: **Ark** (Lite ¥9.9 first month / ¥40 renewal). Want the full Qwen lineup: **Bailian** (¥200, most models). Full multimodal incl. audio/music: **MiniMax Token Plan** (¥29 entry).
       Heavy >128k long-context users should avoid Agent Plan due to its 7.5× multiplier. See [Bailian vs Ark](/en/compare/bailian-coding-plan-vs-ark-coding-plan/).
 ---
 
-Volcengine Ark Coding Plan is ByteDance's AI coding API package, starting at **¥9.9/month with no VPN required**. It's one of the lowest-cost ways for developers in China to get AI coding API access.
+Volcengine Ark Coding Plan is ByteDance's AI coding API package: **Lite standard ¥40/month, first month as low as ¥9.9**, no VPN required, Alipay/WeChat payment supported. One of the lowest-cost ways for developers in China to get AI coding API access — but be aware ¥9.9 is a first-month promo; renewal returns to ¥40.
 
 ## Plans
 
 | Item | Lite | Pro |
 |------|------|-----|
-| Monthly | **¥9.9** (reg. ¥40) | ¥49.9 (reg. ¥200) |
-| Per 5 hours | ~1,200 requests | ~6,000 requests |
+| Standard monthly | **¥40** | ¥200 |
+| First-month promo | **¥9.9** (down to ¥8.9 with referral) | ¥49.9 |
+| Renewal | ¥40/mo | ¥200/mo (first-time 3-month bundle 50% off, ~¥100/mo) |
+| Per 5 hours | ~1,200 requests | ~6,000 requests (5× Lite) |
 | Auto mode | ✅ | ✅ |
-| Barrier to entry | Very low | Moderate |
+| Barrier to entry | Very low (first month) | Moderate |
 
 - Quota uses a **rolling 5-hour window** (not calendar month) — great for consistent daily use
 - Service pauses when window cap is hit; resumes automatically as time slides forward
@@ -84,17 +90,20 @@ Two environment variables and you're done — Ark's Anthropic-compatible endpoin
 
 ## Money-Saving Tips
 
-1. **Start with Lite** (¥9.9): enough for light daily coding; upgrade to Pro if needed
-2. **Use Auto mode**: lightweight models for simple tasks, saving your quota
-3. **Refer friends**: both sides get discounts
+1. **Start with Lite** (¥9.9 first month): enough for light daily coding; measure usage before upgrading
+2. **Stack the referral coupon**: friend referral gives both sides 10% off — Lite first month down to **¥8.9**
+3. **Use Auto mode**: lightweight models for simple tasks, saving your quota
 4. **Time your new-signup visit**: 10:30 AM Beijing daily
-5. **Buy 3 months of Pro upfront**: up to 50% off for first-time quarterly purchase
+5. **Buy 3 months of Pro upfront**: 50% off (~¥100/mo) — Pro's long-term cheapest path
+
+> ⚠️ Lite renewal returns to **¥40/month**, not ¥9.9 — budget against ¥40 for accuracy.
 
 ## Quick Comparison: Ark vs Bailian
 
 | Dimension | Ark | Bailian |
 |-----------|-----|---------|
-| Starting price | ¥9.9/mo | ¥200/mo |
+| Standard monthly | ¥40 (Lite) / ¥200 (Pro) | ¥200 (Pro) |
+| First-month promo | ¥9.9 / ¥49.9 | None |
 | Quota model | 5-hour rolling window | Monthly total |
 | Model count | 5 | 8 |
 | Auto mode | ✅ | ❌ |
@@ -104,11 +113,13 @@ Full comparison: [Bailian vs Ark Coding Plan](/en/compare/bailian-coding-plan-vs
 
 ## Who It's For
 
-- ✅ Budget-conscious individual developers (from ¥9.9)
+- ✅ Developers wanting a ¥9.9 first-month trial
+- ✅ Anyone OK with ¥40/month renewal
 - ✅ Consistent daily coders (5-hour window suits steady usage)
 - ✅ Developers who want multiple Chinese model options
 - ✅ Claude Code users needing a domestic relay
 - ✅ Teams needing sub-account management
+- ❌ Anyone expecting permanent ¥9.9 pricing (first-month only; reverts to ¥40)
 - ❌ Bursty users who code in intense sprints (monthly cap would suit better)
 
 ## Related Articles
