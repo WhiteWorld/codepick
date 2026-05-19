@@ -2,6 +2,7 @@
 title: "2026 Agent Collaboration Platform Guide: Slock, Multica, LobeHub, Orkas Compared"
 description: "From solo coding to agent teams — a deep comparison of four agent collaboration platforms: Slock's task claiming, Multica's skill sharing, LobeHub's agent marketplace, and Orkas's Commander dispatch. Find your ideal human+agent workflow."
 date: "2026-05-09"
+updated_at: "2026-05-19"
 tags: [agent-collaboration, slock, multica, lobehub, orkas, comparison]
 article_type: review
 draft: false
@@ -89,7 +90,7 @@ Multica is a project management tool with agents built in. Create Issues → pic
 LobeHub is the largest platform by far (76K+ GitHub Stars), positioned as a general-purpose AI platform rather than pure coding collaboration. Its core is the Agent Marketplace + Agent Groups + Skills Marketplace.
 
 **Highlights**:
-- **Agent Marketplace**: 296K+ Skills, 56K+ MCP Servers — the richest ecosystem
+- **Agent Marketplace**: 273K+ Skills, 51K+ MCP Servers (as of 2026-05) — the richest ecosystem
 - **Agent Group auto-formation**: the system matches agents to tasks automatically
 - **Visual builder**: drag-and-drop agent and workflow creation in Web UI
 - **Persistent memory + continual learning**: agents learn your preferences and work patterns
