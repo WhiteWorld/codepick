@@ -2,9 +2,27 @@
 title: "火山方舟 Agent Plan 全解读：业界首个 Agent 套餐包"
 description: "2026-05-11 火山方舟发布 Agent Plan，被官方定义为业界首个 Agent 套餐包。本文详解四档订阅价格、AFP 积分制、多模态模型与 Harness 工具、与 Coding Plan 的差异，以及如何选择。"
 date: "2026-05-13"
+updated_at: "2026-05-19"
 article_type: "explainer"
 tags: ["火山方舟", "ark", "agent-plan", "智能体", "订阅", "AFP", "多模态"]
 draft: false
+faq:
+  - q: "Agent Plan 和 Coding Plan 应该买哪个？"
+    a: |
+      纯文本编程仍建议 Coding Plan（¥9.9 起，单价更低）。
+      只有当 Agent 流程要做图像/视频生成、或经常要在 Doubao/GLM/Kimi 多模型间轮换时才升 Agent Plan——它的 token 单价比 Coding Plan 高 2~2.5×。
+  - q: "AFP 积分怎么算？按 token 还是按次数？"
+    a: |
+      按 token × 模型倍率扣费。简单文本任务消耗低，超过 128k 的长上下文要 7.5× 倍率，多模态图像/视频生成另算。
+      每天 00:00 释放当日额度，售完即停，月度配额未用完不顺延。
+  - q: "Agent Plan 支持 Claude Code 吗？"
+    a: |
+      支持。Agent Plan 沿用 Coding Plan 的 Anthropic 协议端点，把 API Key 配到 Claude Code 即可，只是模型走的是 Doubao/GLM/Kimi 系而不是原生 Claude。
+      配置方式见 [Cline + 方舟配置指南](/zh/guides/cline-ark-setup/)。
+  - q: "¥40 的 Small 档值得买吗？"
+    a: |
+      适合先小步试。20,000 AFP 大约够每天 1~2 小时的轻量 Agent 任务。
+      重点是 Small **不含 7×24 智能伙伴权益**——想要这部分必须升到 Medium (¥200) 起。建议先用 Small 跑一个月统计真实消耗再升档。
 ---
 
 2026 年 5 月 11 日，火山引擎正式发布 **Agent Plan**，被官方定义为「业界首个 Agent 套餐包」。它在原有 [Ark Coding Plan](/zh/coding-plan/) 的基础上，把更多模态模型与 Harness 工具组合进同一份订阅，并引入了全新的 **AFP（Agent Fuel Points）** 积分制度。对国内 Claude Code / OpenCode / Trae / OpenClaw / Hermes Agent 用户而言，这是一个值得重新评估的国内中转方案。

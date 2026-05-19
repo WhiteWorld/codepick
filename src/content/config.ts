@@ -11,6 +11,11 @@ const compare = defineCollection({
   }),
 });
 
+const faqItem = z.object({
+  q: z.string(),
+  a: z.string(),
+});
+
 const guides = defineCollection({
   type: 'content',
   schema: z.object({
@@ -21,6 +26,7 @@ const guides = defineCollection({
     article_type: z.enum(['howto', 'review', 'explainer']),
     tags: z.array(z.string()).optional().default([]),
     draft: z.boolean().optional().default(false),
+    faq: z.array(faqItem).optional(),
   }),
 });
 
@@ -46,6 +52,7 @@ const guidesEn = defineCollection({
     article_type: z.enum(['howto', 'review', 'explainer']),
     tags: z.array(z.string()).optional().default([]),
     draft: z.boolean().optional().default(false),
+    faq: z.array(faqItem).optional(),
   }),
 });
 

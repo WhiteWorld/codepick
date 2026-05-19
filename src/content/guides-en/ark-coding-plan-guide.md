@@ -2,8 +2,26 @@
 title: "Volcengine Ark Coding Plan: Budget Guide — ¥9.9 AI Coding API"
 description: "Volcengine Ark Coding Plan is China's most affordable AI coding API package (from ¥9.9/mo). Covers Lite/Pro tiers, Auto mode, compatible clients, and how to get started at minimum cost."
 date: "2026-05-17"
+updated_at: "2026-05-19"
 article_type: "explainer"
 tags: ["ark", "coding-plan", "bytedance", "api", "cline", "claude-code", "roo-code", "opencode", "trae"]
+faq:
+  - q: "Lite (¥9.9) or Pro (¥49.9) — which should I pick?"
+    a: |
+      For steady daily coding without parallel Agents, Lite is enough (~1,200 requests per 5h sliding window).
+      For long Agent runs, multi-file edits, or multiple clients in parallel, go straight to Pro (~6,000 / 5h). First-time Pro 3-month bundle gets 50% off, averaging ¥25/mo.
+  - q: "Is Auto mode better than picking models manually?"
+    a: |
+      In most cases Auto saves more quota — it routes simple tasks to the cheapest capable model.
+      If you know a task needs the flagship model (e.g. complex refactors), manual selection avoids Auto's misjudgments. For daily use, Auto is recommended.
+  - q: "Can I use Claude Code with Ark?"
+    a: |
+      Yes, and setup is trivial. Ark provides an Anthropic-compatible endpoint — set two env vars (`ANTHROPIC_BASE_URL=https://ark.cn-beijing.volces.com/api/coding/anthropic` and the API key) and you're done.
+      No proxy, no middleware. Models routed are Doubao / GLM / Kimi.
+  - q: "Ark vs Bailian vs MiniMax — how to choose?"
+    a: |
+      Cheapest: **Ark** (¥9.9 entry). Want the full Qwen lineup: **Bailian** (¥200, most models). Full multimodal incl. audio/music: **MiniMax Token Plan** (¥29 entry).
+      Heavy >128k long-context users should avoid Agent Plan due to its 7.5× multiplier. See [Bailian vs Ark](/en/compare/bailian-coding-plan-vs-ark-coding-plan/).
 ---
 
 Volcengine Ark Coding Plan is ByteDance's AI coding API package, starting at **¥9.9/month with no VPN required**. It's one of the lowest-cost ways for developers in China to get AI coding API access.
