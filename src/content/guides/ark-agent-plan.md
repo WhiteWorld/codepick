@@ -61,15 +61,16 @@ Agent Plan 一次性把字节自研 + 三方主流模型打包进同一订阅：
 
 **字节系列**
 
-- **Doubao-Seed** — 编程主力
-- **Doubao-Seedance** — 视频生成
-- **Doubao-Seedream** — 图像生成
-- **Doubao-embedding-vision** — 多模态向量
+- **Doubao-Seed** — 编程主力（文本 / 代码）
+- **Doubao-Seedance 2.0** — 视频生成
+- **Doubao-Seedream 5.0 lite** — 图像生成
+- **Doubao-embedding-vision** — 多模态记忆/向量检索
 
 **第三方主流**
 
 - **GLM-5.1**（智谱）
 - **Kimi-K2.6**（Moonshot）
+- **MiniMax-M2.7**（MiniMax）
 
 **Auto 模式**：与 Coding Plan 一致，可按任务自动匹配性价比最高的模型，免去手动切换。
 

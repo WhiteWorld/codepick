@@ -61,15 +61,16 @@ Agent Plan packages first-party ByteDance models with top third-party Chinese mo
 
 **ByteDance Doubao series**
 
-- **Doubao-Seed** — primary coding model
-- **Doubao-Seedance** — video generation
-- **Doubao-Seedream** — image generation
-- **Doubao-embedding-vision** — multimodal embeddings
+- **Doubao-Seed** — primary coding model (text / code)
+- **Doubao-Seedance 2.0** — video generation
+- **Doubao-Seedream 5.0 lite** — image generation
+- **Doubao-embedding-vision** — multimodal memory / embeddings
 
 **Third-party**
 
 - **GLM-5.1** (Zhipu)
 - **Kimi-K2.6** (Moonshot)
+- **MiniMax-M2.7** (MiniMax)
 
 **Auto mode**: same as Coding Plan — it routes each task to the best-fit model automatically, no manual switching required.
 
