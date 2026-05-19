@@ -1,0 +1,94 @@
+id: deepseek-api
+name: DeepSeek API（按量付费）
+name_en: DeepSeek API (Pay-as-you-go)
+type: api
+logo: null
+url: https://platform.deepseek.com/
+affiliate_url: null
+repo: null
+
+current_version: "V4"
+version_tracked_at: "2026-05-19"
+
+pricing:
+  model: pay_as_you_go
+  currency: CNY
+  plans:
+    - name: V4-Flash
+      price: "$0.14/M 输入"
+      price_en: "$0.14/M input"
+      period: pay_as_you_go
+      limits: "高性价比模型，82.6% HumanEval"
+      limits_en: "Best-value model, 82.6% HumanEval"
+    - name: V4-Pro
+      price: "75% 折扣中（限期至 2026-05-31）"
+      price_en: "75% off (until 2026-05-31)"
+      period: pay_as_you_go
+      limits: "旗舰编程模型，80.6% SWE-bench"
+      limits_en: "Flagship coding model, 80.6% SWE-bench"
+  price_updated_at: "2026-05-19"
+  note: "DeepSeek 不提供月度订阅套餐，纯按 token 计费。Web Chat 完全免费。如需套餐制方案，请选方舟（含 DeepSeek-V3.2）或百炼。"
+  note_en: "DeepSeek offers no monthly subscription — pure pay-per-token only. Web Chat is fully free. For bundled plans including DeepSeek-V3.2, see Volcengine Ark or Bailian."
+
+scores:
+  coding_ability: 9.0
+  cost_efficiency: 8.5
+  flexibility: 9.0
+  china_friendly: 9.5
+  privacy: 7.5
+
+features:
+  auto_mode: false
+  supported_models:
+    - DeepSeek-V4-Pro
+    - DeepSeek-V4-Flash
+    - DeepSeek-V3.2
+    - DeepSeek-R1
+  api_protocol: "兼容 OpenAI 协议"
+  api_endpoint: "https://api.deepseek.com"
+  supported_clients:
+    - Cline
+    - Roo Code
+    - OpenCode
+    - Cursor
+    - Codex CLI
+    - Aider
+  china_native: true
+
+best_for:
+  - "用量波动大、不愿被套餐绑定的开发者"
+  - "想直接用 V4-Pro / R1 旗舰模型的 Power User"
+  - "团队希望按真实消耗付费、便于成本分摊"
+best_for_en:
+  - "Developers with variable usage who don't want subscription lock-in"
+  - "Power users wanting direct V4-Pro / R1 access"
+  - "Teams needing true usage-based cost allocation"
+not_for:
+  - "预算固定、希望可预测月费的用户（选套餐制 Coding Plan）"
+  - "用量极小的轻度用户（套餐制低门槛 ¥9.9 起更友好）"
+not_for_en:
+  - "Users wanting predictable monthly cost (pick a subscription plan)"
+  - "Very light users (subscription plans start at ¥9.9, lower friction)"
+
+data_sources:
+  - url: "https://api-docs.deepseek.com/quick_start/pricing"
+    type: pricing
+    last_checked: "2026-05-19"
+  - url: "https://platform.deepseek.com/"
+    type: documentation
+    last_checked: "2026-05-19"
+
+changelog:
+  - date: "2026-05-01"
+    type: pricing
+    summary: "V4-Pro 75% 折扣促销期延长至 2026-05-31"
+    summary_en: "V4-Pro 75% discount extended to 2026-05-31"
+  - date: "2026-03-15"
+    type: model
+    summary: "DeepSeek V4 发布，含 V4-Flash 与 V4-Pro 两档"
+    summary_en: "DeepSeek V4 released with V4-Flash and V4-Pro tiers"
+
+last_full_review: "2026-05-19"
+next_review_due: "2026-06-19"
+review_frequency_days: 30
+confidence: high
