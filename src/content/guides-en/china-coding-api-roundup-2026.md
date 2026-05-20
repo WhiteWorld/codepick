@@ -14,8 +14,8 @@ faq:
       - **Long-term lowest**: MiniMax Token Plan ¥29 (full-modal), Ark Lite ¥40 renewal, Zhipu GLM Lite ¥49. Bailian discontinued Lite and starts at ¥200 (Pro).
   - q: "I want to use Claude Code — which Chinese gateway is best?"
     a: |
-      Depends on model preference: for Doubao + multi-model Auto, pick **Volcengine Ark**; for GLM-5.1 flagship, pick **Zhipu Coding Plan**; for Qwen Coder, pick **Bailian**.
-      All three support Anthropic-protocol endpoints — Claude Code just needs two env vars, no proxy required.
+      Depends on model preference: for Doubao + multi-model Auto, pick **Volcengine Ark**; for GLM-5.1 flagship, pick **Zhipu Coding Plan**; for Qwen Coder, pick **Bailian**; for **DeepSeek V4-Pro flagship pay-as-you-go**, pick **DeepSeek official** (`api.deepseek.com/anthropic`).
+      All four natively support Anthropic-protocol endpoints — Claude Code just needs two env vars, no proxy or third-party wrapper required.
   - q: "Why doesn't DeepSeek have a Coding Plan?"
     a: |
       DeepSeek runs pure pay-per-token pricing with no monthly subscription; Web Chat is fully free.
@@ -57,8 +57,8 @@ For team scenarios or heavy Claude Code users, read on.
 | **Quota mechanism** | 5h sliding ~1,200 calls | Monthly ~90,000 calls | Token pool | 5h sliding ~80 prompts | True usage |
 | **Models** | 5 (Doubao+others) | 8 (full Qwen lineup) | Full multimodal | 3 (GLM-5/4.7/4.6) | DeepSeek series (V4/R1) |
 | **Auto mode** | ✅ | ❌ | ❌ | ❌ | ❌ |
-| **Anthropic protocol** | ✅ | ✅ | ✅ | ✅ | ❌ (OpenAI only) |
-| **Claude Code native** | ✅ | ✅ | ✅ | ✅ | ❌ (needs wrapper) |
+| **Anthropic protocol** | ✅ | ✅ | ✅ | ✅ | ✅ (`api.deepseek.com/anthropic`) |
+| **Claude Code native** | ✅ | ✅ | ✅ | ✅ | ✅ (official native) |
 | **Annual discount** | Promo-dependent | Promo-dependent | Promo-dependent | **30% off** (best) | N/A |
 | **Team / multi-seat** | Sub-accounts | **Team edition ¥198+** | Individual focus | Individual focus | Individual focus |
 | **Network** | Mainland direct | Mainland direct | Mainland direct | Mainland direct | Mainland direct |
@@ -74,9 +74,9 @@ For team scenarios or heavy Claude Code users, read on.
 Daily flash sale at 10:30 — new users get ¥9.9 first month, down to ¥8.9 with referral coupon. Fits daily chat + light agent tasks (1,200 calls per 5h). **Second month onwards is ¥40** — if you need to stay under ¥30/mo long-term, switch to MiniMax ¥29 full-modal after the first month.
 
 ### 🦀 Scenario B: Claude Code with domestic models
-**Verdict: Ark (multi-model) or Zhipu (GLM-focused)**
+**Verdict: Ark (multi-model) / Zhipu (GLM) / Bailian (Qwen) / DeepSeek (V4-Pro flagship) — all four work**
 
-All three support Anthropic-protocol endpoints. Configure Claude Code with two env vars:
+All four support Anthropic-protocol endpoints. Configure Claude Code with two env vars:
 
 ```bash
 # Ark
@@ -85,14 +85,17 @@ export ANTHROPIC_BASE_URL="https://ark.cn-beijing.volces.com/api/coding/anthropi
 export ANTHROPIC_BASE_URL="https://open.bigmodel.cn/api/anthropic"
 # Bailian
 export ANTHROPIC_BASE_URL="https://coding.dashscope.aliyuncs.com/apps/anthropic"
+# DeepSeek (official Anthropic-compatible endpoint)
+export ANTHROPIC_BASE_URL="https://api.deepseek.com/anthropic"
+export ANTHROPIC_AUTH_TOKEN="<your-deepseek-key>"
 ```
 
-Picker: want Auto model routing → Ark; want GLM-5.1 flagship → Zhipu; want full Qwen Coder lineup → Bailian.
+Picker: want Auto model routing → Ark; want GLM-5.1 flagship → Zhipu; want full Qwen Coder lineup → Bailian; want **V4-Pro flagship pay-as-you-go** → DeepSeek (V4-Pro 75% off until 5/31).
 
 ### 📊 Scenario C: Variable usage, don't want subscription lock-in
 **Verdict: DeepSeek API**
 
-The only non-subscription option — pure token-based pricing. V4-Pro currently 75% off (until 2026-05-31), 80.6% SWE-bench score — the cheapest flagship token rate available. Works with Cline / Aider / Cursor via OpenAI protocol. **Note**: no Anthropic protocol — Claude Code users need a wrapper like LiteLLM.
+The only non-subscription option — pure token-based pricing. V4-Pro currently 75% off (until 2026-05-31), 80.6% SWE-bench score — the cheapest flagship token rate available. **Officially supports both OpenAI and Anthropic protocols** — use the OpenAI endpoint with Cline / Aider / Cursor, or set `ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic` for native Claude Code support, **no third-party wrapper required**.
 
 ### 🎨 Scenario D: Heavy multimodal / all-modal Agent
 **Verdict: MiniMax from ¥29 or Ark Agent Plan**
@@ -186,7 +189,7 @@ See [MiniMax Token Plan explainer](/en/guides/minimax-token-plan/).
 **Strengths**: True usage-based pricing, no subscription lock. V4-Pro discounted is the cheapest flagship token rate in China. Direct developer access — no middlemen.
 
 **Watch out**:
-- No Anthropic protocol — Claude Code users need LiteLLM or similar wrapper
+- Officially supports OpenAI + Anthropic dual protocols — Claude Code uses `ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic` natively, no third-party wrapper needed
 - Steady users likely save more with subscription plans
 - Web tier suffices for individual light usage
 

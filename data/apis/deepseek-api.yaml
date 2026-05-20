@@ -44,9 +44,10 @@ features:
     - DeepSeek-V4-Flash
     - DeepSeek-V3.2
     - DeepSeek-R1
-  api_protocol: "兼容 OpenAI 协议"
-  api_endpoint: "https://api.deepseek.com"
+  api_protocol: "官方支持 OpenAI + Anthropic 双协议"
+  api_endpoint: "https://api.deepseek.com（OpenAI）/ https://api.deepseek.com/anthropic（Anthropic）"
   supported_clients:
+    - Claude Code
     - Cline
     - Roo Code
     - OpenCode
