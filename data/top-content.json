@@ -1,0 +1,6 @@
+{
+  "updatedAt": "",
+  "source": "Vercel Web Analytics",
+  "note": "Populate topPages from real Vercel analytics export; do not use fabricated sample data.",
+  "topPages": []
+}
