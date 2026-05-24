@@ -4,8 +4,8 @@ type: cli
 logo: /images/gemini-cli.png
 url: https://github.com/google-gemini/gemini-cli
 repo: https://github.com/google-gemini/gemini-cli
-current_version: v0.41.0
-version_tracked_at: '2026-05-10'
+current_version: v0.43.0
+version_tracked_at: '2026-05-24'
 pricing:
   model: freemium
   currency: USD
@@ -91,11 +91,19 @@ plans_using_this: []
 data_sources:
   - url: https://github.com/google-gemini/gemini-cli
     type: product
-    last_checked: '2026-03-27'
+    last_checked: '2026-05-24'
   - url: https://ai.google.dev/gemini-api/docs/pricing
     type: pricing
-    last_checked: '2026-03-27'
+    last_checked: '2026-05-24'
 changelog:
+  - date: '2026-05-22'
+    type: release
+    summary: 'v0.43.0（最新）：精准代码编辑模式（引导模型优先使用 edit 工具进行外科手术式代码修改）；会话可移植性（支持导出/导入会话文件）；自适应 Token 计算器（更精确的内容大小估算）；多 Agent 架构协议（本地+远程子 Agent）；修复 OAuth 认证挂起（无头 Linux）、并行工具调用流式传输问题、Git 环境 PATH 保留等80处变更'
+    summary_en: 'v0.43.0 (latest): Surgical code edits — model steered to use edit tool for precise changes; session portability (export/import sessions via CLI flag); adaptive token calculator for accurate content size measurements; multi-agent protocols for local and remote subagent interactions; 80 total changes including OAuth hang fix on headless Linux, parallel tool call streaming fixes, and Git PATH preservation'
+  - date: '2026-05-20'
+    type: release
+    summary: 'v0.43.0-preview.1：多 Agent 架构预览，ACP 工具展示原生属性渲染，沙箱改进；v0.42.x 系列累积补丁（OAuth token 保留、快照恢复、Sublime Text/Emacs 编辑器集成）'
+    summary_en: 'v0.43.0-preview.1: Multi-agent architecture preview, ACP-compliant native ToolDisplay properties, sandbox improvements; v0.42.x patch series: OAuth token preservation, snapshot recovery fixes, Sublime Text and Emacs editor integrations'
   - date: '2026-05-05'
     type: release
     summary: 'v0.41.0：实时语音模式（云端+本地双后端）；无头环境强制工作区信任（安全增强）；健壮 shell 命令验证层和核心工具许可名单；新 ContextManager + AgentChatHistory 会话管理；自动记忆便签跨轮次持久化（技能提取）'
@@ -136,7 +144,7 @@ changelog:
     type: launch
     summary: Gemini CLI 开源发布，免费使用 Gemini 2.5 Pro，1000 次/天
     summary_en: Gemini CLI open-sourced, free Gemini 2.5 Pro access, 1000 requests/day
-last_full_review: '2026-05-10'
-next_review_due: '2026-06-10'
+last_full_review: '2026-05-24'
+next_review_due: '2026-06-24'
 review_frequency_days: 30
 confidence: high
