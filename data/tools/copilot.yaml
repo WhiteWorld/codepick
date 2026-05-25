@@ -38,9 +38,9 @@ pricing:
       per_user: true
       limits: Business全部功能, 自定义模型微调, 高级安全
       limits_en: All Business features, custom model fine-tuning, advanced security
-  price_updated_at: '2026-04-20'
-  note: Free版永久免费; Pro支持年付$100/年; 学生/教师/开源维护者免费Pro; 超出高级请求$0.04/次; Auto模式自动选模型享9折; Opus系列模型仅限Pro+; 2026-04-20起新注册暂停(Pro/Pro+/Business)，已有订阅不受影响
-  note_en: Free tier is permanently free; Pro at $100/year; free Pro for students, teachers, and open-source maintainers; overage $0.04/request; Auto mode with 10% discount; Opus models are Pro+ only; new signups paused since 2026-04-20 (Pro/Pro+/Business), existing subscribers unaffected
+  price_updated_at: '2026-05-24'
+  note: '⚠️ 2026-06-01 起切换至 AI Credits 用量计费：各套餐含月度 AI Credits 配额（Pro $10、Pro+ $39、Business $19/用户、Enterprise $39/用户），超出按 token 用量扣费（1 Credit = $0.01）；代码补全和 Next Edit 建议不消耗 Credits；管理员可在企业/成本中心/用户层设置预算上限。Free版永久免费; 学生/教师/开源维护者免费Pro; Opus系列模型仅限Pro+; 2026-04-20起新注册暂停(Pro/Pro+/Business)，已有订阅不受影响'
+  note_en: '⚠️ Switching to AI Credits usage-based billing on June 1, 2026: each plan includes monthly AI Credits (Pro $10, Pro+ $39, Business $19/user, Enterprise $39/user); additional usage billed by token (1 Credit = $0.01); code completions and Next Edit Suggestions remain unlimited; admins get budget controls at enterprise/cost center/user level. Free tier permanently free; free Pro for students/teachers/OSS maintainers; Opus models Pro+ only; new signups paused since Apr 20 (Pro/Pro+/Business), existing unaffected'
 scores:
   coding_ability: 8.2
   cost_efficiency: 8.5
@@ -111,10 +111,10 @@ china_note_en: Requires VPN from China; GitHub services are partially accessible
 data_sources:
   - url: https://github.com/features/copilot/plans
     type: pricing
-    last_checked: '2026-04-24'
+    last_checked: '2026-05-24'
   - url: https://docs.github.com/en/copilot
     type: docs
-    last_checked: '2026-04-24'
+    last_checked: '2026-05-24'
 changelog:
   - date: '2026-05-01'
     type: pricing
@@ -176,7 +176,7 @@ changelog:
     type: pricing
     summary: 推出永久免费版 Copilot Free
     summary_en: Copilot Free permanently free tier launched
-last_full_review: '2026-05-03'
-next_review_due: '2026-06-03'
+last_full_review: '2026-05-24'
+next_review_due: '2026-06-24'
 review_frequency_days: 30
 confidence: high

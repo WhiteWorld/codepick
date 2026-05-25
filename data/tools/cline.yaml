@@ -4,8 +4,8 @@ type: client
 logo: /images/cline.png
 url: https://cline.bot
 repo: https://github.com/cline/cline
-current_version: v3.82.0
-version_tracked_at: '2026-05-10'
+current_version: v3.83.0
+version_tracked_at: '2026-05-24'
 pricing:
   model: free
   currency: null
@@ -79,8 +79,12 @@ compatible_apis:
 data_sources:
   - url: https://github.com/cline/cline/releases
     type: release
-    last_checked: '2026-03-27'
+    last_checked: '2026-05-24'
 changelog:
+  - date: '2026-05-14'
+    type: release
+    summary: 'v3.83.0（最新）：Cline SDK 发布——将 Agent 运行时与 VS Code 扩展解耦，支持以 SDK 形式接入自定义工具链和 CLI；提升多模型并行调用稳定性；持续改进 Enterprise Skills 与大型代码库处理能力'
+    summary_en: 'v3.83.0 (latest): Cline SDK launched — decouples agent runtime from VS Code extension, enabling integration as SDK into custom toolchains and CLI; improved multi-model parallel call stability; continued Enterprise Skills and large codebase handling improvements'
   - date: '2026-05-01'
     type: release
     summary: 'v3.82.0: 恢复 VS Code 前台终端支持（允许需要交互终端的命令在前台运行）；新增 GPT-5.5 模型支持（OpenAI 订阅用户）；修复 hook 模板 JSON 转义问题；修复 ripgrep 错误处理；堆内存快照与周期性日志记录（内存诊断增强）'
@@ -141,7 +145,7 @@ changelog:
     type: feature
     summary: 支持 MCP Server 管理
     summary_en: MCP Server management support added
-last_full_review: '2026-05-10'
-next_review_due: '2026-06-10'
+last_full_review: '2026-05-24'
+next_review_due: '2026-06-24'
 review_frequency_days: 30
 confidence: high

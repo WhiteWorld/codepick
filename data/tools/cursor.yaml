@@ -4,8 +4,8 @@ type: ide
 logo: /images/cursor.png
 url: https://cursor.com
 repo: null
-current_version: '3.3'
-version_tracked_at: '2026-05-10'
+current_version: '3.5'
+version_tracked_at: '2026-05-24'
 pricing:
   model: subscription
   currency: USD
@@ -73,7 +73,7 @@ features:
     - Gemini 3 Flash
     - Gemini 2.5 Pro
     - Grok 4 (xAI)
-    - Composer 2 (Cursor 自研)
+    - Composer 2.5 (Cursor 自研，最新)
     - cursor-small (Auto)
   ide_base: VS Code Fork
   supported_os:
@@ -119,11 +119,27 @@ plans_using_this:
 data_sources:
   - url: https://cursor.com/pricing
     type: pricing
-    last_checked: '2026-04-24'
+    last_checked: '2026-05-24'
   - url: https://cursor.com/changelog
     type: changelog
-    last_checked: '2026-04-24'
+    last_checked: '2026-05-24'
 changelog:
+  - date: '2026-05-20'
+    type: feature
+    summary: 'v3.5：Automations 整合进 Agents Window，支持跨多个代码库的自动化任务；新增无代码库自动化模板（监控工具/服务）；新创建 Automations 首 7 天享 50% Agent 运行折扣'
+    summary_en: 'v3.5: Automations now integrated in Agents Window with multi-repo automation support; new no-repo automation templates for monitoring tools and services; 50% discount on agent runs for newly created automations (first 7 days)'
+  - date: '2026-05-19'
+    type: feature
+    summary: 'Cursor in Jira：Jira 集成支持将工作项分配给 Cursor Agent；@Cursor 评论触发云端 Agent 执行任务（Bug 修复/功能添加/测试更新）；完成后自动生成 PR 链接（需 Jira Commercial Cloud + Rovo）'
+    summary_en: 'Cursor in Jira: assign Jira work items to Cursor agents; "@Cursor" mentions in comments trigger cloud agent execution (bug fixes, feature additions, test updates); PR links generated upon completion (requires Jira Commercial Cloud with Rovo)'
+  - date: '2026-05-18'
+    type: model
+    summary: 'Composer 2.5 发布：在 Composer 2 基础上大幅提升智能与行为；更强的长时任务执行能力和复杂指令遵从；定价 Standard $0.50/$2.50 / Fast（默认）$3.00/$15.00 per M tokens；发布首周双倍用量赠送'
+    summary_en: 'Composer 2.5 launched: substantial intelligence improvement over Composer 2; enhanced sustained work on long-running tasks and complex instruction adherence; Standard $0.50/$2.50 / Fast (default) $3.00/$15.00 per M tokens; double usage credit for first week'
+  - date: '2026-05-13'
+    type: feature
+    summary: 'v3.4：全屏标签页（聚焦工作区视图）；紧凑聊天回复（可调工具调用密度）；云端 Agent 开发环境配置工具（多 Repo 环境支持、Dockerfile 配置、构建 Secret、70% 更快的层缓存）'
+    summary_en: 'v3.4: Full-screen tabs for focused workspace viewing; compact chat responses with adjustable tool call density; dev environment config for cloud agents (multi-repo env support, Dockerfile-based setup, build secret support, 70% faster layer caching)'
   - date: '2026-05-07'
     type: feature
     summary: 'v3.3：全新 PR 审查体验（Reviews/Commits/Changes 三栏看板，内联评论线程，提交历史聚焦视图）；"Build in Parallel" 一键识别独立子任务并并行派发异步子 Agent；PR Splitter——自动将大变更切分为多个独立 PR 分别提交'
@@ -188,7 +204,7 @@ changelog:
     type: pricing
     summary: Pro 从500次请求制改为$20额度池制, Auto模式无限使用
     summary_en: Pro switched from 500-request quota to $20 credit pool; unlimited Auto mode
-last_full_review: '2026-05-10'
-next_review_due: '2026-06-10'
+last_full_review: '2026-05-24'
+next_review_due: '2026-06-24'
 review_frequency_days: 30
 confidence: high

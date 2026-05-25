@@ -4,8 +4,8 @@ type: cli
 logo: /images/claude-code.png
 url: https://docs.anthropic.com/en/docs/claude-code
 repo: null
-current_version: '2.1.138'
-version_tracked_at: '2026-05-10'
+current_version: '2.1.150'
+version_tracked_at: '2026-05-24'
 pricing:
   model: subscription
   currency: USD
@@ -105,11 +105,15 @@ compatible_apis:
 data_sources:
   - url: https://claude.ai/pricing
     type: pricing
-    last_checked: '2026-03-27'
+    last_checked: '2026-05-24'
   - url: https://docs.anthropic.com/en/docs/claude-code
     type: docs
-    last_checked: '2026-03-27'
+    last_checked: '2026-05-24'
 changelog:
+  - date: '2026-05-24'
+    type: release
+    summary: 'v2.1.150（最新）：npm 安装已弃用，官方推荐改用 curl 安装脚本（curl -fsSL https://claude.ai/install.sh | bash）；原生安装支持后台自动更新；新增更强的插件依赖处理、/plugin 市场成本预估、后台会话与 Agent 控制、扩展 PowerShell 支持（Windows）；持续 worktree 和 daemon 稳定性改进'
+    summary_en: 'v2.1.150 (latest): npm install is deprecated — recommended to migrate to the curl install script (curl -fsSL https://claude.ai/install.sh | bash); native installs auto-update in background; stronger plugin dependency handling, /plugin marketplace context cost estimates, background session and agent controls, expanded PowerShell support (Windows); improved worktree and daemon reliability'
   - date: '2026-05-10'
     type: release
     summary: 'v2.1.127→2.1.138（2026-05-01 至 2026-05-10，12个版本）：持续迭代 bug 修复与稳定性改进；详细变更见 npm changelog'
@@ -158,7 +162,7 @@ changelog:
     type: pricing
     summary: 推出 Max 5x ($100) 和 Max 20x ($200) 高用量套餐
     summary_en: Launched Max 5x ($100) and Max 20x ($200) high-usage tiers
-last_full_review: '2026-05-10'
-next_review_due: '2026-06-10'
+last_full_review: '2026-05-24'
+next_review_due: '2026-06-24'
 review_frequency_days: 30
 confidence: high

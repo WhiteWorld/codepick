@@ -4,8 +4,8 @@ type: ide
 logo: /images/windsurf.png
 url: https://windsurf.com
 repo: null
-current_version: '2.2.17'
-version_tracked_at: '2026-05-10'
+current_version: '2.3.9'
+version_tracked_at: '2026-05-24'
 pricing:
   model: subscription
   currency: USD
@@ -55,6 +55,7 @@ features:
   tab_supercomplete: true
   context_window: 标准上下文窗口
   supported_models:
+    - Claude Opus 4.7 (fast mode，内置)
     - Claude Sonnet 4 (BYOK)
     - Claude Opus 4 (BYOK)
     - GPT-5.2
@@ -105,11 +106,19 @@ plans_using_this: []
 data_sources:
   - url: https://windsurf.com/pricing
     type: pricing
-    last_checked: '2026-04-24'
+    last_checked: '2026-05-24'
   - url: https://windsurf.com/changelog
     type: changelog
-    last_checked: '2026-04-24'
+    last_checked: '2026-05-24'
 changelog:
+  - date: '2026-05-17'
+    type: release
+    summary: 'v2.3.9：修复 swe-check 模型对部分用户不可用的问题；增强终端处理性能；恢复会话共享功能；修复 WSL 下 Devin local agent 路径解析问题；设置面板改为独立 Tab 展示（替代弹窗）并新增可搜索侧边栏；Agent 会话支持重命名；Spaces 支持 @-mention 跨会话共享上下文'
+    summary_en: 'v2.3.9: Fixed swe-check model availability for some users; enhanced terminal processing performance; restored conversation sharing; fixed Devin local agent path resolution on WSL; settings now open in dedicated tab (replaces modal) with searchable sidebar; rename agent sessions from sidebar; space @-mentions share context across sessions'
+  - date: '2026-05-12'
+    type: model
+    summary: 'Claude Opus 4.7（fast mode）上线 Windsurf：具备完整 Opus 4.7 智能，输出速度约提升 2.5 倍'
+    summary_en: 'Claude Opus 4.7 (fast mode) now available in Windsurf: full Opus 4.7 intelligence with ~2.5x higher output speeds'
   - date: '2026-05-06'
     type: feature
     summary: 'v2.2.17：所有用户开放 Devin Review 和 Quick Review；Agent Command Center 新增列表视图与会话筛选/排序；修复 Windows 更新需手动清理进程的 Bug；修复部分 MCP 服务器 Bug；提升 Devin Local agent 稳定性'
@@ -170,7 +179,7 @@ changelog:
     type: update
     summary: 推出 SWE-1.5 自研 Agent 模型，速度和代码能力双提升
     summary_en: Launched SWE-1.5 proprietary Agent model, improving both speed and code quality
-last_full_review: '2026-05-10'
-next_review_due: '2026-06-10'
+last_full_review: '2026-05-24'
+next_review_due: '2026-06-24'
 review_frequency_days: 30
 confidence: high
