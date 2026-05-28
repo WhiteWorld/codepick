@@ -6,6 +6,19 @@ updated_at: "2026-05-28"
 article_type: "explainer"
 tags: ["cursor", "cursor-3", "agent", "并行agent", "IDE", "更新"]
 draft: false
+faq:
+  - q: "Cursor 3.0 值得升级吗？"
+    a: |
+      如果你已经在用 Agent、Worktree 或多文件改造，Cursor 3.0 值得升级；Agents Window、/multitask 和 Design Mode 都是实质工作流变化。
+      如果你只用 Tab 补全，升级体感会小很多，可以先保持现有工作方式。
+  - q: "Cursor 3.0 会让成本变高吗？"
+    a: |
+      功能本身不必然涨价，但并行 Agent、best-of-n 和多仓库任务会让模型调用变多。
+      建议在启用多 Agent 前先确认账户的超额设置，并对比 Copilot、Claude Code 和国产 Coding Plan 的月成本。
+  - q: "Cursor 3.0 和 Claude Code 怎么选？"
+    a: |
+      喜欢 IDE 可视化审查、Design Mode 和 GUI Agent 管理，选 Cursor；喜欢终端、脚本化和直接控制上下文，选 Claude Code。
+      国内用户还要额外考虑网络稳定性和支付方式。
 ---
 
 Cursor 的更新重心已经明显从“更聪明的补全”转向“让多个 Agent 接手完整任务”。工作方式变了，工具也得跟上。
@@ -125,5 +138,12 @@ Cursor 3 不是小版本更新，是 Cursor 产品方向的一次明确表态：
 从具体功能看，/multitask 并行执行、Agents Window 统一管理、Design Mode 可视化标注、worktree / best-of-n 和后续团队集成，对重度 Agent 用户来说改善是实质性的。
 
 如果你还停留在"打开 Composer 窗口，逐句告诉 AI 要改什么"的模式，Cursor 3 是一个值得重新适应的契机。
+
+## 相关阅读
+
+- [AI 编程工具月成本对比 2026](/zh/compare/ai-coding-cost-comparison-2026/)
+- [Cursor 省钱指南](/zh/guides/cursor-cost-saving/)
+- [Cursor vs Copilot 终极对比](/zh/compare/cursor-vs-copilot/)
+- [Claude Code vs Cursor 深度对比](/zh/compare/claude-code-vs-cursor/)
 
 > 数据来源：Cursor 官方 changelog（核查至 2026-05-28）：[Cursor 3.0](https://cursor.com/changelog/3-0)、[4 月 24 日 /multitask](https://cursor.com/changelog/04-24-26)、[最新 changelog](https://cursor.com/changelog)。

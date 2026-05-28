@@ -189,5 +189,6 @@ Use this skill when a task asks you to deploy the current branch to staging.
 - [2026 Agent 协作平台横评](/zh/guides/agent-collaboration-platforms-2026/)
 - [Slock 配置指南](/zh/guides/slock-setup/)
 - [Cline + 火山方舟方案](/zh/guides/cline-ark-setup/)（如何给 Agent 配国内模型）
+- [AI 编程工具月成本对比 2026](/zh/compare/ai-coding-cost-comparison-2026/)（如何给多 Agent 团队控预算）
 
 > 数据核查截止 2026-05-28。Multica 官方文档：[Self-host quickstart](https://multica.ai/docs/self-host-quickstart) · [How Multica works](https://multica.ai/docs/how-multica-works) · [Skills](https://multica.ai/docs/skills)。

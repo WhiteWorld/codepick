@@ -128,6 +128,7 @@ claude
 
 ## 相关文章
 
+- [AI 编程工具月成本对比 2026](/zh/compare/ai-coding-cost-comparison-2026/)
 - [百炼 vs 火山方舟 Coding Plan 深度对比](/zh/compare/bailian-coding-plan-vs-ark-coding-plan)
 - [Cline + 方舟方案](/zh/plan/cline-ark)
 - [Cline + 方舟配置指南](/zh/guides/cline-ark-setup)
