@@ -157,6 +157,7 @@ Agent Plan 是火山方舟把 **Model + Harness** 一起卖的尝试，本质是
 
 ## 相关阅读
 
+- [AI 编程工具月成本对比 2026](/zh/compare/ai-coding-cost-comparison-2026/)
 - [Ark Coding Plan vs Bailian Coding Plan 横评](/zh/compare/bailian-coding-plan-vs-ark-coding-plan/)
 - [Cline + 火山方舟配置指南](/zh/guides/cline-ark-setup/)
 - [MiniMax Token Plan 全解读](/zh/guides/minimax-token-plan/)
