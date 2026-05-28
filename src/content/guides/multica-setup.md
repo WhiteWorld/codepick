@@ -1,8 +1,8 @@
 ---
 title: "Multica 配置指南：开源自托管的多 Agent 项目管理平台（2026）"
-description: "Multica 把 AI Agent 拉进 Issue 面板，像团队成员一样派活、追踪进度。本文 15 分钟带你跑通：Docker 一键自托管 → 启动 daemon 自动识别 11 种 Agent CLI → 创建 Issue 派给 Agent → 抽象出可复用 Skills。"
+description: "Multica 把 AI Agent 拉进 Issue 面板，像团队成员一样派活、追踪进度。本文带你跑通：make selfhost 自托管 → setup self-host 启动 daemon → 自动识别 11 种 AI coding tools → 创建 Issue 派给 Agent → 共享 Skills。"
 date: "2026-05-19"
-updated_at: "2026-05-19"
+updated_at: "2026-05-28"
 article_type: "howto"
 tags: ["multica", "agent-platform", "agent-collaboration", "self-hosted", "docker", "open-source", "setup"]
 draft: false
@@ -17,8 +17,8 @@ faq:
       塞进容器会破坏「代码不出本机」的隐私边界，也让 CLI 状态难以维护。daemon 跑本机 + 服务器跑 Docker 是清晰的分工。
   - q: "Multica 的 Skills 系统跟 Claude Code 的 Skills 是一回事吗？"
     a: |
-      不是。Claude Code Skills 是单 Agent 的能力封装；Multica Skills 是**跨 Agent 共享**的可复用工作流（部署、写迁移、Code Review 等）。
-      写好一次，团队所有 Agent 都能调用——这是 Multica 区别于 Slock 的核心竞争力。
+      不是完全一回事。Multica 采用 Anthropic Agent Skills 开放标准，可以把 `SKILL.md` + 附件作为工作区 Skill 共享给团队。
+      挂到 Agent 后，daemon 会把 Skill 同步到对应工具的发现路径；但 Gemini / Hermes / OpenClaw 等工具是否真正读取 fallback 路径，还取决于工具自身。
   - q: "国内能用吗？"
     a: |
       可以。Multica 是 MIT 开源，国内服务器直接 Docker Compose 部署即可，无需翻墙。
@@ -37,13 +37,15 @@ faq:
 ## TL;DR
 
 ```bash
-# 一行命令：装 CLI + 拉起自托管服务（推荐）
-curl -fsSL https://raw.githubusercontent.com/multica-ai/multica/main/scripts/install.sh \
-  | bash -s -- --with-server
+# 官方自托管路径：拉仓库 + Docker Compose
+git clone https://github.com/multica-ai/multica.git
+cd multica
+make selfhost
 
 # Web 界面：http://localhost:3000
-# daemon 自动检测：claude / codex / copilot / openclaw / opencode /
-#                  hermes / gemini / pi / cursor-agent / kimi / kiro-cli
+# Backend：http://localhost:8080
+# daemon 自动检测 11 种工具：Claude Code / Codex / Cursor / Copilot /
+# Gemini / Hermes / Kimi / Kiro CLI / OpenCode / OpenClaw / Pi
 ```
 
 ---
@@ -51,39 +53,40 @@ curl -fsSL https://raw.githubusercontent.com/multica-ai/multica/main/scripts/ins
 ## 前置要求
 
 - Docker + Docker Compose（部署服务器端）
-- Node.js 18+（启动本地 daemon）
+- Git（拉取自托管仓库，官方推荐）
 - 至少一个安装好的 Agent CLI（[Claude Code](/zh/tool/claude-code) / [OpenCode](/zh/tool/opencode) 等任一）
-- 一个邮箱用于登录（建议配 Resend API Key，或用 dev verification code）
+- 一个邮箱用于登录（生产环境建议配 Resend 或 SMTP；未配置邮件时验证码会打印到服务端日志）
 
 ---
 
-## 第一步：一键自托管（推荐）
+## 第一步：启动自托管服务（官方路径）
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/multica-ai/multica/main/scripts/install.sh \
-  | bash -s -- --with-server
+git clone https://github.com/multica-ai/multica.git
+cd multica
+make selfhost
 ```
 
 这条命令会：
 
-1. 装 `multica` CLI
-2. 拉最新自托管资产
-3. 从 GHCR 拉官方 Docker 镜像
-4. 配置 localhost 监听 + 自动生成 JWT_SECRET
+1. 如果缺少 `.env`，从 `.env.example` 生成并创建随机 `JWT_SECRET`
+2. 从 GHCR 拉 PostgreSQL、Multica backend、Multica frontend 官方 Docker 镜像
+3. 用 `docker-compose.selfhost.yml` 拉起所有服务
+4. 等待 backend `/health` 就绪
 
-启动完成后访问 [http://localhost:3000](http://localhost:3000)。
+启动完成后访问 [http://localhost:3000](http://localhost:3000)，backend 默认在 [http://localhost:8080](http://localhost:8080)。
 
-> 💡 **手动版**：如果你想自定义网络 / 域名，可以 `git clone` 仓库后跑 `make selfhost`，它会从 `.env.example` 生成 `.env` 并启动 Docker Compose。
+> 如果 GHCR 镜像尚未发布或拉取失败，可按官方文档切到稳定 release，或用 `make selfhost-build` 从源码构建。
 
 ---
 
 ## 第二步：登录方式选择
 
-**生产环境（推荐）**：在 `.env` 里配 `RESEND_API_KEY`，登录走邮件验证码。
+**生产环境（推荐）**：在 `.env` 里配 `RESEND_API_KEY` / `RESEND_FROM_EMAIL`，或使用 SMTP 变量，登录走邮件验证码。
 
-**本机开发**：可设 `MULTICA_DEV_VERIFICATION_CODE=123456`，所有邮箱都用这个固定码登录。
+**本机开发**：不配邮件服务时，验证码会打印在 backend 日志里；也可以在非生产私有环境设置 `MULTICA_DEV_VERIFICATION_CODE` 做固定验证码。
 
-> ⚠️ **绝不要在公网可访问的服务器上设 DEV verification code**——任何知道邮箱的人都能登进来。
+> ⚠️ **绝不要在公网可访问的服务器上设固定 DEV verification code**。官方文档也特别提醒：不要使用 `888888`，除非你明确在非生产私有环境设置了这个值。
 
 ---
 
@@ -92,12 +95,16 @@ curl -fsSL https://raw.githubusercontent.com/multica-ai/multica/main/scripts/ins
 新开终端，回到本地开发机（不是服务器）：
 
 ```bash
-# 安装 daemon
-npm install -g @multica/daemon
+# 如果 server 和 Web 都在本机，默认就是 localhost:8080 / localhost:3000
+multica setup self-host
 
-# 启动 + 配对到自托管 Server
-multica daemon start --server http://localhost:3000
+# 远程自托管时显式指定 backend 与 frontend
+multica setup self-host \
+  --server-url http://<your-server-address>:8080 \
+  --app-url http://<your-server-address>:3000
 ```
+
+`setup self-host` 会完成浏览器登录、在本机保存 PAT，并自动启动 daemon。后续你也可以手动运行 `multica daemon`。
 
 daemon 启动时自动扫描 PATH 上的 Agent CLI 并注册：
 
@@ -111,7 +118,7 @@ daemon 启动时自动扫描 PATH 上的 Agent CLI 并注册：
 | `hermes` | Hermes-Agent |
 | `gemini` | Gemini CLI |
 | `pi` | Pi |
-| `cursor-agent` | Cursor Agent |
+| `cursor` | Cursor |
 | `kimi` | Kimi Code |
 | `kiro-cli` | Kiro CLI |
 
@@ -134,20 +141,20 @@ daemon 启动时自动扫描 PATH 上的 Agent CLI 并注册：
 
 ## Skills 系统：Multica 的真正卖点
 
-Skills 是**跨 Agent 共享**的工作流定义。比如团队约定的「部署到 staging」步骤：
+Skills 是**跨 Agent 共享**的知识包：一个 `SKILL.md` 加上可选脚本、配置、模板或参考文件。比如团队约定的「部署到 staging」能力：
 
-```yaml
-# .multica/skills/deploy-staging.yaml
-name: deploy-to-staging
-description: 部署当前分支到 staging 环境
-steps:
-  - run: npm test
-  - run: npm run build
-  - run: ./scripts/deploy.sh staging
-  - verify: curl -f https://staging.example.com/health
+```markdown
+# Deploy to staging
+
+Use this skill when a task asks you to deploy the current branch to staging.
+
+1. Run `npm test`.
+2. Run `npm run build`.
+3. Run `./scripts/deploy.sh staging`.
+4. Verify `https://staging.example.com/health`.
 ```
 
-把这个 YAML 提交到仓库根目录的 `.multica/skills/` 下，**所有 Agent 都自动获得这个能力**。Issue 里写「跑一下 deploy-staging skill 部署到测试环境」，Agent 就会按定义执行。
+在 UI 中新建或从 GitHub / ClawHub / 本机导入这个 Skill，再挂到某个 Agent 上。下一次任务开始时，daemon 会把 Skill 放到对应工具的发现路径，例如 Claude Code 用 `.claude/skills/`、Cursor 用 `.cursor/skills/`。
 
 随着团队沉淀更多 Skills，Agent 越来越像真正的「会用工具的同事」而不只是个写代码的模型。
 
@@ -155,8 +162,8 @@ steps:
 
 ## 常见坑
 
-1. **`make selfhost` 失败** → 检查 Docker daemon 是否在跑、端口 3000/5432 是否被占用
-2. **daemon 连不上 Server** → 检查防火墙；本地 Server 用 `http://localhost:3000`，远程用 `https://`
+1. **`make selfhost` 失败** → 检查 Docker daemon 是否在跑、端口 3000/8080/5432 是否被占用；看 `docker compose -f docker-compose.selfhost.yml logs backend`
+2. **daemon 连不上 Server** → 检查 `--server-url` 是否指向 backend（默认 8080），`--app-url` 是否指向 Web（默认 3000）
 3. **Agent 注册后 Issue 派不动** → 看 daemon 日志，常见原因是 Agent CLI 缺少 API Key（Claude Code 没登录 / Codex 没配 OPENAI_API_KEY）
 4. **国内拉 GHCR 镜像慢** → 在 `.env` 里配阿里云 / 腾讯云 GHCR 镜像源
 
@@ -183,4 +190,4 @@ steps:
 - [Slock 配置指南](/zh/guides/slock-setup/)
 - [Cline + 火山方舟方案](/zh/guides/cline-ark-setup/)（如何给 Agent 配国内模型）
 
-> 数据核查截止 2026-05-19。Multica 官方文档：[multica.ai/docs/self-host-quickstart](https://multica.ai/docs/self-host-quickstart)。
+> 数据核查截止 2026-05-28。Multica 官方文档：[Self-host quickstart](https://multica.ai/docs/self-host-quickstart) · [How Multica works](https://multica.ai/docs/how-multica-works) · [Skills](https://multica.ai/docs/skills)。
