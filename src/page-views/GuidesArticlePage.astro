@@ -2,8 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import ShareBar from '../components/ShareBar.astro';
+import PlanCard from '../components/PlanCard.astro';
 import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
-import { getAllToolsLocalized, overallScore } from '../lib/data';
+import { getAllToolsLocalized, getAllPlansLocalized, overallScore } from '../lib/data';
+import { relatedPlansForGuide } from '../lib/guide-conversion';
 import { getCollection } from 'astro:content';
 
 interface Props { guide: any; lang: Locale }
@@ -45,6 +47,9 @@ const toolIds = new Set(allTools.map((tool: any) => tool.id));
 const mentionedTools = allTools
   .filter((tool: any) => currentTags.includes(tool.id.toLowerCase()))
   .slice(0, 4);
+
+// 转化承接：基于本文工具/API 匹配的省钱方案（强信号门槛，最多 2 个）
+const relatedPlans = relatedPlansForGuide(guide.data.tags || [], guide.slug, getAllPlansLocalized(lang), 2);
 
 function tagHref(tag: string) {
   return toolIds.has(tag) ? localePath(`/tool/${tag}`, lang) : localePath('/guides', lang);
@@ -220,11 +225,24 @@ const jsonLdList = [articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema]
       </section>
     )}
 
-    <!-- CTA: 选型入口 -->
+    <!-- 转化承接：相关省钱方案 -->
+    {relatedPlans.length > 0 && (
+      <section class="mt-12 pt-6 border-t border-[var(--surface-border)]">
+        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-1 mt-0">{t('conversion.plansTitle', lang)}</h2>
+        <p class="text-sm text-[var(--text-muted)] mb-4 mt-0">{t('conversion.plansDesc', lang)}</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {relatedPlans.map((plan: any) => (
+            <PlanCard plan={plan} lang={lang} />
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- 转化承接：优惠 & 免费试用入口 -->
     <section class="mt-12 p-6 rounded-xl border border-[var(--brand-500)] bg-gradient-to-br from-[var(--surface-card)] to-[rgba(49,46,129,0.15)] text-center">
-      <h2 class="text-lg font-bold text-[var(--text-primary)] mb-2 mt-0">{t('article.ctaGuideTitle', lang)}</h2>
-      <p class="text-sm text-[var(--text-secondary)] mb-4">{t('article.ctaGuideDesc', lang)}</p>
-      <a href={localePath('/tools/overview', lang)} class="btn btn-primary">{t('article.ctaBtn', lang)}</a>
+      <h2 class="text-lg font-bold text-[var(--text-primary)] mb-2 mt-0">{t('conversion.dealsTitle', lang)}</h2>
+      <p class="text-sm text-[var(--text-secondary)] mb-4">{t('conversion.dealsDesc', lang)}</p>
+      <a href={localePath('/deals', lang)} class="btn btn-primary">{t('conversion.dealsCta', lang)}</a>
     </section>
 
     <!-- Related Guides -->

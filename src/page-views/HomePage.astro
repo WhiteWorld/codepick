@@ -104,6 +104,9 @@ const allArticlesHref = localePath(`/${featured?.type ?? 'compare'}`, lang);
 
 const rssPath = lang === 'zh' ? '/zh/rss.xml' : '/en/rss.xml';
 const githubUrl = 'https://github.com/WhiteWorld/codepick';
+
+// Hero 下的需求簇快捷入口，跳转到 /guides 对应簇区块。
+const heroChips = ['coding-plan', 'china-billing', 'setup', 'agent-collab'] as const;
 ---
 <BaseLayout title={seoTitle} lang={lang} jsonLd={homeJsonLd}>
   <!-- Hero (compact, ~80px) -->
@@ -111,6 +114,19 @@ const githubUrl = 'https://github.com/WhiteWorld/codepick';
     <h1 class="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-2 leading-tight">
       {t('home.heroTitleNew', lang)}
     </h1>
+    <p class="text-sm md:text-base text-[var(--text-secondary)] mb-4">
+      {t('home.heroSubtitle', lang)}
+    </p>
+    <div class="flex flex-wrap items-center justify-center gap-2 mb-4">
+      {heroChips.map(id => (
+        <a
+          href={`${localePath('/guides', lang)}#${id}`}
+          class="tag no-underline hover:border-[var(--brand-400)] hover:text-[var(--brand-400)] transition-colors"
+        >
+          {t(`cluster.${id}`, lang)}
+        </a>
+      ))}
+    </div>
     <p class="text-sm text-[var(--text-muted)]">
       {tools.length} {t('home.dataBadge', lang)} · {plans.length} {t('home.dataBadgePlans', lang)} · {t('home.dataBadgeLang', lang)}
     </p>

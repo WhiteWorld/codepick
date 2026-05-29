@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
+import { clusterGuides } from '../lib/guide-clusters';
 
 interface Props { lang: Locale }
 const { lang } = Astro.props;
@@ -10,6 +11,9 @@ const collectionName = getCollectionName('guides', lang) as 'guides' | 'guides-e
 const guides = (await getCollection(collectionName))
   .filter(g => !g.data.draft)
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+// 按需求簇分组（高流量主题靠前），索引页本身即各主题的聚合 hub。
+const clusters = clusterGuides(guides);
 
 const seoTitle = lang === 'zh'
   ? 'AI 编程工具使用指南 | CodePick'
@@ -56,20 +60,49 @@ const collectionPageSchema = {
 <BaseLayout title={seoTitle} description={seoDesc} lang={lang} jsonLd={[collectionPageSchema, breadcrumbSchema, itemListSchema]}>
   <section class="container py-12 max-w-3xl">
     <h1 class="text-3xl font-bold text-[var(--text-primary)] mb-4">{t('guides.title', lang)}</h1>
-    <p class="text-[var(--text-secondary)] mb-8">{t('guides.subtitle', lang)}</p>
+    <p class="text-[var(--text-secondary)] mb-6">{t('guides.subtitle', lang)}</p>
 
-    <div class="space-y-4">
-      {guides.map(guide => (
-        <a href={localePath(`/guides/${guide.slug}`, lang)} class="card p-6 block no-underline hover:border-[var(--brand-400)] transition-colors">
-          <div class="flex flex-wrap gap-2 mb-2">
-            {guide.data.tags?.slice(0, 3).map((tag: string) => (
-              <span class="tag">{tag}</span>
+    <!-- 簇跳转导航（sticky） -->
+    <nav
+      aria-label={t('guides.jumpTo', lang)}
+      class="sticky top-16 z-10 -mx-4 px-4 py-3 mb-10 bg-[var(--bg-primary)]/90 backdrop-blur border-b border-[var(--border)] overflow-x-auto"
+    >
+      <div class="flex items-center gap-2 whitespace-nowrap">
+        <span class="text-xs text-[var(--text-muted)] shrink-0">{t('guides.jumpTo', lang)}:</span>
+        {clusters.map(c => (
+          <a
+            href={`#${c.id}`}
+            class="tag no-underline hover:border-[var(--brand-400)] hover:text-[var(--brand-400)] transition-colors"
+          >
+            {t(`cluster.${c.id}`, lang)}
+            <span class="opacity-60">({c.guides.length})</span>
+          </a>
+        ))}
+      </div>
+    </nav>
+
+    <div class="space-y-14">
+      {clusters.map(c => (
+        <section id={c.id} class="scroll-mt-28">
+          <h2 class="text-xl font-bold text-[var(--text-primary)] mb-1 flex items-baseline gap-2">
+            {t(`cluster.${c.id}`, lang)}
+            <span class="text-sm font-normal text-[var(--text-muted)]">{c.guides.length}</span>
+          </h2>
+          <div class="space-y-4 mt-4">
+            {c.guides.map(guide => (
+              <a href={localePath(`/guides/${guide.slug}`, lang)} class="card p-6 block no-underline hover:border-[var(--brand-400)] transition-colors">
+                <div class="flex flex-wrap gap-2 mb-2">
+                  {guide.data.tags?.slice(0, 3).map((tag: string) => (
+                    <span class="tag">{tag}</span>
+                  ))}
+                </div>
+                <h3 class="text-lg font-semibold text-[var(--text-primary)] mt-2 mb-1">{guide.data.title}</h3>
+                <p class="text-sm text-[var(--text-muted)] m-0 mb-2">{guide.data.description}</p>
+                <span class="text-xs text-[var(--text-muted)]">{guide.data.date}</span>
+              </a>
             ))}
           </div>
-          <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-2 mb-1">{guide.data.title}</h2>
-          <p class="text-sm text-[var(--text-muted)] m-0 mb-2">{guide.data.description}</p>
-          <span class="text-xs text-[var(--text-muted)]">{guide.data.date}</span>
-        </a>
+        </section>
       ))}
     </div>
   </section>

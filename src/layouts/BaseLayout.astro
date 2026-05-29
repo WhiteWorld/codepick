@@ -70,14 +70,14 @@ const allJsonLd = [...defaultJsonLd, ...pageJsonLd];
 
 const navLinks = [
   { href: localePath('/', lang), label: t('nav.home', lang) },
+  { href: localePath('/guides', lang), label: t('nav.guides', lang) },
+  { href: localePath('/compare', lang), label: t('nav.compare', lang) },
+  { href: localePath('/deals', lang), label: t('nav.deals', lang) },
   { href: localePath('/tools', lang), label: t('nav.tools', lang) },
   { href: localePath('/plans', lang), label: t('nav.plans', lang) },
   { href: localePath('/agents', lang), label: t('nav.agents', lang) },
   { href: localePath('/tools/overview', lang), label: t('nav.overview', lang) },
-  { href: localePath('/compare', lang), label: t('nav.compare', lang) },
-  { href: localePath('/guides', lang), label: t('nav.guides', lang) },
   { href: localePath('/practices', lang), label: t('nav.practices', lang) },
-  { href: localePath('/deals', lang), label: t('nav.deals', lang) },
 ];
 
 const otherLang = lang === 'zh' ? 'en' : 'zh';
