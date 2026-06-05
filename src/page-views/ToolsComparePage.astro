@@ -185,7 +185,7 @@ const webPageSchema = {
     // Header row
     head.innerHTML = `<tr>
       <th class="text-left">${lang === 'zh' ? '项目' : 'Item'}</th>
-      ${toolObjs.map(t => `<th><a href="/${lang}/tool/${t.id}" class="text-[var(--brand-400)] no-underline hover:underline">${t.name}</a></th>`).join('')}
+      ${toolObjs.map(t => `<th><a href="/${lang}/tool/${t.id}/" class="text-[var(--brand-400)] no-underline hover:underline">${t.name}</a></th>`).join('')}
     </tr>`;
 
     const rows = [];

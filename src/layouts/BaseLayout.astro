@@ -9,6 +9,12 @@ interface Props {
   description?: string;
   image?: string;
   canonicalURL?: string;
+  alternateURLs?: {
+    zh?: string;
+    en?: string;
+    xDefault?: string;
+  };
+  languageSwitchURL?: string;
   jsonLd?: object | object[];
   lang?: Locale;
 }
@@ -23,6 +29,8 @@ const {
     const path = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
     return new URL(path, Astro.site).href;
   })(),
+  alternateURLs,
+  languageSwitchURL,
   jsonLd,
 } = Astro.props;
 
@@ -30,13 +38,24 @@ const siteUrl = 'https://codepick.dev';
 const ogImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
 const htmlLang = lang === 'zh' ? 'zh-CN' : 'en';
 const ogLocale = lang === 'zh' ? 'zh_CN' : 'en_US';
-const altLangUrl = (() => {
-    const altPath = getAlternateLangUrl(Astro.url, lang);
-    const path = altPath.endsWith('/') ? altPath : `${altPath}/`;
-    return new URL(path, Astro.site).href;
-  })();
-const zhUrl = lang === 'zh' ? canonicalURL : altLangUrl;
-const enUrl = lang === 'en' ? canonicalURL : altLangUrl;
+const normalizeAbsoluteUrl = (value?: string) => value
+  ? new URL(value, Astro.site).href
+  : undefined;
+const defaultAltLangUrl = (() => {
+  const altPath = getAlternateLangUrl(Astro.url, lang);
+  const path = altPath.endsWith('/') ? altPath : `${altPath}/`;
+  return new URL(path, Astro.site).href;
+})();
+const hasAlternateOverrides = alternateURLs !== undefined;
+const zhUrl = hasAlternateOverrides
+  ? normalizeAbsoluteUrl(alternateURLs?.zh)
+  : (lang === 'zh' ? canonicalURL : defaultAltLangUrl);
+const enUrl = hasAlternateOverrides
+  ? normalizeAbsoluteUrl(alternateURLs?.en)
+  : (lang === 'en' ? canonicalURL : defaultAltLangUrl);
+const xDefaultUrl = hasAlternateOverrides
+  ? normalizeAbsoluteUrl(alternateURLs?.xDefault ?? alternateURLs?.zh ?? alternateURLs?.en)
+  : zhUrl;
 
 // Default site-level JSON-LD
 const defaultJsonLd = [
@@ -80,9 +99,12 @@ const navLinks = [
   { href: localePath('/practices', lang), label: t('nav.practices', lang) },
 ];
 
+const stripTrailingSlash = (path: string) => path.length > 1 ? path.replace(/\/+$/, '') : path;
+const homePath = localePath('/', lang);
+
 const otherLang = lang === 'zh' ? 'en' : 'zh';
 const switchLabel = lang === 'zh' ? 'EN' : '中文';
-const switchUrl = getAlternateLangUrl(Astro.url, lang);
+const switchUrl = languageSwitchURL ?? getAlternateLangUrl(Astro.url, lang);
 
 // Compute the most recent content date across all collections for the footer
 const allCollections = await Promise.all([
@@ -117,9 +139,9 @@ const latestUpdateMonth = latestDate
   <link rel="canonical" href={canonicalURL} />
 
   <!-- hreflang alternates -->
-  <link rel="alternate" hreflang="zh" href={zhUrl} />
-  <link rel="alternate" hreflang="en" href={enUrl} />
-  <link rel="alternate" hreflang="x-default" href={zhUrl} />
+  {zhUrl && <link rel="alternate" hreflang="zh" href={zhUrl} />}
+  {enUrl && <link rel="alternate" hreflang="en" href={enUrl} />}
+  {xDefaultUrl && <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />}
 
   <!-- RSS autodiscovery -->
   <link rel="alternate" type="application/rss+xml" title={lang === 'zh' ? 'CodePick · 中文 RSS' : 'CodePick RSS'} href={`${siteUrl}/${lang}/rss.xml`} />
@@ -173,7 +195,12 @@ const latestUpdateMonth = latestDate
       </a>
       <div class="hidden md:flex items-center gap-6">
         {navLinks.map(link => {
-          const isActive = Astro.url.pathname === link.href || (link.href !== localePath('/', lang) && Astro.url.pathname.startsWith(link.href + '/') && !navLinks.some(other => other.href !== link.href && other.href !== localePath('/', lang) && Astro.url.pathname.startsWith(other.href + '/')));
+          const currentPath = stripTrailingSlash(Astro.url.pathname);
+          const linkPath = stripTrailingSlash(link.href);
+          const isActive = currentPath === linkPath || (link.href !== homePath && currentPath.startsWith(`${linkPath}/`) && !navLinks.some(other => {
+            const otherPath = stripTrailingSlash(other.href);
+            return other.href !== link.href && other.href !== homePath && currentPath.startsWith(`${otherPath}/`);
+          }));
           return (
             <a
               href={link.href}

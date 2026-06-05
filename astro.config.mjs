@@ -43,8 +43,57 @@ function buildLastmodMap() {
 
 const lastmodMap = buildLastmodMap();
 
+function canonicalizePagePath(pathname) {
+  const isFilePath = /\.[^/]+$/.test(pathname);
+  if (pathname === '/' || isFilePath || pathname.endsWith('/')) {
+    return pathname;
+  }
+
+  return `${pathname}/`;
+}
+
+function canonicalizeInternalUrl(url) {
+  if (!url.startsWith('/zh') && !url.startsWith('/en')) {
+    return url;
+  }
+
+  const suffixIndex = (() => {
+    const query = url.indexOf('?');
+    const hash = url.indexOf('#');
+    if (query === -1) return hash;
+    if (hash === -1) return query;
+    return Math.min(query, hash);
+  })();
+
+  const pathname = suffixIndex === -1 ? url : url.slice(0, suffixIndex);
+  const suffix = suffixIndex === -1 ? '' : url.slice(suffixIndex);
+  return `${canonicalizePagePath(pathname)}${suffix}`;
+}
+
+function canonicalizeMarkdownInternalLinks() {
+  return (tree) => {
+    const visit = (node) => {
+      if (!node || typeof node !== 'object') return;
+
+      if (node.type === 'link' && typeof node.url === 'string') {
+        node.url = canonicalizeInternalUrl(node.url);
+      }
+
+      if (Array.isArray(node.children)) {
+        node.children.forEach(visit);
+      }
+    };
+
+    visit(tree);
+  };
+}
+
 export default defineConfig({
   site: 'https://codepick.dev',
+  trailingSlash: 'always',
+  markdown: {
+    remarkPlugins: [canonicalizeMarkdownInternalLinks],
+  },
   i18n: {
     defaultLocale: 'zh',
     locales: ['zh', 'en'],

@@ -495,8 +495,23 @@ export function t(key: string, lang: Locale): string {
 
 /** Get locale-prefixed path */
 export function localePath(pathStr: string, lang: Locale): string {
-  const clean = pathStr.startsWith('/') ? pathStr : `/${pathStr}`;
-  return `/${lang}${clean}`;
+  const input = pathStr.startsWith('/') ? pathStr : `/${pathStr}`;
+  const suffixStart = (() => {
+    const query = input.indexOf('?');
+    const hash = input.indexOf('#');
+    if (query === -1) return hash;
+    if (hash === -1) return query;
+    return Math.min(query, hash);
+  })();
+
+  const pathname = suffixStart === -1 ? input : input.slice(0, suffixStart);
+  const suffix = suffixStart === -1 ? '' : input.slice(suffixStart);
+  const isFilePath = /\.[^/]+$/.test(pathname);
+  const canonicalPath = pathname === '/'
+    ? '/'
+    : (!isFilePath && !pathname.endsWith('/') ? `${pathname}/` : pathname);
+
+  return `/${lang}${canonicalPath}${suffix}`;
 }
 
 /** Get current locale from URL */

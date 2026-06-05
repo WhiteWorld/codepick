@@ -14,7 +14,8 @@
     "gen-social-post": "node scripts/gen-social-post.mjs",
     "gen-og": "node scripts/gen-og-image.mjs",
     "gen-juejin": "node scripts/gen-juejin-post.mjs",
-    "submit-indexnow": "node scripts/submit-indexnow.mjs"
+    "submit-indexnow": "node scripts/submit-indexnow.mjs",
+    "check:seo": "node scripts/check-seo-routes.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.0",

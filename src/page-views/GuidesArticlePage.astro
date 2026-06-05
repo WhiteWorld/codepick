@@ -58,6 +58,17 @@ function tagHref(tag: string) {
 const siteUrl = 'https://codepick.dev';
 const guidePath = localePath(`/guides/${guide.slug}`, lang);
 const guideUrl = `${siteUrl}${guidePath}`;
+const otherLang = lang === 'zh' ? 'en' : 'zh';
+const alternateGuidesCollection = getCollectionName('guides', otherLang) as 'guides' | 'guides-en';
+const alternateGuides = await getCollection(alternateGuidesCollection);
+const alternateGuide = alternateGuides.find(g => g.slug === guide.slug && !g.data.draft);
+const alternateGuidePath = alternateGuide ? localePath(`/guides/${guide.slug}`, otherLang) : undefined;
+const alternateURLs = {
+  [lang]: guideUrl,
+  ...(alternateGuidePath ? { [otherLang]: `${siteUrl}${alternateGuidePath}` } : {}),
+  xDefault: lang === 'zh' ? guideUrl : (alternateGuidePath && otherLang === 'zh' ? `${siteUrl}${alternateGuidePath}` : guideUrl),
+};
+const languageSwitchURL = alternateGuidePath ?? localePath('/guides', otherLang);
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -133,6 +144,8 @@ const jsonLdList = [articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema]
   description={guide.data.description}
   jsonLd={jsonLdList}
   lang={lang}
+  alternateURLs={alternateURLs}
+  languageSwitchURL={languageSwitchURL}
 >
   <article class="container py-12 max-w-3xl">
     <nav class="text-xs text-[var(--text-muted)] mb-6">

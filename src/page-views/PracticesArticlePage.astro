@@ -27,6 +27,17 @@ const relatedArticles = allArticles
 const siteUrl = 'https://codepick.dev';
 const articlePath = localePath(`/practices/${article.slug}`, lang);
 const articleUrl = `${siteUrl}${articlePath}`;
+const otherLang = lang === 'zh' ? 'en' : 'zh';
+const alternateCollectionName = getCollectionName('practices', otherLang) as 'practices' | 'practices-en';
+const alternateArticles = await getCollection(alternateCollectionName);
+const alternateArticle = alternateArticles.find(a => a.slug === article.slug && !a.data.draft);
+const alternateArticlePath = alternateArticle ? localePath(`/practices/${article.slug}`, otherLang) : undefined;
+const alternateURLs = {
+  [lang]: articleUrl,
+  ...(alternateArticlePath ? { [otherLang]: `${siteUrl}${alternateArticlePath}` } : {}),
+  xDefault: lang === 'zh' ? articleUrl : (alternateArticlePath && otherLang === 'zh' ? `${siteUrl}${alternateArticlePath}` : articleUrl),
+};
+const languageSwitchURL = alternateArticlePath ?? localePath('/practices', otherLang);
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -58,6 +69,8 @@ const articleSchema = {
   description={article.data.description}
   jsonLd={[articleSchema, breadcrumbSchema]}
   lang={lang}
+  alternateURLs={alternateURLs}
+  languageSwitchURL={languageSwitchURL}
 >
   <article class="container py-12 max-w-3xl">
     <nav class="text-xs text-[var(--text-muted)] mb-6">

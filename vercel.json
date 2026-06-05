@@ -1,4 +1,5 @@
 {
+  "trailingSlash": true,
   "redirects": [
     { "source": "/", "destination": "/zh/", "statusCode": 302 },
     { "source": "/tools", "destination": "/zh/tools", "statusCode": 301 },
@@ -27,6 +28,21 @@
     { "source": "/changelog/", "destination": "/zh/tools", "statusCode": 301 },
     { "source": "/cdn-cgi/l/email-protection", "destination": "/zh/", "statusCode": 301 },
     { "source": "/cdn-cgi/l/email-protection/", "destination": "/zh/", "statusCode": 301 },
+
+    { "source": "/en/guides/slock-vs-multica-vs-agentrq-vs-taskade", "destination": "/zh/guides/slock-vs-multica-vs-agentrq-vs-taskade/", "statusCode": 301 },
+    { "source": "/en/guides/slock-vs-multica-vs-agentrq-vs-taskade/", "destination": "/zh/guides/slock-vs-multica-vs-agentrq-vs-taskade/", "statusCode": 301 },
+    { "source": "/en/guides/why-solo-founders-need-ai-agent-teams", "destination": "/zh/guides/why-solo-founders-need-ai-agent-teams/", "statusCode": 301 },
+    { "source": "/en/guides/why-solo-founders-need-ai-agent-teams/", "destination": "/zh/guides/why-solo-founders-need-ai-agent-teams/", "statusCode": 301 },
+    { "source": "/en/guides/agent-collaboration-platform-types", "destination": "/zh/guides/agent-collaboration-platform-types/", "statusCode": 301 },
+    { "source": "/en/guides/agent-collaboration-platform-types/", "destination": "/zh/guides/agent-collaboration-platform-types/", "statusCode": 301 },
+    { "source": "/en/guides/ai-employees-vs-coding-agents", "destination": "/zh/guides/ai-employees-vs-coding-agents/", "statusCode": 301 },
+    { "source": "/en/guides/ai-employees-vs-coding-agents/", "destination": "/zh/guides/ai-employees-vs-coding-agents/", "statusCode": 301 },
+    { "source": "/en/compare/claude-code-budget-alternatives", "destination": "/en/guides/claude-code-budget-alternatives/", "statusCode": 301 },
+    { "source": "/en/compare/claude-code-budget-alternatives/", "destination": "/en/guides/claude-code-budget-alternatives/", "statusCode": 301 },
+    { "source": "/zh/compare/claude-code-budget-alternatives", "destination": "/zh/guides/claude-code-budget-alternatives/", "statusCode": 301 },
+    { "source": "/zh/compare/claude-code-budget-alternatives/", "destination": "/zh/guides/claude-code-budget-alternatives/", "statusCode": 301 },
+    { "source": "/en/practices/openclaw-cloud-deploy", "destination": "/zh/practices/openclaw-cloud-deploy/", "statusCode": 301 },
+    { "source": "/en/practices/openclaw-cloud-deploy/", "destination": "/zh/practices/openclaw-cloud-deploy/", "statusCode": 301 },
 
     { "source": "/compare/cloudflare-pages-vs-vercel", "destination": "/zh/practices/cloudflare-pages-vs-vercel", "statusCode": 301 },
     { "source": "/compare/cloudflare-vs-vercel-vs-supabase", "destination": "/zh/practices/cloudflare-vs-vercel-vs-supabase", "statusCode": 301 },
