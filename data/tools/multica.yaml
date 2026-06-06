@@ -4,8 +4,8 @@ type: agent_platform
 logo: /images/multica.png
 url: https://multica.ai
 repo: https://github.com/multica-ai/multica
-current_version: null
-version_tracked_at: '2026-05-09'
+current_version: 'v0.3.17'
+version_tracked_at: '2026-06-06'
 
 pricing:
   model: free
@@ -20,8 +20,8 @@ pricing:
       limits: 免费试用（后续可能推出付费套餐）
       limits_en: Free trial (paid plans may follow)
   price_updated_at: '2026-05-09'
-  note: 开源可自托管（Docker Compose / K8s）；官方提供 Cloud 托管版本；本地 Agent 执行，代码不经过 Multica 服务器
-  note_en: Open source, self-hostable (Docker Compose / K8s); official Cloud hosted version available; local agent execution, code never touches Multica servers
+  note: Modified Apache 2.0 开源，可自托管（Docker Compose / K8s）；官方提供 Cloud 托管版本；Agent 在本地 daemon 或自有 runtime 执行
+  note_en: Modified Apache 2.0 open source, self-hostable (Docker Compose / K8s); official Cloud hosted version available; agents execute on local daemons or owned runtimes
 
 scores:
   coding_ability: 7.5
@@ -56,6 +56,7 @@ features:
     - Gemini CLI
     - Kimi Code
     - Kiro CLI
+    - Antigravity
     - OpenCode
     - OpenClaw
     - Hermes
@@ -85,13 +86,13 @@ not_for_en:
 quick_start:
   - 访问 multica.ai 注册 Cloud 版本，或 clone GitHub 仓库自托管
   - 运行 multica setup CLI 工具连接本地机器
-  - Multica 自动扫描已安装的 Coding Agent（支持 11 种工具）
+  - Multica 自动扫描已安装的 Coding Agent（官方 README 当前列出 12 种命令）
   - 创建 Agent 并配置指令和 Skills
   - 将 Issue 分配给 Agent，实时查看执行进度
 quick_start_en:
   - Sign up at multica.ai for Cloud, or clone the GitHub repo for self-hosting
   - Run multica setup CLI to connect your local machine
-  - Multica auto-detects installed coding agents (11 tools supported)
+  - Multica auto-detects installed coding agents (12 commands listed in the current README)
   - Create agents with custom instructions and attach skills
   - Assign issues to agents and watch real-time progress
 
@@ -102,10 +103,10 @@ china_note_en: Open source and self-hostable, deployable in China; agents execut
 data_sources:
   - url: https://multica.ai
     type: docs
-    last_checked: '2026-05-09'
+    last_checked: '2026-06-06'
   - url: https://github.com/multica-ai/multica
     type: repo
-    last_checked: '2026-05-09'
+    last_checked: '2026-06-06'
 
 changelog:
   - date: '2026-05-09'
@@ -113,7 +114,7 @@ changelog:
     summary: 加入 CodePick Agent 协作栏目
     summary_en: Added to CodePick Agent Collaboration section
 
-last_full_review: '2026-05-09'
-next_review_due: '2026-06-09'
+last_full_review: '2026-06-06'
+next_review_due: '2026-07-06'
 review_frequency_days: 30
 confidence: medium
