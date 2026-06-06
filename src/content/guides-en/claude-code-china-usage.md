@@ -4,6 +4,9 @@ description: "Claude Code is blocked in mainland China, but there are real worka
 date: "2026-04-05"
 article_type: "explainer"
 tags: ["claude-code", "china", "volcengine-ark", "kiro", "api", "workaround"]
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

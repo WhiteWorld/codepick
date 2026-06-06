@@ -3,6 +3,9 @@ title: "Claude Code vs Codex 2026: Latest AI Coding Agent Comparison"
 description: "Updated on 2026-06-03: Claude Code vs Codex across pricing, models, platforms, MCP, privacy, parallel tasks, PR workflows, and buyer recommendations."
 date: "2026-06-03"
 tags: ["claude-code", "codex", "comparison", "ai-coding", "agent"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

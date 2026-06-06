@@ -4,6 +4,9 @@ description: "2026 年 4 月 15 日，Windsurf 发布 2.0 大版本。本文拆�
 date: "2026-05-25"
 article_type: "explainer"
 tags: ["windsurf", "windsurf-2", "cognition", "devin", "swe-1.5", "codemaps", "agent", "IDE", "更新"]
+pillar: tools
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

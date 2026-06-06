@@ -5,8 +5,8 @@ logo: /images/ollama.png
 url: https://ollama.com
 repo: https://github.com/ollama/ollama
 
-current_version: "v0.6"
-version_tracked_at: "2026-04-23"
+current_version: "v0.30.6"
+version_tracked_at: "2026-06-06"
 
 pricing:
   model: free
@@ -15,7 +15,7 @@ pricing:
     - name: 完全免费
       price: 0
       limits: "无限制（需本地 GPU，建议 8GB+ 显存）"
-  price_updated_at: "2026-04-23"
+  price_updated_at: "2026-06-06"
 
 scores:
   coding_ability: 5.5
@@ -53,14 +53,17 @@ not_for:
 data_sources:
   - url: "https://github.com/ollama/ollama/releases"
     type: release
-    last_checked: "2026-04-23"
+    last_checked: "2026-06-06"
 
 changelog:
+  - date: "2026-06-05"
+    type: feature
+    summary: "Ollama v0.30.6 发布；GitHub release 标记为 Latest，包含 `ollama launch omp` 与 Apple Silicon MLX embedding quantization 改进"
   - date: "2026-01-15"
     type: model
     summary: "支持 Qwen3-Coder 模型"
 
-last_full_review: "2026-04-23"
-next_review_due: "2026-05-23"
+last_full_review: "2026-06-06"
+next_review_due: "2026-07-06"
 review_frequency_days: 30
 confidence: high

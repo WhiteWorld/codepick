@@ -3,6 +3,9 @@ title: "Claude Code vs Cline 2026：最强 CLI Agent 对决最灵活 VS Code 插
 description: "Claude Code vs Cline 深度对比：终端 CLI 与 VS Code 插件的核心差异、价格、国内可用性与 Agent 能力，帮你找到最适合自己工作流的 AI 编程工具。"
 date: "2026-04-05"
 tags: ["claude-code", "cline", "对比", "cli", "agent", "vscode"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

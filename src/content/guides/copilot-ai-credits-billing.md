@@ -5,6 +5,9 @@ date: "2026-05-11"
 updated_at: "2026-05-28"
 article_type: "explainer"
 tags: ["github-copilot", "计费", "ai-credits", "token", "定价"]
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 draft: false
 faq:
   - q: "Copilot 6 月新计费会让我变贵吗？"

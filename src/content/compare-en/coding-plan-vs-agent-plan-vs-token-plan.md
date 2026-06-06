@@ -3,6 +3,9 @@ title: "Coding Plan vs Agent Plan vs Token Plan: 2026 China AI Subscription Show
 description: "A full comparison of Ark Agent Plan, MiniMax Token Plan, and Bailian Token Plan (Team) — pricing, billing units, model lineups, modality coverage, Harness tools, and how to choose."
 date: "2026-05-13"
 tags: ["coding-plan", "agent-plan", "token-plan", "volcano-ark", "minimax", "bailian", "comparison", "agent", "multimodal"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

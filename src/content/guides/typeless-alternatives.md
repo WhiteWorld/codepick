@@ -4,6 +4,9 @@ description: "对比 Typeless、Wispr Flow、VoiceInk、Voibe、ByeType 五款 A
 date: "2026-03-19"
 article_type: "review"
 tags: ["typeless", "语音输入", "vibe-coding", "效率工具", "选型"]
+pillar: workflow
+content_status: keep
+locale_strategy: zh_only
 ---
 
 2026 年，AI 语音输入正在改变开发者的工作方式。以 Typeless 为代表的新一代工具不再是简单的语音转文字——它们能理解你的意图、自动修正口误、甚至识别代码语法。对于每天写代码、写文档、回消息的开发者来说，语音输入可以将效率提升 3-4 倍（说话速度 150+ WPM vs 打字 40-45 WPM）。

@@ -3,6 +3,9 @@ title: "Aider vs Cline 2026：两款开源免费 AI Agent 深度对比"
 description: "Aider vs Cline 深度对比：Git 优先的 Python CLI 与 VS Code 插件 Agent，从隐私、价格、工作流到国内可用性，帮你选出最适合的免费 AI 编程工具。"
 date: "2026-04-05"
 tags: ["aider", "cline", "对比", "cli", "开源", "免费"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

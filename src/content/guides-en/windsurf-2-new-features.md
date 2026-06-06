@@ -4,6 +4,9 @@ description: "On April 15, 2026, Windsurf shipped its 2.0 major release. This gu
 date: "2026-05-25"
 article_type: "explainer"
 tags: ["windsurf", "windsurf-2", "cognition", "devin", "swe-1.5", "codemaps", "agent", "IDE", "update"]
+pillar: tools
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

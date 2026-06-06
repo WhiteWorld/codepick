@@ -5,6 +5,9 @@ date: "2026-06-06"
 updated_at: "2026-06-06"
 article_type: review
 tags: ["agent-runtime", "google-ax", "agyn", "dapr-agents", "durable-execution", "agent-infrastructure"]
+pillar: market
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 
@@ -214,4 +217,3 @@ The strongest architecture is not necessarily choosing one. Think in layers:
 - [Agyn GitHub](https://github.com/agynio/platform)
 - [Dapr Agents GitHub](https://github.com/dapr/dapr-agents)
 - [Dapr Agents docs](https://docs.dapr.io/developing-ai/dapr-agents/dapr-agents-core-concepts/)
-

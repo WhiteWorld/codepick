@@ -1,14 +1,16 @@
-name: Data Freshness Check
+name: Content Quality Check
 
 on:
-  # 每周一早上9点(北京时间)自动检查
   schedule:
-    - cron: '0 1 * * 1'  # UTC 01:00 = 北京 09:00
-  # 也可以手动触发
+    - cron: '0 1 * * 1'
   workflow_dispatch:
 
+permissions:
+  contents: read
+  issues: write
+
 jobs:
-  check:
+  content-quality:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,42 +19,45 @@ jobs:
         with:
           node-version: 20
 
-      - name: Check data freshness
-        id: freshness
-        run: node scripts/check-freshness.mjs
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check content quality
+        id: content
+        run: npm run content:check -- --strict
         continue-on-error: true
 
-      - name: Create issue if stale
-        if: steps.freshness.outcome == 'failure'
+      - name: Create issue if content check fails
+        if: steps.content.outcome == 'failure'
         uses: actions/github-script@v7
         with:
           script: |
             const { execSync } = require('child_process');
-            const output = execSync('node scripts/check-freshness.mjs 2>&1 || true').toString();
+            const output = execSync('node scripts/check-content.mjs --strict --json 2>&1 || true').toString();
             
-            // 检查是否已有 open 的 freshness issue
             const issues = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
               state: 'open',
-              labels: 'data-freshness'
+              labels: 'content-quality'
             });
             
+            const body = `## CodePick content quality check failed\n\n\`\`\`json\n${output}\n\`\`\`\n\n*Generated at ${new Date().toISOString()}*`;
+
             if (issues.data.length > 0) {
-              // 更新已有 issue
               await github.rest.issues.update({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: issues.data[0].number,
-                body: `## 数据新鲜度检查报告\n\n\`\`\`\n${output}\n\`\`\`\n\n*自动生成于 ${new Date().toISOString()}*`
+                title: 'CodePick content quality check failed',
+                body
               });
             } else {
-              // 创建新 issue
               await github.rest.issues.create({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                title: '📊 数据需要更新',
-                body: `## 数据新鲜度检查报告\n\n\`\`\`\n${output}\n\`\`\`\n\n*自动生成于 ${new Date().toISOString()}*`,
-                labels: ['data-freshness']
+                title: 'CodePick content quality check failed',
+                body,
+                labels: ['content-quality']
               });
             }

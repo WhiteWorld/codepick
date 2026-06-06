@@ -4,6 +4,9 @@ description: "On April 2, 2026, Cursor shipped its biggest redesign since launch
 date: "2026-05-18"
 article_type: "explainer"
 tags: ["cursor", "cursor-3", "agent", "parallel-agents", "IDE", "update"]
+pillar: tools
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

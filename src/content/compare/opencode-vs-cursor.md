@@ -3,6 +3,9 @@ title: "OpenCode vs Cursor 2026：免费开源 TUI 对决付费 AI IDE"
 description: "OpenCode vs Cursor 深度对比：免费终端 TUI Agent 与顶级 AI IDE，从价格、编程能力、国内可用性到工作流全面对比，帮你做出最适合的选择。"
 date: "2026-04-05"
 tags: ["opencode", "cursor", "对比", "cli", "ide", "终端"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

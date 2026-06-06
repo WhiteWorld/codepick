@@ -5,6 +5,9 @@ date: "2026-05-19"
 updated_at: "2026-06-06"
 article_type: "howto"
 tags: ["multica", "agent-platform", "agent-collaboration", "self-hosted", "private-deployment", "docker", "kubernetes", "open-source", "setup"]
+pillar: workflow
+content_status: keep
+locale_strategy: mirrored
 draft: false
 faq:
   - q: "Multica 私有化部署需要多大服务器？"

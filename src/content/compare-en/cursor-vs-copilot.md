@@ -3,6 +3,9 @@ title: "Cursor vs GitHub Copilot: 2026 Ultimate Comparison"
 description: "In-depth comparison of two major paid AI coding tools: coding ability, Agent mode, pricing, IDE support, and China accessibility to help you make the best choice."
 date: "2026-02-16"
 tags: ["cursor", "github-copilot", "comparison", "ide"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

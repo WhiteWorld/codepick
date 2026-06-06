@@ -5,6 +5,9 @@ date: "2026-06-06"
 updated_at: "2026-06-06"
 article_type: review
 tags: ["agent-runtime", "google-ax", "agyn", "dapr-agents", "durable-execution", "agent-infrastructure"]
+pillar: market
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 
@@ -214,4 +217,3 @@ Dapr 能提供应用和 sidecar 层面的边界，但如果你要运行不可信
 - [Agyn GitHub](https://github.com/agynio/platform)
 - [Dapr Agents GitHub](https://github.com/dapr/dapr-agents)
 - [Dapr Agents 文档](https://docs.dapr.io/developing-ai/dapr-agents/dapr-agents-core-concepts/)
-

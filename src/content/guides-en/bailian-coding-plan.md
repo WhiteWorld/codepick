@@ -22,6 +22,9 @@ faq:
     a: |
       No. Bailian requires manual model selection. Daily coding: `qwen3-coder-next`. Complex reasoning: `qwen3.6-plus`. Fallbacks: `GLM-5` or `Kimi-K2.5`.
       If you need automatic model routing, only Volcengine Ark offers it today.
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 ---
 
 Bailian Coding Plan is Alibaba Cloud's dedicated AI coding API package at ¥200/month (verify current pricing on the official site). It provides guaranteed request quotas plus access to 8 models, ideal for developers who prefer the Qwen model ecosystem. No VPN required — subscribe via Alipay or WeChat Pay.

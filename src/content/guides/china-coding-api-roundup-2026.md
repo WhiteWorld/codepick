@@ -5,6 +5,9 @@ date: "2026-05-19"
 updated_at: "2026-05-19"
 article_type: "review"
 tags: ["coding-plan", "对比", "横评", "ark", "bailian", "minimax", "glm", "智谱", "deepseek", "国内", "api"]
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 draft: false
 faq:
   - q: "国内 Coding API 套餐最便宜的是哪家？"

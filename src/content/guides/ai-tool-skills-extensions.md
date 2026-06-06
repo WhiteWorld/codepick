@@ -4,6 +4,9 @@ description: "深入解析 AI 编程工具的扩展能力：Claude Code 的 Skil
 date: "2026-03-28"
 article_type: "explainer"
 tags: ["skills", "claude-code", "cursor", "cline", "hooks", "自定义", "工作流"]
+pillar: workflow
+content_status: keep
+locale_strategy: mirrored
 ---
 
 AI 编程工具不只是"更聪明的代码补全"。现代工具提供了丰富的扩展机制，让你能深度定制 AI 的行为——从自动执行任务到强制遵守团队规范。本文带你系统了解各主流工具的 Skills/扩展系统。

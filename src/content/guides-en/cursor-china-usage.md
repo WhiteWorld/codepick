@@ -22,6 +22,9 @@ faq:
     a: |
       If you can sustain a reliable VPN and $20+/month, Cursor is still the strongest option (9.5/10 overall).
       If you don't want the VPN overhead or have a tight budget, Trae CN is the closest free domestic alternative — ByteDance-hosted, direct mainland access, and the model lineup covers mainstream Claude/GPT.
+pillar: tools
+content_status: keep
+locale_strategy: mirrored
 ---
 
 Cursor is the most capable AI IDE on the market (overall score 9.5/10), but developers in China face three major hurdles: **network access, payment methods, and API latency**. This guide covers all viable workarounds.

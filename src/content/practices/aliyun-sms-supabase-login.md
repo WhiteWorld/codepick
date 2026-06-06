@@ -4,6 +4,9 @@ description: "手把手教你用阿里云短信服务替换 Twilio，配合 Supa
 date: "2026-03-15"
 article_type: "howto"
 tags: ["supabase", "阿里云", "短信验证码", "登录", "edge-functions", "国内"]
+pillar: stack
+content_status: keep
+locale_strategy: zh_only
 draft: false
 ---
 

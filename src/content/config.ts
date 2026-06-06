@@ -1,5 +1,11 @@
 import { defineCollection, z } from 'astro:content';
 
+const contentGovernance = {
+  pillar: z.enum(['tools', 'plans', 'compare', 'workflow', 'stack', 'market']).optional(),
+  content_status: z.enum(['keep', 'rewrite', 'merge', 'archive']).optional(),
+  locale_strategy: z.enum(['mirrored', 'zh_only', 'en_only', 'planned_en', 'planned_zh']).optional(),
+};
+
 const compare = defineCollection({
   type: 'content',
   schema: z.object({
@@ -8,6 +14,7 @@ const compare = defineCollection({
     date: z.string(),
     tags: z.array(z.string()).optional().default([]),
     draft: z.boolean().optional().default(false),
+    ...contentGovernance,
   }),
 });
 
@@ -27,6 +34,7 @@ const guides = defineCollection({
     tags: z.array(z.string()).optional().default([]),
     draft: z.boolean().optional().default(false),
     faq: z.array(faqItem).optional(),
+    ...contentGovernance,
   }),
 });
 
@@ -39,6 +47,7 @@ const compareEn = defineCollection({
     date: z.string(),
     tags: z.array(z.string()).optional().default([]),
     draft: z.boolean().optional().default(false),
+    ...contentGovernance,
   }),
 });
 
@@ -53,6 +62,7 @@ const guidesEn = defineCollection({
     tags: z.array(z.string()).optional().default([]),
     draft: z.boolean().optional().default(false),
     faq: z.array(faqItem).optional(),
+    ...contentGovernance,
   }),
 });
 
@@ -65,6 +75,7 @@ const practices = defineCollection({
     updated_at: z.string().optional(),
     tags: z.array(z.string()).optional().default([]),
     draft: z.boolean().optional().default(false),
+    ...contentGovernance,
   }),
 });
 
@@ -77,6 +88,7 @@ const practicesEn = defineCollection({
     updated_at: z.string().optional(),
     tags: z.array(z.string()).optional().default([]),
     draft: z.boolean().optional().default(false),
+    ...contentGovernance,
   }),
 });
 

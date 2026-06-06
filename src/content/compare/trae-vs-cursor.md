@@ -3,6 +3,9 @@ title: "Trae vs Cursor 2026：字节跳动免费 AI IDE vs 市场标杆"
 description: "Trae vs Cursor 深度对比：字节跳动出品的免费 AI IDE 与 Cursor 正面碰撞，从价格、SOLO 模式、Builder 模式到国内可用性全面分析，帮海外开发者做出最优选择。"
 date: "2026-04-05"
 tags: ["trae", "cursor", "对比", "ide", "免费", "字节跳动"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

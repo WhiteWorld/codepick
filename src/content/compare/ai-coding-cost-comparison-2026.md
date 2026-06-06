@@ -3,6 +3,9 @@ title: "AI 编程工具月成本对比 2026：Copilot、Cursor、Codex、Claude 
 description: "从月费、额度机制、国内可用性和超额风险四个维度，对比 GitHub Copilot、Cursor、OpenAI Codex、Claude Code、火山方舟、MiniMax、百炼等 AI 编程方案，帮你估算真实月成本。"
 date: "2026-05-28"
 tags: ["ai编程", "成本", "计费", "copilot", "cursor", "codex", "claude-code", "coding-plan", "国内", "对比"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

@@ -4,6 +4,9 @@ description: "Conductor 是 Melty Labs 推出的 Mac 端 Agent 编排工具，�
 date: "2026-05-16"
 tags: [conductor, claude-code, codex, parallel-agents, mac, melty-labs]
 article_type: review
+pillar: workflow
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

@@ -1,10 +1,9 @@
-// 指南需求簇（demand clusters）派生规则。
+// 指南内容支柱（content pillars）派生规则。
 //
-// 流量数据显示 /guides 的访问几乎全部集中在「省钱 / 国产 coding plan、
-// 海外工具国内访问、计费解读」等高意图主题上。这里按有序规则把每篇指南
-// 归到首个命中的簇，用于把扁平的时间流索引重构成主题集群（利于 SEO 内链
-// 与用户浏览）。归类只依赖现有 frontmatter（tags / article_type）与 slug，
-// 不需要改动任何内容文件。
+// CodePick 的内容定位已收敛为「AI 开发者工具与工作流选型站」。
+// 因此 /guides 优先读取 frontmatter.pillar，把扁平时间流组织成
+// tools / plans / workflow / stack / market 几个稳定入口。
+// 旧文章或临时内容若缺少 pillar，再用标签与 slug 做兼容兜底。
 //
 // 显示标签走 i18n 的 `cluster.<id>` key，本文件只负责归类，不含文案。
 
@@ -16,16 +15,12 @@ export interface GuideLike {
     tags?: string[];
     article_type?: string;
     draft?: boolean;
+    pillar?: ContentPillar;
   };
 }
 
-export type ClusterId =
-  | 'coding-plan'
-  | 'china-billing'
-  | 'setup'
-  | 'updates'
-  | 'agent-collab'
-  | 'other';
+export type ContentPillar = 'tools' | 'plans' | 'compare' | 'workflow' | 'stack' | 'market';
+export type ClusterId = Exclude<ContentPillar, 'compare'> | 'other';
 
 interface ClusterRule {
   id: ClusterId;
@@ -42,36 +37,35 @@ const slugHas = (g: GuideLike, ...needles: string[]) =>
   needles.some(n => g.slug.includes(n));
 
 // 顺序即优先级：首个命中的规则决定归属（与展示顺序 CLUSTER_ORDER 无关）。
-// agent-collab 放在 setup 之前——agent 平台的 setup 指南（slug 以 -setup 结尾）
-// 带 agent-collaboration 标签，应归 Agent 协作而非通用接入教程。
+// Agent 协作类规则放在通用 setup 之前，避免 slock-setup 之类文章被归到工具上手。
 export const GUIDE_CLUSTERS: ClusterRule[] = [
   {
-    id: 'coding-plan',
+    id: 'plans',
     match: g =>
       hasTag(g, 'coding-plan', 'token-plan', 'agent-plan', '省钱', '预算') ||
       slugHas(g, 'coding-plan', 'token-saving', 'cost-saving', 'budget', 'api-platforms', 'api-roundup'),
   },
   {
-    id: 'china-billing',
+    id: 'plans',
     match: g =>
       hasTag(g, '计费', '定价', 'ai-credits', 'rate-limit', '限速', 'billing', 'pricing') ||
       (hasTag(g, '国内', 'china') && !g.slug.endsWith('-setup')),
   },
   {
-    id: 'agent-collab',
+    id: 'workflow',
     match: g =>
       hasTag(g, 'agent-collaboration', 'agent-runtime', 'agent-infrastructure', 'durable-execution') ||
       slugHas(g, 'conductor'),
   },
   {
-    id: 'setup',
+    id: 'tools',
     match: g =>
       g.slug.endsWith('-setup') ||
       g.data.article_type === 'howto' ||
       hasTag(g, '配置', '插件', 'self-hosted', '本地部署', 'local', 'extension', 'extensions', 'plugin'),
   },
   {
-    id: 'updates',
+    id: 'workflow',
     match: g =>
       hasTag(g, '更新', 'mcp', 'skills', '语音输入', 'voice', 'update') ||
       slugHas(g, 'new-features', 'composer'),
@@ -80,14 +74,18 @@ export const GUIDE_CLUSTERS: ClusterRule[] = [
 
 // 索引页 / 首页 chip 的展示顺序（不含 other，other 仅作兜底）。
 export const CLUSTER_ORDER: ClusterId[] = [
-  'coding-plan',
-  'china-billing',
-  'setup',
-  'updates',
-  'agent-collab',
+  'plans',
+  'workflow',
+  'tools',
+  'stack',
+  'market',
 ];
 
 function clusterOf(g: GuideLike): ClusterId {
+  if (g.data.pillar && g.data.pillar !== 'compare') {
+    return g.data.pillar;
+  }
+
   for (const rule of GUIDE_CLUSTERS) {
     if (rule.match(g)) return rule.id;
   }

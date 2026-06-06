@@ -4,6 +4,9 @@ description: "A zero-cost, zero-data-leak local AI coding setup. Run local model
 date: "2026-02-16"
 article_type: "howto"
 tags: ["ollama", "aider", "local-deployment", "privacy", "free"]
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

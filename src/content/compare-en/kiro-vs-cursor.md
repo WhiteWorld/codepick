@@ -3,6 +3,9 @@ title: "Kiro vs Cursor 2026: AWS Spec-Driven IDE vs the Reigning AI Coding King"
 description: "Kiro is AWS's spec-driven Agentic IDE, while Cursor is the most popular AI IDE today. Their core philosophies differ — this article helps you decide which one fits your development style."
 date: "2026-02-17"
 tags: ["kiro", "cursor", "comparison", "ide", "AWS", "spec-driven"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

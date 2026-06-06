@@ -3,6 +3,9 @@ title: "Cline vs Roo Code：开源 VS Code Agent 谁更强？"
 description: "两款最热门的 VS Code 开源 AI Agent 深度横评：功能、模型支持、定价模式、国内可用性全面对比。"
 date: "2026-02-16"
 tags: ["cline", "roo-code", "开源", "vscode", "agent"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 ---
 
 Cline 和 Roo Code 是目前 VS Code 市场中下载量最高的两款开源 AI Agent 插件。它们的共同特点是：**完全开源、支持自定义模型 API、可以在任意 VS Code 环境中使用**。本文做详细对比。

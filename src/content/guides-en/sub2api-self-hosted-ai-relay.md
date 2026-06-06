@@ -5,6 +5,9 @@ date: "2026-05-28"
 updated_at: "2026-05-28"
 article_type: howto
 tags: ["sub2api", "api-relay", "claude-code", "codex", "gemini-cli", "self-hosted", "docker"]
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

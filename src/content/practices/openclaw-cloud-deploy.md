@@ -4,6 +4,9 @@ description: "对比阿里云、腾讯云、火山引擎、百度智能云、京
 date: "2026-03-19"
 article_type: "howto"
 tags: ["openclaw", "云部署", "国内", "选型", "AI智能体"]
+pillar: stack
+content_status: keep
+locale_strategy: zh_only
 ---
 
 OpenClaw 是 2026 年最火的开源 AI 智能体项目（GitHub 24.7 万星），可连接微信、飞书、钉钉、QQ 等 30+ 通讯平台，充当你的 7×24 小时私人 AI 助手。国内各大云厂商纷纷推出一键部署方案，本文帮你选出最适合自己的那个。

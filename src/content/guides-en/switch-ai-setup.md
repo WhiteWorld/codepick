@@ -4,6 +4,9 @@ description: "Introducing switch-ai, a CLI tool for instantly switching between 
 date: "2026-03-02"
 article_type: "howto"
 tags: ["switch-ai", "CLI", "API", "environment-variables", "tools"]
+pillar: workflow
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

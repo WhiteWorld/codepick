@@ -3,6 +3,9 @@ title: "Antigravity vs Cursor 2026：Google 新秀 vs AI IDE 霸主"
 description: "Google Antigravity 免费预览 vs Cursor Pro $20/月。两款 VS Code Fork IDE 全面对比：Agent 架构、模型支持、定价、成熟度，帮你决定是否值得迁移。"
 date: "2026-02-17"
 tags: ["antigravity", "cursor", "对比", "ide", "google"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 ---
 
 2025 年 11 月，Google 发布了 Antigravity——一款随 Gemini 3 同期推出的 Agentic IDE。它挑战的正是 Cursor 的统治地位。两款工具都基于 VS Code，都支持 Claude 模型，但设计哲学截然不同。

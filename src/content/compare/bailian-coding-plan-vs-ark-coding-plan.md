@@ -3,6 +3,9 @@ title: "百炼 Coding Plan vs 火山方舟 Coding Plan：2026 深度对比"
 description: "阿里云百炼与火山引擎方舟两款国产 AI 编程 API 套餐全面横评：价格、额度机制、模型生态、客户端兼容性与选型建议。"
 date: "2026-02-26"
 tags: ["百炼", "火山方舟", "coding-plan", "国内", "对比", "api"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

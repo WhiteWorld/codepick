@@ -3,6 +3,9 @@ title: "Supabase vs Firebase: Backend-as-a-Service Deep Dive"
 description: "A comprehensive comparison of Supabase and Firebase across database types, auth systems, real-time capabilities, pricing, open-source status, and more to help you pick the right BaaS platform."
 date: "2026-03-21"
 tags: ["supabase", "firebase", "comparison", "backend", "BaaS"]
+pillar: stack
+content_status: keep
+locale_strategy: mirrored
 ---
 
 Supabase and Firebase are the two most popular Backend-as-a-Service (BaaS) platforms. Firebase is Google's established product with a mature ecosystem; Supabase is the challenger, rising rapidly as the "open-source Firebase alternative."

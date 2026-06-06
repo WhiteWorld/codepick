@@ -4,6 +4,9 @@ description: "介绍 switch-ai 命令行小工具，支持在 Anthropic、OpenAI
 date: "2026-03-02"
 article_type: "howto"
 tags: ["switch-ai", "CLI", "API", "环境变量", "工具"]
+pillar: workflow
+content_status: keep
+locale_strategy: mirrored
 ---
 
 如果你同时使用多个 AI API 服务（Anthropic、OpenAI、火山方舟、各种中转站……），每次切换都要手动改环境变量，是不是很烦？

@@ -3,6 +3,9 @@ title: "AI 编程 API 中转站选型指南：国内开发者低成本用上 Cla
 description: "全面对比主流 API 中转站（AICodeMirror、SSSAiCode、GAC Code、UniVibe 等），从价格、稳定性、安全性等 8 个维度横评，帮国内开发者选出最适合的 Claude Code / Codex / Gemini CLI 接入方案。"
 date: "2026-03-02"
 tags: ["api-relay", "claude-code", "codex", "中转站", "国内可用"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

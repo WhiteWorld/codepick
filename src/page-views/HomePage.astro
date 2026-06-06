@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getAllPlansLocalized, getAllToolsLocalized, overallScore } from '../lib/data';
 import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
+import { clusterGuides } from '../lib/guide-clusters';
 import { getCollection } from 'astro:content';
 
 interface Props { lang: Locale }
@@ -105,8 +106,10 @@ const allArticlesHref = localePath(`/${featured?.type ?? 'compare'}`, lang);
 const rssPath = lang === 'zh' ? '/zh/rss.xml' : '/en/rss.xml';
 const githubUrl = 'https://github.com/WhiteWorld/codepick';
 
-// Hero 下的需求簇快捷入口，跳转到 /guides 对应簇区块。
-const heroChips = ['coding-plan', 'china-billing', 'setup', 'agent-collab'] as const;
+// Hero 下的内容支柱快捷入口，跳转到 /guides 中实际存在的区块。
+const heroChips = clusterGuides(guidesItems.filter((item: any) => !item.data.draft))
+  .map(cluster => cluster.id)
+  .slice(0, 4);
 ---
 <BaseLayout title={seoTitle} lang={lang} jsonLd={homeJsonLd}>
   <!-- Hero (compact, ~80px) -->

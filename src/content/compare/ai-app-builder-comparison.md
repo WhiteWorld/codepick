@@ -3,6 +3,9 @@ title: "AI 应用构建器横评：Lovable vs Bolt.new vs v0 vs Youware"
 description: "2026 年四款主流 AI App Builder 全面对比：Lovable、Bolt.new、v0、Youware 的核心功能、定价、适用场景和选型建议。"
 date: "2026-03-04"
 tags: ["lovable", "bolt", "v0", "youware", "app-builder", "vibe-coding"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

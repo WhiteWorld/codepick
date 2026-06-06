@@ -6,7 +6,7 @@ url: https://www.aliyun.com/benefit/scene/codingplan
 repo: null
 
 current_version: "v1"
-version_tracked_at: "2026-04-23"
+version_tracked_at: "2026-06-06"
 
 pricing:
   model: subscription
@@ -17,8 +17,8 @@ pricing:
       period: month
       limits: "每5小时6,000次 / 每周45,000次 / 每月90,000次请求"
       note: "当前新购仅开放 Pro 套餐"
-  price_updated_at: "2026-04-23"
-  note: "Lite 套餐自 2026-03-20 停止新购、2026-04-13 停止续费与升级；当前仅开放 Pro 新购。额度按模型调用次数扣减，简单任务约 5–10 次、复杂任务 10–30+ 次；RAM 子账号需主账号授权后才能订阅；禁止通过脚本/API 自动调用。"
+  price_updated_at: "2026-06-06"
+  note: "Lite 套餐自 2026-03-20 停止新购、2026-04-13 停止续费与升级；当前仅开放 Pro 新购，¥200/月，每 5 小时 6,000 次、每周 45,000 次、每月 90,000 次请求。活动优惠已结束，当前价格以下单页为准。套餐专属 API Key 以 sk-sp- 开头，Base URL 与百炼按量 API 不互通；禁止用于非交互式批量 API 调用。"
 
 scores:
   coding_ability: 8.5
@@ -70,10 +70,10 @@ not_for:
 data_sources:
   - url: "https://www.aliyun.com/benefit/scene/codingplan"
     type: pricing
-    last_checked: "2026-04-23"
+    last_checked: "2026-06-06"
   - url: "https://help.aliyun.com/zh/model-studio/coding-plan"
     type: documentation
-    last_checked: "2026-04-23"
+    last_checked: "2026-06-06"
   - url: "https://help.aliyun.com/zh/model-studio/lingma-coding-plan"
     type: documentation
     last_checked: "2026-04-23"
@@ -95,7 +95,7 @@ changelog:
     type: pricing
     summary: "推出新购优惠活动，具体活动价以官网为准"
 
-last_full_review: "2026-04-23"
-next_review_due: "2026-05-23"
+last_full_review: "2026-06-06"
+next_review_due: "2026-07-06"
 review_frequency_days: 30
 confidence: high

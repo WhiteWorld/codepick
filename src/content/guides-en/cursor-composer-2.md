@@ -4,6 +4,9 @@ description: "In March 2026 Cursor launched Composer 2 — a proprietary coding 
 date: "2026-04-20"
 article_type: "explainer"
 tags: ["cursor", "composer-2", "kimi", "moonshot", "model", "open-source", "reinforcement-learning"]
+pillar: tools
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

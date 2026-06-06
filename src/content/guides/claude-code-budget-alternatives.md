@@ -4,6 +4,9 @@ description: "Claude Code Pro $20/月、Max $100–200/月——觉得贵？这 
 date: "2026-04-05"
 article_type: "review"
 tags: ["claude-code", "省钱", "替代方案", "cline", "火山方舟", "预算"]
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

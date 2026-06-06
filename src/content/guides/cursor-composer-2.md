@@ -4,6 +4,9 @@ description: "Cursor 于 2026 年 3 月推出专属编程模型 Composer 2，基
 date: "2026-04-20"
 article_type: "explainer"
 tags: ["cursor", "composer-2", "kimi", "moonshot", "模型", "开源", "强化学习"]
+pillar: tools
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

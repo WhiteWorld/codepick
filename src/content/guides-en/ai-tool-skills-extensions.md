@@ -4,6 +4,9 @@ description: "A deep dive into AI coding tool extension capabilities: Claude Cod
 date: "2026-03-28"
 article_type: "explainer"
 tags: ["skills", "claude-code", "cursor", "cline", "hooks", "customization", "workflow"]
+pillar: workflow
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

@@ -3,6 +3,9 @@ title: "Kiro vs Cursor 2026：AWS Spec 驱动 IDE vs 老牌 AI 编程王者"
 description: "Kiro 是 AWS 推出的 Spec 驱动 Agentic IDE，Cursor 是当前最流行的 AI IDE。两者核心理念不同，适合不同开发场景，本文帮你判断哪个更适合你。"
 date: "2026-02-17"
 tags: ["kiro", "cursor", "对比", "ide", "AWS", "spec-driven"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 ---
 
 Cursor 是目前最流行的 AI IDE，而 Kiro 是 AWS 在 2025 年推出的挑战者。两者都基于 VS Code，都支持 Claude 模型，但核心理念截然不同——Cursor 专注于"高效交互"，Kiro 专注于"原型到生产"。

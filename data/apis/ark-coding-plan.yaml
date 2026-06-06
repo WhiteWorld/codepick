@@ -7,7 +7,7 @@ affiliate_url: https://volcengine.com/L/GHwMUAPkBr0/
 repo: null
 
 current_version: "v2"
-version_tracked_at: "2026-04-23"
+version_tracked_at: "2026-06-06"
 
 pricing:
   model: subscription
@@ -23,8 +23,8 @@ pricing:
       period: month
       limits: "每5小时约6000次请求，Lite的5倍用量；首月低至 ¥49.9"
       note: "Pro 标准月费 ¥200。首月优惠 ¥49.9。首购一次性下单三个月可享 5 折；价格与活动以官网实时页面为准。"
-  price_updated_at: "2026-05-19"
-  note: "Lite 标准月费 ¥40（首月 ¥9.9），Pro 标准月费 ¥200（首月 ¥49.9）——续费回到标准价。新用户订阅入口自 2026-03-13 起改为每日 10:30 限量开放；推荐好友订阅可享额外 9 折。"
+  price_updated_at: "2026-06-06"
+  note: "Lite 标准月费 ¥40（首月优惠以活动页为准），Pro 标准月费 ¥200（首月优惠以活动页为准）。官方文档 2026-06-03 更新，Coding Plan 个人版仍保留 Lite / Pro 双层级与 Claude Code、OpenCode、OpenClaw、Hermes Agent、TRAE、OpenViking 等接入文档；活动页需 JavaScript 渲染，最终价格以下单页为准。"
 
 scores:
   coding_ability: 8.0
@@ -68,10 +68,10 @@ not_for:
 data_sources:
   - url: "https://www.volcengine.com/L/s3lNTNYxaEc/"
     type: pricing
-    last_checked: "2026-04-23"
+    last_checked: "2026-06-06"
   - url: "https://www.volcengine.com/docs/82379/1925114"
     type: documentation
-    last_checked: "2026-04-23"
+    last_checked: "2026-06-06"
   - url: "https://developer.volcengine.com/articles/7595502342175195187"
     type: announcement
     last_checked: "2026-04-23"
@@ -96,7 +96,7 @@ changelog:
     type: feature
     summary: "支持接入 Trae / Claude Code / Cursor 等更多客户端"
 
-last_full_review: "2026-04-23"
-next_review_due: "2026-05-23"
+last_full_review: "2026-06-06"
+next_review_due: "2026-07-06"
 review_frequency_days: 30
 confidence: high

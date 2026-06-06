@@ -4,6 +4,9 @@ description: "From what tokens are to 5 practical strategies, covering Cursor, C
 date: "2026-03-29"
 article_type: "explainer"
 tags: ["token", "cursor", "claude-code", "cline", "copilot", "cost", "efficiency"]
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

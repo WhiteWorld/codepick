@@ -3,6 +3,9 @@ title: "Cloudflare vs Vercel vs Supabase: Developer Platform Comparison"
 description: "A side-by-side comparison of three essential developer platforms: Cloudflare for edge computing, Vercel for frontend deployment, Supabase for backend-as-a-service. Which to choose and how to combine them."
 date: "2026-03-21"
 tags: ["cloudflare", "vercel", "supabase", "comparison", "deployment"]
+pillar: stack
+content_status: keep
+locale_strategy: mirrored
 ---
 
 Cloudflare, Vercel, and Supabase are three of the most popular developer platforms among indie developers and small teams. But they're **not competitors** — they solve different problems and are often best used together.

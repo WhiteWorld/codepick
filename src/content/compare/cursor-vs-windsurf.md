@@ -3,6 +3,9 @@ title: "Cursor vs Windsurf 2026：两大 VS Code Fork 终极对比"
 description: "Cursor $20 vs Windsurf $15，哪个更值得？编程能力、价格、补全体验、模型支持全方位对比，帮你做出最优选择。"
 date: "2026-02-17"
 tags: ["cursor", "windsurf", "对比", "VS Code", "ide"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 ---
 
 Cursor 和 Windsurf 是目前最受欢迎的两款 VS Code Fork AI IDE。两者功能高度相似，但定价、模型策略和核心体验各有侧重。本文从实际使用角度做全面对比。

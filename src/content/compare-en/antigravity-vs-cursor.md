@@ -3,6 +3,9 @@ title: "Antigravity vs Cursor 2026: Google's Newcomer vs the AI IDE Champion"
 description: "Google Antigravity (free preview) vs Cursor Pro ($20/mo). A comprehensive comparison of two VS Code Fork IDEs: Agent architecture, model support, pricing, and maturity to help you decide whether to switch."
 date: "2026-02-17"
 tags: ["antigravity", "cursor", "comparison", "ide", "google"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

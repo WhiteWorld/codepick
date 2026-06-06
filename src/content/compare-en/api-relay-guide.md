@@ -3,6 +3,9 @@ title: "AI Coding API Relay Guide: How to Use Claude Code from China at Lower Co
 description: "A comprehensive comparison of major API relay services (AICodeMirror, SSSAiCode, GAC Code, UniVibe, etc.) across 8 dimensions including pricing, stability, and security — helping developers choose the best way to access Claude Code, Codex, and Gemini CLI."
 date: "2026-03-02"
 tags: ["api-relay", "claude-code", "codex", "relay-service", "china-access"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

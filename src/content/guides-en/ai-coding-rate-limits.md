@@ -4,6 +4,9 @@ description: "Why does Claude Code, Cursor, or Copilot hit rate limits right whe
 date: "2026-04-05"
 article_type: "explainer"
 tags: ["rate-limit", "claude-code", "cursor", "cline", "efficiency"]
+pillar: workflow
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

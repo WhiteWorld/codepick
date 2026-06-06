@@ -5,6 +5,9 @@ date: "2026-05-19"
 updated_at: "2026-05-19"
 article_type: "howto"
 tags: ["orkas", "agent-platform", "agent-collaboration", "desktop", "local-first", "commander", "setup"]
+pillar: workflow
+content_status: keep
+locale_strategy: mirrored
 draft: false
 faq:
   - q: "Orkas 跟 Claude Code 是替代关系吗？"

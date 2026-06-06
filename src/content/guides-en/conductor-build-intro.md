@@ -4,6 +4,9 @@ description: "Conductor by Melty Labs is a Mac app that orchestrates parallel Cl
 date: "2026-05-16"
 tags: [conductor, claude-code, codex, parallel-agents, mac, melty-labs]
 article_type: review
+pillar: workflow
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

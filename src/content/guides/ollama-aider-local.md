@@ -4,6 +4,9 @@ description: "零成本、零数据外泄的本地 AI 编程方案。使用 Olla
 date: "2026-02-16"
 article_type: "howto"
 tags: ["ollama", "aider", "本地部署", "隐私", "免费"]
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 ---
 
 本指南介绍如何搭建完全本地运行的 AI 编程环境：**Ollama**（本地模型运行时）+ **Aider**（AI 编程助手）。这个方案的优点是：

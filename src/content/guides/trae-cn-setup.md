@@ -4,6 +4,9 @@ description: "字节跳动出品的 Trae CN 完全免费，无需代理，内置
 date: "2026-02-17"
 article_type: "howto"
 tags: ["trae-cn", "国内", "免费", "入门", "字节跳动"]
+pillar: tools
+content_status: keep
+locale_strategy: mirrored
 ---
 
 Trae CN 是字节跳动推出的国内版 AI IDE，基于 VS Code，完全免费，无需代理，内置豆包 Seed Code、DeepSeek V3/R1、Kimi K2、GLM-4.5、Qwen3-Coder 等国产顶级编程模型。

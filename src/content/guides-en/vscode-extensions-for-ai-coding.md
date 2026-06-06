@@ -4,6 +4,9 @@ description: "The best VS Code plugins to use alongside Cursor, Cline, and Claud
 date: "2026-04-01"
 article_type: "review"
 tags: ["vscode", "cursor", "cline", "workflow", "extensions", "git", "productivity"]
+pillar: workflow
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 
