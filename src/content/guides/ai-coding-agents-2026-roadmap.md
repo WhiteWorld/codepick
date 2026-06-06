@@ -5,6 +5,9 @@ date: "2026-06-01"
 updated_at: "2026-06-01"
 article_type: explainer
 tags: ["ai-coding", "agent", "codex", "claude-code", "copilot", "gemini-cli", "mcp", "security", "workflow"]
+pillar: market
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

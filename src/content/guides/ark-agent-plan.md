@@ -5,6 +5,9 @@ date: "2026-05-13"
 updated_at: "2026-05-28"
 article_type: "explainer"
 tags: ["火山方舟", "ark", "agent-plan", "智能体", "订阅", "AFP", "多模态"]
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 draft: false
 faq:
   - q: "Agent Plan 和 Coding Plan 应该买哪个？"

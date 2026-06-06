@@ -3,6 +3,9 @@ title: "Cloudflare Pages vs Vercel：前端部署平台终极对比"
 description: "从构建速度、免费额度、Serverless 能力、框架支持、国内访问速度等维度，全面对比两大前端部署平台，帮你选出最适合的方案。"
 date: "2026-03-21"
 tags: ["cloudflare", "vercel", "部署", "对比", "前端"]
+pillar: stack
+content_status: keep
+locale_strategy: mirrored
 ---
 
 Cloudflare Pages 和 Vercel 是目前最受开发者欢迎的两个前端部署平台。两者都支持 git push 自动部署、预览链接、免费 SSL，但在定价模型、性能特点、生态集成上有显著差异。

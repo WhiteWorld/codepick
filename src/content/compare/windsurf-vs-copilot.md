@@ -3,6 +3,9 @@ title: "Windsurf vs GitHub Copilot 2026：IDE 体验 vs 生态整合，怎么选
 description: "Windsurf vs GitHub Copilot 深度对比：价格、代码补全、Agent 能力、IDE 兼容性与国内可用性，帮你在两款主流 AI 编程工具之间做出最佳选择。"
 date: "2026-04-05"
 tags: ["windsurf", "copilot", "对比", "ide", "vscode"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

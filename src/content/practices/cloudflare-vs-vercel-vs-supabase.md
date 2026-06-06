@@ -3,6 +3,9 @@ title: "Cloudflare vs Vercel vs Supabase：开发者平台选型指南"
 description: "三大开发者平台横向对比：Cloudflare 全栈边缘计算、Vercel 前端部署之王、Supabase 后端即服务。不同场景下该怎么选？可以搭配使用吗？"
 date: "2026-03-21"
 tags: ["cloudflare", "vercel", "supabase", "对比", "部署"]
+pillar: stack
+content_status: keep
+locale_strategy: mirrored
 ---
 
 Cloudflare、Vercel、Supabase 是独立开发者和小团队最常用的三个开发者平台。但它们**不是竞品**——它们解决的问题不同，很多时候应该搭配使用。

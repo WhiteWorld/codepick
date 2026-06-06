@@ -27,6 +27,9 @@ faq:
     a: |
       预算优先选**方舟**（Lite 首月 ¥9.9 / 续费 ¥40 最便宜）；想用千问全家桶选**百炼**（¥200，模型最多）；
       要全模态（含音频/音乐）选 **MiniMax Token Plan**（¥29 起）。重度长上下文或多模态 Agent 再考虑 Agent Plan，并先看最新 AFP 抵扣规则。详见 [百炼 vs 方舟](/zh/compare/bailian-coding-plan-vs-ark-coding-plan/)。
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 ---
 
 火山方舟 Coding Plan 是字节跳动旗下的 AI 编程 API 套餐，**Lite 标准月费 ¥40，首月低至 ¥9.9**，无需代理，支持支付宝/微信支付。国内开发者接入 AI 编程成本最低的方案之一——但要注意 ¥9.9 是首月优惠价，续费回到 ¥40。

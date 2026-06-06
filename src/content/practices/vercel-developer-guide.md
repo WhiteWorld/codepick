@@ -4,6 +4,9 @@ description: "从零了解 Vercel：前端部署、Serverless Functions、Edge R
 date: "2026-03-21"
 article_type: "explainer"
 tags: ["vercel", "部署", "入门", "Next.js", "前端"]
+pillar: stack
+content_status: keep
+locale_strategy: mirrored
 ---
 
 你写了一个网站，想让别人能访问到它。传统做法是：买服务器、装 Nginx、配 SSL、设置 CI/CD 流水线、绑域名……光是部署就能折腾一天。

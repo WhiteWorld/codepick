@@ -4,6 +4,9 @@ description: "An assessment of Copilot accessibility from China, the new AI Cred
 date: "2026-05-17"
 article_type: "explainer"
 tags: ["copilot", "china", "billing", "GitHub", "credits", "extension"]
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 ---
 
 GitHub Copilot is the most familiar AI coding assistant for Chinese developers, with its $10/month Pro plan being the most affordable among overseas IDEs. But the 2026 **new signup pause, AI Credits billing overhaul**, and network issues in China have raised questions. This article breaks it all down.

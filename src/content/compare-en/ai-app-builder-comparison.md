@@ -3,6 +3,9 @@ title: "AI App Builder Showdown: Lovable vs Bolt.new vs v0 vs Youware"
 description: "A comprehensive 2026 comparison of four leading AI App Builders — Lovable, Bolt.new, v0 by Vercel, and Youware — covering features, pricing, use cases, and recommendations."
 date: "2026-03-04"
 tags: ["lovable", "bolt", "v0", "youware", "app-builder", "vibe-coding"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

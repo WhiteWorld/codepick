@@ -4,6 +4,9 @@ description: "截至 2026-04-29，梳理 DeepSeek-V4 在官方平台、阿里云
 date: "2026-04-29"
 article_type: "howto"
 tags: ["deepseek", "deepseek-v4", "api", "openrouter", "百炼", "together", "fireworks"]
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

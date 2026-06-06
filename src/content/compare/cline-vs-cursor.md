@@ -3,6 +3,9 @@ title: "Cline vs Cursor：2026 深度对比"
 description: "免费开源插件 vs 付费 AI IDE：Cline 和 Cursor 从定价、Agent 能力、模型灵活性到国内可用性全面对比，帮你做出最优选择。"
 date: "2026-04-01"
 tags: ["cline", "cursor", "对比", "vscode", "ide"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

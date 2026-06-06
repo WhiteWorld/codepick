@@ -4,6 +4,9 @@ description: "AI Employees（Sintra、Soleur、1org）和 Coding Agents（Cursor
 date: "2026-05-09"
 tags: [agent-collaboration, ai-employees, soleur, comparison]
 article_type: explainer
+pillar: workflow
+content_status: keep
+locale_strategy: zh_only
 draft: false
 ---
 

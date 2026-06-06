@@ -4,6 +4,9 @@ description: "从 token 是什么到 5 大节省策略，覆盖 Cursor、Claude 
 date: "2026-03-29"
 article_type: "explainer"
 tags: ["token", "cursor", "claude-code", "cline", "copilot", "省钱", "效率"]
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

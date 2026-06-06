@@ -4,6 +4,9 @@ description: "Claude Code Pro at $20/mo, Max at $100–200/mo feeling steep? Her
 date: "2026-04-05"
 article_type: "review"
 tags: ["claude-code", "budget", "alternatives", "cline", "volcengine-ark", "cost-saving"]
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

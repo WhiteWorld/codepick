@@ -4,6 +4,9 @@ description: "专为 Claude Code 用户写的 token 节省指南：/compact、/c
 date: "2026-03-29"
 article_type: "explainer"
 tags: ["claude-code", "token", "省钱", "效率", "CLAUDE.md", "compact"]
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

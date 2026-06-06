@@ -4,6 +4,9 @@ description: "As of 2026-04-29, this guide checks where DeepSeek-V4 is actually 
 date: "2026-04-29"
 article_type: "howto"
 tags: ["deepseek", "deepseek-v4", "api", "openrouter", "bailian", "together", "fireworks"]
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

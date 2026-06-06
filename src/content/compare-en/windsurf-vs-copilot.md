@@ -3,6 +3,9 @@ title: "Windsurf vs GitHub Copilot 2026: Full IDE vs Deep GitHub Integration"
 description: "Windsurf vs GitHub Copilot compared: pricing, code completion, Agent capabilities, IDE compatibility, and China accessibility — helping you pick the right AI coding tool."
 date: "2026-04-05"
 tags: ["windsurf", "copilot", "comparison", "ide", "vscode"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

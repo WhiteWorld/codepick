@@ -5,6 +5,9 @@ date: "2026-05-09"
 updated_at: "2026-05-19"
 tags: [agent-collaboration, slock, multica, lobehub, orkas, comparison]
 article_type: review
+pillar: workflow
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

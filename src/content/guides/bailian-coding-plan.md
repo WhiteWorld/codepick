@@ -22,6 +22,9 @@ faq:
     a: |
       没有。百炼需手动指定模型 ID。
       日常编程推荐 `qwen3-coder-next`，复杂推理切 `qwen3.6-plus`，备选 `GLM-5` 或 `Kimi-K2.5`。想要 Auto 目前只有火山方舟提供。
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 ---
 
 百炼 Coding Plan 是阿里云推出的 AI 编程专属 API 套餐，月付 ¥200（以官网实时价格为准），提供保底额度 + 多款模型，适合想用千问/Qwen 系列模型的国内开发者。无需代理，支付宝/微信支付即可订阅。

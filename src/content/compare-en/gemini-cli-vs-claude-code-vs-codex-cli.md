@@ -3,6 +3,9 @@ title: "Gemini CLI vs Claude Code vs Codex CLI: Three Free Terminal Agents Compa
 description: "A side-by-side comparison of three top terminal AI coding tools: free quotas, model capabilities, installation methods, and ideal use cases to help you pick the best command-line AI assistant."
 date: "2026-02-17"
 tags: ["gemini-cli", "claude-code", "codex-cli", "terminal", "cli", "free", "comparison"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

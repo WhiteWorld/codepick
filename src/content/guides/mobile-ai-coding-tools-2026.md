@@ -5,6 +5,9 @@ date: "2026-06-04"
 updated_at: "2026-06-05"
 article_type: explainer
 tags: ["mobile-coding", "ai-coding", "claude-code", "codex", "opencode", "paseo", "mcp", "phone-agent"]
+pillar: workflow
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

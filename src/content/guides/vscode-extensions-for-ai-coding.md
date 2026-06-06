@@ -4,6 +4,9 @@ description: "配合 Cursor、Cline、Claude Code 使用的高频 VS Code 插件
 date: "2026-04-01"
 article_type: "review"
 tags: ["vscode", "cursor", "cline", "工作流", "插件", "git", "效率"]
+pillar: workflow
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

@@ -22,6 +22,9 @@ faq:
     a: |
       预算够（$20+）且能稳定翻墙，Cursor 体验仍是最强（综合 9.5/10）。
       不想折腾代理或预算紧张，Trae CN 是免费替代里体验最接近的——字节自家服务器、国内直连、模型覆盖 Claude/GPT 主流。
+pillar: tools
+content_status: keep
+locale_strategy: mirrored
 ---
 
 Cursor 是目前编程能力最强的 AI IDE（综合评分 9.5/10），但国内开发者面临**网络、支付、延迟**三大障碍。本文梳理所有可行方案，帮你用上 Cursor。

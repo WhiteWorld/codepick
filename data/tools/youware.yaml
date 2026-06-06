@@ -5,7 +5,7 @@ logo: /images/youware.png
 url: https://youware.com
 repo: null
 current_version: null
-version_tracked_at: '2026-03-04'
+version_tracked_at: '2026-06-06'
 
 pricing:
   model: subscription
@@ -13,21 +13,23 @@ pricing:
   plans:
     - name: Free
       price: 0
-      limits: 500 credits，1 个后端项目
-      limits_en: 500 credits, 1 backend project
+      limits: 试用 credits，1 次 Credit Care/月，5 个项目
+      limits_en: Trial credits, 1 Credit Care/month, 5 projects
     - name: Pro
       price: 20
       period: month
       per_user: true
-      limits: 2000+ credits，4 个后端项目，去除品牌水印
-      limits_en: 2,000+ credits, 4 backend projects, branding removal
+      limits: 3,000 credits/月（2,000 base + 1,000 bonus），30 次 Credit Care/月，100 个项目
+      limits_en: 3,000 credits/month (2,000 base + 1,000 bonus), 30 Credit Care/month, 100 projects
     - name: Ultra
       price: 200
       period: month
       per_user: false
-      limits: 团队版
-      limits_en: Team plan
-  price_updated_at: '2026-03-04'
+      limits: 36,000 credits/月（20,000 base + 16,000 bonus），150 次 Credit Care/月，无限项目，私有项目与一对一服务
+      limits_en: 36,000 credits/month (20,000 base + 16,000 bonus), 150 Credit Care/month, unlimited projects, private projects, one-on-one service
+  price_updated_at: '2026-06-06'
+  note: 年付节省 17%；Pro/Ultra 未用完 credits 可在订阅期内 rollover；top-up 仅限年付用户，额外 credits 2 年有效
+  note_en: Yearly billing saves 17%; Pro/Ultra unused credits roll over during the subscription period; top-ups are available only for yearly subscribers and are valid for two years
 
 scores:
   coding_ability: 7.5
@@ -86,9 +88,12 @@ changelog:
 data_sources:
   - url: https://youware.com
     type: pricing
-    last_checked: '2026-03-04'
+    last_checked: '2026-06-06'
+  - url: https://docs.youware.com/introduction/plans-and-pricing
+    type: pricing
+    last_checked: '2026-06-06'
 
-last_full_review: '2026-03-04'
-next_review_due: '2026-06-04'
+last_full_review: '2026-06-06'
+next_review_due: '2026-09-04'
 review_frequency_days: 90
 confidence: medium

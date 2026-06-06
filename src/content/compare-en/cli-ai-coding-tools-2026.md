@@ -3,6 +3,9 @@ title: "The Complete Guide to Terminal AI Coding Tools in 2026: 7 CLI Agents Com
 description: "Terminal AI coding tools are booming! Compare Claude Code, Gemini CLI, Codex CLI, Kiro CLI, Copilot CLI, Cline CLI, and Aider across coding ability, pricing, context window, and more."
 date: "2026-03-28"
 tags: ["cli", "terminal", "claude-code", "gemini-cli", "codex-cli", "kiro-cli", "copilot-cli", "aider", "comparison"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

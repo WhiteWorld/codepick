@@ -3,6 +3,9 @@ title: "5 大国内 Coding Plan 全量横评：2026 选型指南"
 description: "百炼、方舟、MiniMax、智谱 GLM、Kimi 五大国产 AI 编程订阅套餐全面横评：价格、额度机制、模型生态、客户端兼容性与场景选型建议。"
 date: "2026-03-03"
 tags: ["百炼", "火山方舟", "minimax", "智谱", "kimi", "coding-plan", "国内", "对比", "api", "横评"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

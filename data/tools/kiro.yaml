@@ -5,15 +5,15 @@ logo: /images/kiro.png
 url: https://kiro.dev
 repo: https://github.com/kirodotdev/Kiro
 current_version: GA
-version_tracked_at: '2026-03-27'
+version_tracked_at: '2026-06-06'
 pricing:
   model: subscription
   currency: USD
   plans:
     - name: Free
       price: 0
-      limits: 50 统一 credits/月
-      limits_en: 50 unified credits/mo
+      limits: 50 credits/月；可用开放权重模型与 Claude Sonnet 4.5
+      limits_en: 50 credits/mo; access to open-weight models and Claude Sonnet 4.5
     - name: Pro
       price: 20
       period: month
@@ -38,9 +38,9 @@ pricing:
       period: month
       limits: 定制配额，团队管理
       limits_en: Custom quota, team management
-  price_updated_at: '2026-03-27'
-  note: 已改为统一 credit 池（不再区分 vibe/spec）; 不同模型消耗倍率不同(如 Sonnet 4 为 1.3x); 新用户送 500 bonus credits(30天有效)
-  note_en: Unified credit pool (no longer separate vibe/spec); different models consume at different rates (e.g. Sonnet 4 at 1.3x); 500 bonus credits for new users (30-day expiry)
+  price_updated_at: '2026-06-06'
+  note: 统一 credit 池；付费档为 Pro $20/1,000 credits、Pro+ $40/2,000 credits、Power $200/10,000 credits，超额 $0.04/credit；首次升级付费可获得 $20 订阅抵扣；未用完 credits 不 rollover
+  note_en: Unified credit pool; paid tiers are Pro $20/1,000 credits, Pro+ $40/2,000 credits, Power $200/10,000 credits, overage at $0.04/credit; first paid upgrade gets a $20 subscription credit; unused credits do not roll over
 scores:
   coding_ability: 8.5
   cost_efficiency: 6
@@ -61,9 +61,14 @@ features:
   kiro_cli: true
   context_window: 标准上下文窗口
   supported_models:
-    - Claude Opus 4.7（2.2x credit，1M context，实验性）
+    - Claude Opus 4.7
+    - Claude Opus 4.6
+    - Claude Sonnet 4.6
     - Claude Sonnet 4.5
-    - GLM-5（200K context，稀疏 MoE）
+    - Haiku 4.5
+    - Qwen3 Coder Next
+    - DeepSeek v3.2
+    - MiniMax 2.1
   ide_base: VS Code Fork
   supported_os:
     - macOS
@@ -105,10 +110,13 @@ plans_using_this: []
 data_sources:
   - url: https://kiro.dev/pricing/
     type: pricing
-    last_checked: '2026-03-27'
+    last_checked: '2026-06-06'
   - url: https://kiro.dev/blog/introducing-kiro/
     type: changelog
     last_checked: '2026-03-27'
+  - url: https://kiro.dev/docs/billing/
+    type: documentation
+    last_checked: '2026-06-06'
 changelog:
   - date: '2026-05-01'
     type: announcement
@@ -142,7 +150,7 @@ changelog:
     type: launch
     summary: Kiro 公开预览版发布，AWS 出品的 Spec 驱动 Agentic IDE
     summary_en: Kiro public preview launched — AWS-built Spec-driven Agentic IDE
-last_full_review: '2026-05-03'
-next_review_due: '2026-06-03'
+last_full_review: '2026-06-06'
+next_review_due: '2026-07-06'
 review_frequency_days: 30
 confidence: high

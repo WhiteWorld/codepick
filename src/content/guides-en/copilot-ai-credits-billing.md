@@ -5,6 +5,9 @@ date: "2026-05-11"
 updated_at: "2026-05-19"
 article_type: "explainer"
 tags: ["github-copilot", "billing", "ai-credits", "token", "pricing"]
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 draft: false
 faq:
   - q: "Will Copilot's June billing change make me pay more?"

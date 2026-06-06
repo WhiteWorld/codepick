@@ -3,6 +3,9 @@ title: "5 China-Native Coding Plans Compared: 2026 Selection Guide"
 description: "A comprehensive side-by-side comparison of Bailian, Volcengine Ark, MiniMax, Zhipu GLM, and Kimi — five major China-native AI coding subscription plans: pricing, quota mechanisms, model ecosystems, client compatibility, and selection advice."
 date: "2026-03-03"
 tags: ["bailian", "volcengine-ark", "minimax", "zhipu", "kimi", "coding-plan", "china", "comparison", "api", "roundup"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

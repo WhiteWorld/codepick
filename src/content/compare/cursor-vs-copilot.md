@@ -3,6 +3,9 @@ title: "Cursor vs GitHub Copilot：2026 终极对比"
 description: "两大付费 AI 编程方案深度横评：从编程能力、Agent 模式、价格、IDE 支持到国内可用性，帮你做出最佳选择。"
 date: "2026-02-16"
 tags: ["cursor", "github-copilot", "对比", "ide"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 ---
 
 Cursor 和 GitHub Copilot 是目前最主流的两款付费 AI 编程工具，前者是基于 VS Code 的独立 IDE，后者深度集成于 GitHub 生态。本文从多个维度做详细对比。

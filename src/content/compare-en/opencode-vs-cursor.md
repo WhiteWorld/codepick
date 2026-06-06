@@ -3,6 +3,9 @@ title: "OpenCode vs Cursor 2026: Free Open-Source TUI vs Top AI IDE"
 description: "OpenCode vs Cursor compared: free terminal TUI Agent vs premium AI IDE — pricing, coding ability, China accessibility, and workflow to help you choose the right tool."
 date: "2026-04-05"
 tags: ["opencode", "cursor", "comparison", "cli", "ide", "terminal"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

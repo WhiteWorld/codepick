@@ -3,6 +3,9 @@ title: "2026 终端 AI 编程工具完全指南：7 款 CLI Agent 横评"
 description: "终端 AI 编程工具大爆发！Claude Code、Gemini CLI、Codex CLI、Kiro CLI、Copilot CLI、Cline CLI、Aider 七款 CLI Agent 全面对比，从编码能力、价格、上下文窗口到国内可用性。"
 date: "2026-03-28"
 tags: ["cli", "终端", "claude-code", "gemini-cli", "codex-cli", "kiro-cli", "copilot-cli", "aider", "对比"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 ---
 
 2026 年是终端 AI 编程的爆发之年。三巨头（Anthropic、Google、OpenAI）之后，AWS、GitHub、字节跳动纷纷入局，加上开源社区的持续发力，CLI Agent 从 3 个选择扩展到了 7 个以上。本文做最全面的横评。

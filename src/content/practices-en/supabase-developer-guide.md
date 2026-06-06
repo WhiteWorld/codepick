@@ -4,6 +4,9 @@ description: "A beginner's guide to Supabase: PostgreSQL database, authenticatio
 date: "2026-03-21"
 article_type: "explainer"
 tags: ["supabase", "backend", "beginner", "database", "BaaS"]
+pillar: stack
+content_status: keep
+locale_strategy: mirrored
 ---
 
 You want to build an app. The frontend is done with React or Next.js, but what about the backend? User login, data storage, file uploads, real-time notifications — each is a separate system that takes significant time to build from scratch.

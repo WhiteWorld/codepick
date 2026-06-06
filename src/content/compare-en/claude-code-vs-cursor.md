@@ -3,6 +3,9 @@ title: "Claude Code vs Cursor: 2026 In-Depth Comparison"
 description: "Terminal CLI vs AI IDE head-to-head: coding ability, workflow, pricing, and China accessibility — find out which one fits your workflow."
 date: "2026-04-01"
 tags: ["claude-code", "cursor", "comparison", "cli", "ide"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

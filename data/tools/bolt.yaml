@@ -5,7 +5,7 @@ logo: /images/bolt.png
 url: https://bolt.new
 repo: https://github.com/stackblitz/bolt.new
 current_version: null
-version_tracked_at: '2026-03-04'
+version_tracked_at: '2026-06-06'
 
 pricing:
   model: subscription
@@ -13,22 +13,29 @@ pricing:
   plans:
     - name: Free
       price: 0
-      limits: 有限 tokens
-      limits_en: Limited tokens
-    - name: Pro
-      price: 20
+      limits: 每月 token 额度，免费套餐有日用量限制
+      limits_en: Monthly token allowance; free tier also has a daily usage limit
+    - name: Pro 50
+      price: 50
       period: month
       per_user: true
-      limits: 更多 tokens，生成更快
-      limits_en: More tokens, faster generation
+      limits: 约 26M tokens/月；未用完的付费 tokens 可 rollover 一个月
+      limits_en: About 26M tokens/month; unused paid tokens can roll over for one extra month
+    - name: Pro 100
+      price: 100
+      period: month
+      per_user: true
+      limits: 更高月度 tokens；可从低档即时升级
+      limits_en: Higher monthly token allocation; instant upgrade from lower tiers
     - name: Team
-      price: 40
+      price: null
       period: month
       per_user: true
-      limits: 团队协作功能
-      limits_en: Team collaboration features
-  price_updated_at: '2026-03-04'
-  note: 开源版本 bolt.diy 支持自部署、自定义模型
+      limits: 团队协作、团队 token 管理与账单
+      limits_en: Team collaboration, shared token management, and billing
+  price_updated_at: '2026-06-06'
+  note: 官方支持文档显示 Bolt 已按月度 token 档位计费，价格随月度 token 额度调整；年付可享 10% 折扣，付费 tokens 可 rollover 一个月；开源版本 bolt.diy 支持自部署、自定义模型
+  note_en: Official support docs describe token-based monthly tiers where price scales with monthly token allocation; annual billing can save 10%, paid tokens can roll over for one extra month; open-source bolt.diy supports self-hosting and custom models
 
 scores:
   coding_ability: 8.0
@@ -85,9 +92,18 @@ changelog:
 data_sources:
   - url: https://bolt.new
     type: pricing
-    last_checked: '2026-03-04'
+    last_checked: '2026-06-06'
+  - url: https://support.bolt.new/account-and-subscription/billing
+    type: pricing
+    last_checked: '2026-06-06'
+  - url: https://support.bolt.new/faqs/account-and-subscription/tokens
+    type: documentation
+    last_checked: '2026-06-06'
+  - url: https://support.bolt.new/cloud/hosting/plans
+    type: documentation
+    last_checked: '2026-06-06'
 
-last_full_review: '2026-03-04'
-next_review_due: '2026-06-04'
+last_full_review: '2026-06-06'
+next_review_due: '2026-09-04'
 review_frequency_days: 90
 confidence: medium

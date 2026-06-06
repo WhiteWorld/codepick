@@ -3,6 +3,9 @@ title: "MiniMax Coding Plan vs Zhipu GLM Coding Plan: 2026 Deep Comparison"
 description: "A comprehensive comparison of MiniMax and Zhipu AI's coding subscription plans: pricing, quota mechanisms, model ecosystems, bundled perks, and selection advice."
 date: "2026-03-02"
 tags: ["minimax", "zhipu", "glm", "coding-plan", "comparison", "api"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

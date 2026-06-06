@@ -3,6 +3,9 @@ title: "Cline vs Cursor: 2026 In-Depth Comparison"
 description: "Free open-source plugin vs paid AI IDE: Cline and Cursor compared on pricing, Agent capability, model flexibility, and China accessibility."
 date: "2026-04-01"
 tags: ["cline", "cursor", "comparison", "vscode", "ide"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

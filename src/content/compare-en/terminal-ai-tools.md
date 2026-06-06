@@ -3,6 +3,9 @@ title: "Terminal AI Coding Big Three: Claude Code vs OpenCode vs Aider"
 description: "A comprehensive comparison of three mainstream terminal CLI AI coding tools: Claude Code, OpenCode, and Aider — covering features, pricing, model support, and use cases."
 date: "2026-02-16"
 tags: ["claude-code", "opencode", "aider", "terminal", "cli"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

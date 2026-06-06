@@ -3,6 +3,9 @@ title: "Claude Code vs Cursor：2026 深度对比"
 description: "终端 CLI 与 AI IDE 的正面碰撞：从编程能力、工作流、价格到国内可用性，帮你判断 Claude Code 和 Cursor 哪个更适合你。"
 date: "2026-04-01"
 tags: ["claude-code", "cursor", "对比", "cli", "ide"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

@@ -3,6 +3,9 @@ title: "Coding Plan vs Agent Plan vs Token Plan：2026 国产 AI 订阅三国杀
 description: "方舟 Agent Plan、MiniMax Token Plan、百炼 Token Plan 团队版三种新一代订阅形态全面对比：价格、计费单位、模型生态、模态覆盖、Harness 工具与选型建议。"
 date: "2026-05-13"
 tags: ["coding-plan", "agent-plan", "token-plan", "火山方舟", "minimax", "百炼", "对比", "agent", "多模态"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

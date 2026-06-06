@@ -3,6 +3,9 @@ title: "Aider vs Cline 2026: Two Open-Source Free AI Agents Compared"
 description: "Aider vs Cline compared: Git-first Python CLI vs VS Code plugin Agent — privacy, pricing, workflow, MCP support, and China accessibility to help you choose the best free AI coding tool."
 date: "2026-04-05"
 tags: ["aider", "cline", "comparison", "cli", "open-source", "free"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

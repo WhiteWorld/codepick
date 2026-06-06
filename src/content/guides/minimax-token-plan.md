@@ -5,6 +5,9 @@ date: "2026-03-19"
 updated_at: "2026-05-28"
 article_type: "explainer"
 tags: ["minimax", "token-plan", "coding-plan", "M2.7", "订阅", "api"]
+pillar: plans
+content_status: keep
+locale_strategy: zh_only
 draft: false
 faq:
   - q: "MiniMax Token Plan 和按量计费哪个更划算？"

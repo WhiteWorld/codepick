@@ -5,6 +5,9 @@ date: "2026-05-18"
 updated_at: "2026-05-28"
 article_type: "explainer"
 tags: ["cursor", "cursor-3", "agent", "并行agent", "IDE", "更新"]
+pillar: tools
+content_status: keep
+locale_strategy: mirrored
 draft: false
 faq:
   - q: "Cursor 3.0 值得升级吗？"

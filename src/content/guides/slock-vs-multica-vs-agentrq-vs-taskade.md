@@ -4,6 +4,9 @@ description: "四款热门 Agent 协作平台深度对比：Slock 的频道 + �
 date: "2026-05-09"
 tags: [agent-collaboration, slock, multica, agentrq, taskade, comparison]
 article_type: review
+pillar: workflow
+content_status: keep
+locale_strategy: zh_only
 draft: false
 ---
 

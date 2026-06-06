@@ -5,6 +5,9 @@ date: "2026-05-19"
 updated_at: "2026-05-19"
 article_type: "review"
 tags: ["coding-plan", "comparison", "roundup", "ark", "bailian", "minimax", "glm", "zhipu", "deepseek", "china", "api"]
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 draft: false
 faq:
   - q: "Which Chinese Coding API is cheapest?"

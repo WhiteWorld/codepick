@@ -3,6 +3,9 @@ title: "MiniMax Coding Plan vs 智谱 GLM Coding Plan：2026 深度对比"
 description: "MiniMax 与智谱两款 AI 编程订阅套餐全面横评：价格、额度机制、模型生态、附赠权益与选型建议。"
 date: "2026-03-02"
 tags: ["minimax", "智谱", "glm", "coding-plan", "对比", "api"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

@@ -3,6 +3,9 @@ title: "Roo Code vs Cursor 2026: Open-Source Multi-Role Agent vs Commercial AI I
 description: "Roo Code vs Cursor compared: free open-source VS Code Agent with multi-role support vs premium AI IDE — pricing, Architect mode, Cloud Agents, and China accessibility."
 date: "2026-04-05"
 tags: ["roo-code", "cursor", "comparison", "vscode", "agent", "open-source"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

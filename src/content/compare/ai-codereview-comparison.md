@@ -3,6 +3,9 @@ title: "AI Code Review 工具横评 2026：6 款工具谁最值得用？"
 description: "全面对比 2026 年主流 AI Code Review 工具：GitHub Copilot Code Review、CodeRabbit、Qodo Merge、Greptile、Claude Code、Amazon Q Developer，从评论质量、误报率、国内可用性和价格四个维度帮你选型。"
 date: "2026-04-01"
 tags: ["code-review", "copilot", "claude-code", "coderabbit", "qodo", "greptile", "amazon-q", "2026"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 ---
 
 AI 写代码越来越普遍，随之而来的问题是：谁来审查 AI 写的代码？本文横评 6 款主流 AI Code Review 工具，帮你在 5 分钟内找到适合自己团队的方案。

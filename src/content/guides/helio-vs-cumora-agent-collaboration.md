@@ -5,6 +5,9 @@ date: "2026-05-28"
 updated_at: "2026-05-28"
 article_type: review
 tags: ["agent-collaboration", "helio", "cumora", "ai-teammates", "agent-workspace"]
+pillar: workflow
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

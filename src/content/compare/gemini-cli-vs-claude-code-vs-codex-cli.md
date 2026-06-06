@@ -3,6 +3,9 @@ title: "Gemini CLI vs Claude Code vs Codex CLI：三大免费终端 Agent 对比
 description: "三款顶级终端 AI 编程工具横向对比：免费额度、模型能力、安装方式、适用场景。帮你选出最适合自己的命令行 AI 助手。"
 date: "2026-02-17"
 tags: ["gemini-cli", "claude-code", "codex-cli", "终端", "cli", "免费", "对比"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 ---
 
 2025-2026 年，三大科技巨头先后推出了自己的终端 AI 编程 Agent：Google 的 Gemini CLI、Anthropic 的 Claude Code、OpenAI 的 Codex CLI。三者都在终端运行，但定价模型、免费额度和能力侧重差异显著。

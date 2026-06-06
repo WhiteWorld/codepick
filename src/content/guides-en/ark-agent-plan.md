@@ -5,6 +5,9 @@ date: "2026-05-13"
 updated_at: "2026-05-19"
 article_type: "explainer"
 tags: ["volcano-ark", "ark", "agent-plan", "agent", "subscription", "AFP", "multimodal"]
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 draft: false
 faq:
   - q: "Should I buy Agent Plan or stick with Coding Plan?"

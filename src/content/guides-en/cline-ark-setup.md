@@ -4,6 +4,9 @@ description: "From Volcengine Ark registration to coding with Cline in 10 minute
 date: "2026-02-16"
 article_type: "howto"
 tags: ["cline", "volcengine-ark", "setup", "china", "cost-effective"]
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

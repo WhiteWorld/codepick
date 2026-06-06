@@ -3,6 +3,9 @@ title: "Bailian Coding Plan vs Volcengine Ark Coding Plan: 2026 Deep Comparison"
 description: "A comprehensive comparison of Alibaba Cloud Bailian and Volcengine Ark — two major China-native AI coding API plans: pricing, quota mechanisms, model ecosystems, client compatibility, and selection advice."
 date: "2026-02-26"
 tags: ["bailian", "volcengine-ark", "coding-plan", "china", "comparison", "api"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

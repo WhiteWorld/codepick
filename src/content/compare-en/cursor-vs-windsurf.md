@@ -3,6 +3,9 @@ title: "Cursor vs Windsurf 2026: Ultimate Comparison of Two VS Code Forks"
 description: "Cursor $20 vs Windsurf $15 — which is more worth it? A comprehensive comparison of coding ability, pricing, completion experience, and model support to help you make the best choice."
 date: "2026-02-17"
 tags: ["cursor", "windsurf", "comparison", "VS Code", "ide"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

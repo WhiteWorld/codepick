@@ -4,6 +4,9 @@ description: "ByteDance's Trae CN is completely free, requires no VPN, and inclu
 date: "2026-02-17"
 article_type: "howto"
 tags: ["trae-cn", "china", "free", "getting-started", "bytedance"]
+pillar: tools
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

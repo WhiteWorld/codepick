@@ -5,6 +5,9 @@ date: "2026-05-19"
 updated_at: "2026-05-19"
 article_type: "howto"
 tags: ["slock", "agent-platform", "agent-collaboration", "daemon", "claude-code", "setup"]
+pillar: workflow
+content_status: keep
+locale_strategy: mirrored
 draft: false
 faq:
   - q: "How does Slock relate to Cursor or Claude Code?"

@@ -5,6 +5,9 @@ date: "2026-05-19"
 updated_at: "2026-05-28"
 article_type: "howto"
 tags: ["multica", "agent-platform", "agent-collaboration", "self-hosted", "docker", "open-source", "setup"]
+pillar: workflow
+content_status: keep
+locale_strategy: mirrored
 draft: false
 faq:
   - q: "Multica 自托管需要多少资源？"

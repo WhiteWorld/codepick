@@ -3,6 +3,9 @@ title: "Claude Code vs Cline 2026: Top CLI Agent vs Most Flexible VS Code Plugin
 description: "Claude Code vs Cline compared: terminal CLI vs VS Code plugin, pricing, China accessibility, Agent capabilities, and model freedom — helping you pick the right AI coding tool for your workflow."
 date: "2026-04-05"
 tags: ["claude-code", "cline", "comparison", "cli", "agent", "vscode"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

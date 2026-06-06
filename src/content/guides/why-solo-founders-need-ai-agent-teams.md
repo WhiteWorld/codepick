@@ -4,6 +4,9 @@ description: "一人公司不是一个人干所有事，而是一个人指挥一
 date: "2026-05-09"
 tags: [agent-collaboration, solo-founder, slock, taskade, floatboat, soleur]
 article_type: explainer
+pillar: workflow
+content_status: keep
+locale_strategy: zh_only
 draft: false
 ---
 

@@ -4,6 +4,9 @@ description: "A beginner's guide to Cloudflare's developer ecosystem: Workers se
 date: "2026-03-21"
 article_type: "explainer"
 tags: ["cloudflare", "deployment", "beginner", "full-stack", "serverless"]
+pillar: stack
+content_status: keep
+locale_strategy: mirrored
 ---
 
 You've written the code for your app. Now what? You need somewhere to run the backend, store data, host files, and set up a domain — and all of that can feel harder than writing the code itself.

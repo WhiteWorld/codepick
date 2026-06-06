@@ -3,6 +3,9 @@ title: "终端 AI 编程三杰：Claude Code vs OpenCode vs Aider"
 description: "三款主流终端 CLI AI 编程工具全面对比：Claude Code、OpenCode、Aider 的功能、定价、模型支持和使用场景详解。"
 date: "2026-02-16"
 tags: ["claude-code", "opencode", "aider", "终端", "cli"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 ---
 
 对于偏爱终端工作流的开发者，AI 编程工具有三个主要选择：Anthropic 官方出品的 Claude Code、新晋开源项目 OpenCode、以及老牌 CLI 工具 Aider。本文做详细横评。

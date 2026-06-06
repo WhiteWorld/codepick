@@ -5,6 +5,9 @@ date: "2026-05-19"
 updated_at: "2026-05-19"
 article_type: "howto"
 tags: ["lobehub", "agent-platform", "agent-collaboration", "self-hosted", "docker", "mcp", "setup"]
+pillar: workflow
+content_status: keep
+locale_strategy: mirrored
 draft: false
 faq:
   - q: "How is LobeHub different from Open WebUI / Chatbot UI?"

@@ -4,6 +4,9 @@ description: "A dedicated token-saving guide for Claude Code users: when to use 
 date: "2026-03-29"
 article_type: "explainer"
 tags: ["claude-code", "token", "cost", "efficiency", "CLAUDE.md", "compact"]
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

@@ -3,6 +3,9 @@ title: "Claude Code vs Codex 2026 最新对比：谁更适合 AI 编程 Agent？
 description: "截至 2026-06-03 的 Claude Code vs Codex 最新对比：价格、模型、平台、MCP、隐私、并行任务、国内可用性与选型建议。"
 date: "2026-06-03"
 tags: ["claude-code", "codex", "对比", "ai-coding", "agent"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

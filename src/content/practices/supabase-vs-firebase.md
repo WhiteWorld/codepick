@@ -3,6 +3,9 @@ title: "Supabase vs Firebase：后端即服务平台深度对比"
 description: "从数据库类型、认证系统、实时能力、定价模型、开源程度、国内可用性等维度，全面对比 Supabase 和 Firebase，帮开发者选出最合适的 BaaS 方案。"
 date: "2026-03-21"
 tags: ["supabase", "firebase", "对比", "后端", "BaaS"]
+pillar: stack
+content_status: keep
+locale_strategy: mirrored
 ---
 
 Supabase 和 Firebase 是目前最流行的两个后端即服务（BaaS）平台。Firebase 是 Google 的老牌产品，生态成熟；Supabase 是后起之秀，以"开源的 Firebase 替代品"为定位迅速崛起。

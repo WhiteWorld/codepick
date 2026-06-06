@@ -3,6 +3,9 @@ title: "Cline vs Roo Code: Which Open-Source VS Code Agent Is Better?"
 description: "An in-depth comparison of the two most popular open-source VS Code AI Agent plugins: features, model support, pricing models, and China accessibility."
 date: "2026-02-16"
 tags: ["cline", "roo-code", "open-source", "vscode", "agent"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

@@ -18,6 +18,9 @@ faq:
     a: |
       如果你只依赖补全，可以先优化网络；如果 Chat/Agent 延迟影响工作流，直接评估国内 Coding Plan 往往更省时间。
       决策时不要只看月费，还要把代理、支付失败、延迟和超额预算算进去。
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 ---
 
 GitHub Copilot 是国内开发者最熟悉的 AI 编程助手，$10/月的 Pro 定价在海外 IDE 中最亲民。但 2026 年的**新注册暂停、AI Credits 计费改革**，以及国内网络问题，让很多开发者产生疑问。本文逐一拆解。

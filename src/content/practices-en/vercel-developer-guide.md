@@ -4,6 +4,9 @@ description: "A beginner's guide to Vercel: frontend deployment, Serverless Func
 date: "2026-03-21"
 article_type: "explainer"
 tags: ["vercel", "deployment", "beginner", "Next.js", "frontend"]
+pillar: stack
+content_status: keep
+locale_strategy: mirrored
 ---
 
 You've built a website and want people to see it. The traditional approach: buy a server, install Nginx, configure SSL, set up CI/CD, bind a domain… deployment alone can eat up an entire day.

@@ -4,6 +4,9 @@ description: "How to stretch your Cursor Pro credit pool further — Auto mode, 
 date: "2026-04-05"
 article_type: "review"
 tags: ["cursor", "cost-saving", "token", "efficiency", "auto-mode", "cursorrules"]
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

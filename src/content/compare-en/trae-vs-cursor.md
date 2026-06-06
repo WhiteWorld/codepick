@@ -3,6 +3,9 @@ title: "Trae vs Cursor 2026: ByteDance's Free AI IDE vs the Market Leader"
 description: "Trae vs Cursor compared: ByteDance's free AI IDE with SOLO mode and Builder mode versus Cursor's best-in-class coding experience — pricing, features, and who should switch."
 date: "2026-04-05"
 tags: ["trae", "cursor", "comparison", "ide", "free", "bytedance"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

@@ -3,6 +3,9 @@ title: "Roo Code vs Cursor 2026：开源多角色 Agent 对决商业 AI IDE"
 description: "Roo Code vs Cursor 深度对比：免费开源的多角色 VS Code Agent 与顶级商业 AI IDE，从价格、架构师模式、Cloud Agents 到国内可用性全面分析。"
 date: "2026-04-05"
 tags: ["roo-code", "cursor", "对比", "vscode", "agent", "开源"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

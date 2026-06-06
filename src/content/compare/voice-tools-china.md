@@ -3,6 +3,9 @@ title: "Vibe Coding 语音输入工具推荐（国内开发者版）2026"
 description: "为国内开发者精选语音输入工具：LazyTyper、CapsWriter-Offline、微信输入法、讯飞输入法、豆包输入法、智谱输入法、妙语等，助你在 Claude Code、Cursor、Trae CN 中实现高效语音编程。"
 date: "2026-03-03"
 tags: ["语音输入", "vibe-coding", "LazyTyper", "CapsWriter", "效率"]
+pillar: compare
+content_status: keep
+locale_strategy: mirrored
 draft: false
 ---
 

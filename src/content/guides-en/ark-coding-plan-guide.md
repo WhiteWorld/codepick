@@ -26,6 +26,9 @@ faq:
     a: |
       Cheapest: **Ark** (Lite ¥9.9 first month / ¥40 renewal). Want the full Qwen lineup: **Bailian** (¥200, most models). Full multimodal incl. audio/music: **MiniMax Token Plan** (¥29 entry).
       Heavy >128k long-context users should avoid Agent Plan due to its 7.5× multiplier. See [Bailian vs Ark](/en/compare/bailian-coding-plan-vs-ark-coding-plan/).
+pillar: plans
+content_status: keep
+locale_strategy: mirrored
 ---
 
 Volcengine Ark Coding Plan is ByteDance's AI coding API package: **Lite standard ¥40/month, first month as low as ¥9.9**, no VPN required, Alipay/WeChat payment supported. One of the lowest-cost ways for developers in China to get AI coding API access — but be aware ¥9.9 is a first-month promo; renewal returns to ¥40.
