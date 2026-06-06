@@ -59,7 +59,9 @@ export const GUIDE_CLUSTERS: ClusterRule[] = [
   },
   {
     id: 'agent-collab',
-    match: g => hasTag(g, 'agent-collaboration') || slugHas(g, 'conductor'),
+    match: g =>
+      hasTag(g, 'agent-collaboration', 'agent-runtime', 'agent-infrastructure', 'durable-execution') ||
+      slugHas(g, 'conductor'),
   },
   {
     id: 'setup',
