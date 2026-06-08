@@ -1,9 +1,9 @@
 ---
 title: "AI Coding Tool Skills & Extension Systems: Claude Code, Cursor, Cline Complete Guide"
-description: "A deep dive into AI coding tool extension capabilities: Claude Code's Skills/Hooks system, Cursor Rules, Cline custom instructions, and how to build your own AI-powered workflow with these mechanisms."
-date: "2026-03-28"
+description: "A deep dive into AI coding tool extension capabilities: Claude Code's Agent Skills / Hooks / Plugins, Cursor's .mdc Rules, the cross-tool AGENTS.md standard, and how to build your own AI-powered workflow."
+date: "2026-06-08"
 article_type: "explainer"
-tags: ["skills", "claude-code", "cursor", "cline", "hooks", "customization", "workflow"]
+tags: ["skills", "claude-code", "cursor", "cline", "hooks", "agents-md", "plugins", "customization", "workflow"]
 pillar: workflow
 content_status: keep
 locale_strategy: mirrored
@@ -55,28 +55,26 @@ Create a `CLAUDE.md` file in your project root. Claude Code reads it automatical
 - Quick reference for common commands
 - Key directory structure notes
 
-### 2. Skills (Slash Commands)
+### 2. Agent Skills
 
-Skills are predefined task templates, triggered by typing `/skill-name`. Claude Code includes many built-in Skills and also supports custom ones:
+> **The concept has been upgraded.** The old "slash commands" and today's **Agent Skills** have merged. A skill is **a folder** containing a `SKILL.md` that opens with YAML frontmatter (required: `name`, `description`). `.claude/commands/deploy.md` and `.claude/skills/deploy/SKILL.md` are equivalent — both create `/deploy` — and existing `commands/` files keep working.
 
-**Built-in Skills examples**:
+The biggest difference from "you type the command" is this: **Claude decides on its own whether to use a skill, based on its `description`.** You don't necessarily type `/` — with a good description, it invokes the skill at the right moment.
 
-| Command | Function |
-|---------|----------|
-| `/commit` | Analyzes changes and generates a well-formatted commit message |
-| `/review-pr` | Reviews a PR with detailed code feedback |
-| `/fix` | Analyzes and fixes the current error |
-| `/test` | Generates tests for the selected code |
-| `/explain` | Explains the current code or file |
+**Minimal structure of a skill:**
 
-**Custom Skills**:
-
-Create `.md` files in `~/.claude/skills/`:
+```
+.claude/skills/deploy-staging/
+  SKILL.md          # required: frontmatter + instructions
+  scripts/          # optional: executable scripts (run on demand)
+  references/       # optional: supporting docs (loaded on demand)
+```
 
 ```markdown
-# deploy-staging.md
-
-Deploy the current branch to the staging environment:
+---
+name: deploy-staging
+description: Deploy the current branch to staging. Use when the user wants to release, deploy, or verify staging.
+---
 
 1. Run `npm run build` to verify the build passes
 2. Run `npm run test` to verify all tests pass
@@ -85,9 +83,31 @@ Deploy the current branch to the staging environment:
 5. Open https://staging.myapp.com to verify
 ```
 
-Then type `/deploy-staging` in any conversation to trigger this workflow.
+**Progressive disclosure:** at startup Claude loads only each skill's `name` + `description` into the system prompt (very token-cheap); the full `SKILL.md` loads only when the skill is actually used, and referenced `references/` / `scripts/` load only when needed. So installing many skills won't blow up your context up front.
 
-### 3. Hooks — Event-Driven Automation
+**Discovery sources:** user-level `~/.claude/skills/`, project-level `.claude/skills/`, plugin-provided, and built-in — Claude Code merges them into the available-skills list.
+
+> Want a batch of fun, ready-to-use skills (grill-me makes the AI interrogate you, caveman cuts 75% of tokens…)? See [Make the AI Grill You: 8 Genuinely Interesting Agent Skills](/en/guides/interesting-agent-skills).
+
+### 3. Plugins & Marketplaces (distribution & install)
+
+Skills aren't only something you write — they can be **packaged and distributed**. Add a `.claude-plugin/plugin.json` to a skill folder and it becomes a **plugin**, which can bundle skills, subagents, hooks, and MCP servers together.
+
+Plugins are distributed through **Marketplaces** — the official one is available by default, and you can create a private team marketplace:
+
+```bash
+# Add a marketplace source, then install a plugin from it
+/plugin marketplace add <owner/repo>
+/plugin install <plugin-name>
+```
+
+Once installed, a plugin is cached to `~/.claude/plugins/cache/` and works across all your projects. That makes "share a whole workflow with the team" as easy as installing a dependency.
+
+### 4. Subagents
+
+Under `.claude/agents/` you can define **subagents**: dedicated agents with their own system prompt and tool permissions (e.g. a "code reviewer" or "test writer"). The main conversation can delegate specific tasks to them without polluting its own context. Subagents can also ship inside plugins.
+
+### 5. Hooks — Event-Driven Automation
 
 Hooks are the most powerful mechanism: automatically execute scripts when specific events occur.
 
@@ -133,54 +153,38 @@ Configure in `~/.claude/settings.json`:
 
 ---
 
-## Cursor: Rules System
+## Cursor: Rules System (.mdc)
 
-Cursor uses rule files to customize AI behavior.
+Cursor uses rule files to customize AI behavior. **Note the format has changed generations:**
 
-### .cursorrules (Project-level rules)
+> ⚠️ **`.cursorrules` is deprecated.** The single root-level `.cursorrules` file still works, but Cursor now recommends migrating to `.mdc` files under `.cursor/rules/`. The critical catch: **`.cursorrules` is not loaded at all in Agent mode**, whereas `.mdc` works in Chat / Composer / Agent. When both coexist, `.mdc` also **silently overrides** `.cursorrules`.
 
-Create `.cursorrules` in your project root:
+### .cursor/rules/*.mdc (current Project Rules)
 
-```
-You are a full-stack development assistant focused on React + TypeScript.
-
-## Coding Standards
-- Use functional components, not class components
-- Prefer Tailwind CSS, avoid inline styles
-- All async operations must have error handling
-- Use Zustand for state management, not Redux
-
-## Code Style
-- Variables: camelCase
-- Constants: UPPER_SNAKE_CASE
-- Component files: PascalCase.tsx
-
-## Prohibited
-- No `console.log` (use the logger module instead)
-- Don't commit code containing TODO comments
-- Never expose sensitive data in API routes
-```
-
-### Cursor Rules (Global rules, v0.43+)
-
-Newer versions of Cursor support more granular rule management:
-
-- **Always**: Applied to every conversation
-- **Auto**: Applied automatically based on file type
-- **Agent**: Only applied in Agent mode
-- **Manual**: Triggered manually via `@rule-name`
+Each rule is a separate `.mdc` file (Markdown + YAML frontmatter), loaded precisely on demand:
 
 ```
-# react-components.cursorrule
+# .cursor/rules/react-components.mdc
+---
 description: React component development standards
 globs: ["src/components/**/*.tsx"]
 alwaysApply: false
+---
 
 When writing React components:
 1. Export type definitions (Props interface)
 2. Add JSDoc comments explaining the component's purpose
-3. Use React.FC<Props> type annotation
+3. Use functional components with explicit Props types
 ```
+
+Three frontmatter fields drive when a rule fires, mapping to four activation modes:
+
+- **Always** (`alwaysApply: true`): loaded in every conversation
+- **Auto Attached** (with `globs`): loaded automatically when matching files are touched
+- **Agent Requested** (via `description`): the model pulls it in when relevant
+- **Manual** (`@rule-name`): triggered by hand
+
+> Rule of thumb: 5–8 rules is the sweet spot — 1 always-on base rule + 3–4 auto-attached by file type + 1–2 manual rules. Keep all "always apply" rules combined under ~2,000 tokens to avoid the "token tax."
 
 ---
 
@@ -219,9 +223,9 @@ Cline has the most complete MCP support of any tool — you can manage MCP Serve
 
 Windsurf combines a rules system with AI memory capabilities:
 
-### .windsurfrules
+### .windsurfrules / .windsurf/rules/
 
-Similar to Cursor's `.cursorrules`, placed in your project root:
+Placed in your project root, similar to Cursor. Newer Windsurf also supports splitting rules into separate files under a `.windsurf/rules/` directory (the single `.windsurfrules` file is the legacy form):
 
 ```
 Project: SaaS Admin Dashboard
@@ -246,16 +250,45 @@ Windsurf's Cascade AI can remember important information across conversations. W
 
 ---
 
+## AGENTS.md: The Cross-Tool Open Standard
+
+Every tool above has its own config file (CLAUDE.md, `.cursor/rules/`, `.windsurfrules`…), and writing the same thing into each one is a recipe for conflicting instructions. **AGENTS.md** exists to fix exactly that fragmentation.
+
+- **What it is**: a plain Markdown file in your repo root — a "README for AI agents." Tech stack, build/test commands, coding standards, directory layout all go here. No special syntax required.
+- **Who uses it**: formalized in August 2025, now stewarded by the Agentic AI Foundation under the Linux Foundation, with **40,000+ open-source projects** on board. Tools with native support include **Codex, Cursor, Windsurf, Gemini CLI, GitHub Copilot, Aider, Zed, Jules, Factory, RooCode** and more.
+- **Monorepo-friendly**: drop nested `AGENTS.md` files in subdirectories, and agents automatically read **the closest one** to the file being edited.
+
+```markdown
+# AGENTS.md
+
+## Tech Stack
+- Next.js 14 App Router + TypeScript (strict mode)
+
+## Common Commands
+- `npm run dev` — local development
+- `npm run test` — must be green before every commit
+
+## Conventions
+- Components use `.tsx`; no `any`
+- All API calls go through `/lib/api.ts`
+```
+
+> **Claude Code is the exception**: it still leads with `CLAUDE.md` (AGENTS.md support is in progress). Recommended approach: **put shared standards in AGENTS.md as the single source of truth**, keep tool-specific config in each tool's own file, and have `CLAUDE.md` reference/symlink AGENTS.md where needed — so you never copy the same rules three times. This very site's `AGENTS.md` works exactly that way.
+
+---
+
 ## Extension Capability Comparison
 
 | Dimension | Claude Code | Cursor | Cline | Windsurf |
 |-----------|-------------|--------|-------|----------|
-| **Persistent context** | ✅ CLAUDE.md | ✅ .cursorrules | ✅ Custom instructions | ✅ .windsurfrules |
-| **Slash commands** | ✅ Full Skills | ⚠️ Limited | ❌ | ❌ |
-| **Event hooks** | ✅ Full Hooks | ❌ | ❌ | ❌ |
+| **Persistent context** | ✅ CLAUDE.md | ✅ .cursor/rules | ✅ Custom instructions | ✅ .windsurf/rules |
+| **Agent Skills / commands** | ✅ Full Skills + plugin marketplace | ⚠️ Rules-centric | ⚠️ Workflows | ⚠️ Workflows |
+| **Event hooks** | ✅ Full Hooks | ⚠️ Partial | ❌ | ❌ |
+| **Subagents** | ✅ | ❌ | ❌ | ❌ |
 | **MCP support** | ✅ | ✅ | ✅ Best | ✅ |
-| **Cross-session memory** | ❌ | ⚠️ Global rules | ❌ | ✅ Memories |
-| **Team sharing** | ✅ Commit CLAUDE.md | ✅ Commit .cursorrules | ⚠️ | ✅ Commit rule files |
+| **Cross-session memory** | ⚠️ Via skills/plugins | ⚠️ Global rules | ❌ | ✅ Memories |
+| **AGENTS.md** | ⚠️ In progress | ✅ | ⚠️ | ✅ |
+| **Team sharing** | ✅ Commit .claude/ + marketplace | ✅ Commit .cursor/rules | ⚠️ | ✅ Commit rule files |
 
 ---
 
@@ -273,8 +306,8 @@ Windsurf's Cascade AI can remember important information across conversations. W
 
 ### Team Level (Collaborative Standards)
 
-5. **Commit CLAUDE.md/.cursorrules to version control**: Team members get it out of the box, sharing best practices
-6. **Combine with MCP for deep automation**: GitHub MCP + CI/CD lets AI genuinely participate in the development pipeline
+5. **Commit your config to version control**: keep one root **AGENTS.md** as the cross-tool single source of truth, plus tool-specific files (CLAUDE.md / `.cursor/rules/`), so teammates get it out of the box
+6. **Combine MCP + the plugin marketplace for deep automation**: GitHub MCP + CI/CD lets AI genuinely participate in the pipeline, and you can package a team workflow into a plugin for one-command sharing
 
 ---
 
@@ -283,13 +316,14 @@ Windsurf's Cascade AI can remember important information across conversations. W
 | Your Need | Recommended Tool & Mechanism |
 |-----------|------------------------------|
 | Deep workflow automation | Claude Code Hooks |
-| Simple project standards | Any tool + rules file |
+| Ready-made fun skills | [8 Interesting Agent Skills](/en/guides/interesting-agent-skills) |
+| Simple project standards | Any tool + AGENTS.md |
 | Deep VS Code integration | Cline + MCP |
 | Cross-session memory | Windsurf Memories |
-| Unified team standards | .cursorrules / CLAUDE.md in Git |
+| Unified team standards | AGENTS.md (+ tool-specific files) in Git |
 
 Choosing the right extension mechanisms is the key step to upgrading AI tools from "occasional use" to "deeply integrated into your workflow."
 
 ---
 
-*Data current as of 2026-03-28. Tool features update frequently; consult official documentation for the latest information.*
+*Data current as of 2026-06-08. Tool features update frequently; consult official documentation for the latest information.*
