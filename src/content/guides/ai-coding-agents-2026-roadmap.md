@@ -105,8 +105,8 @@ OWASP 也发布了 [MCP Top 10](https://owasp.org/www-project-mcp-top-10/)，把
 
 优先选「低摩擦 + 可控成本」：
 
-- 日常写代码：Cursor、Windsurf、Trae、GitHub Copilot 这类 IDE/插件型工具更顺手。
-- 大段重构、排查测试：Claude Code、Codex CLI、Gemini CLI、opencode、aider 更适合。
+- 日常写代码：[Cursor](/zh/tool/cursor)、[Windsurf](/zh/tool/windsurf)、[Trae](/zh/tool/trae)、GitHub Copilot 这类 IDE/插件型工具更顺手。
+- 大段重构、排查测试：[Claude Code](/zh/tool/claude-code)、[Codex CLI](/zh/tool/codex-cli)、[Gemini CLI](/zh/tool/gemini-cli)、opencode、aider 更适合。
 - 国内网络和预算敏感：优先看支持 OpenAI/Anthropic 兼容 API、自定义 base URL、OpenRouter/火山方舟/百炼/Ollama 的工具。
 
 个人用户最容易踩的坑是「同时订阅太多」。更合理的组合通常是：

@@ -64,10 +64,10 @@ Only **Pro** is available for new subscriptions (Lite was discontinued in March 
 
 Bailian works with 7 AI coding clients:
 
-- **Claude Code** — CLI agent, easiest setup via ANTHROPIC_BASE_URL
-- **Cline** — Most popular VS Code extension option
-- **Cursor** — API-based integration
-- **OpenCode** — Terminal-first developers
+- **[Claude Code](/en/tool/claude-code)** — CLI agent, easiest setup via ANTHROPIC_BASE_URL
+- **[Cline](/en/tool/cline)** — Most popular VS Code extension option
+- **[Cursor](/en/tool/cursor)** — API-based integration
+- **[OpenCode](/en/tool/opencode)** — Terminal-first developers
 - **Qwen Code** — Alibaba's native client (best compatibility)
 - **OpenClaw** — Universal AI coding client
 - **Kilo IDE** — Open-source IDE

@@ -10,7 +10,7 @@ locale_strategy: mirrored
 draft: false
 ---
 
-Claude Code has the highest coding ability score of any AI coding tool, but mainland China developers face three barriers: network restrictions, payment difficulties, and registration friction. This guide covers every working method in 2026.
+[Claude Code](/en/tool/claude-code) has the highest coding ability score of any AI coding tool, but mainland China developers face three barriers: network restrictions, payment difficulties, and registration friction. This guide covers every working method in 2026.
 
 ---
 
@@ -111,7 +111,7 @@ claude
 
 ## Method 4: Kiro (AWS) — Real Claude Models at ~1/10 the Cost (Needs VPN)
 
-Kiro is an AI IDE from AWS that includes Anthropic's full model lineup (Claude Opus 4.5, Sonnet 4.5, etc.) billed through AWS accounts. Overall cost is approximately **1/10 of a direct Claude Code subscription**.
+[Kiro](/en/tool/kiro) is an AI IDE from AWS that includes Anthropic's full model lineup (Claude Opus 4.5, Sonnet 4.5, etc.) billed through AWS accounts. Overall cost is approximately **1/10 of a direct Claude Code subscription**.
 
 **Why it's cheaper**: AWS enterprise pricing for Anthropic models differs from Anthropic's consumer pricing.
 

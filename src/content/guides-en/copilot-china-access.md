@@ -3,7 +3,7 @@ title: "Using GitHub Copilot from China: Access, AI Credits Billing, and Alterna
 description: "An assessment of Copilot accessibility from China, the new AI Credits billing system explained, plus domestic alternatives for developers who need a smoother experience."
 date: "2026-05-17"
 article_type: "explainer"
-tags: ["copilot", "china", "billing", "GitHub", "credits", "extension"]
+tags: ["copilot", "trae-cn", "kiro", "cursor", "claude-code", "china", "billing", "GitHub", "credits", "extension"]
 pillar: plans
 content_status: keep
 locale_strategy: mirrored

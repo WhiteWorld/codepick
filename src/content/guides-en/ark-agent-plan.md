@@ -4,7 +4,7 @@ description: "On 2026-05-11 Volcano Ark launched Agent Plan, billed as the indus
 date: "2026-05-13"
 updated_at: "2026-05-19"
 article_type: "explainer"
-tags: ["volcano-ark", "ark", "agent-plan", "agent", "subscription", "AFP", "multimodal"]
+tags: ["volcano-ark", "ark", "agent-plan", "claude-code", "opencode", "trae", "agent", "subscription", "AFP", "multimodal"]
 pillar: plans
 content_status: keep
 locale_strategy: mirrored
@@ -28,7 +28,7 @@ faq:
       Note that Small does **not** include the 7×24 AI companion — that perk starts at Medium (¥200). Run Small for a month to measure real AFP burn before deciding to upgrade.
 ---
 
-On May 11, 2026, Volcano Engine officially launched **Agent Plan**, branded as "the industry's first Agent subscription bundle". Building on the existing [Ark Coding Plan](/en/coding-plan/), Agent Plan rolls additional modalities and Harness tooling into a single subscription, and introduces a new credit unit called **AFP (Agent Fuel Points)**. For China-native developers running Claude Code, OpenCode, Trae, OpenClaw or Hermes Agent, it's worth re-evaluating against the legacy Coding Plan.
+On May 11, 2026, Volcano Engine officially launched **Agent Plan**, branded as "the industry's first Agent subscription bundle". Building on the existing [Ark Coding Plan](/en/coding-plan/), Agent Plan rolls additional modalities and Harness tooling into a single subscription, and introduces a new credit unit called **AFP (Agent Fuel Points)**. For China-native developers running [Claude Code](/en/tool/claude-code), [OpenCode](/en/tool/opencode), [Trae](/en/tool/trae), OpenClaw or Hermes Agent, it's worth re-evaluating against the legacy Coding Plan.
 
 ---
 

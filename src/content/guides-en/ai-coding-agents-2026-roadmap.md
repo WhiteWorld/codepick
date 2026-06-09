@@ -105,8 +105,8 @@ That is why more tools now support `AGENTS.md`, `CLAUDE.md`, rules, memories, sk
 
 Prioritize low friction and predictable cost:
 
-- For daily coding, AI IDEs or plugins such as Cursor, Windsurf, Trae, and GitHub Copilot usually feel fastest.
-- For larger refactors, test repair, and debugging sessions, Claude Code, Codex CLI, Gemini CLI, opencode, and aider are often better fits.
+- For daily coding, AI IDEs or plugins such as [Cursor](/en/tool/cursor), [Windsurf](/en/tool/windsurf), [Trae](/en/tool/trae), and GitHub Copilot usually feel fastest.
+- For larger refactors, test repair, and debugging sessions, [Claude Code](/en/tool/claude-code), [Codex CLI](/en/tool/codex-cli), [Gemini CLI](/en/tool/gemini-cli), opencode, and aider are often better fits.
 - If you care about China access or cost control, prioritize tools that support custom base URLs, OpenAI/Anthropic-compatible APIs, OpenRouter, Volcano Ark, Alibaba Bailian, or Ollama.
 
 The common mistake is subscribing to too many tools at once. A healthier setup is usually:

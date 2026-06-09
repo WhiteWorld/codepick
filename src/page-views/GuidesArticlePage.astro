@@ -218,7 +218,40 @@ const jsonLdList = [articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema]
       </section>
     )}
 
-    <ShareBar url={guideUrl} title={guide.data.title} description={guide.data.description} lang={lang} />
+    <!-- 继续阅读：相关指南 + 相关对比（双列，紧贴正文/FAQ 之后） -->
+    {(relatedGuides.length > 0 || relatedArticles.length > 0) && (
+      <section class="mt-12 pt-6 border-t border-[var(--surface-border)]">
+        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">{t('section.keepReading', lang)}</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+          {relatedGuides.length > 0 && (
+            <div>
+              <h3 class="text-xs font-medium text-[var(--text-muted)] mb-2 mt-0">{t('section.relatedGuides', lang)}</h3>
+              <div class="grid grid-cols-1 gap-3">
+                {relatedGuides.map(g => (
+                  <a href={localePath(`/guides/${g.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
+                    <h4 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{g.data.title}</h4>
+                    <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{g.data.description}</p>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+          {relatedArticles.length > 0 && (
+            <div>
+              <h3 class="text-xs font-medium text-[var(--text-muted)] mb-2 mt-0">{t('section.relatedCompare', lang)}</h3>
+              <div class="grid grid-cols-1 gap-3">
+                {relatedArticles.map(a => (
+                  <a href={localePath(`/compare/${a.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
+                    <h4 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{a.data.title}</h4>
+                    <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{a.data.description}</p>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+    )}
 
     <!-- Mentioned Tools -->
     {mentionedTools.length > 0 && (
@@ -258,35 +291,7 @@ const jsonLdList = [articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema]
       <a href={localePath('/deals', lang)} class="btn btn-primary">{t('conversion.dealsCta', lang)}</a>
     </section>
 
-    <!-- Related Guides -->
-    {relatedGuides.length > 0 && (
-      <section class="mt-10 pt-6 border-t border-[var(--surface-border)]">
-        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">{t('section.relatedGuides', lang)}</h2>
-        <div class="grid grid-cols-1 gap-3">
-          {relatedGuides.map(g => (
-            <a href={localePath(`/guides/${g.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
-              <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{g.data.title}</h3>
-              <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{g.data.description}</p>
-            </a>
-          ))}
-        </div>
-      </section>
-    )}
-
-    <!-- Related Compare Articles (cross-type) -->
-    {relatedArticles.length > 0 && (
-      <section class="mt-8 pt-6 border-t border-[var(--surface-border)]">
-        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">{t('section.relatedCompare', lang)}</h2>
-        <div class="grid grid-cols-1 gap-3">
-          {relatedArticles.map(a => (
-            <a href={localePath(`/compare/${a.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
-              <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{a.data.title}</h3>
-              <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{a.data.description}</p>
-            </a>
-          ))}
-        </div>
-      </section>
-    )}
+    <ShareBar url={guideUrl} title={guide.data.title} description={guide.data.description} lang={lang} />
 
     <div class="mt-6">
       <a href={localePath('/guides', lang)} class="text-sm text-[var(--brand-400)] no-underline hover:underline">{t('link.backGuides', lang)}</a>

@@ -69,7 +69,7 @@ locale_strategy: mirrored
 
 ## 支持的客户端
 
-官方文档明确给出了 Claude Code、OpenCode、OpenClaw、Hermes Agent、TRAE、OpenViking 等接入教程；Cursor / Cline / Roo Code 等 OpenAI Compatible 工具可按“其他工具”路径配置。
+官方文档明确给出了 [Claude Code](/zh/tool/claude-code)、[OpenCode](/zh/tool/opencode)、OpenClaw、Hermes Agent、[TRAE](/zh/tool/trae)、OpenViking 等接入教程；Cursor / [Cline](/zh/tool/cline) / Roo Code 等 OpenAI Compatible 工具可按“其他工具”路径配置。
 
 火山方舟兼容 **OpenAI + Anthropic 双协议**。关键区别是端点不同：Anthropic 协议用 `/api/coding`，OpenAI Compatible 用 `/api/coding/v3`。不要混用，否则可能无法消耗 Coding Plan 套餐额度。
 

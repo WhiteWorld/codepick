@@ -3,13 +3,13 @@ title: "国内使用 Claude Code 完整指南：8 种可行方案详解"
 description: "汇总 2026 年国内开发者使用 Claude Code 的所有可行方案，包括官方订阅、Apple 礼品卡、Google Play、API 中转、火山方舟平替、Kiro 低价方案等，附费用对比与避坑建议。"
 date: "2026-03-19"
 article_type: "explainer"
-tags: ["claude-code", "国内", "订阅", "API中转", "火山方舟", "kiro"]
+tags: ["claude-code", "国内", "订阅", "API中转", "火山方舟", "kiro", "cursor", "windsurf"]
 pillar: plans
 content_status: keep
 locale_strategy: mirrored
 ---
 
-Claude Code 是 Anthropic 推出的命令行 AI 编程助手，编程能力业界顶尖。但国内开发者面临**网络限制、支付困难、注册门槛**三大障碍。本指南汇总当前所有可行方案，帮你找到最适合自己的路径。
+[Claude Code](/zh/tool/claude-code) 是 Anthropic 推出的命令行 AI 编程助手，编程能力业界顶尖。但国内开发者面临**网络限制、支付困难、注册门槛**三大障碍。本指南汇总当前所有可行方案，帮你找到最适合自己的路径。
 
 ## 方案总览
 
@@ -205,13 +205,13 @@ claude
 
 ## 方案七：购买 AWS Kiro，直接使用原版 Anthropic 模型
 
-Kiro 是 AWS 推出的 AI 编程 IDE，内置了 **Anthropic 全系列模型**（Claude Opus 4.5、Sonnet 4.5 等），通过 AWS 账号体系完成订阅和计费。与官方 Claude Code 订阅相比，通过 Kiro 访问 Anthropic 模型的综合成本约为**官方订阅的 1/10**。
+[Kiro](/zh/tool/kiro) 是 AWS 推出的 AI 编程 IDE，内置了 **Anthropic 全系列模型**（Claude Opus 4.5、Sonnet 4.5 等），通过 AWS 账号体系完成订阅和计费。与官方 Claude Code 订阅相比，通过 Kiro 访问 Anthropic 模型的综合成本约为**官方订阅的 1/10**。
 
 ### 使用方式
 
 Kiro 支持两种使用方式：
 
-- **Kiro IDE**：VS Code 分支版本，可直接替代 Cursor/Windsurf 等工具，内置 Chat、代码补全、Agent 模式
+- **Kiro IDE**：VS Code 分支版本，可直接替代 [Cursor](/zh/tool/cursor)/[Windsurf](/zh/tool/windsurf) 等工具，内置 Chat、代码补全、Agent 模式
 - **Kiro CLI**：命令行工具，使用体验类似 Claude Code
 
 ### 操作步骤

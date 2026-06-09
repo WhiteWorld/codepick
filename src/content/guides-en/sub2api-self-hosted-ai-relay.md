@@ -22,7 +22,7 @@ Self-hosting starts to make sense when you need:
 - Token-level usage tracking by person, project, or tool.
 - Concurrency and rate limits so one user cannot burn the entire quota.
 - A data path you control instead of sending code and prompts through a third-party relay.
-- A unified gateway for Claude Code, Codex, Gemini CLI, Antigravity, and OpenAI-compatible tools.
+- A unified gateway for [Claude Code](/en/tool/claude-code), [Codex](/en/tool/codex), [Gemini CLI](/en/tool/gemini-cli), [Antigravity](/en/tool/antigravity), and OpenAI-compatible tools.
 
 [Wei-Shaw/sub2api](https://github.com/Wei-Shaw/sub2api) is built for this category. It is not just a simple OpenAI-compatible forwarding proxy. It is an AI API gateway focused on subscription quota distribution: upstreams can be OAuth or API-key based, users get platform-generated API keys, and the platform handles authentication, billing, load balancing, and request forwarding.
 

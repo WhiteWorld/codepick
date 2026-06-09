@@ -4,7 +4,7 @@ description: "2026 年 4 月 2 日，Cursor 发布 Cursor 3 新界面，围绕 A
 date: "2026-05-18"
 updated_at: "2026-05-28"
 article_type: "explainer"
-tags: ["cursor", "cursor-3", "agent", "并行agent", "IDE", "更新"]
+tags: ["cursor", "cursor-3", "claude-code", "codex", "agent", "并行agent", "IDE", "更新"]
 pillar: tools
 content_status: keep
 locale_strategy: mirrored
@@ -24,7 +24,7 @@ faq:
       国内用户还要额外考虑网络稳定性和支付方式。
 ---
 
-Cursor 的更新重心已经明显从“更聪明的补全”转向“让多个 Agent 接手完整任务”。工作方式变了，工具也得跟上。
+[Cursor](/zh/tool/cursor) 的更新重心已经明显从“更聪明的补全”转向“让多个 Agent 接手完整任务”。工作方式变了，工具也得跟上。
 
 2026 年 4 月 2 日，Cursor 发布 **Cursor 3** 新界面。这不是普通功能迭代，而是一次范式转换——从「文件为中心」到「Agent 为中心」。
 
@@ -117,7 +117,7 @@ Cursor 3 对你的影响最小。Tab 体验本身没有变化，/multitask 和 A
 
 ## 与 Claude Code、Codex 的对比位置
 
-Cursor 3 的发布，明显是在回应 Claude Code（CLI agentic 工具）和 OpenAI Codex（云端 Agent）的竞争压力。
+Cursor 3 的发布，明显是在回应 [Claude Code](/zh/tool/claude-code)（CLI agentic 工具）和 OpenAI [Codex](/zh/tool/codex)（云端 Agent）的竞争压力。
 
 三者目前的差异化定位：
 

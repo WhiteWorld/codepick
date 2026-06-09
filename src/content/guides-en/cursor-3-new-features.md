@@ -3,14 +3,14 @@ title: "Cursor 3.0 Deep Dive: From Code Editor to Agent Command Center"
 description: "On April 2, 2026, Cursor shipped its biggest redesign since launch — codename Glass. This guide covers the Agents Window, parallel agent execution, Design Mode, multi-repo support, and the May 13 cloud agent environments update."
 date: "2026-05-18"
 article_type: "explainer"
-tags: ["cursor", "cursor-3", "agent", "parallel-agents", "IDE", "update"]
+tags: ["cursor", "cursor-3", "claude-code", "codex", "agent", "parallel-agents", "IDE", "update"]
 pillar: tools
 content_status: keep
 locale_strategy: mirrored
 draft: false
 ---
 
-In March 2025, Cursor's usage data showed a 2.5:1 ratio of tab-completion users to agent-mode users. Less than a year later, that ratio has completely flipped — twice as many users now run autonomous agents as use tab completion.
+In March 2025, [Cursor](/en/tool/cursor)'s usage data showed a 2.5:1 ratio of tab-completion users to agent-mode users. Less than a year later, that ratio has completely flipped — twice as many users now run autonomous agents as use tab completion.
 
 The way developers work has changed. The tools need to catch up.
 
@@ -105,7 +105,7 @@ Cloud Agent Environments were built for you. Multi-repo support + audit logs + D
 
 ## Where Cursor 3 Sits vs. Claude Code and Codex
 
-Cursor 3's release is a clear response to competitive pressure from Claude Code (terminal-first agentic CLI) and OpenAI Codex (cloud-based async agents).
+Cursor 3's release is a clear response to competitive pressure from [Claude Code](/en/tool/claude-code) (terminal-first agentic CLI) and OpenAI [Codex](/en/tool/codex) (cloud-based async agents).
 
 Current positioning:
 

@@ -65,7 +65,7 @@ Volcengine Ark Coding Plan is ByteDance's AI coding API package: **Lite standard
 
 ## Compatible Clients (11)
 
-Claude Code, Cursor, Cline, Codex CLI, Kilo Code, Roo Code, OpenCode, Trae, Kilo CLI, OpenClaw, Moltbot.
+[Claude Code](/en/tool/claude-code), Cursor, [Cline](/en/tool/cline), Codex CLI, Kilo Code, Roo Code, [OpenCode](/en/tool/opencode), [Trae](/en/tool/trae), Kilo CLI, OpenClaw, Moltbot.
 
 Ark supports **both OpenAI and Anthropic protocols**, covering virtually all major AI coding clients. Claude Code users can connect natively via the Anthropic-compatible endpoint.
 

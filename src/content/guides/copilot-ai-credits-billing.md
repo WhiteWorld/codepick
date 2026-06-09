@@ -4,7 +4,7 @@ description: "GitHub Copilot 将于 2026 年 6 月 1 日把高级请求额度（
 date: "2026-05-11"
 updated_at: "2026-05-28"
 article_type: "explainer"
-tags: ["github-copilot", "计费", "ai-credits", "token", "定价"]
+tags: ["github-copilot", "copilot", "cursor", "cline", "计费", "ai-credits", "token", "定价"]
 pillar: plans
 content_status: keep
 locale_strategy: mirrored
@@ -180,7 +180,7 @@ Agent 会自动读取多个文件，上下文远大于普通对话：
 |----------|------|
 | 轻量用户（每天几次 Chat，用便宜模型） | 影响不大，配额绰绰有余 |
 | 中度用户（每天多次 Chat + 少量 Agent） | Pro 当前 1,500 Credits 通常够用，建议把超额上限设为 $0–$5 |
-| 重度 Agent 用户（Claude Sonnet + 大上下文） | 可能需要 Pro+，或改用 Cursor / Cline + 独立 API 方案 |
+| 重度 Agent 用户（Claude Sonnet + 大上下文） | 可能需要 Pro+，或改用 [Cursor](/zh/tool/cursor) / [Cline](/zh/tool/cline) + 独立 API 方案 |
 | JetBrains / GitHub 重度依赖用户 | Copilot 仍是最优选，注意监控用量 |
 
 如果你发现 Copilot 新计费下成本上升明显，先看 [AI 编程工具月成本对比](/zh/compare/ai-coding-cost-comparison-2026/) 判断是否该换方案，再参考 [Claude Code 省钱替代方案](/zh/guides/claude-code-budget-alternatives/) 或 [Cursor 省钱指南](/zh/guides/cursor-cost-saving/) 找替代路径。

@@ -4,7 +4,7 @@ description: "GitHub Copilot is replacing Premium Request Units with AI Credits 
 date: "2026-05-11"
 updated_at: "2026-05-19"
 article_type: "explainer"
-tags: ["github-copilot", "billing", "ai-credits", "token", "pricing"]
+tags: ["github-copilot", "copilot", "cursor", "cline", "billing", "ai-credits", "token", "pricing"]
 pillar: plans
 content_status: keep
 locale_strategy: mirrored
@@ -173,7 +173,7 @@ The new billing model introduces budget controls at three levels:
 |---------|-----------|
 | Light user (a few chats/day, cheap models) | Minimal impact — credits will be ample |
 | Moderate user (daily chat + occasional agents) | Pro $10 should suffice; set overflow cap to $0–$5 |
-| Heavy agentic user (Sonnet/Opus + large context) | Consider Pro+, or evaluate Cursor / Cline + direct API |
+| Heavy agentic user (Sonnet/Opus + large context) | Consider Pro+, or evaluate [Cursor](/en/tool/cursor) / [Cline](/en/tool/cline) + direct API |
 | JetBrains / deep GitHub integration user | Copilot remains the best fit; monitor monthly usage |
 
 If the new billing pushes your costs up significantly, see our [Claude Code budget alternatives guide](/en/compare/claude-code-budget-alternatives) or [how to cut Cursor costs](/en/guides/cursor-cost-saving) for alternative setups.

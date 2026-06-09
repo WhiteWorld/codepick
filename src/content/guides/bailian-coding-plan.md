@@ -64,10 +64,10 @@ locale_strategy: mirrored
 
 百炼兼容 7 款 AI 编程客户端：
 
-- **Claude Code**（终端 Agent）— 配置最简单，ANTHROPIC_BASE_URL 指向百炼即可
-- **Cline**（VS Code 插件）— 最受欢迎的可视化方案
-- **Cursor** — 通过 API 接入
-- **OpenCode** — 终端开发者首选
+- **[Claude Code](/zh/tool/claude-code)**（终端 Agent）— 配置最简单，ANTHROPIC_BASE_URL 指向百炼即可
+- **[Cline](/zh/tool/cline)**（VS Code 插件）— 最受欢迎的可视化方案
+- **[Cursor](/zh/tool/cursor)** — 通过 API 接入
+- **[OpenCode](/zh/tool/opencode)** — 终端开发者首选
 - **Qwen Code** — 千问官方客户端，天然适配
 - **OpenClaw** — 通用 AI 编程客户端
 - **Kilo IDE** — 开源 IDE

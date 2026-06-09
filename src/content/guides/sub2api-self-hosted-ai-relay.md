@@ -21,7 +21,7 @@ draft: false
 - 想知道每个人、每个项目、每个工具到底消耗了多少 token。
 - 想做并发限制、速率限制、账号池调度，避免一个人把额度打爆。
 - 不想把内部代码和 prompt 交给第三方中转站。
-- 想把 Claude Code、Codex、Gemini CLI、Antigravity 等工具统一接入同一个网关。
+- 想把 [Claude Code](/zh/tool/claude-code)、[Codex](/zh/tool/codex)、[Gemini CLI](/zh/tool/gemini-cli)、[Antigravity](/zh/tool/antigravity) 等工具统一接入同一个网关。
 
 [Wei-Shaw/sub2api](https://github.com/Wei-Shaw/sub2api) 就是为这类场景准备的。它不是普通的 OpenAI 兼容转发器，而是一个偏「订阅配额分发」的 AI API Gateway：上游可以接 OAuth / API Key，平台给用户发自己的 API Key，并负责鉴权、计费、负载均衡和请求转发。
 
