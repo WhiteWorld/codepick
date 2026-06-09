@@ -1,6 +1,6 @@
 ---
 title: "Cursor 国内使用完整指南：网络、支付、替代方案全解析"
-description: "国内开发者使用 Cursor 面临翻墙、支付、延迟三大障碍。本文汇总 2026 年所有可行方案及替代选择。"
+description: "国内开发者使用 Cursor 面临翻墙、支付、延迟三大障碍。本文汇总 2026 年所有可行方案：网络配置、外币支付、降低延迟，以及 Trae CN、Cline + 火山方舟等免代理替代选择。"
 date: "2026-05-17"
 updated_at: "2026-05-19"
 article_type: "howto"

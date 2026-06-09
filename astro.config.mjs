@@ -38,6 +38,33 @@ function buildLastmodMap() {
     }
   }
 
+  // Content collections (markdown): guides / compare / practices, zh + en.
+  // Uses frontmatter `updated_at || date` so every article page carries a
+  // <lastmod>, helping search engines discover & re-crawl new/updated content.
+  const contentCollections = [
+    { dir: 'src/content/guides', locale: 'zh', seg: 'guides' },
+    { dir: 'src/content/guides-en', locale: 'en', seg: 'guides' },
+    { dir: 'src/content/compare', locale: 'zh', seg: 'compare' },
+    { dir: 'src/content/compare-en', locale: 'en', seg: 'compare' },
+    { dir: 'src/content/practices', locale: 'zh', seg: 'practices' },
+    { dir: 'src/content/practices-en', locale: 'en', seg: 'practices' },
+  ];
+  for (const { dir, locale, seg } of contentCollections) {
+    const abs = path.resolve(dir);
+    if (!fs.existsSync(abs)) continue;
+    for (const f of fs.readdirSync(abs).filter(f => /\.mdx?$/.test(f))) {
+      const raw = fs.readFileSync(path.join(abs, f), 'utf-8');
+      const fm = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+      if (!fm) continue;
+      let data;
+      try { data = yaml.load(fm[1]); } catch { continue; }
+      if (!data || data.draft) continue;
+      const slug = data.slug || f.replace(/\.mdx?$/, '');
+      const date = data.updated_at || data.date;
+      if (date) map.set(`${siteUrl}/${locale}/${seg}/${slug}/`, new Date(date));
+    }
+  }
+
   return map;
 }
 
