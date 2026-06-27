@@ -1,6 +1,6 @@
 ---
-title: "火山方舟 Coding Plan 完整指南：两档套餐、Agent Plan 区别与最新更正"
-description: "基于火山方舟官方导出的 Agent/Coding Plan 文档校正：Coding Plan 是面向个人开发者的两档 Coding 大模型服务套餐，Agent Plan 是在其基础上升级的多模态 + Harness 套餐。本文说明二者区别、模型与活动变更、Base URL/API Key 注意事项，以及 Cline、Claude Code 等工具如何避免配错套餐。"
+title: "火山方舟 Coding Plan 完整指南：两档套餐、Agent Plan 区别与配置要点"
+description: "基于火山方舟官方导出的 Agent/Coding Plan 文档梳理：Coding Plan 是面向个人开发者的两档 Coding 大模型服务套餐，Agent Plan 是在其基础上升级的多模态 + Harness 套餐。本文说明二者区别、模型与活动变化、Base URL/API Key 注意事项，以及 Cline、Claude Code 等工具的配置建议。"
 date: "2026-05-17"
 updated_at: "2026-06-27"
 article_type: "explainer"
@@ -32,9 +32,9 @@ content_status: keep
 locale_strategy: mirrored
 ---
 
-火山方舟 Coding Plan 是字节跳动旗下、面向个人开发者的 AI Coding 大模型服务套餐。根据本次官方导出的《订阅 [Agent/Coding Plan]》文档，最需要更正的一点是：**Coding Plan 和 Agent Plan 已经是两个边界不同的套餐**。Coding Plan 仍主打编程场景；Agent Plan 是在 Coding Plan 基础上升级的新订阅包，覆盖多模态模型和 Harness。
+火山方舟 Coding Plan 是字节跳动旗下、面向个人开发者的 AI Coding 大模型服务套餐。根据火山方舟《订阅 [Agent/Coding Plan]》文档，**Coding Plan 和 Agent Plan 是两个边界不同的套餐**。Coding Plan 仍主打编程场景；Agent Plan 是在 Coding Plan 基础上升级的新订阅包，覆盖多模态模型和 Harness。
 
-因此，旧攻略里常见的“Lite ¥9.9 / Pro ¥49.9”说法需要谨慎看待：本次官方导出明确写到的 ¥9.9 / ¥49.9 活动，是 **Agent Plan Small / Medium** 的限时 2.5 折活动，不应直接写成 Coding Plan Lite/Pro 的固定价格。
+因此，看到“Lite ¥9.9 / Pro ¥49.9”这类价格时，需要先确认对应的套餐。文档里明确写到的 ¥9.9 / ¥49.9 活动，是 **Agent Plan Small / Medium** 的限时 2.5 折活动，不能直接等同于 Coding Plan Lite/Pro 的固定价格。
 
 ## 先看结论
 
@@ -59,7 +59,7 @@ locale_strategy: mirrored
 
 **不要混用套餐凭证。** 官方文档多次强调，Agent Plan 的专属 Base URL 和 API Key 不能与 Coding Plan API Key 混用；反过来，使用 Coding Plan 时也应以 Coding Plan 控制台给出的地址和 Key 为准。
 
-## Agent Plan 活动不要误写成 Coding Plan 价格
+## 先确认 ¥9.9 / ¥49.9 属于哪个套餐
 
 官方导出的活动页写的是：
 
@@ -68,7 +68,7 @@ locale_strategy: mirrored
 | Agent Plan Small & Medium 2.5 折普惠活动 | 2026-06-08 至 2026-08-08 | Small | ¥40 | ¥9.9 | 每个用户最多前两个月可享，第三个月起原价 |
 | Agent Plan Small & Medium 2.5 折普惠活动 | 2026-06-08 至 2026-08-08 | Medium | ¥200 | ¥49.9 | 新购、续费、升配共享同一优惠资格 |
 
-这说明：**¥9.9 / ¥49.9 在本次官方导出中属于 Agent Plan 活动价**。如果你是冲着 Coding Plan 来买，请打开 Coding Plan 活动页或控制台核对实时价格、库存和套餐权益。
+这说明：**¥9.9 / ¥49.9 在这份资料中属于 Agent Plan 活动价**。如果你是冲着 Coding Plan 来买，请打开 Coding Plan 活动页或控制台核对实时价格、库存和套餐权益。
 
 ## 最新模型与活动提示
 

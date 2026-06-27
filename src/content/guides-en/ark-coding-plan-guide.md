@@ -1,6 +1,6 @@
 ---
-title: "Volcengine Ark Coding Plan Guide: Tiers, Agent Plan Differences, and Latest Corrections"
-description: "Corrected from the official Volcengine Ark Agent/Coding Plan export: Coding Plan is a two-tier coding-focused subscription for individual developers, while Agent Plan is the upgraded multimodal + Harness package. Covers the boundary, model/activity changes, Base URL/API key rules, and setup notes for Cline, Claude Code, OpenCode, and Codex CLI."
+title: "Volcengine Ark Coding Plan Guide: Tiers, Agent Plan Differences, and Setup Notes"
+description: "Based on the official Volcengine Ark Agent/Coding Plan export: Coding Plan is a two-tier coding-focused subscription for individual developers, while Agent Plan is the upgraded multimodal + Harness package. Covers the boundary, model/activity changes, Base URL/API key rules, and setup notes for Cline, Claude Code, OpenCode, and Codex CLI."
 date: "2026-05-17"
 updated_at: "2026-06-27"
 article_type: "explainer"
@@ -28,9 +28,9 @@ content_status: keep
 locale_strategy: mirrored
 ---
 
-Volcengine Ark Coding Plan is ByteDance's AI coding model subscription for individual developers. Based on the official exported document, the most important correction is that **Coding Plan and Agent Plan now have clearly different product boundaries**. Coding Plan remains coding-focused; Agent Plan is the upgraded multimodal and Harness-oriented package.
+Volcengine Ark Coding Plan is ByteDance's AI coding model subscription for individual developers. Based on the official exported document, **Coding Plan and Agent Plan now have clearly different product boundaries**. Coding Plan remains coding-focused; Agent Plan is the upgraded multimodal and Harness-oriented package.
 
-That means older wording such as "Lite ¥9.9 / Pro ¥49.9" needs care. In this export, the explicit ¥9.9 / ¥49.9 campaign is for **Agent Plan Small / Medium**, not a fixed Coding Plan Lite/Pro price.
+That means pricing such as "Lite ¥9.9 / Pro ¥49.9" should be checked against the plan it belongs to. In this export, the explicit ¥9.9 / ¥49.9 campaign is for **Agent Plan Small / Medium**, not a fixed Coding Plan Lite/Pro price.
 
 ## Quick Take
 
@@ -55,7 +55,7 @@ That means older wording such as "Lite ¥9.9 / Pro ¥49.9" needs care. In this e
 
 Do not mix credentials across plan types. The official export repeatedly notes that Agent Plan's dedicated Base URL/API key should not be mixed with Coding Plan keys, and the same principle applies in reverse.
 
-## Do Not Mislabel the Agent Plan Promo
+## Check Which Plan the ¥9.9 / ¥49.9 Promo Belongs To
 
 The official campaign page states:
 
