@@ -271,38 +271,6 @@ For an early agent-management platform, the hard questions are practical:
 
 The right adoption pattern is not “give everything to agents.” Start with low-risk, verifiable, reversible work: test additions, docs updates, lint fixes, dependency bumps, log analysis, and small refactors.
 
-## A four-week evaluation plan
-
-### Week 1: validate the basic loop
-
-- Use Cloud or deploy self-hosted.
-- Connect one or two daemon machines.
-- Add the one or two runtimes you already trust.
-- Create five low-risk Issues and let agents run the full lifecycle.
-
-The goal is not code volume. The goal is proving assignment, execution, logs, comments, status updates, and human review.
-
-### Week 2: define boundaries
-
-- Decide which tasks agents may handle and which remain human-only.
-- Give agents isolated branches or work directories.
-- Create a review checklist.
-- Record failure modes: missing information, flaky tests, permission gaps, wrong assumptions.
-
-### Week 3: create Skills
-
-- Convert repeated prompts into Skills.
-- Keep them short, task-specific, and testable.
-- Include test commands, forbidden areas, and output expectations.
-- Remove or update stale Skills weekly.
-
-### Week 4: expand to Squads or recurring work
-
-- Route a category of work to a Squad.
-- Create Autopilots for dependency checks, docs sync, or test diagnostics.
-- Measure throughput, failure rate, review cost, and rework.
-
-If review cost drops, transparency improves, and repeated workflows shrink, Multica is worth deeper investment. If not, it may simply be wrapping single-agent uncertainty in a more complex system.
 
 ## Conclusion
 
