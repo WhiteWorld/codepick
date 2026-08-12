@@ -9,6 +9,7 @@
     "monitor": "python scripts/monitor.py",
     "dashboard": "python scripts/dashboard.py",
     "content:check": "node scripts/check-content.mjs",
+    "content:check:baseline": "node scripts/check-content-baseline.mjs",
     "update-github-tools": "node scripts/update-github-tools.mjs",
     "update-closed-source-tools": "node scripts/update-closed-source-tools.mjs",
     "update-all-tools": "npm run update-github-tools && npm run update-closed-source-tools",
