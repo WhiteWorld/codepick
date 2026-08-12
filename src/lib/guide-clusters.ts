@@ -34,7 +34,7 @@ const hasTag = (g: GuideLike, ...needles: string[]) => {
 };
 
 const slugHas = (g: GuideLike, ...needles: string[]) =>
-  needles.some(n => g.slug.includes(n));
+  needles.some(n => g.id.includes(n));
 
 // 顺序即优先级：首个命中的规则决定归属（与展示顺序 CLUSTER_ORDER 无关）。
 // Agent 协作类规则放在通用 setup 之前，避免 slock-setup 之类文章被归到工具上手。
@@ -49,7 +49,7 @@ export const GUIDE_CLUSTERS: ClusterRule[] = [
     id: 'plans',
     match: g =>
       hasTag(g, '计费', '定价', 'ai-credits', 'rate-limit', '限速', 'billing', 'pricing') ||
-      (hasTag(g, '国内', 'china') && !g.slug.endsWith('-setup')),
+      (hasTag(g, '国内', 'china') && !g.id.endsWith('-setup')),
   },
   {
     id: 'workflow',
@@ -60,7 +60,7 @@ export const GUIDE_CLUSTERS: ClusterRule[] = [
   {
     id: 'tools',
     match: g =>
-      g.slug.endsWith('-setup') ||
+      g.id.endsWith('-setup') ||
       g.data.article_type === 'howto' ||
       hasTag(g, '配置', '插件', 'self-hosted', '本地部署', 'local', 'extension', 'extensions', 'plugin'),
   },
@@ -113,7 +113,7 @@ export function clusterGuides<T extends GuideLike>(guides: T[]): ClusteredGuides
   if (other && other.length) {
     console.warn(
       `[guide-clusters] ${other.length} 篇指南落入 "other"，请补充规则：` +
-        other.map(g => g.slug).join(', '),
+        other.map(g => g.id).join(', '),
     );
   }
 
@@ -122,7 +122,7 @@ export function clusterGuides<T extends GuideLike>(guides: T[]): ClusteredGuides
     .map(id => ({
       id,
       guides: (buckets.get(id) ?? []).sort(
-        (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+        (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime() || a.id.localeCompare(b.id),
       ),
     }))
     .filter(c => c.guides.length > 0);

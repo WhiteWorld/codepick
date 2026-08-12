@@ -19,13 +19,18 @@
     "check:seo": "node scripts/check-seo-routes.mjs"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.0",
-    "@astrojs/tailwind": "^5.1.0",
+    "@astrojs/markdown-remark": "^7.2.2",
+    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/tailwind": "^6.0.2",
     "@tailwindcss/typography": "^0.5.19",
     "@vercel/analytics": "^1.6.1",
-    "astro": "^5.3.0",
+    "astro": "^7.2.1",
     "js-yaml": "^4.1.0",
     "sharp": "^0.33.0",
     "tailwindcss": "^3.4.0"
+  },
+  "overrides": {
+    "astro": "^7.2.1",
+    "picomatch": "^2.3.2"
   }
 }
