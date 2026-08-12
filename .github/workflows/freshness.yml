@@ -1,9 +1,10 @@
 name: Content Quality Check
 
 on:
-  schedule:
-    - cron: '0 1 * * 1'
   workflow_dispatch:
+
+# Keep this workflow manual until the repaired path has been validated in GitHub.
+# Intended schedule after validation: 0 1 * * 1 (Mondays at 09:00 Beijing time).
 
 permissions:
   contents: read
@@ -34,12 +35,30 @@ jobs:
           script: |
             const { execSync } = require('child_process');
             const output = execSync('node scripts/check-content.mjs --strict --json 2>&1 || true').toString();
+
+            const label = 'content-quality';
+            try {
+              await github.rest.issues.getLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                name: label
+              });
+            } catch (error) {
+              if (error.status !== 404) throw error;
+              await github.rest.issues.createLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                name: label,
+                color: 'd4c5f9',
+                description: 'Automated content quality findings'
+              });
+            }
             
             const issues = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
               state: 'open',
-              labels: 'content-quality'
+              labels: label
             });
             
             const body = `## CodePick content quality check failed\n\n\`\`\`json\n${output}\n\`\`\`\n\n*Generated at ${new Date().toISOString()}*`;
@@ -58,6 +77,6 @@ jobs:
                 repo: context.repo.repo,
                 title: 'CodePick content quality check failed',
                 body,
-                labels: ['content-quality']
+                labels: [label]
               });
             }
