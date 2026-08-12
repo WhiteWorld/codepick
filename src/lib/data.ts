@@ -116,6 +116,9 @@ function normalizePlan(raw: any): Plan {
   }
 
   return {
+    // Keep localized source fields so getAllPlansLocalized() can resolve them
+    // after the structural fields below have been normalized.
+    ...raw,
     id: raw.id || '',
     name: raw.name || raw.id || '',
     badge: raw.badge || '',
@@ -257,10 +260,18 @@ export function getToolLocalized(id: string, lang: Locale): Tool | undefined {
 export function getAllPlansLocalized(lang: Locale): Plan[] {
   return getAllPlans().map(raw => {
     const plan = raw as any;
+    const name = localized(plan, 'name', lang) ?? plan.name ?? plan.id;
+    const tagline = lang === 'en'
+      ? plan.tagline_en
+        ?? plan.description_en
+        ?? `${name} AI coding plan with pricing, scores, and setup guidance.`
+      : plan.tagline ?? plan.description ?? '';
+
     return {
       ...plan,
+      name,
       badge: localized(plan, 'badge', lang) ?? plan.badge ?? '',
-      tagline: localized(plan, 'tagline', lang) ?? plan.tagline ?? '',
+      tagline,
       best_for: localized(plan, 'best_for', lang) ?? plan.best_for ?? [],
       quick_start: localized(plan, 'quick_start', lang) ?? plan.quick_start ?? [],
       pros: localized(plan, 'pros', lang) ?? plan.pros ?? [],
