@@ -1,4 +1,6 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 const contentGovernance = {
   pillar: z.enum(['tools', 'plans', 'compare', 'workflow', 'stack', 'market']).optional(),
@@ -7,7 +9,7 @@ const contentGovernance = {
 };
 
 const compare = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md*', base: 'src/content/compare' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -24,7 +26,7 @@ const faqItem = z.object({
 });
 
 const guides = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md*', base: 'src/content/guides' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -40,7 +42,7 @@ const guides = defineCollection({
 
 // English content collections (same schema)
 const compareEn = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md*', base: 'src/content/compare-en' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -52,7 +54,7 @@ const compareEn = defineCollection({
 });
 
 const guidesEn = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md*', base: 'src/content/guides-en' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -67,7 +69,7 @@ const guidesEn = defineCollection({
 });
 
 const practices = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md*', base: 'src/content/practices' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -80,7 +82,7 @@ const practices = defineCollection({
 });
 
 const practicesEn = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md*', base: 'src/content/practices-en' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),

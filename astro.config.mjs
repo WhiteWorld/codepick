@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
+import { unified } from '@astrojs/markdown-remark';
 import fs from 'node:fs';
 import path from 'node:path';
 import yaml from 'js-yaml';
@@ -118,8 +119,12 @@ function canonicalizeMarkdownInternalLinks() {
 export default defineConfig({
   site: 'https://codepick.dev',
   trailingSlash: 'always',
+  // Preserve the pre-v7 HTML-aware whitespace compression (v7 default is 'jsx').
+  compressHTML: true,
   markdown: {
-    remarkPlugins: [canonicalizeMarkdownInternalLinks],
+    processor: unified({
+      remarkPlugins: [canonicalizeMarkdownInternalLinks],
+    }),
   },
   i18n: {
     defaultLocale: 'zh',

@@ -9,7 +9,7 @@ const { lang } = Astro.props;
 const collectionName = getCollectionName('compare', lang) as 'compare' | 'compare-en';
 const articles = (await getCollection(collectionName))
   .filter(a => !a.data.draft)
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime() || a.id.localeCompare(b.id));
 
 // 分类过滤配置：每个分类对应一组匹配 tag
 const categories = [
@@ -54,7 +54,7 @@ const itemListSchema = {
     '@type': 'ListItem',
     position: i + 1,
     name: article.data.title,
-    url: `${siteUrl}${localePath(`/compare/${article.slug}`, lang)}`,
+    url: `${siteUrl}${localePath(`/compare/${article.id}`, lang)}`,
   })),
 };
 
@@ -98,7 +98,7 @@ const collectionPageSchema = {
     <div class="space-y-4" id="compare-list">
       {articles.map(article => (
         <a
-          href={localePath(`/compare/${article.slug}`, lang)}
+          href={localePath(`/compare/${article.id}`, lang)}
           class="card p-6 block no-underline hover:border-[var(--brand-400)] transition-colors"
           data-tags={JSON.stringify((article.data.tags || []).map((t: string) => t.toLowerCase()))}
         >

@@ -3,35 +3,35 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import ShareBar from '../components/ShareBar.astro';
 import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 
 interface Props { article: any; lang: Locale }
 const { article, lang } = Astro.props;
-const { Content, headings } = await article.render();
+const { Content, headings } = await render(article);
 
 // 相关文章：共享 tag 最多的 practices 文章，排除自身，最多 3 篇
 const collectionName = getCollectionName('practices', lang) as 'practices' | 'practices-en';
 const allArticles = await getCollection(collectionName);
 const currentTags: string[] = (article.data.tags || []).map((t: string) => t.toLowerCase());
 const relatedArticles = allArticles
-  .filter(a => a.slug !== article.slug && !a.data.draft)
+  .filter(a => a.id !== article.id && !a.data.draft)
   .map(a => ({
     article: a,
     shared: (a.data.tags || []).filter((t: string) => currentTags.includes(t.toLowerCase())).length,
   }))
   .filter(x => x.shared > 0)
-  .sort((a, b) => b.shared - a.shared)
+  .sort((a, b) => b.shared - a.shared || a.article.id.localeCompare(b.article.id))
   .slice(0, 3)
   .map(x => x.article);
 
 const siteUrl = 'https://codepick.dev';
-const articlePath = localePath(`/practices/${article.slug}`, lang);
+const articlePath = localePath(`/practices/${article.id}`, lang);
 const articleUrl = `${siteUrl}${articlePath}`;
 const otherLang = lang === 'zh' ? 'en' : 'zh';
 const alternateCollectionName = getCollectionName('practices', otherLang) as 'practices' | 'practices-en';
 const alternateArticles = await getCollection(alternateCollectionName);
-const alternateArticle = alternateArticles.find(a => a.slug === article.slug && !a.data.draft);
-const alternateArticlePath = alternateArticle ? localePath(`/practices/${article.slug}`, otherLang) : undefined;
+const alternateArticle = alternateArticles.find(a => a.id === article.id && !a.data.draft);
+const alternateArticlePath = alternateArticle ? localePath(`/practices/${article.id}`, otherLang) : undefined;
 const alternateURLs = {
   [lang]: articleUrl,
   ...(alternateArticlePath ? { [otherLang]: `${siteUrl}${alternateArticlePath}` } : {}),
@@ -127,7 +127,7 @@ const articleSchema = {
         <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">{t('section.relatedArticles', lang)}</h2>
         <div class="grid grid-cols-1 gap-3">
           {relatedArticles.map(a => (
-            <a href={localePath(`/practices/${a.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
+            <a href={localePath(`/practices/${a.id}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
               <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{a.data.title}</h3>
               <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{a.data.description}</p>
             </a>
