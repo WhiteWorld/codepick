@@ -5,7 +5,7 @@ import GuidesArticlePage from '../../../page-views/GuidesArticlePage.astro';
 export async function getStaticPaths() {
   const guides = await getCollection('guides-en');
   return guides.map(guide => ({
-    params: { slug: guide.slug },
+    params: { slug: guide.id },
     props: { guide },
   }));
 }

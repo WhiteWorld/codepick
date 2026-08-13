@@ -10,7 +10,7 @@ const { lang } = Astro.props;
 const collectionName = getCollectionName('guides', lang) as 'guides' | 'guides-en';
 const guides = (await getCollection(collectionName))
   .filter(g => !g.data.draft)
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime() || a.id.localeCompare(b.id));
 
 // 按需求簇分组（高流量主题靠前），索引页本身即各主题的聚合 hub。
 const clusters = clusterGuides(guides);
@@ -43,7 +43,7 @@ const itemListSchema = {
     '@type': 'ListItem',
     position: i + 1,
     name: guide.data.title,
-    url: `${siteUrl}${localePath(`/guides/${guide.slug}`, lang)}`,
+    url: `${siteUrl}${localePath(`/guides/${guide.id}`, lang)}`,
   })),
 };
 
@@ -90,7 +90,7 @@ const collectionPageSchema = {
           </h2>
           <div class="space-y-4 mt-4">
             {c.guides.map(guide => (
-              <a href={localePath(`/guides/${guide.slug}`, lang)} class="card p-6 block no-underline hover:border-[var(--brand-400)] transition-colors">
+              <a href={localePath(`/guides/${guide.id}`, lang)} class="card p-6 block no-underline hover:border-[var(--brand-400)] transition-colors">
                 <div class="flex flex-wrap gap-2 mb-2">
                   {guide.data.tags?.slice(0, 3).map((tag: string) => (
                     <span class="tag">{tag}</span>

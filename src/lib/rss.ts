@@ -40,7 +40,7 @@ async function loadFeed(lang: Locale): Promise<FeedEntry[]> {
 
   const toEntry = (type: FeedEntry['type']) => (e: any): FeedEntry => ({
     type,
-    slug: e.slug,
+    slug: e.id,
     title: e.data.title,
     description: e.data.description || '',
     date: e.data.date,
@@ -51,7 +51,7 @@ async function loadFeed(lang: Locale): Promise<FeedEntry[]> {
     ...guidesItems.filter((a: any) => !a.data.draft).map(toEntry('guides')),
     ...practicesItems.filter((a: any) => !a.data.draft).map(toEntry('practices')),
   ]
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime() || a.slug.localeCompare(b.slug) || a.type.localeCompare(b.type))
     .slice(0, 50);
 }
 

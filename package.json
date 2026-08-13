@@ -9,6 +9,7 @@
     "monitor": "python scripts/monitor.py",
     "dashboard": "python scripts/dashboard.py",
     "content:check": "node scripts/check-content.mjs",
+    "content:check:baseline": "node scripts/check-content-baseline.mjs",
     "update-github-tools": "node scripts/update-github-tools.mjs",
     "update-closed-source-tools": "node scripts/update-closed-source-tools.mjs",
     "update-all-tools": "npm run update-github-tools && npm run update-closed-source-tools",
@@ -19,16 +20,19 @@
     "check:seo": "node scripts/check-seo-routes.mjs"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.0",
-    "@astrojs/tailwind": "^5.1.0",
-    "@tailwindcss/typography": "^0.5.19",
+    "@astrojs/markdown-remark": "^7.2.2",
+    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/tailwind": "^6.0.2",
+    "@tailwindcss/typography": "^0.5.20",
     "@vercel/analytics": "^1.6.1",
-    "astro": "^5.3.0",
-    "js-yaml": "^4.1.0",
+    "astro": "^7.2.1",
+    "js-yaml": "^4.3.1",
     "sharp": "^0.35.3",
     "tailwindcss": "^3.4.0"
   },
   "overrides": {
+    "astro": "^7.2.1",
+    "picomatch": "^2.3.2",
     "sharp": "^0.35.3"
   }
 }
