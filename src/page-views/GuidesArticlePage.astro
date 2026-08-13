@@ -6,24 +6,24 @@ import PlanCard from '../components/PlanCard.astro';
 import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
 import { getAllToolsLocalized, getAllPlansLocalized, overallScore } from '../lib/data';
 import { relatedPlansForGuide } from '../lib/guide-conversion';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 
 interface Props { guide: any; lang: Locale }
 const { guide, lang } = Astro.props;
-const { Content, headings } = await guide.render();
+const { Content, headings } = await render(guide);
 
 // 相关指南：共享 tag 最多的指南，排除自身，最多 3 篇
 const guidesCollection = getCollectionName('guides', lang) as 'guides' | 'guides-en';
 const allGuides = await getCollection(guidesCollection);
 const currentTags: string[] = (guide.data.tags || []).map((t: string) => t.toLowerCase());
 const relatedGuides = allGuides
-  .filter(g => g.slug !== guide.slug && !g.data.draft)
+  .filter(g => g.id !== guide.id && !g.data.draft)
   .map(g => ({
     guide: g,
     shared: (g.data.tags || []).filter((t: string) => currentTags.includes(t.toLowerCase())).length,
   }))
   .filter(x => x.shared > 0)
-  .sort((a, b) => b.shared - a.shared)
+  .sort((a, b) => b.shared - a.shared || a.guide.id.localeCompare(b.guide.id))
   .slice(0, 3)
   .map(x => x.guide);
 
@@ -37,7 +37,7 @@ const relatedArticles = allArticles
     shared: (a.data.tags || []).filter((tag: string) => currentTags.includes(tag.toLowerCase())).length,
   }))
   .filter(x => x.shared > 0)
-  .sort((a, b) => b.shared - a.shared)
+  .sort((a, b) => b.shared - a.shared || a.article.id.localeCompare(b.article.id))
   .slice(0, 3)
   .map(x => x.article);
 
@@ -49,20 +49,20 @@ const mentionedTools = allTools
   .slice(0, 4);
 
 // 转化承接：基于本文工具/API 匹配的省钱方案（强信号门槛，最多 2 个）
-const relatedPlans = relatedPlansForGuide(guide.data.tags || [], guide.slug, getAllPlansLocalized(lang), 2);
+const relatedPlans = relatedPlansForGuide(guide.data.tags || [], guide.id, getAllPlansLocalized(lang), 2);
 
 function tagHref(tag: string) {
   return toolIds.has(tag) ? localePath(`/tool/${tag}`, lang) : localePath('/guides', lang);
 }
 
 const siteUrl = 'https://codepick.dev';
-const guidePath = localePath(`/guides/${guide.slug}`, lang);
+const guidePath = localePath(`/guides/${guide.id}`, lang);
 const guideUrl = `${siteUrl}${guidePath}`;
 const otherLang = lang === 'zh' ? 'en' : 'zh';
 const alternateGuidesCollection = getCollectionName('guides', otherLang) as 'guides' | 'guides-en';
 const alternateGuides = await getCollection(alternateGuidesCollection);
-const alternateGuide = alternateGuides.find(g => g.slug === guide.slug && !g.data.draft);
-const alternateGuidePath = alternateGuide ? localePath(`/guides/${guide.slug}`, otherLang) : undefined;
+const alternateGuide = alternateGuides.find(g => g.id === guide.id && !g.data.draft);
+const alternateGuidePath = alternateGuide ? localePath(`/guides/${guide.id}`, otherLang) : undefined;
 const alternateURLs = {
   [lang]: guideUrl,
   ...(alternateGuidePath ? { [otherLang]: `${siteUrl}${alternateGuidePath}` } : {}),
@@ -228,7 +228,7 @@ const jsonLdList = [articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema]
               <h3 class="text-xs font-medium text-[var(--text-muted)] mb-2 mt-0">{t('section.relatedGuides', lang)}</h3>
               <div class="grid grid-cols-1 gap-3">
                 {relatedGuides.map(g => (
-                  <a href={localePath(`/guides/${g.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
+                  <a href={localePath(`/guides/${g.id}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
                     <h4 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{g.data.title}</h4>
                     <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{g.data.description}</p>
                   </a>
@@ -241,7 +241,7 @@ const jsonLdList = [articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema]
               <h3 class="text-xs font-medium text-[var(--text-muted)] mb-2 mt-0">{t('section.relatedCompare', lang)}</h3>
               <div class="grid grid-cols-1 gap-3">
                 {relatedArticles.map(a => (
-                  <a href={localePath(`/compare/${a.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
+                  <a href={localePath(`/compare/${a.id}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
                     <h4 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{a.data.title}</h4>
                     <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{a.data.description}</p>
                   </a>

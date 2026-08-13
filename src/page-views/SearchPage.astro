@@ -43,29 +43,29 @@ const searchIndex = [
   })),
   ...compareArticles.filter(a => !a.data.draft).map(a => ({
     type: 'article' as const,
-    id: a.slug,
+    id: a.id,
     title: a.data.title,
     description: a.data.description,
     tags: a.data.tags || [],
-    url: localePath(`/compare/${a.slug}`, lang),
+    url: localePath(`/compare/${a.id}`, lang),
     category: lang === 'zh' ? '对比文章' : 'Comparison',
   })),
   ...guidesArticles.filter(a => !a.data.draft).map(a => ({
     type: 'article' as const,
-    id: a.slug,
+    id: a.id,
     title: a.data.title,
     description: a.data.description,
     tags: a.data.tags || [],
-    url: localePath(`/guides/${a.slug}`, lang),
+    url: localePath(`/guides/${a.id}`, lang),
     category: lang === 'zh' ? '使用指南' : 'Guide',
   })),
   ...practicesArticles.filter(a => !a.data.draft).map(a => ({
     type: 'article' as const,
-    id: a.slug,
+    id: a.id,
     title: a.data.title,
     description: a.data.description,
     tags: a.data.tags || [],
-    url: localePath(`/practices/${a.slug}`, lang),
+    url: localePath(`/practices/${a.id}`, lang),
     category: lang === 'zh' ? '开发实践' : 'Practice',
   })),
 ];
@@ -232,7 +232,7 @@ const webPageSchema = {
     const scored = searchIndex
       .map(item => ({ item, score: score(item, q) }))
       .filter(x => x.score > 0)
-      .sort((a, b) => b.score - a.score)
+      .sort((a, b) => b.score - a.score || String(a.type).localeCompare(b.type) || a.id.localeCompare(b.id))
       .slice(0, 15)
       .map(x => x.item);
     render(scored);

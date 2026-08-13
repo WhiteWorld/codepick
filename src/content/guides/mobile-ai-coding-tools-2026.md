@@ -17,8 +17,8 @@ draft: false
 
 更准确地说，这个赛道至少分成三类：
 
-1. **手机遥控本地电脑或 VPS 上的 coding agent**：Codex Remote connections、Claude Code Remote Control、Paseo、Happy、CC Pocket、MobileCLI、Termly、OpenACP、Nimbalyst 等。
-2. **手机打开一个云端或设备端开发环境**：Cosyra、Codem、Open Minis、Termux + Tailscale/SSH 等。
+1. **手机遥控本地电脑或 VPS 上的 coding agent**：Codex Remote connections、Claude Code Remote Control、Paseo、Happy、CC Pocket、MobileCLI、Termly、OpenACP、Nimbalyst、VibeKit 等。
+2. **手机打开一个云端或设备端开发环境**：Cosyra、Codem、VibeKit、Open Minis、Termux + Tailscale/SSH 等。
 3. **让 AI agent 操作手机界面**：Open-AutoGLM、Open-AutoGLM-Hybrid、MaaMCP、Appium MCP、Coze 云手机等。
 
 如果你是开发者，最值得先关注的是第一类和第二类。第三类很有想象力，但它解决的是“AI 如何操作手机 App / 云手机 / 自动化测试”，不是“我如何在通勤路上继续让 Codex 或 Claude Code 改仓库”。
@@ -59,6 +59,7 @@ coding agent 改变了这个问题。Claude Code、Codex CLI、OpenCode、Gemini
 | [Termly](https://termly.dev/) | 免费 CLI，把终端 AI 工具镜像到 iOS/Android；官网称支持 Claude Code、Gemini CLI、OpenCode、Qwen Code 等 | 想 60 秒扫码接入、偏轻量的人 | 官网称零知识中继和端到端加密；适合先小范围验证 |
 | [OpenACP](https://openacp.ai/) | 把 coding agent 接到 Telegram、Discord、Slack；基于 Agent Client Protocol | 习惯从聊天工具发任务、团队协作的人 | 当前重点是聊天平台，官网路线图里移动 App 仍是 upcoming |
 | [Nimbalyst](https://github.com/nimbalyst/nimbalyst) | 可视化 workspace 和 session manager，支持 Codex、Claude Code、OpenCode alpha、Copilot alpha；有移动 App 能回复、看 diff、收通知 | 想把 agent 会话、任务、文件和 diff 管在一个桌面工作台里的人 | 它不是纯手机工具，手机是完整工作台的延伸 |
+| [VibeKit](https://vibekit.bot/claude-code-remote) | 原生 iOS App，通过 `vibekit-agent link` 配对码连接你自己电脑上的 agent，手机端可以审批操作、收通知 | 已经有本地环境、但希望用 iOS App 而不是终端来驱动的人 | 宿主机必须保持唤醒且可访问；同一个产品也提供自己的云端运行环境，注意区分你当前用的是哪一种 |
 | [Superset](https://superset.sh/) | agentic IDE：macOS 桌面并行跑 100+ CLI agent（各自独立 worktree），远程经 CLI/SDK/MCP 访问 | 习惯终端/桌面、想在 Mac 上同时开多个 agent 的人 | Elastic License 2.0、首次启动需账号登录；无原生手机 App |
 | [OpenChamber](https://github.com/openchamber/openchamber) | 开源 workspace：桌面 + Web + VS Code 扩展 + 移动 PWA；支持多 run 对比、Session Goals、diff 讲解 | 以 OpenCode 为主、想从浏览器/手机继续审阅 agent 工作的人 | 移动端是 PWA 不是原生 App；桌面功能更完整 |
 
@@ -75,6 +76,8 @@ coding agent 改变了这个问题。Claude Code、Codex CLI、OpenCode、Gemini
 [Cosyra](https://cosyra.com/) 是目前定位最清晰的代表：它是 iPhone/Android 上的 mobile cloud terminal，官网说明每个用户会拿到独立 Ubuntu 24.04 x86_64 容器，预装 Claude Code、Codex CLI、OpenCode、Gemini CLI，并提供 30GB 持久存储、BYOK、会话休眠等能力。它的好处是你不需要维护 VPS 或让笔记本常亮；代价是私有代码和运行环境进入第三方云容器，需要认真评估信任、成本和数据边界。
 
 [Codem](https://codemapp.com/) 走相似但更偏 iPhone VM terminal 的路线：官网描述为 “stateful VM terminal for iPhone”，强调每个项目独立 VM、状态保持、快照、后台运行，并支持 Codex、Claude Code、Gemini CLI、Cursor workflows。它当前更像早期访问产品，适合关注但不要默认当成成熟生产环境。
+
+[VibeKit](https://vibekit.bot/) 属于这一类，但思路是反过来的：它不给你一个终端，而是给每个应用配一个长期存在的 coding agent，跑在托管容器里，由 agent 去执行 git、装依赖、部署。官网说明它有原生 iOS App，同一个账号还可以用网页控制台、CLI、REST API 和 MCP server，支持自定义域名，也支持用自己的 Anthropic / OpenAI key。因为 agent 在服务端常驻，而不是你手机上挂着的一个会话，所以你可以在构建中途关掉手机，回来时部署已经完成。代价一是和 Cosyra 一样的信任问题，二是它的定位更窄：它面向“部署出来并持续运行的 Web 应用”，如果你要的是一个通用 Linux shell，它并不合适。
 
 [Open Minis](https://openminis.app/) 则不是纯 coding agent 工具，更像设备端通用 agent。官网描述它在设备上运行 Alpine Linux shell，支持多模型、浏览器、iOS 原生能力和 `SKILL.md` 风格技能。它可以覆盖一部分轻量脚本和自动化需求，但受 iOS 沙盒、移动硬件和 App 生命周期约束，不应简单等同于“手机上的完整开发机”。
 
@@ -163,6 +166,7 @@ Paseo/CC Pocket/MobileCLI 是控制台；Cosyra/Codem 是运行环境；MaaMCP/O
 - [Nimbalyst GitHub README](https://github.com/nimbalyst/nimbalyst)
 - [Cosyra 官网](https://cosyra.com/)
 - [Codem 官网](https://codemapp.com/)
+- [VibeKit 官网](https://vibekit.bot/) 与 [文档](https://docs.vibekit.bot/)
 - [Open Minis 官网](https://openminis.app/)
 - [Open-AutoGLM GitHub README](https://github.com/zai-org/Open-AutoGLM)
 - [Open-AutoGLM-Hybrid GitHub README](https://github.com/xietao778899-rgb/Open-AutoGLM-Hybrid)

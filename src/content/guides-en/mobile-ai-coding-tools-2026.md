@@ -17,8 +17,8 @@ draft: false
 
 There are three separate categories:
 
-1. **Remote-control local or VPS-based coding agents**: Codex Remote connections, Claude Code Remote Control, Paseo, Happy, CC Pocket, MobileCLI, Termly, OpenACP, Nimbalyst.
-2. **Open a real development runtime from the phone**: Cosyra, Codem, Open Minis, Termux + Tailscale/SSH.
+1. **Remote-control local or VPS-based coding agents**: Codex Remote connections, Claude Code Remote Control, Paseo, Happy, CC Pocket, MobileCLI, Termly, OpenACP, Nimbalyst, VibeKit.
+2. **Open a real development runtime from the phone**: Cosyra, Codem, VibeKit, Open Minis, Termux + Tailscale/SSH.
 3. **Let an AI agent operate a phone UI**: Open-AutoGLM, Open-AutoGLM-Hybrid, MaaMCP, Appium MCP, Coze cloud phone.
 
 For developers, the first two categories are the most relevant. The third category is important, but it solves a different problem: phone GUI automation and cloud-phone operation, not managing a codebase while you are away from your laptop.
@@ -59,6 +59,7 @@ The upside is that your local dev environment, SSH keys, MCP servers, databases,
 | [Termly](https://termly.dev/) | Free CLI that mirrors terminal AI tools such as Claude Code, Gemini CLI, OpenCode, and Qwen Code to iOS/Android | Lightweight QR-code setup | Product site claims zero-knowledge relay and end-to-end encryption; verify with low-risk repos first |
 | [OpenACP](https://openacp.ai/) | Self-hosted bridge from coding agents to Telegram, Discord, and Slack through Agent Client Protocol | Teams or communities that already live in chat | The product's own roadmap lists a mobile app as upcoming; today the main surface is chat |
 | [Nimbalyst](https://github.com/nimbalyst/nimbalyst) | Visual workspace and session manager for Codex, Claude Code, OpenCode alpha, and Copilot alpha, with a mobile companion | Builders who want sessions, tasks, files, and diffs in a desktop workspace | Not a phone-only product; the phone extends a broader workspace |
+| [VibeKit](https://vibekit.bot/claude-code-remote) | Native iOS app that pairs with an agent on your own machine through a `vibekit-agent link` code, with supervised approvals and notifications from the phone | People who already have a local setup and want it driven from an iOS app rather than a terminal | The host must stay awake and reachable; the same product also runs its own cloud runtime, so check which mode you are actually in |
 | [Superset](https://superset.sh/) | Agentic IDE that orchestrates 100+ CLI agents on macOS, each in its own worktree; remote access via CLI/SDK/MCP | Terminal/desktop users who want many agents in parallel on one Mac | Elastic License 2.0 with an account login wall; no native mobile app |
 | [OpenChamber](https://github.com/openchamber/openchamber) | Open-source workspace with desktop, web, VS Code extension, and mobile PWA; multi-run comparison, Session Goals, and guided diff walkthroughs | OpenCode-first users who want to review agent work from browser or phone | Mobile is a PWA rather than a native app; desktop is more complete |
 
@@ -75,6 +76,8 @@ This category matters when your laptop is not always on or you want the phone to
 [Cosyra](https://cosyra.com/) is the clearest example. The product site describes a mobile cloud terminal for iPhone and Android with Claude Code, Codex CLI, OpenCode, and Gemini CLI pre-installed. It provisions an isolated Ubuntu 24.04 x86_64 container on Azure, offers persistent storage, BYOK, and session hibernation. The benefit is that you do not need to maintain a VPS or keep a laptop awake. The trade-off is trust: private code and agent execution happen inside a third-party cloud container.
 
 [Codem](https://codemapp.com/) is a similar but iPhone-first "stateful VM terminal" product. Its site emphasizes project-specific VMs, persistent state, snapshots, background runtime, and support for Codex, Claude Code, Gemini CLI, and Cursor workflows. It appears earlier-stage and should be treated as something to watch rather than a default production environment.
+
+[VibeKit](https://vibekit.bot/) sits in this category from the opposite direction: instead of giving you a terminal, it gives each app its own long-lived coding agent on a hosted container, and the agent is what runs `git`, installs packages, and deploys. The product site describes a native iOS app plus a web dashboard, CLI, REST API, and MCP server over the same account, with custom domains and BYOK for Anthropic or OpenAI keys. Because the agent is server-side rather than a session you hold open, you can close the phone mid-build and come back to a finished deploy. The trade-offs are the same trust question as Cosyra, plus a narrower one: it is opinionated toward web apps you deploy and keep running, so it is a weaker fit if what you want is a general Linux shell.
 
 [Open Minis](https://openminis.app/) is not a pure coding-agent product. It is closer to an on-device general agent with an Alpine Linux shell, web browser, iOS integrations, multi-model support, and `SKILL.md`-style skills. It can cover lightweight scripting and automation, but iOS sandboxing, mobile hardware, and app lifecycle constraints mean it should not be treated as a full replacement for a development machine.
 
@@ -161,6 +164,7 @@ The category is early and fast-moving. The durable need is not "write a whole ap
 - [Nimbalyst GitHub README](https://github.com/nimbalyst/nimbalyst)
 - [Cosyra product site](https://cosyra.com/)
 - [Codem product site](https://codemapp.com/)
+- [VibeKit product site](https://vibekit.bot/) and [docs](https://docs.vibekit.bot/)
 - [Open Minis product site](https://openminis.app/)
 - [Open-AutoGLM GitHub README](https://github.com/zai-org/Open-AutoGLM)
 - [Open-AutoGLM-Hybrid GitHub README](https://github.com/xietao778899-rgb/Open-AutoGLM-Hybrid)

@@ -4,24 +4,24 @@ import TableOfContents from '../components/TableOfContents.astro';
 import ShareBar from '../components/ShareBar.astro';
 import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
 import { getAllToolsLocalized, getAllPlansLocalized, overallScore } from '../lib/data';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 
 interface Props { article: any; lang: Locale }
 const { article, lang } = Astro.props;
-const { Content, headings } = await article.render();
+const { Content, headings } = await render(article);
 
 // 相关文章：共享 tag 最多的文章，排除自身，最多 3 篇
 const collectionName = getCollectionName('compare', lang) as 'compare' | 'compare-en';
 const allArticles = await getCollection(collectionName);
 const currentTags: string[] = (article.data.tags || []).map((t: string) => t.toLowerCase());
 const relatedArticles = allArticles
-  .filter(a => a.slug !== article.slug && !a.data.draft)
+  .filter(a => a.id !== article.id && !a.data.draft)
   .map(a => ({
     article: a,
     shared: (a.data.tags || []).filter((t: string) => currentTags.includes(t.toLowerCase())).length,
   }))
   .filter(x => x.shared > 0)
-  .sort((a, b) => b.shared - a.shared)
+  .sort((a, b) => b.shared - a.shared || a.article.id.localeCompare(b.article.id))
   .slice(0, 4)
   .map(x => x.article);
 
@@ -50,7 +50,7 @@ const relatedGuides = allGuides
     shared: (g.data.tags || []).filter((tag: string) => currentTags.includes(tag.toLowerCase())).length,
   }))
   .filter(x => x.shared > 0)
-  .sort((a, b) => b.shared - a.shared)
+  .sort((a, b) => b.shared - a.shared || a.guide.id.localeCompare(b.guide.id))
   .slice(0, 2)
   .map(x => x.guide);
 
@@ -59,13 +59,13 @@ function tagHref(tag: string) {
 }
 
 const siteUrl = 'https://codepick.dev';
-const articlePath = localePath(`/compare/${article.slug}`, lang);
+const articlePath = localePath(`/compare/${article.id}`, lang);
 const articleUrl = `${siteUrl}${articlePath}`;
 const otherLang = lang === 'zh' ? 'en' : 'zh';
 const alternateCollectionName = getCollectionName('compare', otherLang) as 'compare' | 'compare-en';
 const alternateArticles = await getCollection(alternateCollectionName);
-const alternateArticle = alternateArticles.find(a => a.slug === article.slug && !a.data.draft);
-const alternateArticlePath = alternateArticle ? localePath(`/compare/${article.slug}`, otherLang) : undefined;
+const alternateArticle = alternateArticles.find(a => a.id === article.id && !a.data.draft);
+const alternateArticlePath = alternateArticle ? localePath(`/compare/${article.id}`, otherLang) : undefined;
 const alternateURLs = {
   [lang]: articleUrl,
   ...(alternateArticlePath ? { [otherLang]: `${siteUrl}${alternateArticlePath}` } : {}),
@@ -221,7 +221,7 @@ const articleSchema = {
         <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">{t('section.relatedArticles', lang)}</h2>
         <div class="grid grid-cols-1 gap-3">
           {relatedArticles.map(a => (
-            <a href={localePath(`/compare/${a.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
+            <a href={localePath(`/compare/${a.id}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
               <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{a.data.title}</h3>
               <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{a.data.description}</p>
             </a>
@@ -236,7 +236,7 @@ const articleSchema = {
         <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">{t('section.relatedGuides', lang)}</h2>
         <div class="grid grid-cols-1 gap-3">
           {relatedGuides.map(g => (
-            <a href={localePath(`/guides/${g.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
+            <a href={localePath(`/guides/${g.id}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
               <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{g.data.title}</h3>
               <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{g.data.description}</p>
             </a>

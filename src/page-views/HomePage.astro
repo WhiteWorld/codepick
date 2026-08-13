@@ -35,7 +35,7 @@ interface FeedItem {
 function toFeedItem(type: ContentType) {
   return (entry: any): FeedItem => ({
     type,
-    slug: entry.slug,
+    slug: entry.id,
     title: entry.data.title,
     description: entry.data.description || '',
     date: entry.data.date,
@@ -47,7 +47,7 @@ const allLatest: FeedItem[] = [
   ...compareItems.filter((a: any) => !a.data.draft).map(toFeedItem('compare')),
   ...guidesItems.filter((a: any) => !a.data.draft).map(toFeedItem('guides')),
   ...practicesItems.filter((a: any) => !a.data.draft).map(toFeedItem('practices')),
-].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime() || a.slug.localeCompare(b.slug) || a.type.localeCompare(b.type));
 
 const featured = allLatest[0];
 const secondary = allLatest.slice(1, 6);

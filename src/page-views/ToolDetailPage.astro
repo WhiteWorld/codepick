@@ -79,6 +79,7 @@ const relatedArticles = allArticles
     const tl = tag.toLowerCase();
     return tl === toolIdLower || tl === toolNameLower || toolIdLower.includes(tl);
   }))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime() || a.id.localeCompare(b.id))
   .slice(0, 5);
 
 // 相关指南（tags 包含工具 id 或工具名）
@@ -89,6 +90,7 @@ const relatedGuides = allGuides
     const tl = tag.toLowerCase();
     return tl === toolIdLower || tl === toolNameLower;
   }))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime() || a.id.localeCompare(b.id))
   .slice(0, 3);
 
 // 标题关键词 by type
@@ -430,7 +432,7 @@ const allJsonLd = [softwareAppSchema, breadcrumbSchema, ...(faqSchema ? [faqSche
         <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">{t('section.relatedArticles', lang)}</h2>
         <div class="grid grid-cols-1 gap-3">
           {relatedArticles.map(a => (
-            <a href={localePath(`/compare/${a.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
+            <a href={localePath(`/compare/${a.id}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
               <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{a.data.title}</h3>
               <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{a.data.description}</p>
             </a>
@@ -445,7 +447,7 @@ const allJsonLd = [softwareAppSchema, breadcrumbSchema, ...(faqSchema ? [faqSche
         <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">{t('section.relatedGuides', lang)}</h2>
         <div class="grid grid-cols-1 gap-3">
           {relatedGuides.map(g => (
-            <a href={localePath(`/guides/${g.slug}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
+            <a href={localePath(`/guides/${g.id}`, lang)} class="card p-4 block no-underline group hover:border-[var(--brand-500)] transition-colors">
               <h3 class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] m-0 mb-1">{g.data.title}</h3>
               <p class="text-xs text-[var(--text-muted)] m-0 line-clamp-1">{g.data.description}</p>
             </a>
