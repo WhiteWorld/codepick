@@ -118,6 +118,6 @@ changelog:
     summary_en: "Three standard tiers: Starter ¥29 / Plus ¥49 / Max ¥119, plus high-speed and Ultra editions"
 
 last_full_review: "2026-05-13"
-next_review_due: "2026-06-13"
+next_review_due: '2026-10-13'
 review_frequency_days: 30
 confidence: medium

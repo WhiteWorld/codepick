@@ -127,6 +127,6 @@ data_sources:
     last_checked: '2026-04-27'
 
 last_full_review: '2026-04-27'
-next_review_due: '2026-07-27'
+next_review_due: '2026-10-13'
 review_frequency_days: 90
 confidence: medium
