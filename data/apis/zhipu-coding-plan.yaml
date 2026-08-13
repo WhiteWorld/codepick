@@ -96,6 +96,6 @@ changelog:
     summary_en: "Structural repricing: 30%+ increase, no first-time discount, quarterly/annual discounts retained"
 
 last_full_review: "2026-05-19"
-next_review_due: "2026-06-19"
+next_review_due: '2026-10-13'
 review_frequency_days: 30
 confidence: high

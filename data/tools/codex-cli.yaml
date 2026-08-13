@@ -140,6 +140,6 @@ changelog:
     summary: Codex CLI 开源发布，OpenAI 出品的终端 Agent，支持 o3/o4-mini
     summary_en: Codex CLI open-sourced — OpenAI's terminal Agent, supports o3/o4-mini
 last_full_review: '2026-05-10'
-next_review_due: '2026-06-10'
+next_review_due: '2026-10-13'
 review_frequency_days: 30
 confidence: medium

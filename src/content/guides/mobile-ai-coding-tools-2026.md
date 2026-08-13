@@ -1,8 +1,8 @@
 ---
 title: "手机编程工具 2026：用手机控制 Claude Code、Codex、OpenCode 的几种路线"
-description: "截至 2026 年 6 月，手机编程不再只是 SSH 到服务器，而是围绕 Claude Code、Codex、OpenCode 等 coding agent 形成了本地遥控、云端/设备端运行环境和手机 GUI agent 三类路线。"
+description: "截至 2026 年 8 月，手机编程不再只是 SSH 到服务器，而是围绕 Claude Code、Codex、OpenCode 等 coding agent 形成了本地遥控、云端/设备端运行环境和手机 GUI agent 三类路线。"
 date: "2026-06-04"
-updated_at: "2026-06-05"
+updated_at: "2026-08-12"
 article_type: explainer
 tags: ["mobile-coding", "ai-coding", "claude-code", "codex", "opencode", "paseo", "mcp", "phone-agent"]
 pillar: workflow
@@ -23,7 +23,7 @@ draft: false
 
 如果你是开发者，最值得先关注的是第一类和第二类。第三类很有想象力，但它解决的是“AI 如何操作手机 App / 云手机 / 自动化测试”，不是“我如何在通勤路上继续让 Codex 或 Claude Code 改仓库”。
 
-> 核查时间：2026-06-05。本文只使用官方文档、官网、GitHub README 能直接确认的信息；GitHub star、定价、App Store/Google Play 状态变化很快，本文不把它们作为核心判断依据。
+> 核查时间：2026-08-12。本文只使用官方文档、官网、GitHub README 能直接确认的信息；GitHub star、定价、App Store/Google Play 状态变化很快，本文不把它们作为核心判断依据。
 
 ---
 
@@ -52,13 +52,17 @@ coding agent 改变了这个问题。Claude Code、Codex CLI、OpenCode、Gemini
 |---|---|---|---|
 | [Codex Remote connections](https://developers.openai.com/codex/remote-connections) | OpenAI 官方能力：用 ChatGPT iOS/Android App 连接 Mac/Windows 上的 Codex App host，继续线程、发指令、批权限、看 diff/终端/截图 | 已经用 Codex App，并希望手机接管本机或远程主机项目的人 | 手机接入从 Codex App 设置，不能从 Codex CLI 或 IDE Extension 直接设置；host 需要在线、醒着、同账号/同 workspace |
 | [Claude Code Remote Control](https://code.claude.com/docs/en/remote-control) | 官方能力：把 Claude 手机 App 或 `claude.ai/code` 连接到本机 Claude Code 会话 | 只用 Claude Code、想要官方方案的人 | 仅 Claude Code；会话仍跑在你的电脑上；需要订阅账号登录，不支持 API key |
-| [Paseo](https://github.com/getpaseo/paseo) | 一个界面管理 Claude Code、Codex、Copilot、OpenCode、Pi；支持 iOS、Android、桌面、Web、CLI | 想同时跑多个 agent、跨设备管理的人 | 需要在自己的机器上跑 daemon；更像 agent 控制平面 |
+| [Paseo](https://github.com/getpaseo/paseo) | 自托管 daemon，一个界面管理 Claude Code、Codex、Copilot、OpenCode、Pi 等 39 种 agent；支持 iOS、Android、桌面、Web、CLI，手机端与桌面功能对等 | 想同时跑多个 agent、跨设备管理、在意代码留在本机的人 | 需要自托管 daemon；AGPL-3.0、无遥测；agent 凭据留在本机，机器安全即凭据安全 |
 | [Happy](https://github.com/slopus/happy) | Claude Code / Codex 的移动端和 Web 客户端，通过 `happy claude` / `happy codex` 包装启动 | 想用手机接管 Claude Code 或 Codex，并重视推送和加密的人 | 依赖 Happy 的 CLI/同步组件；不是通用终端 |
 | [CC Pocket](https://github.com/K9i-0/ccpocket) | Codex 和 Claude 的移动/桌面客户端，通过自托管 Bridge Server 连接 | Codex + Claude 双修，想在手机上看 diff、批权限、管理 worktree 的人 | 需要 Node.js 和 bridge；远程访问官方建议用 Tailscale |
 | [MobileCLI](https://github.com/MobileCLI/mobilecli) | Rust daemon + React Native App，把 Claude Code、Codex、Gemini CLI 或普通终端流到手机 | 喜欢“真实终端流”的人 | 终端流自托管，推送经 Expo；不要把端口裸露到公网 |
 | [Termly](https://termly.dev/) | 免费 CLI，把终端 AI 工具镜像到 iOS/Android；官网称支持 Claude Code、Gemini CLI、OpenCode、Qwen Code 等 | 想 60 秒扫码接入、偏轻量的人 | 官网称零知识中继和端到端加密；适合先小范围验证 |
 | [OpenACP](https://openacp.ai/) | 把 coding agent 接到 Telegram、Discord、Slack；基于 Agent Client Protocol | 习惯从聊天工具发任务、团队协作的人 | 当前重点是聊天平台，官网路线图里移动 App 仍是 upcoming |
 | [Nimbalyst](https://github.com/nimbalyst/nimbalyst) | 可视化 workspace 和 session manager，支持 Codex、Claude Code、OpenCode alpha、Copilot alpha；有移动 App 能回复、看 diff、收通知 | 想把 agent 会话、任务、文件和 diff 管在一个桌面工作台里的人 | 它不是纯手机工具，手机是完整工作台的延伸 |
+| [Superset](https://superset.sh/) | agentic IDE：macOS 桌面并行跑 100+ CLI agent（各自独立 worktree），远程经 CLI/SDK/MCP 访问 | 习惯终端/桌面、想在 Mac 上同时开多个 agent 的人 | Elastic License 2.0、首次启动需账号登录；无原生手机 App |
+| [OpenChamber](https://github.com/openchamber/openchamber) | 开源 workspace：桌面 + Web + VS Code 扩展 + 移动 PWA；支持多 run 对比、Session Goals、diff 讲解 | 以 OpenCode 为主、想从浏览器/手机继续审阅 agent 工作的人 | 移动端是 PWA 不是原生 App；桌面功能更完整 |
+
+另外几个“桌面端 + 官方遥控”组合也值得单列：OpenAI 的 [Codex App（ChatGPT 桌面端）](https://learn.chatgpt.com/docs/app)、Anthropic 的 [Claude Desktop](https://code.claude.com/docs/en/desktop)（内置 Claude Code / Cowork）与 OpenCode 官方的 [OpenCode Desktop](https://opencode.ai/)（beta）。它们本身是桌面产品，手机接入分别靠 Codex Remote connections、Claude Code Remote Control 等官方能力（见上表），适合“先桌面、再手机接管”的路线。
 
 如果只选一个入口先试，个人开发者可以从 **Paseo 或 CC Pocket** 开始：一个偏多 agent 控制平面，一个偏 Codex/Claude 手机接管。团队或社区场景可以看 **OpenACP**，因为 Telegram/Discord/Slack 入口比单独装 App 更容易扩散。
 

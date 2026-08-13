@@ -114,6 +114,6 @@ changelog:
     summary: Google Antigravity 公开预览发布，随 Gemini 3 同期推出，VS Code Fork，免费支持多顶级模型
     summary_en: Google Antigravity public preview launched alongside Gemini 3 — VS Code Fork, free access to multiple top-tier models
 last_full_review: '2026-05-10'
-next_review_due: '2026-06-10'
+next_review_due: '2026-10-13'
 review_frequency_days: 30
 confidence: medium

@@ -205,6 +205,6 @@ changelog:
     summary: Pro 从500次请求制改为$20额度池制, Auto模式无限使用
     summary_en: Pro switched from 500-request quota to $20 credit pool; unlimited Auto mode
 last_full_review: '2026-05-24'
-next_review_due: '2026-06-24'
+next_review_due: '2026-10-13'
 review_frequency_days: 30
 confidence: high
