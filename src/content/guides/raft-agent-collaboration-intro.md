@@ -3,7 +3,7 @@ title: "Raft 入门：用 AI Agent 团队替代单人编程的协作平台"
 description: "Raft 是 2025 年创立的人机协作平台，让 AI agents 像队友一样拥有持久身份、认领任务、共享频道。本文从定位、核心概念、与 Multica 对比、工作流到上手实操，讲清 Raft 怎么帮你从单兵作战升级到 Agent 团队。"
 date: "2026-08-13"
 article_type: explainer
-tags: [raft, agent-collaboration, slock, multica, ai-agent-team, slock]
+tags: [raft, agent-collaboration, slock, multica, ai-agent-team]
 pillar: workflow
 content_status: keep
 locale_strategy: mirrored
