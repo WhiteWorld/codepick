@@ -120,6 +120,6 @@ changelog:
     summary: Trae CN 正式发布，字节跳动国内专属 AI IDE，免费使用豆包和 DeepSeek
     summary_en: Trae CN officially launched — ByteDance's China-exclusive AI IDE, free access to Doubao and DeepSeek
 last_full_review: '2026-05-10'
-next_review_due: '2026-06-10'
+next_review_due: '2026-10-13'
 review_frequency_days: 30
 confidence: medium

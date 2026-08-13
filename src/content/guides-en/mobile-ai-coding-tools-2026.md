@@ -1,8 +1,8 @@
 ---
 title: "Mobile AI Coding Tools 2026: Control Claude Code, Codex, and OpenCode from Your Phone"
-description: "As of June 2026, mobile coding is splitting into local agent remote control, cloud or on-device runtimes, and phone GUI agents. This guide maps the categories and trade-offs."
+description: "As of August 2026, mobile coding is splitting into local agent remote control, cloud or on-device runtimes, and phone GUI agents. This guide maps the categories and trade-offs."
 date: "2026-06-04"
-updated_at: "2026-06-05"
+updated_at: "2026-08-12"
 article_type: explainer
 tags: ["mobile-coding", "ai-coding", "claude-code", "codex", "opencode", "paseo", "mcp", "phone-agent"]
 pillar: workflow
@@ -23,7 +23,7 @@ There are three separate categories:
 
 For developers, the first two categories are the most relevant. The third category is important, but it solves a different problem: phone GUI automation and cloud-phone operation, not managing a codebase while you are away from your laptop.
 
-> Research timestamp: 2026-06-05. This guide only uses claims that could be checked against official docs, product sites, or GitHub READMEs. GitHub stars, app-store availability, pricing, and supported agent lists change quickly, so they are not used as the main ranking signal.
+> Research timestamp: 2026-08-12. This guide only uses claims that could be checked against official docs, product sites, or GitHub READMEs. GitHub stars, app-store availability, pricing, and supported agent lists change quickly, so they are not used as the main ranking signal.
 
 ---
 
@@ -52,7 +52,7 @@ The upside is that your local dev environment, SSH keys, MCP servers, databases,
 |---|---|---|---|
 | [Codex Remote connections](https://developers.openai.com/codex/remote-connections) | Official OpenAI feature that connects ChatGPT on iOS/Android to a Codex App host on Mac or Windows, so you can continue threads, send instructions, approve actions, and review diffs, terminal output, and screenshots | Codex App users who want mobile access to local or remote-host projects | Mobile setup starts from the Codex App, not the Codex CLI or IDE Extension; the host must stay awake, online, and signed in to the same account and workspace |
 | [Claude Code Remote Control](https://code.claude.com/docs/en/remote-control) | Official feature that connects Claude mobile or `claude.ai/code` to a local Claude Code session | Claude Code users who want the official path | Claude only; the session still runs on your machine; requires Claude account subscription login, not API keys |
-| [Paseo](https://github.com/getpaseo/paseo) | One interface for Claude Code, Codex, Copilot, OpenCode, and Pi across phone, desktop, web, and CLI | Multi-agent users who want one control plane | Requires a daemon on your own machine |
+| [Paseo](https://github.com/getpaseo/paseo) | Self-hosted daemon: one interface for 39 agent CLIs (Claude Code, Codex, Copilot, OpenCode, Pi, and more) across iOS, Android, desktop, web, and CLI, with mobile parity to desktop | Multi-agent users who want one control plane and code to stay on their own machine | Requires a self-hosted daemon; AGPL-3.0 with no telemetry; agent credentials live on your machine, so machine security equals credential security |
 | [Happy](https://github.com/slopus/happy) | Mobile and web client for Claude Code and Codex, launched via `happy claude` or `happy codex` | Users who want phone handoff, push notifications, and encryption around Claude/Codex | It wraps supported agents rather than acting as a general terminal |
 | [CC Pocket](https://github.com/K9i-0/ccpocket) | Mobile and desktop client for Codex and Claude through a self-hosted Bridge Server | Codex + Claude users who want mobile approvals, file browsing, diffs, and worktree workflows | Requires Node.js and the bridge; the README recommends Tailscale for remote access |
 | [MobileCLI](https://github.com/MobileCLI/mobilecli) | Rust daemon and React Native app that stream Claude Code, Codex, Gemini CLI, or any terminal session to mobile | Developers who want a true terminal stream | Terminal streaming is self-hosted; push notifications use Expo; do not expose the daemon directly to the public internet |
@@ -60,6 +60,10 @@ The upside is that your local dev environment, SSH keys, MCP servers, databases,
 | [OpenACP](https://openacp.ai/) | Self-hosted bridge from coding agents to Telegram, Discord, and Slack through Agent Client Protocol | Teams or communities that already live in chat | The product's own roadmap lists a mobile app as upcoming; today the main surface is chat |
 | [Nimbalyst](https://github.com/nimbalyst/nimbalyst) | Visual workspace and session manager for Codex, Claude Code, OpenCode alpha, and Copilot alpha, with a mobile companion | Builders who want sessions, tasks, files, and diffs in a desktop workspace | Not a phone-only product; the phone extends a broader workspace |
 | [VibeKit](https://vibekit.bot/claude-code-remote) | Native iOS app that pairs with an agent on your own machine through a `vibekit-agent link` code, with supervised approvals and notifications from the phone | People who already have a local setup and want it driven from an iOS app rather than a terminal | The host must stay awake and reachable; the same product also runs its own cloud runtime, so check which mode you are actually in |
+| [Superset](https://superset.sh/) | Agentic IDE that orchestrates 100+ CLI agents on macOS, each in its own worktree; remote access via CLI/SDK/MCP | Terminal/desktop users who want many agents in parallel on one Mac | Elastic License 2.0 with an account login wall; no native mobile app |
+| [OpenChamber](https://github.com/openchamber/openchamber) | Open-source workspace with desktop, web, VS Code extension, and mobile PWA; multi-run comparison, Session Goals, and guided diff walkthroughs | OpenCode-first users who want to review agent work from browser or phone | Mobile is a PWA rather than a native app; desktop is more complete |
+
+A few "desktop app + official remote" combos are worth listing too: OpenAI's [Codex App (ChatGPT desktop)](https://learn.chatgpt.com/docs/app), Anthropic's [Claude Desktop](https://code.claude.com/docs/en/desktop) (which includes Claude Code / Cowork), and OpenCode's official [OpenCode Desktop](https://opencode.ai/) (beta). These are desktop products first; phone access rides on the official remote features above (Codex Remote connections, Claude Code Remote Control), fitting a "start on desktop, hand off to mobile" workflow.
 
 If you want one practical starting point, try **Paseo** or **CC Pocket** first. Paseo is closer to a multi-agent control plane; CC Pocket is more focused on Codex/Claude mobile handoff. For team chat workflows, look at **OpenACP**.
 

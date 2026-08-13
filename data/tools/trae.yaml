@@ -109,6 +109,6 @@ changelog:
     summary: Builder 模式上线，支持 Grok-4（Beta）模型
     summary_en: Builder mode launched, Grok-4 (Beta) model support added
 last_full_review: '2026-05-10'
-next_review_due: '2026-06-10'
+next_review_due: '2026-10-13'
 review_frequency_days: 30
 confidence: medium
