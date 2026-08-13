@@ -2,9 +2,12 @@ name: Weekly Data Monitor
 
 on:
   workflow_dispatch:
+  schedule:
+    # Mondays at 09:00 Beijing time (UTC+8)
+    - cron: '0 1 * * 1'
 
-# Keep this workflow manual until the repaired path has been validated in GitHub.
-# Intended schedule after validation: 0 1 * * 1 (Mondays at 09:00 Beijing time).
+# The repaired path has been validated in GitHub (PR #79 merged).
+# Schedule re-enabled per owner's request to restore the weekly workflow.
 
 permissions:
   contents: read
