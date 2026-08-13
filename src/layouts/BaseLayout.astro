@@ -4,6 +4,11 @@ import Analytics from '@vercel/analytics/astro';
 import { getCollection } from 'astro:content';
 import { t, localePath, getAlternateLangUrl, type Locale } from '../lib/i18n';
 
+// Optional umami analytics (cloud.umami.is). Loaded only when the
+// UMAMI_WEBSITE_ID env var is set (Vercel project environment variable);
+// missing/empty value renders no script and never fails the build.
+const umamiWebsiteId = String(import.meta.env.UMAMI_WEBSITE_ID ?? '').trim();
+
 interface Props {
   title?: string;
   description?: string;
@@ -175,6 +180,10 @@ const latestUpdateMonth = latestDate
   ))}
 
   <Analytics />
+
+  {umamiWebsiteId ? (
+    <script defer src="https://cloud.umami.is/script.js" data-website-id={umamiWebsiteId}></script>
+  ) : null}
 
   <!-- Prevent FOUC: apply saved theme before paint -->
   <script is:inline>
