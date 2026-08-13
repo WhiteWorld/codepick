@@ -1,0 +1,43 @@
+name: Pull Request CI
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-ci-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Check SEO
+        run: npm run check:seo
+
+      - name: Run strict content check (known baseline)
+        continue-on-error: true
+        run: npm run content:check -- --strict
+
+      - name: Enforce strict content baseline
+        run: npm run content:check:baseline
+
+      - name: Audit dependencies (fail on critical)
+        run: npm audit --audit-level=critical

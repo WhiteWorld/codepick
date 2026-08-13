@@ -121,6 +121,41 @@ function checkBuiltHtml() {
   }
 }
 
+function checkEnglishPlanMetadata() {
+  const planDir = path.join(root, 'dist', 'en', 'plan');
+  const htmlFiles = walkHtml(planDir);
+  if (htmlFiles.length === 0) {
+    fail('dist/en/plan has no HTML files; run npm run build before npm run check:seo');
+    return;
+  }
+
+  const cjkPattern = /[\u3400-\u9fff\uf900-\ufaff]/u;
+  const invalidMetadata = [];
+
+  for (const file of htmlFiles) {
+    const html = fs.readFileSync(file, 'utf8');
+    const relFile = path.relative(root, file);
+    const title = html.match(/<title>([^<]*)<\/title>/)?.[1]?.trim();
+    const description = html.match(/<meta\s+name="description"\s+content="([^"]*)"/i)?.[1]?.trim();
+
+    if (!title) {
+      invalidMetadata.push(`${relFile}: missing title`);
+    } else if (cjkPattern.test(title)) {
+      invalidMetadata.push(`${relFile}: title contains CJK text: ${title}`);
+    }
+
+    if (!description) {
+      invalidMetadata.push(`${relFile}: missing meta description`);
+    } else if (cjkPattern.test(description)) {
+      invalidMetadata.push(`${relFile}: meta description contains CJK text: ${description}`);
+    }
+  }
+
+  if (invalidMetadata.length > 0) {
+    fail(`Found invalid English plan metadata:\n${invalidMetadata.join('\n')}`);
+  }
+}
+
 function checkRedirects() {
   const vercel = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf8'));
   if (vercel.trailingSlash !== true) {
@@ -156,6 +191,7 @@ function checkRedirects() {
 
 await checkLocalePath();
 checkBuiltHtml();
+checkEnglishPlanMetadata();
 checkRedirects();
 
 if (failures.length > 0) {
