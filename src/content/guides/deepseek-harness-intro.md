@@ -99,7 +99,7 @@ pnpm dsh web
 
 ### 配置 Provider
 
-在 Web UI 中配置你的模型 provider（DeepSeek API、OpenAI API 等），然后就可以创建 Agent 并开始使用了。详细配置见官方 [Web UI 指南](https://github.com/deepseek-ai/deepseek-harness/tree/main/docs/user/guide)。
+在 Web UI 中配置你的模型 provider（DeepSeek API、OpenAI API 等），然后就可以创建 Agent 并开始使用了。详细配置见官方 [Web UI 指南](https://github.com/deepseek-ai/deepseek-harness/tree/master/docs/user/guide)。
 
 ### Python SDK
 
@@ -115,7 +115,7 @@ DeepSeek Harness 的插件通过 GitHub 的 [`dsh-plugin` topic](https://github.
 
 - 浏览社区已有的插件
 - 把自己的插件打上 `dsh-plugin` topic 让它被搜索到
-- 参考官方文档 [插件开发指南](https://github.com/deepseek-ai/deepseek-harness/tree/main/docs) 写自己的插件
+- 参考官方文档 [插件开发指南](https://github.com/deepseek-ai/deepseek-harness/tree/master/docs) 写自己的插件
 
 ### 社区
 

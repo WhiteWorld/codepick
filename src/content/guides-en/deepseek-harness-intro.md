@@ -99,7 +99,7 @@ pnpm dsh web
 
 ### Configuring Providers
 
-In the Web UI, configure your model provider (DeepSeek API, OpenAI API, etc.), then create agents and start working. See the official [Web UI guide](https://github.com/deepseek-ai/deepseek-harness/tree/main/docs/user/guide) for details.
+In the Web UI, configure your model provider (DeepSeek API, OpenAI API, etc.), then create agents and start working. See the official [Web UI guide](https://github.com/deepseek-ai/deepseek-harness/tree/master/docs/user/guide) for details.
 
 ### Python SDK
 
@@ -115,7 +115,7 @@ DeepSeek Harness plugins are discoverable through the GitHub [`dsh-plugin` topic
 
 - Browse existing community plugins
 - Tag your own plugin with `dsh-plugin` to make it discoverable
-- Follow the official [plugin development guide](https://github.com/deepseek-ai/deepseek-harness/tree/main/docs) to write your own
+- Follow the official [plugin development guide](https://github.com/deepseek-ai/deepseek-harness/tree/master/docs) to write your own
 
 ### Community
 
