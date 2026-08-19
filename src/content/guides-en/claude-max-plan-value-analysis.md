@@ -25,7 +25,7 @@ Claude Max is the top individual tier in Anthropic's subscription lineup, positi
 
 | Plan | Monthly price | Usage vs Pro | Notes |
 |------|------|------|------|
-| Pro | $20 ($17/mo billed annually, $200/year upfront) | 1x | Baseline tier, roughly 45 requests / 5-hour window (estimate) |
+| Pro | $20 ($200/year upfront, about $16.7/mo equivalent) | 1x | Baseline tier, roughly 45 requests / 5-hour window (estimate) |
 | Max 5x | $100/mo | 5x per 5-hour window | Higher output limits, early access to advanced features, priority access at peak times |
 | Max 20x | $200/mo | 20x per 5-hour window | 4x the usage of the 5x tier on top of that |
 
