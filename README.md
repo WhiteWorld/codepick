@@ -14,7 +14,7 @@ CodePick 追踪 AI IDE、CLI、Agent 协作平台、应用构建器、模型 API
 
 ## 技术栈
 
-Astro 5 SSG · TailwindCSS · YAML 数据 · Astro Content Collections · Vercel 部署
+Astro 7.2 SSG · TailwindCSS · YAML 数据 · Astro Content Collections · Vercel 部署
 
 ## 开发
 

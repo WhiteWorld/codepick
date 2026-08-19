@@ -1,6 +1,6 @@
 # CodePick — AGENTS.md
 
-面向开发者的 AI 编程工具选型静态网站。基于 Astro 5 SSG + YAML 数据 + 双语（中/英）+ Vercel 部署。
+面向开发者的 AI 编程工具选型静态网站。基于 Astro 7.2 SSG + YAML 数据 + 双语（中/英）+ Vercel 部署。
 
 ## 常用命令
 
@@ -110,7 +110,7 @@ scripts/
 ### 路由规则
 
 - 所有页面都有 `/zh/...` 和 `/en/...` 两个版本
-- Astro 5 i18n 配置：`defaultLocale: 'zh'`，`prefixDefaultLocale: true`
+- Astro i18n 配置：`defaultLocale: 'zh'`，`prefixDefaultLocale: true`
 - 根路径 `/index.astro` 用 JS 检测 `navigator.language`，自动跳转 `/zh/` 或 `/en/`
 - `vercel.json` 中配置了 15 条 301 重定向，将旧路径（如 `/tools`）重定向到 `/zh/tools`
 
@@ -358,7 +358,7 @@ isFresh(dateStr) → boolean      # 检查 next_review_due 是否未过期
 
 ## 技术栈
 
-- **Astro 5** SSG，i18n 双语路由（`/zh/` + `/en/`），`vite.ssr.noExternal: ['js-yaml']`
+- **Astro 7.2** SSG，i18n 双语路由（`/zh/` + `/en/`），`vite.ssr.noExternal: ['js-yaml']`
 - **TailwindCSS v3** + `@tailwindcss/typography`（对比文章 prose 样式）
 - **@astrojs/sitemap**（自动生成 sitemap，带 lastmod；site: `https://codepick.dev`）
 - **@vercel/analytics**（Vercel 分析，嵌入 BaseLayout）
@@ -369,11 +369,8 @@ isFresh(dateStr) → boolean      # 检查 next_review_due 是否未过期
 
 ## 当前工具库
 
-20 个工具（`data/tools/`）：
-`aider`, `antigravity`, `bolt`, `Codex`, `cline`, `codex`, `codex-cli`, `copilot`, `cursor`, `gemini-cli`, `kimi-code`, `kiro`, `lovable`, `opencode`, `roo-code`, `trae`, `trae-cn`, `v0`, `windsurf`, `youware`
+当前规模（以各目录实际内容为准，不在此维护完整清单）：
 
-4 个 API 源（`data/apis/`）：
-`ark-coding-plan`, `bailian-coding-plan`, `ollama`, `openrouter`
-
-14 个方案（`data/plans/`）：
-`aider-ollama`, `antigravity`, `Codex-max`, `cline-ark`, `cline-bailian`, `copilot-pro`, `cursor-pro`, `gemini-cli`, `kiro-pro`, `opencode-ark`, `opencode-bailian`, `trae-ark`, `trae-cn`, `windsurf-pro`
+- 39 个工具（`data/tools/`）
+- 8 个 API / 模型源（`data/apis/`）
+- 16 个方案（`data/plans/`）
