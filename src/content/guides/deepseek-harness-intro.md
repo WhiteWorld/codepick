@@ -114,6 +114,7 @@ pnpm dsh web
 DeepSeek Harness 的插件通过 GitHub 的 [`dsh-plugin` topic](https://github.com/topics/dsh-plugin) 来发现。你可以：
 
 - 浏览社区已有的插件
+- 在社区目录 [dsplugin.app（dsh plugin registry）](https://dsplugin.app/) 按来源与 Manifest 状态筛选可安装插件（社区维护，非官方）
 - 把自己的插件打上 `dsh-plugin` topic 让它被搜索到
 - 参考官方文档 [插件开发指南](https://github.com/deepseek-ai/deepseek-harness/tree/master/docs) 写自己的插件
 
