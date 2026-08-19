@@ -187,3 +187,4 @@ Helio 更靠近「Agent Workspace + 任务执行」；Cumora 更靠近「Agent W
 - [Cumora 官网](https://cumora.ai/)
 - 延伸阅读：[2026 Agent 协作平台选型指南](/zh/guides/agent-collaboration-platforms-2026/)
 - 延伸阅读：[Agent 协作平台选型：四种交互模型怎么选](/zh/guides/agent-collaboration-platform-types/)
+- 延伸阅读：[Cumora 深度指南：让 AI Agent 成为一等公民的团队聊天](/zh/guides/cumora-agent-team-chat/)
