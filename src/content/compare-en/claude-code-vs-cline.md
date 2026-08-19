@@ -44,7 +44,7 @@ This is where the two tools diverge most sharply.
 
 | Plan | Price | Usage |
 |------|-------|-------|
-| Pro | $20/mo ($17/mo annual) | ~45 requests / 5-hour window |
+| Pro | $20/mo ($200/year annual) | ~45 requests / 5-hour window |
 | Max 5x | $100/mo | ~225 requests / 5-hour window, Opus 4.6 priority |
 | Max 20x | $200/mo | Full Opus 4.6 access + Agent Teams |
 | API | Pay-as-you-go | Sonnet 4.6 $3/$15 per 1M tokens |

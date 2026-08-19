@@ -4,8 +4,8 @@ type: client
 logo: /images/cline.png
 url: https://cline.bot
 repo: https://github.com/cline/cline
-current_version: v3.83.0
-version_tracked_at: '2026-05-24'
+current_version: v4.1.10
+version_tracked_at: '2026-08-19'
 pricing:
   model: free
   currency: null
@@ -79,12 +79,16 @@ compatible_apis:
 data_sources:
   - url: https://github.com/cline/cline/releases
     type: release
-    last_checked: '2026-05-24'
+    last_checked: '2026-08-19'
 changelog:
+  - date: '2026-08-14'
+    type: release
+    summary: 'v4.1.10（最新）：v4 系列稳定推进--4.0 将扩展迁移到 Cline SDK 会话层（agent turns、工具、Plan/Act、MCP、checkpoints 统一运行时），新增 ClinePass 订阅与 Customize marketplace（Skills/MCP/插件市场）；4.1.0 起扩展变为 legacy+SDK 双包 A/B 渐进切换；4.1.10 新增任务中联网搜索（Feature Settings 可开关）、修复双实例 Hub daemon 互杀导致的会话中断、刷新模型目录（新增 Crusoe provider）'
+    summary_en: 'v4.1.10 (latest): v4 series stabilizing - 4.0 migrated the extension to the Cline SDK session layer (unified runtime for agent turns, tools, Plan/Act, MCP, checkpoints) and added ClinePass subscription plus the Customize marketplace (Skills/MCP/plugins); 4.1.0 turned the extension into a combined legacy+SDK A/B package with staged rollout; 4.1.10 adds web search during tasks (toggle in Feature Settings), fixes two Cline instances killing each other''s Hub daemon (abnormal socket closes), and refreshes the model catalog (adds Crusoe as a provider)'
   - date: '2026-05-14'
     type: release
-    summary: 'v3.83.0（最新）：Cline SDK 发布——将 Agent 运行时与 VS Code 扩展解耦，支持以 SDK 形式接入自定义工具链和 CLI；提升多模型并行调用稳定性；持续改进 Enterprise Skills 与大型代码库处理能力'
-    summary_en: 'v3.83.0 (latest): Cline SDK launched — decouples agent runtime from VS Code extension, enabling integration as SDK into custom toolchains and CLI; improved multi-model parallel call stability; continued Enterprise Skills and large codebase handling improvements'
+    summary: 'v3.83.0：Cline SDK 发布--将 Agent 运行时与 VS Code 扩展解耦，支持以 SDK 形式接入自定义工具链和 CLI；提升多模型并行调用稳定性；持续改进 Enterprise Skills 与大型代码库处理能力'
+    summary_en: 'v3.83.0: Cline SDK launched - decouples agent runtime from VS Code extension, enabling integration as SDK into custom toolchains and CLI; improved multi-model parallel call stability; continued Enterprise Skills and large codebase handling improvements'
   - date: '2026-05-01'
     type: release
     summary: 'v3.82.0: 恢复 VS Code 前台终端支持（允许需要交互终端的命令在前台运行）；新增 GPT-5.5 模型支持（OpenAI 订阅用户）；修复 hook 模板 JSON 转义问题；修复 ripgrep 错误处理；堆内存快照与周期性日志记录（内存诊断增强）'

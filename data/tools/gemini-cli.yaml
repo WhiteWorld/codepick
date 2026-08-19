@@ -4,8 +4,8 @@ type: cli
 logo: /images/gemini-cli.png
 url: https://github.com/google-gemini/gemini-cli
 repo: https://github.com/google-gemini/gemini-cli
-current_version: v0.43.0
-version_tracked_at: '2026-05-24'
+current_version: v0.55.1
+version_tracked_at: '2026-08-19'
 pricing:
   model: freemium
   currency: USD
@@ -91,11 +91,15 @@ plans_using_this: []
 data_sources:
   - url: https://github.com/google-gemini/gemini-cli
     type: product
-    last_checked: '2026-05-24'
+    last_checked: '2026-08-19'
   - url: https://ai.google.dev/gemini-api/docs/pricing
     type: pricing
-    last_checked: '2026-05-24'
+    last_checked: '2026-08-19'
 changelog:
+  - date: '2026-08-11'
+    type: release
+    summary: 'v0.55.1（最新）：0.44→0.55 系列累积更新--工具注册表发现机制（tool registry discovery）、Vertex base URL 更新、敏感路径拦截改为大小写不敏感并加固 VS Code HITL、发布流程与 npm 包安全加固（防止 workspace 二进制遮蔽与坏包发布）；0.56 已进入 nightly/preview 通道'
+    summary_en: 'v0.55.1 (latest): Cumulative 0.44-0.55 series updates - tool registry discovery, Vertex base URL update, case-insensitive sensitive-path blocklist with hardened VS Code HITL, release pipeline and npm package security hardening (prevents workspace binary shadowing and bad NPM releases); 0.56 is currently in the nightly/preview channel'
   - date: '2026-05-22'
     type: release
     summary: 'v0.43.0（最新）：精准代码编辑模式（引导模型优先使用 edit 工具进行外科手术式代码修改）；会话可移植性（支持导出/导入会话文件）；自适应 Token 计算器（更精确的内容大小估算）；多 Agent 架构协议（本地+远程子 Agent）；修复 OAuth 认证挂起（无头 Linux）、并行工具调用流式传输问题、Git 环境 PATH 保留等80处变更'

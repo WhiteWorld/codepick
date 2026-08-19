@@ -13,10 +13,10 @@ pricing:
     - name: Pro
       price: 20
       period: month
-      annual_price: 204
+      annual_price: 200
       limits: 基础用量, ~45次请求/5小时窗口
       limits_en: Basic usage, ~45 requests per 5-hour window
-      note: 年付$17/月($204/年)
+      note: 年付$200/年预付（折合约$16.7/月）
     - name: Max 5x
       price: 100
       period: month
@@ -38,9 +38,9 @@ pricing:
       period: null
       limits: 按量付费, Sonnet 4.6 $3/$15, Opus 4.6 $5/$25, Haiku 4.5 $1/$5 per 1M tokens
       limits_en: Pay-as-you-go, Sonnet 4.6 $3/$15, Opus 4.6 $5/$25, Haiku 4.5 $1/$5 per 1M tokens
-  price_updated_at: '2026-03-27'
-  note: Pro可年付$17/月; Max包含Opus 4.6的1M上下文(GA)和Agent Teams; Team有Standard/Premium两种座席; 也可通过方舟Coding Plan接入
-  note_en: Pro available at $17/mo billed annually; Max includes Opus 4.6 1M context (GA) and Agent Teams; Team offers Standard/Premium seat types; can also connect via Volcengine Ark Coding Plan
+  price_updated_at: '2026-08-19'
+  note: Pro可年付$200/年（约$16.7/月）; Max包含Opus 4.6的1M上下文(GA)和Agent Teams; Team有Standard/Premium两种座席; 也可通过方舟Coding Plan接入
+  note_en: Pro available at $200/year upfront (~$16.7/mo); Max includes Opus 4.6 1M context (GA) and Agent Teams; Team offers Standard/Premium seat types; can also connect via Volcengine Ark Coding Plan
 scores:
   coding_ability: 9.6
   cost_efficiency: 3.5

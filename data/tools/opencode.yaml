@@ -4,8 +4,8 @@ type: cli
 logo: /images/opencode.png
 url: https://opencode.ai
 repo: https://github.com/anomalyco/opencode
-current_version: v1.15.10
-version_tracked_at: '2026-05-24'
+current_version: v1.18.18
+version_tracked_at: '2026-08-19'
 pricing:
   model: free
   currency: null
@@ -75,11 +75,15 @@ compatible_apis:
 data_sources:
   - url: https://github.com/anomalyco/opencode/releases
     type: release
-    last_checked: '2026-05-24'
+    last_checked: '2026-08-19'
   - url: https://opencode.ai/changelog
     type: changelog
-    last_checked: '2026-05-24'
+    last_checked: '2026-08-19'
 changelog:
+  - date: '2026-08-13'
+    type: release
+    summary: 'v1.18.18（最新）：修复 Moonshot/Kimi 官方 provider 下的系统提示词选择；修复 xAI 模型的 xhigh 推理档位；1.16→1.18 为日常迭代与修复系列'
+    summary_en: 'v1.18.18 (latest): Selects the Kimi system prompt correctly for official Moonshot and Kimi providers; fixes xhigh reasoning effort for xAI models; 1.16-1.18 are routine iteration and fix releases'
   - date: '2026-05-23'
     type: release
     summary: 'v1.15.10（最新）：恢复打开项目和启动会话的旧生产桌面流程；Agent 和命令名称支持相对配置路径；opencode login 默认改为 https://console.opencode.ai'

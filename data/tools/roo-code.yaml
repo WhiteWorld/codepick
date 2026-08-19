@@ -4,8 +4,8 @@ type: client
 logo: /images/roo-code.png
 url: https://github.com/Zoo-Code-Org/Zoo-Code
 repo: https://github.com/RooCodeInc/Roo-Code
-current_version: v3.53.0
-version_tracked_at: '2026-05-24'
+current_version: v3.54.0
+version_tracked_at: '2026-08-19'
 pricing:
   model: free
   currency: null
@@ -84,8 +84,12 @@ compatible_apis:
 data_sources:
   - url: https://github.com/RooCodeInc/Roo-Code/releases
     type: release
-    last_checked: '2026-05-24'
+    last_checked: '2026-08-19'
 changelog:
+  - date: '2026-05-15'
+    type: release
+    summary: 'v3.54.0（最新）：社区接管后（RooCodeInc org）首个清理版本--移除全部遥测、MDM 与组织成员管控、MCP marketplace、Cloud 与 evals 残留及企业支持链接；网站精简为纯扩展介绍，文档迁至 GitHub Pages；插件功能本体不变，已安装用户无感'
+    summary_en: 'v3.54.0 (latest): First cleanup release under the community-run RooCodeInc org - removed all telemetry, MDM and organization membership enforcement, the MCP marketplace, Cloud and evals leftovers, and corporate support links; website simplified to extension-only with docs moved to GitHub Pages; the extension itself is functionally unchanged for existing users'
   - date: '2026-05-24'
     type: announcement
     summary: '⛔ 正式停运（已于 2026-05-15 完成）：Roo Code Cloud/Router 已关闭，余额已退款；原始 VS Code 扩展 repo 已归档（无 kill switch，已安装版本仍可使用）；社区 Fork Zoo Code（github.com/Zoo-Code-Org/Zoo-Code）已接管插件维护并持续迭代；原团队已全面转型至 Roomote（Slack-first 云端 Agent）'
