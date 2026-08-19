@@ -69,13 +69,15 @@ Paseo 的本地服务叫 **daemon**，是唯一真正运行 agent 的进程。�
 | [Codex App（ChatGPT 桌面端）](https://learn.chatgpt.com/docs/app) | OpenAI 官方 Codex 桌面 | 本机 / 云端 | macOS、Windows | 闭源（官方） | 经 Codex Remote connections（ChatGPT App） | 需 ChatGPT 订阅 |
 | [Claude Desktop](https://code.claude.com/docs/en/desktop) | Anthropic 官方桌面（Chat + Cowork + Claude Code） | 本机 | macOS、Windows | 闭源（官方） | 经 Remote Control（Claude App） | 需 Claude 订阅 / API |
 | [OpenCode Desktop](https://opencode.ai/) | OpenCode 官方桌面端（beta） | 本机 | macOS、Windows、Linux | MIT | 无 | 开源免费 |
+| [VibeKit](https://vibekit.bot/) | 托管式「每个应用一个常驻 agent」，手机优先（也可用 `vibekit-agent link` 配对本机） | 默认跑在服务方容器；配对模式下跑本机 | iOS App + Web + CLI + REST API + MCP | 闭源 | 原生 iOS（无 Android） | 免费额度 + BYOK；按量付费 |
 
 怎么挑：
 
 - 想要**手机原生 App + 多 agent + 开源**，先看 **Paseo**；
 - 已在 Mac 上重度使用 Claude Code / Codex、习惯桌面工作流，**Conductor / Superset** 更贴近；
 - 以 OpenCode 为主，**OpenChamber / OpenCode Desktop** 更省心；
-- 只想让手机接管已有 Claude Code / Codex 会话，**Happy Coder 或官方 Remote 能力**更轻。
+- 只想让手机接管已有 Claude Code / Codex 会话，**Happy Coder 或官方 Remote 能力**更轻；
+- 如果卡点正是下一节说的「机器必须在线」，**VibeKit** 这类托管运行时把 agent 放到别人的容器上，你不用留任何机器开着——代价恰恰是 Paseo 想守住的东西：本机环境、SSH key 和数据库。
 
 > 本站另有 [Conductor 入门指南](/zh/guides/conductor-build-intro) 与 [手机编程工具 2026](/zh/guides/mobile-ai-coding-tools-2026) 可配合阅读。
 

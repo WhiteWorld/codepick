@@ -69,13 +69,15 @@ These tools all live in the "parallel / remote control for coding agents" catego
 | [Codex App (ChatGPT desktop)](https://learn.chatgpt.com/docs/app) | OpenAI's first-party Codex desktop | Local / cloud | macOS, Windows | Closed source (first-party) | Via Codex Remote connections (ChatGPT app) | Requires a ChatGPT subscription |
 | [Claude Desktop](https://code.claude.com/docs/en/desktop) | Anthropic's first-party desktop (Chat + Cowork + Claude Code) | Local | macOS, Windows | Closed source (first-party) | Via Remote Control (Claude app) | Requires a Claude subscription / API |
 | [OpenCode Desktop](https://opencode.ai/) | OpenCode's official desktop app (beta) | Local | macOS, Windows, Linux | MIT | No | Open source, free |
+| [VibeKit](https://vibekit.bot/) | Hosted per-app agent, phone-first (also pairs with a local machine via `vibekit-agent link`) | Provider's container by default; your machine in paired mode | iOS app + Web + CLI + REST API + MCP | Closed source | Native iOS (no Android) | Free tier + BYOK; usage-based paid |
 
 How to pick:
 
 - If you want **native mobile + multi-agent + open source**, start with **Paseo**;
 - If you live on macOS and heavily use Claude Code / Codex with a desktop workflow, **Conductor / Superset** fit better;
 - If OpenCode is your main agent, **OpenChamber / OpenCode Desktop** are the smoother path;
-- If you only want your phone to take over an existing Claude Code / Codex session, **Happy Coder or the official Remote features** are lighter.
+- If you only want your phone to take over an existing Claude Code / Codex session, **Happy Coder or the official Remote features** are lighter;
+- If the blocker is the "machine must be online" line in the next section, a hosted runtime such as **VibeKit** moves the agent onto someone else's container so nothing of yours has to stay awake — and you give up exactly what Paseo exists to protect: your local environment, SSH keys, and databases.
 
 > See also our [Conductor guide](/en/guides/conductor-build-intro) and [Mobile AI Coding Tools 2026](/en/guides/mobile-ai-coding-tools-2026).
 
