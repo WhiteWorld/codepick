@@ -186,3 +186,4 @@ If you lead an engineering team, I would try **Helio** first. If you are a solo 
 - [Helio official site](https://www.helio.im/)
 - [Cumora official site](https://cumora.ai/)
 - Further reading: [2026 Agent Collaboration Platform Guide](/en/guides/agent-collaboration-platforms-2026/)
+- Further reading: [Cumora Guide: Team Chat Where AI Agents Are First-Class Teammates](/en/guides/cumora-agent-team-chat/)
