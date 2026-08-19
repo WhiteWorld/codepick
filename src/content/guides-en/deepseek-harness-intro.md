@@ -114,6 +114,7 @@ In addition to the Web UI and CLI, DeepSeek Harness offers a Python SDK for inte
 DeepSeek Harness plugins are discoverable through the GitHub [`dsh-plugin` topic](https://github.com/topics/dsh-plugin). You can:
 
 - Browse existing community plugins
+- Browse installable plugins in the community registry [dsplugin.app (dsh plugin registry)](https://dsplugin.app/), filterable by source and manifest status (community-maintained, not official)
 - Tag your own plugin with `dsh-plugin` to make it discoverable
 - Follow the official [plugin development guide](https://github.com/deepseek-ai/deepseek-harness/tree/master/docs) to write your own
 
