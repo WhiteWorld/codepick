@@ -1,7 +1,6 @@
 id: vibekit
 name: VibeKit
 type: web
-logo: /images/vibekit.png
 url: https://vibekit.bot
 repo: null
 current_version: null
@@ -58,6 +57,10 @@ best_for:
   - 不想保持本机在线的云端/托管运行时
   - BYOK 控制 AI 成本
   - 注意：原生仅 iOS，无 Android
+
+last_full_review: '2026-08-20'
+next_review_due: '2026-11-20'
+confidence: medium
 
 data_sources:
   - url: https://vibekit.bot/pricing
