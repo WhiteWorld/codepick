@@ -13,31 +13,31 @@ pricing:
     - name: ChatGPT Plus
       price: 20
       period: month
-      limits: Codex CLI + Web + IDE 扩展，token 计费，基础用量
-      limits_en: Codex CLI + Web + IDE extension, token billing, base usage
-    - name: ChatGPT Pro
+      limits: Codex CLI + App + IDE 扩展，token 计费，基础用量（GPT-5.6 Sol 10-100 条/5h 等）
+      limits_en: Codex CLI + App + IDE extension, token billing, base usage (GPT-5.6 Sol 10-100 msgs/5h etc.)
+    - name: ChatGPT Pro 5x
       price: 100
       period: month
-      limits: Plus 5 倍用量（促销期至 2026-05-31 享 10 倍）；全部 Pro 专属模型
-      limits_en: 5x usage vs Plus (10x promo through 2026-05-31); full Pro exclusive models
-    - name: ChatGPT Premium
+      limits: Plus 5 倍本地消息量（GPT-5.6 Sol 50-500 条/5h），全系模型 + Codex-Spark 预览
+      limits_en: 5x Plus local-message capacity (GPT-5.6 Sol 50-500 msgs/5h), full model lineup + Codex-Spark preview
+    - name: ChatGPT Pro 20x
       price: 200
       period: month
-      limits: 最高用量，全系列 o3/o4 模型
-      limits_en: Highest usage, full o3/o4 model series
+      limits: 20 倍本地消息量（GPT-5.6 Sol 200-2,000 条/5h），Voice 无限时长
+      limits_en: 20x local-message capacity (GPT-5.6 Sol 200-2,000 msgs/5h), unlimited Voice
     - name: API Key（按量计费）
       price: null
-      limits: 按 token 计费，支持 o3、o4-mini；灵活但成本不可控
-      limits_en: Billed by token, supports o3, o4-mini; flexible but unpredictable cost
+      limits: 按 token 计费，GPT-5.6 全系可用；灵活但成本随用量波动
+      limits_en: Billed by token, full GPT-5.6 family; flexible but cost scales with usage
     - name: Business / Enterprise
       price: null
       period: month
       per_user: true
-      limits: 团队管理，自动 Code Review，Slack 集成，审计日志
-      limits_en: Team management, automated Code Review, Slack integration, audit logs
-  price_updated_at: '2026-04-17'
-  note: 需要 ChatGPT Plus（$20/月）、Pro（$100/月）或 OpenAI API Key；2026-04-02 定价切换为 token 计费；与 Gemini CLI 不同，无免费额度
-  note_en: Requires ChatGPT Plus ($20/mo), Pro ($100/mo), or OpenAI API Key; switched to token-based billing 2026-04-02; unlike Gemini CLI, no free tier
+      limits: 团队管理，自动 Code Review，Slack/Linear 集成，审计日志
+      limits_en: Team management, automated Code Review, Slack/Linear integration, audit logs
+  price_updated_at: '2026-08-19'
+  note: 需要 ChatGPT Plus（$20/月）、Pro 5x（$100/月）或 Pro 20x（$200/月）或 API Key；2026-08 起 Codex 以「Codex App」为主交付形态，CLI 仍可用；套餐按 5 小时窗口 + 周上限计；与 Gemini CLI 不同，无免费额度
+  note_en: Requires ChatGPT Plus ($20/mo), Pro 5x ($100/mo), Pro 20x ($200/mo), or an API Key; since 2026-08 Codex is primarily delivered as the Codex App, CLI remains available; plans run on 5-hour windows + weekly caps; unlike Gemini CLI, no free tier
 scores:
   coding_ability: 9
   cost_efficiency: 6
