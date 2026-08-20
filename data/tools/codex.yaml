@@ -13,27 +13,27 @@ pricing:
     - name: ChatGPT Plus
       price: 20
       period: month
-      limits: 含 Codex 云端任务额度，按 token 计费；超出可按量购买
-      limits_en: Includes Codex cloud task quota, token-based billing; overage available
-    - name: ChatGPT Pro
+      limits: Codex CLI + App + IDE 扩展，token 计费，基础用量（GPT-5.6 Sol 10-100 条/5h 等）
+      limits_en: Codex CLI + App + IDE extension, token billing, base usage (GPT-5.6 Sol 10-100 msgs/5h etc.)
+    - name: ChatGPT Pro 5x
       price: 100
       period: month
-      limits: Plus 5 倍 Codex 用量（促销期至 2026-05-31 享 10 倍）；全部 Pro 专属模型
-      limits_en: 5x Codex usage vs Plus (10x promo through 2026-05-31); full Pro exclusive model access
-    - name: ChatGPT Premium
+      limits: Plus 5 倍本地消息量（GPT-5.6 Sol 50-500 条/5h），全系模型 + Codex-Spark 预览
+      limits_en: 5x Plus local-message capacity (GPT-5.6 Sol 50-500 msgs/5h), full model lineup + Codex-Spark preview
+    - name: ChatGPT Pro 20x
       price: 200
       period: month
-      limits: 最高用量，原 Pro 计划；Codex 用量约为 Plus 的 10-20 倍
-      limits_en: Highest usage, original Pro plan; ~10-20x Codex usage vs Plus
+      limits: 20 倍本地消息量（GPT-5.6 Sol 200-2,000 条/5h），Voice 无限时长
+      limits_en: 20x local-message capacity (GPT-5.6 Sol 200-2,000 msgs/5h), unlimited Voice
     - name: Business / Enterprise
       price: null
       period: month
       per_user: true
-      limits: 按量计费 Codex 专属席位；团队管理、审计日志、SSO；Enterprise 支持私有代码库
-      limits_en: Pay-as-you-go Codex-only seats; team management, audit logs, SSO; Enterprise supports private repos
-  price_updated_at: '2026-04-17'
-  note: 2026-04-09 新增 $100/月 Pro 计划（介于 Plus 和原 $200 Pro 之间）；2026-04-02 定价切换为 token 计费；Business 可按量添加 Codex 专属席位
-  note_en: New $100/mo Pro plan added 2026-04-09 (between Plus and $200 tier); pricing switched to token-based billing on 2026-04-02; Business can add pay-as-you-go Codex-only seats
+      limits: 团队管理、自动化 Code Review、Slack/Linear 集成；Enterprise 支持审计与私有代码库
+      limits_en: Team management, automated Code Review, Slack/Linear integration; Enterprise adds audit and private repos
+  price_updated_at: '2026-08-19'
+  note: 2026-08 起 Codex 以「Codex App」为主要交付形态（ChatGPT 桌面/移动/IDE + CLI 均可用）；套餐随 ChatGPT 体系调整为 Plus $20 / Pro 5x $100 / Pro 20x $200，按 5 小时滚动窗口 + 周上限计（详见《Codex 套餐性价比分析》）；旧版 $200「Premium」档已并入 Pro 20x 口径
+  note_en: Since 2026-08 Codex is delivered primarily as the Codex App (ChatGPT desktop/mobile/IDE plus CLI); plans follow the ChatGPT system as Plus $20 / Pro 5x $100 / Pro 20x $200 with rolling 5-hour window + weekly caps (see Codex plan value analysis); the old $200 "Premium" tier is folded into the Pro 20x structure
 scores:
   coding_ability: 9
   cost_efficiency: 6
