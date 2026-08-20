@@ -37,7 +37,7 @@ pricing:
       limits: 企业级配额，RBAC + SSO，混合部署，ZDR，200人以上联系销售
       limits_en: Enterprise quota, RBAC + SSO, hybrid deployment, ZDR; 200+ contact sales
   price_updated_at: '2026-04-16'
-  note: 2026年3月19日起新订阅者 Pro 从 $15 升至 $20，改为每日/每周刷新配额制；2026年3月19日前订阅者保留旧 $15 价格；学生认证可享 50%+ 折扣；2026-08 起 windsurf.com/pricing 已 308 重定向到 devin.ai/pricing（Cognition/Devin 整合，Windsuurf 并入 Devin 产品线），定价以 devin.ai 为准
+  note: 2026年3月19日起新订阅者 Pro 从 $15 升至 $20，改为每日/每周刷新配额制；2026年3月19日前订阅者保留旧 $15 价格；学生认证可享 50%+ 折扣；2026-08 起 windsurf.com/pricing 已 308 重定向到 devin.ai/pricing（Cognition/Devin 整合，Windsurf 并入 Devin 产品线），定价以 devin.ai 为准
   note_en: From March 19, 2026, new Pro subscribers pay $20 (up from $15); daily/weekly quota system replaces monthly credits; pre-March-19 subscribers keep $15 rate; 50%+ student discount with .edu email; since 2026-08 windsurf.com/pricing 308-redirects to devin.ai/pricing (Cognition/Devin consolidation - Windsurf folded into the Devin product line), pricing now lives at devin.ai
 scores:
   coding_ability: 8.5
