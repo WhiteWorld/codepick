@@ -50,7 +50,7 @@ npm run dev               # local dev server (http://localhost:4321)
 
 ```bash
 npm run content:check -- --strict   # content governance & bilingual mirrors
-npm run build                       # static build (317+ pages)
+npm run build                       # static build (321+ pages)
 npm run check:seo                   # key SEO routes
 node --test scripts/check-content.test.mjs
 npm audit --audit-level=critical
