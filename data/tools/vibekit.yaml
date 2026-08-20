@@ -1,0 +1,71 @@
+id: vibekit
+name: VibeKit
+type: web
+url: https://vibekit.bot
+repo: null
+current_version: null
+version_tracked_at: '2026-08-20'
+
+pricing:
+  model: subscription
+  currency: USD
+  plans:
+    - name: Free
+      price: 0
+      period: month
+      limits: 10 AI 会话/月，2 个托管应用，1 个配对远端 agent，512MB 内存，数据库 $3/月附加，1 小时日志保留
+      limits_en: 10 AI sessions/mo, 2 hosted apps, 1 linked remote agent, 512MB memory, DB $3/mo add-on, 1h log retention
+    - name: Builder
+      price: 19.99
+      period: month
+      limits: 无限 AI 会话，3 个托管应用，3 个远端 agent，1 自定义域名，3 个定时任务，数据库含，24 小时日志保留；每月含 $20 AI 额度
+      limits_en: Unlimited AI sessions, 3 hosted apps, 3 remote agents, 1 custom domain, 3 scheduled tasks, DB included, 24h log retention; $20/mo AI credit included
+    - name: Pro
+      price: 49.99
+      period: month
+      limits: 无限 AI 会话，10 个托管应用，10 个远端 agent，无限自定义域名，1GB 内存 + 0.5 vCPU/应用，数据库含，7 天日志保留；每月含 $20 AI 额度
+      limits_en: Unlimited AI sessions, 10 hosted apps, 10 remote agents, unlimited custom domains, 1GB memory + 0.5 vCPU per app, DB included, 7-day log retention; $20/mo AI credit included
+  price_updated_at: '2026-08-20'
+  note: BYOK 无加价（连自己的 Anthropic/OpenAI key，按提供商费率计费，平台另收 hosting/持久 agent 费）；也可充 USD 余额按会话付费
+  note_en: BYOK with zero markup (connect your own Anthropic/OpenAI key, billed at provider rates; platform charges for hosting/persistent agents); or top up USD and pay per session
+
+scores:
+  coding_ability: 7
+  cost_efficiency: 7
+  flexibility: 6
+  china_friendly: 1
+  privacy: 5
+
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: true
+  builder_mode: true
+  ide_base: "iOS App + Web + CLI + REST API + MCP"
+  supported_models:
+    - Claude (BYOK)
+    - GPT (BYOK)
+  supported_os:
+    - iOS（原生 App）
+    - Web
+  native_mobile: true
+
+best_for:
+  - 手机优先的「每个应用一个持久 agent」托管构建
+  - 不想保持本机在线的云端/托管运行时
+  - BYOK 控制 AI 成本
+  - 注意：原生仅 iOS，无 Android
+
+last_full_review: '2026-08-20'
+next_review_due: '2026-11-20'
+confidence: medium
+
+data_sources:
+  - url: https://vibekit.bot/pricing
+    type: pricing
+    last_checked: '2026-08-20'
+  - url: https://vibekit.bot
+    type: product
+    last_checked: '2026-08-20'
