@@ -68,7 +68,7 @@ Unified memory = VRAM, and quantization decides how much a model occupies. Appro
 - **GGUF quantizations** (e.g. `unsloth/Qwen3.8-27B-GGUF`): compress to 4-bit/8-bit with minimal quality loss - how small-memory Macs run 27B.
 - **MLX native quant** (e.g. `Qwen3.8-27B-*-MLX`): Apple-ecosystem format, used directly by MLX engines.
 - **FP8**: between 4-bit and 16-bit in precision; for high-end Macs.
-- **"Uncensored/obliterated" variants**: community fine-tunes that strip some safety rails - **for entertainment only**; don't use in production, and mind data compliance.
+- **"Uncensored/abliterated" variants**: community fine-tunes that strip some safety rails - **for entertainment only**; don't use in production, and mind data compliance.
 
 Swapping models works the same way everywhere: drop the file into `~/.ollama/models`, `~/.omlx/models`, or point your tool at a model dir, then load by name.
 
