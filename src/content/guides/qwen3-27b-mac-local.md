@@ -68,7 +68,7 @@ Qwen3.8 是阿里 Qwen 家族 2026 年的新版本，架构基于 Qwen3.5。**Qw
 - **GGUF 量化**（如 `unsloth/Qwen3.8-27B-GGUF`）：把模型压缩到 4-bit/8-bit，内存占用大幅下降，质量损失很小——小内存 Mac 跑 27B 靠它。
 - **MLX 原生量化**（如 `Qwen3.8-27B-*-MLX`）：Apple 生态专用格式，MLX 引擎直接用。
 - **FP8**：精度介于 4-bit 和 16-bit 之间，高端 Mac 可选。
-- **"uncensored / obliberated" 变体**：社区微调，去掉部分安全限制——**只是娱乐用途**，生产环境别用，数据合规要自己把关。
+- **"uncensored / abliterated" 变体**：社区微调，去掉部分安全限制——**只是娱乐用途**，生产环境别用，数据合规要自己把关。
 
 换模型的方式都差不多：把模型文件放进 `~/.ollama/models`、`~/.omlx/models` 或通过对应工具 `serve --model-dir`，然后指定名字加载即可。
 
