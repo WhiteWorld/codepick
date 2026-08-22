@@ -22,8 +22,8 @@ A bilingual (中文 / English) static site that helps developers choose the righ
 ## ✨ Features
 
 - **Bilingual by default** — every article ships in `/zh/` and `/en/`, with mirrored content collections
-- **Data-driven** — 39 tools, 8 API/model sources, 16 plans stored as YAML, with freshness and confidence tracking
-- **Comparisons, guides & practices** — 100+ articles across `compare`, `guides`, and `practices` collections
+- **Data-driven** — 40 tools, 8 API/model sources, 16 plans stored as YAML, with freshness and confidence tracking
+- **Comparisons, guides & practices** — 182 articles (95 zh + 87 en) across `compare`, `guides`, and `practices` collections
 - **SEO-ready** — sitemap with `lastmod`, JSON-LD schemas, IndexNow submission, RSS feeds
 - **Automated freshness** — weekly monitors check tool versions and pricing pages, and open issues on changes
 
@@ -50,7 +50,7 @@ npm run dev               # local dev server (http://localhost:4321)
 
 ```bash
 npm run content:check -- --strict   # content governance & bilingual mirrors
-npm run build                       # static build (321+ pages)
+npm run build                       # static build (329+ pages)
 npm run check:seo                   # key SEO routes
 node --test scripts/check-content.test.mjs
 npm audit --audit-level=critical
@@ -107,8 +107,8 @@ scripts/               # content checks, monitors, generators
 ### 功能特性
 
 - **中英双语**：每篇文章默认 `/zh/` + `/en/` 镜像
-- **数据驱动**：39 款工具、8 个 API/模型源、16 个组合方案，YAML 存储并维护新鲜度与置信度
-- **内容体系**：对比（compare）、指南（guides）、实践（practices）三大内容集合，100+ 篇
+- **数据驱动**：40 款工具、8 个 API/模型源、16 个组合方案，YAML 存储并维护新鲜度与置信度
+- **内容体系**：对比（compare）、指南（guides）、实践（practices）三大内容集合，182 篇（中文 95 + 英文 87）
 - **SEO 基建**：sitemap + lastmod、JSON-LD、IndexNow、双语 RSS
 - **自动化监控**：每周自动核对工具版本与定价页变化并开 issue
 
