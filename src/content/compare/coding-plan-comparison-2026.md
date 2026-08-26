@@ -1,162 +1,174 @@
 ---
-title: "5 大国内 Coding Plan 全量横评：2026 选型指南"
-description: "百炼、方舟、MiniMax、智谱 GLM、Kimi 五大国产 AI 编程订阅套餐全面横评：价格、额度机制、模型生态、客户端兼容性与场景选型建议。"
+title: "5 大国产 AI 编程订阅横评：2026 年 8 月选型指南"
+description: "按 2026 年 8 月官网现状，横评火山方舟 Coding Plan、百炼 Token Plan、MiniMax Token Plan、GLM Coding Plan 与 Kimi Code：价格、额度、模型、协议与适用场景。"
 date: "2026-03-03"
-tags: ["百炼", "火山方舟", "minimax", "智谱", "kimi", "coding-plan", "国内", "对比", "api", "横评"]
+updated_at: "2026-08-26"
+tags: ["百炼", "火山方舟", "minimax", "智谱", "kimi", "coding-plan", "token-plan", "国内", "对比", "api"]
 pillar: compare
 content_status: keep
 locale_strategy: mirrored
 draft: false
 ---
 
-2026 年国内 Coding Plan 赛道迅速升温，已有 5 个平台推出面向开发者的 AI 编程订阅套餐：阿里云百炼、火山方舟、MiniMax、智谱 GLM、Kimi。它们都旨在让开发者以固定月费在 Cline、Claude Code、Cursor 等工具中使用国产大模型，但在定价策略、额度机制、模型生态和附加权益上各有侧重。本文将 5 个平台放在一起做全景对比，帮你快速找到最适合自己的方案。
+如果你还把国产 AI 编程订阅理解成「固定月费 + 5 小时 prompt 次数」，这套认知已经过期了。
 
-## 一句话总结
+截至 2026 年 8 月 26 日，五家产品已经分化成五种不同形态：方舟仍是多模型 Coding Plan；百炼和 MiniMax 升级为 Token Plan；GLM 改用周积分；Kimi Code 则并入美元计价的 Kimi 会员。它们的额度单位不能直接换算，真正该比较的是：**你用什么工具、需要什么模型、工作流会不会长时间连续运行，以及额度触顶后会发生什么。**
 
-- **百炼 Coding Plan**：月度总量额度，千问模型最全，适合 Qwen 重度用户；当前新购与价格以官网为准
-- **火山方舟 Coding Plan**：Auto 模式 + Anthropic 双协议，客户端覆盖最广（11 款），Claude Code 用户首选
-- **MiniMax Coding Plan**：M2.5 编程性价比极高，极速版可选；具体定价以官网为准
-- **智谱 GLM Coding Plan**：附赠 4 个专属 MCP（联网搜索、视觉理解等），客户端兼容 20+ 款，增值权益最丰富
-- **Kimi Coding Plan**：Token 计量制，唯一不限 5 小时窗口的平台，适合长时间连续编程
+## 先看结论
 
----
+| 需求 | 优先看 | 原因 |
+|---|---|---|
+| 最低成本试用、多模型切换 | **火山方舟 Coding Plan Lite** | 官网仍显示限时 ¥9.9 起，支持 Auto 与多家模型 |
+| ¥50 左右的个人日常主力 | **MiniMax Token Plan Plus** | ¥49/月，M2.7 每 5 小时 1,500 次请求，另含多模态额度 |
+| 想同时用 Qwen、DeepSeek、GLM 等多模态模型 | **百炼 Token Plan** | 个人/团队版齐全，OpenAI + Anthropic 双协议，Harness 能力完整 |
+| 只想用最新 GLM，重视 MCP 与 1M 上下文 | **GLM Coding Plan** | GLM-5.3、20+ 工具、4 类 MCP，但新价格明显上移 |
+| 想用 Kimi K2.7 Code 与 Kimi 全家桶 | **Kimi 会员** | Code、Agent、Claw、研究与办公共用额度池，适合 Kimi 生态用户 |
 
-## 价格总览
-
-| 平台 | 入门档 | 中档 | 高档 | 活动说明 |
-|------|--------|------|------|----------|
-| 百炼 | 官网为准 | 官网为准 | — | Lite 已停止新购，当前策略以官网为准 |
-| 方舟 | 官网为准 | 官网为准 | — | 新用户入口与活动价以官网为准 |
-| MiniMax | 官网为准 | 官网为准 | 官网为准 | 套餐与活动以官网为准 |
-| 智谱 GLM | 官网为准 | 官网为准 | 官网为准 | 季/年付折扣以官网为准 |
-| Kimi | 官网为准 | 官网为准 | 官网为准 | 以官网为准 |
-
-MiniMax 另有极速版套餐（搭载 M2.5-highspeed），具体价格与档位请以官网为准。
-
-> 百炼、方舟、MiniMax 都可能存在阶段性活动，但价格和开放策略变动较快，建议下单前直接核对官网。所有平台均以人民币计价，支付便捷。Kimi 采用 Token 计量，不走 5 小时窗口机制。
+没有「所有人都最划算」的一档。预算敏感用户优先试方舟或 MiniMax；多模型与团队治理看百炼；模型偏好比价格更重要时，再看 GLM 或 Kimi。
 
 ---
 
-## 额度机制对比
+## 五家当前产品形态
 
-这是 5 个平台**最关键的差异维度**：
+| 平台 | 当前产品 | 月付起价 | 核心额度机制 | 编程主力模型 |
+|---|---|---:|---|---|
+| 火山方舟 | Coding Plan | 限时 ¥9.9；常规 Lite ¥40 | 5 小时 + 周/月多周期限额 | Doubao-Seed-2.1、GLM-5.3、Kimi-K2.7、MiniMax-M3、DeepSeek-V4 系列 |
+| 阿里云百炼 | Token Plan 个人版 | 限时 ¥39；原价 ¥60 | Credits，7 天固定窗口 | Qwen3.8、DeepSeek-V4、GLM 等 17 款多模态模型 |
+| MiniMax | Token Plan | ¥29 | 文本 5 小时 request；其他模态按日 | MiniMax-M2.7 / M2.7-highspeed |
+| 智谱 | GLM Coding Plan | ¥118 | 周积分 + 并发/公平使用限制 | GLM-5.3 |
+| Kimi | Kimi 会员内含 Kimi Code | $19 | 共享月度额度池 + Code 5 小时/周限额 | Kimi K2.7 Code |
 
-| 维度 | 百炼 | 方舟 | MiniMax | 智谱 GLM | Kimi |
-|------|------|------|---------|----------|------|
-| 额度模型 | 月度总量 | 5h 滚动窗口 | 5h 滚动窗口 | 5h 滚动窗口 | Token 月度总量 |
-| 入门档额度 | 18,000 次/月 | ~1,200 次/5h | 40 prompts/5h | ~80 prompts/5h | 500 万 tokens/月 |
-| 中档额度 | 90,000 次/月 | ~6,000 次/5h | 100 prompts/5h | ~400 prompts/5h | 2,000 万 tokens/月 |
-| 用完后 | 停止服务 | 等窗口重置 | 等窗口重置 | 等窗口重置 | 停止服务 |
-
-**解读：**
-- **百炼**按月总量计费，适合偶发高强度使用（如深夜密集开发），但月内用完即停。
-- **方舟 / MiniMax / GLM** 都是 5 小时滑动窗口，日常匀速使用更平滑，短时间爆发容易触顶。
-- **Kimi** 是唯一采用 Token 计量的平台，不受 5 小时窗口限制，长时间连续编程最友好，但总额度受 Token 消耗速度影响。
+> 价格均为 2026-08-26 官网页面所示。活动价、库存、区域和续费规则可能变化；方舟的 ¥9.9 是限时入口价，百炼的 ¥39 是限时价，不能当成永久续费价。
 
 ---
 
-## 模型生态对比
+## 价格与额度：不要再只看「每次多少钱」
 
-| 平台 | 模型数量 | 代表模型 | 特色 |
-|------|----------|----------|------|
-| 百炼 | 8 款 | qwen3-coder-next、qwen3.5-plus、MiniMax-M2.5、GLM-5 | Qwen 全家桶 + 第三方聚合 |
-| 方舟 | 5 款 | Doubao-Seed-Code、DeepSeek-V3.2、Kimi-K2.5 | 独有豆包 + DeepSeek |
-| MiniMax | 3 款 | MiniMax-M2.5、M2.1、M2 | M2.5 旗舰 + 历史版本，极速版可选 highspeed |
-| 智谱 GLM | 4 款 | GLM-5、GLM-4.7、GLM-4.5-Air | 多档位灵活切换 |
-| Kimi | 1 款 | Kimi-K2.5 | 专注自研模型 |
+### 火山方舟 Coding Plan
 
-- **百炼模型最丰富**（8 款），覆盖千问全系列 + 第三方模型（MiniMax-M2.5、GLM-5、Kimi-K2.5）。
-- **方舟独有**字节自研 Doubao-Seed-Code 和 DeepSeek-V3.2。
-- **MiniMax** 支持 M2.5、M2.1、M2 三款模型，M2.5 在编程基准上表现优异，极速版套餐还可选 M2.5-highspeed。
-- **GLM** 提供多档位模型，日常推荐 GLM-4.7（无额外消耗倍率）。
-- **Kimi** 专注自研 K2.5 单模型。
+方舟保留 Lite / Pro 两档。官网当前显示「限时 ¥9.9 起」，公开活动资料给出的常规定价为 Lite ¥40、Pro ¥200；活动期间常见 ¥9.9 / ¥49.9，但资格和持续月份以结算页为准。
+
+| 套餐 | 常规定价 | 活动入口 | 公开的 5 小时额度 |
+|---|---:|---:|---:|
+| Lite | ¥40/月 | 限时 ¥9.9 起 | 最多约 1,200 次请求 |
+| Pro | ¥200/月 | 常见活动价 ¥49.9 | Lite 的 5 倍，最多约 6,000 次请求 |
+
+需要注意，方舟现在不只有 5 小时窗口，控制台还会展示周/月周期限制。单个复杂 Agent 任务会产生多次底层请求，所以「1,200 次请求」不等于 1,200 次用户提问。
+
+### 百炼 Token Plan
+
+百炼旧 Coding Plan 已进入收尾：Lite 已于 3 月 20 日停止新购，Pro 售罄后不再补货。新用户应比较的是 Token Plan，而不是旧版的 18,000 / 90,000 次月度请求。
+
+| 个人版 | 当前限时价 | 原价 | 每 7 天 Credits | Agent 并发建议 |
+|---|---:|---:|---:|---:|
+| Lite | ¥39 | ¥60 | 2,500 | 1–2 |
+| Standard | ¥139 | ¥180 | 10,000 | 3–4 |
+| Pro | ¥499 | ¥600 | 40,000 | 6–8 |
+
+Credits 会按模型、Token 和 Harness 工具的系数扣减；窗口触顶后停止服务，可等 7 天重置或购买用量包。团队版则改为按订阅月发放总 Credits，没有 7 天窗口，并提供席位、用量分析和数据不入训承诺。
+
+### MiniMax Token Plan
+
+MiniMax 的单位最直观：文本模型按 request 计数，每 5 小时滚动恢复；图像、语音、视频和音乐按日额度单独计算。
+
+| 标准版 | 月付 | M2.7 请求额度 |
+|---|---:|---:|
+| Starter | ¥29 | 600 次 / 5 小时 |
+| Plus | ¥49 | 1,500 次 / 5 小时 |
+| Max | ¥119 | 4,500 次 / 5 小时 |
+
+另有 M2.7-highspeed 极速版：Plus ¥98、Max ¥199、Ultra ¥899，对应 1,500 / 4,500 / 30,000 次请求每 5 小时。对大多数个人开发者，先从 Plus 开始比直接买极速版更稳妥。
+
+### GLM Coding Plan
+
+GLM 官网当前的月付价格和 3 月版文章已完全不同：
+
+| 套餐 | 月付 | 官网当前额度描述 |
+|---|---:|---|
+| Lite | ¥118 | 每周 10,000 积分；适合小型 Repo |
+| Pro | ¥538 | Lite 的 6 倍；更快生成与精选 MCP |
+| Max | ¥1,078 | Lite 的 14 倍；高峰期优先保障 |
+
+连续包季与包年有折扣，实际月均价以页面选择的周期为准。GLM 的重点已经从「约多少 prompt」转向积分和服务等级；不要继续引用旧的 ¥49 / ¥149 / ¥469 或 80 / 400 / 1,600 prompts 作为当前购买依据。
+
+### Kimi Code
+
+Kimi Code 不再是独立的人民币 Coding Plan，而是 Kimi 会员权益之一。所有会员功能共用一个按 Token 消耗的月度额度池，Kimi Code 另有独立的 5 小时和每周速率限制。
+
+| 会员 | 月付 | 年付折合月价 | Agent 额度估算 |
+|---|---:|---:|---:|
+| Moderato | $19 | $15 | 60 |
+| Allegretto | $39 | $31 | 150 |
+| Allegro | $99 | $79 | 360 |
+| Vivace | $199 | $159 | 720 |
+
+表中的 Agent 额度是官方按典型任务估算的等效值，不是固定的 Code 请求次数。Kimi Code、Agent、Claw、Deep Research、PPT 等会争用同一额度池；如果你只需要第三方 API，Kimi 开放平台按量计费是另一套产品。
 
 ---
 
-## 客户端兼容性
+## 模型与协议：旧版最容易写错的部分
 
-| 平台 | 支持客户端数 | API 协议 | Claude Code 原生支持 |
-|------|-------------|---------|---------------------|
-| 百炼 | 7 款 | OpenAI | ❌ 需 proxy |
-| 方舟 | 11 款 | OpenAI + Anthropic | ✅ 原生 Anthropic 协议 |
-| MiniMax | 7+ 款 | OpenAI | ❌ 需 proxy |
-| 智谱 GLM | 20+ 款 | OpenAI | ❌ 需 proxy |
-| Kimi | 3 款 | OpenAI | ❌ 需 proxy |
+| 平台 | 模型策略 | OpenAI 兼容 | Anthropic 兼容 | 关键限制 |
+|---|---|:---:|:---:|---|
+| 方舟 | Doubao + GLM + Kimi + MiniMax + DeepSeek，支持 Auto | ✅ | ✅ | 套餐 Key / Base URL 与按量 API 不同 |
+| 百炼 | Qwen 为主，聚合 DeepSeek、GLM 等多模态模型 | ✅ | ✅ | 个人版仅华北 2（北京）；Credits 加权扣减 |
+| MiniMax | M2.7 单一主力，极速版可用 highspeed | ✅ | ✅ | Token Plan Key 与按量 API Key 不互通 |
+| GLM | 聚焦 GLM-5.3 | ✅ | ✅ | 仅限官方支持工具；不同档位并发和优先级不同 |
+| Kimi | Kimi Code 默认 K2.7 Code | — | — | 会员权益面向官方 Code CLI / IDE 插件；通用 API 另计费 |
 
-- **方舟是唯一支持 Anthropic 协议的平台**，Claude Code 可直接用原生 API 格式对接，无需 proxy 适配。
-- **智谱客户端覆盖面最广**（20+ 款），几乎兼容所有主流 AI 编程工具。
-- **Kimi 客户端最少**（3 款），目前覆盖有限。
+三个重要纠错：
 
----
-
-## 独特卖点
-
-各平台的差异化竞争优势：
-
-| 平台 | 差异化卖点 |
-|------|-----------|
-| 百炼 | 月度总量制（唯一），千问全系列，适合高频月度使用 |
-| 方舟 | Auto 模式（自动选模型），Anthropic 协议原生支持，客户端最多 |
-| MiniMax | M2.5 编程性价比极高，极速版可选 |
-| 智谱 GLM | 4 个专属 MCP（联网搜索、视觉理解、网页读取、开源仓库），200K 上下文 |
-| Kimi | Token 计量制（唯一），无 5h 窗口限制，长时间编程最友好 |
-
----
-
-## 综合评分
-
-| 维度 | 百炼 | 方舟 | MiniMax | 智谱 GLM | Kimi |
-|------|------|------|---------|----------|------|
-| 编程能力 | 8.5 | 8.0 | 8.5 | 8.5 | 7.5 |
-| 性价比 | 9.5 | 9.5 | 9.0 | 8.0 | 7.5 |
-| 灵活性 | 8.5 | 8.5 | 7.0 | 8.5 | 6.5 |
-| 国内可用性 | 9.5 | 9.8 | 9.0 | 9.5 | 9.0 |
-| 附赠权益 | 6.5 | 7.0 | 6.0 | 9.0 | 6.0 |
+1. **方舟已不是唯一支持 Anthropic 协议的平台。**百炼、MiniMax 和 GLM 也提供 Anthropic 兼容接入。
+2. **百炼和 MiniMax 已不是旧 Coding Plan。**继续比较「月请求次数」或 M2.5 已经失真。
+3. **Kimi 会员不等于通用 API 套餐。**会员内的 Kimi Code 与开放平台按 Token API 需要分开看。
 
 ---
 
 ## 场景选型建议
 
-**预算优先 / 想低门槛试用 → 优先看当前仍有活动的平台**
-- 活动价和开放入口变化快，务必先看官网
-- 如果你偏好月度总量制，再看百炼当前是否仍有合适的新购入口
+### 预算不超过 ¥50/月
 
-**Claude Code 重度用户 → 方舟**
-- 唯一支持 Anthropic 原生协议，无需 proxy
-- Auto 模式自动选模型，省心省配额
+- 想切换多家模型、常用 Claude Code / Cursor：先试方舟 Lite。
+- 主要使用 MiniMax、希望额度规则简单：MiniMax Plus ¥49 比 Starter 更适合作为日常主力。
+- 想用 Qwen3.8 与多模态 Harness：百炼 Lite 当前限时 ¥39，但要接受 7 天 Credits 窗口。
 
-**极致性价比 + 高速体验 → MiniMax**
-- 套餐层级清晰，人民币直付
-- 可选 M2.5-highspeed，适合追求更高吞吐的用户
+### 长时间连续跑 Agent
 
-**需要 MCP 增值能力 → 智谱 GLM**
-- 联网搜索、视觉理解等 4 个专属 MCP 开箱即用
-- 20+ 客户端覆盖，几乎所有工具都能接入
+- 先排除「额度单位看起来大」的错觉，分别压测上下文增长、缓存命中和工具调用次数。
+- MiniMax 的 request 口径最易理解；方舟请求数较大，但仍有多周期限制。
+- 百炼与 GLM 的 Credits / 积分会随模型和上下文复杂度变化；Kimi 还会与其他会员功能共享额度。
 
-**长时间连续编程 → Kimi**
-- Token 月度总量制，无 5 小时窗口限制
-- 适合不希望被频率窗口打断的深度开发场景
+### 需要多模型与团队管理
 
-**多模型需求 → 百炼 / 智谱 GLM**
-- 百炼 8 款模型最多，涵盖 Qwen、MiniMax、GLM、Kimi
-- 智谱提供 4 款 GLM 系列模型，多档位灵活切换
+- 个人多模型：方舟或百炼。
+- 团队席位、统一用量与数据治理：百炼 Token Plan 团队版更完整。
+- 需要 Doubao、Auto 调度和双协议：方舟更直接。
 
----
+### 只追某一家最新模型
 
-## 延伸阅读
-
-想深入了解某两个平台的详细对比？请查看我们的 1v1 深度横评：
-
-- [百炼 vs 火山方舟 Coding Plan 深度对比](/zh/compare/bailian-coding-plan-vs-ark-coding-plan)
-- [MiniMax vs 智谱 GLM Coding Plan 深度对比](/zh/compare/minimax-coding-plan-vs-glm-coding-plan)
-
-各平台官网：
-- 百炼：[aliyun.com/benefit/scene/codingplan](https://www.aliyun.com/benefit/scene/codingplan)
-- 方舟：[volcengine.com/activity/codingplan](https://www.volcengine.com/activity/codingplan)
-- MiniMax：[platform.minimaxi.com/subscribe/coding-plan](https://platform.minimaxi.com/subscribe/coding-plan)
-- 智谱：[bigmodel.cn/glm-coding](https://bigmodel.cn/glm-coding)
-- Kimi：[platform.moonshot.cn/console/coding-plan](https://platform.moonshot.cn/console/coding-plan)
+- MiniMax-M2.7：MiniMax Token Plan。
+- GLM-5.3：GLM Coding Plan。
+- Kimi K2.7 Code：Kimi 会员 / Kimi Code。
 
 ---
 
-> 数据基于 2026 年 3 月评测，套餐内容、价格与优惠随时可能变更，请以各平台官网最新信息为准。部分额度数据为估算值，实际使用受模型选择、prompt 复杂度等因素影响。
+## 下单前的 5 项检查
+
+1. **确认购买页名称**：Coding Plan、Token Plan、Agent Plan 和会员不是同一产品。
+2. **确认专属 Key 与 Base URL**：套餐凭证通常不能和按量 API Key 混用。
+3. **确认所有限额周期**：除了 5 小时，还可能有周、月、并发与高峰期限制。
+4. **确认工具是否在官方支持列表**：部分厂商禁止把套餐用于自建 SaaS、转售或非支持工具。
+5. **先用入门档跑一周真实仓库**：记录每天触顶次数、单任务耗时与上下文增长，再决定年付。
+
+---
+
+## 官方来源与核查时间
+
+- [火山方舟 Coding Plan](https://www.volcengine.com/activity/codingplan)
+- [百炼 Token Plan 概述](https://help.aliyun.com/zh/model-studio/token-plan-overview)
+- [MiniMax Token Plan 定价](https://platform.minimaxi.com/docs/guides/pricing-token-plan)
+- [GLM Coding Plan](https://bigmodel.cn/glm-coding)
+- [Kimi 会员价格](https://www.kimi.ai/zh-hans/help/membership/membership-pricing)
+- [Kimi K2.7 Code](https://www.kimi.ai/zh-hans/resources/kimi-k2-7-code)
+
+> 最后核查：2026-08-26。本文只比较公开个人订阅的购买决策，不把企业合同价、按量 API 单价或短期赠券混入月费排名。活动价与支持模型仍可能随时变化，下单前请再次打开对应官网确认。

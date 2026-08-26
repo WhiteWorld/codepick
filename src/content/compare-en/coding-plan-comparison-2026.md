@@ -1,162 +1,174 @@
 ---
-title: "5 China-Native Coding Plans Compared: 2026 Selection Guide"
-description: "A comprehensive side-by-side comparison of Bailian, Volcengine Ark, MiniMax, Zhipu GLM, and Kimi — five major China-native AI coding subscription plans: pricing, quota mechanisms, model ecosystems, client compatibility, and selection advice."
+title: "5 China-Native AI Coding Subscriptions Compared: August 2026 Guide"
+description: "An August 2026 comparison of Volcengine Ark Coding Plan, Alibaba Bailian Token Plan, MiniMax Token Plan, GLM Coding Plan, and Kimi Code: price, quota, models, API compatibility, and best-fit scenarios."
 date: "2026-03-03"
-tags: ["bailian", "volcengine-ark", "minimax", "zhipu", "kimi", "coding-plan", "china", "comparison", "api", "roundup"]
+updated_at: "2026-08-26"
+tags: ["bailian", "volcengine-ark", "minimax", "zhipu", "kimi", "coding-plan", "token-plan", "china", "comparison", "api"]
 pillar: compare
 content_status: keep
 locale_strategy: mirrored
 draft: false
 ---
 
-The China-native Coding Plan space has heated up rapidly in 2026, with five platforms now offering AI coding subscription plans for developers: Alibaba Cloud Bailian, Volcengine Ark, MiniMax, Zhipu GLM, and Kimi. They all aim to give developers fixed-rate access to domestic large language models in tools like Cline, Claude Code, and Cursor — but each takes a different approach to pricing, quota mechanics, model ecosystems, and bundled perks. This article puts all five side by side to help you find the best fit.
+The old mental model for China-native coding subscriptions—“one monthly fee plus a five-hour prompt allowance”—is no longer accurate.
 
-## One-Line Summary
+As of August 26, 2026, the five major products have split into five different shapes. Ark remains a multi-model Coding Plan; Bailian and MiniMax have moved to Token Plans; GLM now presents weekly credits; and Kimi Code is included in a USD-priced Kimi membership. Their quota units are not interchangeable. The practical comparison is **which tools and models you need, whether your agents run continuously, and what happens when a limit is reached.**
 
-- **Bailian Coding Plan**: Monthly total quota with the most complete Qwen lineup — best for Qwen power users; current new-purchase policy should be verified on the official site
-- **Volcengine Ark Coding Plan**: Auto mode + dual Anthropic protocol, broadest client coverage (11 clients) — the top choice for Claude Code users
-- **MiniMax Coding Plan**: Excellent M2.5 coding value with optional highspeed tier; exact pricing should be checked on the official site
-- **Zhipu GLM Coding Plan**: Bundled with 4 exclusive MCPs (web search, vision, etc.), 20+ client compatibility — the richest value-added offering
-- **Kimi Coding Plan**: Token-based quota (the only one without a 5-hour window), best suited for long continuous coding sessions
+## Quick verdict
 
----
+| Need | Start with | Why |
+|---|---|---|
+| Lowest-cost multi-model trial | **Volcengine Ark Coding Plan Lite** | The official page still advertises a limited-time CNY 9.9 entry price, with Auto routing and multiple model vendors |
+| A daily driver around CNY 50 | **MiniMax Token Plan Plus** | CNY 49/month, 1,500 M2.7 requests per five hours, plus multimodal allowances |
+| Qwen, DeepSeek, GLM, and multimodal models under one subscription | **Bailian Token Plan** | Personal and team editions, OpenAI and Anthropic compatibility, and built-in Harness tools |
+| Latest GLM plus MCPs and a 1M context window | **GLM Coding Plan** | GLM-5.3, 20+ tools, and four MCP categories, but at a much higher new price |
+| Kimi K2.7 Code plus the broader Kimi suite | **Kimi membership** | Code, Agent, Claw, research, and productivity features share one allowance pool |
 
-## Pricing Overview
-
-| Platform | Entry Tier | Mid Tier | High Tier | Promo Notes |
-|----------|-----------|----------|-----------|---------------------|
-| Bailian | Official site | Official site | — | Lite is no longer sold for new purchases; check official site |
-| Ark | Official site | Official site | — | New-user entry windows and promos vary; check official site |
-| MiniMax | Official site | Official site | Official site | Tier pricing changes; check official site |
-| Zhipu GLM | Official site | Official site | Official site | Quarterly/annual discounts vary |
-| Kimi | Official site | Official site | Official site | Check official site |
-
-MiniMax also offers highspeed tiers (with M2.5-highspeed); exact tier pricing should be checked on the official site.
-
-> Bailian, Ark, and MiniMax may all run periodic promotions, but pricing and availability change quickly. Check the official site before subscribing. All five platforms price in CNY for convenient domestic payment. Kimi uses token-based billing without a 5-hour window mechanism.
+There is no universal winner. Budget buyers should start with Ark or MiniMax. Bailian is stronger for multi-model and team governance. GLM and Kimi make more sense when model preference matters more than the lowest monthly cost.
 
 ---
 
-## Quota Mechanism Comparison
+## The five products today
 
-This is the **most critical differentiator** across the five platforms:
+| Platform | Current product | Monthly entry price | Core quota model | Main coding models |
+|---|---|---:|---|---|
+| Volcengine Ark | Coding Plan | Limited-time CNY 9.9; regular Lite CNY 40 | Five-hour plus weekly/monthly limits | Doubao-Seed-2.1, GLM-5.3, Kimi-K2.7, MiniMax-M3, and DeepSeek-V4 family |
+| Alibaba Bailian | Token Plan Personal | Limited-time CNY 39; list CNY 60 | Credits in a fixed seven-day window | 17 multimodal models including Qwen3.8, DeepSeek-V4, and GLM |
+| MiniMax | Token Plan | CNY 29 | Five-hour request window for text; daily allowances for other modalities | MiniMax-M2.7 / M2.7-highspeed |
+| Zhipu | GLM Coding Plan | CNY 118 | Weekly credits plus concurrency/fair-use controls | GLM-5.3 |
+| Kimi | Kimi membership with Kimi Code | USD 19 | Shared monthly allowance plus Code-specific five-hour/weekly limits | Kimi K2.7 Code |
 
-| Dimension | Bailian | Ark | MiniMax | Zhipu GLM | Kimi |
-|-----------|---------|-----|---------|-----------|------|
-| Quota model | Monthly total | 5h rolling window | 5h rolling window | 5h rolling window | Monthly token total |
-| Entry-tier quota | 18,000 req/month | ~1,200 req/5h | 40 prompts/5h | ~80 prompts/5h | 5M tokens/month |
-| Mid-tier quota | 90,000 req/month | ~6,000 req/5h | 100 prompts/5h | ~400 prompts/5h | 20M tokens/month |
-| When exhausted | Service stops | Waits for window reset | Waits for window reset | Waits for window reset | Service stops |
-
-**Key takeaways:**
-- **Bailian** uses a monthly total quota, ideal for occasional burst usage (e.g., late-night intensive coding sessions) — but once the monthly pool is depleted, service stops.
-- **Ark / MiniMax / GLM** all use 5-hour sliding windows, smoother for steady daily use but limiting for short burst sessions.
-- **Kimi** is the only platform using token-based billing with no 5-hour window, making it the most friendly for long continuous coding sessions — but total capacity depends on token consumption rates.
+> Prices are those displayed on official pages on August 26, 2026. Promotions, inventory, regions, and renewal terms can change. Ark's CNY 9.9 and Bailian's CNY 39 are promotional entry prices, not permanent renewal promises.
 
 ---
 
-## Model Ecosystem Comparison
+## Pricing and quotas: stop comparing one “request” with another
 
-| Platform | Model Count | Key Models | Highlights |
-|----------|-------------|------------|------------|
-| Bailian | 8 | qwen3-coder-next, qwen3.5-plus, MiniMax-M2.5, GLM-5 | Full Qwen lineup + third-party aggregation |
-| Ark | 5 | Doubao-Seed-Code, DeepSeek-V3.2, Kimi-K2.5 | Exclusive Doubao + DeepSeek |
-| MiniMax | 3 | MiniMax-M2.5, M2.1, M2 | M2.5 flagship + legacy versions, optional highspeed tier |
-| Zhipu GLM | 4 | GLM-5, GLM-4.7, GLM-4.5-Air | Multi-tier flexible switching |
-| Kimi | 1 | Kimi-K2.5 | Focused on in-house model |
+### Volcengine Ark Coding Plan
 
-- **Bailian leads in model variety** (8 models), covering the full Qwen Coder series plus third-party models (MiniMax-M2.5, GLM-5, Kimi-K2.5).
-- **Ark exclusively features** ByteDance's in-house Doubao-Seed-Code and DeepSeek-V3.2.
-- **MiniMax** supports M2.5, M2.1, and M2 — three models. M2.5 performs strongly on coding benchmarks, and highspeed tiers add M2.5-highspeed.
-- **GLM** provides multi-tier models; GLM-4.7 is recommended for daily use (no extra quota multiplier).
-- **Kimi** focuses on its in-house K2.5 model only.
+Ark keeps two tiers, Lite and Pro. Its current page says “limited-time CNY 9.9 and up.” Public campaign material lists regular prices of CNY 40 for Lite and CNY 200 for Pro, with CNY 9.9 / 49.9 commonly used as promotional prices. Eligibility and duration should be checked at checkout.
 
----
+| Tier | Regular price | Promotional entry | Published five-hour allowance |
+|---|---:|---:|---:|
+| Lite | CNY 40/month | Limited-time CNY 9.9 and up | Up to about 1,200 requests |
+| Pro | CNY 200/month | Common promo CNY 49.9 | 5x Lite, up to about 6,000 requests |
 
-## Client Compatibility
+Ark now applies more than a five-hour window: its console can also show weekly and monthly limits. One complex agent task can trigger many underlying requests, so “1,200 requests” does not mean 1,200 user prompts.
 
-| Platform | Supported Clients | API Protocol | Native Claude Code Support |
-|----------|------------------|-------------|---------------------------|
-| Bailian | 7 | OpenAI | ❌ Requires proxy |
-| Ark | 11 | OpenAI + Anthropic | ✅ Native Anthropic protocol |
-| MiniMax | 7+ | OpenAI | ❌ Requires proxy |
-| Zhipu GLM | 20+ | OpenAI | ❌ Requires proxy |
-| Kimi | 3 | OpenAI | ❌ Requires proxy |
+### Alibaba Bailian Token Plan
 
-- **Ark is the only platform supporting the Anthropic protocol**, allowing Claude Code to connect natively without proxy adapters.
-- **Zhipu GLM has the broadest client coverage** (20+ clients), compatible with virtually every mainstream AI coding tool.
-- **Kimi has the fewest supported clients** (3), with limited coverage for now.
+Bailian's old Coding Plan is winding down. Lite stopped accepting new purchases on March 20, and Pro will not be restocked after sell-out. New buyers should compare Token Plan, not the old 18,000 / 90,000 monthly-request figures.
 
----
+| Personal tier | Current promo | List price | Credits per seven days | Suggested agent concurrency |
+|---|---:|---:|---:|---:|
+| Lite | CNY 39 | CNY 60 | 2,500 | 1–2 |
+| Standard | CNY 139 | CNY 180 | 10,000 | 3–4 |
+| Pro | CNY 499 | CNY 600 | 40,000 | 6–8 |
 
-## Unique Selling Points
+Credits are deducted using model-, token-, and Harness-specific coefficients. Once the window is exhausted, service pauses until the seven-day reset or an extra bundle is purchased. Team editions instead use subscription-month credit pools without the seven-day window and add seats, usage analytics, and a no-training data commitment.
 
-Each platform's key differentiator:
+### MiniMax Token Plan
 
-| Platform | Differentiator |
-|----------|---------------|
-| Bailian | Monthly total quota (unique), full Qwen lineup, good fit for heavy monthly usage |
-| Ark | Auto mode (automatic model selection), native Anthropic protocol, most clients |
-| MiniMax | Excellent M2.5 coding value, optional highspeed tier |
-| Zhipu GLM | 4 exclusive MCPs (web search, vision, page reader, repo), 200K context window |
-| Kimi | Token-based quota (unique), no 5h window limit, best for long coding sessions |
+MiniMax uses the easiest unit to understand: text models consume requests and recover on a rolling five-hour basis; image, speech, video, and music allowances reset daily.
 
----
+| Standard tier | Monthly price | M2.7 allowance |
+|---|---:|---:|
+| Starter | CNY 29 | 600 requests / 5h |
+| Plus | CNY 49 | 1,500 requests / 5h |
+| Max | CNY 119 | 4,500 requests / 5h |
 
-## Overall Ratings
+M2.7-highspeed tiers cost CNY 98, 199, and 899 for Plus, Max, and Ultra, with 1,500 / 4,500 / 30,000 requests per five hours. Most individual developers should start with Plus before paying for highspeed.
 
-| Dimension | Bailian | Ark | MiniMax | Zhipu GLM | Kimi |
-|-----------|---------|-----|---------|-----------|------|
-| Coding Ability | 8.5 | 8.0 | 8.5 | 8.5 | 7.5 |
-| Cost Efficiency | 9.5 | 9.5 | 9.0 | 8.0 | 7.5 |
-| Flexibility | 8.5 | 8.5 | 7.0 | 8.5 | 6.5 |
-| China Accessibility | 9.5 | 9.8 | 9.0 | 9.5 | 9.0 |
-| Bundled Perks | 6.5 | 7.0 | 6.0 | 9.0 | 6.0 |
+### GLM Coding Plan
 
----
+GLM's live monthly prices are completely different from the March edition of this article:
 
-## Scenario-Based Selection Advice
+| Tier | Monthly price | Current official allowance description |
+|---|---:|---|
+| Lite | CNY 118 | 10,000 credits per week; small repositories |
+| Pro | CNY 538 | 6x Lite; faster generation and selected MCPs |
+| Max | CNY 1,078 | 14x Lite; peak-time resource priority |
 
-**Budget-first / low-entry trial → Start with whichever platform currently has the best promo**
-- Promo pricing and entry windows change quickly, so check the official site first
-- If you prefer monthly-total quotas, see whether Bailian currently has a suitable new-purchase path
+Quarterly and annual subscriptions are discounted; check the monthly equivalent for the selected billing period. GLM has shifted from prompt estimates to credits and service tiers. Do not use the old CNY 49 / 149 / 469 prices or 80 / 400 / 1,600 prompt figures as current purchase guidance.
 
-**Heavy Claude Code users → Ark**
-- The only platform with native Anthropic protocol support — no proxy needed
-- Auto mode picks the best model automatically, saving effort and quota
+### Kimi Code
 
-**Best value + speed → MiniMax**
-- Clean tiering and CNY billing
-- Optional M2.5-highspeed for users who care about throughput
+Kimi Code is no longer a standalone CNY Coding Plan. It is one benefit in a Kimi membership. All membership features consume one token-based monthly allowance pool, while Kimi Code also has separate five-hour and weekly rate limits.
 
-**Need MCP value-adds → Zhipu GLM**
-- Web search, vision, page reader, and repo MCPs work out of the box
-- 20+ client coverage — nearly every tool connects
+| Membership | Monthly | Annual monthly equivalent | Estimated Agent allowance |
+|---|---:|---:|---:|
+| Moderato | $19 | $15 | 60 |
+| Allegretto | $39 | $31 | 150 |
+| Allegro | $99 | $79 | 360 |
+| Vivace | $199 | $159 | 720 |
 
-**Long continuous coding sessions → Kimi**
-- Monthly token quota with no 5-hour window restrictions
-- Ideal for deep development sessions without frequency-based interruptions
-
-**Multi-model needs → Bailian / Zhipu GLM**
-- Bailian offers the most models (8), spanning Qwen, MiniMax, GLM, and Kimi
-- Zhipu provides 4 GLM-series models with multi-tier flexible switching
+The Agent allowance is an official typical-task estimate, not a fixed number of Code requests. Kimi Code, Agent, Claw, Deep Research, slides, and other features compete for the same pool. If you only need a general third-party API, Kimi's pay-as-you-go developer platform is a separate product.
 
 ---
 
-## Further Reading
+## Models and protocols: the most important corrections
 
-Want a deeper dive into a specific head-to-head? Check out our detailed 1v1 comparisons:
+| Platform | Model strategy | OpenAI compatible | Anthropic compatible | Main restriction |
+|---|---|:---:|:---:|---|
+| Ark | Doubao + GLM + Kimi + MiniMax + DeepSeek, with Auto routing | Yes | Yes | Plan keys and Base URLs differ from pay-as-you-go API credentials |
+| Bailian | Qwen-led aggregation with DeepSeek, GLM, and multimodal models | Yes | Yes | Personal edition is currently Beijing-region only; weighted Credits |
+| MiniMax | M2.7 as the main model; highspeed on speed tiers | Yes | Yes | Token Plan keys and pay-as-you-go API keys are separate |
+| GLM | Focused on GLM-5.3 | Yes | Yes | Restricted to officially supported tools; concurrency and priority vary by tier |
+| Kimi | Kimi Code defaults to K2.7 Code | — | — | Membership covers official Code CLI/IDE use; general API calls are billed separately |
 
-- [Bailian vs Volcengine Ark Coding Plan: Deep Comparison](/en/compare/bailian-coding-plan-vs-ark-coding-plan)
-- [MiniMax vs Zhipu GLM Coding Plan: Deep Comparison](/en/compare/minimax-coding-plan-vs-glm-coding-plan)
+Three corrections to the previous edition:
 
-Official platform links:
-- Bailian: [aliyun.com/benefit/scene/codingplan](https://www.aliyun.com/benefit/scene/codingplan)
-- Ark: [volcengine.com/activity/codingplan](https://www.volcengine.com/activity/codingplan)
-- MiniMax: [platform.minimaxi.com/subscribe/coding-plan](https://platform.minimaxi.com/subscribe/coding-plan)
-- Zhipu: [bigmodel.cn/glm-coding](https://bigmodel.cn/glm-coding)
-- Kimi: [platform.moonshot.cn/console/coding-plan](https://platform.moonshot.cn/console/coding-plan)
+1. **Ark is no longer the only Anthropic-compatible provider.** Bailian, MiniMax, and GLM also expose Anthropic-compatible access.
+2. **Bailian and MiniMax are no longer their old Coding Plans.** Old monthly-request figures and M2.5 comparisons are obsolete.
+3. **Kimi membership is not a general API subscription.** Kimi Code membership use and pay-as-you-go developer API use must be evaluated separately.
 
 ---
 
-> Data based on March 2026 evaluation. Plan contents, pricing, and promotions are subject to change at any time — please refer to each platform's official website for the latest information. Some quota figures are estimates; actual usage varies with model choice, prompt complexity, and other factors.
+## Recommendations by scenario
+
+### Budget under CNY 50/month
+
+- Want multiple model vendors and use Claude Code or Cursor: try Ark Lite first.
+- Mainly want MiniMax with simple quota math: MiniMax Plus at CNY 49 is a better daily driver than Starter.
+- Want Qwen3.8 and multimodal Harness tools: Bailian Lite is currently CNY 39, but uses a seven-day credit window.
+
+### Long-running agents
+
+- Do not assume a larger-looking quota unit means more work completed. Test context growth, cache hits, and tool-call amplification.
+- MiniMax requests are easiest to reason about. Ark publishes high request counts but still has multiple limit periods.
+- Bailian and GLM Credits vary with model and workload. Kimi's allowance is also shared with non-code membership features.
+
+### Multi-model and team management
+
+- Personal multi-model use: Ark or Bailian.
+- Seats, consolidated usage, and data governance: Bailian Token Plan Team is the most complete.
+- Doubao, Auto routing, and two API compatibility formats: Ark is the direct choice.
+
+### Following one vendor's latest model
+
+- MiniMax-M2.7: MiniMax Token Plan.
+- GLM-5.3: GLM Coding Plan.
+- Kimi K2.7 Code: Kimi membership / Kimi Code.
+
+---
+
+## Five checks before subscribing
+
+1. **Confirm the product name:** Coding Plan, Token Plan, Agent Plan, and membership are different products.
+2. **Confirm the dedicated key and Base URL:** plan credentials usually cannot be mixed with pay-as-you-go API keys.
+3. **Check every limit period:** five-hour, weekly, monthly, concurrency, and peak-time limits may coexist.
+4. **Verify official tool support:** some vendors prohibit use in self-built SaaS products, resale, or unsupported clients.
+5. **Run a real repository on the entry tier for one week:** track limit hits, time per task, and context growth before committing annually.
+
+---
+
+## Official sources and verification date
+
+- [Volcengine Ark Coding Plan](https://www.volcengine.com/activity/codingplan)
+- [Alibaba Bailian Token Plan overview](https://help.aliyun.com/zh/model-studio/token-plan-overview)
+- [MiniMax Token Plan pricing](https://platform.minimaxi.com/docs/guides/pricing-token-plan)
+- [GLM Coding Plan](https://bigmodel.cn/glm-coding)
+- [Kimi membership pricing](https://www.kimi.ai/zh-hans/help/membership/membership-pricing)
+- [Kimi K2.7 Code](https://www.kimi.ai/zh-hans/resources/kimi-k2-7-code)
+
+> Last verified: August 26, 2026. This comparison covers public personal-subscription buying decisions. It does not mix enterprise contract pricing, pay-as-you-go API rates, or short-lived coupons into the monthly ranking. Promotions and model lists can change, so reopen the relevant official page before purchase.
