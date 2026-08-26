@@ -19,7 +19,7 @@ As of August 26, 2026, the five major products have split into five different sh
 | Need | Start with | Why |
 |---|---|---|
 | Lowest-cost multi-model trial | **Volcengine Ark Coding Plan Lite** | The official page still advertises a limited-time CNY 9.9 entry price, with Auto routing and multiple model vendors |
-| A daily driver around CNY 50 | **MiniMax Token Plan Plus** | CNY 49/month, 1,500 M2.7 requests per five hours, plus multimodal allowances |
+| A daily driver around CNY 50 | **MiniMax Token Plan Plus** | CNY 49/month, one allowance across M3 / M2.7 and multimodal resources, estimated by MiniMax at roughly 3–4 agents |
 | Qwen, DeepSeek, GLM, and multimodal models under one subscription | **Bailian Token Plan** | Personal and team editions, OpenAI and Anthropic compatibility, and built-in Harness tools |
 | Latest GLM plus MCPs and a 1M context window | **GLM Coding Plan** | GLM-5.3, 20+ tools, and four MCP categories, but at a much higher new price |
 | Kimi K2.7 Code plus the broader Kimi suite | **Kimi membership** | Code, Agent, Claw, research, and productivity features share one allowance pool |
@@ -34,7 +34,7 @@ There is no universal winner. Budget buyers should start with Ark or MiniMax. Ba
 |---|---|---:|---|---|
 | Volcengine Ark | Coding Plan | Limited-time CNY 9.9; regular Lite CNY 40 | Five-hour plus weekly/monthly limits | Doubao-Seed-2.1, GLM-5.3, Kimi-K2.7, MiniMax-M3, and DeepSeek-V4 family |
 | Alibaba Bailian | Token Plan Personal | Limited-time CNY 39; list CNY 60 | Credits in a fixed seven-day window | 17 multimodal models including Qwen3.8, DeepSeek-V4, and GLM |
-| MiniMax | Token Plan | CNY 29 | Five-hour request window for text; daily allowances for other modalities | MiniMax-M2.7 / M2.7-highspeed |
+| MiniMax | Token Plan | CNY 49 | Unified usage meter with fixed five-hour and weekly windows | MiniMax-M3 / M2.7 and other supported first-party models |
 | Zhipu | GLM Coding Plan | CNY 118 | Weekly credits plus concurrency/fair-use controls | GLM-5.3 |
 | Kimi | Kimi membership with Kimi Code | USD 19 | Shared monthly allowance plus Code-specific five-hour/weekly limits | Kimi K2.7 Code |
 
@@ -69,15 +69,15 @@ Credits are deducted using model-, token-, and Harness-specific coefficients. On
 
 ### MiniMax Token Plan
 
-MiniMax uses the easiest unit to understand: text models consume requests and recover on a rolling five-hour basis; image, speech, video, and music allowances reset daily.
+MiniMax has replaced its model-specific request and daily allowances with one unified usage meter. Supported text, image, speech, and other resources share the subscription allowance, subject to both a fixed five-hour window and a weekly window.
 
-| Standard tier | Monthly price | M2.7 allowance |
-|---|---:|---:|
-| Starter | CNY 29 | 600 requests / 5h |
-| Plus | CNY 49 | 1,500 requests / 5h |
-| Max | CNY 119 | 4,500 requests / 5h |
+| Tier | Monthly price | Official use case | Official agent-use estimate |
+|---|---:|---|---:|
+| Plus | CNY 49 | Light personal development and everyday trials | 3–4 |
+| Max | CNY 119 | Frequent coding agents and multimodal calls | 4–5 |
+| Ultra | CNY 469 | Heavy agent workflows and longer use | 6–7 |
 
-M2.7-highspeed tiers cost CNY 98, 199, and 899 for Plus, Max, and Ultra, with 1,500 / 4,500 / 30,000 requests per five hours. Most individual developers should start with Plus before paying for highspeed.
+“Agent use” is MiniMax's typical-scenario estimate, not a fixed request count. The current public page no longer lists Starter, exact requests per five hours, or separate highspeed subscriptions. When either window is exhausted, users can wait for a reset, upgrade, use purchased credits, or switch to pay-as-you-go API billing. Plus remains the safer trial tier for most individual developers.
 
 ### GLM Coding Plan
 
@@ -112,7 +112,7 @@ The Agent allowance is an official typical-task estimate, not a fixed number of 
 |---|---|:---:|:---:|---|
 | Ark | Doubao + GLM + Kimi + MiniMax + DeepSeek, with Auto routing | Yes | Yes | Plan keys and Base URLs differ from pay-as-you-go API credentials |
 | Bailian | Qwen-led aggregation with DeepSeek, GLM, and multimodal models | Yes | Yes | Personal edition is currently Beijing-region only; weighted Credits |
-| MiniMax | M2.7 as the main model; highspeed on speed tiers | Yes | Yes | Token Plan keys and pay-as-you-go API keys are separate |
+| MiniMax | M3 / M2.7 plus supported image and speech resources under one allowance | Yes | Yes | Subscription keys and pay-as-you-go API keys are separate |
 | GLM | Focused on GLM-5.3 | Yes | Yes | Restricted to officially supported tools; concurrency and priority vary by tier |
 | Kimi | Kimi Code defaults to K2.7 Code | — | — | Membership covers official Code CLI/IDE use; general API calls are billed separately |
 
@@ -129,13 +129,13 @@ Three corrections to the previous edition:
 ### Budget under CNY 50/month
 
 - Want multiple model vendors and use Claude Code or Cursor: try Ark Lite first.
-- Mainly want MiniMax with simple quota math: MiniMax Plus at CNY 49 is a better daily driver than Starter.
+- Mainly want MiniMax under one subscription for text and multimodal resources: MiniMax Plus at CNY 49 is the current entry tier.
 - Want Qwen3.8 and multimodal Harness tools: Bailian Lite is currently CNY 39, but uses a seven-day credit window.
 
 ### Long-running agents
 
 - Do not assume a larger-looking quota unit means more work completed. Test context growth, cache hits, and tool-call amplification.
-- MiniMax requests are easiest to reason about. Ark publishes high request counts but still has multiple limit periods.
+- MiniMax and Ark both apply multiple limit periods, including five-hour and weekly windows; MiniMax users should follow the unified usage meter in the console.
 - Bailian and GLM Credits vary with model and workload. Kimi's allowance is also shared with non-code membership features.
 
 ### Multi-model and team management
@@ -146,7 +146,7 @@ Three corrections to the previous edition:
 
 ### Following one vendor's latest model
 
-- MiniMax-M2.7: MiniMax Token Plan.
+- MiniMax-M3 / M2.7: MiniMax Token Plan.
 - GLM-5.3: GLM Coding Plan.
 - Kimi K2.7 Code: Kimi membership / Kimi Code.
 

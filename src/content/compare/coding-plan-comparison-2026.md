@@ -19,7 +19,7 @@ draft: false
 | 需求 | 优先看 | 原因 |
 |---|---|---|
 | 最低成本试用、多模型切换 | **火山方舟 Coding Plan Lite** | 官网仍显示限时 ¥9.9 起，支持 Auto 与多家模型 |
-| ¥50 左右的个人日常主力 | **MiniMax Token Plan Plus** | ¥49/月，M2.7 每 5 小时 1,500 次请求，另含多模态额度 |
+| ¥50 左右的个人日常主力 | **MiniMax Token Plan Plus** | ¥49/月，统一覆盖 M3 / M2.7 与多模态资源，官网估算约 3–4 个 Agent 用量 |
 | 想同时用 Qwen、DeepSeek、GLM 等多模态模型 | **百炼 Token Plan** | 个人/团队版齐全，OpenAI + Anthropic 双协议，Harness 能力完整 |
 | 只想用最新 GLM，重视 MCP 与 1M 上下文 | **GLM Coding Plan** | GLM-5.3、20+ 工具、4 类 MCP，但新价格明显上移 |
 | 想用 Kimi K2.7 Code 与 Kimi 全家桶 | **Kimi 会员** | Code、Agent、Claw、研究与办公共用额度池，适合 Kimi 生态用户 |
@@ -34,7 +34,7 @@ draft: false
 |---|---|---:|---|---|
 | 火山方舟 | Coding Plan | 限时 ¥9.9；常规 Lite ¥40 | 5 小时 + 周/月多周期限额 | Doubao-Seed-2.1、GLM-5.3、Kimi-K2.7、MiniMax-M3、DeepSeek-V4 系列 |
 | 阿里云百炼 | Token Plan 个人版 | 限时 ¥39；原价 ¥60 | Credits，7 天固定窗口 | Qwen3.8、DeepSeek-V4、GLM 等 17 款多模态模型 |
-| MiniMax | Token Plan | ¥29 | 文本 5 小时 request；其他模态按日 | MiniMax-M2.7 / M2.7-highspeed |
+| MiniMax | Token Plan | ¥49 | 统一额度进度条，5 小时固定窗口 + 周窗口 | MiniMax-M3 / M2.7 等全系模型 |
 | 智谱 | GLM Coding Plan | ¥118 | 周积分 + 并发/公平使用限制 | GLM-5.3 |
 | Kimi | Kimi 会员内含 Kimi Code | $19 | 共享月度额度池 + Code 5 小时/周限额 | Kimi K2.7 Code |
 
@@ -69,15 +69,15 @@ Credits 会按模型、Token 和 Harness 工具的系数扣减；窗口触顶后
 
 ### MiniMax Token Plan
 
-MiniMax 的单位最直观：文本模型按 request 计数，每 5 小时滚动恢复；图像、语音、视频和音乐按日额度单独计算。
+MiniMax 已把原先按模型拆分的请求/日额度改成统一用量进度条。文本、图像和语音等支持资源共享套餐额度，并同时受 5 小时固定窗口与周窗口约束。
 
-| 标准版 | 月付 | M2.7 请求额度 |
-|---|---:|---:|
-| Starter | ¥29 | 600 次 / 5 小时 |
-| Plus | ¥49 | 1,500 次 / 5 小时 |
-| Max | ¥119 | 4,500 次 / 5 小时 |
+| 套餐 | 月付 | 官网适合场景 | 官网 Agent 用量估算 |
+|---|---:|---|---:|
+| Plus | ¥49 | 轻量个人开发与日常试用 | 3–4 个 |
+| Max | ¥119 | 高频编程 Agent 与多模态调用 | 4–5 个 |
+| Ultra | ¥469 | 重度 Agent 工作流与更长时间使用 | 6–7 个 |
 
-另有 M2.7-highspeed 极速版：Plus ¥98、Max ¥199、Ultra ¥899，对应 1,500 / 4,500 / 30,000 次请求每 5 小时。对大多数个人开发者，先从 Plus 开始比直接买极速版更稳妥。
+「Agent 用量」是官网给出的典型场景估算，不是固定请求次数。当前公开页不再列出 Starter、每 5 小时具体请求数或独立 highspeed 套餐；达到任一窗口后，可以等待重置、升级套餐、使用已购积分，或切换到按量 API。对大多数个人开发者，Plus 仍是更稳妥的试用入口。
 
 ### GLM Coding Plan
 
@@ -112,7 +112,7 @@ Kimi Code 不再是独立的人民币 Coding Plan，而是 Kimi 会员权益之�
 |---|---|:---:|:---:|---|
 | 方舟 | Doubao + GLM + Kimi + MiniMax + DeepSeek，支持 Auto | ✅ | ✅ | 套餐 Key / Base URL 与按量 API 不同 |
 | 百炼 | Qwen 为主，聚合 DeepSeek、GLM 等多模态模型 | ✅ | ✅ | 个人版仅华北 2（北京）；Credits 加权扣减 |
-| MiniMax | M2.7 单一主力，极速版可用 highspeed | ✅ | ✅ | Token Plan Key 与按量 API Key 不互通 |
+| MiniMax | M3 / M2.7 与图像、语音等全系资源共享额度 | ✅ | ✅ | 订阅 Key 与按量 API Key 不互通 |
 | GLM | 聚焦 GLM-5.3 | ✅ | ✅ | 仅限官方支持工具；不同档位并发和优先级不同 |
 | Kimi | Kimi Code 默认 K2.7 Code | — | — | 会员权益面向官方 Code CLI / IDE 插件；通用 API 另计费 |
 
@@ -129,13 +129,13 @@ Kimi Code 不再是独立的人民币 Coding Plan，而是 Kimi 会员权益之�
 ### 预算不超过 ¥50/月
 
 - 想切换多家模型、常用 Claude Code / Cursor：先试方舟 Lite。
-- 主要使用 MiniMax、希望额度规则简单：MiniMax Plus ¥49 比 Starter 更适合作为日常主力。
+- 主要使用 MiniMax、希望一个订阅覆盖文本与多模态资源：MiniMax Plus ¥49 是当前入门档。
 - 想用 Qwen3.8 与多模态 Harness：百炼 Lite 当前限时 ¥39，但要接受 7 天 Credits 窗口。
 
 ### 长时间连续跑 Agent
 
 - 先排除「额度单位看起来大」的错觉，分别压测上下文增长、缓存命中和工具调用次数。
-- MiniMax 的 request 口径最易理解；方舟请求数较大，但仍有多周期限制。
+- MiniMax 和方舟都有 5 小时 + 周等多周期限制；MiniMax 需直接看控制台统一额度进度条。
 - 百炼与 GLM 的 Credits / 积分会随模型和上下文复杂度变化；Kimi 还会与其他会员功能共享额度。
 
 ### 需要多模型与团队管理
@@ -146,7 +146,7 @@ Kimi Code 不再是独立的人民币 Coding Plan，而是 Kimi 会员权益之�
 
 ### 只追某一家最新模型
 
-- MiniMax-M2.7：MiniMax Token Plan。
+- MiniMax-M3 / M2.7：MiniMax Token Plan。
 - GLM-5.3：GLM Coding Plan。
 - Kimi K2.7 Code：Kimi 会员 / Kimi Code。
 
