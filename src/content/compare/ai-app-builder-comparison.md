@@ -2,14 +2,14 @@
 title: "AI 应用构建器横评：Lovable vs Bolt.new vs v0 vs Youware"
 description: "2026 年四款主流 AI App Builder 全面对比：Lovable、Bolt.new、v0、Youware 的核心功能、定价、适用场景和选型建议。"
 date: "2026-03-04"
-tags: ["lovable", "bolt", "v0", "youware", "app-builder", "vibe-coding"]
+tags: ["lovable", "bolt", "v0", "youware", "vibekit", "app-builder", "vibe-coding"]
 pillar: compare
 content_status: keep
 locale_strategy: mirrored
 draft: false
 ---
 
-AI 应用构建器（App Builder）是近两年最火的 Vibe Coding 品类：用自然语言描述需求，平台直接生成完整的可部署 Web 应用。本文横评四款代表产品：Lovable、Bolt.new、v0 by Vercel、Youware。
+AI 应用构建器（App Builder）是近两年最火的 Vibe Coding 品类：用自然语言描述需求，平台直接生成完整的可部署 Web 应用。本文横评本站 [AI 应用构建器索引](/zh/tools/builder) 收录的五款产品：Lovable、Bolt.new、v0 by Vercel、Youware、VibeKit。
 
 ## 一句话总结
 
@@ -17,19 +17,21 @@ AI 应用构建器（App Builder）是近两年最火的 Vibe Coding 品类：�
 - **Bolt.new**：灵活性最高，开源版（bolt.diy）支持自部署、自定义模型，开发者首选
 - **v0**：Vercel 出品，React/Next.js UI 生成最强，但仅限前端，适合 Vercel 生态用户
 - **Youware**：非技术用户最友好，支持语音输入和 MCP，面向创始人和产品经理
+- **VibeKit**：唯一能在手机上驱动的一款，原生 iOS App + 托管式「每个应用一个常驻 agent」，出了原型后 agent 继续接着改；仅 iOS，无 Android
 
 ---
 
 ## 基本信息
 
-| 项目 | Lovable | Bolt.new | v0 | Youware |
-|------|---------|----------|----|---------|
-| 开源 | ❌ | ✅ bolt.diy | ❌ | ❌ |
-| 开发商 | Lovable | StackBlitz | Vercel | Youware |
-| 免费额度 | 30 消息/月 | 有限 tokens | 200 credits/月 | 500 credits |
-| 付费起价 | $21/月 | $20/月 | $20/月 | $20/月 |
-| 后端支持 | ✅ Supabase | ✅ | 有限 | ✅ |
-| MCP 支持 | ❌ | ❌ | ❌ | ✅ |
+| 项目 | Lovable | Bolt.new | v0 | Youware | VibeKit |
+|------|---------|----------|----|---------|---------|
+| 开源 | ❌ | ✅ bolt.diy | ❌ | ❌ | ❌ |
+| 开发商 | Lovable | StackBlitz | Vercel | Youware | VibeKit |
+| 免费额度 | 30 消息/月 | 有限 tokens | 200 credits/月 | 500 credits | 10 AI 会话/月，2 个托管应用 |
+| 付费起价 | $21/月 | $20/月 | $20/月 | $20/月 | $19.99/月 |
+| 后端支持 | ✅ Supabase | ✅ | 有限 | ✅ | ✅ 托管 Postgres |
+| MCP 支持 | ❌ | ❌ | ❌ | ✅ | ✅ |
+| 原生移动端 | ❌ | ❌ | ❌ | ❌ | ✅ 仅 iOS |
 
 ---
 
@@ -108,6 +110,16 @@ AI 应用构建器（App Builder）是近两年最火的 Vibe Coding 品类：�
 | Pro | $20/月 | 2,000+ credits，4 个后端项目，去水印 |
 | Ultra | $200/月 | 团队版 |
 
+### VibeKit
+
+| 套餐 | 价格 | 额度 |
+|------|------|------|
+| Free | $0 | 10 AI 会话/月，2 个托管应用，数据库为 $3/月附加 |
+| Builder | $19.99/月 | 无限会话，3 个托管应用，1 个自定义域名，含数据库，每月含 $20 AI 额度 |
+| Pro | $49.99/月 | 无限会话，10 个托管应用，无限自定义域名，含数据库，每月含 $20 AI 额度 |
+
+> 计费方式和另外四款不同：付费套餐每月含 $20 AI 额度，超出按量计费；BYOK（接自己的 Anthropic/OpenAI key）无加价，AI 费用直接付给提供商，平台只收托管和常驻 agent 的钱。
+
 ---
 
 ## 技术栈支持
@@ -134,7 +146,7 @@ AI 应用构建器（App Builder）是近两年最火的 Vibe Coding 品类：�
 
 ## 国内可用性
 
-四款工具均不支持国内直连，**国内使用均需代理**。相比之下：
+五款工具均不支持国内直连，**国内使用均需代理**。相比之下：
 
 - 面向国内用户，[Trae CN](https://www.trae.ai/cn) + 豆包/DeepSeek 是更好的选择
 - 如需 DIY App Builder 体验，bolt.diy 接入国内 API（火山方舟等）是可行路线
@@ -167,16 +179,22 @@ AI 应用构建器（App Builder）是近两年最火的 Vibe Coding 品类：�
 - 需要通过 MCP 连接第三方服务
 - 希望最简单的托管体验，完全不想碰代码
 
+### 选 VibeKit 如果：
+- 你想直接在手机上构建和上线，而不是坐在桌面浏览器前
+- 你希望出了原型之后 agent 继续接着改，而不是一次性生成完就结束
+- 你想接自己的 Anthropic/OpenAI key，AI 按提供商原价付费
+- 不适合：你用 Android（仅 iOS），或你想自己掌控、自部署运行时（应用跑在 VibeKit 的容器里）
+
 ---
 
 ## 综合评分
 
-| 维度 | Lovable | Bolt.new | v0 | Youware |
-|------|---------|----------|----|---------|
-| 生成质量 | 8.5/10 | 8.0/10 | 7.5/10 | 7.5/10 |
-| 性价比 | 7.5/10 | 8.5/10 | 8.0/10 | 8.0/10 |
-| 灵活性 | 6.5/10 | 9.0/10 | 5.0/10 | 6.0/10 |
-| 上手难度 | 低 | 低-中 | 低 | 极低 |
-| 适合人群 | 独立开发者 | 开发者 | 前端开发者 | 非技术用户 |
+| 维度 | Lovable | Bolt.new | v0 | Youware | VibeKit |
+|------|---------|----------|----|---------|---------|
+| 生成质量 | 8.5/10 | 8.0/10 | 7.5/10 | 7.5/10 | 7.0/10 |
+| 性价比 | 7.5/10 | 8.5/10 | 8.0/10 | 8.0/10 | 7.0/10 |
+| 灵活性 | 6.5/10 | 9.0/10 | 5.0/10 | 6.0/10 | 6.0/10 |
+| 上手难度 | 低 | 低-中 | 低 | 极低 | 低 |
+| 适合人群 | 独立开发者 | 开发者 | 前端开发者 | 非技术用户 | 手机优先的构建者 |
 
 > 数据基于 2026 年 3 月评测。AI App Builder 领域迭代极快，请以各平台官网信息为准。
