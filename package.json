@@ -20,19 +20,19 @@
     "check:seo": "node scripts/check-seo-routes.mjs"
   },
   "dependencies": {
-    "@astrojs/markdown-remark": "^7.2.2",
-    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/markdown-remark": "^7.3.1",
+    "@astrojs/sitemap": "^3.7.4",
     "@astrojs/tailwind": "^6.0.2",
     "@tailwindcss/typography": "^0.5.20",
     "@vercel/analytics": "^1.6.1",
-    "astro": "^7.2.1",
-    "js-yaml": "^4.3.1",
-    "sharp": "^0.35.3",
+    "astro": "^7.3.2",
+    "js-yaml": "^4.3.2",
+    "sharp": "^0.35.4",
     "tailwindcss": "^3.4.0"
   },
   "overrides": {
-    "astro": "^7.2.1",
+    "astro": "^7.3.2",
     "picomatch": "^2.3.2",
-    "sharp": "^0.35.3"
+    "sharp": "^0.35.4"
   }
 }
