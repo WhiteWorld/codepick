@@ -5,7 +5,7 @@ logo: /images/youware.png
 url: https://youware.com
 repo: null
 current_version: null
-version_tracked_at: '2026-06-06'
+version_tracked_at: '2026-09-10'
 
 pricing:
   model: subscription
@@ -27,7 +27,7 @@ pricing:
       per_user: false
       limits: 36,000 credits/月（20,000 base + 16,000 bonus），150 次 Credit Care/月，无限项目，私有项目与一对一服务
       limits_en: 36,000 credits/month (20,000 base + 16,000 bonus), 150 Credit Care/month, unlimited projects, private projects, one-on-one service
-  price_updated_at: '2026-06-06'
+  price_updated_at: '2026-09-10'
   note: 年付节省 17%；Pro/Ultra 未用完 credits 可在订阅期内 rollover；top-up 仅限年付用户，额外 credits 2 年有效
   note_en: Yearly billing saves 17%; Pro/Ultra unused credits roll over during the subscription period; top-ups are available only for yearly subscribers and are valid for two years
 
@@ -47,11 +47,17 @@ features:
   builder_mode: true
   ide_base: "Web Builder"
   supported_models:
+    - OpenAI O3 Pro
     - GPT-4o
-    - Veo3
+    - Claude Sonnet 4.5
+    - Gemini 2.5 Pro
+    - DeepSeek V3
+    - Claude Haiku 3.5
+    - Midjourney
+    - GPT-Image-1
+    - Gemini Imagen 4
     - Flux AI
-    - Sora 2
-  supported_os: [Web]
+  supported_os: [Web, iOS, Android]
 
 best_for:
   - 非技术创业者快速构建 Web 应用
@@ -66,12 +72,12 @@ not_for_en:
   - Developers needing fine-grained code control
 
 quick_start:
-  - 访问 youware.com，用邮箱或 GitHub 注册账号（Free 套餐含 500 credits）
+  - 访问 youware.com，用邮箱或 GitHub 注册账号（Free 套餐提供试用 credits）
   - 在输入框用自然语言描述你想构建的应用，也支持语音输入
   - AI 自动生成完整 Web 应用并提供实时预览，可继续对话修改
   - 满意后可直接在平台托管，或导出代码继续开发
 quick_start_en:
-  - "Visit youware.com and sign up with email or GitHub (Free plan: 500 credits)"
+  - "Visit youware.com and sign up with email or GitHub (Free plan includes trial credits)"
   - Describe the app you want in natural language in the input box; voice input is also supported
   - AI generates a complete web app with live preview; keep chatting to refine
   - Host directly on the platform when satisfied, or export code for further development
@@ -80,6 +86,10 @@ china_note: 国内可直连访问，无需翻墙；适合快速构建 Web 应用
 china_note_en: Directly accessible from China without VPN; ideal for quickly building web app prototypes; supports voice input
 
 changelog:
+  - date: '2026-09-10'
+    type: update
+    summary: 数据复核：Free/Pro/Ultra 价格与 3000/36000 月度 credits 保持不变；移除已无依据的 Free 500 credits 表述，更新当前文本/图像模型与 iOS/Android 支持
+    summary_en: Data review — Free/Pro/Ultra pricing and 3,000/36,000 monthly credits remain unchanged; removed the unsupported Free 500-credit claim and refreshed current text/image models plus iOS/Android support
   - date: '2026-03-04'
     type: announcement
     summary: 首次收录
@@ -88,12 +98,15 @@ changelog:
 data_sources:
   - url: https://youware.com
     type: pricing
-    last_checked: '2026-06-06'
+    last_checked: '2026-09-10'
   - url: https://docs.youware.com/introduction/plans-and-pricing
     type: pricing
-    last_checked: '2026-06-06'
+    last_checked: '2026-09-10'
+  - url: https://docs.youware.com/introduction/faq
+    type: documentation
+    last_checked: '2026-09-10'
 
-last_full_review: '2026-06-06'
-next_review_due: '2026-09-04'
+last_full_review: '2026-09-10'
+next_review_due: '2026-12-09'
 review_frequency_days: 90
 confidence: medium
