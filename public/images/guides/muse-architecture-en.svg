@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1300" viewBox="0 0 1240 1300" role="img" aria-labelledby="title desc">
+<title id="title">Muse: how a task keeps moving</title>
+<desc id="desc">Hatch advances the loop inside a Meta-hosted dedicated VM, calls external model inference through a proxy, and feeds tool results into later context.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M1 1L7 4L1 7" fill="none" stroke="#6A7F91" stroke-width="1.5"/></marker></defs>
+<style>text{font-family:"PingFang SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;fill:#192F40}</style>
+<rect width="1240" height="1300" fill="#FFFFFF"/>
+<text x="44" y="47" font-size="34" font-weight="600" text-anchor="start">Muse: how a task keeps moving</text>
+<rect x="250" y="80" width="740" height="112" rx="14" fill="#EDF3FF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="270" y="122" font-size="27" font-weight="600" text-anchor="start">Client on the user device</text>
+<text x="270" y="163" font-size="24" font-weight="400" text-anchor="start">Goals and constraints · Results · Approvals</text>
+<rect x="22" y="245" width="1196" height="815" rx="14" fill="#FFFFFF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="55" y="280" font-size="30" font-weight="600" text-anchor="start">Meta-hosted backend</text>
+<rect x="80" y="315" width="520" height="115" rx="14" fill="#EDF3FF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="100" y="357" font-size="27" font-weight="600" text-anchor="start">Outside VM: model inference</text>
+<text x="100" y="398" font-size="24" font-weight="400" text-anchor="start">Context → answer or tool request</text>
+<rect x="660" y="315" width="500" height="115" rx="14" fill="#EDF3FF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="680" y="357" font-size="27" font-weight="600" text-anchor="start">Platform capabilities</text>
+<text x="680" y="398" font-size="24" font-weight="400" text-anchor="start">VM hosting, backups, telemetry</text>
+<rect x="70" y="510" width="1100" height="495" rx="14" fill="#F6F9FC" stroke="#CBD8E4" stroke-width="2"/>
+<text x="100" y="550" font-size="29" font-weight="600" text-anchor="start">Dedicated VM per user</text>
+<rect x="95" y="580" width="660" height="385" rx="14" fill="#FFFFFF" stroke="#CBD8E4" stroke-width="2"/>
+<rect x="780" y="580" width="365" height="385" rx="14" fill="#FFFFFF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="115" y="614" font-size="26" font-weight="600" text-anchor="start">Runtime cell · systemd-nspawn</text>
+<text x="800" y="614" font-size="26" font-weight="600" text-anchor="start">Isolated services</text>
+<path d="M620,192 L620,219 L42,219 L42,636 L425,636 L425,660" fill="none" stroke="#6A7F91" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+<path d="M340,430 L340,475 L1155,475 L1155,636 L1055,636 L1055,660" fill="none" stroke="#6A7F91" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+<rect x="120" y="660" width="610" height="130" rx="14" fill="#EDF3FF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="140" y="702" font-size="27" font-weight="600" text-anchor="start">Hatch: agent loop controller</text>
+<text x="140" y="743" font-size="24" font-weight="400" text-anchor="start">Prepare context → dispatch → collect results</text>
+<rect x="120" y="850" width="275" height="100" rx="14" fill="#EDF7F2" stroke="#CBD8E4" stroke-width="2"/>
+<text x="140" y="892" font-size="25" font-weight="600" text-anchor="start">Memory and files</text>
+<text x="140" y="933" font-size="24" font-weight="400" text-anchor="start">Material and artifacts</text>
+<rect x="435" y="850" width="295" height="100" rx="14" fill="#EDF3FF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="455" y="892" font-size="25" font-weight="600" text-anchor="start">Tools and subtasks</text>
+<text x="455" y="933" font-size="24" font-weight="400" text-anchor="start">Content, status, errors</text>
+<rect x="800" y="660" width="325" height="130" rx="14" fill="#FFF5E6" stroke="#CBD8E4" stroke-width="2"/>
+<text x="820" y="702" font-size="24" font-weight="600" text-anchor="start">Inference proxy / safety</text>
+<text x="820" y="743" font-size="24" font-weight="400" text-anchor="start">Calls the external model</text>
+<rect x="800" y="850" width="325" height="100" rx="14" fill="#FFF5E6" stroke="#CBD8E4" stroke-width="2"/>
+<text x="820" y="892" font-size="25" font-weight="600" text-anchor="start">State and permissions</text>
+<text x="820" y="933" font-size="24" font-weight="400" text-anchor="start">State · Secrets · Policy</text>
+<path d="M730,715 L800,715" fill="none" stroke="#6A7F91" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+<path d="M255,790 L255,850" fill="none" stroke="#6A7F91" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+<path d="M580,790 L580,850" fill="none" stroke="#6A7F91" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+<path d="M730,900 L800,900" fill="none" stroke="#6A7F91" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+<text x="425" y="830" font-size="23" font-weight="400" text-anchor="middle">Results → next context</text>
+<text x="620" y="1037" font-size="25" font-weight="400" text-anchor="middle">Controlled actions require permission</text>
+<rect x="210" y="1110" width="820" height="110" rx="14" fill="#EDF3FF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="230" y="1152" font-size="28" font-weight="600" text-anchor="start">External sites and connectors</text>
+<text x="230" y="1193" font-size="24" font-weight="400" text-anchor="start">Authorized requests; content and execution results</text>
+<path d="M1125,900 L1190,900 L1190,1090 L1000,1090 L1000,1110" fill="none" stroke="#6A7F91" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+<text x="620" y="1256" font-size="23" font-weight="400" text-anchor="middle">Learning schematic; ingress, push, and scheduling topology remain unspecified.</text>
+<text x="620" y="1287" font-size="21" font-weight="400" text-anchor="middle">Sources: Meta publications + Muse-reported observations · 2026-09-23</text>
+</svg>
