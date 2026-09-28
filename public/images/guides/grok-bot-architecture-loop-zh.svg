@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1280" viewBox="0 0 1240 1280" role="img" aria-labelledby="title desc">
+<title id="title">一次 Grok Bot 任务怎么往下走</title>
+<desc id="desc">目标与停止线进入共享云电脑。有插件走插件，否则占用该 Bot 的 screen。敏感输入交还用户，风险动作经过 Auto Review。Webhook 的 200 只表示开始运行。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M1 1L7 4L1 7" fill="none" stroke="#6A7F91" stroke-width="1.5"/></marker></defs>
+<style>text{font-family:"PingFang SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;fill:#192F40}</style>
+<rect width="1240" height="1280" fill="#FFFFFF"/>
+<text x="44" y="48" font-size="32" font-weight="600" text-anchor="start">一次任务：从一句话到可核对的结果</text>
+<text x="44" y="86" font-size="20" font-weight="400" text-anchor="start">例：整理五份跟进草稿，放在对话里等批准。不要发邮件，也不要改 CRM。</text>
+<rect x="160" y="112" width="920" height="110" rx="14" fill="#EDF3FF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="188" y="154" font-size="24" font-weight="600" text-anchor="start">1  目标和停止线在同一句话里</text>
+<text x="188" y="194" font-size="20" font-weight="400" text-anchor="start">产物、交付位置、禁止的动作，一起写清</text>
+<rect x="160" y="252" width="920" height="128" rx="14" fill="#EDF7F2" stroke="#CBD8E4" stroke-width="2"/>
+<text x="188" y="294" font-size="24" font-weight="600" text-anchor="start">2  在共享云电脑上动手</text>
+<text x="188" y="334" font-size="20" font-weight="400" text-anchor="start">有插件就用插件。没有，才占用这个 Bot 的 screen</text>
+<text x="188" y="364" font-size="18" font-weight="400" text-anchor="start">同一个 Bot 同时只有一条 computer use；其他 Bot 仍可并行</text>
+<rect x="160" y="410" width="920" height="128" rx="14" fill="#FFF5E6" stroke="#CBD8E4" stroke-width="2"/>
+<text x="188" y="452" font-size="24" font-weight="600" text-anchor="start">3  敏感输入交还用户</text>
+<text x="188" y="492" font-size="20" font-weight="400" text-anchor="start">密码、两步验证、人机验证、支付</text>
+<text x="188" y="522" font-size="18" font-weight="400" text-anchor="start">遮罩后的 secret 不进对话，也不要贴进聊天</text>
+<rect x="160" y="568" width="920" height="128" rx="14" fill="#FFF5E6" stroke="#CBD8E4" stroke-width="2"/>
+<text x="188" y="610" font-size="24" font-weight="600" text-anchor="start">4  风险动作先过 Auto Review</text>
+<text x="188" y="650" font-size="20" font-weight="400" text-anchor="start">独立审阅模型：放行、要求批准，或拒绝</text>
+<text x="188" y="680" font-size="18" font-weight="400" text-anchor="start">批准的是这一次提议，不会撤销已经做完的事</text>
+<rect x="160" y="726" width="920" height="110" rx="14" fill="#EDF3FF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="188" y="768" font-size="24" font-weight="600" text-anchor="start">5  回到对话里分开看结果</text>
+<text x="188" y="808" font-size="20" font-weight="400" text-anchor="start">已做完、等待批准、失败。关笔记本不会停掉云端这一轮</text>
+<rect x="160" y="866" width="920" height="146" rx="14" fill="#EDF3FF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="188" y="908" font-size="24" font-weight="600" text-anchor="start">6  稳定之后再自动化</text>
+<text x="188" y="948" font-size="20" font-weight="400" text-anchor="start">Skill 记录怎么做。Routine 决定何时做，关着电脑也会跑</text>
+<text x="188" y="982" font-size="18" font-weight="400" text-anchor="start">Webhook 返回 200：受理并开始运行，不是做完</text>
+<path d="M620,222 L620,252" fill="none" stroke="#6A7F91" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M620,380 L620,410" fill="none" stroke="#6A7F91" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M620,538 L620,568" fill="none" stroke="#6A7F91" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M620,696 L620,726" fill="none" stroke="#6A7F91" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M620,836 L620,866" fill="none" stroke="#6A7F91" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="620" y="1060" font-size="20" font-weight="400" text-anchor="middle">教学顺序，不是声称每次任务都经过六个服务。</text>
+<text x="620" y="1100" font-size="20" font-weight="400" text-anchor="middle">隐藏 Bot 不暂停 Routine。删除 Bot 会删掉它的 Routine，不会清掉共享文件和登录。</text>
+<text x="620" y="1188" font-size="20" font-weight="400" text-anchor="middle">教学示意。computer-use 技术栈未公开。</text>
+<text x="620" y="1224" font-size="18" font-weight="400" text-anchor="middle">来源：Cursor / xAI 公开文档与 Routines 帮助页 · 2026-09-28</text>
+</svg>

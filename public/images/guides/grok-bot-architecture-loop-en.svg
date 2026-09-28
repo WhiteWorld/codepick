@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1280" viewBox="0 0 1240 1280" role="img" aria-labelledby="title desc">
+<title id="title">How one Grok Bot task moves forward</title>
+<desc id="desc">A goal and a stop line reach the shared computer. Plugins come first; otherwise the task uses that Bot's screen. Sensitive input returns to the user, and risky actions go through Auto Review. HTTP 200 only starts a run.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M1 1L7 4L1 7" fill="none" stroke="#6A7F91" stroke-width="1.5"/></marker></defs>
+<style>text{font-family:"PingFang SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;fill:#192F40}</style>
+<rect width="1240" height="1280" fill="#FFFFFF"/>
+<text x="44" y="48" font-size="32" font-weight="600" text-anchor="start">One task: from a sentence to a checkable result</text>
+<text x="44" y="86" font-size="18" font-weight="400" text-anchor="start">Example: draft five follow-ups in this chat and wait. Do not send email or change the CRM.</text>
+<rect x="120" y="112" width="1000" height="110" rx="14" fill="#EDF3FF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="148" y="154" font-size="24" font-weight="600" text-anchor="start">1  Goal and stop line in the same message</text>
+<text x="148" y="194" font-size="20" font-weight="400" text-anchor="start">Name the artifact, where it lands, and what must not happen</text>
+<rect x="120" y="252" width="1000" height="128" rx="14" fill="#EDF7F2" stroke="#CBD8E4" stroke-width="2"/>
+<text x="148" y="294" font-size="24" font-weight="600" text-anchor="start">2  Work on the shared cloud computer</text>
+<text x="148" y="334" font-size="20" font-weight="400" text-anchor="start">Use a plugin when one exists. Otherwise use this Bot's screen</text>
+<text x="148" y="364" font-size="18" font-weight="400" text-anchor="start">One computer-use task per Bot; other Bots can still run in parallel</text>
+<rect x="120" y="410" width="1000" height="128" rx="14" fill="#FFF5E6" stroke="#CBD8E4" stroke-width="2"/>
+<text x="148" y="452" font-size="24" font-weight="600" text-anchor="start">3  Hand sensitive input back</text>
+<text x="148" y="492" font-size="20" font-weight="400" text-anchor="start">Password, two-factor, CAPTCHA, payment</text>
+<text x="148" y="522" font-size="18" font-weight="400" text-anchor="start">A masked secret stays out of the transcript. Do not paste it into chat</text>
+<rect x="120" y="568" width="1000" height="128" rx="14" fill="#FFF5E6" stroke="#CBD8E4" stroke-width="2"/>
+<text x="148" y="610" font-size="24" font-weight="600" text-anchor="start">4  Risky actions go through Auto Review</text>
+<text x="148" y="650" font-size="20" font-weight="400" text-anchor="start">A separate review model: allow, ask, or deny</text>
+<text x="148" y="680" font-size="18" font-weight="400" text-anchor="start">Approval covers this proposal. It does not undo work already done</text>
+<rect x="120" y="726" width="1000" height="110" rx="14" fill="#EDF3FF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="148" y="768" font-size="24" font-weight="600" text-anchor="start">5  Read the result back in the chat</text>
+<text x="148" y="808" font-size="20" font-weight="400" text-anchor="start">Done, waiting, or failed. Closing the laptop does not stop the cloud turn</text>
+<rect x="120" y="866" width="1000" height="146" rx="14" fill="#EDF3FF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="148" y="908" font-size="24" font-weight="600" text-anchor="start">6  Automate only after the path is stable</text>
+<text x="148" y="948" font-size="20" font-weight="400" text-anchor="start">A skill records how. A routine records when, and runs with the laptop closed</text>
+<text x="148" y="982" font-size="18" font-weight="400" text-anchor="start">Webhook HTTP 200: accepted and started, not finished</text>
+<path d="M620,222 L620,252" fill="none" stroke="#6A7F91" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M620,380 L620,410" fill="none" stroke="#6A7F91" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M620,538 L620,568" fill="none" stroke="#6A7F91" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M620,696 L620,726" fill="none" stroke="#6A7F91" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M620,836 L620,866" fill="none" stroke="#6A7F91" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="620" y="1060" font-size="20" font-weight="400" text-anchor="middle">A teaching order, not six required services on every task.</text>
+<text x="620" y="1100" font-size="18" font-weight="400" text-anchor="middle">Hiding a Bot does not pause its routines. Deleting a Bot removes them, not the shared files and sign-ins.</text>
+<text x="620" y="1188" font-size="20" font-weight="400" text-anchor="middle">Learning schematic. The computer-use stack is unpublished.</text>
+<text x="620" y="1224" font-size="18" font-weight="400" text-anchor="middle">Sources: public Cursor / xAI docs and the Routines help page · 2026-09-28</text>
+</svg>
