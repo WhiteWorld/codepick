@@ -10,6 +10,8 @@ draft: false
 ---
 
 > **Fact-checked September 10, 2026.** Grok Bot and Muse are both new, so features, quotas, and regional availability may change quickly. This comparison treats unpublished details as unknown; it does not invent a Muse subscription price.
+>
+> **Related:** On September 28, 2026, Manus launched Cue, a personal life-agent app. For a three-way comparison of Cue, Muse, and Grok Bot, see [Cue vs Muse vs Grok Bot (2026)](/en/compare/cue-vs-muse-vs-grok-bot-2026/). This article still covers only Grok Bot and Muse, and its fact-check date is unchanged.
 
 Grok Bot and Meta Muse appear to sell the same future: give an AI a cloud computer, let it remember you, connect it to everyday apps, and keep working while you are away. In practice, however, they are designed for different buyers:
 
