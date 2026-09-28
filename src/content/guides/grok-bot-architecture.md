@@ -200,6 +200,7 @@ Auto Review 的个人规则，安全页和审批页的存储说法不完全一�
 ## 资料与阅读范围
 
 - [Grok Bot 概述](https://cursor.com/docs/grok-bot)：持久云电脑、共享关系，以及一个 Bot 同时一条 computer use。
+- [Work with Grok Bot](https://cursor.com/docs/grok-bot/work)：Skill、Teach a task（最长约十分钟，逐步放开），以及为当前 Bot 打开私人 Skill。
 - [Use the computer and apps](https://docs.x.ai/grok-bot/computer-and-apps)：screen、接管、插件优先于点击、本机电脑与云电脑分开。
 - [Grok Bot for Teams and Enterprise](https://cursor.com/docs/grok-bot/teams)：Firecracker、Cloud Agent 开关、连接器策略。
 - [Grok Bot security](https://cursor.com/docs/grok-bot/security)：Auto Review 的覆盖与缺口、本机执行、模型选型、数据位置。

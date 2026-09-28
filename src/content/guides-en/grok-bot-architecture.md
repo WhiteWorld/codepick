@@ -200,6 +200,7 @@ Read back over the overview with those questions. Grok Bot is a persistent compu
 ## Sources and Scope
 
 - [Grok Bot overview](https://cursor.com/docs/grok-bot): the persistent cloud computer, the sharing rule, and one computer-use task per Bot at a time.
+- [Work with Grok Bot](https://cursor.com/docs/grok-bot/work): skills, Teach a task (up to ten minutes, gradual rollout), and enabling a private skill for the current Bot.
 - [Use the computer and apps](https://docs.x.ai/grok-bot/computer-and-apps): screens, takeover, plugins before clicking, and the local computer as a separate machine.
 - [Grok Bot for Teams and Enterprise](https://cursor.com/docs/grok-bot/teams): Firecracker, the Cloud Agent switch, and connector policy.
 - [Grok Bot security](https://cursor.com/docs/grok-bot/security): what Auto Review covers and skips, local execution, model selection, and data location.
