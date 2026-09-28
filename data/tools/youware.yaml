@@ -27,7 +27,7 @@ pricing:
       per_user: false
       limits: 36,000 credits/月（20,000 base + 16,000 bonus），150 次 Credit Care/月，无限项目，私有项目与一对一服务
       limits_en: 36,000 credits/month (20,000 base + 16,000 bonus), 150 Credit Care/month, unlimited projects, private projects, one-on-one service
-  price_updated_at: '2026-09-10'
+  price_updated_at: '2026-09-28'
   note: 年付节省 17%；Pro/Ultra 未用完 credits 可在订阅期内 rollover；top-up 仅限年付用户，额外 credits 2 年有效
   note_en: Yearly billing saves 17%; Pro/Ultra unused credits roll over during the subscription period; top-ups are available only for yearly subscribers and are valid for two years
 
@@ -47,16 +47,7 @@ features:
   builder_mode: true
   ide_base: "Web Builder"
   supported_models:
-    - OpenAI O3 Pro
-    - GPT-4o
-    - Claude Sonnet 4.5
-    - Gemini 2.5 Pro
-    - DeepSeek V3
-    - Claude Haiku 3.5
-    - Midjourney
-    - GPT-Image-1
-    - Gemini Imagen 4
-    - Flux AI
+    - "OpenAI / Anthropic / Moonshot / Z.ai (availability varies by model selector)"
   supported_os: [Web, iOS, Android]
 
 best_for:
@@ -72,18 +63,18 @@ not_for_en:
   - Developers needing fine-grained code control
 
 quick_start:
-  - 访问 youware.com，用邮箱或 GitHub 注册账号（Free 套餐提供试用 credits）
+  - 访问 youware.com 注册账号（Free 套餐提供试用 credits，具体额度以账号页面为准）
   - 在输入框用自然语言描述你想构建的应用，也支持语音输入
   - AI 自动生成完整 Web 应用并提供实时预览，可继续对话修改
-  - 满意后可直接在平台托管，或导出代码继续开发
+  - 检查结果后在平台发布；付费套餐可下载代码，但 Remix 项目不支持源码下载
 quick_start_en:
-  - "Visit youware.com and sign up with email or GitHub (Free plan includes trial credits)"
+  - "Visit youware.com and create an account (Free plan includes trial credits; check your account for the allowance)"
   - Describe the app you want in natural language in the input box; voice input is also supported
   - AI generates a complete web app with live preview; keep chatting to refine
-  - Host directly on the platform when satisfied, or export code for further development
+  - Review and publish on the platform; paid plans allow code downloads, except for Remix projects
 register_url: https://youware.com
-china_note: 国内可直连访问，无需翻墙；适合快速构建 Web 应用原型，支持语音输入
-china_note_en: Directly accessible from China without VPN; ideal for quickly building web app prototypes; supports voice input
+china_note: 面向 Web 应用原型；国内网络下的访问及模型服务可用性需自行验证，本次未作区域连通性测试
+china_note_en: Intended for web app prototyping. Verify site and model-service connectivity from your network in China; regional access was not tested in this review.
 
 changelog:
   - date: '2026-09-10'
@@ -101,12 +92,18 @@ data_sources:
     last_checked: '2026-09-10'
   - url: https://docs.youware.com/introduction/plans-and-pricing
     type: pricing
-    last_checked: '2026-09-10'
+    last_checked: '2026-09-28'
   - url: https://docs.youware.com/introduction/faq
     type: documentation
     last_checked: '2026-09-10'
+  - url: https://docs.youware.com/features/multi-model-switching
+    type: docs
+    last_checked: '2026-09-28'
+  - url: https://docs.youware.com/introduction/quickstartguide
+    type: docs
+    last_checked: '2026-09-28'
 
-last_full_review: '2026-09-10'
-next_review_due: '2026-12-09'
+last_full_review: '2026-09-28'
+next_review_due: '2026-12-27'
 review_frequency_days: 90
 confidence: medium

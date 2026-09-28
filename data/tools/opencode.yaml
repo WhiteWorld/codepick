@@ -4,8 +4,8 @@ type: cli
 logo: /images/opencode.png
 url: https://opencode.ai
 repo: https://github.com/anomalyco/opencode
-current_version: v1.18.18
-version_tracked_at: '2026-08-19'
+current_version: v1.18.32
+version_tracked_at: '2026-09-28'
 pricing:
   model: free
   currency: null
@@ -73,6 +73,9 @@ compatible_apis:
   - deepseek
   - ollama
 data_sources:
+  - url: https://github.com/anomalyco/opencode/releases/tag/v1.18.32
+    type: release
+    last_checked: '2026-09-28'
   - url: https://github.com/anomalyco/opencode/releases
     type: release
     last_checked: '2026-08-19'
@@ -80,14 +83,18 @@ data_sources:
     type: changelog
     last_checked: '2026-08-19'
 changelog:
+  - date: '2026-09-21'
+    type: release
+    summary: 'v1.18.32：官方稳定版发布；2026-09-28 核对版本。'
+    summary_en: 'v1.18.32: official stable release; version verified on 2026-09-28.'
   - date: '2026-08-13'
     type: release
-    summary: 'v1.18.18（最新）：修复 Moonshot/Kimi 官方 provider 下的系统提示词选择；修复 xAI 模型的 xhigh 推理档位；1.16→1.18 为日常迭代与修复系列'
-    summary_en: 'v1.18.18 (latest): Selects the Kimi system prompt correctly for official Moonshot and Kimi providers; fixes xhigh reasoning effort for xAI models; 1.16-1.18 are routine iteration and fix releases'
+    summary: 'v1.18.18：修复 Moonshot/Kimi 官方 provider 下的系统提示词选择；修复 xAI 模型的 xhigh 推理档位；1.16→1.18 为日常迭代与修复系列'
+    summary_en: 'v1.18.18: Selects the Kimi system prompt correctly for official Moonshot and Kimi providers; fixes xhigh reasoning effort for xAI models; 1.16-1.18 are routine iteration and fix releases'
   - date: '2026-05-23'
     type: release
-    summary: 'v1.15.10（最新）：恢复打开项目和启动会话的旧生产桌面流程；Agent 和命令名称支持相对配置路径；opencode login 默认改为 https://console.opencode.ai'
-    summary_en: 'v1.15.10 (latest): Restored legacy production desktop flows for opening projects and starting sessions; agent and command names now resolve from relative config paths; opencode login defaults to https://console.opencode.ai'
+    summary: 'v1.15.10：恢复打开项目和启动会话的旧生产桌面流程；Agent 和命令名称支持相对配置路径；opencode login 默认改为 https://console.opencode.ai'
+    summary_en: 'v1.15.10: Restored legacy production desktop flows for opening projects and starting sessions; agent and command names now resolve from relative config paths; opencode login defaults to https://console.opencode.ai'
   - date: '2026-05-10'
     type: release
     summary: 'v1.14.46：内置 customize-opencode 技能（更安全的配置编辑）；修复 HTTP API 数字参数解析；修复 MCP 工具发现问题；修复 Plan Mode 安全绕过；Scout agent 用于仓库研究和依赖检查；HTTP 响应压缩；工作区同步（适配器工作区）'

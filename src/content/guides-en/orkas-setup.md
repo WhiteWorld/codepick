@@ -1,8 +1,8 @@
 ---
 title: "Orkas Setup Guide: Local Desktop Commander + Workers Agent Team (2026)"
-description: "Orkas is an MIT-licensed open-source desktop agent collaboration client with a unique Commander + Workers architecture. This 10-minute guide covers: git clone one-line start → configure LLM APIs → command an agent team through conversation → understand the COMPETENCE.md self-evolution mechanism."
+description: "Orkas is an MIT-licensed open-source desktop agent collaboration client with a unique Commander + Workers architecture. Covers installers, source setup, model configuration, built-in agents, external CLI backends, and conditional reflection."
 date: "2026-05-19"
-updated_at: "2026-05-19"
+updated_at: "2026-09-28"
 article_type: "howto"
 tags: ["orkas", "agent-platform", "agent-collaboration", "desktop", "local-first", "commander", "setup"]
 pillar: workflow
@@ -12,7 +12,7 @@ draft: false
 faq:
   - q: "Is Orkas a replacement for Claude Code?"
     a: |
-      No. Orkas is a **desktop multi-agent dispatcher** — it doesn't write code itself, it commands Claude Code / Codex / OpenClaw to write code.
+      Not simply. Commander can handle analysis, writing, research, files and automation directly, or coordinate built-in specialist agents. Claude Code / Codex are optional external CLI backends.
       Use Orkas when you want several agents working in parallel with a commander to aggregate. For single-agent single-task work, just use Claude Code directly — lighter weight.
   - q: "How is Commander + Workers different from Multi-Agent frameworks (CrewAI / AutoGen)?"
     a: |
@@ -20,15 +20,14 @@ faq:
       Want programmatic control of agent collaboration → CrewAI; want to work like talking to a commander → Orkas.
   - q: "Is COMPETENCE.md self-evolution real or hype?"
     a: |
-      Early product — long-term effectiveness TBD. The mechanism: after each task, the Worker reflects on what went right/wrong and updates its `meta/COMPETENCE.md` and `meta/LEARNING_STRATEGIES.md`.
+      Early product — long-term effectiveness TBD. Reflection depends on new signals or session activity and scheduler gates; it does not run after every task. Results can update `meta/COMPETENCE.md` and `meta/LEARNING_STRATEGIES.md`.
       In theory it learns your style over time; in practice we need real long-term usage data. Treat it as "more structured Agent self-notes than MEMORY.md," but don't expect it to know you well within a week.
   - q: "Does it work from China?"
     a: |
-      Yes — open-source, runs locally, just git clone. Configure domestic LLM APIs (DeepSeek / Kimi / GLM / Volcengine Ark).
-      One caveat: first launch downloads an embedding model (~95MB). If pulling from Hugging Face is slow, set `HF_ENDPOINT=https://hf-mirror.com`.
+      It runs locally and can use accessible model providers. Installers, dependencies and model resources still require downloads; verify connectivity on your own network.
 ---
 
-[Orkas](/en/tool/orkas) is an MIT-licensed "desktop multi-agent collaboration client" with a unique **Commander + Workers** architecture — one Commander LLM takes your request, decomposes it, dispatches to Worker Agents, then aggregates results. This guide gets you running in 10 minutes.
+[Orkas](/en/tool/orkas) is an MIT-licensed "desktop multi-agent collaboration client" with a unique **Commander + Workers** architecture — Commander can act directly, delegate to built-in specialists, or use external CLI backends. Splitting work, parallel execution and aggregation depend on the task and dispatch mode.
 
 ## Who This Is For
 
@@ -41,46 +40,34 @@ Not for: remote team collaboration (no web UI), or production-stable workflows (
 
 ## TL;DR
 
-```bash
-# 1. Clone + one-line start
-git clone https://github.com/Orkas-AI/Orkas
-cd Orkas
-./run.sh
+Use the [official release installers](https://github.com/Orkas-AI/Orkas/releases/tag/v2026.9.11) for macOS Apple Silicon / Intel or Windows x64. Linux currently runs from source.
 
-# 2. First launch auto-installs deps + embedding model (~95MB)
-# 3. After the desktop app opens, Settings → AI Providers → enter API keys
-# 4. Chat with the Commander; it decomposes and dispatches to Workers
-```
-
----
+Open **Settings → AI Providers**, configure a model, and describe your task. The packaged app requires initial sign-in; the repository source build has no account layer.
 
 ## Prerequisites
 
-- macOS / Windows / Linux desktop
-- Python 3.10+ (script checks and prompts if missing)
-- At least one LLM API key (Claude / GPT recommended; also supports DeepSeek / Kimi / GLM)
-- ~500MB disk (app + embedding model + generated data)
-- Stable network for first launch (dependencies and embedding model)
+- Installers: macOS Apple Silicon / Intel or Windows 10+.
+- Source: Git and Node 20+; Linux requires glibc 2.34+, x64 / arm64. Alpine and other musl distributions are unsupported.
+- System Python 3 and a C/C++ toolchain are needed only if a native npm module lacks a compatible prebuilt binary.
+- A model API key or local endpoint, plus network access and space for initial resource downloads.
 
----
+## Step 1: Install or Run from Source
 
-## Step 1: Clone and Start
+Prefer an installer above. For source builds:
 
 ```bash
-git clone https://github.com/Orkas-AI/Orkas
+git clone https://github.com/Orkas-AI/Orkas.git
 cd Orkas
-./run.sh
+./run.sh  # macOS / Linux
 ```
 
-`run.sh` does:
+On Windows, run this from the repository directory:
 
-1. Checks Python version
-2. Creates a virtualenv
-3. Installs dependencies
-4. Downloads the embedding model (~95MB, for memory retrieval)
-5. Launches the desktop client
+```bat
+run.cmd
+```
 
-> 💡 **Slow embedding model download from China**: run `export HF_ENDPOINT=https://hf-mirror.com` before `./run.sh` for a 10× speedup.
+The bootstrap installs locked npm dependencies and prepares runtime and model resources. A manual Python 3.10 check and virtualenv creation are not the main setup flow. Inspect download or native-build errors if bootstrap fails.
 
 ---
 
@@ -89,12 +76,8 @@ cd Orkas
 In the desktop app:
 
 1. **Settings** → **AI Providers**
-2. Configure at least one provider:
-   - **Anthropic** Claude Sonnet 4.5 (recommended for Commander)
-   - **OpenAI** GPT-5 / GPT-5-mini
-   - **DeepSeek** V4-Pro (domestic + 75% discount)
-   - **Volcengine Ark** Doubao-Seed-Code (Chinese gateway)
-3. Separate Commander vs Worker models — Commander handles decomposition/aggregation (use flagship), Workers can use cheaper models to spread cost
+2. Select a supported provider and supply credentials. For local or compatible services, use **Custom (OpenAI-compatible)** with the actual Base URL.
+3. Configure agent models to suit the task, then check connectivity and costs with a small request.
 
 ---
 
@@ -107,49 +90,30 @@ Refactor all handlers in src/api/handlers/ to use try/catch + structured logging
 and give me a summary of the changes when done.
 ```
 
-The Commander will:
-
-1. Scan `src/api/handlers/` for all files
-2. Spawn N Workers (one per file)
-3. Dispatch tasks in parallel
-4. Aggregate worker reports into a final summary
-
-You can watch each Worker's live status in the UI.
+Commander may act directly or delegate. Do not assume it creates one Worker per file: inspect the actual assignments and results, then run your project tests.
 
 ---
 
 ## Step 4: Understand the Self-Evolution Mechanism (Optional)
 
-Each Worker Agent has its own metadata files on disk:
+Agents can maintain `meta/COMPETENCE.md` and `meta/LEARNING_STRATEGIES.md`. Reflection is conditional, not a guaranteed post-task step.
 
-```
-~/.orkas/workers/<worker-id>/
-  meta/COMPETENCE.md         # What this Worker is good at
-  meta/LEARNING_STRATEGIES.md # Strategies learned from past tasks
-  meta/SKILLS/               # Successful patterns auto-crystallized into reusable skills
-```
+The pinned README calls it **signal-triggered reflection**, but its six-signal weighted-threshold description differs from the code at the same commit. The [actual scheduler](https://github.com/Orkas-AI/Orkas/blob/fbc64ca5443bc4abfca5d896841c2da7fae5c35c/src/main/features/reflection-orchestrator.ts) periodically checks for new signals or session activity, subject to cooldown and per-cycle limits. Treat this as eligibility-based reflection, not automatic improvement after each task.
 
-After each task, the Worker reflects on what went right/wrong and updates COMPETENCE.md. In theory, the more you use it, the better it understands your code style and preferences.
+Long-term effectiveness still needs independent validation. Compare task outcomes and human feedback, not just the number of saved notes.
 
-> ⚠️ **Early-stage mechanism — long-term effectiveness TBD**. Think of it as "more structured agent self-notes than a single MEMORY.md," but don't expect it to grok you within a week.
+## Step 5: Use Skills (Optional)
 
----
-
-## Step 5: Advanced — Let the Commander Invoke a Skill
-
-As you run more tasks, Orkas auto-extracts Skills from successful paths. For example, "run tests → fix failures → re-run until pass" might be crystallized as an `auto-fix-tests` skill.
-
-Next time, you say "auto-fix-tests on this branch" and the Commander invokes the skill directly instead of decomposing from scratch. This is the "self-evolution" path that differentiates Orkas from Slock / Multica.
+Agents can save methods as private `SKILL.md` files through `skill_manage`. This does not guarantee that every successful task produces a reliable skill; check scope and outcomes before relying on one.
 
 ---
 
 ## Common Pitfalls
 
-1. **`./run.sh` complains about Python version** → install Python 3.10+; recommend `pyenv` for multi-version management
-2. **Embedding model download hangs** → set `export HF_ENDPOINT=https://hf-mirror.com` and rerun
-3. **Commander spawns too many Workers and burns API quota** → limit `max_concurrent_workers` in Settings
-4. **Want domestic APIs but only see OpenAI/Anthropic options** → use an OpenAI-compatible provider; set Base URL to your Ark / DeepSeek endpoint
-5. **Pro version features?** → Orkas open-source edition is fully free; community mentions a Pro edition with team collaboration and expert agents, but verify on the official GitHub for current status
+1. **Source startup fails**: check Node 20+ first. Check Python 3 and a C/C++ toolchain when logs show a native-module build failure.
+2. **Downloads fail**: inspect the failing resource, connectivity and disk space, then retry that step.
+3. **Model errors or excessive costs**: verify provider, Base URL, model and quota; start with a smaller task.
+4. **Does open source mean free models?** No. Your provider bills model usage; the optional built-in Orkas model uses its own credit plans.
 
 ---
 
@@ -174,4 +138,10 @@ See the [2026 Agent Collaboration Platform Guide](/en/guides/agent-collaboration
 - [LobeHub setup guide](/en/guides/lobehub-setup/) (if you want web + large ecosystem)
 - [Multica setup guide](/en/guides/multica-setup/) (if you want Issue panel)
 
-> Verified through 2026-05-19. Orkas is a young project — commands and features may evolve quickly; check [Orkas GitHub](https://github.com/Orkas-AI/Orkas) for the latest.
+## Verification Sources
+
+Installation and capability descriptions checked on 2026-09-28. Product scores were not re-evaluated; installation was not tested on a device.
+
+- [Pinned README: downloads, FAQ, quick start and technical sections](https://github.com/Orkas-AI/Orkas/blob/fbc64ca5443bc4abfca5d896841c2da7fae5c35c/README.md)
+- [v2026.9.11 installer assets](https://github.com/Orkas-AI/Orkas/releases/tag/v2026.9.11)
+- [Reflection implementation and removed-scorer explanation](https://github.com/Orkas-AI/Orkas/blob/fbc64ca5443bc4abfca5d896841c2da7fae5c35c/src/core-agent/src/evolution/metacognition.ts)

@@ -33,7 +33,7 @@ pricing:
       per_user: true
       limits: 定制价格；SSO、审计日志、合规支持、数据治理与 SLA
       limits_en: Custom pricing; SSO, audit logs, compliance support, data governance, and SLAs
-  price_updated_at: '2026-09-10'
+  price_updated_at: '2026-09-28'
   note: 官网公开月付价；定价页称年付最高省 28%，但账单帮助页仍写 10%，应以结算页为准。维持付费订阅时，未用 tokens 自发放日起最多两个月有效；开源 bolt.diy 可自部署并接入自定义模型
   note_en: Public monthly prices are shown. The pricing page advertises up to 28% off annual billing, while the billing help page still says 10%; verify at checkout. With an active paid subscription, unused tokens remain valid for up to two months from issuance; open-source bolt.diy supports self-hosting and custom models
 
@@ -53,16 +53,16 @@ features:
   builder_mode: true
   ide_base: "Web Builder"
   supported_models:
-    - Standard Agent
-    - Max Agent
+    - "Standard / Max (Bolt-managed model selection)"
+    - "Bolt Forge (open-source models; access required)"
   supported_os: [Web]
 
 best_for:
   - 开发者快速原型验证
-  - 希望自部署的团队（bolt.diy）
+  - 希望通过对话构建并托管 Web 应用的团队
 best_for_en:
   - Developers building quick prototypes
-  - Teams wanting self-hosted option (bolt.diy)
+  - Teams building and hosting web apps through chat
 
 not_for:
   - 需要稳定生产环境的长期项目
@@ -70,17 +70,17 @@ not_for_en:
   - Long-term projects needing stable production
 
 quick_start:
-  - 访问 bolt.new，用 GitHub 账号或邮箱注册（Free 套餐无需绑卡）
+  - 访问 bolt.new 注册账号，选择 Free 或付费套餐
   - 在输入框用自然语言描述你要构建的应用（如"构建一个带用户登录的 Todo 应用"）
   - AI 生成完整代码并提供实时预览，可继续对话迭代修改
-  - 满意后通过 Bolt Cloud 发布，也可连接 GitHub 或 Netlify 继续部署
+  - 检查预览与代码后，通过 Bolt 内置托管发布；也可使用 Netlify 集成
 quick_start_en:
-  - Visit bolt.new and sign up with GitHub or email (Free plan, no credit card needed)
+  - Visit bolt.new, create an account, and select a free or paid plan
   - Describe the app you want in natural language (e.g. "build a Todo app with user login")
   - AI generates complete code with live preview; keep chatting to iterate
-  - Publish through Bolt Cloud, or connect GitHub or Netlify for further deployment
-china_note: 需要翻墙访问，暂无国内镜像；开源版 bolt.diy 可自行搭建，支持接入国内模型 API
-china_note_en: Requires VPN from China; no domestic mirror; open-source bolt.diy can be self-hosted with Chinese model APIs
+  - Review the preview and code, then publish with Bolt hosting or its Netlify integration
+china_note: 国内网络下的访问及模型服务可用性需自行验证；bolt.diy 是独立的自部署项目，不能与托管版套餐权益混同
+china_note_en: Verify site and model-service connectivity from your network in China. Self-hosted bolt.diy is a separate project with different capabilities from hosted Bolt.
 
 changelog:
   - date: '2026-09-10'
@@ -95,7 +95,7 @@ changelog:
 data_sources:
   - url: https://bolt.new/pricing
     type: pricing
-    last_checked: '2026-09-10'
+    last_checked: '2026-09-28'
   - url: https://support.bolt.new/account-and-subscription/billing
     type: pricing
     last_checked: '2026-09-10'
@@ -107,12 +107,15 @@ data_sources:
     last_checked: '2026-09-10'
   - url: https://support.bolt.new/building/using-bolt/agents
     type: documentation
-    last_checked: '2026-09-10'
+    last_checked: '2026-09-28'
   - url: https://support.bolt.new/building/using-bolt/connect-mcp
     type: documentation
-    last_checked: '2026-09-10'
+    last_checked: '2026-09-28'
+  - url: https://support.bolt.new/llms.txt
+    type: docs
+    last_checked: '2026-09-28'
 
-last_full_review: '2026-09-10'
-next_review_due: '2026-12-09'
+last_full_review: '2026-09-28'
+next_review_due: '2026-12-27'
 review_frequency_days: 90
 confidence: medium

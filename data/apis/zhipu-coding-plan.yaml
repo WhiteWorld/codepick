@@ -8,7 +8,7 @@ affiliate_url: null
 repo: null
 
 current_version: "GLM-5.3 / GLM-5.3-Flash"
-version_tracked_at: "2026-09-24"
+version_tracked_at: "2026-09-28"
 
 pricing:
   model: subscription
@@ -35,7 +35,7 @@ pricing:
       limits_en: "28,000 credits/5h, 140,000 credits/week"
       note: "新购个人套餐；包季折合 ¥862.4/月，包年折合 ¥754.6/月"
       note_en: "New personal subscription; quarterly equivalent ¥862.4/month, annual equivalent ¥754.6/month"
-  price_updated_at: "2026-09-24"
+  price_updated_at: "2026-09-28"
   note: "此表为新购个人积分套餐，包季 8 折、包年 7 折。积分按 Token 消耗折算，同时受 5h 动态恢复和每周上限约束；常规高峰为工作日 14:00–18:00（UTC+8），非高峰模型调用按基础积分的 50% 抵扣。V1/V2 老用户价格与续订资格按官方权益说明处理；套餐限用于官方支持的工具，结算价格和限时活动以官网为准。"
   note_en: "New personal credit plans: 20% off quarterly and 30% off annually. Token-based credits have rolling 5-hour and weekly caps. Standard peak hours are weekdays 14:00–18:00 UTC+8; off-peak model calls cost 50% of base credits. Legacy V1/V2 pricing and renewal eligibility follow the official notice. Use is limited to supported tools; checkout prices and temporary promotions follow the official site."
 
@@ -80,16 +80,16 @@ not_for_en:
 data_sources:
   - url: "https://www.bigmodel.cn/glm-coding"
     type: pricing
-    last_checked: "2026-09-24"
+    last_checked: "2026-09-28"
   - url: "https://docs.bigmodel.cn/cn/coding-plan/overview"
     type: documentation
-    last_checked: "2026-09-24"
+    last_checked: "2026-09-28"
   - url: "https://docs.bigmodel.cn/cn/coding-plan/notice/usage-revision"
     type: documentation
     last_checked: "2026-09-24"
   - url: "https://docs.bigmodel.cn/cn/coding-plan/tool/others"
     type: documentation
-    last_checked: "2026-09-24"
+    last_checked: "2026-09-28"
 
 changelog:
   - date: "2026-09-24"
@@ -109,7 +109,7 @@ changelog:
     summary: "结构性涨价：套餐价提升 30%+，取消首购优惠，保留季/年折扣"
     summary_en: "Structural repricing: 30%+ increase, no first-time discount, quarterly/annual discounts retained"
 
-last_full_review: "2026-09-24"
-next_review_due: "2026-10-24"
+last_full_review: "2026-09-28"
+next_review_due: "2026-10-28"
 review_frequency_days: 30
 confidence: high
