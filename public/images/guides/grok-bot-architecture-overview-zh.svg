@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1240" viewBox="0 0 1240 1240" role="img" aria-labelledby="title desc">
+<title id="title">Grok Bot：多名 Bot，一台持久云电脑</title>
+<desc id="desc">每位 Cursor 用户一台 Firecracker 云电脑。该用户的 Bot 共享文件、浏览器登录和命令行凭证。插件、computer use、Auto Review 与 Cloud Agent 按职责分开，箭头不是机房拓扑。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M1 1L7 4L1 7" fill="none" stroke="#6A7F91" stroke-width="1.5"/></marker></defs>
+<style>text{font-family:"PingFang SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;fill:#192F40}</style>
+<rect width="1240" height="1240" fill="#FFFFFF"/>
+<text x="44" y="48" font-size="32" font-weight="600" text-anchor="start">Grok Bot：多名 Bot，一台持久云电脑</text>
+<rect x="220" y="72" width="800" height="108" rx="14" fill="#EDF3FF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="244" y="114" font-size="26" font-weight="600" text-anchor="start">你的设备：桌面或手机 App</text>
+<text x="244" y="154" font-size="22" font-weight="400" text-anchor="start">聊天 · 审批 · 看桌面 · 接管敏感步骤</text>
+<rect x="24" y="214" width="1192" height="780" rx="14" fill="#FFFFFF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="48" y="254" font-size="28" font-weight="600" text-anchor="start">Cursor 托管</text>
+<rect x="48" y="278" width="760" height="680" rx="14" fill="#F6F9FC" stroke="#CBD8E4" stroke-width="2"/>
+<text x="72" y="320" font-size="26" font-weight="600" text-anchor="start">每位用户一台 Firecracker microVM</text>
+<text x="72" y="356" font-size="20" font-weight="400" text-anchor="start">与其他用户硬件级隔离 · 关笔记本也不会停</text>
+<rect x="72" y="380" width="712" height="96" rx="14" fill="#EDF7F2" stroke="#CBD8E4" stroke-width="2"/>
+<text x="96" y="418" font-size="24" font-weight="600" text-anchor="start">该用户的全部 Bot 共享这台电脑</text>
+<text x="96" y="454" font-size="20" font-weight="400" text-anchor="start">文件 · 浏览器登录 · 命令行凭证</text>
+<rect x="72" y="500" width="340" height="108" rx="14" fill="#EDF3FF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="92" y="542" font-size="24" font-weight="600" text-anchor="start">Bot A 的 screen</text>
+<text x="92" y="580" font-size="20" font-weight="400" text-anchor="start">同时一条 computer use</text>
+<rect x="444" y="500" width="340" height="108" rx="14" fill="#EDF3FF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="464" y="542" font-size="24" font-weight="600" text-anchor="start">Bot B 的 screen</text>
+<text x="464" y="580" font-size="20" font-weight="400" text-anchor="start">可与 A 并行操作桌面</text>
+<text x="428" y="644" font-size="20" font-weight="400" text-anchor="middle">screen 是工作面，不是安全边界</text>
+<rect x="72" y="668" width="340" height="116" rx="14" fill="#EDF3FF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="92" y="712" font-size="22" font-weight="600" text-anchor="start">Plugins / 远程 MCP</text>
+<text x="92" y="750" font-size="20" font-weight="400" text-anchor="start">账号级 · Bot 不拿 token</text>
+<rect x="444" y="668" width="340" height="116" rx="14" fill="#FFF5E6" stroke="#CBD8E4" stroke-width="2"/>
+<text x="464" y="712" font-size="22" font-weight="600" text-anchor="start">无插件：computer use</text>
+<text x="464" y="750" font-size="20" font-weight="400" text-anchor="start">技术栈未公开</text>
+<rect x="72" y="812" width="712" height="108" rx="14" fill="#FFF5E6" stroke="#CBD8E4" stroke-width="2"/>
+<text x="96" y="854" font-size="22" font-weight="600" text-anchor="start">要独立的电脑和凭证</text>
+<text x="96" y="892" font-size="20" font-weight="400" text-anchor="start">使用另一个 Cursor 用户 · 优先插件，否则用该 Bot 的 screen</text>
+<rect x="836" y="278" width="352" height="680" rx="14" fill="#FFFFFF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="856" y="320" font-size="22" font-weight="600" text-anchor="start">旁边这些框是职责</text>
+<text x="856" y="354" font-size="18" font-weight="400" text-anchor="start">不表示它们位于 VM 内或外</text>
+<rect x="856" y="380" width="312" height="150" rx="14" fill="#EDF3FF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="876" y="424" font-size="24" font-weight="600" text-anchor="start">模型服务</text>
+<text x="876" y="464" font-size="20" font-weight="400" text-anchor="start">Cursor 负责选型</text>
+<text x="876" y="496" font-size="20" font-weight="400" text-anchor="start">无客户侧模型选择器</text>
+<rect x="856" y="552" width="312" height="150" rx="14" fill="#FFF5E6" stroke="#CBD8E4" stroke-width="2"/>
+<text x="876" y="596" font-size="24" font-weight="600" text-anchor="start">Auto Review</text>
+<text x="876" y="636" font-size="20" font-weight="400" text-anchor="start">独立审阅 · 可放行或拒绝</text>
+<text x="876" y="668" font-size="18" font-weight="400" text-anchor="start">不覆盖一切副作用</text>
+<rect x="856" y="724" width="312" height="180" rx="14" fill="#EDF3FF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="876" y="768" font-size="24" font-weight="600" text-anchor="start">Cloud Agents</text>
+<text x="876" y="808" font-size="20" font-weight="400" text-anchor="start">另一套编码电脑</text>
+<text x="876" y="840" font-size="20" font-weight="400" text-anchor="start">Grok Bot 可以委派</text>
+<text x="876" y="872" font-size="20" font-weight="400" text-anchor="start">团队开关可以关掉</text>
+<path d="M620,180 L620,214" fill="none" stroke="#6A7F91" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+<path d="M808,627 L836,627" fill="none" stroke="#6A7F91" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+<path d="M808,814 L836,814" fill="none" stroke="#6A7F91" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+<rect x="160" y="1024" width="920" height="96" rx="14" fill="#EDF3FF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="184" y="1062" font-size="24" font-weight="600" text-anchor="start">外部网站与已连接的服务</text>
+<text x="184" y="1096" font-size="20" font-weight="400" text-anchor="start">获准后访问 · 密码、两步验证和支付交还用户</text>
+<path d="M428,958 L428,990 L620,990 L620,1024" fill="none" stroke="#6A7F91" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="620" y="1164" font-size="20" font-weight="400" text-anchor="middle">教学示意，非完整部署图。computer-use 技术栈、模型路由与接入拓扑未公开。</text>
+<text x="620" y="1196" font-size="18" font-weight="400" text-anchor="middle">来源：Cursor / xAI 公开文档 · 整理于 2026-09-28</text>
+</svg>

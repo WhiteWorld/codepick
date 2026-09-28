@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1180" viewBox="0 0 1240 1180" role="img" aria-labelledby="title desc">
+<title id="title">Grok Bot: which lines actually isolate</title>
+<desc id="desc">Users are isolated by a Firecracker microVM. Bots of one user share a computer; a Bot and a screen are not security boundaries. Auto Review and local execution are action controls.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M1 1L7 4L1 7" fill="none" stroke="#6A7F91" stroke-width="1.5"/></marker></defs>
+<style>text{font-family:"PingFang SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;fill:#192F40}</style>
+<rect width="1240" height="1180" fill="#FFFFFF"/>
+<text x="44" y="48" font-size="32" font-weight="600" text-anchor="start">Which lines actually isolate</text>
+<rect x="36" y="78" width="1168" height="250" rx="14" fill="#EDF7F2" stroke="#CBD8E4" stroke-width="2"/>
+<text x="60" y="120" font-size="26" font-weight="600" text-anchor="start">Between users: isolated</text>
+<text x="60" y="164" font-size="22" font-weight="400" text-anchor="start">One Firecracker microVM per Cursor user</text>
+<text x="60" y="202" font-size="22" font-weight="400" text-anchor="start">Its own kernel, memory, and virtual devices</text>
+<text x="60" y="240" font-size="22" font-weight="400" text-anchor="start">One user cannot reach another user's computer</text>
+<text x="60" y="288" font-size="20" font-weight="400" text-anchor="start">Hardware-level isolation, not something a Bot name provides</text>
+<rect x="36" y="352" width="1168" height="300" rx="14" fill="#FFF5E6" stroke="#CBD8E4" stroke-width="2"/>
+<text x="60" y="394" font-size="26" font-weight="600" text-anchor="start">Between one user's Bots: not isolated</text>
+<text x="60" y="438" font-size="22" font-weight="400" text-anchor="start">Shared files, browser logins, and CLI credentials</text>
+<text x="60" y="476" font-size="22" font-weight="400" text-anchor="start">Separate screens, still one computer</text>
+<text x="60" y="514" font-size="22" font-weight="400" text-anchor="start">Hiding a Bot does not pause routines or create a boundary</text>
+<text x="60" y="552" font-size="22" font-weight="400" text-anchor="start">Deleting a Bot does not clear shared files or sign-ins</text>
+<text x="60" y="608" font-size="20" font-weight="600" text-anchor="start">A separate computer and credentials means another Cursor user</text>
+<rect x="36" y="676" width="1168" height="320" rx="14" fill="#EDF3FF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="60" y="718" font-size="26" font-weight="600" text-anchor="start">Action control is another layer, not isolation</text>
+<text x="60" y="762" font-size="22" font-weight="400" text-anchor="start">Auto Review: shell, plugins, computer use, automation writes</text>
+<text x="60" y="800" font-size="22" font-weight="400" text-anchor="start">Also Cloud Agent and subagent delegation</text>
+<text x="60" y="838" font-size="22" font-weight="400" text-anchor="start">Not every side effect, such as memory writes or most settings</text>
+<text x="60" y="886" font-size="22" font-weight="400" text-anchor="start">Local execution is separate from cloud Auto Review</text>
+<text x="60" y="924" font-size="22" font-weight="400" text-anchor="start">OAuth tokens stay on the connector backend</text>
+<text x="60" y="962" font-size="22" font-weight="400" text-anchor="start">Blocking a plugin does not block that website</text>
+<text x="620" y="1048" font-size="20" font-weight="400" text-anchor="middle">Learning schematic. A Bot is not a security boundary.</text>
+<text x="620" y="1088" font-size="18" font-weight="400" text-anchor="middle">Per-Bot strong isolation, the computer-use stack, and a public API to call one Bot are undocumented.</text>
+<text x="620" y="1136" font-size="18" font-weight="400" text-anchor="middle">Sources: public Teams, Security, and Approvals docs · 2026-09-28</text>
+</svg>

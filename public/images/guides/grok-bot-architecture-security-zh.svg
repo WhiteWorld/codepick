@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1180" viewBox="0 0 1240 1180" role="img" aria-labelledby="title desc">
+<title id="title">Grok Bot：哪些线真的隔开了</title>
+<desc id="desc">用户之间由 Firecracker microVM 做硬件级隔离。同一用户的 Bot 共享一台电脑，Bot 和 screen 都不是安全边界。Auto Review 与本机执行是动作控制。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M1 1L7 4L1 7" fill="none" stroke="#6A7F91" stroke-width="1.5"/></marker></defs>
+<style>text{font-family:"PingFang SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;fill:#192F40}</style>
+<rect width="1240" height="1180" fill="#FFFFFF"/>
+<text x="44" y="48" font-size="32" font-weight="600" text-anchor="start">哪些线真的隔开了，哪些没有</text>
+<rect x="36" y="78" width="1168" height="250" rx="14" fill="#EDF7F2" stroke="#CBD8E4" stroke-width="2"/>
+<text x="60" y="120" font-size="26" font-weight="600" text-anchor="start">用户与用户之间：隔开了</text>
+<text x="60" y="164" font-size="22" font-weight="400" text-anchor="start">每位 Cursor 用户一台 Firecracker microVM</text>
+<text x="60" y="202" font-size="22" font-weight="400" text-anchor="start">自己的内核、内存和虚拟设备</text>
+<text x="60" y="240" font-size="22" font-weight="400" text-anchor="start">一个用户到不了另一个用户的电脑</text>
+<text x="60" y="288" font-size="20" font-weight="400" text-anchor="start">这是硬件级隔离，不是 Bot 名字带来的</text>
+<rect x="36" y="352" width="1168" height="300" rx="14" fill="#FFF5E6" stroke="#CBD8E4" stroke-width="2"/>
+<text x="60" y="394" font-size="26" font-weight="600" text-anchor="start">同一用户的 Bot 之间：没有隔开</text>
+<text x="60" y="438" font-size="22" font-weight="400" text-anchor="start">共享文件、浏览器登录、命令行凭证</text>
+<text x="60" y="476" font-size="22" font-weight="400" text-anchor="start">screen 分开，电脑仍是同一台</text>
+<text x="60" y="514" font-size="22" font-weight="400" text-anchor="start">隐藏 Bot 不暂停 Routine，也不制造隔离</text>
+<text x="60" y="552" font-size="22" font-weight="400" text-anchor="start">删除 Bot 不清除共享文件和登录</text>
+<text x="60" y="608" font-size="20" font-weight="600" text-anchor="start">需要独立电脑和凭证时，使用另一个 Cursor 用户</text>
+<rect x="36" y="676" width="1168" height="320" rx="14" fill="#EDF3FF" stroke="#CBD8E4" stroke-width="2"/>
+<text x="60" y="718" font-size="26" font-weight="600" text-anchor="start">动作控制是另一层，不是隔离</text>
+<text x="60" y="762" font-size="22" font-weight="400" text-anchor="start">Auto Review：shell、插件、computer use、automation 写入</text>
+<text x="60" y="800" font-size="22" font-weight="400" text-anchor="start">也覆盖委派 Cloud Agent 和 subagent</text>
+<text x="60" y="838" font-size="22" font-weight="400" text-anchor="start">不审一切副作用，例如记忆写入和多数设置变更</text>
+<text x="60" y="886" font-size="22" font-weight="400" text-anchor="start">本机执行与云端 Auto Review 分开</text>
+<text x="60" y="924" font-size="22" font-weight="400" text-anchor="start">OAuth token 在连接器后端，Bot 拿不到</text>
+<text x="60" y="962" font-size="22" font-weight="400" text-anchor="start">拦住插件，不等于拦住那个网站</text>
+<text x="620" y="1048" font-size="20" font-weight="400" text-anchor="middle">教学示意。Bot 不是安全边界。</text>
+<text x="620" y="1088" font-size="20" font-weight="400" text-anchor="middle">per-Bot 强隔离、computer-use 技术栈、调用某个 Bot 的公开 API，均未文档化。</text>
+<text x="620" y="1136" font-size="18" font-weight="400" text-anchor="middle">来源：Teams、Security、Approvals 公开文档 · 2026-09-28</text>
+</svg>
