@@ -4,7 +4,7 @@ type: cli
 logo: /images/opencode.png
 url: https://opencode.ai
 repo: https://github.com/anomalyco/opencode
-current_version: v1.18.32
+current_version: v1.18.33
 version_tracked_at: '2026-09-28'
 pricing:
   model: free
@@ -73,7 +73,7 @@ compatible_apis:
   - deepseek
   - ollama
 data_sources:
-  - url: https://github.com/anomalyco/opencode/releases/tag/v1.18.32
+  - url: https://github.com/anomalyco/opencode/releases/tag/v1.18.33
     type: release
     last_checked: '2026-09-28'
   - url: https://github.com/anomalyco/opencode/releases
@@ -83,6 +83,10 @@ data_sources:
     type: changelog
     last_checked: '2026-08-19'
 changelog:
+  - date: '2026-09-28'
+    type: release
+    summary: 'v1.18.33：修复 Cloudflare AI Gateway 超时、MCP 浏览器启动失败上报、调试输出脱敏凭证，以及 Gemini thinking 默认值。'
+    summary_en: 'v1.18.33: fixes Cloudflare AI Gateway timeouts, MCP browser launch failure reporting, redacted debug credentials, and Gemini thinking defaults.'
   - date: '2026-09-21'
     type: release
     summary: 'v1.18.32：官方稳定版发布；2026-09-28 核对版本。'
