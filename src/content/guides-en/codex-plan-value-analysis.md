@@ -17,13 +17,13 @@ The 2026-08-19 version treated **Pro $200** as the high-usage sweet spot because
 
 What that page does say: personal Pro is three prices, $100, $200, and $500. Pro has no five-hour window. Plus still does. Among personal plans, only Pro $500 includes GPT-6 Astra Ultrafast, and Ultrafast draws included usage at 8x the Standard rate. Desktop Voice now spends the same Codex budget at $0.05 per minute.
 
-The pricing page does not publish usage multipliers. The indexed Help Center article "About ChatGPT Pro tiers" still describes two tiers ($100 = 5x Plus, $200 = 20x Plus, and $200 as the top tier). That conflicts with the pricing page and with the product page's "three usage tiers." Secondary reports say the reopened $200 plan is about half the old plan's API-spend equivalent, with ChatGPT Work and Codex falling from about 20x Plus to about 10x, effective around 2026-10-30 for existing subscribers, and Pro $500 at about 25x. Those ratios are assumptions below, not a current official table.
+Multipliers have to be split by source. The Codex pricing page does not publish a Pro-versus-Plus ratio. [chatgpt.com/pricing](https://chatgpt.com/pricing/) and the [OpenAI pricing page](https://openai.com/chatgpt/pricing/) say Pro is "your choice of 3 usage tiers," with Ultrafast on eligible tiers. The text we extracted has no 5× / 10× / 20× / 25×. The Help Center index for "About ChatGPT Pro tiers" still describes two tiers: $100 at 5× Plus, $200 at 20× Plus, and $200 as the highest tier. That conflicts with three tiers. The 10× and 25× ratios, the "about half the API spend" line, and legacy transition credits are marked **reported** below. They are not treated as the current official table.
 
-Under that assumption, Plus, $100, $200, and $500 all land near **$20 per 1x of Plus**. The old $200 discount (about $10 per 1x) is gone.
+Choose from that split. Do not carry forward the August line that Pro 20x is the ceiling sweet spot:
 
-The everyday sweet spot therefore moves from $200 to **Pro $100**. It buys the removal of the five-hour window, not cheaper tokens. $200 matters only after the $100 weekly allowance keeps running out. $500 is a speed tier: spending the whole allowance in Ultrafast cuts it to about an eighth, so it is the wrong purchase if the goal is more tokens per dollar.
-
-A few sessions a week belong on Plus. Spiky usage should be checked against the API example below before you take a flat fee.
+- Light use stays on Plus.
+- All-day agent work, if you do not want the five-hour window in the way: weigh Pro $100, newly opened Pro $200, and Pro $500 against each other. Reports say a new $200 subscription is about half the old 20× plan's API spend, so the unit price may be worse than the August tier. What $500 adds on the official pages is Ultrafast, which draws included usage at 8×.
+- The August article called Pro 20x / $200 the high-usage sweet spot because it assumed 20× usage plus unlimited Voice. The pricing page no longer says that. If the help article's 20× still applies to existing subscribers, that is a transition, not the math for a new subscription.
 
 ---
 
@@ -68,30 +68,25 @@ Generation speed is a different sentence. [Codex Speed](https://developers.opena
 
 API prices are separate. Standard short-context rates (≤272K input tokens), per 1M tokens, input/output: GPT-6 Astra $10 / $50, GPT-6 Sol and GPT-6.1 Sol $2 / $10, GPT-6 Luna $0.10 / $0.50. Ultrafast on that page is Astra only: $60 / $300, which is 6x Standard. The API docs say Ultrafast is up to 8x faster. Codex with your own API key follows API prices, not the subscription multipliers above.
 
-## Multipliers: Where the Official Pages Disagree
+## Comparison Table: Official Pages and What Is Only Reported
 
-The pricing page, the help article, and the press do not add up to one table. What was separable on the review date:
+The [ChatGPT pricing page](https://chatgpt.com/pricing/) says Pro has three usage tiers, and the response-time row is "Ultrafast (on eligible tiers)." Dollar amounts were not in the text we extracted. The $20 / $100 / $200 / $500 figures are from [Codex Pricing](https://developers.openai.com/codex/pricing). "Pro currently has no five-hour limit" and "only $500 includes Astra Ultrafast" are that page plus the [speed page](https://developers.openai.com/codex/agent-configuration/speed).
 
-The [ChatGPT Pro product page](https://chatgpt.com/plans/pro/) says there are three usage tiers. The pricing page lists $100, $200, and $500, and names Ultrafast on $500.
+[About ChatGPT Pro tiers](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers) was blocked by Cloudflare on the review date, and a later fetch timed out. The search index still returns the older article: Pro $100 is 5× Plus, $200 is 20× Plus, and $200 remains the highest tier. That does not match three tiers. It is not, by itself, the 2026-09-30 multiplier, and it cannot be used to deny that $500 exists. Reports this round did not say the $100 tier was cut, so 5× stays attached to what the help article still says.
 
-The search index for [About ChatGPT Pro tiers](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers) still returns the older structure: Pro $100 is 5x Plus, Pro $200 is 20x Plus, and $200 remains the highest tier. A direct fetch of that page was blocked by Cloudflare on the review date, so this is indexed text, not a full page reread in a browser. It conflicts with the product page. It is not, by itself, the 2026-09-30 rule, and it cannot be used to deny that $500 exists.
+Cells marked "reported" are not sentences from openai.com or the Pro help article.
 
-Secondary coverage (Engadget, The Next Web, and write-ups quoting Codex lead Thibault Sottiaux / Tibo) adds sentences the pricing page does not: the reopened Pro $200 nets out at about half the API spend of the old Pro $200; the five-hour limit is not coming back; Work and Codex fall from about 20x Plus to about 10x, immediately for new subscribers, with existing subscribers keeping the old allowance through about 2026-10-29 and moving on 2026-10-30; GPT-6 Pro in Chat falls from 200 messages a week to 100. Tibo's original post was not opened directly for this review.
-
-"Pro $500 is about 25x Plus" appears in secondary reports. The English DevDay recap timed out on fetch. The official speed page we did read confirms the 8x generation claim and the 8x billing rate. It does not state a 25x allowance.
-
-Legacy transition credits: forum posts and secondary articles quote an email that grants a one-time credit balance. The amount and expiry were not on a public help page we could open. This article does not repeat those figures. Use Settings → Usage and the OpenAI email on the account.
-
-If the reported ratios are used only as arithmetic, the monthly price per 1x of Plus is below. This is not a rate card.
-
-| Tier | Monthly | Assumed ratio vs Plus | Price per 1x |
+| Tier | Monthly | Codex / Work vs Plus | Notes |
 |------|------|------|------|
-| Plus | $20 | 1x | $20 |
-| Pro $100 | $100 | 5x (still what the help article says; reports did not change this tier) | $20 |
-| Pro $200 | $200 | 10x (reports). The help-article index still says 20x | $20 at 10x; $10 if 20x is still in force |
-| Pro $500 | $500 | 25x (reports only; not on the pricing page) | $20 if 25x is right |
+| Plus | $20 | 1×, and it still has a 5-hour window | Official: Plus five-hour estimates are on the pricing page. 1× is the baseline, not a help-article sentence |
+| Pro 100 / 5x | $100 | Help article still says about 5× | No report of a cut to this tier in this round. The pricing page does not republish the multiplier |
+| Pro 200 (new subs) | $200 | Reported ~10× (was ~20×) | Reported: reopened; API-spend equivalent about half the old plan. Official: Pro currently has no five-hour limit. The help-article index still says 20× |
+| Pro 200 (legacy transition) | $200 | Reported: old allowance through 2026-10-29, then reduced | Reported one-time credits of about $2,500 / 62,500, expiring at year end. Amount and date were not on a public help page we could open |
+| Pro 500 | $500 | Higher; reported ~25×, plus Ultrafast | Official: the only personal tier with Ultrafast, and included usage bills at 8×. 25× is not on an official page |
 
-Under the 25x assumption, spending all of the $500 allowance in Ultrafast leaves about 25 ÷ 8 ≈ 3.1x Plus of Standard-speed work. $500 buys token speed and a higher ceiling.
+GPT-6 Pro in Chat falling from 200 messages a week to 100 is also reported. It is not in the Codex / Work column. Tibo's (Thibault Sottiaux) original post was not opened. "About half the API spend" and "the five-hour limit is not coming back" are quotations from secondary coverage. The pricing page only confirms that Pro currently has no five-hour limit.
+
+If the reported 10× and 25× ratios are used as arithmetic, each 1× of Plus is still about $20 ($100 ÷ 5, $200 ÷ 10, $500 ÷ 25). August's $200 at the help article's 20× was about $10 per 1×. Whether that discount still exists for a new subscription is not settled by an official multiplier, so it is not treated as confirmed. Spending a reported 25× allowance entirely in Ultrafast leaves about 25 ÷ 8 ≈ 3.1× Plus of Standard-speed work. That is an assumption, not a rate card.
 
 ## Credits: What One Task Costs
 
@@ -123,23 +118,24 @@ Twenty such Astra tasks in a month are about $60 on the API, under Pro $100, wit
 
 The same 200K in and 20K out on GPT-6 Luna is 0.2 × $0.10 + 0.02 × $0.50 = $0.03 at Standard API rates. Edits that Luna can finish should not be run on Astra. If context grows from 200K to 1M, Astra input alone is 1.0 × $10 = $10, and the task is no longer a $3 bill.
 
-## Running the Numbers: Why the Sweet Spot Left $200
+## Running the Numbers: Do Not Treat Pro 20x as the Ceiling Sweet Spot
 
-The August math was specific. Pro $200 at 20x Plus was about $10 per 1x. Plus and Pro $100 were about $20 per 1x. Heavy users started at $100 and stepped up to $200 when the weekly cap kept hitting: another $100, about 4x the usage, and unlimited Voice.
+The August math was specific. Pro $200 at 20× Plus was about $10 per 1×. Plus and the Pro 5× tier of that month were about $20 per 1×. Heavy users started at $100 and stepped up to $200 when the weekly cap kept hitting: another $100, about 4× the usage, and unlimited Voice.
 
-What changes that math on 30 September is already on the pricing page, plus ratios that have to stay labeled as assumptions.
+That premise is not on the current pricing page. Pro no longer publishes a five-hour message table, and it has no five-hour cap. Codex desktop Voice is $0.05 per minute against the same allowance. The ChatGPT pricing page still marks Pro Voice as Unlimited*, with a footnote that this refers to Chat limits and reasonable use. That is not the same meter as Codex desktop Voice. The personal top tier is $500, and Ultrafast draws included usage at 8×.
 
-Pro no longer publishes a five-hour message table, and it has no five-hour cap. $200 no longer lists unlimited Voice. The personal top tier is $500, and Ultrafast draws included usage at 8x. If the reported 10x ratio is right, $200's unit price is back in line with Plus, and the August discount is gone. If the help article's 20x ratio is the one still in force, the discount survives, but that article also does not acknowledge $500, which conflicts with the page that is selling it. While those two official texts disagree, this guide does not state 20x as the current fact.
+Reports say a newly opened $200 plan is about 10× rather than 20×, and about half the old plan's API spend. If that report is right, the new $200 tier is back to Plus's unit price, the August discount is gone, and it is worse value than the old 20× plan. If the help-article index is the text still in force (still 20×), the discount survives, but that article does not acknowledge $500. While those texts disagree, this guide does not state "Pro 20x is the ceiling sweet spot" as a current conclusion.
 
 How that lands:
 
-**Plus, $20.** A few focused sessions a week. Astra's 5–45 local messages per five hours can disappear in one long task. Luna's 350–3,000 is much wider. One or two hours a day, mostly on Luna or Sol, generally fits. Go ($8) is desktop Luna only, still in rollout, without the CLI, IDE, or cloud review listed for Plus.
+**Light use: Plus, $20.** A few focused sessions a week. Astra's 5–45 local messages per five hours can disappear in one long task. Luna's 350–3,000 is much wider. One or two hours a day, mostly on Luna or Sol, generally fits. Go ($8) is desktop Luna only, still in rollout, without the CLI, IDE, or cloud review listed for Plus.
 
-**Pro $100.** Codex is the daily tool, Plus's five-hour window keeps stopping the work, and the weekly total does not yet force another doubling. Under the 5x assumption its unit price matches Plus. What you add is the ability to spend the week's allowance in a burst, plus Pro-only chat access. The product page also lists Dot. The pricing page does not say how Dot draws on the Codex allowance, so Dot stays out of this calculation.
+**All-day agents, if you do not want the rate window in the way: weigh Pro $100, new Pro $200, and Pro $500 together.** The shared difference the pricing page confirms is that Pro has no five-hour window. Which multiplier applies is in the table above, and several of those cells are reported.
 
-**Pro $200.** Consider it only when the $100 weekly allowance regularly runs out. Do not buy it for the August story of "20x plus unlimited Voice." If new subscriptions are already on the reported 10x ratio, $200 versus $100 is linear: about twice the price for twice the usage. Existing subscribers may still be on the old allowance until 2026-10-30. Read the usage dashboard this month before staying or stepping down.
-
-**Pro $500.** It earns its fee in two cases. Token wait on Astra is what limits how much you finish in a day, and Ultrafast's up-to-8x generation speed matches that bottleneck. Or the $200 weekly allowance is still not enough, and you want the higher ceiling while accepting that Ultrafast spends the allowance faster. If the 25x assumption holds, an all-Ultrafast month is only a bit over 3x Plus at Standard speed, at a much higher unit cost than $100.
+- Pro $100: the help article still says about 5×, and this round of reports did not describe a cut. What you add is the ability to spend the week's allowance in a burst. The product page lists Dot. The pricing page does not say how Dot draws on the Codex allowance, so Dot stays out of this calculation.
+- New Pro $200: reported at about 10×, which is about twice the price of $100 for about twice the usage, not the August step of "another $100 for about 4× the usage." It is worth it when the $100 weekly allowance actually runs out.
+- Legacy Pro $200: reports say the old allowance lasts through 2026-10-29, plus a one-time credit grant (about $2,500 / 62,500, expiring at year end). Amount and date were not confirmed on a public help page. Read Settings → Usage this month before staying, dropping to $100, or moving to $500 for Ultrafast.
+- Pro $500: the official extra is Ultrafast. It matches the fee when waiting on Astra tokens is what limits the work you finish in a day, and the up-to-8× generation speed fits that bottleneck. If the reported ~25× holds, an all-Ultrafast month is only a bit over 3× Plus at Standard speed.
 
 **API key.** The roughly $3 Astra task above stays under the $100 subscription when you run clearly fewer than about 30 of them a month. Use a key when volume swings, or when the agent already runs in your own framework. Cloud GitHub review, Slack, and Work are not on the key.
 
@@ -151,13 +147,11 @@ Domestic coding plans (GLM, Volcengine Ark, Bailian) are typically ¥50–200 a 
 
 ## Who Should Buy
 
-**Plus**: a few sessions a week, mostly Luna or Sol, and a five-hour window is acceptable.
+**Plus**: light use. A few sessions a week, mostly Luna or Sol, and a five-hour window is acceptable.
 
-**Pro $100**: Codex every day, Plus's five-hour window is the thing that stops you, and the weekly total does not yet require another doubling.
+**All-day agents**: weigh Pro $100, newly opened Pro $200, and Pro $500. Do not treat Pro 20x / $200 as the ceiling sweet spot. The August "20× at about half the unit price" math is not what the pricing page says now, and 10× is reported, not official.
 
-**Pro $200**: you already exhaust Pro $100 every week. On the current pricing page it is not a half-price allowance, and it is not unlimited Voice.
-
-**Pro $500**: you need Astra Ultrafast, or the $200 weekly allowance is still not enough. The reason is speed or ceiling, not a lower price per token.
+**Pro $500**: you need Astra Ultrafast, which the official pages do name, or a higher weekly ceiling. Speed and ceiling are the reasons. Whether the token price is lower depends on a 25× ratio the official pages do not state.
 
 **Business**: you need seat admin and SSO. The pricing page puts Standard Business on the same five-hour estimate table as Plus. It does not publish a multiplier for a higher seat.
 
@@ -168,7 +162,7 @@ Domestic coding plans (GLM, Volcengine Ark, Bailian) are typically ¥50–200 a 
 - Tier prices, Plus five-hour estimates, no five-hour limit on Pro, Ultrafast only on Pro $500, speed billing multipliers, the credits table, Voice at $0.05/minute, and the GPT-5.5 retirement date: [Codex Pricing](https://developers.openai.com/codex/pricing), 2026-09-30.
 - Ultrafast up to 8x faster, and no Ultrafast on other self-serve plans even with credits: [Codex Speed](https://developers.openai.com/codex/agent-configuration/speed), 2026-09-30.
 - Standard and Ultrafast API prices: [API Pricing](https://developers.openai.com/api/docs/pricing), 2026-09-30. The API "up to 8x faster" line: [Ultrafast mode](https://developers.openai.com/api/docs/guides/ultrafast-mode).
-- "Three usage tiers" on the product page: [ChatGPT Pro](https://chatgpt.com/plans/pro/), 2026-09-30.
-- Help Center index still describing two tiers at 5x and 20x: [About ChatGPT Pro tiers](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers). Direct fetch was blocked by Cloudflare on the review date.
-- About 10x, an effective date around 2026-10-30, GPT-6 Pro from 200 to 100 messages a week, Tibo's "about half the API spend," and Pro $500 at about 25x: Engadget, The Next Web, and secondary write-ups quoting Tibo. The original post and subscriber emails were not opened as primary pages. Transition-credit amount and expiry were not confirmed on a public help page, so this article does not cite figures.
+- "Three usage tiers," Ultrafast on eligible Pro tiers, and Pro Voice marked Unlimited* with a footnote that points at Chat limits: [ChatGPT Pricing](https://chatgpt.com/pricing/) and [openai.com/chatgpt/pricing](https://openai.com/chatgpt/pricing/), 2026-09-30. The extracted text did not include per-tier dollar prices.
+- Help Center index still describing two tiers at 5× and 20×, and calling $200 the highest tier: [About ChatGPT Pro tiers](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers). Direct fetch was blocked by Cloudflare, and a later attempt timed out.
+- Reported, not quoted from an official page: new Pro $200 at about 10×, API spend about half the old plan, legacy allowance through 2026-10-29, one-time credits of about $2,500 / 62,500 expiring at year end, GPT-6 Pro from 200 to 100 messages a week, and Pro $500 at about 25×. Sources are Engadget, The Next Web, and secondary write-ups quoting Tibo. The original post and subscriber emails were not opened as primary pages.
 - Message counts are official ranges and move with task complexity. Check the usage dashboard before buying. OpenAI changes allowances and prices.
