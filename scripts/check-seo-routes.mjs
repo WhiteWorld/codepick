@@ -170,6 +170,8 @@ function checkRedirects() {
     ['/en/guides/why-solo-founders-need-ai-agent-teams', '/zh/guides/why-solo-founders-need-ai-agent-teams/'],
     ['/en/guides/agent-collaboration-platform-types', '/zh/guides/agent-collaboration-platform-types/'],
     ['/en/guides/ai-employees-vs-coding-agents', '/zh/guides/ai-employees-vs-coding-agents/'],
+    ['/zh/compare/cue-vs-muse-vs-grok-bot-2026', '/zh/compare/cue-vs-muse-vs-grok-bot-vs-dots-2026/'],
+    ['/en/compare/cue-vs-muse-vs-grok-bot-2026', '/en/compare/cue-vs-muse-vs-grok-bot-vs-dots-2026/'],
     ['/en/compare/claude-code-budget-alternatives', '/en/guides/claude-code-budget-alternatives/'],
     ['/zh/compare/claude-code-budget-alternatives', '/zh/guides/claude-code-budget-alternatives/'],
     ['/en/practices/openclaw-cloud-deploy', '/zh/practices/openclaw-cloud-deploy/'],

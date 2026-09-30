@@ -11,7 +11,7 @@ draft: false
 
 > **核对日期：2026-09-10。** Grok Bot 与 Muse 都刚上线，功能、额度和地区范围仍可能快速变化。本文只把官方已经公开的能力写成结论；Muse 尚未公布订阅价格的地方，不用猜测数字补空白。
 >
-> **相关：** 2026-09-28，Manus 发布了个人生活 Agent 应用 Cue。若要同时比较 Cue、Muse 和 Grok Bot，见 [Cue vs Muse vs Grok Bot（2026）](/zh/compare/cue-vs-muse-vs-grok-bot-2026/)。本文仍只比较 Grok Bot 与 Muse，核对日期不变。
+> **相关：** 2026-09-28，Manus 发布了个人生活 Agent 应用 Cue。2026-09-29，OpenAI 在 DevDay 公布了 Dots。若要同时比较 Cue、Muse、Grok Bot 和 Dots，见 [Cue vs Muse vs Grok Bot vs Dots（2026）](/zh/compare/cue-vs-muse-vs-grok-bot-vs-dots-2026/)。本文仍只比较 Grok Bot 与 Muse，核对日期不变。
 
 Grok Bot 和 Meta Muse 看起来都在卖同一个未来：给 AI 一台云电脑，让它记住你、登录常用应用，并在你离线时继续工作。但真正用起来，它们面向的是两类不同的人：
 
