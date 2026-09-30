@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1240" viewBox="0 0 1240 1240" role="img" aria-labelledby="title desc">
 <title id="title">Grok Bot：多名 Bot，一台持久云电脑</title>
-<desc id="desc">每位 Cursor 用户一台 Firecracker 云电脑。该用户的 Bot 共享文件、浏览器登录和命令行凭证。插件、computer use、Auto Review 与 Cloud Agent 按职责分开，箭头不是机房拓扑。</desc>
+<desc id="desc">每位 Cursor 用户一台 Firecracker 云电脑。该用户的 Bot 共享文件、浏览器登录和命令行凭证。插件、Shell / CLI、computer use、Auto Review 与 Cloud Agent 按职责分开，箭头不是机房拓扑。</desc>
 <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M1 1L7 4L1 7" fill="none" stroke="#6A7F91" stroke-width="1.5"/></marker></defs>
 <style>text{font-family:"PingFang SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;fill:#192F40}</style>
 <rect width="1240" height="1240" fill="#FFFFFF"/>
@@ -27,11 +27,13 @@
 <text x="92" y="712" font-size="22" font-weight="600" text-anchor="start">Plugins / 远程 MCP</text>
 <text x="92" y="750" font-size="20" font-weight="400" text-anchor="start">账号级 · Bot 不拿 token</text>
 <rect x="444" y="668" width="340" height="116" rx="14" fill="#FFF5E6" stroke="#CBD8E4" stroke-width="2"/>
-<text x="464" y="712" font-size="22" font-weight="600" text-anchor="start">无插件：computer use</text>
-<text x="464" y="750" font-size="20" font-weight="400" text-anchor="start">技术栈未公开</text>
-<rect x="72" y="812" width="712" height="108" rx="14" fill="#FFF5E6" stroke="#CBD8E4" stroke-width="2"/>
-<text x="96" y="854" font-size="22" font-weight="600" text-anchor="start">要独立的电脑和凭证</text>
-<text x="96" y="892" font-size="20" font-weight="400" text-anchor="start">使用另一个 Cursor 用户 · 优先插件，否则用该 Bot 的 screen</text>
+<text x="464" y="712" font-size="22" font-weight="600" text-anchor="start">视觉步骤：computer use</text>
+<text x="464" y="750" font-size="20" font-weight="400" text-anchor="start">使用该 Bot 的 screen</text>
+<rect x="72" y="804" width="712" height="76" rx="14" fill="#EDF7F2" stroke="#CBD8E4" stroke-width="2"/>
+<text x="96" y="834" font-size="20" font-weight="600" text-anchor="start">Shell / CLI</text>
+<text x="96" y="862" font-size="18" font-weight="400" text-anchor="start">云端文件 · 仓库 · 命令执行；无需 screen 交互</text>
+<text x="96" y="910" font-size="20" font-weight="600" text-anchor="start">要独立的电脑和凭证</text>
+<text x="96" y="940" font-size="18" font-weight="400" text-anchor="start">使用另一个 Cursor 用户</text>
 <rect x="836" y="278" width="352" height="680" rx="14" fill="#FFFFFF" stroke="#CBD8E4" stroke-width="2"/>
 <text x="856" y="320" font-size="22" font-weight="600" text-anchor="start">旁边这些框是职责</text>
 <text x="856" y="354" font-size="18" font-weight="400" text-anchor="start">不表示它们位于 VM 内或外</text>

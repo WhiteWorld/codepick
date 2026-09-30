@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1280" viewBox="0 0 1240 1280" role="img" aria-labelledby="title desc">
 <title id="title">How one Grok Bot task moves forward</title>
-<desc id="desc">A goal and a stop line reach the shared computer. Plugins come first; otherwise the task uses that Bot's screen. Sensitive input returns to the user, and risky actions go through Auto Review. HTTP 200 only starts a run.</desc>
+<desc id="desc">A goal and stop line reach the shared computer. App operations use available plugins, command-line work uses shell / CLI, and visual steps use this Bot's screen. Risky actions go through Auto Review; sensitive input returns to the user.</desc>
 <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M1 1L7 4L1 7" fill="none" stroke="#6A7F91" stroke-width="1.5"/></marker></defs>
 <style>text{font-family:"PingFang SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;fill:#192F40}</style>
 <rect width="1240" height="1280" fill="#FFFFFF"/>
@@ -11,8 +11,8 @@
 <text x="148" y="194" font-size="20" font-weight="400" text-anchor="start">Name the artifact, where it lands, and what must not happen</text>
 <rect x="120" y="252" width="1000" height="128" rx="14" fill="#EDF7F2" stroke="#CBD8E4" stroke-width="2"/>
 <text x="148" y="294" font-size="24" font-weight="600" text-anchor="start">2  Work on the shared cloud computer</text>
-<text x="148" y="334" font-size="20" font-weight="400" text-anchor="start">Use a plugin when one exists. Otherwise use this Bot's screen</text>
-<text x="148" y="364" font-size="18" font-weight="400" text-anchor="start">One computer-use task per Bot; other Bots can still run in parallel</text>
+<text x="148" y="334" font-size="18" font-weight="400" text-anchor="start">App operations: plugin / remote MCP · Files, repositories, CLI: shell / CLI</text>
+<text x="148" y="364" font-size="18" font-weight="400" text-anchor="start">Visual app steps: this Bot's screen · one computer-use task at a time</text>
 <rect x="120" y="410" width="1000" height="128" rx="14" fill="#FFF5E6" stroke="#CBD8E4" stroke-width="2"/>
 <text x="148" y="452" font-size="24" font-weight="600" text-anchor="start">3  Hand sensitive input back</text>
 <text x="148" y="492" font-size="20" font-weight="400" text-anchor="start">Password, two-factor, CAPTCHA, payment</text>
