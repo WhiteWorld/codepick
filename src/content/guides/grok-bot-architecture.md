@@ -1,6 +1,6 @@
 ---
 title: "Grok Bot 架构解析：共享云电脑、任务循环与安全边界"
-description: "从一次具体任务出发，说明 Grok Bot 如何在每位用户的持久云电脑上工作，多个 Bot 为何共享这台电脑，以及插件、computer use、Routine 和 Auto Review 各自管什么。附架构图与证据边界。"
+description: "从一次具体任务出发，说明 Grok Bot 如何在每位用户的持久云电脑上工作，多个 Bot 为何共享这台电脑，以及插件、Shell / CLI、computer use、Routine 和 Auto Review 各自管什么。附架构图与证据边界。"
 date: "2026-09-28"
 article_type: explainer
 tags: [grok-bot, cursor, spacexai, agent, agent-runtime, computer-use, sandbox]
@@ -24,16 +24,16 @@ faq:
 读的时候抓住三件事：
 
 1. **电脑属于用户，不属于某一个 Bot。** 同一账号下的 Bot 共享文件、浏览器登录和命令行凭证。
-2. **工具有先后。** 有插件或远程 MCP，就优先走那条结构化路径；没有，再用 computer use 去点页面。
+2. **按步骤选择工具。** 应用操作优先使用能覆盖该步骤的插件或远程 MCP；文件、仓库和命令行工作可以走云电脑上的 Shell / CLI；视觉应用步骤使用该 Bot 的 screen 做 computer use。
 3. **「说了」「获准」「做完」是三件事。** Auto Review 和你的批准管的是即将发生的动作，不把已经发生的副作用撤销。
 
 Grok Bot 不是 X 里的 Grok 聊天，也不是 IDE 里那条编码环。它和 Muse 的差别在使用场景，不在本文展开；若要按场景比较，见 [Grok Bot vs Muse AI 2026](/zh/compare/grok-bot-vs-muse-ai-2026/)。Muse 自己的运行结构见 [Muse 架构解析](/zh/guides/muse-architecture/)。
 
-> 资料范围：本文整理于 2026-09-28。依据 Cursor 与 xAI 的公开文档、[Grok Bot 101](https://x.ai/bot/guides/grok-bot-101) 这篇官方 Guide，以及产品侧可以公开写的口径。没有登录内部系统，没有把社区故障帖写成架构，也没有把未公开的实现说成事实。
+> 资料范围：本文整理于 2026-09-28，执行路径于 2026-09-30 复核。依据 Cursor 与 xAI 的公开文档、[Grok Bot 101](https://x.ai/bot/guides/grok-bot-101) 这篇官方 Guide，以及产品侧可以公开写的口径。没有登录内部系统，没有把社区故障帖写成架构，也没有把未公开的实现说成事实。
 
 ## 架构总览：一台电脑，多名 Bot
 
-[![Grok Bot 架构：每位用户一台 Firecracker 云电脑，名下 Bot 共享文件与登录；插件、computer use、Auto Review 和 Cloud Agent 委派按职责分开](/images/guides/grok-bot-architecture-overview-zh.svg)](/images/guides/grok-bot-architecture-overview-zh.svg)
+[![Grok Bot 架构：每位用户一台 Firecracker 云电脑，名下 Bot 共享文件与登录；插件、Shell / CLI、computer use、Auto Review 和 Cloud Agent 委派按职责分开](/images/guides/grok-bot-architecture-overview-zh.svg)](/images/guides/grok-bot-architecture-overview-zh.svg)
 
 点击图可放大。图里的框按职责摆放，箭头表示工作关系，不代表精确调用顺序，也不是机房拓扑。
 
@@ -49,6 +49,7 @@ Grok Bot 不是 X 里的 Grok 聊天，也不是 IDE 里那条编码环。它和
 | 共享云电脑 | 文件、浏览器登录、命令行凭证；关笔记本仍继续 |
 | 某个 Bot 的 screen | 这个 Bot 的桌面操作；同时只有一条 computer use |
 | 插件 / 远程 MCP | 账号级的结构化工具；OAuth token 不发给 Bot |
+| Shell / CLI | 在共享云电脑上执行文件、仓库和命令行工作；无需视觉 screen 交互 |
 | Auto Review | 独立审阅模型，决定放行、要求审批或拒绝 |
 | Cloud Agent | 另一套编码电脑；Grok Bot 可以委派，团队可以关掉 |
 
@@ -58,7 +59,7 @@ Grok Bot 不是 X 里的 Grok 聊天，也不是 IDE 里那条编码环。它和
 
 假设用户对一个 Bot 说：「把这周要跟进的五家客户整理成草稿，放在对话里等我批准。不要发邮件，也不要改 CRM。」下面是教学走查，不是某次生产日志。
 
-[![一次 Grok Bot 任务：目标与停止线进入共享云电脑，有插件走插件，否则占用该 Bot 的 screen；风险动作经过 Auto Review，敏感输入交还用户](/images/guides/grok-bot-architecture-loop-zh.svg)](/images/guides/grok-bot-architecture-loop-zh.svg)
+[![一次 Grok Bot 任务：目标与停止线进入共享云电脑，应用操作走可用插件，命令行工作走 Shell / CLI，视觉步骤使用该 Bot 的 screen；风险动作经过 Auto Review，敏感输入交还用户](/images/guides/grok-bot-architecture-loop-zh.svg)](/images/guides/grok-bot-architecture-loop-zh.svg)
 
 点击图可放大。顺序用来对照职责，不表示每个任务都经过六个独立服务。
 
@@ -68,11 +69,13 @@ Grok Bot 不是 X 里的 Grok 聊天，也不是 IDE 里那条编码环。它和
 
 文档把这种边界放在请求里，而不是指望事后补救。批准控制的是**这一次提议**，不会把已经改过的 CRM 改回去。
 
-### 第二步：有插件就走插件
+### 第二步：按步骤选择工具
 
 CRM 如果已经接了插件，Bot 应走插件，而不是在网页上把同样的字段点一遍。插件按账号安装，这个用户的每个 Bot 都能用。OAuth token 留在 Cursor 的连接器后端，Bot 调用工具时拿不到 token，token 也不写在云电脑上。
 
-没有插件，或者插件不覆盖「看某一张看板」这种视觉步骤，才轮到 computer use，占用**这个 Bot 自己的 screen**。另一个 Bot 仍可以用它自己的 screen 并行干活。
+文件、仓库和 CLI 任务可以直接使用**共享云电脑上的 Shell / CLI**，例如检查文件或运行命令行工具。缺少插件不意味着这些任务必须经过 screen。[安全文档](https://cursor.com/docs/grok-bot/security)明确把 shell 命令、插件调用和 computer use 分别列出。在云电脑上启动 stdio 服务也是命令执行，见后面的 MCP 小节。
+
+需要与应用或网站做视觉交互时，没有合适插件，或插件不覆盖「看某一张看板」这种步骤，才使用 computer use，占用**这个 Bot 自己的 screen**。另一个 Bot 仍可以用它自己的 screen 并行干活。「同时一条 computer use」限制的是 screen 操作，不是所有工具动作。一次任务可以组合这些路径，它们不是每次都必须经过的回退链。
 
 公开文档没有写 computer use 的浏览器内核、自动化库或截图管线。图里只保留职责，不补一套未公开的技术栈。
 
@@ -94,8 +97,9 @@ Auto Review 是审批提示后面的审阅层：一个**独立的审阅模型**�
 目标与停止线
     ↓
 共享云电脑上的这个 Bot
-    ├─ 有插件 → 结构化调用
-    └─ 无插件 → 该 Bot 的 screen（一条 computer use）
+    ├─ 插件覆盖的应用操作 → 插件 / 远程 MCP
+    ├─ 文件、仓库、CLI → 云电脑上的 Shell / CLI
+    └─ 视觉应用步骤 → 该 Bot 的 screen（一条 computer use）
            ↓
        敏感输入？ → 交还用户接管
            ↓
@@ -142,7 +146,7 @@ Routine 也可以由 webhook 调用启动。帮助中心 [Routines](https://curs
 
 三层不要并成一层：
 
-- **Grok Bot**：持久云电脑上的助手，负责聊天、审批、插件和桌面操作。
+- **Grok Bot**：持久云电脑上的助手，负责聊天、审批、插件、Shell / CLI 和桌面操作。
 - **Cursor Cloud Agent**：独立编码沙箱。Grok Bot 可以委派，团队可以禁止。
 - **Cursor IDE Agent**：IDE 里面的编码环。不要把它写成 Grok Bot 本体。
 

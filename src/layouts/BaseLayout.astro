@@ -224,14 +224,14 @@ const latestUpdateMonth = latestDate
         })}
       </div>
       <div class="flex items-center gap-3">
-        <button id="theme-toggle" class="btn btn-ghost p-2 text-sm" aria-label={lang === 'zh' ? '切换主题' : 'Toggle theme'}>
+        <button id="theme-toggle" class="btn btn-ghost !p-2 text-sm" aria-label={lang === 'zh' ? '切换主题' : 'Toggle theme'}>
           <svg class="theme-icon-light hidden w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
           <svg class="theme-icon-dark w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
         <a href={switchUrl} class="btn btn-ghost text-xs" data-locale-switch={otherLang}>{switchLabel}</a>
         <a
           href={localePath('/search', lang)}
-          class="btn btn-ghost p-2 text-sm"
+          class="btn btn-ghost !p-2 text-sm"
           aria-label={lang === 'zh' ? '搜索' : 'Search'}
         >
           <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
@@ -240,11 +240,11 @@ const latestUpdateMonth = latestDate
           href="https://github.com/WhiteWorld/codepick"
           target="_blank"
           rel="noopener"
-          class="btn btn-ghost text-xs hidden md:inline-flex"
+          class="btn btn-ghost text-xs !hidden md:!inline-flex"
         >
           GitHub ↗
         </a>
-        <button id="menu-toggle" class="md:hidden btn btn-ghost p-2" aria-label={t('menu.ariaLabel', lang)}>
+        <button id="menu-toggle" class="md:!hidden btn btn-ghost !p-2" aria-label={t('menu.ariaLabel', lang)}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 010 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 010 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 010 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
           </svg>

@@ -1,6 +1,6 @@
 ---
 title: "Grok Bot Architecture Explained: The Shared Computer, Task Loop, and Security Boundaries"
-description: "Follow one concrete task through Grok Bot: a persistent cloud computer per user, bots that share it, and how plugins, computer use, routines, and Auto Review divide the work. Includes diagrams and evidence limits."
+description: "Follow one concrete task through Grok Bot: a persistent cloud computer per user, bots that share it, and how plugins, shell / CLI, computer use, routines, and Auto Review divide the work. Includes diagrams and evidence limits."
 date: "2026-09-28"
 article_type: explainer
 tags: [grok-bot, cursor, spacexai, agent, agent-runtime, computer-use, sandbox]
@@ -24,16 +24,16 @@ faq:
 Keep three distinctions in view:
 
 1. **The computer belongs to the user, not to one Bot.** Bots on the same account share files, browser logins, and command-line credentials.
-2. **Tools have an order.** Use a plugin or remote MCP when one exists. Use computer use for everything else.
+2. **Choose the tool for the step.** Prefer an available plugin or remote MCP for supported app operations. File, repository, and command-line work can use shell / CLI on the cloud computer. Visual app steps use computer use on that Bot's screen.
 3. **Proposed, approved, and done are different states.** Auto Review and your approval govern the action about to run. They do not undo a side effect that already happened.
 
 Grok Bot is not the Grok chat inside X, and it is not the coding loop inside the IDE. How it compares with Muse as a product choice is a different article: [Grok Bot vs Muse AI (2026)](/en/compare/grok-bot-vs-muse-ai-2026/). For Muse's own runtime, see [Muse Architecture Explained](/en/guides/muse-architecture/).
 
-> Scope: this article was prepared on September 28, 2026. It uses public Cursor and xAI documentation, the official guide [Grok Bot 101](https://x.ai/bot/guides/grok-bot-101), and product statements that are cleared to be written publicly. It does not treat community bug reports as architecture, and it does not describe unpublished internals as fact.
+> Scope: this article was prepared on September 28, 2026, with execution paths checked on September 30. It uses public Cursor and xAI documentation, the official guide [Grok Bot 101](https://x.ai/bot/guides/grok-bot-101), and product statements that are cleared to be written publicly. It does not treat community bug reports as architecture, and it does not describe unpublished internals as fact.
 
 ## Architecture: One Computer, Many Bots
 
-[![Grok Bot architecture: one Firecracker cloud computer per user, shared by that user's bots; plugins, computer use, Auto Review, and Cloud Agent delegation are separate responsibilities](/images/guides/grok-bot-architecture-overview-en.svg)](/images/guides/grok-bot-architecture-overview-en.svg)
+[![Grok Bot architecture: one Firecracker cloud computer per user, shared by that user's bots; plugins, shell / CLI, computer use, Auto Review, and Cloud Agent delegation are separate responsibilities](/images/guides/grok-bot-architecture-overview-en.svg)](/images/guides/grok-bot-architecture-overview-en.svg)
 
 Open the diagram to enlarge it. Boxes are grouped by responsibility. Arrows are working relationships, not an RPC trace and not a map of machines.
 
@@ -49,6 +49,7 @@ Read the diagram by responsibility. Do not turn every box into a separate machin
 | Shared cloud computer | Files, browser sessions, CLI credentials; work continues with the laptop closed |
 | One Bot's screen | That Bot's desktop actions; one computer-use task at a time |
 | Plugins / remote MCP | Account-wide structured tools; the Bot does not receive the OAuth token |
+| Shell / CLI | Commands on the shared cloud computer for files, repositories, and CLI tasks; no visual screen interaction required |
 | Auto Review | A separate review model that allows, asks, or denies |
 | Cloud Agents | Separate coding computers; Grok Bot can delegate, and a team can turn that off |
 
@@ -58,7 +59,7 @@ The model does not occupy a fixed rack in this picture. The [security documentat
 
 Suppose someone tells a Bot: "Turn this week's five follow-ups into drafts in this chat and wait for my approval. Do not send email, and do not change the CRM." The walkthrough is a teaching example, not a production trace.
 
-[![One Grok Bot task: a goal and a stop line reach the shared computer, plugins are preferred over computer use on that Bot's screen, risky actions pass through Auto Review, and sensitive input returns to the user](/images/guides/grok-bot-architecture-loop-en.svg)](/images/guides/grok-bot-architecture-loop-en.svg)
+[![One Grok Bot task: a goal and a stop line reach the shared computer, app operations use available plugins, command-line work uses shell / CLI, and visual steps use that Bot's screen, risky actions pass through Auto Review, and sensitive input returns to the user](/images/guides/grok-bot-architecture-loop-en.svg)](/images/guides/grok-bot-architecture-loop-en.svg)
 
 Open the diagram to enlarge it. The order is a way to track responsibilities. It does not claim that every task crosses six separate services.
 
@@ -68,11 +69,13 @@ The runtime needs the outcome and the place it must stop. The sentence above nam
 
 The docs put that boundary in the request, rather than treating approval as a way to undo earlier work. An approval controls **the proposed action**. It does not roll back a CRM change that already happened.
 
-### 2. Use a Plugin When One Exists
+### 2. Choose a Tool for Each Step
 
 If the CRM is connected, the Bot should use the plugin instead of clicking the same fields in a browser. Plugins are installed for the account, so every Bot that user runs can use them. OAuth tokens stay on Cursor's connector backend. The Bot invokes tools without receiving the token, and the token is not stored on the computer.
 
-Computer use is for services without a plugin, or for a visual step the plugin does not expose. That work uses **this Bot's screen**. Another Bot can still use its own screen at the same time.
+File, repository, and CLI tasks can instead use **shell / CLI on the shared cloud computer**, such as inspecting files or running a command-line tool. A missing plugin does not send those tasks through the screen. The [security documentation](https://cursor.com/docs/grok-bot/security) explicitly lists shell commands separately from plugin calls and computer use. Starting a stdio service there is another command-based operation; see the MCP section below.
+
+For visual interaction with an app or website, computer use covers services without a suitable plugin and steps the plugin does not expose. That work uses **this Bot's screen**. Another Bot can still use its own screen at the same time. The one-computer-use-task limit applies to screen work; it is not a blanket limit on every tool action. These paths can be combined within one task, rather than forming a mandatory fallback chain.
 
 The public docs do not name the computer-use browser engine, automation library, or screenshot pipeline. The diagram keeps the responsibility and does not invent that stack.
 
@@ -94,8 +97,9 @@ It does not review every side effect. Memory writes and most settings changes ar
 Goal and stop line
         ↓
 This Bot, on the shared computer
-        ├─ Plugin exists → structured call
-        └─ No plugin → this Bot's screen (one computer-use task)
+        ├─ Supported app operation → plugin / remote MCP
+        ├─ Files, repository, CLI → shell / CLI on the cloud computer
+        └─ Visual app step → this Bot's screen (one computer-use task)
                 ↓
         Sensitive input? → user takeover
                 ↓
@@ -142,7 +146,7 @@ The [Teams page](https://cursor.com/docs/grok-bot/teams) is the control that mat
 
 Keep the three surfaces apart:
 
-- **Grok Bot:** the assistant on the persistent cloud computer, for chat, approvals, plugins, and desktop control.
+- **Grok Bot:** the assistant on the persistent cloud computer, for chat, approvals, plugins, shell / CLI, and desktop control.
 - **Cursor Cloud Agent:** a separate coding sandbox. Grok Bot can delegate to it, and a team can forbid that.
 - **Cursor IDE Agent:** the coding loop inside the IDE. It is not Grok Bot.
 

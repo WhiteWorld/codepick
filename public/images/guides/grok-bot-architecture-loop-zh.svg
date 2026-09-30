@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1280" viewBox="0 0 1240 1280" role="img" aria-labelledby="title desc">
 <title id="title">一次 Grok Bot 任务怎么往下走</title>
-<desc id="desc">目标与停止线进入共享云电脑。有插件走插件，否则占用该 Bot 的 screen。敏感输入交还用户，风险动作经过 Auto Review。Webhook 的 200 只表示开始运行。</desc>
+<desc id="desc">目标与停止线进入共享云电脑。应用操作走可用插件，命令行工作走 Shell / CLI，视觉步骤使用该 Bot 的 screen。风险动作经过 Auto Review；敏感输入交还用户。</desc>
 <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M1 1L7 4L1 7" fill="none" stroke="#6A7F91" stroke-width="1.5"/></marker></defs>
 <style>text{font-family:"PingFang SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;fill:#192F40}</style>
 <rect width="1240" height="1280" fill="#FFFFFF"/>
@@ -11,8 +11,8 @@
 <text x="188" y="194" font-size="20" font-weight="400" text-anchor="start">产物、交付位置、禁止的动作，一起写清</text>
 <rect x="160" y="252" width="920" height="128" rx="14" fill="#EDF7F2" stroke="#CBD8E4" stroke-width="2"/>
 <text x="188" y="294" font-size="24" font-weight="600" text-anchor="start">2  在共享云电脑上动手</text>
-<text x="188" y="334" font-size="20" font-weight="400" text-anchor="start">有插件就用插件。没有，才占用这个 Bot 的 screen</text>
-<text x="188" y="364" font-size="18" font-weight="400" text-anchor="start">同一个 Bot 同时只有一条 computer use；其他 Bot 仍可并行</text>
+<text x="188" y="334" font-size="18" font-weight="400" text-anchor="start">应用操作：插件 / 远程 MCP；文件、仓库、CLI：Shell / CLI</text>
+<text x="188" y="364" font-size="18" font-weight="400" text-anchor="start">视觉应用步骤：该 Bot 的 screen；同时一条 computer use</text>
 <rect x="160" y="410" width="920" height="128" rx="14" fill="#FFF5E6" stroke="#CBD8E4" stroke-width="2"/>
 <text x="188" y="452" font-size="24" font-weight="600" text-anchor="start">3  敏感输入交还用户</text>
 <text x="188" y="492" font-size="20" font-weight="400" text-anchor="start">密码、两步验证、人机验证、支付</text>
