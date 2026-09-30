@@ -17,7 +17,7 @@ Cue、Meta Muse、Grok Bot 和 OpenAI Dots 都会在你离开之后继续办事�
 - **Dots** 更接近 Muse 的「一个长期管家」，但住在 ChatGPT 和 Codex 里。官方例子同时覆盖工作材料和生活安排。
 - **Grok Bot** 面向公司里长期存在的岗位：工程、销售、运营，以及需要治理的多人团队。
 
-身份也不一样。Cue 给每个 Agent 一套自己的电话、邮箱、钱包和电脑。Muse 是一个管家，跑在每位用户一台 Muse Secure VM 上，出口和连接器由独立的 Sentinel 把关。Dots 现在从 **一个 primary dot** 开始，它有自己的云电脑和浏览器，用你连接的应用和 Codex 把工作接着做下去；公开材料没有给它配电话、邮箱或钱包。Grok Bot 的差别在岗位、Routine 和企业管控。同一用户名下的 Bot 共享一台云电脑，分开的 Bot 不是安全边界。
+身份也不一样。Cue 给每个 Agent 一套自己的电话、邮箱、钱包和电脑。Muse 是一个管家，跑在每位用户一台 Muse Secure VM 上，出口和连接器由独立的 Sentinel 把关。Dots 现在从 **一个 primary dot** 开始，它有自己的云电脑和浏览器，用你连接的应用和 Codex 把工作接着做下去；Learn 文档没有给它配电话、邮箱或钱包。Grok Bot 的差别在岗位、Routine 和企业管控。同一用户名下的 Bot 共享一台云电脑，分开的 Bot 不是安全边界。
 
 一句话：**生活杂务、希望 Agent 对外有自己的联系方式，先看 Cue；要一个审批边界写得比较细的个人管家，先看 Muse；人已经在 ChatGPT / Codex 里、想要一个一直在线的管家，先看 Dots；公司里按岗位持续派活，先看 Grok Bot。** 只比较 Grok Bot 和 Muse 的更细版本，见 [Grok Bot vs Muse AI（2026）](/zh/compare/grok-bot-vs-muse-ai-2026/)。
 
