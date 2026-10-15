@@ -4,8 +4,8 @@ type: client
 logo: /images/cline.png
 url: https://cline.bot
 repo: https://github.com/cline/cline
-current_version: v4.1.21
-version_tracked_at: '2026-09-28'
+current_version: v4.1.24
+version_tracked_at: '2026-10-13'
 pricing:
   model: free
   currency: null
@@ -65,7 +65,7 @@ quick_start:
 quick_start_en:
   - Open VS Code, search for "Cline" in the extension marketplace and install
   - Click the Cline icon in the sidebar, select model provider and enter API Key
-  - "Recommended: pair with Volcengine Ark Coding Plan (¥9.9 first month / ¥40 renewal) for direct China access without VPN"
+  - 'Recommended: pair with Volcengine Ark Coding Plan (¥9.9 first month / ¥40 renewal) for direct China access without VPN'
   - Describe tasks in chat; Cline reads/edits files and runs terminal commands automatically
 china_note: 插件本身无需翻墙，强烈推荐搭配火山方舟 Coding Plan（Lite 首月 ¥9.9 / 续费 ¥40），DeepSeek V3 等模型国内直连
 china_note_en: Plugin requires no VPN; strongly recommend pairing with Volcengine Ark Coding Plan (¥9.9 first month / ¥40 renewal) for direct access to DeepSeek V3 and other models from China
@@ -84,17 +84,20 @@ data_sources:
     type: release
     last_checked: '2026-08-19'
 changelog:
+  - date: '2026-10-13'
+    type: release
+    summary: 'v4.1.24: v4.1.24'
   - date: '2026-09-24'
     type: release
-    summary: 'v4.1.21：官方稳定版发布；2026-09-28 核对版本。'
+    summary: v4.1.21：官方稳定版发布；2026-09-28 核对版本。
     summary_en: 'v4.1.21: official stable release; version verified on 2026-09-28.'
   - date: '2026-08-14'
     type: release
-    summary: 'v4.1.10：v4 系列稳定推进--4.0 将扩展迁移到 Cline SDK 会话层（agent turns、工具、Plan/Act、MCP、checkpoints 统一运行时），新增 ClinePass 订阅与 Customize marketplace（Skills/MCP/插件市场）；4.1.0 起扩展变为 legacy+SDK 双包 A/B 渐进切换；4.1.10 新增任务中联网搜索（Feature Settings 可开关）、修复双实例 Hub daemon 互杀导致的会话中断、刷新模型目录（新增 Crusoe provider）'
+    summary: v4.1.10：v4 系列稳定推进--4.0 将扩展迁移到 Cline SDK 会话层（agent turns、工具、Plan/Act、MCP、checkpoints 统一运行时），新增 ClinePass 订阅与 Customize marketplace（Skills/MCP/插件市场）；4.1.0 起扩展变为 legacy+SDK 双包 A/B 渐进切换；4.1.10 新增任务中联网搜索（Feature Settings 可开关）、修复双实例 Hub daemon 互杀导致的会话中断、刷新模型目录（新增 Crusoe provider）
     summary_en: 'v4.1.10: v4 series stabilizing - 4.0 migrated the extension to the Cline SDK session layer (unified runtime for agent turns, tools, Plan/Act, MCP, checkpoints) and added ClinePass subscription plus the Customize marketplace (Skills/MCP/plugins); 4.1.0 turned the extension into a combined legacy+SDK A/B package with staged rollout; 4.1.10 adds web search during tasks (toggle in Feature Settings), fixes two Cline instances killing each other''s Hub daemon (abnormal socket closes), and refreshes the model catalog (adds Crusoe as a provider)'
   - date: '2026-05-14'
     type: release
-    summary: 'v3.83.0：Cline SDK 发布--将 Agent 运行时与 VS Code 扩展解耦，支持以 SDK 形式接入自定义工具链和 CLI；提升多模型并行调用稳定性；持续改进 Enterprise Skills 与大型代码库处理能力'
+    summary: v3.83.0：Cline SDK 发布--将 Agent 运行时与 VS Code 扩展解耦，支持以 SDK 形式接入自定义工具链和 CLI；提升多模型并行调用稳定性；持续改进 Enterprise Skills 与大型代码库处理能力
     summary_en: 'v3.83.0: Cline SDK launched - decouples agent runtime from VS Code extension, enabling integration as SDK into custom toolchains and CLI; improved multi-model parallel call stability; continued Enterprise Skills and large codebase handling improvements'
   - date: '2026-05-01'
     type: release
@@ -156,7 +159,7 @@ changelog:
     type: feature
     summary: 支持 MCP Server 管理
     summary_en: MCP Server management support added
-last_full_review: '2026-05-24'
-next_review_due: '2026-10-13'
+last_full_review: '2026-10-13'
+next_review_due: '2026-11-12'
 review_frequency_days: 30
 confidence: high

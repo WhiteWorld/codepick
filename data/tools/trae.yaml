@@ -81,12 +81,11 @@ quick_start_en:
 register_url: https://trae.ai
 china_note: 国际版需要代理，国内访问不稳定；请使用 Trae CN（trae.cn）国内专属版，完全免费，豆包/DeepSeek/Kimi 模型全套
 china_note_en: International edition requires a proxy; unstable from China; use Trae CN (trae.cn) for the domestic edition — completely free with Doubao/DeepSeek/Kimi models
-
 plans_using_this: []
 data_sources:
   - url: https://www.trae.ai/pricing
     type: pricing
-    last_checked: '2026-03-27'
+    last_checked: '2026-10-13'
 changelog:
   - date: '2026-05-10'
     type: announcement
@@ -108,7 +107,7 @@ changelog:
     type: feature
     summary: Builder 模式上线，支持 Grok-4（Beta）模型
     summary_en: Builder mode launched, Grok-4 (Beta) model support added
-last_full_review: '2026-05-10'
-next_review_due: '2026-10-13'
+last_full_review: '2026-10-13'
+next_review_due: '2026-11-12'
 review_frequency_days: 30
 confidence: medium

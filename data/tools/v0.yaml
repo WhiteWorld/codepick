@@ -6,7 +6,6 @@ url: https://v0.app
 repo: null
 current_version: null
 version_tracked_at: '2026-04-19'
-
 pricing:
   model: subscription
   currency: USD
@@ -34,16 +33,14 @@ pricing:
       limits: 所有 Team 功能 + 数据训练退出，更高安全控制
       limits_en: All Team features plus training opt-out, enhanced security controls
   price_updated_at: '2026-04-19'
-  note: 已从固定消息数改为 token 计费，额度单位为美元价值；网址已由 v0.dev 迁移至 v0.app
+  note: （2026-10-13 复核注：官网定价页已改为按模型 token 计费展示，订阅档位 Premium $20 / Team $30 未在页面文本中确认，待下次人工核对） 已从固定消息数改为 token 计费，额度单位为美元价值；网址已由 v0.dev 迁移至 v0.app
   note_en: Switched from fixed message counts to token-based billing; credits are in USD value; URL migrated from v0.dev to v0.app
-
 scores:
   coding_ability: 7.5
-  cost_efficiency: 8.0
-  flexibility: 5.0
-  china_friendly: 2.0
-  privacy: 5.0
-
+  cost_efficiency: 8
+  flexibility: 5
+  china_friendly: 2
+  privacy: 5
 features:
   code_completion: false
   chat: true
@@ -53,15 +50,15 @@ features:
   builder_mode: true
   git_integration: true
   database_integration: true
-  ide_base: "Web Builder"
+  ide_base: Web Builder
   supported_models:
     - GPT-4o
     - Claude Sonnet 4.5
     - v0 Mini
     - v0 Pro
     - v0 Max
-  supported_os: [Web]
-
+  supported_os:
+    - Web
 best_for:
   - React/Next.js 开发者快速生成 UI 组件
   - 使用 Vercel 部署的团队
@@ -70,28 +67,25 @@ best_for_en:
   - React/Next.js developers generating UI components fast
   - Teams deploying on Vercel
   - Designers generating code from Figma designs
-
 not_for:
   - 需要复杂自定义后端逻辑的项目
   - 非 Vercel 生态的团队
 not_for_en:
   - Projects needing complex custom backend logic
   - Teams outside Vercel ecosystem
-
 quick_start:
   - 访问 v0.app，用 Vercel 账号（可 GitHub 一键登录）注册，Free 套餐每月 $5 额度
   - 在输入框描述你想要的 UI 组件（如"带搜索的数据表格，使用 shadcn/ui 风格"）
   - AI 生成 React + shadcn/ui 组件代码，可继续对话调整样式和功能
   - 通过 Git 面板创建分支/PR，或直接关联 Vercel 项目一键部署
 quick_start_en:
-  - "Visit v0.app and sign up with a Vercel account (GitHub one-click login supported); Free plan: $5/month in credits"
+  - 'Visit v0.app and sign up with a Vercel account (GitHub one-click login supported); Free plan: $5/month in credits'
   - Describe the UI component you need (e.g. "a data table with search in shadcn/ui style")
   - AI generates React + shadcn/ui component code; keep chatting to refine style and functionality
   - Use the Git panel to create branches/PRs, or link a Vercel project for direct deployment
 register_url: https://v0.app
 china_note: 需要翻墙，Vercel 域名在国内访问受限；网站已迁移至 v0.app；专注前端 UI 组件和全栈应用生成
 china_note_en: Requires VPN from China; Vercel domain restricted in China; site migrated to v0.app; focuses on frontend UI and full-stack app generation
-
 changelog:
   - date: '2026-04-19'
     type: pricing
@@ -105,13 +99,11 @@ changelog:
     type: announcement
     summary: 首次收录
     summary_en: Initial listing
-
 data_sources:
   - url: https://v0.app/pricing
     type: pricing
     last_checked: '2026-04-19'
-
-last_full_review: '2026-05-10'
-next_review_due: '2026-10-13'
+last_full_review: '2026-10-13'
+next_review_due: '2026-11-11'
 review_frequency_days: 30
 confidence: medium

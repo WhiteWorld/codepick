@@ -22,14 +22,40 @@ const SPECIFIC_TOOL = args.length > 0 ? args[0] : null;
 
 const GITHUB_TOOLS = {
   'aider': { repo: 'Aider-AI/aider' },
-  'cline': { repo: 'cline/cline' },
-  'opencode': { repo: 'opencode-ai/opencode' },
+  // cline 发布多条产品线（desktop-/cli-/sdk/ 与 VS Code 扩展 v4.x），只取 v 开头的扩展版本
+  'cline': { repo: 'cline/cline', tag_pattern: '^v\\d' },
+  // opencode-ai/opencode 已归档，项目已迁移至 anomalyco/opencode
+  'opencode': { repo: 'anomalyco/opencode' },
   'roo-code': { repo: 'RooVetGit/Roo-Code' },
   'gemini-cli': { repo: 'google-gemini/gemini-cli' },
 };
 
-async function fetchLatestRelease(repo) {
-  const url = `https://api.github.com/repos/${repo}/releases/latest`;
+/**
+ * 版本号转数字元组，用于比较大小。
+ * 兼容 v0.86.2 / 1.14.4 / rust-v0.162.1 / v2026.10.1 等格式。
+ * 无法解析（如 'GA'）返回 null。
+ */
+function versionTuple(v) {
+  if (v == null) return null;
+  const nums = String(v).match(/\d+/g);
+  return nums ? nums.map(Number) : null;
+}
+
+/** latest 是否严格新于 current；current 未知（null）时视为可更新 */
+function isNewer(latest, current) {
+  const l = versionTuple(latest);
+  if (!l) return false;
+  const c = versionTuple(current);
+  if (!c) return true;
+  const n = Math.max(l.length, c.length);
+  for (let i = 0; i < n; i++) {
+    const a = l[i] ?? 0, b = c[i] ?? 0;
+    if (a !== b) return a > b;
+  }
+  return false;
+}
+
+async function fetchLatestRelease(repo, tagPattern) {
   const headers = { 'Accept': 'application/vnd.github.v3+json' };
 
   const token = process.env.GITHUB_TOKEN;
@@ -38,11 +64,20 @@ async function fetchLatestRelease(repo) {
   }
 
   try {
+    // 指定了 tag_pattern 时拉取 release 列表做过滤（如 cline 的多产品线 tags）
+    const url = tagPattern
+      ? `https://api.github.com/repos/${repo}/releases?per_page=30`
+      : `https://api.github.com/repos/${repo}/releases/latest`;
     const response = await fetch(url, { headers });
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`);
     }
-    const data = await response.json();
+    let data = await response.json();
+    if (tagPattern) {
+      const re = new RegExp(tagPattern);
+      data = data.find(r => !r.prerelease && !r.draft && re.test(r.tag_name));
+      if (!data) throw new Error(`no release matches ${tagPattern}`);
+    }
     return {
       tag_name: data.tag_name,
       name: data.name,
@@ -93,7 +128,7 @@ async function updateTool(toolId, config) {
 
   console.log(`  当前版本: ${currentVersion || 'N/A'}`);
 
-  const release = await fetchLatestRelease(config.repo);
+  const release = await fetchLatestRelease(config.repo, config.tag_pattern);
   if (!release) {
     return false;
   }
@@ -101,7 +136,12 @@ async function updateTool(toolId, config) {
   const latestVersion = release.tag_name;
   console.log(`  最新版本: ${latestVersion}`);
 
-  const needsUpdate = latestVersion !== currentVersion;
+  // 防倒退：latest 不比 current 新时只滚动复核日期，不改版本号
+  //（如 aider 的 GitHub release 停留在 v0.86.0，而 PyPI 已到 v0.86.2）
+  const needsUpdate = isNewer(latestVersion, currentVersion);
+  if (latestVersion !== currentVersion && !needsUpdate) {
+    console.log(`  ⚠ 远端版本 ${latestVersion} 不新于当前 ${currentVersion}，跳过版本更新`);
+  }
   const changes = [];
 
   if (needsUpdate) {

@@ -4,8 +4,8 @@ type: cli
 logo: /images/opencode.png
 url: https://opencode.ai
 repo: https://github.com/anomalyco/opencode
-current_version: v1.18.33
-version_tracked_at: '2026-09-28'
+current_version: v1.19.0
+version_tracked_at: '2026-10-13'
 pricing:
   model: free
   currency: null
@@ -58,13 +58,12 @@ quick_start:
   - 进入项目目录运行：opencode，进入美观的 TUI 界面
   - 国内用户推荐搭配火山方舟 Coding Plan（Lite 首月 ¥9.9 / 续费 ¥40），无需翻墙
 quick_start_en:
-  - "Install Bun or Node.js 18+, run: bun install -g opencode-ai (or npm install -g opencode-ai)"
-  - "Configure model API Key (supports 75+ providers): export ANTHROPIC_API_KEY=xxx or use TUI setup wizard"
-  - "cd to your project directory and run: opencode to launch the TUI interface"
-  - "China users: pair with Volcengine Ark Coding Plan (¥9.9 first month / ¥40 renewal) for access without VPN"
+  - 'Install Bun or Node.js 18+, run: bun install -g opencode-ai (or npm install -g opencode-ai)'
+  - 'Configure model API Key (supports 75+ providers): export ANTHROPIC_API_KEY=xxx or use TUI setup wizard'
+  - 'cd to your project directory and run: opencode to launch the TUI interface'
+  - 'China users: pair with Volcengine Ark Coding Plan (¥9.9 first month / ¥40 renewal) for access without VPN'
 china_note: 支持火山方舟 Coding Plan（Lite 首月 ¥9.9 / 续费 ¥40），国内直连使用 DeepSeek 等主流模型，无需翻墙；也支持阿里百炼、月之暗面等国内 API
 china_note_en: Supports Volcengine Ark Coding Plan (¥9.9 first month / ¥40 renewal) for direct access to DeepSeek and other models without VPN; also supports Alibaba Bailian, Moonshot, and other Chinese APIs
-
 compatible_apis:
   - ark-coding-plan
   - openrouter
@@ -83,29 +82,32 @@ data_sources:
     type: changelog
     last_checked: '2026-08-19'
 changelog:
+  - date: '2026-10-13'
+    type: release
+    summary: 'v1.19.0: v1.19.0'
   - date: '2026-09-28'
     type: release
-    summary: 'v1.18.33：修复 Cloudflare AI Gateway 超时、MCP 浏览器启动失败上报、调试输出脱敏凭证，以及 Gemini thinking 默认值。'
+    summary: v1.18.33：修复 Cloudflare AI Gateway 超时、MCP 浏览器启动失败上报、调试输出脱敏凭证，以及 Gemini thinking 默认值。
     summary_en: 'v1.18.33: fixes Cloudflare AI Gateway timeouts, MCP browser launch failure reporting, redacted debug credentials, and Gemini thinking defaults.'
   - date: '2026-09-21'
     type: release
-    summary: 'v1.18.32：官方稳定版发布；2026-09-28 核对版本。'
+    summary: v1.18.32：官方稳定版发布；2026-09-28 核对版本。
     summary_en: 'v1.18.32: official stable release; version verified on 2026-09-28.'
   - date: '2026-08-13'
     type: release
-    summary: 'v1.18.18：修复 Moonshot/Kimi 官方 provider 下的系统提示词选择；修复 xAI 模型的 xhigh 推理档位；1.16→1.18 为日常迭代与修复系列'
+    summary: v1.18.18：修复 Moonshot/Kimi 官方 provider 下的系统提示词选择；修复 xAI 模型的 xhigh 推理档位；1.16→1.18 为日常迭代与修复系列
     summary_en: 'v1.18.18: Selects the Kimi system prompt correctly for official Moonshot and Kimi providers; fixes xhigh reasoning effort for xAI models; 1.16-1.18 are routine iteration and fix releases'
   - date: '2026-05-23'
     type: release
-    summary: 'v1.15.10：恢复打开项目和启动会话的旧生产桌面流程；Agent 和命令名称支持相对配置路径；opencode login 默认改为 https://console.opencode.ai'
+    summary: v1.15.10：恢复打开项目和启动会话的旧生产桌面流程；Agent 和命令名称支持相对配置路径；opencode login 默认改为 https://console.opencode.ai
     summary_en: 'v1.15.10: Restored legacy production desktop flows for opening projects and starting sessions; agent and command names now resolve from relative config paths; opencode login defaults to https://console.opencode.ai'
   - date: '2026-05-10'
     type: release
-    summary: 'v1.14.46：内置 customize-opencode 技能（更安全的配置编辑）；修复 HTTP API 数字参数解析；修复 MCP 工具发现问题；修复 Plan Mode 安全绕过；Scout agent 用于仓库研究和依赖检查；HTTP 响应压缩；工作区同步（适配器工作区）'
+    summary: v1.14.46：内置 customize-opencode 技能（更安全的配置编辑）；修复 HTTP API 数字参数解析；修复 MCP 工具发现问题；修复 Plan Mode 安全绕过；Scout agent 用于仓库研究和依赖检查；HTTP 响应压缩；工作区同步（适配器工作区）
     summary_en: 'v1.14.46: Built-in customize-opencode skill for safer config edits; fixed numeric HTTP API parameters; fixed MCP tool discovery; patched Plan Mode security bypass; Scout agent for repository research and dependency inspection; HTTP response compression; workspace sync for adapter-backed workspaces'
   - date: '2026-05-02'
     type: release
-    summary: 'v1.14.33：opencode agent 创建时自动写入有效的 permissions.deny 配置；per-workspace 图标覆盖与同步状态加载优化；修复 HTTP API workspace adapter 丢失实例上下文（影响 workspace create/sync/routing）'
+    summary: v1.14.33：opencode agent 创建时自动写入有效的 permissions.deny 配置；per-workspace 图标覆盖与同步状态加载优化；修复 HTTP API workspace adapter 丢失实例上下文（影响 workspace create/sync/routing）
     summary_en: 'v1.14.33: opencode agent now writes a valid permissions.deny config on create; improved per-workspace icon overrides and sync state loading; fixed HTTP API workspace adapter losing instance context (breaks workspace create, sync, routing)'
   - date: '2026-04-30'
     type: release
@@ -163,7 +165,7 @@ changelog:
     type: release
     summary: 'v0.0.55: 旧版本末期'
     summary_en: 'v0.0.55: final legacy release before v1.0 rewrite'
-last_full_review: '2026-05-24'
-next_review_due: '2026-10-13'
+last_full_review: '2026-10-13'
+next_review_due: '2026-11-12'
 review_frequency_days: 30
 confidence: medium

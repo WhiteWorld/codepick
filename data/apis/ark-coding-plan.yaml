@@ -5,10 +5,8 @@ logo: /images/ark.svg
 url: https://www.volcengine.com/L/s3lNTNYxaEc/
 affiliate_url: https://volcengine.com/L/GHwMUAPkBr0/
 repo: null
-
-current_version: "v2"
-version_tracked_at: "2026-06-06"
-
+current_version: v2
+version_tracked_at: '2026-06-06'
 pricing:
   model: subscription
   currency: CNY
@@ -16,32 +14,31 @@ pricing:
     - name: Lite
       price: 40
       period: month
-      limits: "每5小时约1200次请求；首月低至 ¥9.9（2.5 折，叠加邀请券可至 ¥8.9）"
-      note: "Lite 标准月费 ¥40。首月优惠 ¥9.9（2.5 折），叠加邀请券可低至 ¥8.9。续费回到 ¥40。"
+      limits: 每5小时约1200次请求；首月低至 ¥9.9（2.5 折，叠加邀请券可至 ¥8.9）
+      note: Lite 标准月费 ¥40。首月优惠 ¥9.9（2.5 折），叠加邀请券可低至 ¥8.9。续费回到 ¥40。
     - name: Pro
       price: 200
       period: month
-      limits: "每5小时约6000次请求，Lite的5倍用量；首月低至 ¥49.9"
-      note: "Pro 标准月费 ¥200。首月优惠 ¥49.9。首购一次性下单三个月可享 5 折；价格与活动以官网实时页面为准。"
-  price_updated_at: "2026-06-06"
-  note: "Lite 标准月费 ¥40（首月优惠以活动页为准），Pro 标准月费 ¥200（首月优惠以活动页为准）。官方文档 2026-06-03 更新，Coding Plan 个人版仍保留 Lite / Pro 双层级与 Claude Code、OpenCode、OpenClaw、Hermes Agent、TRAE、OpenViking 等接入文档；活动页需 JavaScript 渲染，最终价格以下单页为准。"
-
+      limits: 每5小时约6000次请求，Lite的5倍用量；首月低至 ¥49.9
+      note: Pro 标准月费 ¥200。首月优惠 ¥49.9。首购一次性下单三个月可享 5 折；价格与活动以官网实时页面为准。
+  price_updated_at: '2026-10-13'
+  note: Lite 标准月费 ¥40（活动价 ¥9.9/月，连续包月 2.5 折），Pro 标准月费 ¥200（活动价 ¥49.9/月）；连续包季 4.9 折、连续包年 8.7 折，另有受邀再享 9.5 折。2026-10-13 复核官网活动页：Lite/Pro 价格与 6 月记录一致；模型阵容已更新。优惠是否仅限首月未能在文档页确认，价格以官网实时页面为准。
 scores:
-  coding_ability: 8.0
+  coding_ability: 8
   cost_efficiency: 9.5
   flexibility: 8.5
   china_friendly: 9.8
-  privacy: 7.0
-
+  privacy: 7
 features:
   auto_mode: true
   supported_models:
-    - Doubao-Seed-Code
-    - GLM-4.7
-    - DeepSeek-V3.2
-    - Kimi-K2-Thinking
-  api_protocol: "兼容 OpenAI / Anthropic 协议"
-  api_endpoint: "https://ark.cn-beijing.volces.com/api/coding"
+    - Doubao-Seed-Evolving
+    - GLM-5.3 系列
+    - Deepseek-V4.1-Flash
+    - Kimi-K3
+    - Kimi-K2.8-Preview
+  api_protocol: 兼容 OpenAI / Anthropic 协议
+  api_endpoint: https://ark.cn-beijing.volces.com/api/coding
   supported_clients:
     - Claude Code
     - Cursor
@@ -55,48 +52,47 @@ features:
     - Trae
     - OpenViking
   china_native: true
-
 best_for:
-  - "搭配开源客户端（Cline/OpenCode）的国内开发者"
-  - "想用多款国产编程模型的用户"
-  - "预算有限，追求性价比"
-  - "Claude Code 用户的国内中转方案"
+  - 搭配开源客户端（Cline/OpenCode）的国内开发者
+  - 想用多款国产编程模型的用户
+  - 预算有限，追求性价比
+  - Claude Code 用户的国内中转方案
 not_for:
-  - "只想用 Claude/GPT 原版模型的用户"
-  - "需要 API 直接调用（非编程场景）的用户"
-
+  - 只想用 Claude/GPT 原版模型的用户
+  - 需要 API 直接调用（非编程场景）的用户
 data_sources:
-  - url: "https://www.volcengine.com/L/s3lNTNYxaEc/"
+  - url: https://www.volcengine.com/L/s3lNTNYxaEc/
     type: pricing
-    last_checked: "2026-06-06"
-  - url: "https://www.volcengine.com/docs/82379/1925114"
+    last_checked: '2026-10-13'
+  - url: https://www.volcengine.com/docs/82379/1925114
     type: documentation
-    last_checked: "2026-06-06"
-  - url: "https://developer.volcengine.com/articles/7595502342175195187"
+    last_checked: '2026-10-13'
+  - url: https://developer.volcengine.com/articles/7595502342175195187
     type: announcement
-    last_checked: "2026-04-23"
-
+    last_checked: '2026-10-13'
 changelog:
-  - date: "2026-04-15"
+  - date: '2026-10-13'
     type: model
-    summary: "公告明确四大模型组合：Doubao-Seed-Code / GLM-4.7 / DeepSeek-V3.2 / Kimi-K2-Thinking，支持 Auto 模式"
-  - date: "2026-03-13"
-    type: pricing
-    summary: "新用户订阅入口调整为每日 10:30 限量开放"
-  - date: "2026-02-05"
+    summary: 模型阵容更新：Doubao-Seed-Evolving、GLM-5.3 系列、Deepseek-V4.1-Flash、Kimi-K3（含 Kimi-K2.8-Preview），支持 Auto 模式调度；Lite ¥9.9/Pro ¥49.9 活动价复核无变化
+  - date: '2026-04-15'
     type: model
-    summary: "新增 Kimi 系列模型支持"
-  - date: "2026-01-20"
+    summary: 公告明确四大模型组合：Doubao-Seed-Code / GLM-4.7 / DeepSeek-V3.2 / Kimi-K2-Thinking，支持 Auto 模式
+  - date: '2026-03-13'
     type: pricing
-    summary: "套餐改为 Lite / Pro 双层级，具体活动价以官网为准"
-  - date: "2026-01-15"
+    summary: 新用户订阅入口调整为每日 10:30 限量开放
+  - date: '2026-02-05'
+    type: model
+    summary: 新增 Kimi 系列模型支持
+  - date: '2026-01-20'
+    type: pricing
+    summary: 套餐改为 Lite / Pro 双层级，具体活动价以官网为准
+  - date: '2026-01-15'
     type: feature
-    summary: "权益扩展: 支持四大编程模型自由切换 + Auto模式"
-  - date: "2026-01-10"
+    summary: '权益扩展: 支持四大编程模型自由切换 + Auto模式'
+  - date: '2026-01-10'
     type: feature
-    summary: "支持接入 Trae / Claude Code / Cursor 等更多客户端"
-
-last_full_review: "2026-06-06"
-next_review_due: '2026-10-13'
+    summary: 支持接入 Trae / Claude Code / Cursor 等更多客户端
+last_full_review: '2026-10-13'
+next_review_due: '2026-11-12'
 review_frequency_days: 30
 confidence: high

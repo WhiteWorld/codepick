@@ -106,11 +106,10 @@ quick_start_en:
   - Visit cursor.com/download, download and install Cursor (macOS/Windows/Linux)
   - Sign up or log in with GitHub/Google; Free plan works with no credit card required
   - Open your project; press Cmd/Ctrl+L for AI chat, Tab to accept completions
-  - "For Agent mode: select Agent in the chat panel to let AI complete multi-step tasks autonomously"
+  - 'For Agent mode: select Agent in the chat panel to let AI complete multi-step tasks autonomously'
 register_url: https://cursor.com/signup
 china_note: 需要翻墙，国内网络不稳定；暂无官方国内镜像；国内用户可考虑 Trae CN（免费）或 Cline + 火山方舟（Lite 首月 ¥9.9 / 续费 ¥40）替代
 china_note_en: Requires VPN from China; no official domestic mirror; China users may try Trae CN (free) or Cline + Volcengine Ark (¥9.9 first month / ¥40 renewal) as alternatives
-
 plans_using_this:
   - id: cursor-pro
     name: Cursor Pro
@@ -119,59 +118,59 @@ plans_using_this:
 data_sources:
   - url: https://cursor.com/pricing
     type: pricing
-    last_checked: '2026-05-24'
+    last_checked: '2026-10-13'
   - url: https://cursor.com/changelog
     type: changelog
-    last_checked: '2026-05-24'
+    last_checked: '2026-10-13'
 changelog:
   - date: '2026-05-20'
     type: feature
-    summary: 'v3.5：Automations 整合进 Agents Window，支持跨多个代码库的自动化任务；新增无代码库自动化模板（监控工具/服务）；新创建 Automations 首 7 天享 50% Agent 运行折扣'
+    summary: v3.5：Automations 整合进 Agents Window，支持跨多个代码库的自动化任务；新增无代码库自动化模板（监控工具/服务）；新创建 Automations 首 7 天享 50% Agent 运行折扣
     summary_en: 'v3.5: Automations now integrated in Agents Window with multi-repo automation support; new no-repo automation templates for monitoring tools and services; 50% discount on agent runs for newly created automations (first 7 days)'
   - date: '2026-05-19'
     type: feature
-    summary: 'Cursor in Jira：Jira 集成支持将工作项分配给 Cursor Agent；@Cursor 评论触发云端 Agent 执行任务（Bug 修复/功能添加/测试更新）；完成后自动生成 PR 链接（需 Jira Commercial Cloud + Rovo）'
+    summary: Cursor in Jira：Jira 集成支持将工作项分配给 Cursor Agent；@Cursor 评论触发云端 Agent 执行任务（Bug 修复/功能添加/测试更新）；完成后自动生成 PR 链接（需 Jira Commercial Cloud + Rovo）
     summary_en: 'Cursor in Jira: assign Jira work items to Cursor agents; "@Cursor" mentions in comments trigger cloud agent execution (bug fixes, feature additions, test updates); PR links generated upon completion (requires Jira Commercial Cloud with Rovo)'
   - date: '2026-05-18'
     type: model
-    summary: 'Composer 2.5 发布：在 Composer 2 基础上大幅提升智能与行为；更强的长时任务执行能力和复杂指令遵从；定价 Standard $0.50/$2.50 / Fast（默认）$3.00/$15.00 per M tokens；发布首周双倍用量赠送'
+    summary: Composer 2.5 发布：在 Composer 2 基础上大幅提升智能与行为；更强的长时任务执行能力和复杂指令遵从；定价 Standard $0.50/$2.50 / Fast（默认）$3.00/$15.00 per M tokens；发布首周双倍用量赠送
     summary_en: 'Composer 2.5 launched: substantial intelligence improvement over Composer 2; enhanced sustained work on long-running tasks and complex instruction adherence; Standard $0.50/$2.50 / Fast (default) $3.00/$15.00 per M tokens; double usage credit for first week'
   - date: '2026-05-13'
     type: feature
-    summary: 'v3.4：全屏标签页（聚焦工作区视图）；紧凑聊天回复（可调工具调用密度）；云端 Agent 开发环境配置工具（多 Repo 环境支持、Dockerfile 配置、构建 Secret、70% 更快的层缓存）'
+    summary: v3.4：全屏标签页（聚焦工作区视图）；紧凑聊天回复（可调工具调用密度）；云端 Agent 开发环境配置工具（多 Repo 环境支持、Dockerfile 配置、构建 Secret、70% 更快的层缓存）
     summary_en: 'v3.4: Full-screen tabs for focused workspace viewing; compact chat responses with adjustable tool call density; dev environment config for cloud agents (multi-repo env support, Dockerfile-based setup, build secret support, 70% faster layer caching)'
   - date: '2026-05-07'
     type: feature
-    summary: 'v3.3：全新 PR 审查体验（Reviews/Commits/Changes 三栏看板，内联评论线程，提交历史聚焦视图）；"Build in Parallel" 一键识别独立子任务并并行派发异步子 Agent；PR Splitter——自动将大变更切分为多个独立 PR 分别提交'
+    summary: v3.3：全新 PR 审查体验（Reviews/Commits/Changes 三栏看板，内联评论线程，提交历史聚焦视图）；"Build in Parallel" 一键识别独立子任务并并行派发异步子 Agent；PR Splitter——自动将大变更切分为多个独立 PR 分别提交
     summary_en: 'v3.3: New PR review experience with Reviews/Commits/Changes tabs, inline review threads, and focused commit history; "Build in Parallel" identifies independent subtasks and dispatches them as concurrent async subagents; PR Splitter auto-slices large diffs into multiple logically independent PRs'
   - date: '2026-05-01'
     type: feature
-    summary: 'Security Review Beta（Teams/Enterprise）：两类常驻安全 Agent——Security Reviewer（每次 PR 检查安全漏洞/认证回归/隐私风险/Agent 工具自动批准/提示注入）和 Vulnerability Scanner；Team Marketplace 支持无需关联仓库即可创建，可直接管理一方插件安装行为'
+    summary: Security Review Beta（Teams/Enterprise）：两类常驻安全 Agent——Security Reviewer（每次 PR 检查安全漏洞/认证回归/隐私风险/Agent 工具自动批准/提示注入）和 Vulnerability Scanner；Team Marketplace 支持无需关联仓库即可创建，可直接管理一方插件安装行为
     summary_en: 'Security Review Beta on Teams/Enterprise: two always-on agents — Security Reviewer (checks every PR for security vulnerabilities, auth regressions, privacy/data risks, agent tool auto-approvals, prompt injection) and Vulnerability Scanner; Team Marketplace can now be created without linking a repo, with direct control over first-party plugin install behavior'
   - date: '2026-04-24'
     type: feature
-    summary: 'v3.2：/multitask 命令让 Cursor Agent 运行时并行派生异步子 Agent，将大任务拆分为并发子任务，不再串行排队；Agents Window 新版 Worktrees 支持后台隔离任务（独立分支），一键切到本地前台测试；单个 Agent 会话可跨多个 Repo（multi-root workspace）发起变更'
+    summary: v3.2：/multitask 命令让 Cursor Agent 运行时并行派生异步子 Agent，将大任务拆分为并发子任务，不再串行排队；Agents Window 新版 Worktrees 支持后台隔离任务（独立分支），一键切到本地前台测试；单个 Agent 会话可跨多个 Repo（multi-root workspace）发起变更
     summary_en: 'v3.2: /multitask spawns async subagents in parallel instead of queueing — breaks large tasks into concurrent chunks; improved Worktrees in Agents Window for background-isolated tasks across separate branches, one-click move to foreground; single agent session can now target multi-root workspaces spanning multiple repos'
   - date: '2026-04-15'
     type: feature
-    summary: 'v3.1：Interactive Canvases——Agent 可在 Agents Window 侧面板生成持久化交互式看板（表格/图表/关系图）；CLI 新增 /debug（根因分析+日志注入）、/btw（不打断 Agent 的旁白问题）、/config（交互式设置面板）；Agents Window 支持平铺布局以并行管理多 Agent；语音输入精度提升（批量 STT）'
+    summary: v3.1：Interactive Canvases——Agent 可在 Agents Window 侧面板生成持久化交互式看板（表格/图表/关系图）；CLI 新增 /debug（根因分析+日志注入）、/btw（不打断 Agent 的旁白问题）、/config（交互式设置面板）；Agents Window 支持平铺布局以并行管理多 Agent；语音输入精度提升（批量 STT）
     summary_en: 'v3.1: Interactive Canvases — agents can create durable interactive dashboards (tables, diagrams, charts) in the Agents Window side panel; CLI adds /debug (root-cause analysis with log injection), /btw (side questions without derailing agent), /config (interactive settings panel); Agents Window tiled layout for parallel agent management; improved voice input accuracy (batch STT)'
   - date: '2026-04-02'
     type: feature
-    summary: 'v3.0：全新 Agents Window 支持多 Agent 并行运行（本地/worktree/云端/SSH）；Design Mode 直接在浏览器标注 UI 元素精确指向；/worktree 隔离沙箱命令；/best-of-n 多模型并行跑同一任务再对比；Bugbot 支持 MCP 与自我进化，解决率升至 78%'
+    summary: v3.0：全新 Agents Window 支持多 Agent 并行运行（本地/worktree/云端/SSH）；Design Mode 直接在浏览器标注 UI 元素精确指向；/worktree 隔离沙箱命令；/best-of-n 多模型并行跑同一任务再对比；Bugbot 支持 MCP 与自我进化，解决率升至 78%
     summary_en: 'v3.0: New Agents Window for parallel agents across local/worktree/cloud/SSH; Design Mode annotates browser UI directly; /worktree command for isolated sandboxes; /best-of-n runs the same task in parallel across models; Bugbot with MCP support and self-improvement, 78% resolution rate'
   - date: '2026-03-25'
     type: feature
-    summary: '自托管云端 Agent 发布，代码和构建产物全部在用户自有基础设施中运行'
-    summary_en: 'Self-Hosted Cloud Agents launched — code, secrets, and build outputs stay entirely in your own infrastructure'
+    summary: 自托管云端 Agent 发布，代码和构建产物全部在用户自有基础设施中运行
+    summary_en: Self-Hosted Cloud Agents launched — code, secrets, and build outputs stay entirely in your own infrastructure
   - date: '2026-03-19'
     type: model
-    summary: 'Composer 2 模型上线，前沿编程模型，Standard $0.50/$2.50、Fast $1.50/$7.50 每百万 token'
-    summary_en: 'Composer 2 model launched — frontier coding model; Standard $0.50/$2.50, Fast $1.50/$7.50 per M tokens'
+    summary: Composer 2 模型上线，前沿编程模型，Standard $0.50/$2.50、Fast $1.50/$7.50 每百万 token
+    summary_en: Composer 2 model launched — frontier coding model; Standard $0.50/$2.50, Fast $1.50/$7.50 per M tokens
   - date: '2026-03-05'
     type: feature
-    summary: 'Automations 发布：支持 Slack/Linear/GitHub/PagerDuty/Webhook/定时触发的常驻 Agent，云端沙箱运行'
-    summary_en: 'Automations launched — always-on agents triggered by Slack, Linear, GitHub, PagerDuty, webhooks, or schedules; run in cloud sandboxes'
+    summary: Automations 发布：支持 Slack/Linear/GitHub/PagerDuty/Webhook/定时触发的常驻 Agent，云端沙箱运行
+    summary_en: Automations launched — always-on agents triggered by Slack, Linear, GitHub, PagerDuty, webhooks, or schedules; run in cloud sandboxes
   - date: '2026-03-04'
     type: feature
     summary: 'v2.6: 通过 Agent Client Protocol (ACP) 支持 JetBrains IDE（IntelliJ / PyCharm / WebStorm 等）；MCP Apps 支持 Amplitude/Figma/tldraw 等交互式 UI；Teams/Enterprise 支持私有插件市场'
@@ -204,7 +203,7 @@ changelog:
     type: pricing
     summary: Pro 从500次请求制改为$20额度池制, Auto模式无限使用
     summary_en: Pro switched from 500-request quota to $20 credit pool; unlimited Auto mode
-last_full_review: '2026-05-24'
-next_review_due: '2026-10-13'
+last_full_review: '2026-10-13'
+next_review_due: '2026-11-12'
 review_frequency_days: 30
 confidence: high

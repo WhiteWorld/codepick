@@ -6,31 +6,43 @@ url: https://www.taskade.com/agents/teams
 repo: null
 current_version: null
 version_tracked_at: '2026-05-09'
-
 pricing:
   model: subscription
   currency: USD
   plans:
     - name: Free
       price: 0
-      limits: 基础 AI 用量，1 个工作区
-      limits_en: Basic AI quota, 1 workspace
+      limits: 基础 AI 用量，最多 3 个 app，1 个工作区
+      limits_en: Basic AI quota, up to 3 apps, 1 workspace
     - name: Pro
-      price: 8
+      price: 10
       period: month
-      limits: 无限 AI 用量，无限工作区
-      limits_en: Unlimited AI, unlimited workspaces
-  price_updated_at: '2026-05-09'
-  note: YC 投资；100 万+ 用户；500K+ AI Agent；AI Team Generator 自动组队；支持 Orchestrate 模式
-  note_en: YC-backed; 1M+ users; 500K+ AI agents; AI Team Generator for auto team formation; Orchestrate mode
-
+      limits: 含 10 用户，50,000 credits/月，无限 app/agent/工作区
+      limits_en: 10 users included, 50,000 credits/mo, unlimited apps/agents/workspaces
+    - name: Business
+      price: 25
+      period: month
+      limits: 150,000 credits/月，自定义域名，SSO
+      limits_en: 150,000 credits/mo, custom domains, SSO
+    - name: Max
+      price: 100
+      period: month
+      limits: 400,000 credits/月
+      limits_en: 400,000 credits/mo
+    - name: Enterprise
+      price: 250
+      period: month
+      limits: 110 万 credits/月，SCIM，BYOK，专属支持
+      limits_en: 1.1M credits/mo, SCIM, BYOK, dedicated support
+  price_updated_at: '2026-10-13'
+  note: 2026-10-13 核验官网：Pro 从 $8 涨至 $10/月；新增 Business $25、Max $100、Enterprise $250 三档
+  note_en: 'Verified 2026-10-13: Pro raised from $8 to $10/mo; new Business $25, Max $100, Enterprise $250 tiers added'
 scores:
   coding_ability: 7.5
-  cost_efficiency: 9.0
-  flexibility: 9.0
-  china_friendly: 7.0
-  privacy: 8.0
-
+  cost_efficiency: 9
+  flexibility: 9
+  china_friendly: 7
+  privacy: 8
 features:
   code_completion: false
   chat: true
@@ -59,8 +71,7 @@ features:
     - Linux
     - iOS
     - Android
-  ide_base: "Agent 协作平台"
-
+  ide_base: Agent 协作平台
 best_for:
   - 一人公司需要全能 AI 工作台
   - AI Team Generator 一键生成专业 Agent 团队
@@ -69,14 +80,12 @@ best_for_en:
   - Solo founders needing an all-in-one AI workspace
   - One-click AI Team Generator for professional agent teams
   - Simultaneous project management + agent collaboration + automation
-
 not_for:
   - 纯编程场景（用专业 IDE 更高效）
   - 仅需轻量聊天工具的场景
 not_for_en:
   - Pure coding scenarios (dedicated IDE is more efficient)
   - Lightweight chat-only scenarios
-
 quick_start:
   - 注册 taskade.com 免费开始
   - 使用 AI Team Generator 一键生成 Agent 团队
@@ -87,23 +96,22 @@ quick_start_en:
   - Use AI Team Generator to create agent teams in one click
   - Manage projects, tasks, and agent collaboration in Workspace
   - Connect external tools like Claude Code via MCP
-
 register_url: https://www.taskade.com/signup
 china_note: 网页端直接访问；移动端和桌面端 App Store 可下载
 china_note_en: Web accessible directly; mobile and desktop apps available via App Store
-
 data_sources:
   - url: https://www.taskade.com
     type: docs
     last_checked: '2026-05-09'
-
 changelog:
+  - date: '2026-10-13'
+    type: 定价变更：Pro $8 → $10/月，新增 Business/Max/Enterprise 三档
+    summary: Pricing updated after verifying official pricing page on 2026-10-13
   - date: '2026-05-09'
     type: launch
     summary: 加入 CodePick Agent 协作栏目
     summary_en: Added to CodePick Agent Collaboration section
-
-last_full_review: '2026-05-09'
-next_review_due: '2026-10-13'
+last_full_review: '2026-10-13'
+next_review_due: '2026-11-11'
 review_frequency_days: 30
 confidence: medium

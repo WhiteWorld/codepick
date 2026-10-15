@@ -4,8 +4,8 @@ type: cli
 logo: /images/codex-cli.png
 url: https://openai.com/codex/
 repo: https://github.com/openai/codex
-current_version: v0.130.0
-version_tracked_at: '2026-05-10'
+current_version: rust-v0.162.1
+version_tracked_at: '2026-10-13'
 pricing:
   model: subscription
   currency: USD
@@ -92,12 +92,11 @@ quick_start:
   - 进入项目目录运行：codex "描述你的任务"
 quick_start_en:
   - Subscribe to ChatGPT Plus ($20/mo, CLI included); or get an OpenAI API Key
-  - "Install Node.js 22+, run: npm install -g @openai/codex"
-  - "Sign in with ChatGPT: codex login; or set API Key: export OPENAI_API_KEY=sk-xxx"
+  - 'Install Node.js 22+, run: npm install -g @openai/codex'
+  - 'Sign in with ChatGPT: codex login; or set API Key: export OPENAI_API_KEY=sk-xxx'
   - 'Run in your project directory: codex "describe your task"'
 china_note: 需要 OpenAI 账号，国内访问 OpenAI 需要代理；可替换为支持 OpenAI 格式的国内 API（如 DeepSeek、月之暗面）
 china_note_en: Requires OpenAI account; accessing OpenAI from China requires a proxy; can substitute with OpenAI-compatible Chinese APIs (e.g. DeepSeek, Moonshot)
-
 plans_using_this: []
 data_sources:
   - url: https://openai.com/codex/
@@ -107,6 +106,9 @@ data_sources:
     type: changelog
     last_checked: '2026-04-19'
 changelog:
+  - date: '2026-10-13'
+    type: 版本更新 v0.130.0 → rust-v0.162.1（GitHub release 核验）
+    summary: Version bump v0.130.0 → rust-v0.162.1 (verified via GitHub releases)
   - date: '2026-05-08'
     type: release
     summary: 'v0.130.0: 插件共享元数据与可发现性控制；新增 codex remote-control 命令（无头 App-Server 入口）；App-Server 线程分页（大会话支持）；AWS Bedrock 认证改进（支持更多凭证模式）'
@@ -139,7 +141,7 @@ changelog:
     type: launch
     summary: Codex CLI 开源发布，OpenAI 出品的终端 Agent，支持 o3/o4-mini
     summary_en: Codex CLI open-sourced — OpenAI's terminal Agent, supports o3/o4-mini
-last_full_review: '2026-05-10'
-next_review_due: '2026-10-13'
+last_full_review: '2026-10-13'
+next_review_due: '2026-11-11'
 review_frequency_days: 30
 confidence: medium

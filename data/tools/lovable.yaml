@@ -6,7 +6,6 @@ url: https://lovable.dev
 repo: null
 current_version: null
 version_tracked_at: '2026-03-04'
-
 pricing:
   model: subscription
   currency: USD
@@ -29,14 +28,12 @@ pricing:
       limits_en: Shared 100 credits, SSO, role-based access, training opt-out
   price_updated_at: '2026-04-19'
   note: 基于 credit 计费，Pro 每月 100 credits；Pro/Business 未用 credits 可滚存到下月
-
 scores:
   coding_ability: 8.5
   cost_efficiency: 7.5
   flexibility: 6.5
-  china_friendly: 2.0
-  privacy: 5.0
-
+  china_friendly: 2
+  privacy: 5
 features:
   code_completion: false
   chat: true
@@ -44,40 +41,37 @@ features:
   multi_file_edit: true
   mcp_support: false
   builder_mode: true
-  ide_base: "Web Builder"
+  ide_base: Web Builder
   supported_models:
     - Claude Sonnet 4.5
     - GPT-4o
-  supported_os: [Web]
-
+  supported_os:
+    - Web
 best_for:
   - 独立开发者快速构建 SaaS 产品
   - 需要 GitHub 版本控制的团队
 best_for_en:
   - Solo developers building SaaS quickly
   - Teams needing GitHub version control
-
 not_for:
   - 需要复杂自定义后端逻辑的项目
   - 不想依赖 Supabase 的团队
 not_for_en:
   - Projects needing complex custom backends
   - Teams avoiding Supabase lock-in
-
 quick_start:
   - 访问 lovable.dev，用 GitHub 账号或邮箱注册（Free 套餐每月 30 条消息）
   - 在输入框用自然语言描述你想构建的 Web 应用（如"构建一个带用户登录的 SaaS 定价页"）
   - AI 自动生成完整 React 应用并实时预览，可继续对话迭代修改
   - 连接 Supabase 后端，或将代码推送到 GitHub 后继续本地开发
 quick_start_en:
-  - "Visit lovable.dev and sign up with GitHub or email (Free plan: 30 messages/month)"
+  - 'Visit lovable.dev and sign up with GitHub or email (Free plan: 30 messages/month)'
   - Describe the web app you want in natural language (e.g. "build a SaaS pricing page with user login")
   - AI generates a full React app with live preview; keep chatting to iterate and refine
   - Connect Supabase backend, or push code to GitHub for continued local development
 register_url: https://lovable.dev
 china_note: 需要翻墙访问，国内暂无镜像；以全栈 React Web 应用生成为主，适合快速原型验证
 china_note_en: Requires VPN from China; no domestic mirror; focused on full-stack React web app generation, great for rapid prototyping
-
 changelog:
   - date: '2026-05-10'
     type: announcement
@@ -91,7 +85,6 @@ changelog:
     type: announcement
     summary: 首次收录
     summary_en: Initial listing
-
 data_sources:
   - url: https://lovable.dev/pricing
     type: pricing
@@ -99,8 +92,7 @@ data_sources:
   - url: https://docs.lovable.dev/introduction/plans-and-credits
     type: docs
     last_checked: '2026-04-19'
-
-last_full_review: '2026-05-10'
-next_review_due: '2026-10-13'
+last_full_review: '2026-10-13'
+next_review_due: '2026-11-11'
 review_frequency_days: 30
 confidence: high

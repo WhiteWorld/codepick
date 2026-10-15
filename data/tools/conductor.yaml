@@ -6,7 +6,6 @@ url: https://www.conductor.build
 repo: null
 current_version: null
 version_tracked_at: '2026-05-16'
-
 pricing:
   model: free
   currency: null
@@ -18,14 +17,12 @@ pricing:
   price_updated_at: '2026-05-16'
   note: BYOK 模式——直接复用本机已有的 Claude Code / Codex 登录态（Pro / Max / API Key 均可）。Conductor 不收费、不持有凭证，所有费用由底层 Agent 提供商收取。
   note_en: BYOK model — reuses your existing Claude Code / Codex login on the machine (Pro / Max / API Key all work). Conductor takes no fee and stores no credentials; cost flows to the underlying agent provider.
-
 scores:
   coding_ability: 8.5
-  cost_efficiency: 8.0
-  flexibility: 7.0
-  china_friendly: 6.0
-  privacy: 9.0
-
+  cost_efficiency: 8
+  flexibility: 7
+  china_friendly: 6
+  privacy: 9
 features:
   code_completion: false
   chat: true
@@ -46,8 +43,7 @@ features:
     - Codex
   supported_os:
     - macOS
-  ide_base: "Agent 并行编排器（桌面 App）"
-
+  ide_base: Agent 并行编排器（桌面 App）
 best_for:
   - 已重度使用 Claude Code / Codex，想突破单 Agent 串行瓶颈的 Mac 开发者
   - Issue / Feature 驱动的工作流（尤其 Linear 用户）
@@ -56,7 +52,6 @@ best_for_en:
   - Heavy Claude Code / Codex users on Mac who want to escape the single-agent serial bottleneck
   - Issue- or feature-driven workflows (especially Linear users)
   - Solo developers willing to spend more tokens to save time
-
 not_for:
   - Windows / Linux 用户（目前 Mac only）
   - 代码托管在 GitLab / Bitbucket / 自建 Git 的团队（仅支持 GitHub）
@@ -67,7 +62,6 @@ not_for_en:
   - Teams hosting code on GitLab / Bitbucket / self-hosted git (GitHub only)
   - Beginners new to AI coding tools (master single-agent first)
   - Token-sensitive users on a tight budget (parallel runs burn quota fast)
-
 quick_start:
   - 在 conductor.build 下载 Mac 应用
   - 确认本机已登录 Claude Code 或 Codex
@@ -82,11 +76,9 @@ quick_start_en:
   - Launch an agent inside the workspace and describe the task
   - Open 2–3 parallel workspaces for different features; monitor from one dashboard
   - When done, review diff, open PR, and merge — all inside Conductor
-
 register_url: https://www.conductor.build
 china_note: App 本身可下载使用；底层 Claude Code / Codex 调用需自行解决 API 访问（如通过火山方舟中转 Claude API）。GitHub 访问国内可能受限。
 china_note_en: App is downloadable; underlying Claude Code / Codex calls require your own API access (e.g., relay Claude API via Volcengine Ark). GitHub access may be restricted in China.
-
 data_sources:
   - url: https://www.conductor.build
     type: docs
@@ -94,14 +86,12 @@ data_sources:
   - url: https://docs.conductor.build
     type: docs
     last_checked: '2026-05-16'
-
 changelog:
   - date: '2026-05-16'
     type: launch
     summary: 加入 CodePick Agent 并行编排器栏目
     summary_en: Added to CodePick Agent parallel orchestrator section
-
-last_full_review: '2026-05-16'
-next_review_due: '2026-10-13'
+last_full_review: '2026-10-13'
+next_review_due: '2026-11-11'
 review_frequency_days: 30
 confidence: medium
