@@ -4,7 +4,7 @@ type: ide
 logo: /images/windsurf.png
 url: https://windsurf.com
 repo: null
-current_version: '2.3.9'
+current_version: 2.3.9
 version_tracked_at: '2026-05-24'
 pricing:
   model: subscription
@@ -95,57 +95,56 @@ quick_start:
   - JetBrains / Vim 用户：在插件市场搜索 Windsurf 插件，安装后同样支持 Cascade
 quick_start_en:
   - Visit windsurf.com/download, download and install Windsurf (macOS/Windows/Linux)
-  - "Sign up for a Codeium account (Free plan: 25 credits/month, ready to use) or log in with GitHub"
+  - 'Sign up for a Codeium account (Free plan: 25 credits/month, ready to use) or log in with GitHub'
   - Open your project and use the Cascade panel (right side) for AI chat with multi-file editing and Agent mode
-  - "JetBrains/Vim users: search for the Windsurf plugin in the marketplace; Cascade works there too"
+  - 'JetBrains/Vim users: search for the Windsurf plugin in the marketplace; Cascade works there too'
 register_url: https://windsurf.com
 china_note: 需要翻墙，暂无官方国内镜像；国内用户可考虑 Trae CN（免费）或 Cline + 火山方舟（Lite 首月 ¥9.9 / 续费 ¥40）作为替代
 china_note_en: Requires VPN from China; no official domestic mirror; China users can consider Trae CN (free) or Cline + Volcengine Ark (¥9.9 first month / ¥40 renewal) as alternatives
-
 plans_using_this: []
 data_sources:
   - url: https://devin.ai/pricing
     type: pricing
-    last_checked: '2026-08-19'
+    last_checked: '2026-10-13'
   - url: https://windsurf.com/changelog
     type: changelog
-    last_checked: '2026-08-19'
+    last_checked: '2026-10-13'
 changelog:
   - date: '2026-05-17'
     type: release
-    summary: 'v2.3.9：修复 swe-check 模型对部分用户不可用的问题；增强终端处理性能；恢复会话共享功能；修复 WSL 下 Devin local agent 路径解析问题；设置面板改为独立 Tab 展示（替代弹窗）并新增可搜索侧边栏；Agent 会话支持重命名；Spaces 支持 @-mention 跨会话共享上下文'
+    summary: v2.3.9：修复 swe-check 模型对部分用户不可用的问题；增强终端处理性能；恢复会话共享功能；修复 WSL 下 Devin local agent 路径解析问题；设置面板改为独立 Tab 展示（替代弹窗）并新增可搜索侧边栏；Agent 会话支持重命名；Spaces 支持 @-mention 跨会话共享上下文
     summary_en: 'v2.3.9: Fixed swe-check model availability for some users; enhanced terminal processing performance; restored conversation sharing; fixed Devin local agent path resolution on WSL; settings now open in dedicated tab (replaces modal) with searchable sidebar; rename agent sessions from sidebar; space @-mentions share context across sessions'
   - date: '2026-05-12'
     type: model
-    summary: 'Claude Opus 4.7（fast mode）上线 Windsurf：具备完整 Opus 4.7 智能，输出速度约提升 2.5 倍'
+    summary: Claude Opus 4.7（fast mode）上线 Windsurf：具备完整 Opus 4.7 智能，输出速度约提升 2.5 倍
     summary_en: 'Claude Opus 4.7 (fast mode) now available in Windsurf: full Opus 4.7 intelligence with ~2.5x higher output speeds'
   - date: '2026-05-06'
     type: feature
-    summary: 'v2.2.17：所有用户开放 Devin Review 和 Quick Review；Agent Command Center 新增列表视图与会话筛选/排序；修复 Windows 更新需手动清理进程的 Bug；修复部分 MCP 服务器 Bug；提升 Devin Local agent 稳定性'
+    summary: v2.2.17：所有用户开放 Devin Review 和 Quick Review；Agent Command Center 新增列表视图与会话筛选/排序；修复 Windows 更新需手动清理进程的 Bug；修复部分 MCP 服务器 Bug；提升 Devin Local agent 稳定性
     summary_en: 'v2.2.17: Devin Review & Quick Review now available for all users; Agent Command Center list display and improved session sidebar sorting/filtering; fixed Windows update bug requiring manual process cleanup; various MCP server fixes; improved Devin Local agent reliability'
   - date: '2026-04-29'
     type: feature
-    summary: 'v2.1.32：新增配额计费系统支持，IDE 内可查看每日/每周配额用量；GPT-5.4 Mini 上线（1x credits 促销价）；看板视图展示所有本地与云端 Agent 会话；Spaces 功能将 Agent/PR/文件/上下文组织为任务空间；Adaptive 模型选项——智能为每个任务选择最合适的模型以延长配额'
+    summary: v2.1.32：新增配额计费系统支持，IDE 内可查看每日/每周配额用量；GPT-5.4 Mini 上线（1x credits 促销价）；看板视图展示所有本地与云端 Agent 会话；Spaces 功能将 Agent/PR/文件/上下文组织为任务空间；Adaptive 模型选项——智能为每个任务选择最合适的模型以延长配额
     summary_en: 'v2.1.32: Added quota billing system with daily/weekly usage visible in IDE; GPT-5.4 Mini available at 1x credits (promo); Kanban-style view for all local and cloud agent sessions; Spaces to group agents, PRs, files, and context into task workspaces; new Adaptive model option that intelligently picks the best model per task to extend quota'
   - date: '2026-04-21'
     type: fix
-    summary: 'v2.0.67：修复 MCP 服务器 OAuth 认证问题'
+    summary: v2.0.67：修复 MCP 服务器 OAuth 认证问题
     summary_en: 'v2.0.67: Fixed OAuth auth for MCP servers'
   - date: '2026-04-20'
     type: fix
-    summary: 'v2.0.63：修复 OAuth/MCP 回归问题，提升 Devin Cloud 连接稳定性'
+    summary: v2.0.63：修复 OAuth/MCP 回归问题，提升 Devin Cloud 连接稳定性
     summary_en: 'v2.0.63: Fixed OAuth/MCP regression; improved Devin Cloud connection reliability'
   - date: '2026-04-17'
     type: fix
-    summary: 'v2.0.61：杂项 bug 修复'
+    summary: v2.0.61：杂项 bug 修复
     summary_en: 'v2.0.61: Misc bug fixes'
   - date: '2026-04-15'
     type: feature
-    summary: 'Windsurf 2.0：Devin 云端 Agent 集成进 IDE，一键将本地会话移交 Devin 执行，运行于独立 VM；新增看板式多 Agent 管理视图（Kanban）；Spaces 功能可将 Agent、PR、文件和上下文组织成任务空间；Gemini 3 Flash 向所有用户开放'
+    summary: Windsurf 2.0：Devin 云端 Agent 集成进 IDE，一键将本地会话移交 Devin 执行，运行于独立 VM；新增看板式多 Agent 管理视图（Kanban）；Spaces 功能可将 Agent、PR、文件和上下文组织成任务空间；Gemini 3 Flash 向所有用户开放
     summary_en: 'Windsurf 2.0: Devin Cloud Agent integrated — one-click handoff from local Cascade to Devin running on its own VM; new Kanban view for all local/cloud agent sessions; Spaces to group agents, PRs, files and context into task workspaces; Gemini 3 Flash available to all users'
   - date: '2026-03-19'
     type: pricing
-    summary: '定价改革：Pro 从 $15 升至 $20（2026-03-19 前订阅者保留旧价），信用额度制改为每日/每周刷新配额制；新增 Max 套餐 $200/月'
+    summary: 定价改革：Pro 从 $15 升至 $20（2026-03-19 前订阅者保留旧价），信用额度制改为每日/每周刷新配额制；新增 Max 套餐 $200/月
     summary_en: 'Pricing overhaul: Pro raised from $15 to $20 (pre-March-19 subscribers grandfathered at $15); monthly credits replaced by daily/weekly quota system; new Max plan at $200/mo'
   - date: '2026-03-05'
     type: feature
@@ -153,8 +152,8 @@ changelog:
     summary_en: 'Wave 13: parallel multi-agent sessions with Git worktree isolation, side-by-side Cascade panes; Arena Mode — compare two models side-by-side and vote on which performs better'
   - date: '2026-03-05'
     type: model
-    summary: 'GPT-5.4 上线（限时促销价）；Gemini 3 Flash 正式可用（78% SWE-bench，3倍速于上代）'
-    summary_en: 'GPT-5.4 available with limited-time promotional pricing; Gemini 3 Flash launched (78% SWE-bench, 3x faster than previous gen)'
+    summary: GPT-5.4 上线（限时促销价）；Gemini 3 Flash 正式可用（78% SWE-bench，3倍速于上代）
+    summary_en: GPT-5.4 available with limited-time promotional pricing; Gemini 3 Flash launched (78% SWE-bench, 3x faster than previous gen)
   - date: '2026-02-01'
     type: feature
     summary: 新增 BYOK（Bring Your Own API Key），Free/Pro 用户可接入 Claude Sonnet 4 / Opus 4（含 Thinking 模式）
@@ -179,7 +178,7 @@ changelog:
     type: update
     summary: 推出 SWE-1.5 自研 Agent 模型，速度和代码能力双提升
     summary_en: Launched SWE-1.5 proprietary Agent model, improving both speed and code quality
-last_full_review: '2026-05-24'
-next_review_due: '2026-10-13'
+last_full_review: '2026-10-13'
+next_review_due: '2026-11-12'
 review_frequency_days: 30
 confidence: high

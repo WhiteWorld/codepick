@@ -15,7 +15,7 @@ pricing:
       limits: 无限制（需自备 API Key）
       limits_en: Unlimited (requires your own API Key)
   price_updated_at: '2026-05-24'
-  note: '⛔ 已停运（2026-05-15）：Roo Code 官方云服务和 Router 已关闭；原始 VS Code 扩展 repo 已存档（无 kill switch，已安装版本仍可用）；社区 Fork Zoo Code（https://github.com/Zoo-Code-Org/Zoo-Code）接管插件维护；原团队转型至 Roomote（Slack 云端 Agent）；官方建议迁移至 Cline 或 Zoo Code'
+  note: ⛔ 已停运（2026-05-15）：Roo Code 官方云服务和 Router 已关闭；原始 VS Code 扩展 repo 已存档（无 kill switch，已安装版本仍可用）；社区 Fork Zoo Code（https://github.com/Zoo-Code-Org/Zoo-Code）接管插件维护；原团队转型至 Roomote（Slack 云端 Agent）；官方建议迁移至 Cline 或 Zoo Code
   note_en: '⛔ Discontinued (May 15, 2026): Roo Code Cloud and Router have shut down; original VS Code extension repo archived (no kill switch — installed versions still work); community fork Zoo Code (https://github.com/Zoo-Code-Org/Zoo-Code) carries plugin maintenance forward; original team pivoted to Roomote (Slack cloud agent); recommend migrating to Cline or Zoo Code'
 scores:
   coding_ability: 8.5
@@ -70,11 +70,10 @@ quick_start:
 quick_start_en:
   - Open VS Code, search for "Roo Code" in the extension marketplace and install
   - Open the Roo Code panel in the sidebar, select a role (Code/Architect/Debug) and model provider
-  - "Enter your API Key; recommended: Volcengine Ark Coding Plan (¥9.9 first month / ¥40 renewal) for budget-friendly China access"
-  - "JetBrains users: search and install the separate Roo Code extension in the plugin marketplace"
+  - 'Enter your API Key; recommended: Volcengine Ark Coding Plan (¥9.9 first month / ¥40 renewal) for budget-friendly China access'
+  - 'JetBrains users: search and install the separate Roo Code extension in the plugin marketplace'
 china_note: 插件本身无需翻墙，支持国内 API（火山方舟、阿里百炼、月之暗面等）；OpenRouter 需要代理，推荐改用国内 API
 china_note_en: Plugin requires no VPN; supports Chinese APIs (Volcengine Ark, Alibaba Bailian, Moonshot, etc.); OpenRouter needs a proxy — switch to a domestic API instead
-
 compatible_apis:
   - openrouter
   - anthropic
@@ -88,19 +87,19 @@ data_sources:
 changelog:
   - date: '2026-05-15'
     type: release
-    summary: 'v3.54.0（最新）：社区接管后（RooCodeInc org）首个清理版本--移除全部遥测、MDM 与组织成员管控、MCP marketplace、Cloud 与 evals 残留及企业支持链接；网站精简为纯扩展介绍，文档迁至 GitHub Pages；插件功能本体不变，已安装用户无感'
+    summary: v3.54.0（最新）：社区接管后（RooCodeInc org）首个清理版本--移除全部遥测、MDM 与组织成员管控、MCP marketplace、Cloud 与 evals 残留及企业支持链接；网站精简为纯扩展介绍，文档迁至 GitHub Pages；插件功能本体不变，已安装用户无感
     summary_en: 'v3.54.0 (latest): First cleanup release under the community-run RooCodeInc org - removed all telemetry, MDM and organization membership enforcement, the MCP marketplace, Cloud and evals leftovers, and corporate support links; website simplified to extension-only with docs moved to GitHub Pages; the extension itself is functionally unchanged for existing users'
   - date: '2026-05-24'
     type: announcement
-    summary: '⛔ 正式停运（已于 2026-05-15 完成）：Roo Code Cloud/Router 已关闭，余额已退款；原始 VS Code 扩展 repo 已归档（无 kill switch，已安装版本仍可使用）；社区 Fork Zoo Code（github.com/Zoo-Code-Org/Zoo-Code）已接管插件维护并持续迭代；原团队已全面转型至 Roomote（Slack-first 云端 Agent）'
+    summary: ⛔ 正式停运（已于 2026-05-15 完成）：Roo Code Cloud/Router 已关闭，余额已退款；原始 VS Code 扩展 repo 已归档（无 kill switch，已安装版本仍可使用）；社区 Fork Zoo Code（github.com/Zoo-Code-Org/Zoo-Code）已接管插件维护并持续迭代；原团队已全面转型至 Roomote（Slack-first 云端 Agent）
     summary_en: '⛔ Officially discontinued (completed May 15, 2026): Roo Code Cloud/Router shut down and balances refunded; original VS Code extension repo archived (no kill switch — installed versions still work); community fork Zoo Code (github.com/Zoo-Code-Org/Zoo-Code) has taken over plugin maintenance; original team has fully pivoted to Roomote (Slack-first cloud agent)'
   - date: '2026-05-10'
     type: announcement
-    summary: '⚠️ 停运进入倒计时（5 天后）：Roo Code Cloud/Router 将于 2026-05-15 正式关闭；Extension repo 已存档，已安装版本仍可继续使用；社区团队（v3.53.0）宣布接管插件维护；官方推荐迁移至 Cline'
+    summary: ⚠️ 停运进入倒计时（5 天后）：Roo Code Cloud/Router 将于 2026-05-15 正式关闭；Extension repo 已存档，已安装版本仍可继续使用；社区团队（v3.53.0）宣布接管插件维护；官方推荐迁移至 Cline
     summary_en: '⚠️ Shutdown countdown (5 days): Roo Code Cloud/Router shuts down May 15, 2026; extension repo archived — installed versions keep working; community team (v3.53.0) announced takeover of plugin maintenance; official recommendation is to migrate to Cline'
   - date: '2026-04-20'
     type: announcement
-    summary: '停运公告：Roo Code Extension、Cloud 和 Router 将于 2026-05-15 全部关闭；Cloud/Router 退还未用余额；Extension repo 存档（无 kill switch）；官方推荐迁移至 Cline；团队转型至 Roomote（Slack 云端 Agent）'
+    summary: 停运公告：Roo Code Extension、Cloud 和 Router 将于 2026-05-15 全部关闭；Cloud/Router 退还未用余额；Extension repo 存档（无 kill switch）；官方推荐迁移至 Cline；团队转型至 Roomote（Slack 云端 Agent）
     summary_en: 'Sunset announcement: Roo Code Extension, Cloud, and Router all shut down May 15, 2026; Cloud/Router balances refunded; extension repo archived (no kill switch); official recommendation to migrate to Cline; team pivoting to Roomote (Slack-based cloud agent)'
   - date: '2026-04-23'
     type: feature
@@ -142,7 +141,7 @@ changelog:
     type: feature
     summary: 支持 Claude Opus 4.6；tool use 消息改为结构化 delta 流式传输，提升效率
     summary_en: Claude Opus 4.6 support added; tool use messages switched to structured delta streaming for better performance
-last_full_review: '2026-05-24'
-next_review_due: '2026-10-13'
+last_full_review: '2026-10-13'
+next_review_due: '2026-11-12'
 review_frequency_days: 30
 confidence: high

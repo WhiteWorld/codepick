@@ -4,7 +4,7 @@ type: cli
 logo: /images/claude-code.png
 url: https://docs.anthropic.com/en/docs/claude-code
 repo: null
-current_version: '2.1.150'
+current_version: 2.1.150
 version_tracked_at: '2026-05-24'
 pricing:
   model: subscription
@@ -93,42 +93,41 @@ quick_start:
   - 也可通过火山方舟 Coding Plan（Lite 首月 ¥9.9 / 续费 ¥40）在国内低成本使用
 quick_start_en:
   - Subscribe to Claude.ai Pro ($20/mo), or Max 5x/20x for higher usage
-  - "Install Node.js 18+, run: npm install -g @anthropic-ai/claude-code"
-  - "Run: claude in your project directory (first run opens browser for account auth)"
+  - 'Install Node.js 18+, run: npm install -g @anthropic-ai/claude-code'
+  - 'Run: claude in your project directory (first run opens browser for account auth)'
   - Alternatively, use via Volcengine Ark Coding Plan (¥9.9 first month / ¥40 renewal) for budget-friendly China access
 register_url: https://claude.ai/upgrade
 china_note: 官方不支持国内直连；推荐通过火山方舟 Coding Plan 中转（Lite 首月 ¥9.9 / 续费 ¥40），或配置代理后使用
 china_note_en: No official direct China access; recommend Volcengine Ark Coding Plan (¥9.9 first month / ¥40 renewal) as a relay, or configure a proxy
-
 compatible_apis:
   - ark-coding-plan
 data_sources:
   - url: https://claude.ai/pricing
     type: pricing
-    last_checked: '2026-05-24'
+    last_checked: '2026-10-13'
   - url: https://docs.anthropic.com/en/docs/claude-code
     type: docs
-    last_checked: '2026-05-24'
+    last_checked: '2026-10-13'
 changelog:
   - date: '2026-05-24'
     type: release
-    summary: 'v2.1.150（最新）：npm 安装已弃用，官方推荐改用 curl 安装脚本（curl -fsSL https://claude.ai/install.sh | bash）；原生安装支持后台自动更新；新增更强的插件依赖处理、/plugin 市场成本预估、后台会话与 Agent 控制、扩展 PowerShell 支持（Windows）；持续 worktree 和 daemon 稳定性改进'
+    summary: v2.1.150（最新）：npm 安装已弃用，官方推荐改用 curl 安装脚本（curl -fsSL https://claude.ai/install.sh | bash）；原生安装支持后台自动更新；新增更强的插件依赖处理、/plugin 市场成本预估、后台会话与 Agent 控制、扩展 PowerShell 支持（Windows）；持续 worktree 和 daemon 稳定性改进
     summary_en: 'v2.1.150 (latest): npm install is deprecated — recommended to migrate to the curl install script (curl -fsSL https://claude.ai/install.sh | bash); native installs auto-update in background; stronger plugin dependency handling, /plugin marketplace context cost estimates, background session and agent controls, expanded PowerShell support (Windows); improved worktree and daemon reliability'
   - date: '2026-05-10'
     type: release
-    summary: 'v2.1.127→2.1.138（2026-05-01 至 2026-05-10，12个版本）：持续迭代 bug 修复与稳定性改进；详细变更见 npm changelog'
+    summary: v2.1.127→2.1.138（2026-05-01 至 2026-05-10，12个版本）：持续迭代 bug 修复与稳定性改进；详细变更见 npm changelog
     summary_en: 'v2.1.127→2.1.138 (12 releases, May 1–10, 2026): Continuous patch releases with bug fixes and stability improvements; see npm changelog for details'
   - date: '2026-05-01'
     type: feature
-    summary: 'v2.1.126（BREAKING）：新增 claude project purge [path] 命令可删除指定项目的全部 Claude Code 状态（记录/任务/文件历史/配置条目），支持 --dry-run/-y/-i/--all；/model 选择器现可从网关 /v1/models 端点动态拉取模型列表；修复 iTerm2+tmux 渲染撕裂；修复粘贴超过 2000px 图片崩溃（自动缩小并重试）；修复非 git 目录 @ 文件提示每次重新扫描全项目'
+    summary: v2.1.126（BREAKING）：新增 claude project purge [path] 命令可删除指定项目的全部 Claude Code 状态（记录/任务/文件历史/配置条目），支持 --dry-run/-y/-i/--all；/model 选择器现可从网关 /v1/models 端点动态拉取模型列表；修复 iTerm2+tmux 渲染撕裂；修复粘贴超过 2000px 图片崩溃（自动缩小并重试）；修复非 git 目录 @ 文件提示每次重新扫描全项目
     summary_en: 'v2.1.126 (BREAKING): New claude project purge [path] deletes all Claude Code state for a project (transcripts, tasks, file history, config); /model picker now fetches models dynamically from gateway /v1/models; fixed iTerm2+tmux rendering tears; fixed crash when pasting images >2000px (auto-downscale + retry); fixed @ file suggestions re-scanning entire project on every turn in non-git dirs'
   - date: '2026-04-23'
     type: feature
-    summary: 'v2.1.102→2.1.119（4月16日至23日，18个版本）：持续迭代修复与稳定性改进；详细变更见 npm changelog'
+    summary: v2.1.102→2.1.119（4月16日至23日，18个版本）：持续迭代修复与稳定性改进；详细变更见 npm changelog
     summary_en: 'v2.1.102→2.1.119 (18 releases, April 16–23): Continuous patch releases with bug fixes and stability improvements; see npm changelog for details'
   - date: '2026-04-16'
     type: feature
-    summary: 'v2.1.69→2.1.101（5周内30+版本）：新增 NO_FLICKER 渲染引擎 + Focus View；Write 工具速度提升 60%；/recap 命令可重新导入会话上下文；新增 ENABLE_PROMPT_CACHING_1H（1小时缓存）和 FORCE_PROMPT_CACHING_5M（5分钟缓存）环境变量；支持 Amazon Bedrock Mantle 后端（CLAUDE_CODE_USE_MANTLE=1）；API/Bedrock/Vertex/Enterprise 默认推理强度改为 high；修复 Bash 工具反斜杠绕过安全漏洞'
+    summary: v2.1.69→2.1.101（5周内30+版本）：新增 NO_FLICKER 渲染引擎 + Focus View；Write 工具速度提升 60%；/recap 命令可重新导入会话上下文；新增 ENABLE_PROMPT_CACHING_1H（1小时缓存）和 FORCE_PROMPT_CACHING_5M（5分钟缓存）环境变量；支持 Amazon Bedrock Mantle 后端（CLAUDE_CODE_USE_MANTLE=1）；API/Bedrock/Vertex/Enterprise 默认推理强度改为 high；修复 Bash 工具反斜杠绕过安全漏洞
     summary_en: 'v2.1.69→2.1.101 (30+ releases in 5 weeks): NO_FLICKER rendering engine + Focus View; 60% faster Write tool; /recap command to restore session context; ENABLE_PROMPT_CACHING_1H and FORCE_PROMPT_CACHING_5M env vars; Amazon Bedrock Mantle backend support; default effort level raised to high for API/Bedrock/Vertex/Enterprise; fixed Bash tool backslash permission bypass security bug'
   - date: '2026-03-25'
     type: feature
@@ -162,7 +161,7 @@ changelog:
     type: pricing
     summary: 推出 Max 5x ($100) 和 Max 20x ($200) 高用量套餐
     summary_en: Launched Max 5x ($100) and Max 20x ($200) high-usage tiers
-last_full_review: '2026-05-24'
-next_review_due: '2026-10-13'
+last_full_review: '2026-10-13'
+next_review_due: '2026-11-12'
 review_frequency_days: 30
 confidence: high

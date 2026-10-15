@@ -4,9 +4,8 @@ type: agent_platform
 logo: /images/crewai.png
 url: https://crewai.com
 repo: https://github.com/crewAIInc/crewAI
-current_version: 1.14.4
-version_tracked_at: '2026-05-09'
-
+current_version: 1.15.27
+version_tracked_at: '2026-10-13'
 pricing:
   model: subscription
   currency: USD
@@ -22,14 +21,12 @@ pricing:
   price_updated_at: '2026-05-09'
   note: MIT 开源 Python 框架；CrewAI AMP 提供企业级 Control Plane、可观测性和支持；100K+ 认证开发者
   note_en: MIT licensed Python framework; CrewAI AMP offers enterprise Control Plane, observability, and support; 100K+ certified developers
-
 scores:
   coding_ability: 8.5
-  cost_efficiency: 9.0
+  cost_efficiency: 9
   flexibility: 9.5
   china_friendly: 7.5
   privacy: 8.5
-
 features:
   code_completion: false
   chat: true
@@ -55,8 +52,7 @@ features:
     - macOS
     - Windows
     - Linux
-  ide_base: "Agent 协作平台"
-
+  ide_base: Agent 协作平台
 best_for:
   - Python 开发者构建多 Agent 自动化
   - 需要精确工作流控制的企业场景
@@ -65,29 +61,25 @@ best_for_en:
   - Python developers building multi-agent automation
   - Enterprise scenarios requiring precise workflow control
   - Role-playing agent collaboration (Crews)
-
 not_for:
   - 不想写代码的非技术用户
   - 轻量级单 Agent 任务
 not_for_en:
   - Non-technical users who don't want to write code
   - Lightweight single-agent tasks
-
 quick_start:
-  - "pip install crewai"
-  - "crewai create crew my_project 创建项目骨架"
+  - pip install crewai
+  - crewai create crew my_project 创建项目骨架
   - 编辑 agents.yaml 和 tasks.yaml 定义 Agent 角色和任务
-  - "crewai run 执行 Crew"
+  - crewai run 执行 Crew
 quick_start_en:
-  - "pip install crewai"
-  - "crewai create crew my_project to scaffold"
-  - "Edit agents.yaml and tasks.yaml to define agent roles and tasks"
-  - "crewai run to execute the Crew"
-
+  - pip install crewai
+  - crewai create crew my_project to scaffold
+  - Edit agents.yaml and tasks.yaml to define agent roles and tasks
+  - crewai run to execute the Crew
 register_url: https://app.crewai.com
 china_note: Python 框架可国内直接安装使用；需自行配置模型 API（支持国内模型）
 china_note_en: Python framework installable directly in China; configure model APIs yourself (domestic models supported)
-
 data_sources:
   - url: https://github.com/crewAIInc/crewAI
     type: repo
@@ -95,14 +87,15 @@ data_sources:
   - url: https://crewai.com
     type: docs
     last_checked: '2026-05-09'
-
 changelog:
+  - date: '2026-10-13'
+    type: 版本更新 1.14.4 → 1.15.27（GitHub release 核验）
+    summary: Version bump 1.14.4 → 1.15.27 (verified via GitHub releases)
   - date: '2026-05-09'
     type: launch
     summary: 加入 CodePick Agent 协作栏目
     summary_en: Added to CodePick Agent Collaboration section
-
-last_full_review: '2026-05-09'
-next_review_due: '2026-10-13'
+last_full_review: '2026-10-13'
+next_review_due: '2026-11-11'
 review_frequency_days: 30
 confidence: medium

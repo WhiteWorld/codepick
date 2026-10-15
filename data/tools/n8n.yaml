@@ -4,9 +4,8 @@ type: agent_platform
 logo: /images/n8n.png
 url: https://n8n.io
 repo: https://github.com/n8n-io/n8n
-current_version: null
-version_tracked_at: '2026-05-09'
-
+current_version: n8n@2.43.4
+version_tracked_at: '2026-10-13'
 pricing:
   model: subscription
   currency: USD
@@ -28,14 +27,12 @@ pricing:
   price_updated_at: '2026-05-09'
   note: 187K+ GitHub Stars；开源可自托管（Docker）；500+ 集成；支持 AI Agent 节点、MCP、人机协作
   note_en: 187K+ GitHub Stars; open source, self-hostable (Docker); 500+ integrations; supports AI Agent nodes, MCP, human-in-the-loop
-
 scores:
   coding_ability: 7.5
-  cost_efficiency: 9.0
+  cost_efficiency: 9
   flexibility: 9.5
-  china_friendly: 8.0
-  privacy: 9.0
-
+  china_friendly: 8
+  privacy: 9
 features:
   code_completion: false
   chat: true
@@ -60,8 +57,7 @@ features:
     - macOS
     - Windows
     - Linux
-  ide_base: "Agent 协作平台"
-
+  ide_base: Agent 协作平台
 best_for:
   - 用可视化方式编排 AI Agent 工作流
   - 一人公司需要连接多个 SaaS 工具自动化运营
@@ -70,29 +66,25 @@ best_for_en:
   - Visually orchestrating AI agent workflows
   - Solo founders automating operations across SaaS tools
   - Self-hosting for complete data control
-
 not_for:
   - 纯编程 Agent 协作场景（更偏工作流自动化）
   - 需要深度 Agent 记忆的复杂项目
 not_for_en:
   - Pure coding agent collaboration (more workflow automation oriented)
   - Complex projects requiring deep agent memory
-
 quick_start:
-  - "Docker 自托管: docker run -d -p 5678:5678 n8nio/n8n"
+  - 'Docker 自托管: docker run -d -p 5678:5678 n8nio/n8n'
   - 或注册 n8n.cloud 免费开始
   - 在可视化画布上拖拽 AI Agent 节点 + 工具节点
   - 连接 500+ SaaS 工具构建自动化工作流
 quick_start_en:
-  - "Self-host with Docker: docker run -d -p 5678:5678 n8nio/n8n"
-  - "Or sign up at n8n.cloud to start free"
-  - "Drag AI Agent nodes + tool nodes on visual canvas"
-  - "Connect 500+ SaaS tools to build automated workflows"
-
+  - 'Self-host with Docker: docker run -d -p 5678:5678 n8nio/n8n'
+  - Or sign up at n8n.cloud to start free
+  - Drag AI Agent nodes + tool nodes on visual canvas
+  - Connect 500+ SaaS tools to build automated workflows
 register_url: https://app.n8n.cloud/register
 china_note: 开源可自托管，国内可直接 Docker 部署；需自行配置模型 API
 china_note_en: Open source, self-hostable via Docker in China; requires own model API configuration
-
 data_sources:
   - url: https://n8n.io
     type: docs
@@ -100,14 +92,15 @@ data_sources:
   - url: https://github.com/n8n-io/n8n
     type: repo
     last_checked: '2026-05-09'
-
 changelog:
+  - date: '2026-10-13'
+    type: 开始跟踪版本号：n8n@2.43.4（GitHub release 核验）
+    summary: 'Started tracking version: n8n@2.43.4 (verified via GitHub releases)'
   - date: '2026-05-09'
     type: launch
     summary: 加入 CodePick Agent 协作栏目
     summary_en: Added to CodePick Agent Collaboration section
-
-last_full_review: '2026-05-09'
-next_review_due: '2026-10-13'
+last_full_review: '2026-10-13'
+next_review_due: '2026-11-11'
 review_frequency_days: 30
 confidence: medium

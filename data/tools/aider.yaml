@@ -58,13 +58,12 @@ quick_start:
   - 进入项目目录，运行：aider（首次会引导配置模型）
   - 用自然语言描述改动，Aider 自动修改文件并提交到 Git
 quick_start_en:
-  - "Install Python 3.10+, run: pip install aider-install && aider-install"
-  - "Set API Key: export OPENAI_API_KEY=sk-xxx (supports DeepSeek, Tongyi Qianwen, Volcengine Ark, etc.)"
-  - "cd to your project directory and run: aider (first run guides model setup)"
+  - 'Install Python 3.10+, run: pip install aider-install && aider-install'
+  - 'Set API Key: export OPENAI_API_KEY=sk-xxx (supports DeepSeek, Tongyi Qianwen, Volcengine Ark, etc.)'
+  - 'cd to your project directory and run: aider (first run guides model setup)'
   - Describe changes in natural language; Aider edits files and commits to Git automatically
 china_note: 支持国内模型（DeepSeek、通义千问、火山方舟等），无需翻墙；安装包可通过国内 PyPI 镜像（如阿里云）加速
 china_note_en: Supports Chinese models (DeepSeek, Tongyi Qianwen, Volcengine Ark, etc.); no VPN needed; install faster via domestic PyPI mirrors (e.g. Alibaba Cloud)
-
 compatible_apis:
   - ollama
   - openrouter
@@ -97,7 +96,7 @@ changelog:
     type: release
     summary: 新增 GPT-4.1/mini/nano 支持；Gemini 2.5 Pro Architect 模式改进；支持 Grok-3-beta 和新 Claude Sonnet 4/Opus 4 别名
     summary_en: Added GPT-4.1/mini/nano; improved Gemini 2.5 Pro Architect mode; Grok-3-beta and new Claude Sonnet 4/Opus 4 alias support
-last_full_review: '2026-05-10'
-next_review_due: '2026-10-13'
+last_full_review: '2026-10-13'
+next_review_due: '2026-11-12'
 review_frequency_days: 30
 confidence: medium

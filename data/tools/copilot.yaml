@@ -39,7 +39,7 @@ pricing:
       limits: Business全部功能, 自定义模型微调, 高级安全
       limits_en: All Business features, custom model fine-tuning, advanced security
   price_updated_at: '2026-05-24'
-  note: '⚠️ 2026-06-01 起切换至 AI Credits 用量计费：各套餐含月度 AI Credits 配额（Pro $10、Pro+ $39、Business $19/用户、Enterprise $39/用户），超出按 token 用量扣费（1 Credit = $0.01）；代码补全和 Next Edit 建议不消耗 Credits；管理员可在企业/成本中心/用户层设置预算上限。Free版永久免费; 学生/教师/开源维护者免费Pro; Opus系列模型仅限Pro+; 2026-04-20起新注册暂停(Pro/Pro+/Business)，已有订阅不受影响'
+  note: ⚠️ 2026-06-01 起切换至 AI Credits 用量计费：各套餐含月度 AI Credits 配额（Pro $10、Pro+ $39、Business $19/用户、Enterprise $39/用户），超出按 token 用量扣费（1 Credit = $0.01）；代码补全和 Next Edit 建议不消耗 Credits；管理员可在企业/成本中心/用户层设置预算上限。Free版永久免费; 学生/教师/开源维护者免费Pro; Opus系列模型仅限Pro+; 2026-04-20起新注册暂停(Pro/Pro+/Business)，已有订阅不受影响
   note_en: '⚠️ Switching to AI Credits usage-based billing on June 1, 2026: each plan includes monthly AI Credits (Pro $10, Pro+ $39, Business $19/user, Enterprise $39/user); additional usage billed by token (1 Credit = $0.01); code completions and Next Edit Suggestions remain unlimited; admins get budget controls at enterprise/cost center/user level. Free tier permanently free; free Pro for students/teachers/OSS maintainers; Opus models Pro+ only; new signups paused since Apr 20 (Pro/Pro+/Business), existing unaffected'
 scores:
   coding_ability: 8.2
@@ -107,18 +107,17 @@ quick_start_en:
 register_url: https://github.com/features/copilot
 china_note: 需要翻墙，国内网络访问不稳定；GitHub 服务部分地区可直连，但 Copilot AI 接口稳定性较差；学生/教师可免费申请 Pro
 china_note_en: Requires VPN from China; GitHub services are partially accessible but Copilot AI endpoints are unreliable; students and teachers can apply for free Pro access
-
 data_sources:
   - url: https://github.com/features/copilot/plans
     type: pricing
-    last_checked: '2026-05-24'
+    last_checked: '2026-10-13'
   - url: https://docs.github.com/en/copilot
     type: docs
-    last_checked: '2026-05-24'
+    last_checked: '2026-10-13'
 changelog:
   - date: '2026-05-01'
     type: pricing
-    summary: '2026-06-01 起迁移至 AI Credits 用量计费制：各套餐含月度 Credits 配额（Pro $10 额度，Pro+ $39 额度），超出按 token 计费；代码补全和 Next Edit 建议不消耗 Credits；管理员可在企业/成本中心/用户层设置预算上限；Code Review 将于 6 月 1 日起消耗 GitHub Actions 分钟数'
+    summary: 2026-06-01 起迁移至 AI Credits 用量计费制：各套餐含月度 Credits 配额（Pro $10 额度，Pro+ $39 额度），超出按 token 计费；代码补全和 Next Edit 建议不消耗 Credits；管理员可在企业/成本中心/用户层设置预算上限；Code Review 将于 6 月 1 日起消耗 GitHub Actions 分钟数
     summary_en: 'Transitioning to AI Credits usage-based billing on June 1, 2026: each plan includes monthly AI Credits (Pro $10, Pro+ $39), additional usage billed per token; code completions and Next Edit suggestions remain free; admins get budget controls at enterprise/cost center/user level; Copilot code review will start consuming GitHub Actions minutes from June 1'
   - date: '2026-04-22'
     type: announcement
@@ -134,20 +133,20 @@ changelog:
     summary_en: Claude Opus 4.7 generally available on Copilot (Pro+ only); Opus 4.5/4.6 removed from Pro plan
   - date: '2026-04-14'
     type: feature
-    summary: '第三方 Claude / Codex 编程 Agent 支持在 github.com 启动时选择模型；Copilot CLI 新增 Rubber Duck 功能（实验性），显著提升 LLM 编程性能'
-    summary_en: 'Model selection for Claude and Codex third-party coding agents on github.com; Copilot CLI adds experimental Rubber Duck feature for boosted LLM coding performance'
+    summary: 第三方 Claude / Codex 编程 Agent 支持在 github.com 启动时选择模型；Copilot CLI 新增 Rubber Duck 功能（实验性），显著提升 LLM 编程性能
+    summary_en: Model selection for Claude and Codex third-party coding agents on github.com; Copilot CLI adds experimental Rubber Duck feature for boosted LLM coding performance
   - date: '2026-04-08'
     type: feature
-    summary: 'VS Code Autopilot 模式进入公开预览（完全自主 Agent 会话）；聊天支持图片和视频附件；Agent 可返回截图/录像 Carousel；新增统一自定义指令编辑器'
-    summary_en: 'VS Code Autopilot mode enters public preview (fully autonomous agent sessions); image and video attachments in chat; agents can return screenshot/recording carousels; new unified customization editor'
+    summary: VS Code Autopilot 模式进入公开预览（完全自主 Agent 会话）；聊天支持图片和视频附件；Agent 可返回截图/录像 Carousel；新增统一自定义指令编辑器
+    summary_en: VS Code Autopilot mode enters public preview (fully autonomous agent sessions); image and video attachments in chat; agents can return screenshot/recording carousels; new unified customization editor
   - date: '2026-04-08'
     type: feature
-    summary: 'Copilot CLI 支持远程会话：在 Web 或 GitHub Mobile 实时监控并发送后续指令、修改计划、控制会话'
+    summary: Copilot CLI 支持远程会话：在 Web 或 GitHub Mobile 实时监控并发送后续指令、修改计划、控制会话
     summary_en: 'Copilot CLI remote sessions: monitor and steer a running CLI session from GitHub web or GitHub Mobile in real time'
   - date: '2026-04-08'
     type: feature
-    summary: 'Copilot 新增数据驻留（US/EU），推断数据留在指定地理区域；FedRAMP Moderate 支持上线'
-    summary_en: 'Copilot data residency for US and EU regions; FedRAMP Moderate support for US government customers'
+    summary: Copilot 新增数据驻留（US/EU），推断数据留在指定地理区域；FedRAMP Moderate 支持上线
+    summary_en: Copilot data residency for US and EU regions; FedRAMP Moderate support for US government customers
   - date: '2026-03-26'
     type: announcement
     summary: GitHub 宣布 Free/Pro/Pro+ 用户交互数据将默认用于 AI 训练（4月24日生效，可关闭）
@@ -176,7 +175,7 @@ changelog:
     type: pricing
     summary: 推出永久免费版 Copilot Free
     summary_en: Copilot Free permanently free tier launched
-last_full_review: '2026-05-24'
-next_review_due: '2026-10-13'
+last_full_review: '2026-10-13'
+next_review_due: '2026-11-12'
 review_frequency_days: 30
 confidence: high

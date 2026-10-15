@@ -4,7 +4,7 @@ type: ide
 logo: /images/antigravity.png
 url: https://antigravity.google/
 repo: null
-current_version: '1.22.2'
+current_version: 1.22.2
 version_tracked_at: '2026-04-19'
 pricing:
   model: freemium
@@ -90,16 +90,15 @@ quick_start_en:
   - Open your project and start Agent chats and code generation via the AI panel
 china_note: Google 服务在中国大陆被屏蔽，需要代理才能访问；暂无国内镜像版本
 china_note_en: Google services are blocked in mainland China; a proxy is required; no domestic mirror available
-
 plans_using_this: []
 data_sources:
   - url: https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/
     type: product
-    last_checked: '2026-03-27'
+    last_checked: '2026-10-13'
 changelog:
   - date: '2026-05-10'
     type: feature
-    summary: 'May 2026 更新：AgentKit 2.0 深度集成（与 LangChain/AutoGen 等 A2A 兼容 Agent 互通）；Ollama 和 LM Studio 本地模型连接稳定性提升；Pro 套餐配额进一步放宽；2M token 上下文窗口（Gemini 3.1 Pro）已实用化'
+    summary: May 2026 更新：AgentKit 2.0 深度集成（与 LangChain/AutoGen 等 A2A 兼容 Agent 互通）；Ollama 和 LM Studio 本地模型连接稳定性提升；Pro 套餐配额进一步放宽；2M token 上下文窗口（Gemini 3.1 Pro）已实用化
     summary_en: 'May 2026 update: Deep AgentKit 2.0 integration with A2A inter-agent communication (works with LangChain/AutoGen); stabilized Ollama and LM Studio local model connectivity; Pro tier quota relaxed; 2M token context window (Gemini 3.1 Pro) now practically usable'
   - date: '2026-04-19'
     type: announcement
@@ -113,7 +112,7 @@ changelog:
     type: launch
     summary: Google Antigravity 公开预览发布，随 Gemini 3 同期推出，VS Code Fork，免费支持多顶级模型
     summary_en: Google Antigravity public preview launched alongside Gemini 3 — VS Code Fork, free access to multiple top-tier models
-last_full_review: '2026-05-10'
-next_review_due: '2026-10-13'
+last_full_review: '2026-10-13'
+next_review_due: '2026-11-12'
 review_frequency_days: 30
 confidence: medium
