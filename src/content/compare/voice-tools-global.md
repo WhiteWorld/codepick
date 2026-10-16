@@ -1,8 +1,9 @@
 ---
 title: "Vibe Coding 语音输入工具推荐（国际版）2026"
-description: "对比适合 AI 编程的国际语音输入工具：Wispr Flow、superwhisper、Typeless、Willow、Talon Voice、Spokenly、OpenWhispr 等，覆盖 Cursor、Claude Code 和 VS Code 工作流。"
+description: "对比适合 AI 编程的国际语音输入工具：Wispr Flow、superwhisper、Typeless、Willow、Talon Voice、Spokenly、OpenWhispr、VoiceVibe 等，覆盖 Cursor、Claude Code 和 VS Code 工作流。"
 date: "2026-03-03"
-tags: ["语音输入", "vibe-coding", "wispr-flow", "superwhisper", "comparison"]
+updated_at: "2026-10-16"
+tags: ["语音输入", "vibe-coding", "wispr-flow", "superwhisper", "voicevibe", "comparison"]
 pillar: compare
 content_status: keep
 locale_strategy: mirrored
@@ -22,6 +23,7 @@ Vibe Coding 的核心是把你的意图用自然语言快速交给 AI 编程助�
 - **Talon Voice**：不只是听写，而是完整语音编程命令系统。
 - **Spokenly**：macOS 免费离线方案。
 - **OpenWhispr**：免费开源，支持 Windows / macOS / Linux。
+- **VoiceVibe**：三个桌面系统都有安装包。免费档是听写；把任务交给 coding agent 属于 Pro。
 
 ---
 
@@ -36,6 +38,7 @@ Vibe Coding 的核心是把你的意图用自然语言快速交给 AI 编程助�
 | Talon Voice | 跨平台 | 免费/高级版 | 是 | 可编程语音命令、真正免手操作 | Power user |
 | Spokenly | macOS | 免费 | 是 | 本地 Whisper、可 BYOK | 预算敏感 macOS 用户 |
 | OpenWhispr | Win / Mac / Linux | 免费 | 是 | 开源、MIT、支持本地/云端模型 | Linux / 隐私用户 |
+| VoiceVibe | Win 10+ x64；macOS 14+ Apple Silicon；Linux x86-64 X11 | 免费听写；Pro $14.99/月 | 免费听写：厂商称设备端可离线 | 按住快捷键听写；Pro 可把任务交给已安装的 coding agent | 想先试免费听写的人 |
 | macOS Dictation | macOS | 免费 | Apple Silicon 可离线 | 系统内置 | 零配置轻度用户 |
 | Windows Voice Access | Windows 11 | 免费 | 是 | 系统级听写 + 命令 | Windows 用户 |
 
@@ -79,6 +82,14 @@ Spokenly 是 macOS 免费离线方案，适合不想付费但想试语音输入�
 
 这两类工具的集成体验通常不如 Wispr Flow / superwhisper，但成本低、隐私边界清晰。
 
+### VoiceVibe
+
+VoiceVibe（[工具页](/zh/tool/voicevibe/)）是闭源桌面应用。2026-10-16 的[下载页](https://voicevibe.ai/download)提供三套安装包，版本号写着 0.9.974：Windows 10 及以上的 Intel/AMD 64 位，macOS 14 及以上的 Apple Silicon，以及 x86-64 的 X11 Linux（页面写明测过 Linux Mint）。Windows ARM、Intel Mac、Wayland 和 ARM Linux 不在支持范围内。
+
+[定价页](https://voicevibe.ai/pricing)把免费档限定为 Voice Typing：设备端 Parakeet、不限次数、可不联网、单设备、无需账号。首次离线使用会再下载约 2.5GB 模型，加载时约 2.7GB 内存。没有 AI 改写，也没有 Agent Launcher。[隐私政策](https://voicevibe.ai/privacy)同时写明，免费档仍会上传匿名设备标识和每日用量，应用大约每 30 分钟检查更新，这项用量统计目前不能关闭。所以「听写在设备端」和「应用完全不联网」不是同一件事。本次没有安装。
+
+Pro 的 FAQ 写月付 $14.99 或年付 $143.90；Pro Max 月付 $29.99 或年付 $287.90。定价卡片把「$14.99/月」和「按年收取 $143.90」放在一起，和 FAQ 的两种计费不完全一致，购买前以结账页为准。Pro 才包含 Agent Launcher：口述任务、检查提示词，再交给本机的 Claude Code、Codex、Cursor CLI（功能页写 macOS/Linux）、OpenCode 或 Pi；Claude Code Desktop 和 Codex Desktop 打开的是未发送草稿。最多 3 台设备。没有找到独立上手评测。
+
 ---
 
 ## 和 AI 编程工具怎么配合
@@ -118,9 +129,10 @@ update all related tests, and add a migration script.
 | 免费 macOS 方案 | Spokenly |
 | Linux 用户 | OpenWhispr |
 | 想尝试最新开发者语音工具 | Willow for Developers |
+| 三个桌面系统先试免费听写，再决定要不要把任务交给 coding agent | VoiceVibe |
 
 如果你刚开始尝试，不要一开始就追求完美识别。先选一个工具连续用两周：第一天会别扭，第十天以后你会自然地把长提示词说给 AI，而不是敲给 AI。
 
 国内开发者可以看中文环境优化版本：[/zh/compare/voice-tools-china](/zh/compare/voice-tools-china)。
 
-> 数据基于 2026 年 3 月调研。语音输入工具价格和功能变化很快，购买前请以各工具官网为准。
+> VoiceVibe 于 2026-10-16 按 [voicevibe.ai](https://voicevibe.ai)、[定价页](https://voicevibe.ai/pricing)、[下载页](https://voicevibe.ai/download) 和[隐私政策](https://voicevibe.ai/privacy) 核对，没有安装。表中其他工具仍是 2026 年 3 月的记录，购买前请再查各工具官网。
