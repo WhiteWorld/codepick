@@ -5,7 +5,7 @@ logo: /images/cline.png
 url: https://cline.bot
 repo: https://github.com/cline/cline
 current_version: v4.1.24
-version_tracked_at: '2026-10-13'
+version_tracked_at: '2026-10-16'
 pricing:
   model: free
   currency: null
@@ -77,16 +77,25 @@ compatible_apis:
   - deepseek
   - ollama
 data_sources:
-  - url: https://github.com/cline/cline/releases/tag/v4.1.21
+  - url: https://github.com/cline/cline/releases/tag/v4.1.24
     type: release
-    last_checked: '2026-09-28'
+    last_checked: '2026-10-16'
   - url: https://github.com/cline/cline/releases
     type: release
-    last_checked: '2026-08-19'
+    last_checked: '2026-10-16'
 changelog:
   - date: '2026-10-13'
     type: release
-    summary: 'v4.1.24: v4.1.24'
+    summary: 'v4.1.24：未选模型时 Cline / OpenRouter 默认 Claude Sonnet 5.5；ai& 使用独立 API Key 与模型选择器；目录新增 Claude Haiku 5.5 以及 AI/ML API、LowRouter、Prime Inference。修复关闭 reasoning 时 GPT-6 Astra、GPT-6.1 Sol、Claude Fable 5、Claude Opus 5.5 的 400，MCP/hook 提前退出导致扩展宿主崩溃，过期模型 404 被误报为未登录，图片抬高 token 估算并过早触发压缩，以及符号链接规则和 .claude/skills 发现。2026-10-16 核对仍为最新稳定扩展版（v 前缀，不含 cli/sdk/desktop 线）。'
+    summary_en: 'v4.1.24: Cline and OpenRouter default to Claude Sonnet 5.5 when no model is pinned; ai& gets its own API key and model picker; catalog adds Claude Haiku 5.5 plus AI/ML API, LowRouter, and Prime Inference. Fixes 400s when reasoning is off for GPT-6 Astra, GPT-6.1 Sol, Claude Fable 5, and Claude Opus 5.5, extension-host crashes when an MCP server or hook exits early, stale-model 404s shown as signed-out, images inflating token estimates and triggering early compaction, and loading of symlinked rules plus .claude/skills. Verified 2026-10-16 as the latest stable extension release (v-prefixed; cli/sdk/desktop lines excluded).'
+  - date: '2026-10-07'
+    type: release
+    summary: 'v4.1.23：响应没有识别到的 finish reason 时自动续写一次；Generate Commit Message 遵循 .clinerules；自定义 Anthropic base URL（Azure AI Foundry、企业网关）不再因 4.1.22 的选项返回 400；超长 MCP 输出可分页读取；工具批准在面板仍在更新时即可点击。'
+    summary_en: 'v4.1.23: continues once when a response ends without a recognized finish reason; Generate Commit Message follows .clinerules; custom Anthropic base URLs (Azure AI Foundry, corporate gateways) no longer 400 from an option added in 4.1.22; oversized MCP output can be paged through; tool approve/reject works while the panel is still updating.'
+  - date: '2026-09-30'
+    type: release
+    summary: 'v4.1.22：新增 Bee（HEOSSI）与 Pareto Inference 提供商；Anthropic 直连使用服务端 refusal fallback，OpenRouter 与 Cline 上的 Anthropic 模型可切换上游；内容过滤改为明确提示而不是空响应。推荐列表加入 Claude Sonnet 5.5 与 Claude Opus 5.5，多家提供商默认模型切到 GPT-6.1 Sol。'
+    summary_en: 'v4.1.22: adds Bee (by HEOSSI) and Pareto Inference. Direct Anthropic calls use server-side refusal fallback, and Anthropic models on OpenRouter and Cline can fail over to another upstream. Content-filter blocks are explained instead of shown as an empty response. Recommended list adds Claude Sonnet 5.5 and Claude Opus 5.5; several providers default to GPT-6.1 Sol.'
   - date: '2026-09-24'
     type: release
     summary: v4.1.21：官方稳定版发布；2026-09-28 核对版本。
@@ -159,7 +168,7 @@ changelog:
     type: feature
     summary: 支持 MCP Server 管理
     summary_en: MCP Server management support added
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-12'
+last_full_review: '2026-10-16'
+next_review_due: '2026-11-15'
 review_frequency_days: 30
 confidence: high

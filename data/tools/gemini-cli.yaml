@@ -4,8 +4,8 @@ type: cli
 logo: /images/gemini-cli.png
 url: https://github.com/google-gemini/gemini-cli
 repo: https://github.com/google-gemini/gemini-cli
-current_version: v0.63.0
-version_tracked_at: '2026-10-13'
+current_version: v0.64.0
+version_tracked_at: '2026-10-16'
 pricing:
   model: freemium
   currency: USD
@@ -46,6 +46,8 @@ features:
   memory_manager: true
   context_window: 100万 token（Gemini 3.1 Pro）
   supported_models:
+    - Gemini 3.8 Flash
+    - Gemini 3.5 Flash Lite
     - Gemini 3.1 Pro (Preview)
     - Gemini 3 Pro
     - Gemini 3 Flash
@@ -88,19 +90,28 @@ china_note: 需要 Google 账号，中国大陆访问 Google 服务需要代理�
 china_note_en: Requires Google account; accessing Google services from mainland China requires a proxy; no domestic mirror; China users can try Kimi Code or Trae CN as alternatives
 plans_using_this: []
 data_sources:
-  - url: https://github.com/google-gemini/gemini-cli/releases/tag/v0.61.0
+  - url: https://github.com/google-gemini/gemini-cli/releases/tag/v0.64.0
     type: release
-    last_checked: '2026-09-28'
-  - url: https://github.com/google-gemini/gemini-cli
-    type: product
-    last_checked: '2026-08-19'
+    last_checked: '2026-10-16'
+  - url: https://github.com/google-gemini/gemini-cli/releases
+    type: release
+    last_checked: '2026-10-16'
   - url: https://ai.google.dev/gemini-api/docs/pricing
     type: pricing
     last_checked: '2026-08-19'
 changelog:
   - date: '2026-10-13'
     type: release
-    summary: 'v0.63.0: Release v0.63.0'
+    summary: 'v0.64.0：ACP 补上用量回传；无头模式传递已解析的工作区信任状态；文件工具串行化且写入改为原子操作；聊天记录改为追加 delta 并限制历史窗口；状态原子持久化，损坏时可从备份恢复；支持 @file:line 引用。2026-10-16 核对为最新稳定版（nightly/preview 未计入）。免费层额度本次未重新打开 Gemini API 定价页，仍沿用上次记录。'
+    summary_en: 'v0.64.0: ACP bridges usage and emits usage updates; headless mode propagates resolved folder trust; file tools are serialized and writes are atomic; chat recording uses append-only deltas with a bounded history window; state persists atomically and can recover from backup; @file:line references resolve. Verified 2026-10-16 as the latest stable release (nightly/preview excluded). Free-tier quotas were not re-checked against the Gemini API pricing page and still reflect the previous record.'
+  - date: '2026-10-06'
+    type: release
+    summary: 'v0.63.0：连接恢复时显示重试进度；限制工具输出大小；修复认证死循环；非交互模式可以自主执行计划。'
+    summary_en: 'v0.63.0: shows retry progress during connection recovery; bounds tool output size; fixes an infinite auth loop; enables autonomous plan execution in non-interactive mode.'
+  - date: '2026-09-29'
+    type: release
+    summary: 'v0.62.0：发布说明包含 Gemini 3.8 Flash 与 Gemini 3.5 Flash Lite 的合并变更，并继续修复 PTY 生命周期、OAuth refresh token 保留，以及 VS Code 伴侣扩展关闭 diff 时抢焦点的问题。'
+    summary_en: 'v0.62.0: release notes include the merged Gemini 3.8 Flash and Gemini 3.5 Flash Lite change, plus PTY lifecycle fixes, OAuth refresh-token retention, and a VS Code companion fix that preserves terminal focus when closing diff tabs.'
   - date: '2026-09-23'
     type: release
     summary: v0.61.0：官方稳定版发布；2026-09-28 核对版本。
@@ -157,7 +168,7 @@ changelog:
     type: launch
     summary: Gemini CLI 开源发布，免费使用 Gemini 2.5 Pro，1000 次/天
     summary_en: Gemini CLI open-sourced, free Gemini 2.5 Pro access, 1000 requests/day
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-12'
+last_full_review: '2026-10-16'
+next_review_due: '2026-11-15'
 review_frequency_days: 30
 confidence: high

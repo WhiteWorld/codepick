@@ -7,7 +7,7 @@ tagline_en: The most widely supported AI coding assistant — the default choice
 client: copilot
 api: copilot-builtin
 environment: VS Code / JetBrains / Neovim / Xcode
-monthly_cost: "$0-39"
+monthly_cost: "$0-100"
 currency: USD
 scores:
   coding_ability: 8.2
@@ -32,36 +32,36 @@ best_for_en:
   - Zero-budget entry (Free tier is permanently free)
 quick_start:
   - "Free版: 在 github.com/copilot 直接开通, 无需付费"
-  - "Pro版: 登录 github.com/features/copilot 订阅 ($10/月 或 $100/年)"
+  - "Pro版: 登录 github.com/features/copilot 订阅（$10/月，合计 1,500 AI Credits）"
   - "在 IDE 扩展市场搜索 GitHub Copilot 安装"
   - "登录 GitHub 账号，即刻开始使用"
 quick_start_en:
   - "Free tier: Sign up at github.com/copilot, no payment required"
-  - "Pro tier: Subscribe at github.com/features/copilot ($10/mo or $100/yr)"
+  - "Pro tier: Subscribe at github.com/features/copilot ($10/mo, 1,500 AI credits total)"
   - "Search for GitHub Copilot in your IDE extension marketplace"
   - "Log in with your GitHub account and start coding"
 pros:
   - IDE 支持最广（VS Code / JetBrains / Neovim / Xcode）
-  - 永久免费版可用（50次Chat+2000次补全/月）
+  - 永久免费版可用（50 次 Chat + 2,000 次补全/月）
   - 开箱即用，零配置
-  - Coding Agent 支持自动创建PR
-  - 学生/教师/开源维护者免费Pro
+  - Coding Agent 支持自动创建 PR
+  - 已验证学生有免费 Student 档；教师和热门开源维护者可能获得免费 Pro
 pros_en:
   - Widest IDE support (VS Code / JetBrains / Neovim / Xcode)
-  - Permanent free tier (50 chats + 2000 completions/mo)
+  - Permanent free tier (50 chats + 2,000 completions/mo)
   - Works out of the box, zero configuration
   - Coding Agent can auto-create PRs
-  - Free Pro for students, educators, and open-source maintainers
+  - Verified students get a free Student plan; teachers and popular OSS maintainers may be eligible for free Pro
 cons:
   - 国内访问不稳定，偶尔超时
-  - 模型不可自选，绑定 GitHub 平台
+  - 模型目录由 GitHub 提供，不能自带任意 API
   - 免费版限额较低
   - Agent 能力弱于 Cursor/Cline
 cons_en:
   - Unstable access in China, occasional timeouts
-  - No model choice, locked to GitHub platform
-  - Low quotas on free tier
+  - The model catalog is GitHub's; arbitrary bring-your-own APIs are not the default
+  - Low quotas on the free tier
   - Agent capabilities weaker than Cursor/Cline
 
-description: "IDE支持最广的AI编程助手。永久免费版(50次Chat/月)+Pro($10/月, 300次高级请求)+Pro+($39/月, 1500次高级请求, Claude Opus 4.6)。学生教师免费。"
-description_en: "The most widely supported AI coding assistant. Permanent free tier (50 chats/mo) + Pro ($10/mo, 300 premium requests) + Pro+ ($39/mo, 1500 premium requests, Claude Opus 4.6). Free for students and educators."
+description: "IDE 支持最广的 AI 编程助手。Free（50 次 Chat/月 + 2,000 次补全）+ Pro $10/月（合计 1,500 AI Credits）+ Pro+ $39/月（合计 7,000）+ Max $100/月（合计 20,000）。1 Credit = $0.01，补全不消耗 Credits。"
+description_en: "The most widely supported AI coding assistant. Free (50 chats/mo + 2,000 completions) + Pro $10/mo (1,500 AI credits total) + Pro+ $39/mo (7,000) + Max $100/mo (20,000). 1 credit = $0.01, and completions do not spend credits."

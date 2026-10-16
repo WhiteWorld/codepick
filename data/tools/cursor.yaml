@@ -10,40 +10,45 @@ pricing:
   model: subscription
   currency: USD
   plans:
-    - name: Hobby
+    - name: Free
       price: 0
-      limits: 有限Agent请求, 有限Tab补全
-      limits_en: Limited Agent requests, limited Tab completion
-    - name: Pro
-      price: 20
+      limits: 有限 AI 用量；有限 Agent 请求与 Chat 请求
+      limits_en: Limited AI usage; limited Agent requests and limited Chat requests
+    - name: Plus
+      price: 8
       period: month
-      limits: 无限Tab补全, $20 Agent用量额度/月, Auto模式无限使用
-      limits_en: Unlimited Tab completion, $20 Agent credit pool/mo, unlimited Auto mode
-    - name: Pro+
-      price: 60
+      limits: 与 Grok 共享的 AI 用量池（按周刷新）；含 Cursor、Grok Chat/Voice/Imagine/Build 与 Grok API；仅 Grok 模型
+      limits_en: Shared AI usage pool with Grok, refreshed weekly; includes Cursor, Grok Chat/Voice/Imagine/Build, and Grok API; Grok models only
+    - name: Premium
+      price: 30
       period: month
-      limits: 无限Tab补全, $70 Agent用量额度/月, 3倍模型用量
-      limits_en: Unlimited Tab completion, $70 Agent credit pool/mo, 3x model usage
+      limits: Plus 的 4 倍用量；最新 Grok 模型、云端 Agent 与 Automations、Origin 代码托管、Bugbot；第三方模型按 API 标价另计，不包含在月费内
+      limits_en: 4x Plus usage; latest Grok models, cloud agents and automations, Origin code hosting, Bugbot; third-party models billed separately at API list price
+    - name: Super
+      price: 100
+      period: month
+      limits: Plus 的 15 倍用量；高峰时段优先模型访问；第三方模型按 API 标价另计
+      limits_en: 15x Plus usage; priority model access at peak times; third-party models billed at API list price
     - name: Ultra
       price: 200
       period: month
-      limits: 无限Tab补全, $400 Agent用量额度/月, 20倍模型用量, 优先体验新功能
-      limits_en: Unlimited Tab completion, $400 Agent credit pool/mo, 20x model usage, priority new features
+      limits: Plus 的 50 倍用量；最早体验全部产品与模型；第三方模型按 API 标价另计
+      limits_en: 50x Plus usage; earliest access to all products and models; third-party models billed at API list price
     - name: Teams
-      price: 40
+      price: 30
       period: month
       per_user: true
-      limits: 集中管理, $20/用户 Agent用量, 共享聊天/命令/规则
-      limits_en: Centralized management, $20/user Agent usage, shared chats/commands/rules
+      limits: 起价 $30/用户/月（页面为 $30+）；用量为 Plus 的 4–50 倍（按席位档）；集中账单、用量分析、团队隐私、SAML/OIDC SSO、可混用席位、内部规则/技能/插件市场
+      limits_en: From $30/user/month (page shows $30+); usage is 4-50x Plus by seat tier; centralized billing, usage analytics, team privacy, SAML/OIDC SSO, mixed seat types, internal rules/skills/plugin marketplace
     - name: Enterprise
       price: null
       period: month
       per_user: true
-      limits: 定制用量池, 发票/PO支付, SCIM, 审计日志
-      limits_en: Custom usage pool, invoice/PO billing, SCIM, audit logs
-  price_updated_at: '2026-02-14'
-  note: 2025年6月起从请求制改为额度池制($20 included usage), Auto模式可无限使用；Ultra/Teams/Enterprise可访问 cursor.com/agents 云端长时任务
-  note_en: Since June 2025, switched from request-based to $20 credit pool; unlimited Auto mode; Ultra/Teams/Enterprise can access cursor.com/agents for long-running cloud tasks
+      limits: 用量池化；发票/PO；SCIM；细粒度花费控制；审计日志与服务账号；优先支持
+      limits_en: Pooled usage; invoice/PO billing; SCIM; granular spend controls; audit logs and service accounts; priority support
+  price_updated_at: '2026-10-16'
+  note: 2026-10-16 核对 https://cursor.com/en/pricing。个人档为 Free $0、Plus $8、Premium $30（标为 Most popular）、Super $100、Ultra $200。用量池与 Grok 共享并按周刷新，页面没有给出各档的美元额度。Plus 只有 Grok 模型；Premium 及以上的第三方模型按 API 标价另计。Teams 为 $30+/用户/月。公开 changelog 没有新的 IDE 语义化版本，current_version 仍是上次记录的 3.5，本次没有重新确认安装包版本。旧的 Hobby / Pro $20 / Pro+ $60 与「$20 额度池、Auto 无限」已不在该定价页上。
+  note_en: 'Verified 2026-10-16 at https://cursor.com/en/pricing. Individual tiers are Free $0, Plus $8, Premium $30 (marked Most popular), Super $100, and Ultra $200. The usage pool is shared with Grok and refreshes weekly; the page does not publish a dollar allowance per tier. Plus is Grok models only; third-party models on Premium and above are billed at API list price. Teams is $30+/user/month. The public changelog does not publish a newer IDE semver, so current_version stays at the previously recorded 3.5 and the installer version was not re-confirmed. Hobby, Pro $20, Pro+ $60, and the $20 credit pool with unlimited Auto are no longer on this pricing page.'
 scores:
   coding_ability: 9.5
   cost_efficiency: 6
@@ -114,15 +119,39 @@ plans_using_this:
   - id: cursor-pro
     name: Cursor Pro
     composition: Cursor IDE + 内置模型
-    monthly_cost: $20
+    monthly_cost: $8–$200
 data_sources:
-  - url: https://cursor.com/pricing
+  - url: https://cursor.com/en/pricing
     type: pricing
-    last_checked: '2026-10-13'
+    last_checked: '2026-10-16'
   - url: https://cursor.com/changelog
     type: changelog
-    last_checked: '2026-10-13'
+    last_checked: '2026-10-16'
 changelog:
+  - date: '2026-10-16'
+    type: pricing
+    summary: 定价页改为与 Grok 共享的周刷新用量池。个人档为 Free $0、Plus $8（仅 Grok 模型）、Premium $30（4 倍 Plus，含云端 Agent、Origin 代码托管与 Bugbot）、Super $100（15 倍）、Ultra $200（50 倍）。Premium 及以上的第三方模型按 API 标价另计。Teams 起价 $30/用户/月。
+    summary_en: 'Pricing page now uses a weekly usage pool shared with Grok. Individual tiers are Free $0, Plus $8 (Grok models only), Premium $30 (4x Plus, includes cloud agents, Origin code hosting, and Bugbot), Super $100 (15x), and Ultra $200 (50x). Third-party models on Premium and above are billed at API list price. Teams starts at $30/user/month.'
+  - date: '2026-10-13'
+    type: feature
+    summary: Origin App Marketplace 接入 Cloudflare、Linear、Sentry 等 20 多个应用，并开放公开提交。
+    summary_en: Origin App Marketplace lists 20+ apps including Cloudflare, Linear, and Sentry, and is open to public submissions.
+  - date: '2026-10-06'
+    type: feature
+    summary: Cursor iOS 可远程查看并回复本机正在运行的本地 Agent。除 Enterprise 组织默认关闭外，Remote Control 默认开启；电脑需保持开机在线。
+    summary_en: 'The Cursor iOS app can view and reply to local agents running on your computer. Remote Control is on by default except for Enterprise organizations; the computer must stay on and online.'
+  - date: '2026-09-23'
+    type: feature
+    summary: Teams 与 Enterprise 上线 Rollouts（按环境报告部署健康）和 Security Review（每个 PR 报告可利用的安全问题）。
+    summary_en: Rollouts (per-environment deploy health) and Security Review (exploitable bugs on each PR) launched for Teams and Enterprise.
+  - date: '2026-09-10'
+    type: feature
+    summary: Projects 进入 beta：协调 Agent 把较大工作拆给多个子 Agent，上下文可跨月保留，并可订阅 Slack、定时任务或 PR。
+    summary_en: 'Projects entered beta: a coordinator agent delegates larger bodies of work to subagents, keeps context across months, and can subscribe to Slack, schedules, or PRs.'
+  - date: '2026-09-02'
+    type: feature
+    summary: 自托管机器支持动态池调度，云端 Agent 可跑在用户已有沙箱上；Linux 与 Mac 支持 computer use。
+    summary_en: Self-hosted machines add dynamic pool scheduling, cloud agents can run on sandboxes you already use, and Linux and Mac workers support computer use.
   - date: '2026-05-20'
     type: feature
     summary: v3.5：Automations 整合进 Agents Window，支持跨多个代码库的自动化任务；新增无代码库自动化模板（监控工具/服务）；新创建 Automations 首 7 天享 50% Agent 运行折扣
@@ -203,7 +232,7 @@ changelog:
     type: pricing
     summary: Pro 从500次请求制改为$20额度池制, Auto模式无限使用
     summary_en: Pro switched from 500-request quota to $20 credit pool; unlimited Auto mode
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-12'
+last_full_review: '2026-10-16'
+next_review_due: '2026-11-15'
 review_frequency_days: 30
 confidence: high
