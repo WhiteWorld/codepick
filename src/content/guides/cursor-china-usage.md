@@ -1,94 +1,93 @@
 ---
 title: "Cursor 国内使用完整指南：网络、支付、替代方案全解析"
-description: "国内开发者使用 Cursor 面临翻墙、支付、延迟三大障碍。本文汇总 2026 年所有可行方案：网络配置、外币支付、降低延迟，以及 Trae CN、Cline + 火山方舟等免代理替代选择。"
+description: "国内开发者使用 Cursor 仍要处理代理、外币支付和延迟。本文按 2026-10-16 定价页说明 Free、Plus、Premium 各档能买到什么，以及 Trae CN、Cline + 火山方舟等免代理替代。"
 date: "2026-05-17"
-updated_at: "2026-05-19"
+updated_at: "2026-10-16"
 article_type: "howto"
 tags: ["cursor", "国内", "支付", "VS Code", "ide", "替代"]
 faq:
   - q: "Cursor 国内不翻墙能用吗？"
     a: |
-      不行。Cursor 的 AI 接口全部走 Cursor 自家端点，国内必须代理才能调用。免费 Hobby 套餐也一样。
-      如果完全不想用代理，改用 Trae CN（字节出品、国内直连）或 Cline + 火山方舟（Lite ¥40/月，首月 ¥9.9）这类纯国内方案。
+      不行。Cursor 的 AI 接口走 Cursor 自家端点，国内调用需要代理。Free 档也一样。
+      如果完全不想用代理，改用 Trae CN（字节出品、国内直连）或 Cline + 火山方舟（Lite 首月 ¥9.9 / 续费 ¥40）。
   - q: "Cursor 能用支付宝/微信付款吗？"
     a: |
       不能。Cursor 只支持 Visa/Mastercard 双币信用卡，PayPal、支付宝、微信支付一律不收。
-      没有外币卡，可以考虑 Kiro 或国内 Coding Plan（方舟 / 百炼 / MiniMax）作为替代。
-  - q: "Cursor Pro $20 一个月够用吗？"
+      没有外币卡，可以考虑 Kiro 或国内 Coding Plan（方舟 / 百炼 / MiniMax）。
+  - q: "Cursor 现在还有 Pro $20 吗？一个月够用吗？"
     a: |
-      看用法。$20 套餐下 Tab 补全无限，但 Agent 按调用扣额度。
-      重度 Agent 用户（每天大量 Claude Sonnet 任务）可能月中就用完，需要升 Pro+ ($60) 或 Ultra ($200)。日常 Chat + 少量 Agent 一般够一个月。
+      没有。2026-10-16 的定价页是 Free $0、Plus $8、Premium $30、Super $100、Ultra $200。
+      Plus 只有 Grok 模型，用量池与 Grok 共享并按周刷新。页面没有公布这个池的美元大小，所以不能回答「$20 够不够用」。
+      要用 Claude、GPT、Gemini 等第三方模型，至少是 Premium。这些模型按 API 标价另计，不包含在 $30 里。重度使用时，账单可以高于月费。
   - q: "Cursor 和 Trae CN 哪个更适合国内开发者？"
     a: |
-      预算够（$20+）且能稳定翻墙，Cursor 体验仍是最强（综合 9.5/10）。
-      不想折腾代理或预算紧张，Trae CN 是免费替代里体验最接近的——字节自家服务器、国内直连、模型覆盖 Claude/GPT 主流。
+      能稳定使用代理，并且接受 Plus 仅含 Grok、或 Premium $30 起再加第三方 API 费用时，Cursor 的编码能力评分仍是 9.5。
+      不想折腾代理，或需要国内直连，Trae CN 是免费替代。字节自家服务器，模型覆盖豆包、DeepSeek、Kimi。
 pillar: tools
 content_status: keep
 locale_strategy: mirrored
 ---
 
-Cursor 是目前编程能力最强的 AI IDE（综合评分 9.5/10），但国内开发者面临**网络、支付、延迟**三大障碍。本文梳理所有可行方案，帮你用上 Cursor。
+Cursor 的编码能力评分是 9.5/10。国内开发者仍然要处理**网络、支付、延迟**。2026-10-16 的定价页还改了套餐，下面按该页说明能买到什么。
 
 ## 核心障碍一览
 
 | 障碍 | 详情 | 影响范围 |
 |------|------|----------|
-| 网络 | 需代理访问 Cursor API 端点 | 所有用户 |
-| 支付 | 仅支持外币信用卡，不支持微信/支付宝 | 想升 Pro/Ultra 的用户 |
-| 延迟 | 代理导致 Tab 补全延迟 200-500ms | 重度补全用户 |
+| 网络 | 需代理访问 Cursor API 端点 | 所有用户，含 Free |
+| 支付 | 仅支持外币信用卡，不支持微信/支付宝 | 想买付费档的用户 |
+| 延迟 | 代理会拉高 Tab 补全延迟 | 重度补全用户 |
 
-## 免费套餐体验（Hobby Plan）
+## 当前个人档（2026-10-16）
 
-Cursor 提供永久免费 Hobby 套餐：
+来源：[cursor.com/en/pricing](https://cursor.com/en/pricing)。旧的 Hobby、Pro $20、Pro+ $60 已不在该页。各档用量池的美元大小也没有写出。
 
-- 有限 Agent 请求 + 有限 Tab 补全
-- 可直接访问 [cursor.com/signup](https://cursor.com/signup) 注册
-- 下载 Cursor 客户端（支持 macOS/Windows/Linux）
-- 免费套餐需绑卡吗？**不需要**，注册即用
+| 套餐 | 价格 | 定价页写了什么 |
+|------|------|----------------|
+| Free | $0 | 有限 AI 用量；有限 Agent 请求与 Chat 请求 |
+| Plus | $8/月 | 与 Grok 共享的用量池，按周刷新；仅 Grok 模型 |
+| Premium | $30/月 | Plus 的 4 倍；含云端 Agent、Origin 代码托管、Bugbot。第三方模型按 API 标价另计 |
+| Super | $100/月 | Plus 的 15 倍。第三方模型按 API 标价另计 |
+| Ultra | $200/月 | Plus 的 50 倍。第三方模型按 API 标价另计 |
 
-免费套餐适合**体验和轻度使用**。国内开发者即使只体验，仍需解决网络问题——大部分 Cursor 的 AI 接口需要代理。
+Free 可在 [cursor.com/signup](https://cursor.com/signup) 注册，客户端支持 macOS、Windows、Linux。定价页没有写 Free 必须绑卡。
 
-## 支付方案
+Plus 不能当成旧 Pro 的降价版。它不包含 Claude、GPT、Gemini。这些模型从 Premium 起按 API 标价另计，月费不是用量上限。
 
-### Pro 订阅（$20/月）
+安装包版本这次没有重核。工具数据里的 `current_version` 仍是上次记录的 3.5。
 
-最受欢迎的套餐，包含无限 Tab 补全 + $20 Agent 额度/月 + Auto 模式无限使用。
+## 支付
 
-- 官网直接订阅：需要 Visa/Mastercard 双币信用卡
-- 部分地区银行发行的双币卡可直付，成功率和银行有关
-- 不支持 PayPal、支付宝、微信支付
-- 建议开通后**关闭自动续费**，手动续更安全
+付费档的支付方式与以前相同：Visa/Mastercard 双币信用卡。不支持 PayPal、支付宝、微信支付。部分地区银行的双币卡可以直付，成功率取决于银行。开通后可以关掉自动续费，改为手动续订。
 
-### Pro+ ($60/月) 和 Ultra ($200/月)
+### Teams 与 Enterprise
 
-高额度套餐，适合重度 Agent 使用者。支付方式同 Pro。
+Teams 起价 **$30/用户/月**（页面写 $30+）。用量为 Plus 的 4–50 倍，按席位档。含集中账单、用量分析、团队隐私、SAML/OIDC SSO。
 
-### Teams/Enterprise
+Enterprise 的价格没有公布。该档写了用量池化、发票/PO、SCIM、审计日志。
 
-面向团队，$40/人/月起。支持集中管理和发票/PO 支付。国内企业用户可联系 sales@cursor.com 咨询定制方案。
+## 网络
 
-## 网络优化建议
-
-- 使用稳定美国节点。频繁切换 IP 可能触发风控
-- 全程使用同一个节点，避免中途切换
-- 如果日常代理延迟太高（>300ms），Tab 补全体验会打折扣，建议考虑国内替代方案
+- 使用稳定的美国节点。频繁切换 IP 可能触发风控
+- 一次会话尽量不要换节点
+- 代理延迟高时，补全体验会变差。这时国内替代更合适
 
 ## 国内替代方案
 
-| 替代 | 月费 | 网络 | 优势 |
+| 替代 | 月费 | 网络 | 说明 |
 |------|------|------|------|
 | [Trae CN](/zh/tool/trae-cn) | 免费 | **无需代理** | 字节跳动出品，国内直连 |
-| [Trae CN 配置指南](/zh/guides/trae-cn-setup) | 免费 | **无需代理** | 完整中文 IDE + AI 功能 |
+| [Trae CN 配置指南](/zh/guides/trae-cn-setup) | 免费 | **无需代理** | 中文 IDE 与 AI 功能的配置步骤 |
 | [Cline + 火山方舟](/zh/plan/cline-ark) | ¥40/月（首月 ¥9.9） | **无需代理** | VS Code 插件 + 国内 API |
-| [Cline + 百炼](/zh/plan/cline-bailian) | ¥200/月 | **无需代理** | 千问 Coder 系列模型 |
-| [Kiro](/zh/tool/kiro) IDE | ~$2/月 | 需代理 | 原版 Claude 模型，价格极低 |
+| [Cline + 百炼](/zh/plan/cline-bailian) | ¥200/月 | **无需代理** | 千问 Coder 系列 |
+| [Kiro](/zh/tool/kiro) | Free 50 credits；Pro $20/月含 1,000 credits | 需代理 | 超额 $0.04/credit。另有 Pro Max $100 / 5,000 credits |
 
-如果你主要用 Cursor 的 Agent 功能和 Tab 补全，**Trae CN** 是体验最接近的国内免费替代。如果你喜欢 VS Code 插件形式 + 更多模型选择，**Cline + 火山方舟**（¥40/月，首月 ¥9.9）性价比最高。
+如果主要需求是国内直连的 IDE，先看 Trae CN。如果要留在 VS Code 里换模型，看 Cline + 火山方舟。Kiro 不是「大约 $2/月」；Pro 是 $20/月。
 
 ## 相关文章
 
-- [Cursor vs Windsurf 2026](/zh/compare/cursor-vs-windsurf) — 两款 VS Code Fork 对比
-- [Cursor 成本节省指南](/zh/guides/cursor-cost-saving) — 减少 Agent 额度消耗
-- [Trae CN 配置指南](/zh/guides/trae-cn-setup) — 国内开发者免费方案
+- [Cursor vs Windsurf 2026](/zh/compare/cursor-vs-windsurf)
+- [Cursor 成本说明](/zh/guides/cursor-cost-saving)
+- [Trae CN 配置指南](/zh/guides/trae-cn-setup)
 
-> 数据来源：Cursor 官方定价页 + 用户实战经验（2026-05）。代理/支付方案可能随时变动，以实测为准。
+> 价格核对：2026-10-16，[Cursor 定价页](https://cursor.com/en/pricing)。用量池的美元大小、以及 3.5 之后的 IDE 版本，该页和公开 changelog 都没有给出，这里不补数字。支付和代理是否可用，以你自己的实测为准。

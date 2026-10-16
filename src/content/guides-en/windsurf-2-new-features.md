@@ -2,6 +2,7 @@
 title: "Windsurf 2.0 Deep Dive: Full Evolution After the Cognition Acquisition"
 description: "On April 15, 2026, Windsurf shipped its 2.0 major release. This guide covers the Cognition acquisition backstory, SWE-1.5 model, Codemaps visual codebase maps, Devin Cloud Agent integration, Agent Command Center, Spaces, and the complete pricing overhaul from monthly credits to daily/weekly quotas."
 date: "2026-05-25"
+updated_at: "2026-10-16"
 article_type: "explainer"
 tags: ["windsurf", "windsurf-2", "cognition", "devin", "swe-1.5", "codemaps", "agent", "IDE", "update"]
 pillar: tools
@@ -140,15 +141,15 @@ Starting March 19, 2026, Windsurf completed a fundamental restructuring of its p
 
 ### Current Plans
 
-| Plan | Price | Best For |
-|------|-------|----------|
-| Free | $0/mo | 25 credits/month, light exploration |
-| Pro | $20/mo | Individual developers at normal workload |
-| Max | $200/mo | Power users; same positioning as Cursor Ultra / Claude Code Max 20× |
-| Teams | $40/user/mo | Teams with centralized billing and admin dashboard |
-| Enterprise | Custom | RBAC, SSO, hybrid deployment, ZDR |
+| Plan | Price | What the 2026-10-16 page says |
+|------|-------|-------------------------------|
+| Free | $0 | Light quota, limited models, unlimited Tab. It no longer says 25 credits |
+| Pro | $20/mo | Higher quotas, frontier models, Devin Cloud. Credit count not published |
+| Max | $200/mo | Higher quotas. The count is not published. The sticker matches Cursor Ultra at $200. The included usage does not |
+| Teams | $80/mo plus $40/mo per full seat | Not $40/user |
+| Enterprise | No sticker price | Contact sales |
 
-> **Note**: Pro subscribers before March 19, 2026 are grandfathered at $15/month. New subscribers pay $20. Students with a .edu email can apply for 50%+ discount.
+> **Note**: The 2026-03-19 grandfathered $15 rate and the student discount are not on the current page. Whether they still apply is unknown. Do not budget on "existing subscribers still pay $15."
 
 ---
 
@@ -164,7 +165,7 @@ Both products shipped major updates in April 2026, and both doubled down on "mul
 | Parallel agent management | ✅ Agent Command Center | ✅ Agents Window |
 | Design mode | ❌ | ✅ Design Mode |
 | JetBrains support | ✅ | ❌ |
-| Pro pricing | $20/mo | $20/mo |
+| Paid individual | Pro $20/mo | Plus $8 (Grok only) / Premium $30 |
 | China accessibility | ★★☆☆☆ | ★★☆☆☆ |
 
 In short: **Windsurf's technical moat is SWE-1.5 + Codemaps + deep Devin integration. Cursor's moat is ecosystem depth (plugin marketplace, multi-repo support) and Design Mode for frontend work.**
@@ -177,7 +178,7 @@ In short: **Windsurf's technical moat is SWE-1.5 + Codemaps + deep Devin integra
 - You're onboarding to an unfamiliar codebase or navigating a complex monorepo
 - You want to hand off long tasks to an AI running in the background without babysitting
 - You're already in JetBrains (Windsurf has a plugin for that)
-- You care about price at the Max tier ($200 is comparable to Cursor Ultra, but the Devin inclusion adds clear enterprise utility)
+- You accept Pro at $20 with an unpublished credit count. That is not the same tier as Cursor Plus at $8, which is Grok-only. Cursor Premium is $30, and third-party models are extra
 
 **You might prefer Cursor 3 if:**
 - You're a frontend developer who would use Design Mode regularly
@@ -192,4 +193,4 @@ The strategic thesis behind Windsurf 2.0 is Cognition's in plain sight: make "hu
 
 SWE-1.5's speed advantage, Codemaps' unique angle, Devin's cloud execution — together these give Windsurf 2.0 a differentiation story that's clearer than it's ever been: **not just a budget alternative to Cursor, but an independent technical stack with proprietary models and cloud execution built in.**
 
-If the last time you evaluated Windsurf was when it was $15/month with Codeium branding, the product has changed enough that another look is warranted.
+If the last price you saw was $15/month, the current page lists Pro at $20. Whether the old $15 rate still applies is not on that page. Windsurf is not the cheap Cursor plan: Cursor Plus is $8 and Grok-only, and Cursor Premium is $30 with third-party models billed extra.

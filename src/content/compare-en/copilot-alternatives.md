@@ -2,6 +2,7 @@
 title: "8 Best GitHub Copilot Alternatives in 2026"
 description: "Not satisfied with GitHub Copilot? These 8 alternatives offer stronger Agent capabilities, better pricing, more model choices, or better regional accessibility."
 date: "2026-03-27"
+updated_at: "2026-10-16"
 tags: ["copilot", "cursor", "windsurf", "cline", "claude-code", "trae-cn", "kiro", "aider", "roo-code", "alternatives", "comparison"]
 pillar: compare
 content_status: keep
@@ -17,7 +18,7 @@ Common reasons:
 
 - **Agent autonomy still lags**: Copilot's Agent mode is weaker than Cursor and Claude Code
 - **Model lock-in**: While multi-model is supported, the core experience still centers on OpenAI models
-- **Pricing**: Pro at $10/mo seems cheap, but 300 premium requests/mo may not be enough; Pro+ at $39/mo feels expensive
+- **Pricing**: Pro at $10/mo is 1,500 AI credits total. Heavy Agent use can still run out. Pro+ is $39 / 7,000 credits. Max is $100 / 20,000 credits. The old 300 premium requests are not on the plans page
 - **Regional access**: Unstable connections in certain regions
 
 ---
@@ -26,7 +27,7 @@ Common reasons:
 
 ### 1. Cursor — Strongest Agent IDE
 
-**Price**: Free / Pro $20/mo / Ultra $200/mo
+**Price**: Free $0 / Plus $8 (Grok only) / Premium $30 / Super $100 / Ultra $200. Third-party models from Premium are billed at API list price
 
 Cursor has the most powerful Agent coding capabilities of any AI IDE. Its Agent mode autonomously handles multi-file edits, runs tests, and fixes errors — true "autopilot" coding.
 
@@ -37,7 +38,7 @@ Cursor has the most powerful Agent coding capabilities of any AI IDE. Its Agent 
 - Self-Hosted Cloud Agents for enterprise privacy
 
 **Cons**:
-- More expensive ($20 vs $10)
+- Plus at $8 is Grok-only. Non-Grok models start at Premium $30 and are billed again at API rates, so the bill can exceed Copilot Pro
 - VS Code ecosystem only (JetBrains added via ACP)
 
 **Best for**: Full-stack developers who want the strongest AI coding experience.
@@ -68,14 +69,14 @@ If you live in the terminal, Claude Code is the current ceiling for coding abili
 
 ---
 
-### 3. Windsurf — Cheaper Than Copilot Pro+
+### 3. Windsurf — VS Code fork IDE, Pro at $20
 
-**Price**: Free / Pro $15/mo
+**Price**: Free is a light quota (credit count not published) / Pro $20/mo / Max $200/mo
 
-Windsurf (now operated by Cognition AI) is Cursor's direct competitor at a lower price point. Pro at $15/mo delivers a full IDE Agent experience for less than Copilot Pro+.
+Windsurf (now operated by Cognition AI) is a full IDE. Pro is $20, not $15. That sticker is above Copilot Pro at $10 and below Copilot Pro+ at $39. It is also not "$5 cheaper than Cursor." Cursor Plus is $8 and Grok-only. Cursor Premium is $30, and third-party models are extra.
 
 **Pros**:
-- Pro at $15/mo — $5 cheaper than Cursor
+- Pro at $20 lists frontier models and Devin Cloud. The credit count is not published
 - Smooth Cascade Agent experience
 - JetBrains and Vim plugin support
 - Arena Mode to compare two model outputs side-by-side
@@ -83,7 +84,7 @@ Windsurf (now operated by Cognition AI) is Cursor's direct competitor at a lower
 **Cons**:
 - Model selection more limited than Cursor (BYOK for Claude/GPT)
 
-**Best for**: Developers who want Cursor-level experience on a budget.
+**Best for**: People who want Cascade in the IDE and can accept an unpublished credit count. Not people looking for a price below Copilot Pro.
 
 → [View Windsurf details](/en/tool/windsurf)
 
@@ -93,7 +94,7 @@ Windsurf (now operated by Cognition AI) is Cursor's direct competitor at a lower
 
 **Price**: Free (log in with a Google account)
 
-Google's terminal AI coding tool uses Gemini 3.1 Pro with 1000 free requests per day and a 1M token context window.
+Google's terminal AI coding tool. The tool data still records 1,000 free requests per day. That quota was not re-checked against the Gemini API pricing page on 2026-10-16, so it is not a new figure from this update.
 
 **Pros**:
 - Completely free (1000 requests/day is enough for most)
@@ -135,9 +136,9 @@ Cline is an open-source VS Code extension that turns any LLM API into a full cod
 
 ### 6. Kiro — AWS Spec-Driven Development
 
-**Price**: Free / Pro $20/mo
+**Price**: Free is 50 credits. Pro is $20 / 1,000 credits. Pro Max is $100 / 5,000 credits
 
-Amazon's AI IDE with a unique spec-driven development approach — write specifications first, then let AI implement to spec. Now GA with unified credit pricing.
+Amazon's AI IDE with a spec-driven workflow: write the specification, then have the agent implement it. It is GA, not a free preview. Overage is $0.04/credit.
 
 **Pros**:
 - Spec-driven mode reduces AI "hallucinations"
@@ -156,20 +157,19 @@ Amazon's AI IDE with a unique spec-driven development approach — write specifi
 
 ### 7. Antigravity — Google's Free Multi-Model IDE
 
-**Price**: Free during public preview
+**Price**: Generally Available. Individual is $0/mo. Google AI Pro and Ultra have no published dollar price. Gemini Enterprise starts at $30/seat/mo
 
-Google's AI IDE offers free access to Gemini 3 Pro, Claude Opus 4.5, and other top models during its preview period.
+The 2026-10-16 pricing page is not a public preview. Individual lists a variety of agent models and a basic weekly rate limit. It does not say every named model is inside the free limit. "Free Opus" is not a current price claim.
 
 **Pros**:
-- Free access to multiple top-tier models during preview
+- Individual is $0 and includes unlimited Tab and Command
 - Built-in browser, Artifacts, and unique features
 - Ultra-long context (Gemini 3 Pro)
 
 **Cons**:
-- Still in preview — pricing undetermined
-- May not remain free
+- Dollar prices for Google AI Pro and Ultra are not on the product pricing page
 
-**Best for**: Developers who want free access to multiple premium models.
+**Best for**: Starting on Individual at $0, and accepting the weekly limit plus unpublished Pro and Ultra prices.
 
 → [View Antigravity details](/en/tool/antigravity)
 
@@ -202,13 +202,13 @@ ByteDance offers two versions: Trae (international, with Claude/GPT models) and 
 | Tool | Price | Agent Power | IDE Type |
 |------|-------|------------|---------|
 | GitHub Copilot | $10/mo | ★★★☆ | Plugin |
-| **Cursor** | $20/mo | ★★★★★ | VS Code Fork |
+| **Cursor** | Plus $8 (Grok only) / Premium $30 plus API | ★★★★★ | VS Code Fork |
 | **Claude Code** | $20/mo+ | ★★★★★ | Terminal CLI |
-| **Windsurf** | $15/mo | ★★★★ | VS Code Fork |
+| **Windsurf** | Pro $20/mo | ★★★★ | VS Code Fork |
 | **Gemini CLI** | Free | ★★★★ | Terminal CLI |
 | **Cline** | Free + API | ★★★☆ | VS Code Plugin |
-| **Kiro** | $20/mo | ★★★★ | VS Code Fork |
-| **Antigravity** | Free | ★★★★ | VS Code Fork |
+| **Kiro** | Pro $20; Pro Max $100 | ★★★★ | VS Code Fork |
+| **Antigravity** | Individual $0. Pro/Ultra unpriced | ★★★★ | VS Code Fork |
 | **Trae** | Free/$10 | ★★★☆ | VS Code Fork |
 
 ## How to Choose?

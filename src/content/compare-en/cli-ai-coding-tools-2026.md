@@ -2,6 +2,7 @@
 title: "The Complete Guide to Terminal AI Coding Tools in 2026: 7 CLI Agents Compared"
 description: "Terminal AI coding tools are booming! Compare Claude Code, Gemini CLI, Codex CLI, Kiro CLI, Copilot CLI, Cline CLI, and Aider across coding ability, pricing, context window, and more."
 date: "2026-03-28"
+updated_at: "2026-10-16"
 tags: ["cli", "terminal", "claude-code", "gemini-cli", "codex-cli", "kiro-cli", "copilot-cli", "aider", "comparison"]
 pillar: compare
 content_status: keep
@@ -144,6 +145,7 @@ Three reasons:
 - Free: 50 credits/mo
 - Pro $20/mo (1,000 credits)
 - Pro+ $40/mo (2,000 credits)
+- Pro Max $100/mo (5,000 credits)
 - Power $200/mo (10,000 credits)
 
 **Key strengths**:
@@ -168,15 +170,16 @@ Three reasons:
 **Info**: GitHub | Closed source
 
 **Pricing**:
-- Included in Copilot Pro $10/mo
-- Included in Pro+ $39/mo
-- Included in Business $19/user/mo
+- Included in Copilot Pro at $10/mo (1,500 credits total)
+- Included in Pro+ at $39/mo (7,000 credits total)
+- Included in Business at $19/user/mo (1,900 credits per seat)
+- The plans page also lists Max at $100/mo (20,000 credits) and Enterprise at $39/user/mo (3,900 credits per seat). Whether those two include the CLI the same way Pro does was not re-checked
 
 **Key strengths**:
 - **Built-in specialized Agents**: Explore, Task, Code-review
 - **Multi-session support**: run multiple Agent sessions simultaneously
 - **Parallel Agent execution**
-- **Auto mode** picks best model (10% discount)
+- **Auto mode** picks a model. The October 16, 2026 plans page does not state a 10% discount, so this update does not treat that discount as current
 - Deep integration with GitHub PRs/Issues/Actions
 
 **Unique features**:

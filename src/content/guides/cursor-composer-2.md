@@ -2,6 +2,7 @@
 title: "Cursor Composer 2 深度解析：Kimi K2.5 基底 + 强化学习，性能提升 37%"
 description: "Cursor 于 2026 年 3 月推出专属编程模型 Composer 2，基于 Moonshot AI 的开源 Kimi K2.5 持续训练而成。本文解析其技术原理、争议始末以及对开发者的实际影响。"
 date: "2026-04-20"
+updated_at: "2026-10-16"
 article_type: "explainer"
 tags: ["cursor", "composer-2", "kimi", "moonshot", "模型", "开源", "强化学习"]
 pillar: tools
@@ -87,9 +88,9 @@ Cursor 在发布时的博客和产品 UI 均未提及 Kimi，这是争议的核�
 
 CursorBench +37% 并非虚数——它针对的正是模糊、跨文件的复杂任务，而不是标准的单文件填空题。Composer 2 在处理需要读多个文件、推断上下文意图的 Agent 任务时，体感改善明显。
 
-### 2. 价格未变
+### 2. 订阅档已经换过
 
-Composer 2 纳入现有 Cursor Pro（$20/月）的额度池，并非额外收费。如果你已订阅 Cursor Pro，默认的 Auto 模式会自动选择 Cursor 认为适合当前任务的模型，包括 Composer 2。
+2026-10-16 的定价页没有 Pro $20，也没有写 Composer 2 含在某一档的美元额度里。Plus 只有 Grok 模型。Composer 是 Cursor 自己的模型，不是第三方模型；定价页没有写它是否从周用量池里扣，还是另计。不能再说「订阅 Pro 就包含 Composer 2，不另收费」。
 
 ### 3. 对国内开发者的特殊意义
 
@@ -113,6 +114,6 @@ Composer 2 是一款真实有效的编程模型升级，在 Cursor 自己的基�
 
 争议本身已经平息，不影响正常使用。
 
-**如果你正在使用 Cursor Pro**，可以在 Agent 模式中切换至 Composer 2 体验——特别适合需要模型自主理解大型代码库、处理模糊需求的重型 Agent 任务。
+**如果你要在 Cursor 里试 Composer 2**：它是 Cursor 自己的模型。定价页没有写它是否从周用量池里扣。Plus 只有 Grok，不能按旧的 Pro $20 来选档。
 
 **如果你是国内开发者**，Kimi K2.5 的开源化和 Cursor 对其的商业化使用，本身就是国产基础模型生态成熟的一个缩影：技术上能被顶级工具选择，商业上已建立成熟的授权机制。

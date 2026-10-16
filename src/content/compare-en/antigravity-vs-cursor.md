@@ -1,124 +1,138 @@
 ---
-title: "Antigravity vs Cursor 2026: Google's Newcomer vs the AI IDE Champion"
-description: "Google Antigravity (free preview) vs Cursor Pro ($20/mo). A comprehensive comparison of two VS Code Fork IDEs: Agent architecture, model support, pricing, and maturity to help you decide whether to switch."
+title: "Antigravity vs Cursor 2026"
+description: "As of 2026-10-16, Antigravity is generally available and Individual is $0. Google AI Pro and Ultra have no published dollar price. Cursor Plus is $8 and Grok-only. Premium is $30, with third-party models billed extra."
 date: "2026-02-17"
+updated_at: "2026-10-16"
 tags: ["antigravity", "cursor", "comparison", "ide", "google"]
 pillar: compare
 content_status: keep
 locale_strategy: mirrored
-draft: false
 ---
 
-In November 2025, Google launched Antigravity — an Agentic IDE released alongside Gemini 3. It directly challenges Cursor's dominance. Both tools are built on VS Code and both support Claude models, but their design philosophies are fundamentally different.
+Google shipped Antigravity as a public preview in November 2025, alongside Gemini 3. The pricing page checked on 2026-10-16 marks it Generally Available. It and Cursor are both VS Code forks, and the product focus is still different. The price line is no longer "free preview vs Cursor Pro at $20."
 
-## At a Glance
+## At a glance
 
-| Dimension | Antigravity | Cursor |
-|-----------|-------------|--------|
-| Developer | Google | Anysphere |
-| Current Pricing | **Free** (preview period) | $20/mo (Pro) |
-| Core Model | Gemini 3 Pro + Claude Opus 4.5 | Claude Sonnet 4.5 / GPT-5 |
-| Agent Architecture | Agent-First (multi-agent parallel) | Composer (primarily single-threaded) |
-| Browser Control | Built-in | Requires MCP |
-| Output Verification | Artifacts | N/A |
-| Maturity | Preview | Production-grade |
-| China Accessibility | Requires proxy | Requires proxy |
+| | Antigravity | Cursor |
+|---|-------------|--------|
+| Maker | Google | Anysphere |
+| Status | Generally Available | On sale |
+| Individual price | Individual $0/mo | Free $0; Plus $8; Premium $30 |
+| Higher tiers | Google AI Pro / Ultra: higher limits, no dollar price. Gemini Enterprise from $30/seat/mo | Super $100; Ultra $200. Teams from $30/user/mo |
+| Models | Individual says a variety of agent models. Gemini 4 Argon is for Google AI Pro and Ultra | Plus is Grok only. Third-party models from Premium are API-priced |
+| Agent shape | Agent-first, parallel agents | Composer, with subagents |
+| Browser | Built in | Through MCP |
+| Review artifacts | Artifacts | No equivalent built-in artifact |
+| China access | Proxy | Proxy |
 
----
-
-## Pricing Comparison
-
-**Antigravity** is currently in public preview and completely free for individuals, including access to top-tier models like Gemini 3 Pro, Claude Opus 4.5 (Thinking), and GPT-OSS 120B. Official pricing is expected in 2026, with Pro estimated at around $20/mo.
-
-**Cursor** Pro is $20/mo with $20 included usage (unlimited usage in Auto mode), or Pro+ at $60/mo, Ultra at $200/mo.
-
-> The biggest reason to try Antigravity right now: free access to Claude Opus 4.5 and Gemini 3 Pro — both of which consume significant quota in Cursor.
+Sources: [antigravity.google/pricing](https://antigravity.google/pricing) and [cursor.com/en/pricing](https://cursor.com/en/pricing). `antigravity.dev` is a default nginx page, not the product site.
 
 ---
 
-## Agent Architecture Comparison
+## Pricing
 
-This is the most critical difference between the two.
+**Antigravity** is not a public preview, and there is no "Pro will be about $20/mo."
 
-### Cursor: Composer + Sub-Agents
+| Plan | Price | What the page says |
+|------|-------|--------------------|
+| Individual | $0/mo | A variety of agent models, unlimited Tab and Command, basic weekly rate limits |
+| Google AI Pro | No dollar price | Higher rate limits and an AI credit pool. The homepage says Gemini 4 Argon is for Pro and Ultra |
+| Google AI Ultra | No dollar price | Higher limits than Pro, and an AI credit pool |
+| Gemini Enterprise | From $30/seat/mo | Standard/Plus. A pay-as-you-go plan has a $0 seat fee |
 
-Cursor's Agent is primarily "conversation-driven" — you initiate a task, Cursor executes it step by step, and you can insert confirmations along the way. It introduced Sub-agent capabilities in late 2025, enabling parallel sub-tasks, but the overall flow is still controlled by a linear main thread.
+The old AI Pro $20, Ultra $249.99, ~20 requests/day, and $25/2,500 credits are not on the current page. They are not current prices.
 
-### Antigravity: Agent-First Architecture
+**Cursor:**
 
-Antigravity puts the Agent front and center, with built-in support for multiple agents **simultaneously** controlling the editor, terminal, and browser:
+| Plan | Price | What the page says |
+|------|-------|--------------------|
+| Free | $0 | Limited AI usage |
+| Plus | $8/mo | Weekly pool, Grok only. Dollar size not published |
+| Premium | $30/mo | 4x Plus. Third-party models at API list price |
+| Ultra | $200/mo | 50x Plus. This is not "Claude Opus requires Ultra" |
 
-- **Artifacts**: Each task generates reviewable outputs (task lists, implementation plans, screenshots, browser recordings), allowing you to verify logic before the AI writes code
-- **Built-in Browser**: The Agent can directly interact with a browser (open pages, click elements, take screenshots), enabling true end-to-end task execution
-- **Parallel Execution**: Multiple agents work on different tasks simultaneously without blocking each other
-
-**Real-world example**: Ask Antigravity to build a "login feature," and it will simultaneously:
-- Agent 1: Analyze requirements and generate Artifacts (implementation plan document)
-- Agent 2: Write backend JWT API code
-- Agent 3: Open a browser to test the API
-- After all complete, consolidate the diff and wait for your confirmation
-
----
-
-## Model Support
-
-| Model | Antigravity | Cursor |
-|-------|-------------|--------|
-| Gemini 3 Pro | Yes | No |
-| Gemini 3 Flash | Yes | No |
-| Claude Sonnet 4.5 | Yes | Yes |
-| Claude Opus 4.5 | Yes (with Thinking) | Yes (requires Ultra) |
-| GPT-5 | Yes (GPT-OSS 120B) | Yes |
-| Proprietary Model | No | cursor-small (completion) |
-
-Antigravity wins with native Gemini 3 series support (Google's own models) and free Claude Opus access; Cursor wins with its proprietary fast completion model and broader API compatibility.
+> **Conclusion:** Both have a $0 individual plan. Antigravity Individual names a variety of agent models and a basic weekly limit. It does not say every named model sits inside that limit. Cursor Free is limited usage. Claude, GPT, and Gemini start at Premium $30 and are billed extra. "Free Opus on Antigravity, $20 on Cursor" does not follow from these pages.
 
 ---
 
-## Code Completion
+## Agent architecture
 
-- **Cursor Tab**: Industry-leading, with multi-line prediction and extremely fast speed (roughly 2x Claude Sonnet speed) — once you get used to it, it's hard to go back
-- **Antigravity**: Completion experience currently weaker than Cursor; still being optimized during the preview period
+This is a product difference, not a price difference.
 
-> If code completion frequency is your primary criterion, Cursor remains the top choice.
+### Cursor
 
----
+A task starts in chat and runs step by step, with room to confirm. Subagents can run parts in parallel. The turn still drives the work.
 
-## Maturity and Stability
+### Antigravity
 
-Cursor has been refined over multiple years, holds SOC 2 certification, and offers comprehensive team collaboration features (shared Rules, centralized billing management).
+Agents use the editor, the terminal, and the browser:
 
-Antigravity is a preview release from November 2025. The community has already discovered several security vulnerabilities (within 24 hours of launch), and it currently lacks enterprise-grade compliance certifications. **For production environments, Antigravity still carries risk.**
+- **Artifacts**: task lists, implementation notes, screenshots, and browser recordings you can read before the code changes
+- **Browser**: the agent can open a page, click, and capture
+- **Parallel work**: more than one agent at a time
 
----
-
-## China Accessibility
-
-Both require proxy access, resulting in a comparable experience in China. If you need a China-accessible solution, consider [Trae CN](/tool/trae-cn) or [Cline + Volcengine Ark Coding Plan](https://www.volcengine.com/L/s3lNTNYxaEc/) ([setup guide](/guides/cline-ark-setup)).
+The pricing page did not restate this because the product became GA. The list above is the product shape, not a new benchmark from 2026-10-16.
 
 ---
 
-## Who Should Choose Which?
+## Models
 
-**Choose Antigravity if you:**
-- Want free access to top-tier models like Claude Opus 4.5 + Gemini 3
-- Are interested in Agent-First architecture and willing to tolerate preview-stage instability
-- Work on full-stack tasks requiring browser interaction (testing, scraping, UI verification)
-- Are already in the GCP / Firebase ecosystem, where Google toolchain integration adds value
-
-**Choose Cursor if you:**
-- Need a stable, reliable production-grade tool
-- Have high demands for code completion speed
-- Require enterprise-level permissions and auditing for team collaboration
-- Are already comfortable with the Cursor workflow and don't want to bear migration costs
+| Question | Antigravity | Cursor |
+|----------|-------------|--------|
+| What $0 includes | A variety of agent models. The free limit is not itemized by model name | Limited usage. Not an included allowance of third-party models |
+| Gemini 4 Argon | Homepage: Google AI Pro and Ultra | Not listed as a Cursor model in the tool data |
+| Claude / GPT | Tool data lists Claude Sonnet 4.5, Opus 4.5 Thinking, and GPT-OSS. The pricing page does not say they are inside the Individual weekly limit | From Premium, at API list price. Ultra is not required |
 
 ---
 
-## Using Both: A Combined Strategy
+## Completion
 
-Many developers currently take this approach: **Cursor as the primary tool for daily coding, Antigravity for specific agent-heavy tasks** (such as automated testing and end-to-end feature development).
+- **Cursor Tab** is still a reason to pick Cursor for feel. The pricing page does not say Tab is unlimited or unmetered
+- **Antigravity** Individual states unlimited Tab and Command. This pricing check did not retest which completion feels better
 
-Antigravity is free; Cursor is $20/mo — until Antigravity stabilizes, this is the best value combination.
+> If completion feel is the test, try both. The pricing pages only say Antigravity's $0 plan states unlimited Tab, and Cursor's page does not.
+
+---
+
+## Maturity
+
+Cursor has been on sale for years. Teams lists centralized billing and SSO.
+
+Antigravity launched as a public preview on 2025-11-18. The pricing page on 2026-10-16 marks it Generally Available. Soon after the preview launch, the community reported security issues. This check did not re-test whether those issues are fixed. GA is not a compliance certification.
+
+Whether to use it in production is a security review. It is not "still a preview, so wait" or "now GA, so it is fine."
+
+---
+
+## Access from China
+
+Both need a proxy. For a mainland option, see [Trae CN](/tool/trae-cn) or [Cline + Volcengine Ark](https://www.volcengine.com/L/s3lNTNYxaEc/) ([setup](/guides/cline-ark-setup)).
+
+---
+
+## Which one
+
+**Antigravity Individual**, if:
+
+- You want to start at $0 and accept basic weekly rate limits
+- You want the built-in browser and Artifacts
+- You already work in GCP or Firebase
+
+**Do not pick it for "free Opus during preview."** The current pricing page does not support that. Dollar prices for Google AI Pro and Ultra are not published.
+
+**Cursor**, if:
+
+- You only need Grok: Plus at $8
+- You need third-party models or cloud agents in Cursor: Premium from $30, with third-party models extra
+- The team is looking at Teams from $30/user/month for SSO and centralized billing
+
+---
+
+## Using both
+
+You can. The reason is not "one is free and the other is $20."
+
+Antigravity Individual is $0 with a basic weekly limit. Cursor Free is also $0, with limited usage. Non-Grok models in Cursor start at Premium and are API-priced. If you use both, the Cursor side is billed for the models you call. It is not capped at a $20 subscription.
 
 ---
 
@@ -126,10 +140,9 @@ Antigravity is free; Cursor is $20/mo — until Antigravity stabilizes, this is 
 
 | | Antigravity | Cursor |
 |---|-------------|--------|
-| **Currently Free** | Yes | No |
-| **Code Completion** | Average | Best-in-class |
-| **Agent Capabilities** | Leading | Good |
-| **Maturity** | Preview | Production-grade |
-| **Best For** | Early adopters + Agent tasks | Daily primary development |
+| $0 individual plan | Yes. A variety of agent models, basic weekly limits | Yes. Limited usage |
+| Next published dollar price | None for Pro/Ultra. Enterprise from $30/seat | Plus $8 (Grok only), Premium $30 (third-party extra) |
+| Status | Generally Available | On sale |
+| Fits | In-browser agents, Google stack | Low sticker for Grok, or an IDE agent with API pricing |
 
-> Data based on February 2026 evaluation. Antigravity is in a rapid iteration phase — we recommend checking official updates regularly.
+> Prices checked 2026-10-16. Dollar prices for Google AI Pro and Ultra, the old "~20 requests/day" and $25/2,500 credits, and the dollar size of Cursor's pool are not on the current pages.

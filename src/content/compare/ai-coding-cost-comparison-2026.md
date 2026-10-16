@@ -2,6 +2,7 @@
 title: "AI 编程工具月成本对比 2026：Copilot、Cursor、Codex、Claude Code 与国产 Coding Plan 怎么选"
 description: "从月费、额度机制、国内可用性和超额风险四个维度，对比 GitHub Copilot、Cursor、OpenAI Codex、Claude Code、火山方舟、MiniMax、百炼等 AI 编程方案，帮你估算真实月成本。"
 date: "2026-05-28"
+updated_at: "2026-10-16"
 tags: ["ai编程", "成本", "计费", "copilot", "cursor", "codex", "claude-code", "coding-plan", "国内", "对比"]
 pillar: compare
 content_status: keep
@@ -9,7 +10,7 @@ locale_strategy: mirrored
 draft: false
 ---
 
-选 AI 编程工具时，很多人只看月费：Copilot $10、Cursor $20、ChatGPT Plus/Codex $20、Claude Pro $20、方舟 ¥40、MiniMax ¥29。真正用起来才发现，**月费只是入口，额度机制、模型倍率、国内网络和超额预算才决定真实成本**。
+选 AI 编程工具时，很多人只看月费：Copilot $10、Cursor Plus $8 或 Premium $30、ChatGPT Plus/Codex $20、Claude Pro $20、方舟 ¥40、MiniMax ¥29。真正用起来才发现，月费只是入口。额度、模型是否另计、国内网络，才决定真实成本。
 
 这篇文章把常见方案放在同一张表里，帮你快速判断：轻度使用买什么最省，重度 Agent 用户怎么避免账单失控，国内开发者该优先看哪些方案。
 
@@ -19,7 +20,7 @@ draft: false
 
 - **只要 Tab 补全 + 偶尔 Chat**：先试 Copilot Free / Trae CN；已有外币卡再考虑 Copilot Pro。
 - **已经在付 ChatGPT**：一定把 Codex 算进来；它不需要单独订阅，但会消耗 ChatGPT 的 agentic usage limit，超限后可用 credits 补。
-- **习惯 IDE GUI、重度用 Agent**：Cursor 仍然顺手，但要把超额预算关掉或单独设上限。
+- **习惯 IDE GUI、重度用 Agent**：Cursor Plus $8 只有 Grok。Claude / GPT / Gemini 从 Premium $30 起按 API 标价另计。定价页没有写出可关掉的美元额度池，所以不能按「关掉超额」来封顶。
 - **偏终端、喜欢 Claude Code**：Claude Pro / Max 体验最好，但国内网络和用量窗口要提前评估。
 - **国内低成本主力编程**：优先看火山方舟 Coding Plan、MiniMax Token Plan、百炼 Coding Plan。
 - **需要多模态 Agent**：MiniMax Token Plan 和火山方舟 Agent Plan 比纯 Copilot / Cursor 更贴近场景。
@@ -32,7 +33,7 @@ draft: false
 |------|----------|--------------|------------|--------|
 | GitHub Copilot Free | $0 | 免费补全 + 有限 Chat/Agent | 不稳定 | 轻度补全、试用 |
 | GitHub Copilot Pro | $10 | AI Credits + 无限补全 | 不稳定 | GitHub / JetBrains 重度用户 |
-| Cursor Pro | $20 | 订阅额度 + 按用量超额 | 需代理 | IDE 内 Agent 工作流 |
+| Cursor | Plus $8（仅 Grok）/ Premium $30 | 周刷新用量池，美元大小未公布；第三方模型按 API 标价另计 | 需代理 | IDE 内 Agent。非 Grok 模型不在 Plus |
 | OpenAI Codex | $20 起（ChatGPT Plus，已包含） | ChatGPT agentic usage limit + credits | 需代理 | Codex CLI / IDE / 云端异步任务 |
 | Claude Pro | $20 | Claude 订阅用量窗口 | 需代理 | Claude Code 轻中度用户 |
 | Claude Max | $100 / $200 | 更高 Claude 用量窗口 | 需代理 | Claude Code 重度用户 |
@@ -86,7 +87,7 @@ Codex 的特殊点是：它不是单独的 $20 编程订阅，而是包含在 Ch
 1. 方舟 Coding Plan Lite / Pro
 2. MiniMax Token Plan Plus
 3. Codex（如果你已经有 ChatGPT Plus / Pro）
-4. Cursor Pro
+4. Cursor Premium（若必须用 IDE 里的非 Grok 模型；API 另计）或 Copilot Pro（1,500 Credits，额度写明了）
 5. Copilot Pro
 
 中度用户已经会遇到 Chat、Agent、多文件修改。此时要优先看“恢复机制”：5 小时滚动窗口通常比月底一次性清零更平滑。
@@ -97,7 +98,7 @@ Codex 的特殊点是：它不是单独的 $20 编程订阅，而是包含在 Ch
 
 1. Claude Max（如果能稳定访问并且需要 Claude 原生能力）
 2. ChatGPT Pro / Codex credits（如果偏好 OpenAI 生态、CLI/IDE 或云端异步任务）
-3. Cursor Pro+ / Ultra 或团队方案（如果强依赖 IDE GUI）
+3. Cursor Premium 及以上或 Teams（从 $30/用户/月起）。第三方模型按 API 另计，不是旧的 Pro+ $60 额度池
 4. 方舟 / MiniMax / 百炼 + Cline / OpenCode / Claude Code 兼容方案
 5. 自带 API Key + 严格预算上限
 
@@ -140,7 +141,7 @@ Codex 的特殊点是：它不是单独的 $20 编程订阅，而是包含在 Ch
 | 学生 / 轻度用户 | Copilot Free + Trae CN | 零成本覆盖补全和基础 Chat |
 | 国内个人开发者 | Cline + 方舟 Lite 或 MiniMax Plus | 成本低、支付简单、无需代理 |
 | VS Code Agent 用户 | Cline / Roo Code + 国产 Coding Plan | 模型可换，成本可控 |
-| IDE GUI 重度用户 | Cursor Pro 起步，关闭超额 | 体验强，但要控预算 |
+| IDE GUI 重度用户 | 只用 Grok 则 Cursor Plus；否则 Premium $30 起再加 API，或改 Copilot Max / 自备 API | 月费不是封顶。定价页没有公布可关闭的美元额度池 |
 | 已有 ChatGPT Plus / Pro | Codex CLI / IDE 插件 / 云端任务 | 已包含在订阅里，边际成本低，但要看 agentic limit |
 | Claude Code 爱好者 | Claude Pro 起步，重度再升 Max | 原生体验最好，窗口限制需实测 |
 | 团队试点 | 百炼 / 方舟 / MiniMax + 统一 Key 管理 | 便于采购、审计和额度控制 |
@@ -157,4 +158,4 @@ Codex 的特殊点是：它不是单独的 $20 编程订阅，而是包含在 Ch
 - [5 大国内 Coding Plan 全量横评](/zh/compare/coding-plan-comparison-2026/)
 - [Cursor 省钱指南](/zh/guides/cursor-cost-saving/)
 
-> 核查日期：2026-05-28。Codex 计划包含关系、agentic usage limit 与 credits 规则参考 OpenAI Help Center；Copilot AI Credits 与模型价格参考 GitHub Docs；MiniMax Token Plan 额度参考 MiniMax 官方文档；方舟、百炼、Cursor、Claude 等价格和额度变化较快，下单前请以各自官网/控制台实时页面为准。
+> 核查日期：2026-10-16 更新了 Cursor、Copilot 的标价。Cursor 用量池的美元大小未公布。Copilot 年付价格和分套餐模型勾选未复核。Codex、Claude、方舟、百炼、MiniMax 这次没有重核，仍沿用文中原记录。

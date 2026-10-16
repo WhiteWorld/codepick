@@ -2,6 +2,7 @@
 title: "AI Coding Token Saving Guide: Spend Less, Hit Fewer Rate Limits"
 description: "From what tokens are to 5 practical strategies, covering Cursor, Claude Code, Cline, Copilot, and more. Whether you're on a subscription or pay-as-you-go, you can apply these tips immediately."
 date: "2026-03-29"
+updated_at: "2026-10-16"
 article_type: "explainer"
 tags: ["token", "cursor", "claude-code", "cline", "copilot", "cost", "efficiency"]
 pillar: plans
@@ -164,9 +165,11 @@ Tools that support model switching per task: Cline, Roo Code, Claude Code (via `
 
 Both types of users need to think about tokens — but for different reasons.
 
-**Subscription users (Cursor Pro, Copilot, Windsurf)**:
-- Token consumption affects **request frequency**: burn through too fast and you'll hit rate limits and wait for the window to reset
-- Saving tokens = getting more done in the same time window
+**Subscriptions that still meter by count or by an unpublished quota (Copilot completions, Windsurf)**:
+- Burn through them and you wait for the window to reset
+- Saving tokens means more work inside the same window
+
+**Cursor**: Plus is Grok-only, and the weekly pool's dollar size is unpublished. On Premium and above, third-party models are billed at API list price, so tokens are money, not only a rate limit.
 
 **Pay-as-you-go users (Cline + your own API, Claude Code + API)**:
 - Tokens directly equal money

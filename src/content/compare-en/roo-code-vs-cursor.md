@@ -2,6 +2,7 @@
 title: "Roo Code vs Cursor 2026: Open-Source Multi-Role Agent vs Commercial AI IDE"
 description: "Roo Code vs Cursor compared: free open-source VS Code Agent with multi-role support vs premium AI IDE — pricing, Architect mode, Cloud Agents, and China accessibility."
 date: "2026-04-05"
+updated_at: "2026-10-16"
 tags: ["roo-code", "cursor", "comparison", "vscode", "agent", "open-source"]
 pillar: compare
 content_status: keep
@@ -17,7 +18,7 @@ Roo Code is an advanced open-source fork of Cline, featuring multi-role Agents (
 |-----------|----------|--------|
 | Type | VS Code plugin (+ JetBrains) | VS Code Fork IDE |
 | Open Source | ✅ (MIT) | ❌ |
-| Starting Price | Free (BYOK) | $0 (Hobby) / $20/mo (Pro) |
+| Starting Price | Free (BYOK) | Free $0 / Plus $8 (Grok only) |
 | Coding Ability | 8.5 / 10 | 9.5 / 10 |
 | Cost Efficiency | 9 / 10 | 6 / 10 |
 | Flexibility | 9.8 / 10 | 5 / 10 |
@@ -25,7 +26,7 @@ Roo Code is an advanced open-source fork of Cline, featuring multi-role Agents (
 | Tab Code Completion | ❌ | ✅ |
 | Agent Mode | ✅ (multi-role) | ✅ |
 | MCP Support | ✅ | ✅ |
-| Cloud Agents | ✅ (Slack/GitHub) | ✅ (Pro+ / Ultra) |
+| Cloud Agents | ✅ (Slack/GitHub) | ✅ (from Premium) |
 | Multi-Role System | ✅ (Code/Architect/Debug/Ask/Custom) | ❌ |
 
 ---
@@ -52,12 +53,13 @@ Roo Code is an advanced open-source fork of Cline, featuring multi-role Agents (
 
 | Plan | Price | Usage |
 |------|-------|-------|
-| Hobby | $0 | Limited Agent + Tab completion |
-| Pro | $20/mo | Unlimited Tab, $20 Agent credit pool/mo |
-| Pro+ | $60/mo | Unlimited Tab, $70 Agent credit pool/mo |
-| Ultra | $200/mo | Unlimited Tab, $400 Agent credit pool/mo |
+| Free | $0 | Limited AI usage. Dollar allowance not published |
+| Plus | $8/mo | Weekly pool shared with Grok; Grok models only |
+| Premium | $30/mo | 4x Plus; includes cloud agents. Third-party models at API list price |
+| Super | $100/mo | 15x Plus. Third-party models at API list price |
+| Ultra | $200/mo | 50x Plus. Third-party models at API list price |
 
-> For heavy Agent usage, total costs may converge — but Roo Code's model flexibility far exceeds Cursor's.
+> Cursor does not publish a dollar allowance. Third-party models start at Premium $30 and are billed at API list price. That is not a capped pool. Roo Code has no subscription. Which bill is lower depends on the API charges, which this page does not calculate. Roo still lets you pick the model.
 
 ---
 
@@ -87,7 +89,7 @@ This is Roo Code's most distinctive feature.
 - Runs in background without opening VS Code
 - Best for async batch tasks
 
-**Cursor Cloud Agents** (Ultra / Teams / Enterprise):
+**Cursor Cloud Agents** (listed on Premium; Teams starts at $30/user/month):
 - Isolated VM sandboxes with auto-test, screenshots, and video
 - Produces Merge-ready PRs with Artifacts
 - Triggerable from Web / desktop / Slack / GitHub
@@ -165,7 +167,7 @@ Both support JetBrains — Roo Code via a dedicated extension, Cursor via Agent 
 - Want the highest overall coding capability (9.5/10)
 - Need mature Cloud Agent experience with VM sandbox isolation
 - Work in teams and need shared rules and task management
-- Have budget ($20–200/mo) and a stable connection
+- Accept Plus at $8 for Grok only, or Premium from $30 plus API charges, and have a stable connection
 
 ---
 

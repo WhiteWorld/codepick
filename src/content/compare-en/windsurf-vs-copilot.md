@@ -1,7 +1,8 @@
 ---
 title: "Windsurf vs GitHub Copilot 2026: Full IDE vs Deep GitHub Integration"
-description: "Windsurf vs GitHub Copilot compared: pricing, code completion, Agent capabilities, IDE compatibility, and China accessibility — helping you pick the right AI coding tool."
+description: "Pricing as of 2026-10-16. Windsurf Pro is $20 and does not publish a credit count. Copilot Pro is $10 with 1,500 AI credits. Max is $100."
 date: "2026-04-05"
+updated_at: "2026-10-16"
 tags: ["windsurf", "copilot", "comparison", "ide", "vscode"]
 pillar: compare
 content_status: keep
@@ -16,12 +17,12 @@ Windsurf and GitHub Copilot are two of the most widely used AI coding tools, but
 | Dimension | Windsurf | GitHub Copilot |
 |-----------|----------|----------------|
 | Type | VS Code Fork IDE | IDE plugin (VS Code / JetBrains / Vim / Xcode) |
-| Free Tier | ✅ (25 credits/mo) | ✅ (50 Agent/mo, 2000 completions/mo) |
-| Starting Paid Price | $15/mo (Pro) | $10/mo (Pro) |
+| Free Tier | ✅ (light quota, credit count not published; unlimited Tab) | ✅ (50 chats/mo, 2,000 completions/mo; limited agent usage) |
+| Starting Paid Price | $20/mo (Pro) | $10/mo (Pro, 1,500 AI credits total) |
 | Coding Ability | 8.5 / 10 | 8.2 / 10 |
 | Cost Efficiency | 8 / 10 | 8.5 / 10 |
 | China Friendly | 3 / 10 | 6.5 / 10 |
-| Code Completion | ✅ (Tab to Jump) | ✅ (Unlimited, Pro+) |
+| Code Completion | ✅ (unlimited Tab on Free) | ✅ (paid plans: completions do not spend credits; Free is 2,000/mo) |
 | Agent Mode | ✅ (Cascade) | ✅ (Coding Agent) |
 | MCP Support | ✅ | ✅ |
 | GitHub Deep Integration | ❌ | ✅ (auto PR, Code Review) |
@@ -31,33 +32,41 @@ Windsurf and GitHub Copilot are two of the most widely used AI coding tools, but
 
 ## One-line Summary
 
-- **Windsurf**: A complete AI IDE at $15/mo with Cascade Agent and proprietary SWE-1.5 model — $5 cheaper than Cursor Pro, ideal for developers who want Cursor-level experience on a tighter budget
-- **Copilot**: $10/mo entry point with deep GitHub workflow integration — auto PR creation, Code Review, and mature JetBrains support — best for teams already invested in the GitHub ecosystem
+- **Windsurf**: Pro is $20/mo. The page lists higher quotas, frontier models, and Devin Cloud. It does not publish a credit count. This is not "$5 cheaper than Cursor." Cursor Plus is $8 and Grok-only. Cursor Premium is $30, and third-party models are extra
+- **Copilot**: Pro is $10/mo with 1,500 AI credits total. Completions do not spend credits. It is built into the GitHub workflow
 
 ---
 
 ## Pricing
 
-**Windsurf** charges by credits (1 credit = $0.04):
+Prices follow [devin.ai/pricing](https://devin.ai/pricing) and the [GitHub Copilot plans page](https://github.com/features/copilot/plans), both checked 2026-10-16.
 
-| Plan | Price | Usage |
-|------|-------|-------|
-| Free | $0 | 25 credits/mo, all premium models available |
-| Pro | $15/mo | 500 credits/mo, SWE-1.5, Fast Context |
-| Teams | $30/mo/user | 500 credits/user, centralized billing, SSO + RBAC |
-| Enterprise | $60/mo/user | 1000 credits/user, hybrid deployment, ZDR enabled |
+**Windsurf** does not publish a credit count, and it does not say 1 credit = $0.04.
 
-**GitHub Copilot** charges by request count:
+| Plan | Price | What the page says |
+|------|-------|--------------------|
+| Free | $0 | Light quota, limited models, unlimited Tab. It no longer says 25 credits |
+| Pro | $20/mo | Higher quotas, frontier models, Devin Cloud. Credit count not published |
+| Max | $200/mo | Higher quotas. The count is not published |
+| Teams | $80/mo plus $40/mo per full seat | Up to 200 users. Not a flat $30 or $40 per user |
+| Enterprise | No sticker price | Contact sales. Includes SSO and centralized admin |
 
-| Plan | Price | Usage |
-|------|-------|-------|
-| Free | $0 | 50 Agent/Chat requests/mo, 2000 completions/mo |
-| Pro | $10/mo ($100/yr) | Unlimited completions, 300 premium requests/mo, overage $0.04/req |
-| Pro+ | $39/mo | 1500 premium requests/mo, Opus 4.6 fast mode, GitHub Spark |
-| Business | $19/mo/user | All Pro features, centralized management |
-| Enterprise | $39/mo/user | Custom model fine-tuning, advanced security |
+The $15 grandfather rate and the student discount are not on the current page. Whether they still apply is unknown.
 
-> **Key difference**: Copilot Pro at $10/mo is the most competitive entry plan at this price — unlimited completions plus 300 premium requests. Windsurf Pro at $15/mo delivers a stronger Cascade Agent experience with the proprietary SWE-1.5 model. If you're already a heavy GitHub user, Copilot Pro's $10 is hard to beat.
+**GitHub Copilot** uses AI credits. 1 credit = $0.01. Completions and Next Edit do not spend credits. Annual prices are not on the current plans page. Per-plan model checkmarks did not survive the docs fetch, so this table does not add them.
+
+| Plan | Price | Allowance |
+|------|-------|-----------|
+| Free | $0 | 50 chats/mo (including Copilot Edits), 2,000 completions/mo, limited agent usage |
+| Pro | $10/mo | 1,500 credits total (base 1,000 + flex 500). Unlimited completions |
+| Pro+ | $39/mo | 7,000 credits total (base 3,900 + flex 3,100). The features page includes premium models and names Opus |
+| Max | $100/mo | 20,000 credits total (base 10,000 + flex 10,000) |
+| Business | $19/mo/seat | 1,900 credits per seat, pooled in the org |
+| Enterprise | $39/mo/seat | 3,900 credits per seat, pooled in the enterprise |
+
+Overage is $0.01 per credit. The old 300 or 1,500 premium-request quotas are not on the current plans page.
+
+> **Conclusion:** Copilot Pro's sticker is still below Windsurf Pro ($10 vs $20), and the credit count is published. Windsurf Pro does not publish a credit count. Do not compare them with "500 credits" or " $5 cheaper than Cursor." Copilot fits work that already lives in GitHub and needs a published allowance. Windsurf fits Cascade and Devin Cloud when an unpublished quota is acceptable.
 
 ---
 
@@ -68,14 +77,15 @@ Both tools offer inline code completion, but with different approaches.
 **Windsurf** with Tab Supercomplete (Tab to Jump available to all users):
 - Predicts the next cursor jump position
 - Powered by SWE-grep / SWE-grep-mini for fast whole-repo indexing
-- Each completion consumes credits (Pro: 500 credits/mo)
+- Free states unlimited Tab. The paid page does not publish a credit count, so this article does not say each completion spends 500 credits
 
 **Copilot** code completion:
-- Unlimited completions on Pro plan (doesn't count against premium request quota)
-- Powered by GPT-5 mini in Auto mode (10% discount for auto model selection)
-- Available across VS Code, JetBrains, Vim, and Xcode
+- On paid plans, completions and Next Edit do not spend credits
+- Free is 2,000 completions/mo
+- Available in VS Code, JetBrains, Vim, and Xcode
+- The plans page does not state a 10% Auto discount. Per-plan model checkmarks were not re-verified
 
-> **Bottom line**: If you complete code frequently, Copilot Pro's unlimited completions are more predictable. Windsurf's Tab to Jump has a unique advantage in completion quality and cursor prediction, but comes with credit usage.
+> **Conclusion:** For frequent completion, paid Copilot says completions do not spend credits. Windsurf Free says unlimited Tab. Windsurf's paid quota is unpublished, so it is not "limited to 500 credits."
 
 ---
 
@@ -174,18 +184,17 @@ For developers in China who can't reliably use a VPN, consider [Trae CN (free)](
 ## Who Should Choose Which?
 
 **Choose Windsurf if you:**
-- Want Cursor-level AI IDE experience at $5 less ($15 vs $20)
-- Prefer the Cascade Agent workflow for multi-file editing
-- Want to experiment with the proprietary SWE-1.5 model
-- Need Arena Mode to compare model outputs side-by-side
-- Use JetBrains or Vim but aren't invested in GitHub workflows
+- Want Cascade in the IDE, and you accept Pro at $20 with an unpublished credit count
+- Want Devin Cloud, or want to try SWE-1.5
+- Need Arena Mode to compare two model outputs
+- Use JetBrains or Vim and do not depend on the GitHub workflow
 
 **Choose GitHub Copilot if you:**
-- Work extensively on GitHub (PRs, Issues, Actions)
-- Want AI to automatically create PRs and run Code Reviews
-- Need the $10/mo entry price, or qualify for free Pro (student/teacher/open-source)
-- Develop iOS/macOS apps in Xcode
-- Require enterprise custom model fine-tuning and LTS model guarantees
+- Work in GitHub (PRs, Issues, Actions)
+- Want the agent to open PRs and run code review
+- Want a published allowance: Pro at $10 / 1,500 credits, or Max at $100 / 20,000 credits
+- Are a verified student on the free Student plan, or a verified teacher or popular open-source maintainer who may be eligible for free Pro
+- Build iOS/macOS apps in Xcode
 
 ---
 
@@ -200,7 +209,7 @@ For developers in China who can't reliably use a VPN, consider [Trae CN (free)](
 | GitHub integration | 2 / 10 | 10 / 10 |
 | Proprietary model | ✅ (SWE-1.5) | ❌ |
 
-> Data based on April 2026 evaluation. Both tools iterate rapidly — check official sources for the latest.
+> Prices checked 2026-10-16. Windsurf does not publish a credit count, the $15 grandfather rate, or a student discount. Copilot annual prices and per-plan model checkmarks are not on the current plans page. Feature notes that do not depend on those figures are the earlier product description.
 
 ## Related
 

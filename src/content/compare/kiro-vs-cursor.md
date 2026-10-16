@@ -2,6 +2,7 @@
 title: "Kiro vs Cursor 2026：AWS Spec 驱动 IDE vs 老牌 AI 编程王者"
 description: "Kiro 是 AWS 推出的 Spec 驱动 Agentic IDE，Cursor 是当前最流行的 AI IDE。两者核心理念不同，适合不同开发场景，本文帮你判断哪个更适合你。"
 date: "2026-02-17"
+updated_at: "2026-10-16"
 tags: ["kiro", "cursor", "对比", "ide", "AWS", "spec-driven"]
 pillar: compare
 content_status: keep
@@ -15,8 +16,8 @@ Cursor 是目前最流行的 AI IDE，而 Kiro 是 AWS 在 2025 年推出的挑�
 | 维度 | Kiro | Cursor |
 |------|------|--------|
 | 出品方 | Amazon / AWS | Anysphere |
-| 定价（Pro） | $20/月（预览期免费） | $20/月 |
-| 免费版 | 50 vibe 请求/月 | 有限额度 |
+| 定价（Pro） | $20/月，1,000 credits | Plus $8（仅 Grok）；第三方模型从 Premium $30 起另计 |
+| 免费版 | 50 credits/月 | Free，有限用量 |
 | 核心模型 | Claude Sonnet 4.0 / 3.7 | Claude Sonnet 4.5 / GPT-5 |
 | 核心理念 | Spec 驱动开发 | 高效交互编码 |
 | MCP 支持 | ✅ | ✅ |
@@ -70,11 +71,12 @@ Cursor Tab 是业界公认最流畅的代码补全之一，Kiro 的补全体验�
 
 | 套餐 | Kiro | Cursor |
 |------|------|--------|
-| 免费版 | 50 vibe 请求/月 | 有限 Agent 请求 |
-| Pro | $20/月（预览期免费） | $20/月 |
-| 用量单位 | Vibe/Spec 请求数 | 用量额度池（$20 included）|
+| 免费版 | 50 credits/月 | Free，有限用量。美元额度未公布 |
+| Pro | $20/月，1,000 credits | Plus $8，仅 Grok |
+| 其上 | Pro+ $40 / 2,000；Pro Max $100 / 5,000；Power $200 / 10,000。超额 $0.04/credit | Premium $30（4 倍 Plus，第三方模型另计）；Super $100；Ultra $200 |
+| 用量单位 | credits。未用完不结转 | 与 Grok 共享的周刷新用量池。美元大小未公布 |
 
-> 💡 Kiro 目前处于**公开预览阶段，Pro 功能免费体验**，是低风险试用的好时机。
+> Kiro 已 GA，不是预览期免费。Pro 是 $20/月。2026-10-16 新增 Pro Max：$100/月、5,000 credits。
 
 ---
 
@@ -84,7 +86,7 @@ Cursor Tab 是业界公认最流畅的代码补全之一，Kiro 的补全体验�
 - 经常做"从零开始"的新功能开发
 - 需要把模糊需求变成完整的实现方案
 - 喜欢在写代码前有清晰的规格文档
-- 想试用最新 AWS AI 产品（且现在免费）
+- 接受 Pro $20 / 1,000 credits，或其上的 Pro Max / Power
 
 **选 Cursor，如果你：**
 - 已有成熟项目，需要高效迭代
@@ -100,7 +102,7 @@ Cursor Tab 是业界公认最流畅的代码补全之一，Kiro 的补全体验�
 |---|------|--------|
 | **最适合** | 原型→生产、新功能规划 | 日常迭代、高效编码 |
 | **学习成本** | 中（需理解 Spec 流程） | 低（直接上手） |
-| **成熟度** | 预览版 | 生产级 |
-| **当前价格** | 免费（预览期） | $20/月 |
+| **成熟度** | GA | 在售 |
+| **当前价格** | Pro $20 / 1,000 credits。另有 Pro Max $100 | Plus $8（仅 Grok）。第三方模型从 Premium $30 起另计 |
 
 如果你正在做新项目，Kiro 的 Spec 驱动方式值得试试——它能帮你在动手前理清思路。如果你是日常开发提效，Cursor 依然是更稳的选择。

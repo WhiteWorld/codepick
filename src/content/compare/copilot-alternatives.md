@@ -2,6 +2,7 @@
 title: "2026 GitHub Copilot 替代品推荐：8 款最佳 AI 编程工具"
 description: "不满意 GitHub Copilot？这 8 款替代工具在 Agent 能力、价格、模型选择或国内可用性上各有优势，帮你找到最适合的方案。"
 date: "2026-03-27"
+updated_at: "2026-10-16"
 tags: ["copilot", "cursor", "windsurf", "cline", "claude-code", "trae-cn", "kiro", "aider", "roo-code", "替代品", "对比"]
 pillar: compare
 content_status: keep
@@ -17,7 +18,7 @@ GitHub Copilot 是最早普及的 AI 编程助手，但它并非唯一选择。�
 - **Agent 自主编码能力不足**：Copilot 的 Agent 模式仍弱于 Cursor、Claude Code
 - **国内连接不稳定**：需要代理，延迟高
 - **模型锁定**：虽然支持多模型，但核心体验仍以 OpenAI 模型为主
-- **价格**：Pro $10/月看似便宜，但高级请求 300 次/月可能不够用，Pro+ $39/月又偏贵
+- **价格**：Pro $10/月合计 1,500 AI Credits，重度 Agent 仍可能不够。Pro+ 是 $39 / 7,000 Credits，Max 是 $100 / 20,000 Credits。旧的 300 次高级请求已不在计划页上
 
 ---
 
@@ -25,7 +26,7 @@ GitHub Copilot 是最早普及的 AI 编程助手，但它并非唯一选择。�
 
 ### 1. Cursor — Agent 能力最强的 IDE
 
-**价格**：免费版 / Pro $20/月 / Ultra $200/月
+**价格**：Free $0 / Plus $8（仅 Grok）/ Premium $30 / Super $100 / Ultra $200。第三方模型从 Premium 起按 API 标价另计
 
 Cursor 是目前 Agent 编码能力最强的 AI IDE。它的 Agent 模式可以自主完成多文件编辑、运行测试、修复错误，是真正的"自动驾驶"编程体验。
 
@@ -92,14 +93,14 @@ Cursor 是目前 Agent 编码能力最强的 AI IDE。它的 Agent 模式可以�
 
 ---
 
-### 4. Windsurf — 比 Copilot 便宜的 VS Code IDE
+### 4. Windsurf — VS Code Fork IDE，Pro $20
 
-**价格**：免费版 / Pro $15/月
+**价格**：Free 轻度配额（credit 数未公布）/ Pro $20/月 / Max $200/月
 
-Windsurf（现由 Cognition AI 运营）是 Cursor 的直接竞品，Pro 版仅 $15/月，比 Copilot Pro+ 便宜很多，同时拥有完整的 IDE Agent 体验。
+Windsurf（现由 Cognition AI 运营）是完整的 IDE。Pro 是 $20，不是 $15，标价高于 Copilot Pro $10，低于 Copilot Pro+ $39。它也不是 Cursor 的「便宜 $5」：Cursor Plus 是 $8 且仅 Grok，Cursor Premium 是 $30 且第三方模型另计。
 
 **优势**：
-- Pro $15/月，比 Cursor 便宜 $5
+- Pro $20 含定价页写明的前沿模型和 Devin Cloud。credit 数未公布
 - Cascade Agent 体验流畅
 - 支持 JetBrains 和 Vim 插件
 - Arena Mode 对比两个模型输出
@@ -108,7 +109,7 @@ Windsurf（现由 Cognition AI 运营）是 Cursor 的直接竞品，Pro 版仅 
 - 国内需要代理
 - 模型选择相对受限（BYOK 支持 Claude/GPT）
 
-**适合谁**：想要 Cursor 级别体验但预算敏感的开发者。
+**适合谁**：要 IDE 里的 Cascade，并且接受 credit 数未公布的人。不是为了比 Copilot Pro 更便宜。
 
 → [查看 Windsurf 详情](/zh/tool/windsurf)
 
@@ -140,7 +141,7 @@ Windsurf（现由 Cognition AI 运营）是 Cursor 的直接竞品，Pro 版仅 
 
 **价格**：免费（Google 账号登录即可）
 
-Google 出品的终端 AI 编程工具，使用 Gemini 3.1 Pro 模型，每天 1000 次免费请求，100 万 token 超长上下文。
+Google 出品的终端 AI 编程工具。工具数据里仍记着每天 1000 次免费请求。2026-10-16 没有重开 Gemini API 定价页，这个额度不是本次新核对的数字。
 
 **优势**：
 - 完全免费（1000 次/天对大多数人够用）
@@ -160,9 +161,9 @@ Google 出品的终端 AI 编程工具，使用 Gemini 3.1 Pro 模型，每天 1
 
 ### 7. Kiro — AWS Spec 驱动开发
 
-**价格**：免费版 / Pro $20/月
+**价格**：Free 50 credits / Pro $20（1,000 credits）/ Pro Max $100（5,000 credits）
 
-Amazon 出品的 AI IDE，核心特色是 Spec 驱动开发——先写规格文档，再让 AI 按规格实现。已从预览版正式 GA。
+Amazon 出品的 AI IDE，核心特色是 Spec 驱动开发——先写规格文档，再让 AI 按规格实现。已 GA，不是预览免费。超额 $0.04/credit。
 
 **优势**：
 - Spec 驱动模式，减少 AI "幻觉"
@@ -182,20 +183,20 @@ Amazon 出品的 AI IDE，核心特色是 Spec 驱动开发——先写规格文
 
 ### 8. Antigravity — Google 的免费多模型 IDE
 
-**价格**：公开预览免费
+**价格**：Generally Available。Individual $0/月。Google AI Pro / Ultra 没有公布美元价格。Gemini Enterprise 从 $30/席/月起
 
-Google 推出的 AI IDE，预览阶段可免费使用 Gemini 3 Pro、Claude Opus 4.5 等顶级模型。
+2026-10-16 的定价页不再是公开预览。Individual 写了多种 Agent 模型和基础每周速率限制，没有写每个具名模型都在免费限额里。不能把「免费用 Opus」当成现价。
 
 **优势**：
-- 预览期免费使用多款顶级模型
+- Individual 是 $0，含无限 Tab 与 Command
 - 内置浏览器、Artifacts 等独特功能
 - 超长上下文（Gemini 3 Pro）
 
 **劣势**：
-- 仍在预览阶段，定价未定
+- Google AI Pro / Ultra 的美元价格没有写在产品定价页上
 - 国内无法使用
 
-**适合谁**：想免费体验多款顶级模型的海外开发者。
+**适合谁**：先用 Individual $0，并接受每周限额和未公布的 Pro/Ultra 美元价格。
 
 → [查看 Antigravity 详情](/zh/tool/antigravity)
 
@@ -206,14 +207,14 @@ Google 推出的 AI IDE，预览阶段可免费使用 Gemini 3 Pro、Claude Opus
 | 工具 | 价格 | Agent 能力 | 国内可用 | IDE 类型 |
 |------|------|-----------|---------|---------|
 | GitHub Copilot | $10/月 | ★★★☆ | 需代理 | 插件 |
-| **Cursor** | $20/月 | ★★★★★ | 需代理 | VS Code Fork |
+| **Cursor** | Plus $8（仅 Grok）/ Premium $30 起另计 | ★★★★★ | 需代理 | VS Code Fork |
 | **Claude Code** | $20/月起 | ★★★★★ | 需代理 | 终端 CLI |
 | **Cline + 方舟** | 官网活动价 | ★★★☆ | ✅ 直连 | VS Code 插件 |
-| **Windsurf** | $15/月 | ★★★★ | 需代理 | VS Code Fork |
+| **Windsurf** | Pro $20/月 | ★★★★ | 需代理 | VS Code Fork |
 | **Trae CN** | 免费 | ★★★☆ | ✅ 直连 | VS Code Fork |
 | **Gemini CLI** | 免费 | ★★★★ | 需代理 | 终端 CLI |
-| **Kiro** | $20/月 | ★★★★ | 需代理 | VS Code Fork |
-| **Antigravity** | 免费 | ★★★★ | 需代理 | VS Code Fork |
+| **Kiro** | Pro $20；Pro Max $100 | ★★★★ | 需代理 | VS Code Fork |
+| **Antigravity** | Individual $0。Pro/Ultra 未标价 | ★★★★ | 需代理 | VS Code Fork |
 
 ## 怎么选？
 

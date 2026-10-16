@@ -2,6 +2,7 @@
 title: "Claude Code 太贵怎么办：5 个省钱替代方案"
 description: "Claude Code Pro $20/月、Max $100–200/月——觉得贵？这 5 个方案帮你以更低成本获得接近甚至相当的 AI Agent 编程能力，从低门槛方案到完全免费都有。"
 date: "2026-04-05"
+updated_at: "2026-10-16"
 article_type: "review"
 tags: ["claude-code", "省钱", "替代方案", "cline", "火山方舟", "预算"]
 pillar: plans
@@ -28,7 +29,7 @@ Claude Code 是目前编程能力评分最高的 AI Agent 工具（9.6/10），�
 | Cline + Anthropic API | 按量付费 | 高（Claude 原版） | 需代理 | 用量不稳定 |
 | OpenCode + 火山方舟 | 官网活动价 | 中（终端党） | ✅ | 终端工作流 |
 | Aider + Ollama | $0 | 中（本地模型） | ✅ | 完全零成本 |
-| Windsurf Pro | $15/月 | 中高（SWE-1.5） | 需代理 | 想要 IDE 体验 |
+| Windsurf Pro | $20/月 | 中高（SWE-1.5）。credit 数未公布 | 需代理 | 想要 IDE 体验 |
 
 ---
 
@@ -111,9 +112,9 @@ Aider 是老牌开源 CLI，配合本地 Ollama 模型，**月费为 $0**，代�
 
 ---
 
-## 方案 5：Windsurf Pro（$15/月，需代理）
+## 方案 5：Windsurf Pro（$20/月，需代理）
 
-如果你习惯 IDE 工作流、不太依赖终端，Windsurf Pro $15/月（比 Cursor 便宜 $5）是另一个选项。
+如果你习惯 IDE、不太依赖终端，Windsurf Pro 是 $20/月。它不是比 Cursor 便宜 $5。Cursor Plus 是 $8 且仅 Grok。Cursor Premium 是 $30，第三方模型另计。Windsurf 的 credit 数没有公布。
 
 **与 Claude Code 的关键差异**：
 - Windsurf 是 IDE（VS Code Fork），有行内补全、可视化界面
@@ -124,7 +125,7 @@ Aider 是老牌开源 CLI，配合本地 Ollama 模型，**月费为 $0**，代�
 **适合的场景**：
 - 想要 IDE 体验，不喜欢纯终端
 - 从 Cursor 迁过来，习惯 VS Code 生态
-- 对价格敏感但不愿意折腾 API 配置
+- 接受 $20 标价和未公布的 credit 数，不想自己配 API
 
 [查看 Windsurf vs Cursor 对比 →](/zh/compare/cursor-vs-windsurf)
 
@@ -137,7 +138,7 @@ Aider 是老牌开源 CLI，配合本地 Ollama 模型，**月费为 $0**，代�
 ├── 终端 → Cline + 火山方舟（国内）或 Cline + API（境外）
 │           或 OpenCode + 火山方舟（TUI 更好看）
 │           或 Aider + Ollama（零费用）
-└── IDE →  Windsurf Pro（$15/月，最接近体验）
+└── IDE →  Windsurf Pro（$20/月，credit 数未公布）
            或 Cline in VS Code（官网活动价，最省钱）
 
 对编程能力要求？

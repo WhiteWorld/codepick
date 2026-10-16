@@ -2,6 +2,7 @@
 title: "Trae vs Cursor 2026：字节跳动免费 AI IDE vs 市场标杆"
 description: "Trae vs Cursor 深度对比：字节跳动出品的免费 AI IDE 与 Cursor 正面碰撞，从价格、SOLO 模式、Builder 模式到国内可用性全面分析，帮海外开发者做出最优选择。"
 date: "2026-04-05"
+updated_at: "2026-10-16"
 tags: ["trae", "cursor", "对比", "ide", "免费", "字节跳动"]
 pillar: compare
 content_status: keep
@@ -19,8 +20,8 @@ Trae 是字节跳动推出的 AI IDE，国际版主打"免费入门 + $10/月 Pr
 |------|--------------|--------|
 | 出品方 | 字节跳动 | Anysphere |
 | 形态 | VS Code Fork IDE | VS Code Fork IDE |
-| 免费版 | ✅（有限 Premium 用量） | ✅（Hobby，有限） |
-| 起步付费价 | $10/月（Pro，首月 $3） | $20/月（Pro） |
+| 免费版 | ✅（有限 Premium 用量） | ✅（Free，有限） |
+| 起步付费价 | $10/月（Pro，首月 $3） | Plus $8（仅 Grok）；第三方模型从 Premium $30 起另计 |
 | 编程能力 | 8 / 10 | 9.5 / 10 |
 | 性价比 | 8.5 / 10 | 6 / 10 |
 | 国内友好度 | 3 / 10 | 4 / 10 |
@@ -36,8 +37,8 @@ Trae 是字节跳动推出的 AI IDE，国际版主打"免费入门 + $10/月 Pr
 
 ## 一句话总结
 
-- **Trae**：字节出品，免费起步，$10/月 Pro 比 Cursor 便宜一半，SOLO 模式 + Builder 模式有独特功能，适合预算敏感的海外开发者
-- **Cursor**：市场标杆，编程能力最强（9.5/10），Tab 超级补全 + Sub-agents + Cloud Agents，适合追求极致体验且不差钱的开发者
+- **Trae**：字节出品，免费起步。国际版 Pro 仍按本文记录为 $10/月，这次没有重核 Trae。它不是 Cursor 入门价的一半：Cursor Plus 是 $8 且仅 Grok，第三方模型从 Premium $30 起另计
+- **Cursor**：编码能力评分是 9.5。个人档是 Free、Plus $8、Premium $30、Super $100、Ultra $200。Tab、Sub-agents 和 Cloud Agents 仍在。Cloud Agents 从 Premium 起列出
 
 ---
 
@@ -55,12 +56,13 @@ Trae 是字节跳动推出的 AI IDE，国际版主打"免费入门 + $10/月 Pr
 
 | 方案 | 价格 | 用量 |
 |------|------|------|
-| Hobby | $0 | 有限 Agent + Tab 补全 |
-| Pro | $20/月 | 无限 Tab，$20 Agent 额度池/月 |
-| Pro+ | $60/月 | 无限 Tab，$70 Agent 额度池/月 |
-| Ultra | $200/月 | 无限 Tab，$400 Agent 额度池/月 |
+| Free | $0 | 有限 AI 用量。美元额度未公布 |
+| Plus | $8/月 | 与 Grok 共享的周刷新用量池；仅 Grok 模型 |
+| Premium | $30/月 | Plus 的 4 倍；含云端 Agent。第三方模型按 API 标价另计 |
+| Super | $100/月 | Plus 的 15 倍。第三方模型按 API 标价另计 |
+| Ultra | $200/月 | Plus 的 50 倍。第三方模型按 API 标价另计 |
 
-> **关键数字**：Trae Pro $10/月 vs Cursor Pro $20/月——入门价整整便宜一半，首月更低至 $3。如果你对 Cursor 价格有顾虑，Trae 是最直接的对比选项。
+> **关键数字**：Trae Pro 仍按本文记录为 $10/月、首月 $3。这次没有重核 Trae。Cursor 已经没有 Pro $20。最便宜的付费档是 Plus $8，仅 Grok。第三方模型从 Premium $30 起按 API 标价另计。不能再说 Trae 是 Cursor 入门价的一半。
 
 ---
 
@@ -100,7 +102,7 @@ Cursor 目前没有等效的 Builder 模式，更专注于代码编辑和 Agent 
 | 多文件编辑 | ✅ | ✅ |
 | Agent 模式 | ✅（SOLO） | ✅ |
 | Sub-agents 并行 | ✅（Sub Agent） | ✅ |
-| Cloud Agents | ❌ | ✅（Pro+ / Ultra） |
+| Cloud Agents | ❌ | ✅（Premium 起） |
 | MCP 支持 | ✅ | ✅ |
 | Cloud IDE | ✅（浏览器版） | ❌ |
 | 自研代码模型 | ❌ | ✅（Composer 2） |
@@ -146,7 +148,7 @@ Cursor 的模型列表更新更频繁，且有自研 Composer 2 加成；Trae �
 ## 选型建议
 
 **选 Trae 如果你：**
-- 预算有限，不想每月付 $20（Trae Pro $10，首月 $3）
+- 预算有限。Trae Pro 本文仍记为 $10（首月 $3）。Cursor Plus 是 $8 但仅 Grok；第三方模型从 Premium $30 起另计
 - 想体验 SOLO 模式的上下文工程概念
 - 需要 Cloud IDE 浏览器版，随时随地开发
 - 对 Cursor 功能感兴趣但想先低成本试水
@@ -158,7 +160,7 @@ Cursor 的模型列表更新更频繁，且有自研 Composer 2 加成；Trae �
 - 需要 Sub-agents 并行 + Cloud Agents + Automations
 - 需要 JetBrains 支持
 - 团队协作需要共享规则和配置
-- 预算充裕（$20/月）
+- 接受 Premium $30 起，并且第三方模型按 API 另计
 
 ---
 

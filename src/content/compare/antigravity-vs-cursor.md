@@ -1,123 +1,138 @@
 ---
-title: "Antigravity vs Cursor 2026：Google 新秀 vs AI IDE 霸主"
-description: "Google Antigravity 免费预览 vs Cursor Pro $20/月。两款 VS Code Fork IDE 全面对比：Agent 架构、模型支持、定价、成熟度，帮你决定是否值得迁移。"
+title: "Antigravity vs Cursor 2026：Google 的 Agent IDE 与 Cursor"
+description: "2026-10-16：Antigravity 已正式可用，个人版 $0。Google AI Pro/Ultra 没有公布美元价格。Cursor Plus $8 仅 Grok，Premium $30 起第三方模型另计。"
 date: "2026-02-17"
+updated_at: "2026-10-16"
 tags: ["antigravity", "cursor", "对比", "ide", "google"]
 pillar: compare
 content_status: keep
 locale_strategy: mirrored
 ---
 
-2025 年 11 月，Google 发布了 Antigravity——一款随 Gemini 3 同期推出的 Agentic IDE。它挑战的正是 Cursor 的统治地位。两款工具都基于 VS Code，都支持 Claude 模型，但设计哲学截然不同。
+2025 年 11 月，Google 随 Gemini 3 发布了 Antigravity 的公开预览。2026-10-16 的定价页已把它标为 Generally Available。它和 Cursor 都基于 VS Code，设计重点仍然不同。价格不能再写成「预览免费 vs Cursor Pro $20」。
 
 ## 一眼看懂
 
 | 维度 | Antigravity | Cursor |
 |------|-------------|--------|
 | 出品方 | Google | Anysphere |
-| 当前定价 | **免费**（预览期） | $20/月（Pro） |
-| 核心模型 | Gemini 3 Pro + Claude Opus 4.5 | Claude Sonnet 4.5 / GPT-5 |
-| Agent 架构 | Agent-First（多 Agent 并行） | Composer（单线程为主） |
-| 浏览器控制 | ✅ 内置 | ❌ 需 MCP |
-| 产出物验证 | ✅ Artifacts | ❌ |
-| 成熟度 | 预览版 | 生产级 |
-| 国内可用 | ❌ 需代理 | ❌ 需代理 |
+| 状态 | Generally Available | 在售 |
+| 个人价格 | Individual $0/月 | Free $0；Plus $8；Premium $30 |
+| 更高档 | Google AI Pro / Ultra：更高限额，美元价格未公布。Gemini Enterprise 起价 $30/席/月 | Super $100；Ultra $200。Teams 起价 $30/用户/月 |
+| 核心模型 | 个人版写「多种 Agent 模型」。Gemini 4 Argon 面向 Google AI Pro 与 Ultra | Plus 仅 Grok。第三方模型从 Premium 起按 API 标价另计 |
+| Agent 架构 | Agent-First（多 Agent 并行） | Composer，可派子 Agent |
+| 浏览器控制 | 内置 | 需 MCP |
+| 产出物 | Artifacts | 无同等内置产物 |
+| 国内可用 | 需代理 | 需代理 |
+
+来源：[antigravity.google/pricing](https://antigravity.google/pricing)、[cursor.com/en/pricing](https://cursor.com/en/pricing)。`antigravity.dev` 现在是 nginx 默认页，不是产品站。
 
 ---
 
-## 定价对比
+## 定价
 
-**Antigravity** 目前处于公开预览阶段，对个人完全免费，包括使用 Gemini 3 Pro、Claude Opus 4.5 (Thinking)、GPT-OSS 120B 等顶级模型。正式定价预计 2026 年推出，Pro 约 $20/月。
+**Antigravity** 不再是公开预览，也没有「预计 Pro 约 $20/月」这一条。
 
-**Cursor** Pro $20/月，含 $20 included usage（Auto 模式可无限使用），或 Pro+ $60/月，Ultra $200/月。
+| 套餐 | 价格 | 定价页写了什么 |
+|------|------|----------------|
+| Individual | $0/月 | 多种 Agent 模型，无限 Tab 与 Command，基础的每周速率限制 |
+| Google AI Pro | 未标美元价 | 更高速率限制和 AI credit 池。首页写 Gemini 4 Argon 面向 Pro 与 Ultra |
+| Google AI Ultra | 未标美元价 | 比 Pro 更高的限额和 AI credit 池 |
+| Gemini Enterprise | $30 起/席/月 | Standard/Plus。另有 $0 席位费的按量方案 |
 
-> 💡 **现在入场 Antigravity 的最大理由**：免费用 Claude Opus 4.5 和 Gemini 3 Pro，这两个模型在 Cursor 里要消耗大量额度。
+旧记录里的 AI Pro $20、Ultra $249.99、每天约 20 次、$25/2,500 credits，都不在当前定价页上。这里不把它们当成现价。
 
----
+**Cursor**：
 
-## Agent 架构对比
+| 套餐 | 价格 | 定价页写了什么 |
+|------|------|----------------|
+| Free | $0 | 有限 AI 用量 |
+| Plus | $8/月 | 周刷新用量池，仅 Grok。美元额度未公布 |
+| Premium | $30/月 | Plus 的 4 倍。第三方模型按 API 标价另计 |
+| Ultra | $200/月 | Plus 的 50 倍。不是「Claude Opus 必须买 Ultra」 |
 
-这是两者最核心的差异。
-
-### Cursor：Composer + 子 Agent
-
-Cursor 的 Agent 是以"对话驱动"为主——你发起任务，Cursor 按步骤执行，过程中可以插入确认。它在 2025 年底引入了 Sub-agent 能力，可以并行启动多个子任务，但整体仍是线性的主线程控制。
-
-### Antigravity：Agent-First 架构
-
-Antigravity 把 Agent 置于第一位，内置支持多个 Agent **同时**控制编辑器、终端和浏览器：
-
-- **Artifacts（产出物）**：每个任务生成可审查的产出物（任务列表、实现方案、截图、浏览器录制），让你在 AI 写代码前就能验证逻辑
-- **浏览器内置**：Agent 可直接操作浏览器（打开页面、点击、截图），实现真正的端到端任务
-- **并行执行**：多个 Agent 同时推进不同任务，互不阻塞
-
-**实际案例**：让 Antigravity 完成"登录功能"，它会同时：
-- Agent 1：分析需求，生成 Artifacts（实现方案文档）
-- Agent 2：写后端 JWT 接口代码
-- Agent 3：打开浏览器测试接口
-- 全部完成后汇总 Diff 等待你确认
+> **结论**：两边都有 $0 个人档。Antigravity Individual 写了多种 Agent 模型和基础每周限额，没有写每个具名模型是否都在这一档里。Cursor Free 是有限用量；要 Claude / GPT / Gemini，至少 Premium $30，并且这些模型另计。不能再说「Antigravity 免费用 Opus，Cursor 要 $20」。
 
 ---
 
-## 模型支持
+## Agent 架构
 
-| 模型 | Antigravity | Cursor |
+这是两者的产品差异，不是价格差异。
+
+### Cursor
+
+任务从对话开始，按步骤执行，中间可以确认。Sub-agent 可以并行处理子任务，主流程仍由这一轮对话带动。
+
+### Antigravity
+
+Agent 同时使用编辑器、终端和浏览器：
+
+- **Artifacts**：任务列表、实现说明、截图、浏览器录制，可以在改代码前看
+- **浏览器**：Agent 可以打开页面、点击、截图
+- **并行**：多个 Agent 推进不同任务
+
+定价页没有因为 GA 改写这套架构说明。上面是产品形态，不是 2026-10-16 新测的一次跑分。
+
+---
+
+## 模型
+
+| 问题 | Antigravity | Cursor |
 |------|-------------|--------|
-| Gemini 3 Pro | ✅ | ❌ |
-| Gemini 3 Flash | ✅ | ❌ |
-| Claude Sonnet 4.5 | ✅ | ✅ |
-| Claude Opus 4.5 | ✅（含 Thinking） | ✅（需 Ultra） |
-| GPT-5 | ✅（GPT-OSS 120B） | ✅ |
-| 自研模型 | ❌ | cursor-small（补全） |
-
-Antigravity 胜在 Gemini 3 系列原生支持（Google 自家模型）以及 Claude Opus 免费使用；Cursor 胜在自研的快速补全模型和更广泛的 API 兼容性。
+| 个人版 $0 包含什么 | 多种 Agent 模型。具名清单没有逐项写进免费限额 | 有限用量。不是第三方模型的包含额度 |
+| Gemini 4 Argon | 首页写给 Google AI Pro 与 Ultra | 工具数据未把它列为 Cursor 模型 |
+| Claude / GPT | 工具数据里有 Claude Sonnet 4.5、Opus 4.5 Thinking、GPT-OSS。是否在 Individual 的每周限额内，定价页没写 | Premium 起按 API 标价另计。不要求必须买 Ultra |
 
 ---
 
 ## 代码补全
 
-- **Cursor Tab**：业界顶级，多行预测，速度极快（约 2x Claude Sonnet 速度），用久了很难回头
-- **Antigravity**：补全体验目前弱于 Cursor，预览版仍在优化
+- **Cursor Tab**：补全速度仍是选它的功能理由。定价页没有写 Tab 无限或不计费
+- **Antigravity**：Individual 写明无限 Tab 与 Command。补全质量相对 Cursor 谁更好，这次定价核对没有重测
 
-> 如果你把代码补全频率作为主要判断标准，Cursor 目前仍是首选。
+> 如果判断标准是补全手感，需要自己试用。价格页只能说明 Antigravity 的 $0 档写了无限 Tab，Cursor 的定价页没有同等句子。
 
 ---
 
-## 成熟度与稳定性
+## 成熟度
 
-Cursor 已有多年打磨，通过 SOC 2 认证，有完整的团队协作功能（共享 Rules、集中账单管理）。
+Cursor 已销售多年，Teams 档写了集中账单和 SSO。
 
-Antigravity 是 2025 年 11 月刚发布的预览版，社区已发现若干安全漏洞（发布 24 小时内），暂无企业级合规认证。**对于生产环境，Antigravity 目前仍有风险。**
+Antigravity 在 2025-11-18 以公开预览发布。2026-10-16 的定价页标为 Generally Available。预览发布后不久，社区报告过安全问题。这次没有重核那些问题是否已修复，GA 标记也不等于合规认证已经公布。
+
+生产环境要不要用，看你的安全审查，不看「它还在预览所以先别用」或「它已经 GA 所以可以放心」。
 
 ---
 
 ## 国内可用性
 
-两者均需代理访问，国内体验相当。如果需要国内可用方案，可参考 [Trae CN](/tool/trae-cn) 或 [Cline + 火山方舟 Coding Plan](https://www.volcengine.com/L/s3lNTNYxaEc/)（[配置指南](/guides/cline-ark-setup)）。
+两者都需要代理。国内可用方案见 [Trae CN](/tool/trae-cn) 或 [Cline + 火山方舟](https://www.volcengine.com/L/s3lNTNYxaEc/)（[配置指南](/guides/cline-ark-setup)）。
 
 ---
 
-## 谁应该选哪个？
+## 谁应该选哪个
 
-**选 Antigravity，如果你：**
-- 想免费体验 Claude Opus 4.5 + Gemini 3 顶级模型
-- 对 Agent-First 架构感兴趣，愿意接受预览版的不稳定
-- 在做需要浏览器操作的全栈任务（测试、爬虫、UI 验证）
-- 已在 GCP / Firebase 生态，Google 工具链有加成
+**选 Antigravity Individual，如果你：**
+
+- 要先用 $0 档，并接受基础每周速率限制
+- 需要内置浏览器和 Artifacts
+- 已经在 GCP / Firebase 里
+
+**不要因为「预览期免费的 Opus」来选。** 那条已经不能从当前定价页推出。Google AI Pro / Ultra 的美元价格也没有公布。
 
 **选 Cursor，如果你：**
-- 需要稳定可靠的生产环境工具
-- 对代码补全速度要求高
-- 团队协作需要企业级权限和审计
-- 已熟悉 Cursor 工作流，不想承担迁移成本
+
+- 只需要 Grok：Plus $8
+- 需要 Cursor 里的第三方模型和云端 Agent：Premium $30 起，第三方模型另计
+- 团队要从 $30/用户/月的 Teams 档看 SSO 和集中账单
 
 ---
 
-## 两者都用的策略
+## 两个一起用
 
-目前很多开发者的做法是：**Cursor 作为主力日常编码，Antigravity 处理特定的 Agent 重度任务**（如自动化测试、端到端功能开发）。
+可以。理由不是「一个免费、一个 $20」。
 
-Antigravity 免费，Cursor $20/月——在 Antigravity 稳定之前，这是性价比最高的组合。
+Antigravity Individual 是 $0，带基础每周限额。Cursor Free 也是 $0，用量有限。Cursor 里的非 Grok 模型从 Premium 起另计 API。两个都用时，Cursor 侧的账单按实际调用的模型算，不是按一份 $20 订阅封顶。
 
 ---
 
@@ -125,10 +140,9 @@ Antigravity 免费，Cursor $20/月——在 Antigravity 稳定之前，这是�
 
 | | Antigravity | Cursor |
 |---|-------------|--------|
-| **现在免费** | ✅ | ❌ |
-| **代码补全** | 一般 | 顶级 |
-| **Agent 能力** | 领先 | 良好 |
-| **成熟度** | 预览版 | 生产级 |
-| **最适合** | 尝鲜 + Agent 任务 | 日常主力开发 |
+| 个人版 $0 | 有。多种 Agent 模型，基础每周限额 | 有。有限用量 |
+| 已公布的下一档美元价 | 没有。Pro/Ultra 未标价。Enterprise 从 $30/席起 | Plus $8（仅 Grok），Premium $30（第三方另计） |
+| 状态 | Generally Available | 在售 |
+| 更适合 | 浏览器内 Agent、Google 生态 | Grok 低价档，或接受 API 另计的 IDE Agent |
 
-> 数据基于 2026 年 2 月评测。Antigravity 处于快速迭代期，建议定期关注官方更新。
+> 价格核对：2026-10-16。Google AI Pro / Ultra 的美元价格、Antigravity 旧的「每天约 20 次」和 $25/2,500 credits、Cursor 用量池的美元大小，当前页面都没有公布。

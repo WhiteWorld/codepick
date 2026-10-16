@@ -2,6 +2,7 @@
 title: "Cline vs Cursor：2026 深度对比"
 description: "免费开源插件 vs 付费 AI IDE：Cline 和 Cursor 从定价、Agent 能力、模型灵活性到国内可用性全面对比，帮你做出最优选择。"
 date: "2026-04-01"
+updated_at: "2026-10-16"
 tags: ["cline", "cursor", "对比", "vscode", "ide"]
 pillar: compare
 content_status: keep
@@ -9,7 +10,7 @@ locale_strategy: mirrored
 draft: false
 ---
 
-Cline 和 Cursor 都是基于 VS Code 生态的 AI 编程工具，但两者的商业模式和设计理念截然不同：Cline 是免费开源的 VS Code 插件（你自备 API Key），Cursor 是每月 $20 起的一体化 AI IDE。本文从核心维度做全面对比。
+Cline 和 Cursor 都是基于 VS Code 生态的 AI 编程工具，但两者的商业模式和设计理念截然不同：Cline 是免费开源的 VS Code 插件（你自备 API Key），Cursor 的付费个人档从 Plus $8 起，但该档只有 Grok；第三方模型从 Premium $30 起另计。本文从核心维度做全面对比。
 
 ## 一句话总结
 
@@ -25,8 +26,8 @@ Cline 和 Cursor 都是基于 VS Code 生态的 AI 编程工具，但两者的�
 | 形态 | VS Code 插件 | VS Code Fork IDE |
 | 开源 | ✅（MIT 协议） | ❌ 闭源 |
 | 代码补全 | ❌ 无 | ✅ Tab 超级补全 |
-| 模型选择 | 任意 API 兼容模型 | 内置多模型（额度池） |
-| 计费方式 | 工具免费，只付 API 费 | 订阅制（$20/月起） |
+| 模型选择 | 任意 API 兼容模型 | Plus 仅 Grok；Premium 起第三方模型按 API 标价另计 |
+| 计费方式 | 工具免费，只付 API 费 | Plus $8（仅 Grok）；Premium $30 起，第三方模型按 API 另计 |
 | 编辑器 | VS Code / Cursor / Windsurf / Zed 等 | 仅 Cursor（VS Code Fork） |
 
 ---
@@ -47,14 +48,15 @@ Cline 本身免费，成本来自 API 调用：
 
 ### Cursor 的固定成本
 
-| 方案 | 月费 | 额度池 |
+| 方案 | 月费 | 定价页写了什么 |
 |------|------|--------|
-| Hobby | $0 | 有限 |
-| Pro | $20 | $20 额度池 |
-| Pro+ | $60 | $70 额度池 |
-| Ultra | $200 | $400 额度池 |
+| Free | $0 | 有限 AI 用量。美元额度未公布 |
+| Plus | $8 | 周刷新用量池，仅 Grok |
+| Premium | $30 | Plus 的 4 倍。第三方模型按 API 标价另计 |
+| Super | $100 | Plus 的 15 倍。第三方模型另计 |
+| Ultra | $200 | Plus 的 50 倍。第三方模型另计 |
 
-**结论**：轻中度用户 Cline 通常更便宜；重度 Agent 用户两者成本接近，Cline 的可预测性较低（按量付费会有惊喜账单风险）。
+**结论**：Cline 没有订阅。Cursor Plus $8 不含 Claude / GPT / Gemini。这些模型从 Premium $30 起按 API 标价另计，月费不是封顶。轻量第三方调用在 Cline 上可以只有 API 账单；重度调用两边都是 API 账单，Cursor 还要加至少 $30。不能再说两边重度成本接近，因为旧的 $20 / $70 / $400 额度池已经不在定价页上。
 
 ---
 
@@ -72,7 +74,7 @@ Cline 本身免费，成本来自 API 调用：
 两者均有完整的 Agent 模式，但实现方式不同：
 
 - **Cline**：Agent 能力取决于你接入的模型。接 Claude Opus 4.6 就有顶级 Agent 表现；接 DeepSeek V3 可以大幅降低成本。支持 MCP 工具调用。
-- **Cursor**：内置 Agent，深度优化与 IDE 的集成体验。支持 MCP，Ultra 套餐支持云端长时任务（`cursor.com/agents`）。
+- **Cursor**：内置 Agent，深度优化与 IDE 的集成体验。支持 MCP，定价页把云端 Agent 写在 Premium（`cursor.com/agents`）。
 
 ### 模型灵活性
 

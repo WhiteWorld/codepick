@@ -2,6 +2,7 @@
 title: "OpenCode vs Cursor 2026：免费开源 TUI 对决付费 AI IDE"
 description: "OpenCode vs Cursor 深度对比：免费终端 TUI Agent 与顶级 AI IDE，从价格、编程能力、国内可用性到工作流全面对比，帮你做出最适合的选择。"
 date: "2026-04-05"
+updated_at: "2026-10-16"
 tags: ["opencode", "cursor", "对比", "cli", "ide", "终端"]
 pillar: compare
 content_status: keep
@@ -17,15 +18,15 @@ OpenCode 是近年快速崛起的开源终端 AI Agent，Cursor 则是目前最�
 |------|----------|--------|
 | 形态 | 终端 TUI（含桌面 App） | VS Code Fork IDE |
 | 开源 | ✅（MIT） | ❌ |
-| 起步价 | 免费（自备 API Key） | $0（Hobby）/ $20/月（Pro） |
+| 起步价 | 免费（自备 API Key） | Free $0 / Plus $8（仅 Grok） |
 | 编程能力 | 7.5 / 10 | 9.5 / 10 |
 | 性价比 | 9.5 / 10 | 6 / 10 |
 | 国内友好度 | 8.8 / 10 | 4 / 10 |
-| 代码补全（Tab） | ❌ | ✅（无限，Pro） |
+| 代码补全（Tab） | ❌ | ✅（定价页未写是否无限） |
 | Agent 模式 | ✅ | ✅ |
 | MCP 支持 | ✅ | ✅ |
 | 多 Session | ✅ | ❌（单 Session） |
-| Cloud Agents | ❌ | ✅（Pro+ / Ultra） |
+| Cloud Agents | ❌ | ✅（Premium 起） |
 | 支持模型数量 | 75+ 提供商 | 精选主流模型 |
 
 ---
@@ -52,12 +53,13 @@ OpenCode 是近年快速崛起的开源终端 AI Agent，Cursor 则是目前最�
 
 | 方案 | 价格 | 用量 |
 |------|------|------|
-| Hobby | $0 | 有限 Agent + Tab 补全 |
-| Pro | $20/月 | 无限 Tab，$20 Agent 额度池/月 |
-| Pro+ | $60/月 | 无限 Tab，$70 Agent 额度池/月 |
-| Ultra | $200/月 | 无限 Tab，$400 Agent 额度池/月 |
+| Free | $0 | 有限 AI 用量。美元额度未公布 |
+| Plus | $8/月 | 与 Grok 共享的周刷新用量池；仅 Grok 模型 |
+| Premium | $30/月 | Plus 的 4 倍；含云端 Agent。第三方模型按 API 标价另计 |
+| Super | $100/月 | Plus 的 15 倍。第三方模型按 API 标价另计 |
+| Ultra | $200/月 | Plus 的 50 倍。第三方模型按 API 标价另计 |
 
-> **关键差异**：国内用户搭配方舟 Coding Plan，OpenCode 可以用较低门槛获得国内直连体验；Cursor 最低 $20/月且需代理。对于不差钱且追求最强 IDE 体验的用户，Cursor 的差距是值得付的；对预算敏感或终端党来说，OpenCode 是极具竞争力的选择。
+> **关键差异**：OpenCode 自备 API Key，国内可搭配方舟。Cursor 有 Free。付费从 Plus $8 起，只有 Grok，并且需要代理。Claude、GPT、Gemini 从 Premium $30 起，按 API 标价另计。不再是「Cursor 最低 $20」。终端或预算敏感时，OpenCode 少一层订阅。
 
 ---
 
@@ -74,7 +76,7 @@ OpenCode 是近年快速崛起的开源终端 AI Agent，Cursor 则是目前最�
 | 多文件编辑 | ✅ | ✅ |
 | Agent 模式 | ✅ | ✅ |
 | Sub-agents（并行） | ❌ | ✅ |
-| Cloud Agents | ❌ | ✅（Pro+ / Ultra） |
+| Cloud Agents | ❌ | ✅（Premium 起） |
 | MCP 支持 | ✅ | ✅ |
 | Automations（常驻 Agent） | ❌ | ✅ |
 | Git 集成 | ✅ | ✅ |
@@ -132,7 +134,7 @@ OpenCode 支持火山方舟、阿里百炼、月之暗面等国内 API，无需�
 - 追求 IDE + AI 完整一体的开发体验
 - 需要 Cloud Agents、Automations 等高级 Agent 能力
 - 团队协作，需要共享规则和配置
-- 预算充裕（$20/月），且有稳定代理环境
+- 需要 Cursor 里的第三方模型，接受 Premium $30 起再加 API 费用，并且有稳定代理
 
 ---
 

@@ -2,6 +2,7 @@
 title: "Cursor vs GitHub Copilot: 2026 Ultimate Comparison"
 description: "In-depth comparison of two major paid AI coding tools: coding ability, Agent mode, pricing, IDE support, and China accessibility to help you make the best choice."
 date: "2026-02-16"
+updated_at: "2026-10-16"
 tags: ["cursor", "github-copilot", "comparison", "ide"]
 pillar: compare
 content_status: keep
@@ -22,11 +23,12 @@ Cursor and GitHub Copilot are the two most mainstream paid AI coding tools today
 
 | Item | Cursor | GitHub Copilot |
 |------|--------|----------------|
-| Free Tier | Yes (limited usage) | Yes (limited usage) |
-| Individual Plan | $20/mo | $10/mo |
-| Value Rating | 3/5 stars | 4/5 stars |
+| Free | Free $0, limited usage | Free $0: 50 chats/mo, 2,000 completions/mo |
+| Lower paid tier | Plus $8/mo, Grok only | Pro $10/mo, 1,500 AI credits total |
+| Third-party models | From Premium $30, at API list price | Pro+ $39 (7,000 credits), Max $100 (20,000 credits) |
+| Cost-efficiency score in tool data | 6/10 | 8.5/10 |
 
-Copilot's individual plan at $10/mo is roughly half the price of Cursor Pro. However, Cursor's $20 plan includes a $20 usage pool, and actual Agent usage typically far exceeds what Copilot offers.
+Copilot Pro at $10 is not half of Cursor Pro. Cursor no longer has Pro at $20, and it no longer has a $20 pool. Cursor Plus at $8 is cheaper, and it is Grok-only. Claude, GPT, or Gemini in Cursor start at Premium $30 and are billed extra. Copilot Pro publishes 1,500 credits, and completions do not spend credits. "Cursor's $20 plan usually includes more Agent usage than Copilot" does not hold.
 
 ---
 
@@ -75,7 +77,7 @@ Both require a stable proxy and are difficult to use in China without one. If yo
 
 ## Model Selection
 
-- **Cursor**: Built-in Claude Sonnet 4.5, Claude Opus 4.6, GPT-5, Gemini 2.5 Pro, and more — usage drawn from a quota pool
+- **Cursor**: The tool data still lists Claude, GPT, Gemini, and Grok. Plus is Grok only. Third-party models from Premium are billed at API list price. They are not an included pool
 - **Copilot**: Supports Claude 3.5 Sonnet, GPT-4o, Gemini 1.5 Pro — Enterprise edition supports additional models
 
 Neither allows you to use your own API key freely (Cursor has a BYO API option, but with significant restrictions).
@@ -92,7 +94,7 @@ Neither allows you to use your own API key freely (Cursor has a BYO API option, 
 
 **Choose Copilot if you:**
 - Use JetBrains, Neovim, or other IDEs
-- Have a limited budget (starting at $10/mo)
+- Want a published allowance (Pro at $10 / 1,500 credits, or Max at $100 / 20,000 credits)
 - Are deeply embedded in the GitHub PR/Issues workflow
 - Need unified team management (Copilot for Business)
 

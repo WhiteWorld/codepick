@@ -2,6 +2,7 @@
 title: "Cursor Composer 2 Deep Dive: Kimi K2.5 Base + Reinforcement Learning, 37% Better"
 description: "In March 2026 Cursor launched Composer 2 — a proprietary coding model trained on top of Moonshot AI's open-source Kimi K2.5. Here's the full story: the technology, the attribution controversy, and what it means for developers."
 date: "2026-04-20"
+updated_at: "2026-10-16"
 article_type: "explainer"
 tags: ["cursor", "composer-2", "kimi", "moonshot", "model", "open-source", "reinforcement-learning"]
 pillar: tools
@@ -87,9 +88,9 @@ Cursor's launch blog and product UI mentioned neither Kimi nor Moonshot AI. The 
 
 CursorBench's +37% isn't over synthetic tasks — it's over the messy, ambiguous, multi-file work that defines real development. Composer 2 handles agent tasks that require inferring intent across a large codebase noticeably better than its predecessor.
 
-### 2. No Price Change
+### 2. The subscription tiers changed
 
-Composer 2 is included in the existing Cursor Pro ($20/mo) credit pool — no additional charge. If you're on Pro, Cursor's Auto mode will route appropriate tasks to Composer 2 automatically.
+The 2026-10-16 pricing page has no Pro plan at $20, and it does not say Composer 2 is included in a dollar allowance. Plus is Grok models only. Composer is Cursor's own model, not a third-party model. The page does not say whether it draws from the weekly pool or is billed separately. "Pro includes Composer 2 at no extra charge" is not a current claim.
 
 ### 3. What Does "Proprietary" Mean in 2026
 
@@ -113,6 +114,6 @@ Composer 2 is a genuine upgrade — 37% better on Cursor's own benchmark, compet
 
 The attribution controversy has resolved and doesn't affect normal use.
 
-**If you're on Cursor Pro**, you can select Composer 2 in Agent mode for heavy tasks — large codebase understanding, ambiguous multi-file rewrites, or any agent workflow where you want to run and come back to results.
+**If you want to try Composer 2 in Cursor**: it is Cursor's own model. The pricing page does not say whether it draws from the weekly pool. Plus is Grok-only, so the old Pro $20 plan is not the tier to pick.
 
 **If you're evaluating base models**, Kimi K2.5's open weights are available for inspection. Cursor's full technical report (published at cursor.com) walks through the training methodology in detail.

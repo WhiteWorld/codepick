@@ -2,6 +2,7 @@
 title: "Trae vs Cursor 2026: ByteDance's Free AI IDE vs the Market Leader"
 description: "Trae vs Cursor compared: ByteDance's free AI IDE with SOLO mode and Builder mode versus Cursor's best-in-class coding experience — pricing, features, and who should switch."
 date: "2026-04-05"
+updated_at: "2026-10-16"
 tags: ["trae", "cursor", "comparison", "ide", "free", "bytedance"]
 pillar: compare
 content_status: keep
@@ -19,8 +20,8 @@ Trae is ByteDance's AI IDE for the international market — free to start with a
 |-----------|---------------------|--------|
 | Made by | ByteDance | Anysphere |
 | Type | VS Code Fork IDE | VS Code Fork IDE |
-| Free Tier | ✅ (limited Premium usage) | ✅ (Hobby, limited) |
-| Starting Paid Price | $10/mo (Pro, first month $3) | $20/mo (Pro) |
+| Free Tier | ✅ (limited Premium usage) | ✅ (Free, limited) |
+| Starting Paid Price | $10/mo (Pro, first month $3) | Plus $8 (Grok only); third-party models from Premium $30, billed extra |
 | Coding Ability | 8 / 10 | 9.5 / 10 |
 | Cost Efficiency | 8.5 / 10 | 6 / 10 |
 | China Friendly | 3 / 10 | 4 / 10 |
@@ -36,8 +37,8 @@ Trae is ByteDance's AI IDE for the international market — free to start with a
 
 ## One-line Summary
 
-- **Trae**: ByteDance-made, free to start, Pro at $10/mo (half of Cursor's price), unique SOLO mode + Builder mode — best for budget-conscious international developers
-- **Cursor**: The market benchmark — highest coding ability (9.5/10), Tab Supercomplete + Sub-agents + Cloud Agents — best for developers who want the absolute best and have budget
+- **Trae**: ByteDance-made, free to start. This article still lists international Pro at $10/mo. Trae was not re-checked. It is not half of Cursor's entry price: Plus is $8 and Grok-only, and third-party models start at Premium $30 plus API list price
+- **Cursor**: Coding ability is scored 9.5. Individual tiers are Free, Plus $8, Premium $30, Super $100, and Ultra $200. Tab, sub-agents, and cloud agents remain. Cloud agents are listed from Premium
 
 ---
 
@@ -55,12 +56,13 @@ Trae is ByteDance's AI IDE for the international market — free to start with a
 
 | Plan | Price | Usage |
 |------|-------|-------|
-| Hobby | $0 | Limited Agent + Tab completion |
-| Pro | $20/mo | Unlimited Tab, $20 Agent credit pool/mo |
-| Pro+ | $60/mo | Unlimited Tab, $70 Agent credit pool/mo |
-| Ultra | $200/mo | Unlimited Tab, $400 Agent credit pool/mo |
+| Free | $0 | Limited AI usage. Dollar allowance not published |
+| Plus | $8/mo | Weekly pool shared with Grok; Grok models only |
+| Premium | $30/mo | 4x Plus; includes cloud agents. Third-party models at API list price |
+| Super | $100/mo | 15x Plus. Third-party models at API list price |
+| Ultra | $200/mo | 50x Plus. Third-party models at API list price |
 
-> **The key number**: Trae Pro $10/mo vs Cursor Pro $20/mo — exactly half the price, with the first month at just $3. If Cursor's pricing is a concern, Trae is the most direct comparison.
+> **The key number**: This article still lists Trae Pro at $10/mo, first month $3. Trae was not re-checked. Cursor no longer has Pro at $20. The cheapest paid tier is Plus at $8, Grok only. Third-party models start at Premium $30 and are billed at API list price. Trae is not "half of Cursor's entry price."
 
 ---
 
@@ -100,7 +102,7 @@ Cursor has no equivalent Builder mode; it focuses on code editing and Agent assi
 | Multi-file editing | ✅ | ✅ |
 | Agent mode | ✅ (SOLO) | ✅ |
 | Sub-agents (parallel) | ✅ (Sub Agent) | ✅ |
-| Cloud Agents | ❌ | ✅ (Pro+ / Ultra) |
+| Cloud Agents | ❌ | ✅ (from Premium) |
 | MCP support | ✅ | ✅ |
 | Cloud IDE (browser) | ✅ | ❌ |
 | Proprietary coding model | ❌ | ✅ (Composer 2) |
@@ -146,7 +148,7 @@ Cursor updates its model list more frequently and benefits from its proprietary 
 ## Who Should Choose Which?
 
 **Choose Trae if you:**
-- Are budget-conscious and don't want to pay $20/mo (Trae Pro is $10, first month $3)
+- Are budget-conscious. This article still lists Trae Pro at $10 (first month $3). Cursor Plus is $8 and Grok-only; third-party models start at Premium $30 and are extra
 - Want to explore SOLO mode's Context Engineering approach
 - Need a browser-based Cloud IDE for development from anywhere
 - Are curious about Cursor's features but want a lower-cost trial
@@ -158,7 +160,7 @@ Cursor updates its model list more frequently and benefits from its proprietary 
 - Need Sub-agents, Cloud Agents, and Automations
 - Need JetBrains support
 - Work in teams and need shared rules and configurations
-- Have budget ($20/mo)
+- Accept Premium from $30, with third-party models billed at API list price
 
 ---
 

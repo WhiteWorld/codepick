@@ -2,6 +2,7 @@
 title: "Kiro vs Cursor 2026: AWS Spec-Driven IDE vs the Reigning AI Coding King"
 description: "Kiro is AWS's spec-driven Agentic IDE, while Cursor is the most popular AI IDE today. Their core philosophies differ — this article helps you decide which one fits your development style."
 date: "2026-02-17"
+updated_at: "2026-10-16"
 tags: ["kiro", "cursor", "comparison", "ide", "AWS", "spec-driven"]
 pillar: compare
 content_status: keep
@@ -16,8 +17,8 @@ Cursor is currently the most popular AI IDE, while Kiro is AWS's 2025 challenger
 | Dimension | Kiro | Cursor |
 |-----------|------|--------|
 | Developer | Amazon / AWS | Anysphere |
-| Pro Pricing | $20/month (free during preview) | $20/month |
-| Free Tier | 50 vibe requests/month | Limited quota |
+| Pro Pricing | $20/month, 1,000 credits | Plus $8 (Grok only); third-party models from Premium $30, billed extra |
+| Free Tier | 50 credits/month | Free, limited usage |
 | Core Model | Claude Sonnet 4.0 / 3.7 | Claude Sonnet 4.5 / GPT-5 |
 | Core Philosophy | Spec-driven development | Efficient interactive coding |
 | MCP Support | Yes | Yes |
@@ -71,11 +72,12 @@ Cursor Tab is widely recognized as one of the smoothest code completions in the 
 
 | Plan | Kiro | Cursor |
 |------|------|--------|
-| Free Tier | 50 vibe requests/month | Limited Agent requests |
-| Pro | $20/month (free during preview) | $20/month |
-| Usage Unit | Vibe/Spec request count | Usage quota pool ($20 included) |
+| Free Tier | 50 credits/month | Free, limited usage. Dollar allowance not published |
+| Pro | $20/month, 1,000 credits | Plus $8, Grok only |
+| Above Pro | Pro+ $40 / 2,000; Pro Max $100 / 5,000; Power $200 / 10,000. Overage $0.04/credit | Premium $30 (4x Plus, third-party models extra); Super $100; Ultra $200 |
+| Usage unit | Credits. Unused credits do not roll over | Weekly pool shared with Grok. Dollar size not published |
 
-> Kiro is currently in **public preview with Pro features available for free**, making it a great low-risk opportunity to try out.
+> Kiro is GA. It is not free during a preview. Pro is $20/month. On 2026-10-16 the pricing page added Pro Max at $100/month for 5,000 credits.
 
 ---
 
@@ -85,7 +87,7 @@ Cursor Tab is widely recognized as one of the smoothest code completions in the 
 - Frequently develop new features from scratch
 - Need to turn vague requirements into complete implementation plans
 - Prefer having clear specification documents before writing code
-- Want to try the latest AWS AI product (and it is currently free)
+- Accept Pro at $20 / 1,000 credits, or Pro Max / Power above it
 
 **Choose Cursor if you:**
 - Have a mature project that needs efficient iteration
@@ -101,7 +103,7 @@ Cursor Tab is widely recognized as one of the smoothest code completions in the 
 |---|------|--------|
 | **Best For** | Prototype to production, new feature planning | Day-to-day iteration, efficient coding |
 | **Learning Curve** | Medium (need to understand the Spec workflow) | Low (ready to use immediately) |
-| **Maturity** | Preview | Production-grade |
-| **Current Price** | Free (preview period) | $20/month |
+| **Maturity** | GA | On sale |
+| **Current Price** | Pro $20 / 1,000 credits. Pro Max is $100 | Plus $8 (Grok only). Third-party models from Premium $30, billed extra |
 
 If you are starting a new project, Kiro's spec-driven approach is worth trying — it helps you clarify your thinking before you start coding. If you need to boost productivity in daily development, Cursor remains the more reliable choice.

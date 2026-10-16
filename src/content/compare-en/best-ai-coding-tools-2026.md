@@ -2,6 +2,7 @@
 title: "Best AI Coding Tools 2026: Mainstream Tools Reviewed & Ranked"
 description: "A practical AI coding tools comparison for 2026, covering Cursor, Claude Code, Copilot, Windsurf, and other mainstream tools across coding ability, pricing, flexibility, and more."
 date: "2026-03-27"
+updated_at: "2026-10-16"
 tags: ["cursor", "claude-code", "copilot", "windsurf", "cline", "kiro", "gemini-cli", "aider", "trae-cn", "roo-code", "opencode", "best", "comparison", "2026"]
 pillar: compare
 content_status: keep
@@ -26,9 +27,9 @@ We score each tool 0-10 across 5 dimensions:
 
 ### Best Overall IDE: Cursor
 
-**Overall: 7.0/10 | Coding: 9.5 | Price: $20/mo**
+**Overall: 7.0/10 | Coding: 9.5 | Price: Plus $8 / Premium $30**
 
-Cursor delivers the best overall AI IDE experience in 2026. Pro at $20/mo includes a $20 credit pool supporting Claude Opus 4.6, GPT-5.4, and more. Its Agent mode autonomously handles complex multi-file editing tasks.
+The coding score is 9.5. On 2026-10-16 there is no Pro at $20 and no $20 credit pool. Individual tiers are Free $0, Plus $8 (Grok only), Premium $30, Super $100, and Ultra $200. Third-party models from Premium are billed at API list price. Agent mode still edits multiple files.
 
 **Key features**: Automations (always-on agents), Composer 2 model, Self-Hosted Cloud Agents, Sub-agents.
 
@@ -50,11 +51,11 @@ Claude Code has the highest coding ability score of any tool. Opus 4.6's complex
 
 ## Tier 2: High Value Options
 
-### Best Budget IDE: Windsurf
+### Windsurf — IDE, Pro at $20
 
-**Overall: 6.3/10 | Coding: 8.5 | Price: $15/mo**
+**Overall: 6.3/10 | Coding: 8.5 | Price: Pro $20/mo**
 
-Similar to Cursor at $5 less. Cascade Agent feels smooth, with JetBrains and Vim plugin support.
+Also a VS Code fork. It is not $5 cheaper. Cursor Plus is $8 and Grok-only. Cursor Premium is $30, and third-party models are extra. Windsurf does not publish a credit count. Cascade is still there, and JetBrains and Vim have plugins.
 
 → [View details](/en/tool/windsurf)
 
@@ -62,23 +63,23 @@ Similar to Cursor at $5 less. Cascade Agent feels smooth, with JetBrains and Vim
 
 **Overall: 6.7/10 | Coding: 8.2 | Price: $10/mo**
 
-Supports the most IDEs (VS Code, JetBrains, Neovim, Xcode). At $10/mo, it's the cheapest mainstream paid option.
+Still the widest IDE list (VS Code, JetBrains, Neovim, Xcode). Pro is $10/mo with 1,500 AI credits total. Cursor Plus is $8 and Grok-only, so Copilot Pro is not the cheapest paid tier on this page. Per-plan model checkmarks were not re-checked.
 
 → [View details](/en/tool/copilot)
 
 ### Best for Engineering Discipline: Kiro
 
-**Overall: 5.5/10 | Coding: 8.5 | Price: $20/mo**
+**Overall: 5.5/10 | Coding: 8.5 | Price: Pro $20/mo; Pro Max $100**
 
 AWS-built spec-driven development reduces AI hallucinations. Now GA with transparent unified credit pricing.
 
 → [View details](/en/tool/kiro)
 
-### Best Free Multi-Model IDE: Antigravity
+### Antigravity — Individual $0, generally available
 
-**Overall: 6.6/10 | Coding: 9.0 | Price: Free (preview)**
+**Overall: 6.6/10 | Coding: 9.0 | Price: Individual $0. Pro/Ultra unpriced**
 
-Google's IDE with free access to Gemini 3 Pro, Claude Opus 4.5, and more during preview.
+The 2026-10-16 pricing page marks it Generally Available. Individual is $0 with a basic weekly rate limit. Google AI Pro and Ultra have no published dollar price. This is not "free named top models during preview."
 
 → [View details](/en/tool/antigravity)
 

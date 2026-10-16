@@ -2,6 +2,7 @@
 title: "AI Coding Tool Monthly Cost Comparison 2026: Copilot, Cursor, Codex, Claude Code, and China Coding Plans"
 description: "Compare monthly fees, quota models, China accessibility, and overage risk across GitHub Copilot, Cursor, OpenAI Codex, Claude Code, Volcengine Ark, MiniMax, Alibaba Bailian, and other AI coding setups."
 date: "2026-05-28"
+updated_at: "2026-10-16"
 tags: ["ai-coding", "cost", "billing", "copilot", "cursor", "codex", "claude-code", "coding-plan", "china", "comparison"]
 pillar: compare
 content_status: keep
@@ -9,7 +10,7 @@ locale_strategy: mirrored
 draft: false
 ---
 
-Most developers start by comparing sticker prices: Copilot at $10, Cursor at $20, ChatGPT Plus with Codex at $20, Claude Pro at $20, Volcengine Ark from ¥40, MiniMax from ¥29. In real usage, the monthly fee is only the entry point. The true cost depends on quota windows, model multipliers, network access, and whether overages can silently keep billing.
+Most developers start by comparing sticker prices: Copilot at $10, Cursor Plus at $8 or Premium at $30, ChatGPT Plus with Codex at $20, Claude Pro at $20, Volcengine Ark from ¥40, MiniMax from ¥29. The monthly fee is only the entry. The bill depends on the allowance, whether other models are charged again, and network access.
 
 This guide compares common AI coding setups so you can estimate a realistic monthly cost before choosing a tool.
 
@@ -19,7 +20,7 @@ This guide compares common AI coding setups so you can estimate a realistic mont
 
 - **For autocomplete plus light chat**: start with Copilot Free, Trae CN, or the tools already bundled in your existing subscription.
 - **Already paying for ChatGPT**: Codex is worth testing first because it is included in ChatGPT plans, although it consumes agentic usage limits and may need extra credits after limits.
-- **IDE-first Agent workflow**: Cursor Pro remains strong, but turn off or cap overages before heavy Agent use.
+- **IDE-first Agent workflow**: Cursor Plus at $8 is Grok only. Claude, GPT, and Gemini start at Premium $30 and are billed at API list price. The pricing page does not publish a dollar pool you can switch off.
 - **Terminal-first and Claude-native**: Claude Pro is the starting point; Claude Max is for heavy Claude Code users.
 - **China-first and budget-sensitive**: Volcengine Ark Coding Plan, MiniMax Token Plan, and Alibaba Bailian Coding Plan are usually easier to pay for and more stable to access.
 
@@ -31,7 +32,7 @@ This guide compares common AI coding setups so you can estimate a realistic mont
 |------|-------------|-------------|--------------|----------|
 | GitHub Copilot Free | $0 | Free autocomplete + limited chat/agent usage | Unstable | Light autocomplete and trial use |
 | GitHub Copilot Pro | $10 | AI Credits + unlimited autocomplete | Unstable | GitHub / JetBrains users |
-| Cursor Pro | $20 | Subscription allowance + optional overage | Proxy often needed | IDE Agent workflow |
+| Cursor | Plus $8 (Grok only) / Premium $30 | Weekly pool, dollar size not published; third-party models at API list price | Proxy often needed | IDE Agent. Non-Grok models are not on Plus |
 | OpenAI Codex | Included from ChatGPT Plus ($20+) | ChatGPT agentic usage limit + credits | Proxy often needed | Codex CLI, IDE, cloud tasks |
 | Claude Pro | $20 | Claude subscription usage windows | Proxy often needed | Light to medium Claude Code use |
 | Claude Max | $100 / $200 | Higher Claude usage windows | Proxy often needed | Heavy Claude Code users |
@@ -77,7 +78,7 @@ Start with:
 1. Volcengine Ark Lite / Pro
 2. MiniMax Token Plan Plus
 3. Codex if you already have ChatGPT Plus / Pro
-4. Cursor Pro
+4. Cursor Premium if the IDE must run non-Grok models (API charges extra), or Copilot Pro (1,500 credits, published)
 5. Copilot Pro
 
 Medium users start doing chat, Agent tasks, and multi-file edits. At this point, the recovery mechanism matters: rolling quota windows are often easier to live with than a single monthly bucket.
@@ -88,7 +89,7 @@ Start with:
 
 1. Claude Max if you need native Claude Code and have stable access
 2. ChatGPT Pro / Codex credits if you prefer the OpenAI CLI, IDE, or cloud task workflow
-3. Cursor higher tiers if the GUI Agent workflow is central
+3. Cursor Premium and above, or Teams from $30/user/month, if the GUI Agent is required. Third-party models are API-priced. This is not the old Pro+ $60 pool
 4. Cline / OpenCode / Claude Code-compatible clients with Ark, MiniMax, or Bailian
 5. Bring-your-own API keys with strict spending caps
 
@@ -129,7 +130,7 @@ For China-based developers, hidden costs are obvious: network instability hurts 
 | Student / light user | Copilot Free + Trae CN | Zero-cost coverage for basic autocomplete and chat |
 | China-based solo developer | Cline + Ark Lite or MiniMax Plus | Low cost, simple payment, no proxy for domestic models |
 | VS Code Agent user | Cline / Roo Code + domestic Coding Plan | Flexible models and controllable cost |
-| IDE GUI heavy user | Cursor Pro with overage disabled | Strong experience, but needs budget discipline |
+| IDE GUI heavy user | Cursor Plus if Grok is enough; otherwise Premium from $30 plus API, Copilot Max, or your own API | The monthly fee is not a cap. No switchable dollar pool is published |
 | Existing ChatGPT subscriber | Codex CLI / IDE / cloud tasks | Included in the subscription, but watch agentic limits |
 | Claude Code fan | Claude Pro first, Max only after real usage proves it | Best native Claude experience, with usage windows |
 | Team pilot | Bailian / Ark / MiniMax with shared key governance | Easier procurement, audit, and quota management |
@@ -146,4 +147,4 @@ For China-based developers, hidden costs are obvious: network instability hurts 
 - [Coding Plan comparison 2026](/en/compare/coding-plan-comparison-2026/)
 - [Cursor cost-saving guide](/en/guides/cursor-cost-saving/)
 
-> Checked on 2026-05-28. Pricing and quota rules change quickly. Always verify the official pricing page or console before purchasing.
+> Cursor and Copilot stickers updated 2026-10-16. Cursor does not publish the pool's dollar size. Copilot annual prices and per-plan model checkmarks were not re-checked. Codex, Claude, Ark, Bailian, and MiniMax were not re-checked and stay as previously written.

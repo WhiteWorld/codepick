@@ -2,6 +2,7 @@
 title: "AI 编程工具 Rate Limit 怎么处理：触发原因、影响与应对策略"
 description: "Claude Code、Cursor、Cline 的速率限制是什么？为什么总在最忙的时候被限速？本文解释各工具的限制机制，并给出 5 个实用策略让你不再因 rate limit 中断工作。"
 date: "2026-04-05"
+updated_at: "2026-10-16"
 article_type: "explainer"
 tags: ["rate-limit", "claude-code", "cursor", "cline", "效率", "限速"]
 pillar: workflow
@@ -29,11 +30,12 @@ draft: false
 
 ### Cursor
 
-Cursor Pro 的限制方式不同——是**额度池**而非请求次数：
-- Pro：$20 额度池/月
-- Pro+：$70 额度池/月
-- 额度用完后按实际模型费率计费（$0.04–$0.50/次）
-- **Auto 模式不会被 "rate limit" 中断**——额度用完只是多扣钱，不会报错停止
+2026-10-16 的定价页没有 Pro $20 和 $70 额度池。个人档是 Free、Plus $8、Premium $30、Super $100、Ultra $200。用量池与 Grok 共享，按周刷新。美元大小没有公布。
+
+- Plus 只有 Grok
+- Premium 及以上的第三方模型按 API 标价另计
+- 页面没有写「额度用完后按每次 $0.04–$0.50」，也没有写 Auto 用完只是加钱、不会报错
+- 所以不能把 Cursor 说成「没有 rate limit、只是多扣钱」。用完包含用量之后，第三方模型继续按 API 标价计。客户端会不会直接停，这次没有重测
 
 ### Cline（接入 Anthropic API）
 
@@ -44,15 +46,17 @@ Cline 本身没有速率限制，限制来自你接入的 API 提供商。使用
 
 ### Windsurf
 
-- 按 credits 计费（500 credits/月，Pro）
-- 超出后可以 $10/250 credits 追加
-- 没有请求频率硬限制，耗尽 credits 后无法继续使用高级模型
+- 付费档用量按日/周刷新。页面没有写出 credit 数，也没有写 $10/250 credits
+- Pro 是 $20/月，不是按 500 credits 计
+- Free 是轻度配额，不再写 25 credits
+- 配额用完之后会怎样，页面只写超出后按 API 价格购买。没有写「没有频率硬限制」
 
 ### GitHub Copilot
 
-- Pro：300 次高级请求/月，超出 $0.04/次
-- Pro+：1500 次高级请求/月
-- 代码补全无限，不受 rate limit 影响
+- Pro：合计 1,500 AI Credits/月。Pro+：7,000。Max：20,000。超出 $0.01/Credit
+- 旧的 300 次或 1,500 次高级请求不在当前计划页上
+- 付费档的补全和 Next Edit 不消耗 Credits。Free 仍是 2,000 次补全/月
+- 这是月度 Credits，不是 5 小时滚动窗口。Credits 用完后是否立刻停，取决于你有没有设超额预算。年付是否仍走旧请求次数制，当前计划页没有写，标为未复核
 
 ---
 
@@ -62,7 +66,7 @@ Cline 本身没有速率限制，限制来自你接入的 API 提供商。使用
 
 1. **连续大任务**：让 Agent 处理一个大型重构，Agent 自动生成了 30+ 次工具调用，5 小时内就把 Pro 额度耗尽
 2. **忘记 /compact**：Claude Code 的对话历史越来越长，每次请求消耗的 token 越来越多，速率窗口消耗加快
-3. **月末赶工**：Cursor 额度池月底耗尽，Copilot 月度配额用尽
+3. **周期末赶工**：Cursor 的包含用量按周刷新，不是按自然月的 $20 池。Copilot 的 Credits 按月。两者都可能在周期末用完
 4. **多项目切换**：同时在多个项目用同一账号，各项目的请求叠加
 
 ---
@@ -76,8 +80,8 @@ Cline 本身没有速率限制，限制来自你接入的 API 提供商。使用
 **推荐搭配**：
 - 主力：Claude Code Pro → 备用：Cline + Anthropic API（同模型，按量付费）
 - 主力：Claude Code Pro → 备用：Cline + 火山方舟（国内，官网活动价）
-- 主力：Cursor Pro → 备用：Windsurf Free（25 credits/月）或 Cline + 火山方舟
-- 主力：Copilot Pro → 备用：Cursor Hobby 或 Cline
+- 主力：Cursor Plus 或 Premium → 备用：Windsurf Free（轻度配额，credit 数未公布）或 Cline + 火山方舟
+- 主力：Copilot Pro → 备用：Cursor Free，或 Cline。Cursor Plus 只有 Grok，不能当成 Copilot 的同模型备份
 
 Cline 的配置可以保存，切换几乎无摩擦。
 
@@ -135,11 +139,11 @@ Claude Code Pro 的 45 次/5小时窗口换算下来是：**平均每 6.7 分钟
 |------|----------|--------|----------|
 | Claude Code Pro | 45次/5小时 | 等待窗口重置或升级 | 升级 $80/月 |
 | Claude Code Max 5x | 225次/5小时 | 等待或用 API | 追加 API 费用 |
-| Cursor Pro | $20额度池/月 | 继续用但额外计费 | 额外按量计费 |
+| Cursor Plus / Premium | 周刷新用量池，美元大小未公布 | 第三方模型按 API 标价继续计 | 月费不是封顶 |
 | Cline + API | API Tier 限制 | 等待或充值升 Tier | 充值 $10–50 |
 | Cline + 方舟 | 基本无限 | — | — |
-| Windsurf Pro | 500 credits/月 | 追加购买 $10/250 | 可灵活追加 |
-| Copilot Pro | 300次高级/月 | 额外 $0.04/次 | 少量超出不贵 |
+| Windsurf Pro | 日/周配额，credit 数未公布 | 页面写超出后按 API 价格购买 | 不能按 $10/250 估算 |
+| Copilot Pro | 1,500 Credits/月 | 超出 $0.01/Credit | 一次 Agent 任务不是 1 Credit |
 
 ---
 

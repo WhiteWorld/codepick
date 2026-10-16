@@ -2,7 +2,7 @@
 title: "GitHub Copilot 6月起改为 AI Credits 计费：会变贵吗？一文看懂"
 description: "GitHub Copilot 将于 2026 年 6 月 1 日把高级请求额度（PRU）替换为 AI Credits 按 token 计费。本文拆解各套餐含多少额度、各模型实际花费、以及你的账单会怎么变。"
 date: "2026-05-11"
-updated_at: "2026-05-28"
+updated_at: "2026-10-16"
 article_type: "explainer"
 tags: ["github-copilot", "copilot", "cursor", "cline", "计费", "ai-credits", "token", "定价"]
 pillar: plans
@@ -13,7 +13,7 @@ faq:
   - q: "Copilot 6 月新计费会让我变贵吗？"
     a: |
       看用什么模型和上下文长度。如果主要用 GPT-5 mini 做日常 Chat，Pro 当前 1,500 Credits/月通常够用；
-      如果重度用 Claude Sonnet 跑大型 Agent 任务，Pro 大约 160 次左右就会用完，需升 Pro+ / Max 或迁去 Cursor / Cline + 独立 API。
+      如果重度用 Claude Sonnet 跑大型 Agent 任务，按本文 2026-05-28 的单价，Pro 的 1,500 Credits 大约 166 次就会用完。可以升 Pro+ / Max，或改用 Cline + 独立 API。Cursor 的第三方模型从 Premium $30 起另计，不是一口价替代。单价表本身在 2026-10-16 没有重开。
   - q: "Tab 自动补全还消耗 Credits 吗？"
     a: |
       不消耗 AI Credits。代码补全（inline completion）和 Next Edit Suggestions 不按 AI Credits 计费；
@@ -24,11 +24,10 @@ faq:
       重度 Agent 用户希望灵活的，再设一个合理的预算上限（比如 $20）。组织管理员可以在成本中心给每个席位单独配额。
   - q: "年付用户什么时候迁移到新制？"
     a: |
-      年付 Pro / Pro+ 用户在**年付到期前保持请求次数制**，但 6/1 起模型倍率会上调；到期后不会自动续成原年付套餐，而是转为 Free，可再选择月付。
-      Copilot Business / Enterprise 在 6/1 起切换，2026 年 6–8 月有额外 Credits 过渡额度。
+      2026-10-16 的计划页没有列出年付价格，也没有写年付用户是否仍留在请求次数制。这条不能再当成现行规则。Business 当前是每席 1,900 Credits，Enterprise 是每席 3,900。6–8 月额外额度不在当天的计划页上，标为未复核。
 ---
 
-GitHub Copilot 将于 **2026 年 6 月 1 日**把现行的"高级请求额度（Premium Request Units）"替换为全新的 **AI Credits 按 token 计费制**。套餐价格不变，但计费逻辑彻底改变——对于不同用量习惯的开发者，实际支出可能差距很大。本文帮你算清楚。
+GitHub Copilot 已在 **2026 年 6 月 1 日**把"高级请求额度（Premium Request Units）"换成 **AI Credits**。标价没变，计费单位变了。下面的配额按 2026-10-16 的计划页更新。每百万 token 的单价表仍是 2026-05-28 的记录，当天没有重开。
 
 ---
 
@@ -36,7 +35,7 @@ GitHub Copilot 将于 **2026 年 6 月 1 日**把现行的"高级请求额度（
 
 | 旧制（截至 5 月 31 日） | 新制（6 月 1 日起） |
 |---|---|
-| Pro：300 次高级请求/月，超出 $0.04/次 | Pro：包含 **1,500 AI Credits**（1,000 base + 500 flex），超出按 token 扣费 |
+| Pro：300 次高级请求/月，超出 $0.04/次 | Pro：包含 **1,500 AI Credits**（1,000 base + 500 flex），超出 **$0.01/Credit** |
 | Pro+：1500 次高级请求/月 | Pro+：包含 **7,000 AI Credits**（3,900 base + 3,100 flex） |
 | "一次请求"计一个单位，与 token 数无关 | 按 **实际消耗 token 数 × 模型单价** 计费 |
 
@@ -52,8 +51,8 @@ GitHub Copilot 将于 **2026 年 6 月 1 日**把现行的"高级请求额度（
 | Copilot Pro | $10 | 1,500 Credits（1,000 base + 500 flex） | base 与订阅价绑定，flex 是可变赠额 |
 | Copilot Pro+ | $39 | 7,000 Credits（3,900 base + 3,100 flex） | 更适合高价模型和 Agent |
 | Copilot Max | $100 | 20,000 Credits（10,000 base + 10,000 flex） | 面向重度个人用户 |
-| Copilot Business | $19/用户 | $19 base + 6–8 月额外 $30 过渡额度 | 组织内可池化 |
-| Copilot Enterprise | $39/用户 | $39 base + 6–8 月额外 $70 过渡额度 | 组织/企业预算控制 |
+| Copilot Business | $19/用户 | 1,900 Credits，可池化 | 6–8 月额外额度不在 2026-10-16 计划页上，未复核 |
+| Copilot Enterprise | $39/用户 | 3,900 Credits，可池化 | 6–8 月额外额度不在 2026-10-16 计划页上，未复核 |
 
 > **换算关系**：1 AI Credit = $0.01 USD。base credits 与订阅价绑定；flex allotment 是 GitHub 当前额外赠送的可变额度，未来可能随模型成本调整。用完月度配额后可设置超额预算继续使用，也可不设、等下个月重置。
 
@@ -81,7 +80,7 @@ GitHub Copilot 将于 **2026 年 6 月 1 日**把现行的"高级请求额度（
 
 ## 各模型 Token 定价表
 
-> 以下价格单位：**每百万 token**，已转换为 AI Credits（$0.01/Credit）
+> 以下价格单位：**每百万 token**，已转换为 AI Credits（$0.01/Credit）。这张表来自 2026-05-28 的文档核对。2026-10-16 没有重开它，数字没有改。上面的月度配额已按当天计划页改过。
 
 | 模型 | 输入 (credits/M) | 缓存输入 (credits/M) | 缓存写入 (credits/M) | 输出 (credits/M) |
 |------|-------------------|----------------------|----------------------|------------------|
@@ -168,9 +167,9 @@ Agent 会自动读取多个文件，上下文远大于普通对话：
 
 ## 月付用户 vs 年付用户迁移时间
 
-- **月付 Pro / Pro+ 用户**：6 月 1 日自动迁移到新计费制
-- **年付 Pro / Pro+ 用户**：保持请求次数制直到年付到期，但 6/1 起模型倍率调整；到期后转 Copilot Free，可再选择付费月计划
-- **Copilot Business / Enterprise 用户**：6 月 1 日起切换，享受 6–8 月促销额外 Credits
+- **月付 Pro / Pro+ 用户**：6 月 1 日已经切到 AI Credits。当前计划页上的合计额度是 Pro 1,500、Pro+ 7,000，另有 Max 20,000
+- **年付 Pro / Pro+ 用户**：2026-10-16 的计划页没有年付价格，也没有写年付是否仍按请求次数计到到期。此前文章里的这条规则标为未复核，不再当成现行结论
+- **Copilot Business / Enterprise**：当前计划页是每席 1,900 和 3,900 Credits。6–8 月促销额外 Credits 不在该页上，标为未复核
 
 ---
 
@@ -180,11 +179,11 @@ Agent 会自动读取多个文件，上下文远大于普通对话：
 |----------|------|
 | 轻量用户（每天几次 Chat，用便宜模型） | 影响不大，配额绰绰有余 |
 | 中度用户（每天多次 Chat + 少量 Agent） | Pro 当前 1,500 Credits 通常够用，建议把超额上限设为 $0–$5 |
-| 重度 Agent 用户（Claude Sonnet + 大上下文） | 可能需要 Pro+，或改用 [Cursor](/zh/tool/cursor) / [Cline](/zh/tool/cline) + 独立 API 方案 |
+| 重度 Agent 用户（Claude Sonnet + 大上下文） | 可能需要 Pro+ 或 Max。Cline + 独立 API 按 token 付。Cursor 的第三方模型从 Premium $30 起另计，不是一口价替代 |
 | JetBrains / GitHub 重度依赖用户 | Copilot 仍是最优选，注意监控用量 |
 
 如果你发现 Copilot 新计费下成本上升明显，先看 [AI 编程工具月成本对比](/zh/compare/ai-coding-cost-comparison-2026/) 判断是否该换方案，再参考 [Claude Code 省钱替代方案](/zh/guides/claude-code-budget-alternatives/) 或 [Cursor 省钱指南](/zh/guides/cursor-cost-saving/) 找替代路径。
 
 ---
 
-*数据来源：[GitHub Copilot 官方博客](https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/) · [GitHub Docs 模型与定价](https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing) · [Usage-based billing for individuals](https://docs.github.com/copilot/concepts/billing/usage-based-billing-for-individuals) · 核查日期：2026-05-28*
+*配额来源：2026-10-16 的 github.com/features/copilot 与 docs.github.com/en/copilot/get-started/plans。1 Credit = $0.01，超出同价。每百万 token 的单价表仍是 2026-05-28 的 [模型与定价](https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing) 记录，当天没有重开。年付价格和 6–8 月促销额度未在 2026-10-16 计划页上复核。*

@@ -73,9 +73,10 @@ const alternateURLs = {
 };
 const languageSwitchURL = alternateArticlePath ?? localePath('/compare', otherLang);
 
-// Freshness check: warn if date is older than 90 days
-const daysSincePublished = article.data.date
-  ? Math.floor((Date.now() - new Date(article.data.date).getTime()) / (1000 * 60 * 60 * 24))
+// Freshness check: warn if the fact-check date is older than 90 days
+const articleDate = article.data.updated_at || article.data.date;
+const daysSincePublished = articleDate
+  ? Math.floor((Date.now() - new Date(articleDate).getTime()) / (1000 * 60 * 60 * 24))
   : 0;
 const isStale = daysSincePublished > 90;
 
@@ -95,7 +96,7 @@ const articleSchema = {
   headline: article.data.title,
   description: article.data.description,
   datePublished: article.data.date,
-  dateModified: article.data.date,
+  dateModified: articleDate,
   url: articleUrl,
   image: `${siteUrl}/og-image.png`,
   inLanguage: lang === 'zh' ? 'zh-CN' : 'en',
@@ -136,6 +137,9 @@ const articleSchema = {
       <p class="text-[var(--text-secondary)] text-base mb-3">{article.data.description}</p>
       <div class="text-xs text-[var(--text-muted)]">
         {t('compare.pubDate', lang)} {article.data.date}
+        {article.data.updated_at && article.data.updated_at !== article.data.date && (
+          <span> · {lang === 'zh' ? '更新于' : 'Updated'} {article.data.updated_at}</span>
+        )}
         {isStale && (
           <span class="ml-2 text-amber-400">⚠️ {lang === 'zh' ? '内容可能已过时，建议核对最新信息' : 'Content may be outdated. Please verify with official sources.'}</span>
         )}
