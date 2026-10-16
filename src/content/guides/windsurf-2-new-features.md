@@ -2,6 +2,7 @@
 title: "Windsurf 2.0 全面解析：Cognition 收购后的全面进化"
 description: "2026 年 4 月 15 日，Windsurf 发布 2.0 大版本。本文拆解 Cognition 收购背景、SWE-1.5 模型、Codemaps 可视化代码地图、Devin 云端 Agent 集成、Agent Command Center，以及定价从按月 credits 改为每日/每周配额的完整变化。"
 date: "2026-05-25"
+updated_at: "2026-10-16"
 article_type: "explainer"
 tags: ["windsurf", "windsurf-2", "cognition", "devin", "swe-1.5", "codemaps", "agent", "IDE", "更新"]
 pillar: tools
@@ -140,15 +141,15 @@ Windsurf 2.0 发布后，4–5 月还有几个值得注意的迭代：
 
 ### 当前套餐
 
-| 套餐 | 价格 | 适合谁 |
-|------|------|--------|
-| Free | 免费 | 每月 25 credits，轻度体验 |
-| Pro | $20/月 | 个人开发者，日常开发强度 |
-| Max | $200/月 | 高强度使用者，等同 Cursor Ultra / Claude Code Max 20× 的定位 |
-| Teams | $40/用户/月 | 团队，集中计费 + 管理后台 |
-| Enterprise | 询价 | RBAC、SSO、混合部署、ZDR |
+| 套餐 | 价格 | 2026-10-16 定价页写了什么 |
+|------|------|--------------------------|
+| Free | $0 | 轻度配额，模型范围有限，无限 Tab。不再写 25 credits |
+| Pro | $20/月 | 更高配额，前沿模型，含 Devin Cloud。credit 数未公布 |
+| Max | $200/月 | 配额更高。数字未公布。标价与 Cursor Ultra 同为 $200，包含用量不能对齐 |
+| Teams | $80/月 + $40/月/全职席位 | 不是 $40/用户 |
+| Enterprise | 未标价 | 联系销售 |
 
-> **注意**：2026 年 3 月 19 日前订阅的 Pro 用户保留旧价格 $15，新订阅者才是 $20。学生可凭 .edu 邮箱申请 50%+ 折扣。
+> **注意**：2026-03-19 的 $15 老用户价，以及学生折扣，当前定价页没有写。是否仍然有效，标为未知。不要按「老用户仍是 $15」做预算。
 
 ---
 
@@ -164,7 +165,7 @@ Windsurf 2.0 发布后，4–5 月还有几个值得注意的迭代：
 | 并行 Agent 管理 | ✅ Agent Command Center | ✅ Agents Window |
 | 设计模式 | ❌ | ✅ Design Mode |
 | JetBrains 支持 | ✅ | ❌ |
-| Pro 定价 | $20/月 | $20/月 |
+| 个人付费档 | Pro $20/月 | Plus $8（仅 Grok）/ Premium $30 |
 | 国内友好度 | ★★☆☆☆ | ★★☆☆☆ |
 
 简单说：**Windsurf 的技术护城河是 SWE-1.5 + Codemaps + Devin 深度集成，Cursor 的护城河是生态丰富度（插件市场、多仓库支持）和 Design Mode 前端体验。**
@@ -177,7 +178,7 @@ Windsurf 2.0 发布后，4–5 月还有几个值得注意的迭代：
 - 接手老代码库或复杂 monorepo，需要快速建立代码理解
 - 希望把长任务完全移交给 AI 后台运行，不想一直盯着屏幕
 - 已经在用 JetBrains 系列 IDE（Windsurf 有插件支持）
-- 预算敏感：Pro $20 和 Cursor Pro $20 相同，但 Max 层定位更清晰
+- 接受 Pro $20，并且 credit 数未公布。它和 Cursor Plus $8 不是同一档：Plus 只有 Grok。Cursor Premium 是 $30，第三方模型另计
 
 **更适合坚持 Cursor 3 的场景：**
 - 前端/全栈开发者，需要 Design Mode 可视化标注
@@ -190,6 +191,6 @@ Windsurf 2.0 发布后，4–5 月还有几个值得注意的迭代：
 
 Windsurf 的这次大版本更新背后，是 Cognition 战略的直接体现：让「人类引导的本地 Agent」和「自主运行的云端 Agent」不再是两个独立产品，而是同一个工作流的两个模式。
 
-SWE-1.5 的速度优势、Codemaps 的独特视角、Devin 的云端执行——这三点组合在一起，让 Windsurf 2.0 的差异化叙事清晰了许多：**不只是 Cursor 的平价替代，而是一个拥有自研模型栈和云端执行能力的独立技术路线。**
+SWE-1.5 的速度优势、Codemaps 的独特视角、Devin 的云端执行——这三点组合在一起，让 Windsurf 2.0 的差异化叙事清晰了许多：它不是 Cursor 的平价替代。Cursor Plus 是 $8 且仅 Grok。Windsurf Pro 是 $20，credit 数未公布。Cursor Premium 是 $30，第三方模型另计。
 
-如果你上次评估 Windsurf 还是在 $15/月的时候，这次的变化足够大，值得重新看一眼。
+如果你上次看到的价格是 $15/月，当前定价页已经是 Pro $20。$15 老用户价是否还在，页面没有写。

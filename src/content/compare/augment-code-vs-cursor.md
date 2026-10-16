@@ -2,6 +2,7 @@
 title: "Augment Code vs Cursor 2026：插件派 vs IDE 分叉派，谁更适合你？"
 description: "Augment Code 是插件优先的企业级 AI 编程工具，Cursor 是最流行的 AI IDE 分叉。两者核心架构不同，适合截然不同的开发场景。本文帮你判断哪个更适合你的工作流。"
 date: "2026-04-27"
+updated_at: "2026-10-16"
 tags: ["augment-code", "cursor", "对比", "ide", "plugin", "企业级", "大型代码库"]
 pillar: compare
 content_status: keep
@@ -16,7 +17,7 @@ Cursor 是目前最流行的 AI IDE，而 Augment Code 走了一条完全不同�
 |------|-------------|--------|
 | 产品形态 | VS Code / JetBrains / Vim **插件** | 独立 IDE（VS Code 分叉） |
 | JetBrains 原生支持 | ✅ 完整原生支持 | ⚠️ 仅 ACP 有限支持 |
-| 起步价 | $20/月（4万积分） | $20/月（额度池） |
+| 起步价 | $20/月（4万积分） | Plus $8（仅 Grok）；第三方模型从 Premium $30 起另计 |
 | 大型代码库理解 | ✅ Context Engine（50万文件级别） | ✅ Composer 上下文（窗口限制） |
 | 代码补全 | ✅ 有（含 Next Edit） | ✅ 有（Tab，业界最流畅之一） |
 | MCP 支持 | ✅（Context Engine 可作 MCP Server） | ✅ |
@@ -92,10 +93,10 @@ Cursor 提供有限额度的免费版，Augment Code 无永久免费方案（仅
 | 套餐 | Augment Code | Cursor |
 |------|-------------|--------|
 | 免费版 | ❌ 无永久免费（试用积分） | ✅ 有限额度 |
-| 入门 | $20/月（4万积分） | $20/月（Pro） |
-| 中级 | $60/月（13万积分） | $60/月（Pro+） |
-| 高级 | $200/月（45万积分） | $200/月（Ultra） |
-| 企业 | 自定义（SOC 2 / 零数据保留） | Teams $40/用户/月起 |
+| 入门 | $20/月（4万积分） | Plus $8（仅 Grok）。不是与 4 万积分等价的额度 |
+| 中级 | $60/月（13万积分） | 无 $60 档。Premium $30，Super $100。美元额度未公布，不能和 13 万积分对齐 |
+| 高级 | $200/月（45万积分） | Ultra $200（50 倍 Plus）。美元额度未公布，不能和 45 万积分对齐 |
+| 企业 | 自定义（SOC 2 / 零数据保留） | Teams 从 $30/用户/月起 |
 
 **关于 Augment 积分**：不同任务消耗积分数不同——简单补全（≈10次工具调用）约 300 积分，复杂 Agent 任务（≈60次工具调用）约 4300 积分。Indie 的 4万积分，轻量用户够用一个月，重度 Agent 用户可能提前耗尽。
 
@@ -123,7 +124,7 @@ Cursor 提供有限额度的免费版，Augment Code 无永久免费方案（仅
 |---|-------------|--------|
 | **最适合** | 大型代码库、JetBrains 用户、企业合规 | 日常开发提效、VS Code 用户、新项目 |
 | **核心优势** | Context Engine + JetBrains 原生 | Tab 补全流畅 + 一体化体验 |
-| **门槛** | 无免费版，$20 起 | 有免费版，$20 Pro |
+| **门槛** | 无免费版，$20 起 | 有 Free。付费从 Plus $8 起，仅 Grok |
 | **灵活度** | 高（插件，保留原 IDE） | 中（需切换到 Cursor） |
 
 Augment Code 和 Cursor 并非完全替代关系——事实上，Augment 的 Context Engine MCP Server 可以和 Cursor 一起用。如果你在大型代码库上用 Cursor，可以考虑接入 Augment 的 MCP 服务来增强代码库理解能力，享受两者的优势。

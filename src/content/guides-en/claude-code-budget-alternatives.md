@@ -2,6 +2,7 @@
 title: "Claude Code Is Too Expensive: 5 Budget Alternatives That Actually Work"
 description: "Claude Code Pro at $20/mo, Max at $100–200/mo feeling steep? Here are 5 alternatives that get you close to the same AI Agent coding capability — from low-entry plans to completely free."
 date: "2026-04-05"
+updated_at: "2026-10-16"
 article_type: "review"
 tags: ["claude-code", "budget", "alternatives", "cline", "volcengine-ark", "cost-saving"]
 pillar: plans
@@ -28,7 +29,7 @@ For most individual developers, especially in regions with currency exchange ove
 | Cline + Anthropic API | Pay-as-you-go | High (real Claude) | Needs proxy | Variable usage |
 | OpenCode + Ark | Official promo | Medium (terminal) | ✅ | Terminal workflow |
 | Aider + Ollama | $0 | Medium (local model) | ✅ | Zero cost |
-| Windsurf Pro | $15/mo | Medium-high (SWE-1.5) | Needs proxy | IDE experience |
+| Windsurf Pro | $20/mo | Medium-high (SWE-1.5). Credit count not published | Needs proxy | IDE experience |
 
 ---
 
@@ -111,9 +112,9 @@ Aider is a battle-tested open-source CLI. Paired with local Ollama models, **mon
 
 ---
 
-## Option 5: Windsurf Pro ($15/mo, Needs Proxy)
+## Option 5: Windsurf Pro ($20/mo, needs a proxy)
 
-If you're comfortable in an IDE workflow and don't rely heavily on the terminal, Windsurf Pro at $15/mo (vs Cursor's $20/mo) is another option.
+If you want an IDE and do not live in the terminal, Windsurf Pro is $20/mo. It is not $5 cheaper than Cursor. Cursor Plus is $8 and Grok-only. Cursor Premium is $30, and third-party models are extra. Windsurf does not publish a credit count.
 
 **Key differences from Claude Code:**
 - Windsurf is an IDE (VS Code Fork) with inline completion and visual interface
@@ -137,7 +138,7 @@ Terminal or IDE workflow?
 ├── Terminal → Cline + Volcengine Ark (China) or Cline + API (elsewhere)
 │              or OpenCode + Ark (better TUI)
 │              or Aider + Ollama (zero cost)
-└── IDE →      Windsurf Pro ($15/mo, closest experience)
+└── IDE →      Windsurf Pro ($20/mo, credit count not published)
                or Cline in VS Code (official promo pricing, most affordable)
 
 How critical is coding quality?

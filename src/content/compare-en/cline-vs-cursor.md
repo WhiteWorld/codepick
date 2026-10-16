@@ -2,6 +2,7 @@
 title: "Cline vs Cursor: 2026 In-Depth Comparison"
 description: "Free open-source plugin vs paid AI IDE: Cline and Cursor compared on pricing, Agent capability, model flexibility, and China accessibility."
 date: "2026-04-01"
+updated_at: "2026-10-16"
 tags: ["cline", "cursor", "comparison", "vscode", "ide"]
 pillar: compare
 content_status: keep
@@ -9,7 +10,7 @@ locale_strategy: mirrored
 draft: false
 ---
 
-Both Cline and Cursor live in the VS Code ecosystem, but they're built on completely different philosophies: Cline is a free, open-source VS Code plugin where you bring your own API key; Cursor is a $20/month all-in-one AI IDE. Here's a thorough breakdown.
+Both Cline and Cursor live in the VS Code ecosystem, but they're built on completely different philosophies: Cline is a free, open-source VS Code plugin where you bring your own API key; Cursor's paid individual tiers start at Plus $8, which is Grok-only. Third-party models start at Premium $30 and are billed extra. Here's a thorough breakdown.
 
 ## TL;DR
 
@@ -25,8 +26,8 @@ Both Cline and Cursor live in the VS Code ecosystem, but they're built on comple
 | Form factor | VS Code plugin | VS Code Fork IDE |
 | Open source | ✅ MIT license | ❌ Closed source |
 | Inline completion | ❌ None | ✅ Tab supercomplete |
-| Model choice | Any API-compatible model | Built-in multi-model (credit pool) |
-| Billing | Tool free; only pay API usage | Subscription ($20/mo+) |
+| Model choice | Any API-compatible model | Plus is Grok only; third-party models from Premium are API-priced |
+| Billing | Tool free; pay the API | Plus $8 (Grok only); Premium $30 and up, third-party models at API list price |
 | Editor support | VS Code / Cursor / Windsurf / Zed etc. | Cursor only (VS Code Fork) |
 
 ---
@@ -49,12 +50,13 @@ China-based developers can use [Volcengine Ark Coding Plan](/plan/cline-ark) or 
 
 | Plan | Monthly | Credit pool |
 |------|---------|-------------|
-| Hobby | $0 | Limited |
-| Pro | $20 | $20 pool |
-| Pro+ | $60 | $70 pool |
-| Ultra | $200 | $400 pool |
+| Free | $0 | Limited AI usage. Dollar allowance not published |
+| Plus | $8 | Weekly pool, Grok only |
+| Premium | $30 | 4x Plus. Third-party models at API list price |
+| Super | $100 | 15x Plus. Third-party models extra |
+| Ultra | $200 | 50x Plus. Third-party models extra |
 
-**Bottom line**: Light to medium users almost always pay less with Cline. Heavy Agent users pay roughly the same, but Cline's usage-based billing can produce surprise charges — predictability favors Cursor.
+**Bottom line**: Cline has no subscription. Cursor Plus at $8 does not include Claude, GPT, or Gemini. Those start at Premium $30 and are billed at API list price. The monthly fee is not a cap. Light third-party use on Cline can be API-only. Heavy use is an API bill on both sides, plus at least $30 on Cursor. The old $20 / $70 / $400 pools are not on the pricing page, so "heavy use costs about the same" does not hold.
 
 ---
 
@@ -72,7 +74,7 @@ If inline completion is core to your daily workflow, Cursor wins here clearly.
 Both tools have fully functional Agent modes, but implemented differently:
 
 - **Cline**: Agent quality scales with the model you connect. Hook up Claude Opus 4.6 and you get top-tier Agent performance; switch to DeepSeek V3 to cut costs dramatically. MCP tool calls supported.
-- **Cursor**: Built-in Agent with deep IDE integration. MCP supported; Ultra/Teams plans unlock long-running cloud tasks at `cursor.com/agents`.
+- **Cursor**: Built-in Agent with deep IDE integration. MCP supported; The pricing page lists cloud agents on Premium at `cursor.com/agents`.
 
 ### Model Flexibility
 

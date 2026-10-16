@@ -2,6 +2,7 @@
 title: "Claude Code vs Cursor：2026 深度对比"
 description: "终端 CLI 与 AI IDE 的正面碰撞：从编程能力、工作流、价格到国内可用性，帮你判断 Claude Code 和 Cursor 哪个更适合你。"
 date: "2026-04-01"
+updated_at: "2026-10-16"
 tags: ["claude-code", "cursor", "对比", "cli", "ide"]
 pillar: compare
 content_status: keep
@@ -36,12 +37,12 @@ Claude Code 的核心理念是「编辑器无关」——你可以继续用 Neov
 
 | 方案 | Claude Code | Cursor |
 |------|-------------|--------|
-| 免费版 | ❌（需 Pro 订阅） | ✅ Hobby（有限用量） |
-| 入门付费 | $20/月（Pro，~45次/5小时） | $20/月（Pro，$20 额度池） |
-| 高用量 | $100/月（Max 5x）/ $200/月（Max 20x） | $60/月（Pro+）/ $200/月（Ultra） |
-| 按量付费 | ✅（API 模式，Sonnet 4.6 $3/$15 per 1M tokens） | ❌（无 PAYG，限额度池） |
+| 免费版 | ❌（需 Pro 订阅） | ✅ Free（有限用量） |
+| 入门付费 | $20/月（Pro，~45次/5小时） | Plus $8（仅 Grok）。第三方模型从 Premium $30 起按 API 另计 |
+| 高用量 | $100/月（Max 5x）/ $200/月（Max 20x） | Super $100（15 倍 Plus）/ Ultra $200（50 倍）。美元额度未公布 |
+| 按量付费 | ✅（API 模式，Sonnet 4.6 $3/$15 per 1M tokens） | 第三方模型在 Premium 及以上按 API 标价另计。包含用量的美元大小未公布 |
 
-**关键差异**：Claude Code Pro 的 ~45次/5小时 限制在重度 Agent 任务下容易触碰；Cursor Pro 的 $20 额度池更灵活，但同样有上限。重度用户两者都需要高阶套餐（$100-200/月）。
+**关键差异**：Claude Code Pro 仍是约 45 次/5 小时的窗口，这次没有重核这个次数。Cursor 不再有 $20 额度池。Plus $8 只有 Grok。要用 Claude，Cursor 从 Premium $30 起，并且按 API 标价另计，月费不是封顶。不能再说 Cursor 的入门付费档比 Claude Pro 更灵活。重度 Claude 使用在 Cursor 里是订阅加 API，不是买一档 Pro+ $60。
 
 ---
 
@@ -59,7 +60,7 @@ Claude Code 的核心理念是「编辑器无关」——你可以继续用 Neov
 这是 Claude Code 最突出的领域：
 
 - **Claude Code**：支持多文件自主编辑、运行终端命令、调用 MCP 工具、Sub-Agent 协作、Agent Teams 并行任务。Anthropic 原生出品，和 Claude 模型配合最深。
-- **Cursor**：Agent 同样强大，支持多文件编辑、MCP、云端长时任务（Ultra/Teams）。但在需要多 Agent 协同的复杂任务上，Claude Code 的 Agent Teams 目前更成熟。
+- **Cursor**：Agent 同样强大，支持多文件编辑、MCP、云端 Agent（定价页写在 Premium；Teams 从 $30/用户/月起）。但在需要多 Agent 协同的复杂任务上，Claude Code 的 Agent Teams 目前更成熟。
 
 ### 上下文窗口
 

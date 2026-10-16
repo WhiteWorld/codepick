@@ -2,6 +2,7 @@
 title: "AI 编程节省 Token 实用指南：少花钱、不触发限速"
 description: "从 token 是什么到 5 大节省策略，覆盖 Cursor、Claude Code、Cline、Copilot 等主流工具。无论你是订阅用户还是按量付费，读完都能立刻上手。"
 date: "2026-03-29"
+updated_at: "2026-10-16"
 article_type: "explainer"
 tags: ["token", "cursor", "claude-code", "cline", "copilot", "省钱", "效率"]
 pillar: plans
@@ -165,9 +166,11 @@ AI 工具会把整个对话历史发给模型。对话越长，每次请求的 t
 
 这两类用户都需要关注 token，但原因不同：
 
-**订阅用户（Cursor Pro、Copilot、Windsurf）**：
-- Token 消耗影响**请求频率**：用太快会触发速率限制，等待窗口重置
-- 节省 token = 在同样时间内能做更多事
+**配额仍按次数或未公布额度计的订阅（Copilot 补全、Windsurf）**：
+- 用太快会碰到速率或配额，然后等窗口重置
+- 省 token 等于同一窗口里能做更多事
+
+**Cursor**：Plus 只有 Grok，周池的美元大小没有公布。Premium 及以上的第三方模型按 API 标价另计，token 直接是钱，不只是速率。
 
 **按量付费用户（Cline + 自己的 API、Claude Code + API）**：
 - Token 直接等于钱

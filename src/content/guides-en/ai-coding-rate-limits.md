@@ -2,6 +2,7 @@
 title: "AI Coding Tool Rate Limits Explained: How to Avoid Getting Blocked Mid-Sprint"
 description: "Why does Claude Code, Cursor, or Copilot hit rate limits right when you're busiest? Learn how each tool's limits work and 5 practical strategies to keep working without interruption."
 date: "2026-04-05"
+updated_at: "2026-10-16"
 article_type: "explainer"
 tags: ["rate-limit", "claude-code", "cursor", "cline", "efficiency"]
 pillar: workflow
@@ -29,11 +30,12 @@ You're sprinting toward a deadline, the AI Agent is mid-task, and suddenly: "rat
 
 ### Cursor
 
-Cursor Pro uses a **credit pool**, not a request count:
-- Pro: $20 credit pool/month
-- Pro+: $70 credit pool/month
-- When the pool is empty, usage continues at model cost rates ($0.04–$0.50/request) — you won't get a hard stop, you'll just get charged more
-- **No "rate limit exceeded" error in Auto mode** — empty pool = extra billing, not a block
+The 2026-10-16 pricing page has no Pro plan at $20 and no $70 pool. Individual tiers are Free, Plus $8, Premium $30, Super $100, and Ultra $200. The pool is shared with Grok and refreshes weekly. Its dollar size is not published.
+
+- Plus is Grok only
+- Third-party models on Premium and above are billed at API list price
+- The page does not say overage is $0.04–$0.50 per request, and it does not say Auto keeps going without an error
+- Do not describe Cursor as "no rate limit, just a higher bill." After included usage, third-party models continue at API list price. Whether the client hard-stops was not retested
 
 ### Cline (with Anthropic API)
 
@@ -44,15 +46,17 @@ Cline itself has no rate limits. Limits come from your chosen API provider. With
 
 ### Windsurf
 
-- Credit-based (500 credits/month on Pro)
-- Additional credits at $10/250 credits (add-ons never expire)
-- No request frequency hard limit; exhausting credits stops access to premium models
+- Paid allowances refresh daily and weekly. The page does not publish a credit count, and it does not say $10 per 250 credits
+- Pro is $20/mo. It is not "500 credits"
+- Free is a light quota. It no longer says 25 credits
+- After the included quota, the page says extra usage is bought at API pricing. It does not say there is no request-rate limit
 
 ### GitHub Copilot
 
-- Pro: 300 premium requests/month, $0.04/request overage
-- Pro+: 1500 premium requests/month
-- Code completion is unlimited and not rate-limited
+- Pro is 1,500 AI credits/mo. Pro+ is 7,000. Max is 20,000. Overage is $0.01 per credit
+- The old 300 or 1,500 premium-request quotas are not on the current plans page
+- On paid plans, completions and Next Edit do not spend credits. Free is still 2,000 completions/mo
+- This is a monthly credit allowance, not a 5-hour window. Whether usage stops when credits run out depends on the overage budget. The plans page does not say whether annual subscribers stay on the old request quota. That stays unverified
 
 ---
 
@@ -62,7 +66,7 @@ Common patterns:
 
 1. **Continuous large task**: Agent handling a major refactor auto-generates 30+ tool calls, consuming the 5-hour window before you realize it
 2. **Forgotten /compact**: Claude Code conversation history grows, each request carries more context, effectively accelerating window consumption
-3. **Month-end crunch**: Cursor credit pool exhausted, Copilot monthly quota used up
+3. **End of the allowance period**: Cursor's included usage refreshes weekly. It is not a $20 pool that lasts a calendar month. Copilot credits are monthly. Either can run out at the end of its period
 4. **Multi-project use**: Using the same account across multiple projects — requests from all projects count against the same limit
 
 ---
@@ -76,8 +80,8 @@ The most effective approach: when your primary tool hits a limit, switch to a ba
 **Recommended pairings:**
 - Primary: Claude Code Pro → Backup: Cline + Anthropic API (same model, pay-as-you-go)
 - Primary: Claude Code Pro → Backup: Cline + Volcengine Ark (official promo pricing, China-friendly)
-- Primary: Cursor Pro → Backup: Windsurf Free (25 credits/mo) or Cline + Ark
-- Primary: Copilot Pro → Backup: Cursor Hobby or Cline
+- Primary: Cursor Plus or Premium → Backup: Windsurf Free (light quota, credit count not published) or Cline + Ark
+- Primary: Copilot Pro → Backup: Cursor Free, or Cline. Cursor Plus is Grok-only, so it is not a same-model backup for Copilot
 
 Cline configurations are saved — switching takes seconds.
 
@@ -135,11 +139,11 @@ Schedule these for evenings or early mornings. This preserves your rate window c
 |------|-----------|-----------------|---------------|
 | Claude Code Pro | 45 req/5-hour | Wait for window reset or switch | Upgrade +$80/mo |
 | Claude Code Max 5x | 225 req/5-hour | Wait or use API mode | Add API credits |
-| Cursor Pro | $20 pool/month | Auto-charged at model rates | Per-request billing |
+| Cursor Plus / Premium | Weekly pool, dollar size not published | Third-party models continue at API list price | The monthly fee is not a cap |
 | Cline + Anthropic API | API Tier | Wait or add funds | $10–50 top-up |
 | Cline + Volcengine Ark | Essentially unlimited | — | — |
-| Windsurf Pro | 500 credits/month | Add-on credits $10/250 | Flexible top-up |
-| Copilot Pro | 300 premium/month | $0.04/extra request | Low overage cost |
+| Windsurf Pro | Daily/weekly quota, credit count not published | Page says extra usage is bought at API pricing | Do not estimate with $10/250 |
+| Copilot Pro | 1,500 credits/mo | $0.01 per extra credit | One Agent task is not one credit |
 
 ---
 

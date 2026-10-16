@@ -2,7 +2,7 @@
 title: "GitHub Copilot 国内使用指南：访问、计费与替代方案"
 description: "Copilot 国内可访问性评估、AI Credits 新计费规则解读，以及 Copilot Free 在国内的实际体验。附替代方案推荐。"
 date: "2026-05-17"
-updated_at: "2026-05-28"
+updated_at: "2026-10-16"
 article_type: "explainer"
 tags: ["copilot", "trae-cn", "kiro", "cursor", "claude-code", "国内", "计费", "GitHub", "credits", "插件"]
 faq:
@@ -23,7 +23,7 @@ content_status: keep
 locale_strategy: mirrored
 ---
 
-GitHub Copilot 是国内开发者最熟悉的 AI 编程助手，$10/月的 Pro 定价在海外 IDE 中最亲民。但 2026 年的**新注册暂停、AI Credits 计费改革**，以及国内网络问题，让很多开发者产生疑问。本文逐一拆解。
+GitHub Copilot Pro 是 $10/月，并公布了合计 1,500 AI Credits。它不是当前最便宜的海外付费档：Cursor Plus 是 $8，但只有 Grok。2026-10-16 的计划页可以自助开通，没有再写 2026-04-20 的新注册暂停。国内网络仍然是另一件事。本文按这次核对到的计划页说明额度，网络判断沿用此前记录。
 
 ## 国内可访问性评估
 
@@ -39,28 +39,30 @@ GitHub Copilot 是国内开发者最熟悉的 AI 编程助手，$10/月的 Pro �
 
 ### 支付
 
-- Free 套餐**无需支付方式**，GitHub 账号即用（2000 次补全/月，Chat/Agent 走较低免费额度）
+- Free 套餐**无需支付方式**，GitHub 账号即用（2,000 次补全/月，50 次 Chat/月，Agent 额度有限）
 - Pro 及以上需要 Visa/Mastercard 外币卡
 - 部分地区银行双币卡可绑定 GitHub 支付
-- 学生/教师/开源维护者免费 Pro（需 GitHub Education 认证）
-- ⚠️ **2026-04-20 起 Pro/Pro+/Business 新注册已暂停**
+- 已验证学生走 Copilot Student。计划表没有写出 Student 的 Credit 数量。已验证教师和热门开源维护者可能获得免费 Pro，不是三档都自动等于免费 Pro
+- 2026-10-16 的计划页可以自助开通。该页没有再写 2026-04-20 的新注册暂停
 
-## AI Credits 新计费规则（2026-06-01 起）
+## AI Credits 计费（2026-10-16 计划页）
 
-Copilot 正在从「请求次数制」切换到「AI Credits 按 Token 计费制」：
+2026 年 6 月 1 日，Copilot 从「请求次数制」换成「AI Credits」。下面的额度是 2026-10-16 计划页上的数字。1 Credit = $0.01。弹性配额页面写明可能调整。
 
 | 套餐 | 月费 | 当前月度 AI Credits 口径 | 补全 | 超额 |
 |------|------|--------------------------|------|------|
-| Free | $0 | 有限 | 2000 次/月 | — |
-| Pro | $10 | 1,500 Credits（1,000 base + 500 flex） | 无限 | 按 token 计费 |
-| Pro+ | $39 | 7,000 Credits（3,900 base + 3,100 flex） | 无限 | 按 token 计费 |
-| Max | $100 | 20,000 Credits（10,000 base + 10,000 flex） | 无限 | 按 token 计费 |
+| Free | $0 | 50 次 Chat/月 | 2,000 次/月 | — |
+| Pro | $10 | 1,500 Credits（1,000 base + 500 flex） | 不消耗 Credits | $0.01/Credit |
+| Pro+ | $39 | 7,000 Credits（3,900 base + 3,100 flex） | 不消耗 Credits | $0.01/Credit |
+| Max | $100 | 20,000 Credits（10,000 base + 10,000 flex） | 不消耗 Credits | $0.01/Credit |
+| Business | $19/席 | 1,900 Credits，可池化 | 不消耗 Credits | $0.01/Credit |
+| Enterprise | $39/席 | 3,900 Credits，可池化 | 不消耗 Credits | $0.01/Credit |
 
-**关键变化**：
-- 代码补全和 Next Edit 建议**不消耗 Credits**（免费）
-- 高级模型（Opus 4.7 等）消耗更多 Credits
-- 额度用完后，付费用户可设置额外预算继续使用，也可等下个账期重置
-- 年付 Pro / Pro+ 用户 6/1 后仍留在请求次数制直到到期，但模型倍率会调整
+**这次能确认的**：
+- 代码补全和 Next Edit 建议不消耗 Credits。Free 的补全仍有 2,000 次/月的上限
+- 聊天、Agent、CLI、Spaces、Spark 消耗 Credits
+- 年付价格当前计划页没有列出。年付用户是否仍留在请求次数制，这次没有复核
+- 分套餐的模型勾选在抓取文本里没有保留，这里不写某一模型只属于某一档
 
 详见本站 [Copilot AI Credits 计费解读](/zh/guides/copilot-ai-credits-billing)。
 
@@ -68,8 +70,8 @@ Copilot 正在从「请求次数制」切换到「AI Credits 按 Token 计费制
 
 永久免费套餐的实际可用性：
 
-- ✅ Chat/Agent 有免费额度 — 轻度日常编码可试用，但不适合连续 Agent 任务
-- ✅ 2000 次补全/月 — Tab 补全是 Copilot 最大优势
+- ✅ 50 次 Chat/月，Agent 额度有限 — 轻度试用可以，不适合连续 Agent 任务
+- ✅ 2,000 次补全/月 — Tab 补全仍是 Free 里写明的额度
 - ✅ 基础/轻量模型优先
 - ❌ 高级模型和长上下文 Agent 额度很快吃紧
 - ❌ 用量耗尽即停止，不转按量
@@ -83,7 +85,7 @@ Copilot 正在从「请求次数制」切换到「AI Credits 按 Token 计费制
 | [Trae CN](/zh/tool/trae-cn) | 免费 | **无需代理** | 最接近 Copilot 体验的国内免费 IDE |
 | [Cline + 火山方舟](/zh/plan/cline-ark) | ¥40/月（首月 ¥9.9） | **无需代理** | VS Code 插件 + 国产模型 |
 | [Cline + 百炼](/zh/plan/cline-bailian) | ¥200/月 | **无需代理** | Qwen Coder 系列 |
-| [Kiro](/zh/tool/kiro) | ~$2/月 | 需代理 | 原版 Claude 模型 |
+| [Kiro](/zh/tool/kiro) | Free 50 credits；Pro $20 / 1,000 credits。另有 Pro Max $100 / 5,000。不是约 $2/月 | 需代理 | 已 GA，超额 $0.04/credit |
 
 **总结**：如果你的主要场景是 Tab 补全 + 偶尔 Chat，**Copilot Free 在国内可勉强使用**。如果需要 Agent 模式、多文件编辑、MCP 支持，建议考虑 Cline + 火山方舟，或直接上 Trae CN。
 
@@ -94,4 +96,4 @@ Copilot 正在从「请求次数制」切换到「AI Credits 按 Token 计费制
 - [Trae CN 配置指南](/zh/guides/trae-cn-setup)
 - [Cline + 火山方舟配置指南](/zh/guides/cline-ark-setup)
 
-> 数据来源：GitHub Copilot 官方文档 + 用户反馈（核查至 2026-05-28）。新注册状态和计费规则以 GitHub 官方最新公告为准。
+> 计划与额度核查至 2026-10-16，来源是 github.com/features/copilot 与 docs.github.com/en/copilot/get-started/plans。国内网络体验沿用此前记录，这次没有重测。年付价格、年付是否仍按请求次数计、以及分套餐模型勾选，计划页这次没有给出，保持未复核。

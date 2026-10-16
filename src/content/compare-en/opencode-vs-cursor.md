@@ -2,6 +2,7 @@
 title: "OpenCode vs Cursor 2026: Free Open-Source TUI vs Top AI IDE"
 description: "OpenCode vs Cursor compared: free terminal TUI Agent vs premium AI IDE — pricing, coding ability, China accessibility, and workflow to help you choose the right tool."
 date: "2026-04-05"
+updated_at: "2026-10-16"
 tags: ["opencode", "cursor", "comparison", "cli", "ide", "terminal"]
 pillar: compare
 content_status: keep
@@ -17,7 +18,7 @@ OpenCode is a fast-rising open-source terminal AI Agent; Cursor is the most wide
 |-----------|----------|--------|
 | Type | Terminal TUI (+ Desktop App) | VS Code Fork IDE |
 | Open Source | ✅ (MIT) | ❌ |
-| Starting Price | Free (BYOK) | $0 (Hobby) / $20/mo (Pro) |
+| Starting Price | Free (BYOK) | Free $0 / Plus $8 (Grok only) |
 | Coding Ability | 7.5 / 10 | 9.5 / 10 |
 | Cost Efficiency | 9.5 / 10 | 6 / 10 |
 | China Friendly | 8.8 / 10 | 4 / 10 |
@@ -25,7 +26,7 @@ OpenCode is a fast-rising open-source terminal AI Agent; Cursor is the most wide
 | Agent Mode | ✅ | ✅ |
 | MCP Support | ✅ | ✅ |
 | Multiple Sessions | ✅ | ❌ (single session) |
-| Cloud Agents | ❌ | ✅ (Pro+ / Ultra) |
+| Cloud Agents | ❌ | ✅ (from Premium) |
 | Model Providers | 75+ | Curated mainstream models |
 
 ---
@@ -52,12 +53,13 @@ OpenCode is a fast-rising open-source terminal AI Agent; Cursor is the most wide
 
 | Plan | Price | Usage |
 |------|-------|-------|
-| Hobby | $0 | Limited Agent + Tab completion |
-| Pro | $20/mo | Unlimited Tab, $20 Agent credit pool/mo |
-| Pro+ | $60/mo | Unlimited Tab, $70 Agent credit pool/mo |
-| Ultra | $200/mo | Unlimited Tab, $400 Agent credit pool/mo |
+| Free | $0 | Limited AI usage. Dollar allowance not published |
+| Plus | $8/mo | Weekly pool shared with Grok; Grok models only |
+| Premium | $30/mo | 4x Plus; includes cloud agents. Third-party models at API list price |
+| Super | $100/mo | 15x Plus. Third-party models at API list price |
+| Ultra | $200/mo | 50x Plus. Third-party models at API list price |
 
-> **Key difference**: China users pairing OpenCode with Ark Coding Plan can get a low-entry China-direct setup. Cursor starts at $20/mo and requires a VPN. For developers who need the best IDE experience and have budget, Cursor's premium is worth it. For terminal users or anyone cost-conscious, OpenCode is highly competitive.
+> **Key difference**: OpenCode uses your own API key, including Ark from China. Cursor has Free. Paid starts at Plus $8, Grok only, and needs a proxy. Claude, GPT, and Gemini start at Premium $30 and are billed at API list price. It is no longer "Cursor starts at $20." For terminal work or a tighter budget, OpenCode has no extra subscription.
 
 ---
 
@@ -74,7 +76,7 @@ OpenCode is a fast-rising open-source terminal AI Agent; Cursor is the most wide
 | Multi-file editing | ✅ | ✅ |
 | Agent mode | ✅ | ✅ |
 | Sub-agents (parallel) | ❌ | ✅ |
-| Cloud Agents | ❌ | ✅ (Pro+ / Ultra) |
+| Cloud Agents | ❌ | ✅ (from Premium) |
 | MCP support | ✅ | ✅ |
 | Automations (always-on Agent) | ❌ | ✅ |
 | Git integration | ✅ | ✅ |
@@ -132,7 +134,7 @@ OpenCode supports Volcengine Ark, Alibaba Bailian, Moonshot, and other domestic 
 - Want a fully integrated IDE + AI experience
 - Need Cloud Agents, Automations, or long-running task support
 - Work in teams and need shared rules and configurations
-- Have budget ($20/mo) and a stable proxy environment
+- Need third-party models in Cursor, accept Premium from $30 plus API charges, and have a stable proxy
 
 ---
 

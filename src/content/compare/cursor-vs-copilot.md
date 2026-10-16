@@ -2,6 +2,7 @@
 title: "Cursor vs GitHub Copilot：2026 终极对比"
 description: "两大付费 AI 编程方案深度横评：从编程能力、Agent 模式、价格、IDE 支持到国内可用性，帮你做出最佳选择。"
 date: "2026-02-16"
+updated_at: "2026-10-16"
 tags: ["cursor", "github-copilot", "对比", "ide"]
 pillar: compare
 content_status: keep
@@ -21,11 +22,12 @@ Cursor 和 GitHub Copilot 是目前最主流的两款付费 AI 编程工具，�
 
 | 项目 | Cursor | GitHub Copilot |
 |------|--------|----------------|
-| 免费版 | 有（有限用量） | 有（有限用量） |
-| 个人版 | $20/月 | $10/月 |
-| 性价比 | ★★★☆☆ | ★★★★☆ |
+| 免费版 | Free $0，有限用量 | Free $0：50 次 Chat/月，2,000 次补全/月 |
+| 低价付费 | Plus $8/月，仅 Grok | Pro $10/月，合计 1,500 AI Credits |
+| 第三方模型 | Premium $30 起，按 API 标价另计 | Pro+ $39（7,000 Credits），Max $100（20,000 Credits） |
+| 性价比评分（工具数据） | 6/10 | 8.5/10 |
 
-Copilot 个人版 $10/月，价格约是 Cursor Pro 的一半。但 Cursor 的 $20 方案含 $20 额度池，实际 Agent 用量通常远超 Copilot。
+Copilot Pro $10 不是 Cursor Pro 的一半，因为 Cursor 已经没有 Pro $20，也没有 $20 额度池。Cursor Plus $8 更便宜，但只有 Grok。要在 Cursor 里用 Claude、GPT 或 Gemini，至少 Premium $30，并且这些模型另计。Copilot Pro 公布了 1,500 Credits，补全不消耗 Credits。不能再说 Cursor 的 $20 方案用量通常远超 Copilot。
 
 ---
 
@@ -74,7 +76,7 @@ Cursor 原生支持多文件上下文（Codebase Chat），可以跨整个项目
 
 ## 模型选择
 
-- **Cursor**：内置 Claude Sonnet 4.5、Claude Opus 4.6、GPT-5、Gemini 2.5 Pro 等，用量来自额度池
+- **Cursor**：工具数据仍列出 Claude、GPT、Gemini 和 Grok。Plus 只有 Grok。第三方模型从 Premium 起按 API 标价另计，不是一份包含额度池
 - **Copilot**：支持 Claude 3.5 Sonnet、GPT-4o、Gemini 1.5 Pro，Enterprise 版支持更多模型
 
 两者都不允许用自己的 API Key（Cursor 有 BYO API 选项，但限制多）。
@@ -91,7 +93,7 @@ Cursor 原生支持多文件上下文（Codebase Chat），可以跨整个项目
 
 **选 Copilot 如果你：**
 - 使用 JetBrains、Neovim 或其他 IDE
-- 预算有限（$10/月起）
+- 要一份写明的额度（Pro $10 / 1,500 Credits，或 Max $100 / 20,000 Credits）
 - 深度使用 GitHub PR/Issues 工作流
 - 需要团队统一管理（Copilot for Business）
 

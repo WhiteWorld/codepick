@@ -2,6 +2,7 @@
 title: "Claude Code vs Cursor: 2026 In-Depth Comparison"
 description: "Terminal CLI vs AI IDE head-to-head: coding ability, workflow, pricing, and China accessibility — find out which one fits your workflow."
 date: "2026-04-01"
+updated_at: "2026-10-16"
 tags: ["claude-code", "cursor", "comparison", "cli", "ide"]
 pillar: compare
 content_status: keep
@@ -26,7 +27,7 @@ Claude Code and Cursor are two of the most-discussed AI coding tools right now, 
 | Installation | `npm install -g @anthropic-ai/claude-code` | Standalone app |
 | Editor-agnostic | ✅ Works with any editor | ❌ Built-in editor only |
 | Inline completion | ❌ None | ✅ Tab supercomplete |
-| Model | Claude family (Sonnet / Opus) | Multi-model (credit pool) |
+| Model | Claude family (Sonnet / Opus) | Plus is Grok only; third-party models from Premium are API-priced |
 
 Claude Code's philosophy is "editor-agnostic" — keep using Neovim, Zed, or JetBrains and call it from the terminal. Cursor is "all-in-one": a complete AI coding environment the moment you open it.
 
@@ -36,12 +37,12 @@ Claude Code's philosophy is "editor-agnostic" — keep using Neovim, Zed, or Jet
 
 | Plan | Claude Code | Cursor |
 |------|-------------|--------|
-| Free tier | ❌ (requires Pro) | ✅ Hobby (limited) |
-| Entry paid | $20/mo (Pro, ~45 req/5hr) | $20/mo (Pro, $20 credit pool) |
-| High usage | $100/mo (Max 5x) / $200/mo (Max 20x) | $60/mo (Pro+) / $200/mo (Ultra) |
-| Pay-as-you-go | ✅ (API mode, Sonnet 4.6 $3/$15 per 1M tokens) | ❌ (credit pool only) |
+| Free tier | ❌ (requires Pro) | ✅ Free (limited) |
+| Entry paid | $20/mo (Pro, ~45 req/5hr) | Plus $8 (Grok only). Third-party models from Premium $30, billed at API list price |
+| High usage | $100/mo (Max 5x) / $200/mo (Max 20x) | Super $100 (15x Plus) / Ultra $200 (50x). Dollar allowance not published |
+| Pay-as-you-go | ✅ (API mode, Sonnet 4.6 $3/$15 per 1M tokens) | Third-party models on Premium and above are API-priced. The included pool's dollar size is not published |
 
-**Key difference**: Claude Code Pro's ~45 requests per 5-hour window runs out quickly on heavy Agent tasks. Cursor Pro's $20 credit pool is more flexible but also has a ceiling. Heavy users need the high-tier plans ($100–200/mo) on both.
+**Key difference**: Claude Code Pro is still described here as about 45 requests per 5-hour window. That count was not re-checked. Cursor no longer has a $20 pool. Plus at $8 is Grok only. Claude in Cursor starts at Premium $30 and is billed at API list price. The monthly fee is not a cap. Cursor's entry paid tier is not the more flexible option, and heavy Claude use is not "buy Pro+ at $60."
 
 ---
 
@@ -59,7 +60,7 @@ If inline completion is central to how you code, Cursor wins here. If you mostly
 This is where Claude Code stands out:
 
 - **Claude Code**: Multi-file autonomous editing, terminal command execution, MCP tool calls, Sub-Agent collaboration, and Agent Teams for parallel tasks. As Anthropic's first-party tool, it integrates deepest with Claude models.
-- **Cursor**: Strong agent as well — multi-file edits, MCP, cloud-hosted long-running tasks (Ultra/Teams via `cursor.com/agents`). However, multi-agent coordination is less mature than Claude Code's Agent Teams.
+- **Cursor**: Strong agent as well — multi-file edits, MCP, cloud agents (listed on Premium; Teams starts at $30/user/month). However, multi-agent coordination is less mature than Claude Code's Agent Teams.
 
 ### Context Window
 

@@ -1,7 +1,8 @@
 ---
 title: "Windsurf vs GitHub Copilot 2026：IDE 体验 vs 生态整合，怎么选？"
-description: "Windsurf vs GitHub Copilot 深度对比：价格、代码补全、Agent 能力、IDE 兼容性与国内可用性，帮你在两款主流 AI 编程工具之间做出最佳选择。"
+description: "按 2026-10-16 定价页对比 Windsurf 与 GitHub Copilot。Windsurf Pro $20，credit 数未公布。Copilot Pro $10，合计 1,500 AI Credits，另有 Max $100。"
 date: "2026-04-05"
+updated_at: "2026-10-16"
 tags: ["windsurf", "copilot", "对比", "ide", "vscode"]
 pillar: compare
 content_status: keep
@@ -16,12 +17,12 @@ Windsurf 和 GitHub Copilot 都是当前最主流的 AI 编程工具，但出发
 | 维度 | Windsurf | GitHub Copilot |
 |------|----------|----------------|
 | 形态 | VS Code Fork IDE | IDE 插件（VS Code / JetBrains / Vim / Xcode） |
-| 免费版 | ✅（25 credits/月） | ✅（50次Agent/月，2000次补全/月） |
-| 起步付费价 | $15/月（Pro） | $10/月（Pro） |
+| 免费版 | ✅（轻度配额，credit 数未公布；无限 Tab） | ✅（50 次 Chat/月，2,000 次补全/月；Agent 用量有限） |
+| 起步付费价 | $20/月（Pro） | $10/月（Pro，合计 1,500 AI Credits） |
 | 编程能力 | 8.5 / 10 | 8.2 / 10 |
 | 性价比 | 8 / 10 | 8.5 / 10 |
 | 国内友好度 | 3 / 10 | 6.5 / 10 |
-| 代码补全 | ✅（Tab to Jump） | ✅（无限补全，Pro+） |
+| 代码补全 | ✅（Free 为无限 Tab） | ✅（付费档补全不消耗 Credits；Free 为 2,000 次/月） |
 | Agent 模式 | ✅（Cascade） | ✅（Coding Agent） |
 | MCP 支持 | ✅ | ✅ |
 | GitHub 深度集成 | ❌ | ✅（PR 自动创建、Code Review） |
@@ -31,33 +32,41 @@ Windsurf 和 GitHub Copilot 都是当前最主流的 AI 编程工具，但出发
 
 ## 一句话总结
 
-- **Windsurf**：$15/月的完整 AI IDE 体验，Cascade Agent + 自研 SWE-1.5 模型，价格比 Cursor 便宜 $5，适合想要 Cursor 级体验但预算更紧的开发者
-- **Copilot**：$10/月入门，深度嵌入 GitHub 工作流，PR 自动创建、Code Review、JetBrains 支持成熟，适合已在 GitHub 生态深度投入的开发者
+- **Windsurf**：Pro $20/月。定价页写了更高配额、前沿模型和 Devin Cloud。credit 数没有公布。它不是 Cursor 的「便宜 $5」替代：Cursor Plus 是 $8 且仅 Grok，Cursor Premium 是 $30 且第三方模型另计
+- **Copilot**：Pro $10/月，合计 1,500 AI Credits，补全不消耗 Credits。深度嵌入 GitHub 工作流。适合已经在 GitHub 里工作的人
 
 ---
 
 ## 价格对比
 
-**Windsurf** 基于 credits 计费（1 credit = $0.04）：
+价格按 2026-10-16 的 [devin.ai/pricing](https://devin.ai/pricing) 和 [GitHub Copilot 计划页](https://github.com/features/copilot/plans)。
+
+**Windsurf** 当前页没有写出 credit 数量，也没有写 1 credit = $0.04。
+
+| 方案 | 价格 | 定价页写了什么 |
+|------|------|----------------|
+| Free | $0 | 轻度配额，模型范围有限，无限 Tab。不再写 25 credits |
+| Pro | $20/月 | 更高配额，前沿模型，含 Devin Cloud。credit 数未公布 |
+| Max | $200/月 | 配额更高。数字未公布 |
+| Teams | $80/月 + $40/月/全职席位 | 最多 200 用户。不是 $30 或 $40/用户一档 |
+| Enterprise | 未标价 | 联系销售。含 SSO、集中管理 |
+
+$15 老用户价和学生折扣不在当前页上，是否仍有效标为未知。
+
+**GitHub Copilot** 按 AI Credits 计。1 Credit = $0.01。补全和 Next Edit 不消耗 Credits。年付价格当前计划页没有列出。各档包含哪些模型，文档矩阵这次没有保留，这里不加勾选。
 
 | 方案 | 价格 | 用量 |
 |------|------|------|
-| Free | $0 | 25 credits/月，全部高级模型可用 |
-| Pro | $15/月 | 500 credits/月，SWE-1.5，Fast Context |
-| Teams | $30/月/用户 | 500 credits/用户，集中计费，SSO + RBAC |
-| Enterprise | $60/月/用户 | 1000 credits/用户，混合部署，ZDR默认开启 |
+| Free | $0 | 50 次 Chat/月（含 Copilot Edits），2,000 次补全/月；Agent 用量有限 |
+| Pro | $10/月 | 合计 1,500 Credits（基础 1,000 + 弹性 500）；无限补全 |
+| Pro+ | $39/月 | 合计 7,000 Credits（基础 3,900 + 弹性 3,100）。功能页写明含 premium 模型，并点名 Opus |
+| Max | $100/月 | 合计 20,000 Credits（基础 10,000 + 弹性 10,000） |
+| Business | $19/月/席 | 每席 1,900 Credits，组织内池化 |
+| Enterprise | $39/月/席 | 每席 3,900 Credits，企业内池化 |
 
-**GitHub Copilot** 基于请求次数计费：
+超出按 $0.01/Credit。旧的 300 次或 1,500 次高级请求不在当前计划页上。
 
-| 方案 | 价格 | 用量 |
-|------|------|------|
-| Free | $0 | 50次Agent/Chat/月，2000次补全/月 |
-| Pro | $10/月（$100/年） | 无限补全，300次高级请求/月，超出$0.04/次 |
-| Pro+ | $39/月 | 1500次高级请求/月，Opus 4.6 快速模式，GitHub Spark |
-| Business | $19/月/用户 | Pro 全功能，集中管理，策略控制 |
-| Enterprise | $39/月/用户 | 自定义模型微调，高级安全 |
-
-> **关键差异**：Copilot Pro 的 $10/月 是这个价位最有竞争力的入门方案，无限代码补全 + 300次高级请求；Windsurf Pro $15/月 则提供更强的 Cascade Agent 体验和自研 SWE-1.5 模型。如果你已经是 GitHub 重度用户，Copilot Pro 的 $10 很难被超越。
+> **结论**：Copilot Pro 的标价仍低于 Windsurf Pro（$10 vs $20），并且公布了 1,500 Credits。Windsurf Pro 没有公布 credit 数，不能用「500 credits」或「比 Cursor 便宜 $5」来比。Copilot 更适合要一个写明额度、并且工作在 GitHub 里的人。Windsurf 更适合要 IDE 里的 Cascade 和 Devin Cloud、并能接受配额数字未知的人。
 
 ---
 
@@ -68,14 +77,15 @@ Windsurf 和 GitHub Copilot 都是当前最主流的 AI 编程工具，但出发
 **Windsurf** 的 Tab Supercomplete（全量用户已推出 Tab to Jump）：
 - 预测下一步光标跳转位置
 - 基于 SWE-grep / SWE-grep-mini 快速索引整个代码库
-- 每次补全消耗 credits（Pro 方案每月 500 credits）
+- Free 写明无限 Tab。付费档的配额是否包含 Tab，页面没有写 credit 数，这里不写「每次补全扣 500 credits」
 
 **Copilot** 的代码补全：
-- Pro 方案无限补全（不计入高级请求配额）
-- 补全质量基于 GPT-5 mini（Auto 模式自动选模型享9折）
-- 支持 VS Code、JetBrains、Vim、Xcode 全平台
+- 付费档的补全和 Next Edit 不消耗 Credits
+- Free 是 2,000 次补全/月
+- 支持 VS Code、JetBrains、Vim、Xcode
+- 计划页没有写 Auto 九折。分套餐的模型勾选本次没有复核
 
-> **结论**：如果补全频率高，Copilot Pro 的无限补全更省心；Windsurf 的 Tab to Jump 在补全质量和光标预测上有独特优势，但受 credits 限制。
+> **结论**：补全频繁时，Copilot 付费档写明补全不消耗 Credits。Windsurf Free 写明无限 Tab。Windsurf 付费档的配额数字没有公布，不能说它「每月 500 credits 所以补全受限」。
 
 ---
 
@@ -175,18 +185,17 @@ Windsurf 和 GitHub Copilot 都是当前最主流的 AI 编程工具，但出发
 ## 选型建议
 
 **选 Windsurf 如果你：**
-- 想要比 Cursor 便宜 $5 的完整 AI IDE 体验（$15 vs $20）
-- 喜欢 Cascade Agent 工作流，多文件编辑流畅
-- 想试用自研 SWE-1.5 模型
-- 需要 Arena Mode 对比不同模型输出
+- 要 IDE 里的 Cascade，并且接受 Pro $20、credit 数未公布
+- 要 Devin Cloud，或要试用 SWE-1.5
+- 需要 Arena Mode 对比两个模型输出
 - 使用 JetBrains 或 Vim，但不依赖 GitHub 工作流
 
 **选 GitHub Copilot 如果你：**
 - 深度使用 GitHub（PR、Issue、Actions）
 - 希望 AI 自动创建 PR 和 Code Review
-- 只需 $10/月 的入门价，或已有学生/教师免费资格
+- 要一份写明的额度：Pro $10 / 1,500 Credits，或 Max $100 / 20,000 Credits
+- 已验证学生用免费 Student 档；已验证教师和热门开源维护者可能获得免费 Pro
 - 使用 Xcode 开发 iOS/macOS 应用
-- 需要企业级定制模型微调和 LTS 稳定性保障
 
 ---
 
@@ -201,7 +210,7 @@ Windsurf 和 GitHub Copilot 都是当前最主流的 AI 编程工具，但出发
 | GitHub 集成 | 2 / 10 | 10 / 10 |
 | 自研模型 | ✅（SWE-1.5） | ❌ |
 
-> 数据基于 2026 年 4 月评测。两款工具迭代节奏均较快，请以官网最新信息为准。
+> 价格核对：2026-10-16。Windsurf 的 credit 数、$15 老用户价和学生折扣未公布。Copilot 年付价格和分套餐模型勾选未在当前计划页保留，这里不补。功能差异里不依赖这些数字的部分，仍是此前文章的产品描述。
 
 ## 相关推荐
 

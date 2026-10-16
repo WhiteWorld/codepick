@@ -2,6 +2,7 @@
 title: "2026 最佳 AI 编程工具推荐：主流工具横评与选型指南"
 description: "2026 年 AI 编程工具横评，覆盖 Cursor、Claude Code、Copilot、Windsurf 等主流工具，从编码能力、价格、国内可用性多维度评分，帮你找到最适合的方案。"
 date: "2026-03-27"
+updated_at: "2026-10-16"
 tags: ["cursor", "claude-code", "copilot", "windsurf", "cline", "kiro", "gemini-cli", "aider", "trae-cn", "roo-code", "opencode", "最佳", "横评", "2026"]
 pillar: compare
 content_status: keep
@@ -27,7 +28,7 @@ AI 编程工具在 2026 年迎来爆发式增长，市面上有超过 15 款主�
 
 **综合评分：7.0/10 | 编码能力：9.5**
 
-Cursor 是 2026 年综合体验最好的 AI IDE。Pro $20/月 含 $20 额度池，支持 Claude Opus 4.6、GPT-5.4 等顶级模型，Agent 模式可以自主完成复杂的多文件编辑任务。
+Cursor 的编码能力评分是 9.5。2026-10-16 的定价页没有 Pro $20，也没有 $20 额度池。个人档是 Free $0、Plus $8（仅 Grok）、Premium $30、Super $100、Ultra $200。第三方模型从 Premium 起按 API 标价另计。Agent 仍可做多文件编辑。
 
 **亮点功能**：Automations（常驻 Agent）、Composer 2 自研模型、Self-Hosted Cloud Agents、Sub-agents 并行处理。
 
@@ -53,11 +54,11 @@ Claude Code 的编码能力是所有工具中最高的，Opus 4.6 在复杂推�
 
 ## 第二梯队：高性价比选择
 
-### Windsurf — 最具性价比的 AI IDE
+### Windsurf — IDE，Pro $20
 
-**综合评分：6.3/10 | 编码能力：8.5 | 价格：$15/月**
+**综合评分：6.3/10 | 编码能力：8.5 | 价格：Pro $20/月**
 
-与 Cursor 功能相近，价格低 $5。Cascade Agent 体验流畅，支持 JetBrains 和 Vim 插件。
+与 Cursor 同为 VS Code Fork。不是便宜 $5：Cursor Plus 是 $8 且仅 Grok，Cursor Premium 是 $30 且第三方模型另计。Windsurf Pro 的 credit 数没有公布。Cascade 仍在，JetBrains 和 Vim 有插件。
 
 → [查看详情](/zh/tool/windsurf)
 
@@ -65,23 +66,23 @@ Claude Code 的编码能力是所有工具中最高的，Opus 4.6 在复杂推�
 
 **综合评分：6.7/10 | 编码能力：8.2 | 价格：$10/月**
 
-支持最多 IDE（VS Code、JetBrains、Neovim、Xcode），$10/月 是最便宜的主流付费方案。GPT-5.4 和 Claude Opus 4.6 可选。
+支持的 IDE 面仍然最广（VS Code、JetBrains、Neovim、Xcode）。Pro 是 $10/月、合计 1,500 AI Credits。Cursor Plus 是 $8，但只有 Grok，所以 Copilot Pro 不是所有付费档里最便宜的一档。分套餐的模型勾选这次没有复核。
 
 → [查看详情](/zh/tool/copilot)
 
 ### Kiro — Spec 驱动开发
 
-**综合评分：5.5/10 | 编码能力：8.5 | 价格：$20/月**
+**综合评分：5.5/10 | 编码能力：8.5 | 价格：Pro $20/月；另有 Pro Max $100**
 
 AWS 出品，独特的 Spec 驱动模式从规格到实现，减少 AI 幻觉。统一 credit 池定价透明。
 
 → [查看详情](/zh/tool/kiro)
 
-### Antigravity — 预览期免费多模型
+### Antigravity — Individual $0，已 GA
 
-**综合评分：6.6/10 | 编码能力：9.0 | 价格：免费（预览）**
+**综合评分：6.6/10 | 编码能力：9.0 | 价格：Individual $0。Pro/Ultra 未标价**
 
-Google 出品，预览期免费使用 Gemini 3 Pro、Claude Opus 4.5 等顶级模型。
+2026-10-16 的定价页标为 Generally Available。Individual 是 $0，含基础每周速率限制。Google AI Pro / Ultra 没有公布美元价格。不能写成预览期免费使用具名顶级模型。
 
 → [查看详情](/zh/tool/antigravity)
 

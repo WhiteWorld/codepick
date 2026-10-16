@@ -2,20 +2,21 @@
 title: "2026 Cursor 替代品推荐：7 款最佳 AI IDE 与编程工具"
 description: "Cursor 太贵或不够灵活？这 7 款替代方案从免费到专业级覆盖全场景，包含终端工具、VS Code 插件和国内可用方案。"
 date: "2026-03-27"
+updated_at: "2026-10-16"
 tags: ["cursor", "windsurf", "cline", "claude-code", "trae-cn", "kiro", "aider", "copilot", "roo-code", "替代品", "对比"]
 pillar: compare
 content_status: keep
 locale_strategy: mirrored
 ---
 
-Cursor 是 2025-2026 年最火的 AI IDE，Agent 能力确实强大。但 $20/月起步的价格、VS Code 系的限制、以及国内连接问题，让很多开发者寻找替代方案。
+Cursor 的 Agent 仍然强。2026-10-16 的定价页已经不是「$20/月起步」。Plus 是 $8，只有 Grok。要用 Claude、GPT 或 Gemini，至少 Premium $30，并且这些模型按 API 标价另计。再加上 VS Code 系和国内连接，仍有人会找替代。
 
 ## 为什么要找 Cursor 替代品？
 
-- **价格**：Pro $20/月，Pro+ $60/月，Ultra $200/月——对个人开发者不便宜
+- **价格**：Free $0、Plus $8（仅 Grok）、Premium $30、Super $100、Ultra $200。没有 Pro $20 和 Pro+ $60
 - **VS Code 锁定**：虽然新增了 JetBrains 支持（via ACP），但体验仍不如原生
 - **国内不稳定**：需要稳定代理
-- **额度限制**：$20 额度池用完后要加购，重度用户月费可能远超 $20
+- **额度**：用量池的美元大小没有公布。Premium 及以上的第三方模型按 API 标价另计，月费不是封顶
 
 ---
 
@@ -44,14 +45,14 @@ Claude Code 不是 IDE，而是终端 Agent。但如果你追求的是"最强编
 
 ---
 
-### 2. Windsurf — 最接近 Cursor 的体验，更便宜
+### 2. Windsurf — 最接近的 VS Code Fork，Pro 是 $20
 
-**价格**：免费 / Pro $15/月
+**价格**：Free 轻度配额（credit 数未公布）/ Pro $20/月 / Max $200/月
 
-Windsurf 和 Cursor 一样是 VS Code Fork，功能高度相似，但 Pro 版便宜 $5。
+Windsurf 和 Cursor 一样是 VS Code Fork。Pro 不是便宜 $5。Cursor Plus 是 $8 且仅 Grok。Windsurf Pro 是 $20。Cursor Premium 是 $30，第三方模型另计。
 
 **对比 Cursor 的优势**：
-- $15/月 vs $20/月，性价比更高
+- Pro $20 的标价低于 Cursor Premium $30。credit 数没有公布，不能直接说用量更多
 - JetBrains 和 Vim 原生插件支持
 - Cascade 的"主动上下文感知"体验独特
 - Arena Mode 对比两个模型输出
@@ -74,7 +75,7 @@ Windsurf 和 Cursor 一样是 VS Code Fork，功能高度相似，但 Pro 版便
 Copilot 最大优势是 IDE 覆盖面：VS Code、JetBrains 全系、Neovim、Xcode 都有原生支持。
 
 **对比 Cursor 的优势**：
-- $10/月 比 Cursor 便宜一半
+- Pro $10 公布了 1,500 AI Credits。它低于 Cursor Premium $30，高于仅含 Grok 的 Plus $8
 - 原生支持 JetBrains（不是通过协议桥接）
 - Coding Agent 可以异步创建 PR
 - 免费版永久可用（学生/教师免费 Pro）
@@ -137,9 +138,9 @@ Cline 是开源 VS Code Agent 插件，最大优势是**模型自由度**——�
 
 ### 6. Kiro — Spec 驱动，减少 AI 幻觉
 
-**价格**：免费版 / Pro $20/月
+**价格**：Free 50 credits / Pro $20（1,000 credits）/ Pro Max $100（5,000 credits）
 
-Kiro 的核心差异点是 Spec 驱动开发：先定义需求规格，再让 AI 按规格实现，从根本上减少 Agent 的"乱改"问题。
+Kiro 的核心差异点是 Spec 驱动开发：先定义需求规格，再让 AI 按规格实现。已 GA，不是预览免费。超额 $0.04/credit。
 
 **对比 Cursor 的优势**：
 - Spec 驱动模式更适合严谨的工程团队
@@ -161,7 +162,7 @@ Kiro 的核心差异点是 Spec 驱动开发：先定义需求规格，再让 AI
 
 **价格**：免费（Google 账号）
 
-Google 出品，每天 1000 次免费请求，100 万 token 上下文。如果你不需要 IDE 内体验，这是性价比最高的终端 Agent。
+Google 出品的终端 Agent。工具数据里仍记着每天 1000 次免费请求和 100 万 token 上下文。2026-10-16 没有重开 Gemini API 定价页，这个额度不是本次新核对的数字。不需要 IDE 时，它仍是一条免费终端路径，但免费额度以未复核的记录为准。
 
 **对比 Cursor 的优势**：
 - 完全免费
@@ -183,19 +184,19 @@ Google 出品，每天 1000 次免费请求，100 万 token 上下文。如果�
 
 | 替代方案 | 价格 | Agent | 补全 | IDE | 国内 |
 |---------|------|-------|------|-----|------|
-| Cursor | $20/月 | ★★★★★ | ✅ | VS Code | 需代理 |
+| Cursor | Plus $8（仅 Grok）/ Premium $30 起另计 | ★★★★★ | ✅ | VS Code | 需代理 |
 | **Claude Code** | $20+/月 | ★★★★★ | ❌ | 终端 | 需代理 |
-| **Windsurf** | $15/月 | ★★★★ | ✅ | VS Code | 需代理 |
+| **Windsurf** | Pro $20/月 | ★★★★ | ✅ | VS Code | 需代理 |
 | **Copilot** | $10/月 | ★★★☆ | ✅ | 全平台 | 需代理 |
 | **Trae CN** | 免费 | ★★★☆ | ✅ | VS Code | ✅ |
 | **Cline** | 官网活动价 | ★★★☆ | ❌ | 多平台 | ✅ |
-| **Kiro** | $20/月 | ★★★★ | ✅ | VS Code | 需代理 |
+| **Kiro** | Pro $20；Pro Max $100 | ★★★★ | ✅ | VS Code | 需代理 |
 | **Gemini CLI** | 免费 | ★★★★ | ❌ | 终端 | 需代理 |
 
 ## 快速决策
 
 - **要最强 Agent 且不要 GUI** → Claude Code
-- **要 Cursor 体验但更便宜** → Windsurf
+- **要 IDE，并且接受 Pro $20、credit 数未公布** → Windsurf。它不是 Cursor 的便宜 $5 替代
 - **用 JetBrains** → Copilot 或 Windsurf
 - **国内免费** → Trae CN
 - **国内低成本** → Cline + 方舟

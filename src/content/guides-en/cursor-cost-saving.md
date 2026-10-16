@@ -1,7 +1,8 @@
 ---
-title: "How to Save Money on Cursor: 6 Tips to Reduce Your AI IDE Bill"
-description: "How to stretch your Cursor Pro credit pool further — Auto mode, cheaper models, task splitting, lean .cursorrules, and backup tools for when you run out mid-month."
+title: "How to control Cursor spend after the pricing change"
+description: "Cursor no longer has Pro at $20 or a $20 credit pool. This note follows the 2026-10-16 pricing page: Plus, Premium, and separate API charges for third-party models."
 date: "2026-04-05"
+updated_at: "2026-10-16"
 article_type: "review"
 tags: ["cursor", "cost-saving", "token", "efficiency", "auto-mode", "cursorrules"]
 pillar: plans
@@ -10,141 +11,110 @@ locale_strategy: mirrored
 draft: false
 ---
 
-Cursor Pro is $20/month and comes with a $20 Agent credit pool. The catch: usage varies wildly depending on how you work. The same task can cost one developer $5 and another $30. Here are 6 tested methods to cut your Cursor bill without hurting your productivity.
+On the [Cursor pricing page](https://cursor.com/en/pricing) checked 2026-10-16, there is no Pro plan at $20, no "$20 monthly credit pool," and no unlimited Auto mode. Individual tiers are Free $0, Plus $8, Premium $30, Super $100, and Ultra $200. The usage pool is shared with Grok and refreshes weekly. The page does not publish its dollar size.
+
+Plus is Grok models only. On Premium and above, Claude, GPT, Gemini, and other third-party models are billed at API list price. They are not included in the monthly fee. "Make the $20 pool last until the end of the month" and "upgrade to Pro+ at $60 for a $70 pool" are not advice you can follow anymore. Pick the tier that matches the models you use, then cut calls that are billed at API rates.
 
 ---
 
-## First: How Cursor's Billing Actually Works
+## How billing works now
 
-Since June 2025, Cursor Pro uses a **credit pool model**:
-- $20/month credit pool (Agent, Chat, and Apply all draw from this)
-- Auto mode routes to cheaper models when appropriate (with a 10% discount)
-- **Tab completion does NOT consume credits** — it's unlimited
-- Once the pool is empty, you're billed at model cost rates ($0.04–$0.50/request)
+| Plan | Price | What matters for the bill |
+|------|-------|---------------------------|
+| Free | $0 | Limited AI usage |
+| Plus | $8/mo | Weekly pool, Grok only. Dollar size not published |
+| Premium | $30/mo | 4x Plus. Third-party models billed at API list price |
+| Super | $100/mo | 15x Plus. Third-party models extra |
+| Ultra | $200/mo | 50x Plus. Third-party models extra |
 
-The key insight: **reduce Agent/Chat request count, or lower the model cost per request**.
+The current page does not say any of the following:
 
----
+- Monthly pools of $20, $70, or $400
+- Unlimited Auto, or a 10% Auto discount
+- Tab completion excluded from the pool, or unlimited Tab
+- Overage at $0.04–$0.50 per request
 
-## Tip 1: Use Auto Mode — Let Cursor Pick the Cheapest Adequate Model
-
-Cursor's Auto mode automatically selects a model based on task complexity, with a 10% discount on the resulting cost.
-
-**How to use it:**
-- In the Chat panel, open the model dropdown and select **Auto**
-- For simple queries (explaining code, writing comments, formatting), Auto usually picks `cursor-small` or GPT-5 mini — very cheap
-- For complex multi-file Agent tasks, Auto upgrades to a stronger model
-
-**How much you save**: Compared to always picking a top-tier model manually, Auto mode typically saves 30–70% of credit consumption depending on task mix.
+Without those figures, a plan such as "spend $12–15 in weeks 1–3" is not something this page can support.
 
 ---
 
-## Tip 2: Use Chat for Simple Questions, Reserve Agent for Complex Tasks
+## 1. Pick the tier from the models, not from the old Pro plan
 
-This is the most overlooked cost lever.
+- Grok only: Plus at $8/mo. That is the cheapest paid individual tier
+- Claude, GPT, Gemini, or the cloud agents listed on the pricing page: Premium at $30/mo at minimum. The API bill for third-party models is on top of that
+- Super and Ultra are 15x and 50x Plus usage. The dollar size of Plus is not published, so the multiplier is not "3.5x the usage for 3x the money"
 
-| Scenario | Recommended Mode | Credit Cost |
-|----------|-----------------|-------------|
-| Explain a code block | Chat | Low |
-| Look up API usage | Chat | Low |
-| Write a new feature | Agent | Medium–High |
-| Refactor multiple files | Agent | High |
-| Auto-fix bug + run tests | Agent | High |
-
-Agent mode reads multiple files, executes tool calls, and loops — each request consumes far more tokens than plain Chat. Don't use Agent for things Chat can handle.
+If the work is not on Grok, the $8 plan does not include it.
 
 ---
 
-## Tip 3: Keep `.cursorrules` Lean — Don't Let It Bloat Every Request
+## 2. Use Chat when Agent is not required
 
-Cursor attaches your `.cursorrules` (or other rules files) to every Agent and Chat request.
+Agent reads files, calls tools, and grows the context. When a third-party model is billed at API list price, a longer context costs more per call.
 
-**Common mistake**: Stuffing thousands of words into `.cursorrules`, adding 2,000–5,000 extra tokens to every single request.
+| Task | Lower-cost choice |
+|------|-------------------|
+| Explain code, look up an API | Chat |
+| Add a feature, edit many files, fix a bug and run tests | Agent |
 
-**Best practice:**
-```
-# .cursorrules best practices
-# Keep total under 500 words
-# Only include what the Agent genuinely needs in every request
-# Project architecture docs → separate file, @-reference as needed
-# Task-specific instructions → provide inline in conversation, not pre-embedded
-```
-
-**How much you save**: Leaner `.cursorrules` can reduce input token cost by 10–30% per request.
+The pricing page does not publish a ratio between Chat and Agent. The mechanism is the one that still holds: one fewer multi-file Agent run is one fewer billed input and output.
 
 ---
 
-## Tip 4: Break Large Tasks Into Smaller Steps
+## 3. Shorten rules that ride on every request
 
-Asking Agent to refactor 10 files at once versus doing it in 5 steps of 2 files each produces similar quality code — but the single-large-task approach often consumes 2–3x the tokens due to context bloat.
+Cursor attaches rules files to Agent and Chat requests. A longer file costs more input when the model is API-priced.
 
-**Practical approach:**
-- First ask Agent to produce a plan (lightweight request), confirm the approach, then execute step by step
-- Keep each Agent task focused on a clear, bounded module or feature
-- After completing a stage, open a new conversation to reset context
+Put project notes in a separate doc and `@`-mention them when needed. Give task instructions in the current chat. Do not put thousands of words into a file that is sent every time.
 
----
-
-## Tip 5: Use Tab Completion for Small Things
-
-Cursor Pro's Tab completion **does not consume credits**. Many developers forget it exists and reach for Chat for everything.
-
-**Tab completion is best for:**
-- Repetitive code patterns (loops, conditionals)
-- Completing function arguments and variable names
-- Writing test case scaffolding
-- Adding comments and docstrings
-
-**How much you save**: Replacing 30% of Chat requests with Tab completion can reduce monthly credit consumption by 10–15%.
+The pricing page does not publish a savings percent. What it does not need to: that text is sent on every request.
 
 ---
 
-## Tip 6: Running Low Mid-Month? Switch to a Backup Tool
+## 4. Split large tasks
 
-If your $20 pool runs out before month end, here are fallback options:
+Handing many files to Agent in one turn makes the context larger. A larger context costs more when the model is priced per token. The pricing page does not publish a measured ratio, so this note does not claim "2–3x."
 
-**Option A: Cline + Volcengine Ark (official promo pricing)**
-- Access DeepSeek V3 and other models with capability close to Claude Sonnet
-- Works in VS Code, minimal switching friction
-- [Setup guide here](/en/guides/cline-ark-setup)
-
-**Option B: Windsurf Free Tier**
-- 25 credits/month — enough for lightweight tasks
-- No additional cost if you already have it
-
-**Option C: Upgrade to Cursor Pro+ ($60/mo)**
-- If you're a heavy user who regularly hits the limit, $70 credit pool at 3x the base price is more economical than constantly overpaying
-- Makes sense if you're spending >$30/mo on overages
+Ask for a short plan first, then work module by module. Start a new chat after a stage so earlier context is not carried forward.
 
 ---
 
-## Monthly Credit Planning
+## 5. Do not treat Tab as a free pool
 
-For Cursor Pro users, here's a practical allocation:
+The old Pro write-up said Tab did not draw from the credit pool. The 2026-10-16 pricing page does not say whether Tab draws from the weekly pool, and it does not say Tab is unlimited.
 
-| Period | Suggested Approach |
-|--------|--------------------|
-| Weeks 1–3 | Normal usage, Auto mode primary; expect to use $12–15 |
-| Week 4 | Shift to more conservative habits (more Tab, less Agent); should have $5–8 left |
-| Month end | Keep $2–3 buffer; switch to Cline + Ark if needed |
+Small edits can still start from completion. That only means one fewer Chat turn. It is not "10–15% of a $20 pool."
 
 ---
 
-## Summary
+## 6. When included usage runs out, do not upgrade along the old ladder
 
-| Method | Savings Impact | Effort |
-|--------|---------------|--------|
-| Use Auto mode | ★★★★ | ★ (one-time) |
-| Chat vs Agent distinction | ★★★★ | ★★ |
-| Lean .cursorrules | ★★★ | ★★ |
-| Break tasks into steps | ★★★ | ★★★ |
-| Use Tab completion more | ★★ | ★ |
-| Backup tool mid-month | ★★★ | ★★ |
+There is no Pro+ plan and no $70 pool. After the included pool, third-party models continue at API list price. Super and Ultra raise the Plus multiplier. Their dollar value is not published.
 
-> Combined: **Auto mode + Chat/Agent distinction + lean rules file** together typically reduce monthly credit consumption by 30–40%, making the $20 pool last significantly longer.
+Other tools, if the work fits them:
+
+- **Cline + Volcengine Ark**, billed on that plan's own price. [Setup](/en/guides/cline-ark-setup)
+- **Windsurf Free** is a light quota. The 2026-10-16 pricing page does not state 25 credits, or any credit count. Pro is $20/mo, not $15
+- **GitHub Copilot Pro** is $10/mo with 1,500 AI credits total. Completions do not spend credits
+
+---
+
+## What still holds
+
+| Practice | Now |
+|----------|-----|
+| Plus when you only need Grok | Holds. $8/mo, Grok models only |
+| Chat instead of an unnecessary Agent run | Holds. Third-party models are priced per token |
+| Shorter rules and smaller tasks | Holds. Fewer tokens per request. No official savings rate |
+| Tab as unlimited free usage | Does not hold. The page does not say that |
+| Auto at 10% off, stretching a $20 pool | Does not hold. That plan and that discount are not on the page |
+| Pro+ at $60 for a larger dollar pool | Does not hold. That tier is gone |
+| Windsurf's 25 credits at month end | Does not hold. The credit count is not published |
 
 ## Related
 
-- [Windsurf vs Cursor](/en/compare/cursor-vs-windsurf) — $5 cheaper alternative
-- [Cline + Volcengine Ark Setup](/en/guides/cline-ark-setup) — backup plan with official promo pricing
-- [Claude Code Token Saving Guide](/en/guides/claude-code-token-saving)
+- [Cursor vs Windsurf](/en/compare/cursor-vs-windsurf)
+- [Cline + Volcengine Ark setup](/en/guides/cline-ark-setup)
+- [Claude Code token saving](/en/guides/claude-code-token-saving)
+
+> Prices checked 2026-10-16. Cursor does not publish the dollar size of the usage pool. Windsurf does not publish a credit count, the old $15 grandfather rate, or a student discount on the current pricing page.

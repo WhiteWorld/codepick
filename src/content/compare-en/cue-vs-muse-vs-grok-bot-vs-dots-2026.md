@@ -2,6 +2,7 @@
 title: "Cue vs Muse vs Grok Bot vs Dots (2026): Four Persistent Agents"
 description: "Fact-checked 2026-09-30: Manus Cue, Meta Muse, Grok Bot, and OpenAI Dots on buyers, collaboration, identity, runtime, approvals, price, and regions. Dots is the always-on ChatGPT agent announced at DevDay on September 29. Cue is Manus's personal life app, not heycue.io."
 date: "2026-09-30"
+updated_at: "2026-10-16"
 tags: ["cue", "manus", "muse-ai", "grok-bot", "dots", "openai", "ai-agent", "comparison"]
 pillar: compare
 content_status: keep
@@ -9,7 +10,7 @@ locale_strategy: mirrored
 draft: false
 ---
 
-> **Fact-checked September 30, 2026.** Cue was announced with Manus 2.0 on September 28, 2026. OpenAI Dots was announced at DevDay on September 29, 2026. Muse and Grok Bot are still in their launch window. This comparison only treats published capabilities as facts. Where a price, quota, or security architecture is missing, it stays unknown.
+> **Fact-checked September 30, 2026.** Cue was announced with Manus 2.0 on September 28, 2026. OpenAI Dots was announced at DevDay on September 29, 2026. Muse and Grok Bot are still in their launch window. This comparison only treats published capabilities as facts. Where a price, quota, or security architecture is missing, it stays unknown. Cursor stickers in the Grok Bot section follow the pricing page checked on October 16, 2026. Which tiers include Grok Bot, on-demand billing, and whether a SuperGrok link stacks stay as the September 29 help page. That page was not re-fetched. Cue, Muse, and Dots were not re-checked on October 16.
 
 Cue, Meta Muse, Grok Bot, and OpenAI Dots all keep working after you close the app. The buyer and the handoff are different:
 
@@ -33,7 +34,7 @@ The short version: **for life admin where the agent should have its own contact 
 | Outward identity | Each agent has its own email, phone, wallet, and computer | Acts through accounts the user connects; the model does not see real passwords or payment details | A ChatGPT handle such as @name-dot. No published phone, email, or wallet of its own | Uses logins and files on the user's cloud computer; those credentials are available to every Bot that user creates |
 | Runtime | Official post: each agent has its own computer. Isolation and hosting region are unpublished | One Muse Secure VM per user | One cloud computer and browser per dot. One local computer can be connected optionally | One Firecracker cloud computer per user; that user's Bots share it |
 | Surfaces | Web, desktop, and mobile; iOS after App Store review | iOS, Android, and muse.ai; conversation also works in WhatsApp. AI glasses planned | Create in the desktop app or a desktop browser. After setup: the mobile app when its update is available, plus Slack and Teams. Texting is not live. Mobile web is not supported | macOS / Windows / Linux and iOS / Android |
-| Current price | Early access, free with an invite code. Later monthly price and quota unpublished | Most everyday use is free. Subscription prices and quotas are not in the launch post | Included with Pro 100 / 200 / 500 and Business Premium. Enterprise stays off until a workspace admin enables it. No separate Dots price is published | No standalone plan. Included with paid Cursor, Teams, or an eligible SuperGrok / X Premium+ link |
+| Current price | Early access, free with an invite code. Later monthly price and quota unpublished | Most everyday use is free. Subscription prices and quotas are not in the launch post | Included with Pro 100 / 200 / 500 and Business Premium. Enterprise stays off until a workspace admin enables it. No separate Dots price is published | No standalone plan. On October 16, 2026, Cursor's individual tiers run from Plus at $8 to Ultra at $200, and Teams starts at $30. Which tiers include Grok Bot was not re-fetched |
 | Regional reality | The official blog has no country list. A domestic China product is still in preparation, per Manus that day | The September 8 post says a US launch. A September 18 report says Canada is open | Pro is 18+ and outside the EEA, the UK, and Switzerland. Business Premium and Enterprise are described as rolling out worldwide | Cloud computers currently run in the US. No self-hosting |
 
 ---
@@ -208,15 +209,17 @@ An eligible plan does not guarantee the control is visible yet. The doc says the
 
 ### Grok Bot
 
-There is no standalone Grok Bot subscription. Access comes through one of these:
+There is no standalone Grok Bot subscription. The September 29, 2026 help page listed the paths below. That page was not re-fetched, so the old tier names are not mapped onto the new ones:
 
-- Cursor Pro, Pro+, or Ultra;
-- Cursor Teams, where every member on a self-serve plan has access without an extra Premium seat;
+- It named Cursor Pro, Pro+, or Ultra;
+- Cursor Teams. The help page said every member on a self-serve plan has access without an extra Premium seat. The current pricing page has a tier named Premium, so that sentence cannot be applied as written;
 - Cursor Enterprise, which an account executive enables;
 - a linked individual SuperGrok, SuperGrok Plus, SuperGrok Heavy, or X Premium+ account;
 - a one-time trial credit. The trial is drawn down by usage, and a 7-day window also applies. Used credit is not restored.
 
-The [Cursor pricing page](https://cursor.com/pricing) checked on September 29, 2026 listed individual Pro from **$20/month**, Teams from **$40/user/month**, and Enterprise as custom. This fact-check did not reload that page. Included usage resets weekly. After it runs out, on-demand usage can continue through Cursor when enabled. A Cursor plan and a SuperGrok / X Premium+ link do not stack. The plans page describes each tier as “weekly,” “generous,” or “highest” usage and does not publish a fixed step or token cap, so those caps stay unpublished here.
+The [Cursor pricing page](https://cursor.com/en/pricing) checked on October 16, 2026 lists different names: Free at $0, Plus at $8 (Grok only; a weekly pool shared with Grok, dollar size unpublished), Premium at $30, Super at $100, Ultra at $200, and Teams from $30 per user. Enterprise has no published price. Pro, Pro+, and Teams at $40 are not on that page.
+
+The help page also said included usage resets weekly, on-demand usage continues through Cursor when enabled, a Cursor plan does not stack with SuperGrok or X Premium+, and weekly step or token caps are not a fixed number. Those four points stay as the September 29 help page. They were not re-checked.
 
 Source: [Grok Bot plans and billing](https://cursor.com/help/grok-bot/plans).
 
@@ -279,4 +282,4 @@ The closer two-way comparison of Grok Bot and Muse is [Grok Bot vs Muse AI (2026
 
 ---
 
-*Last fact-check: September 30, 2026. Cue's primary source is the official Manus 2.0 blog. The mainland-China statement comes from IT Home's report of Manus's comments that day. Muse comes from Meta's launch, security, and design pages; the Canada expansion comes from a report citing a public Meta post. Dots comes from the ChatGPT product page, the Learn docs, and TechCrunch's DevDay coverage. Grok Bot comes from xAI / Cursor docs; the public Cursor starting prices are from the pricing page checked on September 29, 2026. Unpublished prices and quotas stay unknown.*
+*Cue, Muse, and Dots were last fact-checked on September 30, 2026. Cue's primary source is the official Manus 2.0 blog. The mainland-China statement comes from IT Home's report of Manus's comments that day. Muse comes from Meta's launch, security, and design pages; the Canada expansion comes from a report citing a public Meta post. Dots comes from the ChatGPT product page, the Learn docs, and TechCrunch's DevDay coverage. Grok Bot eligibility stays on the September 29, 2026 help page, which was not re-fetched. Cursor stickers follow the pricing page checked on October 16, 2026. Unpublished prices and quotas stay unknown.*

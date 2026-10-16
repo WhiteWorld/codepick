@@ -2,6 +2,7 @@
 title: "Roo Code vs Cursor 2026：开源多角色 Agent 对决商业 AI IDE"
 description: "Roo Code vs Cursor 深度对比：免费开源的多角色 VS Code Agent 与顶级商业 AI IDE，从价格、架构师模式、Cloud Agents 到国内可用性全面分析。"
 date: "2026-04-05"
+updated_at: "2026-10-16"
 tags: ["roo-code", "cursor", "对比", "vscode", "agent", "开源"]
 pillar: compare
 content_status: keep
@@ -17,7 +18,7 @@ Roo Code 是 Cline 的高级开源分支，主打多角色 Agent（Code / Archit
 |------|----------|--------|
 | 形态 | VS Code 插件（兼容 JetBrains） | VS Code Fork IDE |
 | 开源 | ✅（MIT） | ❌ |
-| 起步价 | 免费（自备 API Key） | $0（Hobby）/ $20/月（Pro） |
+| 起步价 | 免费（自备 API Key） | Free $0 / Plus $8（仅 Grok） |
 | 编程能力 | 8.5 / 10 | 9.5 / 10 |
 | 性价比 | 9 / 10 | 6 / 10 |
 | 灵活性 | 9.8 / 10 | 5 / 10 |
@@ -25,7 +26,7 @@ Roo Code 是 Cline 的高级开源分支，主打多角色 Agent（Code / Archit
 | 代码补全（Tab） | ❌ | ✅ |
 | Agent 模式 | ✅（多角色） | ✅ |
 | MCP 支持 | ✅ | ✅ |
-| Cloud Agents | ✅（Slack/GitHub） | ✅（Pro+ / Ultra） |
+| Cloud Agents | ✅（Slack/GitHub） | ✅（Premium 起） |
 | 多角色切换 | ✅（Code/Architect/Debug/Ask/Custom） | ❌ |
 
 ---
@@ -52,12 +53,13 @@ Roo Code 是 Cline 的高级开源分支，主打多角色 Agent（Code / Archit
 
 | 方案 | 价格 | 用量 |
 |------|------|------|
-| Hobby | $0 | 有限 Agent + Tab 补全 |
-| Pro | $20/月 | 无限 Tab，$20 Agent 额度池/月 |
-| Pro+ | $60/月 | 无限 Tab，$70 Agent 额度池/月 |
-| Ultra | $200/月 | 无限 Tab，$400 Agent 额度池/月 |
+| Free | $0 | 有限 AI 用量。美元额度未公布 |
+| Plus | $8/月 | 与 Grok 共享的周刷新用量池；仅 Grok 模型 |
+| Premium | $30/月 | Plus 的 4 倍；含云端 Agent。第三方模型按 API 标价另计 |
+| Super | $100/月 | Plus 的 15 倍。第三方模型按 API 标价另计 |
+| Ultra | $200/月 | Plus 的 50 倍。第三方模型按 API 标价另计 |
 
-> 重度 Agent 用量下，两者实际成本可能相近，但 Roo Code 的模型选择灵活度远高于 Cursor。
+> Cursor 没有公布美元额度。第三方模型从 Premium $30 起按 API 标价另计，不是封顶的额度池。Roo Code 没有订阅，只付 API。谁更便宜取决于那份 API 账单，这里不算。Roo 的模型选择仍然更自由。
 
 ---
 
@@ -87,7 +89,7 @@ Roo Code 是 Cline 的高级开源分支，主打多角色 Agent（Code / Archit
 - 无需打开 VS Code，后台自动执行并回复结果
 - 适合异步批量任务
 
-**Cursor Cloud Agents**（Ultra / Teams / Enterprise）：
+**Cursor Cloud Agents**（定价页写在 Premium；Teams 从 $30/用户/月起）：
 - 独立 VM 沙箱，自动测试、截图、视频
 - 产出含 Artifact 的 Merge-ready PR
 - 可从 Web / 桌面 / Slack / GitHub 触发

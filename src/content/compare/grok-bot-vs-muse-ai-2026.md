@@ -2,6 +2,7 @@
 title: "Grok Bot vs Muse AI 2026：团队 AI 同事与个人 AI 管家怎么选？"
 description: "截至 2026-09-10 的 Grok Bot vs Meta Muse 深度对比：定位、自动化、云电脑、记忆、审批、安全、隐私、价格、平台与国内可用性。"
 date: "2026-09-10"
+updated_at: "2026-10-16"
 tags: ["grok-bot", "muse-ai", "ai-agent", "computer-use", "comparison"]
 pillar: compare
 content_status: keep
@@ -9,9 +10,9 @@ locale_strategy: mirrored
 draft: false
 ---
 
-> **核对日期：2026-09-10。** Grok Bot 与 Muse 都刚上线，功能、额度和地区范围仍可能快速变化。本文只把官方已经公开的能力写成结论；Muse 尚未公布订阅价格的地方，不用猜测数字补空白。
+> **核对日期：2026-09-10。** Grok Bot 与 Muse 都刚上线，功能、额度和地区范围仍可能快速变化。本文只把官方已经公开的能力写成结论；Muse 尚未公布订阅价格的地方，不用猜测数字补空白。下面 Grok Bot 一节里的 Cursor 标价按 2026-10-16 的定价页改过。资格、on-demand 和不叠加仍是 2026-09-29 的帮助页，这次没有重抓。Muse 没有在 2026-10-16 重核。
 >
-> **相关：** 2026-09-28，Manus 发布了个人生活 Agent 应用 Cue。2026-09-29，OpenAI 在 DevDay 公布了 Dots。若要同时比较 Cue、Muse、Grok Bot 和 Dots，见 [Cue vs Muse vs Grok Bot vs Dots（2026）](/zh/compare/cue-vs-muse-vs-grok-bot-vs-dots-2026/)。本文仍只比较 Grok Bot 与 Muse，核对日期不变。
+> **相关：** 2026-09-28，Manus 发布了个人生活 Agent 应用 Cue。2026-09-29，OpenAI 在 DevDay 公布了 Dots。若要同时比较 Cue、Muse、Grok Bot 和 Dots，见 [Cue vs Muse vs Grok Bot vs Dots（2026）](/zh/compare/cue-vs-muse-vs-grok-bot-vs-dots-2026/)。本文仍只比较 Grok Bot 与 Muse。Muse 的核对日不变。
 
 Grok Bot 和 Meta Muse 看起来都在卖同一个未来：给 AI 一台云电脑，让它记住你、登录常用应用，并在你离线时继续工作。但真正用起来，它们面向的是两类不同的人：
 
@@ -137,17 +138,13 @@ Muse 还公开了多层防护：运行容器隔离、最小权限连接器、凭
 
 ### Grok Bot
 
-Grok Bot 不需要单独订阅，但需要以下任一入口：
+Grok Bot 不需要单独订阅。2026-09-29 的帮助页把入口写成 Cursor Pro / Pro+ / Ultra、Cursor Teams、关联的 SuperGrok / SuperGrok Plus / SuperGrok Heavy、X Premium+，以及一次性试用额度。该页这次没有重抓，不把这些旧档名对应到新档。帮助页里「Teams 成员不需要另加 Premium 席位」和现在的 Premium 档同名，不能直接套用。
 
-- Cursor Pro / Pro+ / Ultra；
-- Cursor Teams；
-- 关联个人 SuperGrok / SuperGrok Plus / SuperGrok Heavy；
-- 关联 X Premium+；
-- 一次性免费试用额度。
+2026-10-16 的 [Cursor 定价页](https://cursor.com/en/pricing) 是 Free $0、Plus $8（仅 Grok；周用量池与 Grok 共享，美元大小未公布）、Premium $30、Super $100、Ultra $200、Teams 从 $30/用户起。Enterprise 价格未公布。旧的 Pro、Pro+ 和 Teams $40 已不在该页。
 
-Cursor 当前公开起价是个人 Pro **$20/月**、Teams Standard **$40/人/月**。Grok Bot 的包含用量按周重置，用完后若打开 on-demand，会通过 Cursor 继续计费。Cursor 套餐和 SuperGrok / X Premium+ 关联额度不会叠加。
+帮助页还写过：包含用量按周重置；打开 on-demand 后通过 Cursor 继续计费；Cursor 套餐和 SuperGrok / X Premium+ 不叠加。这三条仍按 2026-09-29 记录，这次没有复核。
 
-参考：[Grok Bot 计划与计费](https://cursor.com/help/grok-bot/plans)、[Cursor 定价](https://cursor.com/pricing)。
+参考：[Grok Bot 计划与计费](https://cursor.com/help/grok-bot/plans)、[Cursor 定价](https://cursor.com/en/pricing)。
 
 ### Muse
 
@@ -199,4 +196,4 @@ Grok Bot 与 Muse 不是简单的同类替代品。Grok Bot 把 Agent 组织成�
 
 ---
 
-*最后核对：2026-09-10。核心来源为 Grok Bot / Cursor 官方文档与 Meta Muse 官方发布、安全和设计说明。*
+*Muse 与 Grok Bot 功能的核对日仍是 2026-09-10。核心来源为 Grok Bot / Cursor 官方文档与 Meta Muse 官方发布、安全和设计说明。Cursor 标价改为 2026-10-16 的定价页。Grok Bot 资格仍按 2026-09-29 的帮助页，该页这次没有重抓。*

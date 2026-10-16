@@ -2,6 +2,7 @@
 title: "Augment Code vs Cursor 2026: Plugin-First vs IDE Fork — Which Is Right for You?"
 description: "Augment Code is a plugin-first enterprise AI coding tool. Cursor is the most popular AI IDE fork. Their core architectures differ significantly — this article helps you choose the right fit for your workflow."
 date: "2026-04-27"
+updated_at: "2026-10-16"
 tags: ["augment-code", "cursor", "comparison", "ide", "plugin", "enterprise", "large-codebase"]
 pillar: compare
 content_status: keep
@@ -17,7 +18,7 @@ Cursor is the most popular AI IDE today, but Augment Code took a fundamentally d
 |-----------|-------------|--------|
 | Product Form | VS Code / JetBrains / Vim **plugin** | Standalone IDE (VS Code fork) |
 | JetBrains Native Support | ✅ Full native support | ⚠️ Limited via ACP |
-| Starting Price | $20/mo (40K credits) | $20/mo (credit pool) |
+| Starting Price | $20/mo (40K credits) | Plus $8 (Grok only); third-party models from Premium $30, billed extra |
 | Large Codebase Understanding | ✅ Context Engine (500K+ files) | ✅ Composer context (window-limited) |
 | Code Completion | ✅ Yes (including Next Edit) | ✅ Yes (Tab — one of the best in the industry) |
 | MCP Support | ✅ (Context Engine available as MCP Server) | ✅ |
@@ -93,10 +94,10 @@ Cursor offers a limited free plan to try before you buy. Augment Code has no per
 | Plan | Augment Code | Cursor |
 |------|-------------|--------|
 | Free | ❌ No permanent free (trial credits only) | ✅ Limited quota |
-| Entry | $20/mo (40K credits) | $20/mo (Pro) |
-| Mid | $60/mo (130K credits) | $60/mo (Pro+) |
-| Power | $200/mo (450K credits) | $200/mo (Ultra) |
-| Enterprise | Custom (SOC 2 / zero-retention) | Teams from $40/user/mo |
+| Entry | $20/mo (40K credits) | Plus $8 (Grok only). Not an equivalent to 40K credits |
+| Mid | $60/mo (130K credits) | No $60 tier. Premium is $30, Super is $100. Dollar allowances are unpublished, so they do not line up with 130K credits |
+| Power | $200/mo (450K credits) | Ultra $200 (50x Plus). The dollar allowance is not published, so it does not line up with 450K credits |
+| Enterprise | Custom (SOC 2 / zero-retention) | Teams from $30/user/mo |
 
 **On Augment credits**: Different tasks consume different amounts — a small task (~10 tool calls) costs around 300 credits, while a complex Agent task (~60 tool calls) costs around 4,300. The Indie plan's 40K credits will last a light user a full month, but heavy Agent users may run out faster.
 
@@ -124,7 +125,7 @@ Cursor offers a limited free plan to try before you buy. Augment Code has no per
 |---|-------------|--------|
 | **Best for** | Large codebases, JetBrains users, enterprise compliance | Daily coding, VS Code users, new projects |
 | **Core strength** | Context Engine + native JetBrains support | Smooth Tab completion + integrated AI IDE |
-| **Entry barrier** | No free tier, starts at $20 | Free tier available, $20 Pro |
+| **Entry barrier** | No free tier, starts at $20 | Free tier. Paid starts at Plus $8, Grok only |
 | **Flexibility** | High (plugin, keeps your IDE) | Medium (requires switching to Cursor) |
 
 Augment Code and Cursor aren't purely either/or. Since Augment's Context Engine is available as an MCP Server, you can actually use both: run Cursor as your primary IDE and connect Augment's Context Engine via MCP to get enhanced codebase understanding — combining the strengths of both tools.

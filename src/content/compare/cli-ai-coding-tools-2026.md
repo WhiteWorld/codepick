@@ -2,6 +2,7 @@
 title: "2026 终端 AI 编程工具完全指南：7 款 CLI Agent 横评"
 description: "终端 AI 编程工具大爆发！Claude Code、Gemini CLI、Codex CLI、Kiro CLI、Copilot CLI、Cline CLI、Aider 七款 CLI Agent 全面对比，从编码能力、价格、上下文窗口到国内可用性。"
 date: "2026-03-28"
+updated_at: "2026-10-16"
 tags: ["cli", "终端", "claude-code", "gemini-cli", "codex-cli", "kiro-cli", "copilot-cli", "aider", "对比"]
 pillar: compare
 content_status: keep
@@ -145,6 +146,7 @@ locale_strategy: mirrored
 - 免费：50 credits/月
 - Pro $20/月（1,000 credits）
 - Pro+ $40/月（2,000 credits）
+- Pro Max $100/月（5,000 credits）
 - Power $200/月（10,000 credits）
 
 **核心优势**：
@@ -170,15 +172,16 @@ locale_strategy: mirrored
 **基本信息**：GitHub 出品 | 非开源
 
 **价格**：
-- 含在 Copilot Pro $10/月
-- 含在 Pro+ $39/月
-- 含在 Business $19/月/用户
+- 含在 Copilot Pro $10/月（合计 1,500 Credits）
+- 含在 Pro+ $39/月（合计 7,000 Credits）
+- 含在 Business $19/月/用户（每席 1,900 Credits）
+- 计划页另有 Max $100/月（20,000 Credits）和 Enterprise $39/用户/月（每席 3,900 Credits）。这两档是否与 Pro 一样包含 CLI，这次没有单独复核
 
 **核心优势**：
 - **内置专用 Agent**：Explore（代码探索）、Task（任务执行）、Code-review（代码审查）
 - **多会话支持**：同时运行多个 Agent 会话
 - **并行 Agent 执行**：多任务同时处理
-- **Auto 模式自动选模型**（9 折优惠）
+- **Auto 模式自动选模型**。2026-10-16 的计划页没有写 9 折，这次不把折扣当成现价
 - 与 GitHub PR/Issue/Actions 深度集成
 
 **独特功能**：

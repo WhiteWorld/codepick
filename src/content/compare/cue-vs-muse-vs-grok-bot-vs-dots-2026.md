@@ -2,6 +2,7 @@
 title: "Cue vs Muse vs Grok Bot vs Dots 2026：四个持续型 Agent 怎么选"
 description: "截至 2026-09-30 的 Manus Cue、Meta Muse、Grok Bot 与 OpenAI Dots 对比：买家、协作、身份与电脑、审批、价格和地区。Dots 是 9 月 29 日 DevDay 公布的 ChatGPT 常驻 Agent。Cue 是 Manus 的个人生活应用，不是 heycue.io。"
 date: "2026-09-30"
+updated_at: "2026-10-16"
 tags: ["cue", "manus", "muse-ai", "grok-bot", "dots", "openai", "ai-agent", "comparison"]
 pillar: compare
 content_status: keep
@@ -9,7 +10,7 @@ locale_strategy: mirrored
 draft: false
 ---
 
-> **核对日期：2026-09-30。** Cue 于 2026-09-28 随 Manus 2.0 公布。OpenAI Dots 于 2026-09-29 的 DevDay 公布。Muse 与 Grok Bot 仍在首发窗口。本文只把各家已经公开的能力写成结论。价格、额度和安全架构没写出来的地方，标成未知，不补数字。
+> **核对日期：2026-09-30。** Cue 于 2026-09-28 随 Manus 2.0 公布。OpenAI Dots 于 2026-09-29 的 DevDay 公布。Muse 与 Grok Bot 仍在首发窗口。本文只把各家已经公开的能力写成结论。价格、额度和安全架构没写出来的地方，标成未知，不补数字。Grok Bot 一节里的 Cursor 标价按 2026-10-16 的定价页改过。哪些档包含 Grok Bot、on-demand、以及和 SuperGrok 是否叠加，仍是 2026-09-29 的帮助页，这次没有重抓。Cue、Muse、Dots 没有在 2026-10-16 重核。
 
 Cue、Meta Muse、Grok Bot 和 OpenAI Dots 都会在你离开之后继续办事。买家和委托方式并不相同：
 
@@ -33,7 +34,7 @@ Cue、Meta Muse、Grok Bot 和 OpenAI Dots 都会在你离开之后继续办事�
 | 对外身份 | 每个 Agent 有自己的邮箱、电话、钱包、电脑 | 以用户连接的账号办事；模型看不到真实密码和付款信息 | ChatGPT 句柄（如 @name-dot）；没有公开的独立电话、邮箱、钱包 | 用用户云电脑上的登录和文件；这些凭据对该用户的全部 Bot 可用 |
 | 运行环境 | 官方写「每个 Agent 有自己的电脑」；隔离方式和机房位置未公开 | 每位用户一台 Muse Secure VM | 每个 dot 一台云电脑加浏览器；可选再连一台本地电脑 | 每位用户一台 Firecracker 云电脑；该用户的 Bot 共享它 |
 | 主要入口 | 网页、桌面、移动端；iOS 等待 App Store 审核 | iOS、Android、muse.ai；也可在 WhatsApp 里对话。眼镜端计划中 | 在桌面应用或桌面浏览器里创建。建好之后：手机 App 要等对应更新，Slack 和 Teams 可以联系。短信还没上。手机网页不支持 | macOS / Windows / Linux、iOS / Android |
-| 当前价格 | 邀请制早期体验，凭码免费；之后的月费和额度未公布 | 大部分日常使用免费；订阅价格和额度未在发布稿公布 | 随 Pro 100 / 200 / 500 与 Business Premium 提供。Enterprise 默认关闭，要工作区管理员打开。单独的 Dots 月费未公布 | 不单卖；随付费 Cursor、Teams，或符合条件的 SuperGrok / X Premium+ |
+| 当前价格 | 邀请制早期体验，凭码免费；之后的月费和额度未公布 | 大部分日常使用免费；订阅价格和额度未在发布稿公布 | 随 Pro 100 / 200 / 500 与 Business Premium 提供。Enterprise 默认关闭，要工作区管理员打开。单独的 Dots 月费未公布 | 不单卖。2026-10-16 的 Cursor 个人档是 Plus $8 到 Ultra $200，Teams 从 $30。哪些档包含 Grok Bot，帮助页这次没有重抓 |
 | 地区现实 | 官方博客未写国家清单。国内版本据 Manus 当日说法仍在筹备 | 9 月 8 日发布稿写美国首发；9 月 18 日有报道称加拿大已开放 | Pro 限 18 岁以上，且不含欧洲经济区、英国、瑞士。Business Premium 与 Enterprise 写的是全球陆续开放 | 云电脑目前在美国，未提供本地部署 |
 
 ---
@@ -208,15 +209,17 @@ Custom Rules 在 Settings → Personalization 的 Permissions 一节里，是可
 
 ### Grok Bot
 
-Grok Bot 没有单独订阅。入口是下面之一：
+Grok Bot 没有单独订阅。2026-09-29 的帮助页把入口写成下面几项。该页这次没有重抓，所以不把旧档名对应到新档：
 
-- Cursor Pro / Pro+ / Ultra；
-- Cursor Teams。自助方案里每个成员都有，不需要另加 Premium 席位；
+- 当时写的是 Cursor Pro / Pro+ / Ultra；
+- Cursor Teams。帮助页写自助方案里每个成员都有，不需要另加 Premium 席位。现在的定价页有一档就叫 Premium，这条不能直接套用；
 - Cursor Enterprise，需由客户经理开通；
 - 关联个人 SuperGrok、SuperGrok Plus、SuperGrok Heavy，或 X Premium+；
 - 一次性试用额度。试用按用量扣，同时还有 7 天窗口。用完不恢复。
 
-2026-09-29 核对的 [Cursor 定价页](https://cursor.com/pricing) 公开起价：个人 Pro **$20/月**，Teams **$40/人/月**，Enterprise 为定制。本文核对日没有重抓该页。包含用量按周重置。用完之后，若打开 on-demand，通过 Cursor 继续计费。Cursor 套餐和 SuperGrok / X Premium+ 的额度不叠加。各档每周的具体步数或 token 上限，计划页只用 “weekly / generous / highest” 描述，没有给出可引用的固定数字，这里标为未公布。
+2026-10-16 的 [Cursor 定价页](https://cursor.com/en/pricing) 是另一套名称：Free $0、Plus $8（仅 Grok；周用量池与 Grok 共享，美元大小未公布）、Premium $30、Super $100、Ultra $200、Teams 从 $30/用户起。Enterprise 价格未公布。旧的 Pro、Pro+ 和 Teams $40 已不在该页。
+
+帮助页还写过：包含用量按周重置；打开 on-demand 后通过 Cursor 继续计费；Cursor 套餐和 SuperGrok / X Premium+ 不叠加；各档每周步数或 token 上限没有固定数字。这四条仍按 2026-09-29 的帮助页记录，这次没有复核。
 
 参考：[Grok Bot 计划与计费](https://cursor.com/help/grok-bot/plans)。
 
@@ -279,4 +282,4 @@ Cue 和 Muse 都在做个人生活 Agent。Cue 公开的差异是 Agent 自己�
 
 ---
 
-*最后核对：2026-09-30。Cue 的主来源是 Manus 2.0 官方博客；国内市场表述来自 IT之家对 Manus 当日说明的报道。Muse 来自 Meta 发布、安全和设计页；加拿大开放来自引述 Meta 公开帖的报道。Dots 来自 ChatGPT 产品页、Learn 文档和 TechCrunch 的 DevDay 报道。Grok Bot 来自 xAI / Cursor 文档；Cursor 公开起价沿用 2026-09-29 的定价页核对。未公布的价格和额度保持未知。*
+*Cue、Muse、Dots 的核对日仍是 2026-09-30。Cue 的主来源是 Manus 2.0 官方博客；国内市场表述来自 IT之家对 Manus 当日说明的报道。Muse 来自 Meta 发布、安全和设计页；加拿大开放来自引述 Meta 公开帖的报道。Dots 来自 ChatGPT 产品页、Learn 文档和 TechCrunch 的 DevDay 报道。Grok Bot 的资格说明来自 2026-09-29 的帮助页，这次没有重抓。Cursor 标价改为 2026-10-16 的定价页。未公布的价格和额度保持未知。*
