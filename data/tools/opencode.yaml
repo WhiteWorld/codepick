@@ -4,8 +4,8 @@ type: cli
 logo: /images/opencode.png
 url: https://opencode.ai
 repo: https://github.com/anomalyco/opencode
-current_version: v1.19.0
-version_tracked_at: '2026-10-13'
+current_version: v1.19.2
+version_tracked_at: '2026-10-16'
 pricing:
   model: free
   currency: null
@@ -72,19 +72,28 @@ compatible_apis:
   - deepseek
   - ollama
 data_sources:
-  - url: https://github.com/anomalyco/opencode/releases/tag/v1.18.33
+  - url: https://github.com/anomalyco/opencode/releases/tag/v1.19.2
     type: release
-    last_checked: '2026-09-28'
+    last_checked: '2026-10-16'
   - url: https://github.com/anomalyco/opencode/releases
     type: release
-    last_checked: '2026-08-19'
+    last_checked: '2026-10-16'
   - url: https://opencode.ai/changelog
     type: changelog
     last_checked: '2026-08-19'
 changelog:
-  - date: '2026-10-13'
+  - date: '2026-10-16'
     type: release
-    summary: 'v1.19.0: v1.19.0'
+    summary: 'v1.19.2：1.x 更新检查只看 npm opencode-ai 的 latest，不再把 2.x 当成普通更新；升到 OpenCode 2 仍须通过 /update 的 2.0 选项或 opencode upgrade --major。修复 yarn 管理的安装升级；Homebrew Core 已跟踪 2.x，因此跳过 1.x 更新；安装脚本拒绝安装 2.x。'
+    summary_en: 'v1.19.2: OpenCode 1 update checks use only the npm opencode-ai latest version, so 1.x installs are not offered 2.x as a regular update. Upgrading to OpenCode 2 stays an explicit choice via the 2.0 offer in /update or opencode upgrade --major. Fixes yarn-managed upgrades; skips 1.x updates for Homebrew Core installs that now track OpenCode 2; the install script refuses 2.x.'
+  - date: '2026-10-15'
+    type: release
+    summary: 'v1.19.1：停止会话分享。已有分享链接和会话分享命令不再可用，也不再支持从分享 URL 导入会话。'
+    summary_en: 'v1.19.1: session sharing is discontinued. Existing share links and session-sharing commands are no longer available, and importing sessions from share URLs is unsupported.'
+  - date: '2026-10-11'
+    type: release
+    summary: 'v1.19.0：opencode upgrade --major 可升级到 OpenCode 2；/update 用于安装更新或升级到 2，更新不再自动安装。允许 OpenAI ultrafast 服务层级；在检查 PTY 是否存在之前先校验连接来源与 ticket。'
+    summary_en: 'v1.19.0: opencode upgrade --major upgrades to OpenCode 2. /update installs updates or upgrades to OpenCode 2, and updates are no longer installed automatically. Allows the OpenAI ultrafast service tier. Validates PTY connection origins and tickets before checking whether a PTY exists.'
   - date: '2026-09-28'
     type: release
     summary: v1.18.33：修复 Cloudflare AI Gateway 超时、MCP 浏览器启动失败上报、调试输出脱敏凭证，以及 Gemini thinking 默认值。
@@ -165,7 +174,7 @@ changelog:
     type: release
     summary: 'v0.0.55: 旧版本末期'
     summary_en: 'v0.0.55: final legacy release before v1.0 rewrite'
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-12'
+last_full_review: '2026-10-16'
+next_review_due: '2026-11-15'
 review_frequency_days: 30
 confidence: medium

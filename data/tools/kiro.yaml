@@ -17,18 +17,23 @@ pricing:
     - name: Pro
       price: 20
       period: month
-      limits: 1,000 credits/月, 超出$0.04/credit
-      limits_en: 1,000 credits/mo, overage $0.04/credit
+      limits: 1,000 credits/月，可用 premium 模型，超额 $0.04/credit
+      limits_en: 1,000 credits/mo, premium models, overage $0.04/credit
     - name: Pro+
       price: 40
       period: month
-      limits: 2,000 credits/月
-      limits_en: 2,000 credits/mo
+      limits: 2,000 credits/月，可用 premium 模型，超额 $0.04/credit
+      limits_en: 2,000 credits/mo, premium models, overage $0.04/credit
+    - name: Pro Max
+      price: 100
+      period: month
+      limits: 5,000 credits/月，可用 premium 模型，超额 $0.04/credit
+      limits_en: 5,000 credits/mo, premium models, overage $0.04/credit
     - name: Power
       price: 200
       period: month
-      limits: 10,000 credits/月
-      limits_en: 10,000 credits/mo
+      limits: 10,000 credits/月，可用 premium 模型，超额 $0.04/credit
+      limits_en: 10,000 credits/mo, premium models, overage $0.04/credit
     - name: Students
       price: 0
       limits: 高校学生专属，1,000 credits/月，免费 1 年
@@ -38,9 +43,9 @@ pricing:
       period: month
       limits: 定制配额，团队管理
       limits_en: Custom quota, team management
-  price_updated_at: '2026-06-06'
-  note: 统一 credit 池；付费档为 Pro $20/1,000 credits、Pro+ $40/2,000 credits、Power $200/10,000 credits，超额 $0.04/credit；首次升级付费可获得 $20 订阅抵扣；未用完 credits 不 rollover
-  note_en: Unified credit pool; paid tiers are Pro $20/1,000 credits, Pro+ $40/2,000 credits, Power $200/10,000 credits, overage at $0.04/credit; first paid upgrade gets a $20 subscription credit; unused credits do not roll over
+  price_updated_at: '2026-10-16'
+  note: 2026-10-16 核对 https://kiro.dev/pricing/。付费档为 Pro $20/1,000、Pro+ $40/2,000、Pro Max $100/5,000、Power $200/10,000 credits，超额 $0.04/credit。首次用社交登录或 AWS Builder ID 升级付费可获得 $20 订阅抵扣。未用完 credits 不结转。Free 为 50 credits，可用 Claude Sonnet 4.5 与开放权重模型。符合条件的高校学生在 kiro.dev/students 可获 1 年每月 1,000 credits。
+  note_en: 'Verified 2026-10-16 at https://kiro.dev/pricing/. Paid tiers are Pro $20/1,000, Pro+ $40/2,000, Pro Max $100/5,000, and Power $200/10,000 credits, with overage at $0.04/credit. The first paid upgrade with social login or AWS Builder ID gets a $20 subscription credit. Unused credits do not roll over. Free is 50 credits with Claude Sonnet 4.5 and open-weight models. Eligible university students get 1,000 credits/month free for one year at kiro.dev/students.'
 scores:
   coding_ability: 8.5
   cost_efficiency: 6
@@ -61,14 +66,21 @@ features:
   kiro_cli: true
   context_window: 标准上下文窗口
   supported_models:
-    - Claude Opus 4.7
-    - Claude Opus 4.6
+    - Auto
+    - Claude Opus 5
+    - Claude Opus 4.8
+    - Claude Sonnet 5
     - Claude Sonnet 4.6
     - Claude Sonnet 4.5
     - Haiku 4.5
+    - GPT-5.6 Sol
+    - GPT-5.6 Terra
+    - GPT-5.6 Luna
     - Qwen3 Coder Next
-    - DeepSeek v3.2
-    - MiniMax 2.1
+    - DeepSeek 3.2
+    - MiniMax M2.5
+    - MiniMax M2.1
+    - GLM-5
   ide_base: VS Code Fork
   supported_os:
     - macOS
@@ -109,7 +121,10 @@ plans_using_this: []
 data_sources:
   - url: https://kiro.dev/pricing/
     type: pricing
-    last_checked: '2026-10-13'
+    last_checked: '2026-10-16'
+  - url: https://kiro.dev/students/
+    type: pricing
+    last_checked: '2026-10-16'
   - url: https://kiro.dev/blog/introducing-kiro/
     type: changelog
     last_checked: '2026-10-13'
@@ -117,6 +132,10 @@ data_sources:
     type: documentation
     last_checked: '2026-10-13'
 changelog:
+  - date: '2026-10-16'
+    type: pricing
+    summary: 定价页新增 Pro Max：$100/月、5,000 credits，超额仍为 $0.04/credit。Pro / Pro+ / Power 的价格与额度未变。FAQ 列出的可选模型包括 Auto、Claude Opus 5 / Opus 4.8 / Sonnet 5，以及 GPT-5.6 Sol、Terra、Luna。
+    summary_en: 'Pricing page adds Pro Max at $100/mo for 5,000 credits; overage stays $0.04/credit. Pro, Pro+, and Power prices and credit amounts are unchanged. The FAQ lists Auto, Claude Opus 5, Opus 4.8, Sonnet 5, and GPT-5.6 Sol, Terra, and Luna among selectable models.'
   - date: '2026-05-01'
     type: announcement
     summary: Amazon Q Developer Free Tier 和订阅将于 2026-05-15 停止新注册；新用户将直接引导至 Kiro；最新编程模型（含 Opus 4.7）已仅在 Kiro 提供；Okta / Microsoft Entra ID 与 AWS IAM Identity Center 联合登录（SCIM 自动同步）
@@ -149,7 +168,7 @@ changelog:
     type: launch
     summary: Kiro 公开预览版发布，AWS 出品的 Spec 驱动 Agentic IDE
     summary_en: Kiro public preview launched — AWS-built Spec-driven Agentic IDE
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-12'
+last_full_review: '2026-10-16'
+next_review_due: '2026-11-15'
 review_frequency_days: 30
 confidence: high

@@ -1,14 +1,14 @@
 id: antigravity
-name: Antigravity（预览免费）
-name_en: Antigravity (Free Preview)
-badge: Agent-First 新秀
-badge_en: Agent-First Newcomer
-tagline: Google 出品，预览期免费用 Claude Opus 4.5 + Gemini 3 Pro
-tagline_en: By Google — free Claude Opus 4.5 + Gemini 3 Pro during preview
+name: Antigravity
+name_en: Antigravity
+badge: Agent-First
+badge_en: Agent-First
+tagline: Google 的 Agent 平台，个人版 $0/月，Pro/Ultra 美元价格未在产品定价页公布
+tagline_en: Google's agent platform. Individual is $0/mo; Pro and Ultra dollar prices are not on the product pricing page
 client: antigravity
 api: null
 environment: Antigravity IDE（VS Code Fork）
-monthly_cost: "$0（预览期）"
+monthly_cost: "$0"
 currency: USD
 scores:
   coding_ability: 8.5
@@ -22,46 +22,40 @@ tags:
   - free
   - google
 best_for:
-  - 想免费体验 Claude Opus 4.5 / Gemini 3 Pro 顶级模型
-  - 需要浏览器控制的端到端全栈任务
-  - 对 Agent-First 并行架构感兴趣的开发者
-  - GCP / Firebase 生态用户
+  - 想先用 $0 个人版体验 Agent IDE 的开发者
+  - 已有 Google AI Pro / Ultra 或 Gemini Enterprise 的团队
+  - GCP 生态用户
 best_for_en:
-  - Free access to Claude Opus 4.5 / Gemini 3 Pro top-tier models
-  - End-to-end full-stack tasks with browser control
-  - Developers interested in Agent-First parallel architecture
-  - GCP / Firebase ecosystem users
+  - Developers who want to try the agent IDE on the $0 Individual plan
+  - Teams that already have Google AI Pro, Ultra, or Gemini Enterprise
+  - GCP ecosystem users
 quick_start:
-  - "访问 antigravity.dev 申请访问权限"
-  - "Google 账号登录"
-  - "下载安装 IDE"
-  - "发起任务，观察多 Agent 并行执行（编辑器 + 终端 + 浏览器）"
+  - "访问 antigravity.google 下载安装（不要用 antigravity.dev，该域名目前是 nginx 默认页）"
+  - "用 Google 账号登录，个人版 $0/月"
+  - "需要更高限额时查看 Google AI Pro / Ultra；组织通过 Google Cloud 开通"
+  - "在 IDE、CLI 或 App 里发起 Agent 任务"
 quick_start_en:
-  - "Visit antigravity.dev and request access"
-  - "Log in with your Google account"
-  - "Download and install the IDE"
-  - "Start a task and watch multi-Agent parallel execution (editor + terminal + browser)"
+  - "Download from antigravity.google (antigravity.dev is currently a default nginx page)"
+  - "Sign in with a Google account; Individual is $0/month"
+  - "For higher limits see Google AI Pro or Ultra; organizations enable it through Google Cloud"
+  - "Start agent tasks in the IDE, CLI, or App"
 pros:
-  - 预览期完全免费，含 Claude Opus 4.5 (Thinking) + Gemini 3 Pro
-  - 内置浏览器控制，支持真正端到端任务
-  - 多 Agent 并行执行，效率高
-  - Artifacts 产出物可在执行前审查逻辑
+  - 个人版 $0/月，含无限 Tab 与 Command，以及基础每周速率限制
+  - 同时提供 App、CLI、IDE 与 SDK
+  - Google AI Pro / Ultra 可用 Gemini 4 Argon
+  - 组织可走 Gemini Enterprise，Standard/Plus 起价 $30/席/月
 pros_en:
-  - Completely free during preview, includes Claude Opus 4.5 (Thinking) + Gemini 3 Pro
-  - Built-in browser control for true end-to-end tasks
-  - Multi-Agent parallel execution for high efficiency
-  - Artifacts allow logic review before execution
+  - Individual is $0/month, with unlimited Tab and Command plus basic weekly rate limits
+  - Ships as an App, CLI, IDE, and SDK
+  - Gemini 4 Argon is available on Google AI Pro and Ultra
+  - Organizations can use Gemini Enterprise, with Standard/Plus from $30/seat/month
 cons:
-  - 预览版，稳定性存在风险（发布 24h 内即发现安全漏洞）
-  - 暂无企业级合规认证
+  - Google AI Pro 与 Ultra 的美元价格没有写在产品定价页上
   - 国内需代理访问
-  - 正式定价未知，免费期结束后成本待定
-  - 代码补全体验弱于 Cursor
+  - antigravity.dev 已不是产品站
 cons_en:
-  - Preview version with stability risks (security vulnerability found within 24h of launch)
-  - No enterprise compliance certifications yet
-  - Requires proxy in China
-  - Official pricing unknown, post-preview costs TBD
-  - Code completion experience weaker than Cursor
-description: "Google 推出的 Agent-First AI IDE，2025 年 11 月随 Gemini 3 同期发布。预览期完全免费，可使用 Claude Opus 4.5、Gemini 3 Pro 等顶级模型。独特的多 Agent 并行架构支持内置浏览器控制和 Artifacts 产出物审查。适合尝鲜和 Agent 重度任务，生产环境建议谨慎。"
-description_en: "Google's Agent-First AI IDE, launched alongside Gemini 3 in November 2025. Completely free during preview with access to Claude Opus 4.5 and Gemini 3 Pro. Unique multi-Agent parallel architecture with built-in browser control and Artifacts review. Great for early adopters and Agent-heavy tasks; use caution in production."
+  - Dollar prices for Google AI Pro and Ultra are not on the product pricing page
+  - Requires a proxy in China
+  - antigravity.dev is no longer the product site
+description: "Google 的 Agent 开发平台，2026-10-16 定价页标为 Generally Available。个人版 $0/月。Google AI Pro 与 Ultra 只公布更高限额，没有美元价格。组织通过 Gemini Enterprise 使用，Standard/Plus 起价 $30/席/月。"
+description_en: "Google's agent development platform. The pricing page on 2026-10-16 marks it Generally Available. Individual is $0/month. Google AI Pro and Ultra publish higher limits but no dollar price. Organizations use it through Gemini Enterprise, with Standard/Plus from $30/seat/month."

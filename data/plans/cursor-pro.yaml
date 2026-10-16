@@ -10,8 +10,8 @@ composition:
   environment: Cursor IDE
 
 monthly_cost:
-  min: "$20"
-  typical: "$20"
+  min: "$0"
+  typical: "$30"
   max: "$200"
 
 currency: USD
@@ -22,8 +22,8 @@ scores:
   flexibility: 5.0
   china_friendly: 4.0
 
-description: "当前最强AI IDE。Agent模式支持多文件自主编辑，Tab补全丝滑，代码库级上下文理解。Pro $20/月含$20额度池+Auto无限用, Pro+ $60/月3倍用量, Ultra $200/月20倍用量。"
-description_en: "The most powerful AI IDE. Agent mode supports multi-file autonomous editing, smooth Tab completion, and codebase-level context understanding. Pro $20/mo with $20 credit pool + unlimited Auto, Pro+ $60/mo 3x usage, Ultra $200/mo 20x usage."
+description: "当前最强 AI IDE。2026-10-16 定价页：Free $0、Plus $8（仅 Grok 模型）、Premium $30（标为最受欢迎，4 倍 Plus，含云端 Agent）、Super $100、Ultra $200。用量池与 Grok 共享并按周刷新；Premium 及以上的第三方模型按 API 标价另计。"
+description_en: "The most powerful AI IDE. Pricing page on 2026-10-16: Free $0, Plus $8 (Grok models only), Premium $30 (marked most popular, 4x Plus, includes cloud agents), Super $100, Ultra $200. Usage pool is shared with Grok and refreshes weekly; third-party models on Premium and above are billed at API list price."
 
 setup_guide: "/guides/cursor-setup"
 comparison_pages:
@@ -43,30 +43,28 @@ best_for_en:
 
 quick_start:
   - "下载安装 Cursor IDE (cursor.com)"
-  - "选择 Pro ($20/月) 或更高套餐"
-  - "开箱即用，支持 Claude/GPT/Gemini 前沿模型"
+  - "Free 可直接试用；日常 Agent 选 Premium（$30/月），只用 Grok 模型可选 Plus（$8/月）"
+  - "第三方模型在 Premium 及以上按 API 标价另计，不包含在月费里"
 quick_start_en:
   - "Download and install Cursor IDE (cursor.com)"
-  - "Choose Pro ($20/mo) or higher plan"
-  - "Works out of the box with Claude/GPT/Gemini frontier models"
+  - "Start on Free; Premium ($30/mo) is the daily Agent tier, Plus ($8/mo) if you only need Grok models"
+  - "Third-party models on Premium and above are billed at API list price and are not included in the monthly fee"
 
 pros:
-  - Agent模式当前最强，多文件自主编辑
-  - Tab补全丝滑，代码库级上下文
-  - Cloud Agents 支持后台异步开发
-  - Auto模式无限使用前沿模型
+  - Agent 模式支持多文件自主编辑
+  - Premium 起包含云端 Agent、Automations 与 Bugbot
+  - 用量按周刷新，单日高峰不会用掉整月额度
 pros_en:
-  - Best-in-class Agent mode with multi-file autonomous editing
-  - Smooth Tab completion with codebase-level context
-  - Cloud Agents for background async development
-  - Unlimited frontier model usage in Auto mode
+  - Agent mode supports multi-file autonomous editing
+  - Cloud agents, automations, and Bugbot start at Premium
+  - Usage refreshes weekly, so one heavy day does not spend the whole month
 cons:
-  - 价格较高（$20-200/月）
+  - 付费个人档 $8–$200/月，第三方模型另计
+  - Plus 只有 Grok 模型
   - 国内需代理访问
-  - 封闭生态，不可自定义模型来源
-  - VS Code Fork, 不支持 JetBrains
+  - 模型来源由订阅档决定，不能自带任意 API
 cons_en:
-  - Expensive ($20-200/mo)
-  - Requires proxy in China
-  - Closed ecosystem, no custom model sources
-  - VS Code Fork only, no JetBrains support
+  - Paid individual tiers are $8-$200/mo, and third-party models are extra
+  - Plus includes Grok models only
+  - Requires a proxy in China
+  - Model access follows the subscription tier; arbitrary bring-your-own APIs are not the default

@@ -59,5 +59,5 @@ cons_en:
   - Steep learning curve for Spec workflow
   - Less freedom than Cursor, not ideal for rapid prototyping
   - Community and plugin ecosystem still maturing
-description: "AWS 推出的规格驱动 AI IDE。独特的 Spec-Driven 工作流将开发流程拆解为：需求规格→设计文档→任务列表→代码实现，每步可审查，适合企业级结构化开发。Pro $20/月含 vibe coding 无限额度，有 50 次/月免费试用。"
-description_en: "AWS's spec-driven AI IDE. Unique Spec-Driven workflow breaks development into: requirements → design docs → task list → code implementation, each step auditable. Ideal for enterprise structured development. Pro $20/mo with unlimited vibe coding, 50 free uses/mo trial."
+description: "AWS 推出的规格驱动 AI IDE。Spec 工作流把开发拆成需求、设计、任务和代码，每步可审查。2026-10-16 定价：Free 50 credits/月，Pro $20/月含 1,000 credits，其上还有 Pro+、Pro Max 与 Power。没有「vibe coding 无限」这一档。"
+description_en: "AWS's spec-driven AI IDE. The Spec workflow splits development into requirements, design, tasks, and code, and each step can be reviewed. Pricing on 2026-10-16: Free is 50 credits/mo, Pro is $20/mo with 1,000 credits, with Pro+, Pro Max, and Power above it. There is no unlimited vibe-coding tier."

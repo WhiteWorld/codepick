@@ -12,33 +12,31 @@ pricing:
   plans:
     - name: Free
       price: 0
-      limits: 25 credits/月，支持全部高级模型
-      limits_en: 25 credits/mo, access to all premium models
+      limits: 轻度 Agent 配额（页面未再给出 25 credits 这个数字），模型可用范围有限，无限 inline edits 与 Tab 补全
+      limits_en: Light agent quota (the page no longer states 25 credits), limited model availability, unlimited inline edits and Tab completions
     - name: Pro
       price: 20
       period: month
-      limits: 标准每日/每周配额，全部高级模型（SWE-1/1.5、Sonnet 4.6、GPT-5、Gemini 3.1 Pro），无限 Tab 补全和命令行编辑，含 Devin 云端 Agent
-      limits_en: Standard daily/weekly quota, all premium models (SWE-1/1.5, Sonnet 4.6, GPT-5, Gemini 3.1 Pro), unlimited Tab & Command, Devin Cloud Agent included
+      limits: 更高配额，可使用 OpenAI、Claude、Gemini、SpaceXAI 的前沿模型以及主流开源模型；完整模型列表；SWE-2 在 Devin Desktop 与 CLI 中免费用到 2026-10-16；含 Devin Cloud；超出后按 API 价格购买
+      limits_en: Higher quotas with frontier models from OpenAI, Claude, Gemini, and SpaceXAI plus leading open source models; full model availability; SWE-2 free in Devin Desktop and CLI through 2026-10-16; Devin Cloud included; extra usage at API pricing
     - name: Max
       price: 200
       period: month
-      limits: 高用量配额，适合高强度使用场景，含 Devin 云端 Agent
-      limits_en: Higher usage quota for power users, Devin Cloud Agent included
+      limits: Pro 全部功能，配额显著更高
+      limits_en: Everything in Pro, with significantly higher quotas
     - name: Teams
-      price: 40
+      price: 80
       period: month
-      per_user: true
-      limits: 每用户标准配额，集中计费，管理后台，SSO + RBAC，含 Devin 云端 Agent
-      limits_en: Standard quota per user, centralized billing, admin dashboard, SSO + RBAC, Devin Cloud Agent included
+      limits: 团队方案基础费 $80/月，另加 $40/月/全职开发席位；最多 200 用户；集中计费、管理后台与优先支持；每名全职用户自带配额
+      limits_en: $80/month team-plan base plus $40/month per full dev seat; up to 200 users; centralized billing, admin dashboard, and priority support; each full user includes their own quota
     - name: Enterprise
       price: null
       period: month
-      per_user: true
-      limits: 企业级配额，RBAC + SSO，混合部署，ZDR，200人以上联系销售
-      limits_en: Enterprise quota, RBAC + SSO, hybrid deployment, ZDR; 200+ contact sales
-  price_updated_at: '2026-04-16'
-  note: 2026年3月19日起新订阅者 Pro 从 $15 升至 $20，改为每日/每周刷新配额制；2026年3月19日前订阅者保留旧 $15 价格；学生认证可享 50%+ 折扣；2026-08 起 windsurf.com/pricing 已 308 重定向到 devin.ai/pricing（Cognition/Devin 整合，Windsurf 并入 Devin 产品线），定价以 devin.ai 为准
-  note_en: From March 19, 2026, new Pro subscribers pay $20 (up from $15); daily/weekly quota system replaces monthly credits; pre-March-19 subscribers keep $15 rate; 50%+ student discount with .edu email; since 2026-08 windsurf.com/pricing 308-redirects to devin.ai/pricing (Cognition/Devin consolidation - Windsurf folded into the Devin product line), pricing now lives at devin.ai
+      limits: 联系销售；最高优先级支持、专属客户经理、SAML/OIDC SSO、集中管理、专属部署、主流模型提供商
+      limits_en: Contact sales; highest-priority support, dedicated account management, SAML/OIDC SSO, centralized admin controls, dedicated deployment, and major model providers
+  price_updated_at: '2026-10-16'
+  note: 2026-10-16 核对 https://devin.ai/pricing（windsurf.com/pricing 会转到这里）。个人档为 Free $0、Pro $20、Max $200。付费档用量按日/周自动刷新，页面没有写出具体 credit 数字。Teams 是 $80/月基础费加 $40/月/全职席位，不是单一的 $40/用户。2026-03-19 的 $15 老用户价和学生折扣没有出现在当前定价页，是否仍然有效未知。SWE-2 在 Devin Desktop 与 CLI 的免费期写到 2026-10-16。
+  note_en: 'Verified 2026-10-16 at https://devin.ai/pricing (windsurf.com/pricing redirects here). Individual tiers are Free $0, Pro $20, and Max $200. Paid allowances refresh daily and weekly; the page does not publish a credit count. Teams is an $80/month base plus $40/month per full seat, not a flat $40/user. The 2026-03-19 grandfathered $15 rate and the student discount are not on the current pricing page, so whether they still apply is unknown. Free SWE-2 in Devin Desktop and CLI is stated through 2026-10-16.'
 scores:
   coding_ability: 8.5
   cost_efficiency: 8
@@ -90,12 +88,12 @@ not_for_en:
   - Users who need self-hosting or local models
 quick_start:
   - 访问 windsurf.com/download，下载并安装 Windsurf（支持 macOS/Windows/Linux）
-  - 注册 Codeium 账号（Free 套餐每月 25 credits，可直接体验），或用 GitHub 登录
+  - 注册账号（Free 为轻度配额，可直接体验），或用 GitHub 登录
   - 打开项目，使用 Cascade 面板（右侧）进行 AI 对话，支持多文件编辑和 Agent 模式
   - JetBrains / Vim 用户：在插件市场搜索 Windsurf 插件，安装后同样支持 Cascade
 quick_start_en:
   - Visit windsurf.com/download, download and install Windsurf (macOS/Windows/Linux)
-  - 'Sign up for a Codeium account (Free plan: 25 credits/month, ready to use) or log in with GitHub'
+  - 'Sign up (Free is a light quota and ready to use) or log in with GitHub'
   - Open your project and use the Cascade panel (right side) for AI chat with multi-file editing and Agent mode
   - 'JetBrains/Vim users: search for the Windsurf plugin in the marketplace; Cascade works there too'
 register_url: https://windsurf.com
@@ -105,11 +103,15 @@ plans_using_this: []
 data_sources:
   - url: https://devin.ai/pricing
     type: pricing
-    last_checked: '2026-10-13'
+    last_checked: '2026-10-16'
   - url: https://windsurf.com/changelog
     type: changelog
     last_checked: '2026-10-13'
 changelog:
+  - date: '2026-10-16'
+    type: pricing
+    summary: devin.ai/pricing 当前为 Free $0（轻度配额、模型范围有限、无限 Tab）、Pro $20、Max $200。Teams 改为 $80/月基础费加 $40/月/全职开发席位。SWE-2 在 Devin Desktop 与 CLI 免费用到 2026-10-16。页面未再写出 25 credits 或 $15 老用户价。
+    summary_en: 'devin.ai/pricing currently lists Free $0 (light quota, limited models, unlimited Tab), Pro $20, and Max $200. Teams is now an $80/month base plus $40/month per full dev seat. SWE-2 is free in Devin Desktop and CLI through 2026-10-16. The page no longer states 25 credits or the grandfathered $15 rate.'
   - date: '2026-05-17'
     type: release
     summary: v2.3.9：修复 swe-check 模型对部分用户不可用的问题；增强终端处理性能；恢复会话共享功能；修复 WSL 下 Devin local agent 路径解析问题；设置面板改为独立 Tab 展示（替代弹窗）并新增可搜索侧边栏；Agent 会话支持重命名；Spaces 支持 @-mention 跨会话共享上下文
@@ -178,7 +180,7 @@ changelog:
     type: update
     summary: 推出 SWE-1.5 自研 Agent 模型，速度和代码能力双提升
     summary_en: Launched SWE-1.5 proprietary Agent model, improving both speed and code quality
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-12'
+last_full_review: '2026-10-16'
+next_review_due: '2026-11-15'
 review_frequency_days: 30
 confidence: high
