@@ -1,8 +1,9 @@
 ---
 title: "Best Voice Input Tools for Vibe Coding Developers (2026)"
-description: "Compare the top voice dictation tools for AI-assisted coding: Wispr Flow, superwhisper, Typeless, Willow, Talon Voice, Spokenly, and more — with integrations for Cursor, Claude Code, and VS Code."
+description: "Compare voice dictation tools for AI-assisted coding: Wispr Flow, superwhisper, Typeless, Willow, Talon Voice, Spokenly, OpenWhispr, and VoiceVibe — with notes for Cursor, Claude Code, and VS Code."
 date: "2026-03-03"
-tags: ["voice-input", "vibe-coding", "wispr-flow", "superwhisper", "comparison"]
+updated_at: "2026-10-16"
+tags: ["voice-input", "vibe-coding", "wispr-flow", "superwhisper", "voicevibe", "comparison"]
 pillar: compare
 content_status: keep
 locale_strategy: mirrored
@@ -22,6 +23,7 @@ This article compares the top voice dictation tools that work with Cursor, Claud
 - **Talon Voice**: Most customizable, full hands-free coding via programmable voice commands
 - **Spokenly**: Free, unlimited, offline, macOS only
 - **OpenWhispr**: Free, open-source, cross-platform (Win/Mac/Linux)
+- **VoiceVibe**: Installers for three desktop OSes. Free tier is dictation; handing a task to a coding agent is Pro
 
 ---
 
@@ -36,6 +38,7 @@ This article compares the top voice dictation tools that work with Cursor, Claud
 | Talon Voice | Cross-platform | Free/Premium | ✅ | Full voice commands + dictation | Customizable | Hands-free coders |
 | Spokenly | macOS | Free | ✅ | BYOK (OpenAI/Groq), unlimited | Fast | Budget macOS devs |
 | OpenWhispr | Win/Mac/Linux | Free | ✅ | Open-source, MIT license | Offline | Linux / privacy devs |
+| VoiceVibe | Win 10+ x64; macOS 14+ Apple Silicon; Linux x86-64 X11 | Free dictation; Pro $14.99/mo | Free dictation: vendor says on-device | Hotkey dictation; Pro can hand a task to an installed coding agent | — | Try free dictation first |
 | macOS Dictation | macOS | Free | M1+ only | Basic | Limited | Casual, zero setup |
 | Windows Voice Access | Windows 11 | Free | ✅ | Commands + dictation | Native | Windows 11 devs |
 
@@ -137,6 +140,14 @@ Fully local Whisper dictation for macOS. Free, unlimited, no registration requir
 
 Open-source (MIT license), Electron-based app for Windows, Mac, and Linux. Supports local Whisper models or BYOK cloud APIs. Privacy-first by design. The best option for Linux developers and anyone who wants to inspect the source code. GitHub: openwhispr/openwhispr
 
+### VoiceVibe
+
+VoiceVibe ([tool page](/en/tool/voicevibe/)) is a closed-source desktop app. On 2026-10-16 the [download page](https://voicevibe.ai/download) offered three installers at version 0.9.974: Windows 10 or later on Intel/AMD 64-bit, macOS 14 or later on Apple Silicon, and x86-64 X11 Linux (the page says Linux Mint is the tested target). Windows ARM, Intel Macs, Wayland, and ARM Linux are outside that list.
+
+The [pricing page](https://voicevibe.ai/pricing) limits the free plan to Voice Typing: on-device Parakeet, unlimited use, offline, one device, no account. First offline use downloads about a 2.5GB model, and the page says about 2.7GB RAM while it is loaded. AI rewrite and Agent Launcher are not in the free plan. The [privacy policy](https://voicevibe.ai/privacy) also says the free tier still sends a pseudonymous device id and a daily usage count, the app checks for updates about every 30 minutes, and that usage stat is not currently opt-out. On-device dictation is not the same claim as an app that never touches the network. This comparison did not install the app.
+
+The pricing FAQ lists Pro at $14.99/month or $143.90/year, and Pro Max at $29.99/month or $287.90/year. The pricing card places "$14.99/month" next to "billed annually at $143.90", which does not match the FAQ's split between monthly and annual billing. Check the checkout page before paying. Agent Launcher is a Pro mode: dictate a task, review the prompt, then hand it to a local Claude Code, Codex, Cursor CLI (the features page says macOS/Linux), OpenCode, or Pi. Claude Code Desktop and Codex Desktop open an unsent draft. Pro covers up to 3 devices. No independent hands-on review was found.
+
 ### macOS Dictation
 
 Built into macOS — zero setup, zero cost. On Apple Silicon (M1+), dictation runs fully offline. Noticeably improved in macOS 14 Sonoma and macOS 15 Sequoia. Works in any text field including terminal, VS Code, Cursor. The 30-second session cap from older macOS versions has been removed. Not developer-specialized, but perfectly usable for dictating prompts.
@@ -218,6 +229,7 @@ The key is to speak full, complete requirements as you would explain them to a j
 | Linux developer | OpenWhispr |
 | Budget-conscious (any platform) | Spokenly or OpenWhispr (both free) |
 | Newest tech, fastest latency | Willow for Developers |
+| Try free dictation on three desktop OSes before paying to hand tasks to a coding agent | VoiceVibe |
 
 ---
 
@@ -225,4 +237,4 @@ Voice input adds roughly 2-3x throughput to the describe → generate → review
 
 For Chinese developers looking for tools optimized for the domestic ecosystem, see [/zh/compare/voice-tools-china](/zh/compare/voice-tools-china).
 
-> Data current as of March 2026. Pricing and features change frequently — verify at each tool's official website before purchasing.
+> VoiceVibe was checked on 2026-10-16 against [voicevibe.ai](https://voicevibe.ai), the [pricing page](https://voicevibe.ai/pricing), the [download page](https://voicevibe.ai/download), and the [privacy policy](https://voicevibe.ai/privacy). The app was not installed. The other rows are still the March 2026 notes; check each vendor site before buying.

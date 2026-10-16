@@ -1,0 +1,132 @@
+id: voicevibe
+name: VoiceVibe
+type: app
+logo: /images/voicevibe.png
+url: https://voicevibe.ai
+repo: null
+current_version: '0.9.974'
+version_tracked_at: '2026-10-16'
+tagline: 桌面语音工具。免费档是设备端听写；Pro 可以把口述任务交给本机已安装的 coding agent
+tagline_en: Desktop voice app. The free tier is on-device dictation; Pro can hand a spoken task to a coding agent already installed locally
+pricing:
+  model: subscription
+  currency: USD
+  plans:
+    - name: Free
+      price: 0
+      limits: 仅 Voice Typing。定价页写设备端 Parakeet、不限次数、可离线、单设备、无需账号。首次离线使用另下载约 2.5GB 模型，加载时约 2.7GB 内存
+      limits_en: Voice Typing only. The pricing page says on-device Parakeet, unlimited, offline, one device, no account. First offline use downloads about a 2.5GB model; about 2.7GB RAM while loaded
+    - name: Pro
+      price: 14.99
+      period: month
+      limits: FAQ 写月付 $14.99，或年付 $143.90。含 Agent Launcher 等 Pro 模式，最多 3 台设备，同一时间 1 个云端请求。定价卡片把「$14.99/月」和「按年 $143.90」写在一起，与 FAQ 的两种计费不完全一致
+      limits_en: 'FAQ lists $14.99/month or $143.90/year. Includes Pro modes such as Agent Launcher, up to 3 devices, one cloud request at a time. The pricing card pairs "$14.99/month" with "billed annually at $143.90", which does not match the FAQ''s two billing options exactly'
+    - name: Pro Max
+      price: 29.99
+      period: month
+      limits: FAQ 写月付 $29.99，或年付 $287.90。功能与 Pro 相同，用量上限为 Pro 的 4 倍。7 天退款保证以定价页 FAQ 为准
+      limits_en: FAQ lists $29.99/month or $287.90/year. Same features as Pro, with 4x the usage cap. The 7-day refund is as stated in the pricing FAQ
+  price_updated_at: '2026-10-16'
+  note: 2026-10-16 核对 https://voicevibe.ai/pricing 、https://voicevibe.ai/download 、https://voicevibe.ai/features 和 https://voicevibe.ai/privacy 。没有安装应用，也没有找到独立上手评测。GetApp 有产品条目，但没有可用的用户评分
+  note_en: Checked 2026-10-16 at https://voicevibe.ai/pricing , https://voicevibe.ai/download , https://voicevibe.ai/features , and https://voicevibe.ai/privacy . The app was not installed. No independent hands-on review was found. GetApp lists the product without usable user scores
+# Scores are CodePick's from vendor pages only. The app was not installed.
+# coding_ability 5: VoiceVibe does not write code; Agent Launcher hands work to another tool. Not tested.
+# cost_efficiency 7: pricing page offers unlimited free dictation; the agent handoff is on the paid plan.
+# flexibility 6: three desktop OS families, each with a narrow supported slice.
+# china_friendly 5: not tested from mainland China; no China-specific docs found.
+# privacy 5: on-device claim is the vendor privacy policy, and that policy also describes telemetry. Not audited.
+scores:
+  coding_ability: 5
+  cost_efficiency: 7
+  flexibility: 6
+  china_friendly: 5
+  privacy: 5
+features:
+  code_completion: false
+  chat: false
+  agent_mode: false
+  multi_file_edit: false
+  mcp_support: false
+  voice_typing: true
+  agent_launcher: true
+  open_source: false
+  self_hosted: false
+  supported_agents:
+    - Claude Code
+    - Codex CLI
+    - Cursor CLI
+    - OpenCode
+    - Pi
+    - Claude Code Desktop
+    - Codex Desktop
+  supported_os:
+    - Windows 10+ x64
+    - macOS 14+ Apple Silicon
+    - Linux x86-64 X11
+  ide_base: 桌面语音助手
+best_for:
+  - 想在桌面用快捷键听写、并接受免费档能力有限的人
+  - 已经安装 Claude Code、Codex、OpenCode 或 Pi，想用语音准备任务再人工确认的人
+best_for_en:
+  - People who want a desktop hotkey for dictation and can accept a limited free tier
+  - People who already run Claude Code, Codex, OpenCode, or Pi and want to dictate a task before sending it
+not_for:
+  - 需要 Intel Mac、Windows ARM、Wayland 或 ARM Linux 的环境
+  - 把「完全不联网」当成硬要求的人（免费听写据称为设备端，但隐私政策写明仍有用量和更新检查）
+  - 期望语音工具自己写代码，而不是转交给别的 agent
+not_for_en:
+  - Intel Macs, Windows ARM, Wayland, or ARM Linux
+  - A hard requirement that the app never touch the network (free dictation is described as on-device, but the privacy policy still describes usage stats and update checks)
+  - Expecting the voice app itself to write the code, rather than hand the task to another agent
+pros:
+  - 下载页同时提供 Windows、macOS、Linux 安装包，免费听写不要求账号
+  - 功能页写明 Agent Launcher 会先让你检查提示词，终端 agent 还要确认工作目录；桌面版打开的是未发送草稿
+  - 定价页把免费档限制写清楚了：没有 AI 改写、没有多模态、9 个 Pro 模式锁定
+pros_en:
+  - The download page offers Windows, macOS, and Linux installers, and free dictation does not require an account
+  - The features page says Agent Launcher lets you review the prompt first; terminal agents also confirm the working directory, and desktop apps open an unsent draft
+  - 'The pricing page states the free-tier limits: no AI rewrite, no multimodal features, and nine Pro modes locked'
+cons:
+  - 平台切片很窄。2026-10-16 下载页：无 Windows ARM、无 Intel Mac、无 Wayland、无 ARM Linux；Linux 写明测过的是 Mint
+  - 免费听写的「设备端 / 可离线」来自厂商定价页和隐私政策，本次没有安装验证。同一隐私政策写明：免费档仍上传匿名设备标识和每日用量，约每 30 分钟检查更新，且这项统计目前不能关闭
+  - Agent Launcher、云端纠错和语音助手在 Pro。Cursor CLI 功能页写的是 macOS/Linux。没有找到独立评测
+cons_en:
+  - 'Platform support is narrow. Download page on 2026-10-16: no Windows ARM, no Intel Mac, no Wayland, no ARM Linux; the tested Linux target is Mint'
+  - '"On-device / offline" for free dictation comes from the vendor pricing page and privacy policy; the app was not installed. That privacy policy also says the free tier still sends a pseudonymous device id and a daily usage count, checks for updates about every 30 minutes, and that this usage stat is not currently opt-out'
+  - Agent Launcher, cloud cleanup, and the voice assistant are Pro. The features page lists Cursor CLI for macOS/Linux. No independent review was found
+quick_start:
+  - 从 https://voicevibe.ai/download 下载对应系统的安装包，核对版本是否仍为页面所写
+  - 按页面授予麦克风权限。离线听写会在首次使用时下载本地模型
+  - 若要交给 coding agent，需要另购 Pro，并事先安装功能页列出的终端或桌面应用
+quick_start_en:
+  - Download the installer for your OS from https://voicevibe.ai/download and check that the version still matches the page
+  - Grant microphone access as the page describes. Offline dictation downloads a local model on first use
+  - Handing work to a coding agent requires Pro, plus a terminal or desktop app listed on the features page
+register_url: https://voicevibe.ai/download
+china_note: 没有找到面向中国大陆的说明，这次也没有从大陆网络测试下载、更新或识别效果。免费听写据称在设备端完成，但应用仍会按隐私政策做更新检查
+china_note_en: No mainland-China documentation was found, and downloads, updates, and recognition were not tested from a mainland network. Free dictation is described as on-device, but the app still performs the update checks described in the privacy policy
+data_sources:
+  - url: https://voicevibe.ai
+    type: docs
+    last_checked: '2026-10-16'
+  - url: https://voicevibe.ai/pricing
+    type: pricing
+    last_checked: '2026-10-16'
+  - url: https://voicevibe.ai/download
+    type: docs
+    last_checked: '2026-10-16'
+  - url: https://voicevibe.ai/features
+    type: docs
+    last_checked: '2026-10-16'
+  - url: https://voicevibe.ai/privacy
+    type: docs
+    last_checked: '2026-10-16'
+changelog:
+  - date: '2026-10-16'
+    type: launch
+    summary: 按官网、定价页、下载页（0.9.974）和隐私政策加入工具库。未安装，评分不采用厂商表述
+    summary_en: Added from the website, pricing page, download page (0.9.974), and privacy policy. Not installed; scores do not follow vendor wording
+last_full_review: '2026-10-16'
+next_review_due: '2026-11-15'
+review_frequency_days: 30
+confidence: low

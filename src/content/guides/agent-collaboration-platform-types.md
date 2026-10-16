@@ -1,12 +1,13 @@
 ---
 title: "Agent 协作平台选型：聊天协作、任务面板、AI Team Workspace、Agent Runtime 怎么选"
-description: "市面上的 Agent 协作平台可以分成四大类：聊天协作型、任务面板型、AI Team Workspace 型和 Agent Runtime 型。了解每类的特点和代表产品，帮你找到最适合的方案。"
+description: "市面上的 Agent 协作平台可以分成四大类：聊天协作型、任务面板型、AI Team Workspace 型和 Agent Runtime 型。任务面板型写了 Multica 和 Orbi。了解每类的特点和代表产品，帮你找到最适合的方案。"
 date: "2026-05-09"
-tags: [agent-collaboration, comparison, slock, multica, taskade, crewai]
+updated_at: "2026-10-16"
+tags: [agent-collaboration, comparison, slock, multica, orbi, taskade, crewai]
 article_type: review
 pillar: workflow
 content_status: keep
-locale_strategy: zh_only
+locale_strategy: mirrored
 draft: false
 ---
 
@@ -19,7 +20,7 @@ Agent 协作平台可以按**交互模型**分成四大类：
 | 类型 | 交互方式 | 代表产品 | 核心心智 |
 |------|---------|---------|---------|
 | **聊天协作型** | 聊天频道 + 任务认领 | Slock、AgentRQ | Agent 是同事 |
-| **任务面板型** | Issue/Kanban + Agent 分配 | Multica | Agent 是执行者 |
+| **任务面板型** | Issue/Kanban + Agent 分配 | Multica、Orbi | Agent 是执行者 |
 | **AI Team Workspace 型** | 工作台 + Agent 团队 | Taskade、Floatboat、Soleur | Agent 是团队 |
 | **Agent Runtime/Framework 型** | 代码/配置定义 Agent | CrewAI、AutoGen Studio | Agent 是程序 |
 
@@ -47,21 +48,24 @@ Agent 协作平台可以按**交互模型**分成四大类：
 
 ## 二、任务面板型 — Agent 是执行者
 
-**代表产品：Multica**
+**代表产品：Multica、Orbi**
 
-**怎么用**：创建 Issue → 选 Assignee（人或 Agent）→ Agent 自动拉取、执行、更新状态 → 实时进度流。
+**怎么用**：把任务写成 Issue 或看板卡片，指定人或 Agent 执行，再看状态是否完成或阻塞。
 
 **为什么选这类**：
 - 和 GitHub Issues / Jira 同款心智
-- 有完整的任务生命周期（enqueue → claim → execute → complete/fail）
-- Skills 系统让 Agent 经验可复用
-- 开源可自托管
+- 任务有认领、执行、完成或阻塞的状态，而不是散落在聊天记录里
+- 适合把 Agent 放进已经在用的 issue 流程
 
 **不适合**：
-- 需要快速轻量交互的场景
-- Agent 没有持久记忆
+- 需要即时聊天、轻量试错的场景
+- 不想维护任务面板的人
 
-**一人公司典型用法**：「把所有 P0 Bug 建成 Issue，Assign 给 Claude Agent。他会自动修、提 PR、更新状态。我只需要 Review PR。」——像管一个远程外包团队。
+**Multica** 自建 Issue 面板：创建 Issue，指定人或 Agent 为 Assignee，Agent 拉取任务、执行，并把进度写回时间线。它带 Skills，可自托管，也能接多种 coding runtime。原文记录的限制是 Agent 没有跨任务的持久记忆；这一段本次没有重核。
+
+**Orbi**（[工具页](/zh/tool/orbi/)）不另做看板，任务就是 GitHub Issue。文档写明：打上 `ai-ready` 后，runner 在独立 worktree 里用 Pi 改代码并开 PR；写代码的会话和评审会话分开，评审会话可以改分支并重跑测试，通过后才合并。发版不是合并的自动结果：要另开 release Issue，并由人打上 `ai-release`。自托管不收平台费，模型用你自己的接口，交付记录留在 GitHub。2026-10-16 能核实的限制是：只支持 GitHub；安装脚本只接受 Linux（systemd）和 macOS（launchd），README 写明 macOS 调度尚未在真机验证；还需要 Python ≥ 3.14、Node ≥ 22.19 和 GitHub CLI ≥ 2.94。Orbi Cloud 会把授权仓库克隆到对方机器上，前 3 次成功合并不需要信用卡，之后公开月付为 Solo $29、Pro $79。仓库创建于 2026-08-24。这次没有安装，也没有在第三方仓库复现整条流程。公开示例 [PR #1370](https://github.com/orbi-build/orbi/pull/1370) 由 `orbi-build[bot]` 打开并合并，对应已关闭的 Issue #1367 和 release v0.5.47。
+
+**一人公司典型用法**：「把 P0 bug 写成 GitHub Issue。用 Multica 时 assign 给 Agent；用 Orbi 时打上 `ai-ready`。人看 PR。」——像把执行交给远程 runner，而不是在聊天里并肩改代码。
 
 ---
 
@@ -112,7 +116,7 @@ Agent 协作平台可以按**交互模型**分成四大类：
 你是开发者吗？
   ├─ 是 → 习惯命令行还是 GUI？
   │   ├─ 命令行 → 聊天协作型（Slock）或 Framework 型（CrewAI）
-  │   └─ GUI → 任务面板型（Multica）
+  │   └─ GUI → 任务面板型（Multica、Orbi）
   └─ 不是 / 不想写代码 → 你要管理什么？
       ├─ 单个/少量 Agent → 聊天协作型或任务面板型
       └─ 完整的 AI 团队 → AI Team Workspace 型（Taskade / Floatboat / Soleur）
@@ -137,7 +141,8 @@ Agent 协作平台可以按**交互模型**分成四大类：
 | 如果你… | 试试 |
 |---------|------|
 | 想要最自然的 Agent 协作体验 | Slock |
-| 想用 Issue/Kanban 管 Agent | Multica |
+| 想用 Issue/Kanban 管 Agent | Multica、Orbi |
+| 任务已经在 GitHub Issue 里，并希望合并前有另一场评审 | Orbi |
 | 想要全功能 AI 工作台 | Taskade AI Teams |
 | 想让 AI 学习你的工作方式 | Floatboat |
 | 想要完整的 AI 公司 | Soleur |
@@ -145,3 +150,5 @@ Agent 协作平台可以按**交互模型**分成四大类：
 | 需要可视化 Agent 原型设计 | AutoGen Studio / Dify |
 
 关键是选对「交互模型」——聊天、面板、工作台、还是框架——这决定了你和 Agent 团队的协作效率。
+
+Orbi 一段于 2026-10-16 按 [GitHub 仓库](https://github.com/orbi-build/orbi)、安装脚本和 [orbi.build](https://orbi.build) 核对。文中其他产品沿用 2026-05-09 的原文，本次未重核。
