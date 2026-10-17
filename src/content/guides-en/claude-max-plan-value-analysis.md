@@ -92,3 +92,4 @@ If you're torn between Claude Code and Codex CLI, subscription cost is a major v
 - Max 20x at $200/mo, request-count estimates, and API rates: site data in `data/tools/claude-code.yaml` (price_updated_at 2026-03-27).
 - Domestic plan comparison data: `data/plans/` and the linked review articles on this site.
 - Price content in this article should be re-verified quarterly; if you spot stale numbers, please open an issue on the GitHub repo.
+- If you already pay for Cursor and want to put the same third-party usage next to Max, use the [switch decision](/en/guides/cursor-x-subscription-switch-decision/). Subscription prices there were checked on 2026-10-17.

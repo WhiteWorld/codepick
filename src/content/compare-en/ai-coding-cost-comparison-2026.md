@@ -146,5 +146,6 @@ For China-based developers, hidden costs are obvious: network instability hurts 
 - [China Coding API roundup](/en/guides/china-coding-api-roundup-2026/)
 - [Coding Plan comparison 2026](/en/compare/coding-plan-comparison-2026/)
 - [Cursor cost-saving guide](/en/guides/cursor-cost-saving/)
+- [Should existing Cursor users switch to The X Subscription?](/en/guides/cursor-x-subscription-switch-decision/)
 
 > Cursor and Copilot stickers updated 2026-10-16. Cursor does not publish the pool's dollar size. Copilot annual prices and per-plan model checkmarks were not re-checked. Codex, Claude, Ark, Bailian, and MiniMax were not re-checked and stay as previously written.

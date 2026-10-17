@@ -153,3 +153,4 @@ Claude Code Pro 的 45 次/5小时窗口换算下来是：**平均每 6.7 分钟
 - [Claude Code Token 节省完全指南](/zh/guides/claude-code-token-saving)
 - [Claude Code 太贵怎么办](/zh/guides/claude-code-budget-alternatives)
 - [Cline + 火山方舟设置教程](/zh/guides/cline-ark-setup)
+- [老用户要不要切到 The X Subscription](/zh/guides/cursor-x-subscription-switch-decision/)
