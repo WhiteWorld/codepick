@@ -116,5 +116,6 @@ Other tools, if the work fits them:
 - [Cursor vs Windsurf](/en/compare/cursor-vs-windsurf)
 - [Cline + Volcengine Ark setup](/en/guides/cline-ark-setup)
 - [Claude Code token saving](/en/guides/claude-code-token-saving)
+- [Should existing Cursor users switch to The X Subscription?](/en/guides/cursor-x-subscription-switch-decision/)
 
 > Prices checked 2026-10-16. Cursor does not publish the dollar size of the usage pool. Windsurf does not publish a credit count, the old $15 grandfather rate, or a student discount on the current pricing page.

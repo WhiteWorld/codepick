@@ -157,5 +157,6 @@ Codex 的特殊点是：它不是单独的 $20 编程订阅，而是包含在 Ch
 - [MiniMax Token Plan 全解读](/zh/guides/minimax-token-plan/)
 - [5 大国内 Coding Plan 全量横评](/zh/compare/coding-plan-comparison-2026/)
 - [Cursor 省钱指南](/zh/guides/cursor-cost-saving/)
+- [老用户要不要切到 The X Subscription](/zh/guides/cursor-x-subscription-switch-decision/)
 
 > 核查日期：2026-10-16 更新了 Cursor、Copilot 的标价。Cursor 用量池的美元大小未公布。Copilot 年付价格和分套餐模型勾选未复核。Codex、Claude、方舟、百炼、MiniMax 这次没有重核，仍沿用文中原记录。

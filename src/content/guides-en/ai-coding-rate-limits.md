@@ -153,3 +153,4 @@ Schedule these for evenings or early mornings. This preserves your rate window c
 - [Claude Code Token Saving Guide](/en/guides/claude-code-token-saving)
 - [Claude Code Is Too Expensive: Budget Alternatives](/en/guides/claude-code-budget-alternatives)
 - [Cline + Volcengine Ark Setup Guide](/en/guides/cline-ark-setup)
+- [Should existing Cursor users switch to The X Subscription?](/en/guides/cursor-x-subscription-switch-decision/)

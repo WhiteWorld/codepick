@@ -92,3 +92,4 @@ Claude Max 是 Anthropic 订阅体系里的最高个人档，官方定位是"全
 - Max 20x $200/月、请求次数估算、API 费率：站内 `data/tools/claude-code.yaml`（price_updated_at 2026-03-27）。
 - 国产方案对比数据：站内 `data/plans/` 与对应评测文章。
 - 本文价格类内容建议每季度复核一次；如果你发现数字过期，欢迎在 GitHub 仓库提 issue。
+- 已经在用 Cursor、要拿同一份第三方用量和 Max 比怎么切的，看 [切换决策表](/zh/guides/cursor-x-subscription-switch-decision/)。订阅价以那篇 2026-10-17 的核对为准。

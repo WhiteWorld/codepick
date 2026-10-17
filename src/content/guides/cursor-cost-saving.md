@@ -116,5 +116,6 @@ Cursor 会把规则文件附在 Agent / Chat 请求上。规则越长，按 API 
 - [Cursor vs Windsurf](/zh/compare/cursor-vs-windsurf)
 - [Cline + 火山方舟设置教程](/zh/guides/cline-ark-setup)
 - [Claude Code Token 节省指南](/zh/guides/claude-code-token-saving)
+- [老用户要不要切到 The X Subscription](/zh/guides/cursor-x-subscription-switch-decision/)
 
 > 价格核对：2026-10-16。Cursor 用量池的美元大小未公布。Windsurf 的 credit 数、$15 老用户价和学生折扣，当前定价页没有写，这里不补。

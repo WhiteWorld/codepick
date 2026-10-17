@@ -175,7 +175,7 @@ The new billing model introduces budget controls at three levels:
 | Heavy agentic user (Sonnet/Opus + large context) | Consider Pro+ or Max. Cline plus a direct API bills tokens. Third-party models in Cursor start at Premium $30 and are billed extra |
 | JetBrains / deep GitHub integration user | Copilot remains the best fit; monitor monthly usage |
 
-If the new billing pushes your costs up significantly, see our [Claude Code budget alternatives guide](/en/compare/claude-code-budget-alternatives) or [how to cut Cursor costs](/en/guides/cursor-cost-saving) for alternative setups.
+If the new billing pushes your costs up significantly, see our [Claude Code budget alternatives guide](/en/compare/claude-code-budget-alternatives) or [how to cut Cursor costs](/en/guides/cursor-cost-saving) for alternative setups. If you already pay for Cursor and are deciding whether to keep that plan or switch to The X Subscription, use the [switch decision](/en/guides/cursor-x-subscription-switch-decision/).
 
 ---
 
