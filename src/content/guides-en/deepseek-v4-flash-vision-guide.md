@@ -1,7 +1,8 @@
 ---
-title: "DeepSeek V4 Flash Vision: Hands-On Guide to DeepSeek's First Vision Model"
-description: "deepseek-v4-flash-vision-exp is the first image-input model in the DeepSeek V4 family - an experimental release that hit 458 points on Hacker News on day one. This guide covers what it can do, the three ways to send images, OpenAI/Anthropic compatibility, token billing, and caveats, so you can decide fast whether to integrate it."
-date: "2026-08-22"
+title: "DeepSeek Vision: Use deepseek-flash, the Experimental Vision Model Is Retired"
+description: "Rechecked on 2026-10-18 against the official Vision guide and pricing page. Image input goes through deepseek-flash (V4.1-Flash-1017). deepseek-v4-flash-vision-exp is retired. The name is still accepted and served by the latest Flash. V4-Pro has no vision."
+date: "2026-10-18"
+updated_at: "2026-10-18"
 article_type: howto
 tags: [deepseek, deepseek-v4, vision, multimodal, api]
 pillar: plans
@@ -10,67 +11,87 @@ locale_strategy: mirrored
 draft: false
 ---
 
-## Bottom Line
+Checked on **2026-10-18**. Pages opened that day:
 
-- **`deepseek-v4-flash-vision-exp` is the first image-input model in the DeepSeek V4 family** (experimental) - it hit 458 points on Hacker News on release day, reflecting long-standing community demand for a DeepSeek vision model.
-- It can: describe images, read text from screenshots (OCR-style), analyze charts, and do multi-turn image+text Q&A.
-- Integration is minimal: **OpenAI/Anthropic-compatible formats**, so Claude Code, GitHub Copilot, and OpenCode can use it as a backend model with zero code.
-- Caveats: it's **experimental** (behavior may change) and images are billed in tokens alongside text tokens.
+- [Vision guide](https://api-docs.deepseek.com/guides/vision)
+- [Pricing](https://api-docs.deepseek.com/quick_start/pricing)
+- [Changelog](https://api-docs.deepseek.com/updates)
+- [News post, 2026-09-10](https://api-docs.deepseek.com/news/news260910)
 
----
+An older draft treated `deepseek-v4-flash-vision-exp` as the current model, and said the V4 family had three public models and that Flash had been updated to V4-Flash-0731. Those three claims are out of date.
 
-## What It Is
+## How image input works now
 
-The DeepSeek V4 family currently has three public models:
+On the pricing page, `deepseek-flash` has vision checked. The version is **DeepSeek-V4.1-Flash-1017**. `deepseek-v4-pro` (V4-Pro-0813) says **Not supported**.
 
-| Model ID | Description |
-|---------|------|
-| `deepseek-v4-flash` | Lightweight fast tier (updated to V4-Flash-0731) |
-| `deepseek-v4-pro` | Flagship tier (updated to V4-Pro-0813) |
-| **`deepseek-v4-flash-vision-exp`** | **Experimental vision model - accepts images + text** |
+The vision guide opens with the same fact: `deepseek-flash` accepts images next to text. The old name `deepseek-v4-flash-vision-exp` is still accepted. That model is retired, and those requests are also served by the latest Flash, at the Flash price.
 
-`vision-exp` adds image understanding on top of the flash's lightweight architecture - the first time DeepSeek exposes "seeing" to API users. It shares the same API as the text models: just set `model` to `deepseek-v4-flash-vision-exp` and pass `content` as an array of blocks (the standard OpenAI multimodal format) instead of a plain string.
+The guide's examples are describing a picture, reading text in a screenshot, and analyzing a chart. Formats: JPEG, PNG, GIF, and WebP. The format is detected from the file bytes, not the file name or the MIME type.
 
-## What It Can Do
+Images are allowed in `user` messages only. An image in `system` or `assistant` returns 400.
 
-Official use cases include:
+Image tokens are billed with text tokens at the Flash peak and off-peak rates. Off-peak / peak, per 1M tokens: cache hit $0.003 / $0.006, cache miss $0.15 / $0.30, output $0.60 / $1.20. Peak hours are in the [API platform guide](/en/guides/deepseek-v4-api-platforms/).
 
-- **Describe images**: "What's in this picture?"
-- **Read text from screenshots**: extract text from UI captures, document scans, or photos of whiteboards (OCR-style).
-- **Analyze charts**: give it a line/bar chart and ask for trends or conclusions.
-- **Multi-turn image+text Q&A**: follow-ups with image context.
+## The experimental model, as history
 
-Supported formats: **JPEG, PNG, GIF, WebP**. Format is detected from the actual file content, not the filename or declared MIME type - a wrong extension won't break it.
+On 2026-08-21 the changelog released DeepSeek-V4-Flash-Vision-Exp as `deepseek-v4-flash-vision-exp`. That was the first time the V4 series exposed image input on the API. It was a separate model from text Flash.
 
-## Three Ways to Send Images
+On 2026-09-10, V4-Flash and V4-Flash-Vision-Exp were retired. `deepseek-v4-flash` and `deepseek-v4-flash-vision-exp` were temporarily routed to V4.1-Flash. After the 17 October upgrade, the pricing page says both old names are served by **V4.1-Flash-1017** at the Flash price.
 
-All use the standard OpenAI Chat Completions format (`content` as a block array); pick one:
+The V4.1-Flash news post calls it the smallest model in the new architecture family, with native visual understanding, not an experimental head added onto a text-only Flash. "First vision model" fits the 21 August experiment. It does not fit today's `deepseek-flash`.
 
-1. **Base64 inline**: encode the image as a `data:image/jpeg;base64,...` URL and embed it in the request. Simplest for local files; note the encoded data counts toward the 48 MiB request-body limit.
-2. **External URL**: pass a publicly accessible http(s) link and the model downloads it. Limits: URL ≤ 8192 chars, image ≤ 32 MiB, must download within 60 seconds.
-3. **Files API file_id**: upload to the DeepSeek Files API first, then reference by file_id. Best when referencing the same image repeatedly.
+The older draft said the experiment hit 458 points on Hacker News that day. That thread was not reopened on 2026-10-18, so the number is not repeated as a current fact.
 
-The same capability is also available via the **Responses API** and the **Anthropic-compatible endpoint** (base_url `https://api.deepseek.com/anthropic`, using Anthropic's image content block format).
+## Three ways to send an image
 
-## Integrating with Existing Tools
+All three use OpenAI Chat Completions, with `content` as an array of blocks. The Responses API uses `input_image`. The Anthropic-compatible base URL is `https://api.deepseek.com/anthropic`, and the image block type is `image`.
 
-DeepSeek's docs state that Claude Code, GitHub Copilot, and OpenCode all support DeepSeek as a backend - no code, just config:
+1. **Base64.** Put a `data:image/jpeg;base64,...` URL in the request. This is the simple path for a local file. The encoded bytes count toward the 48 MiB body limit.
+2. **External URL.** A public http(s) link. The URL may be at most 8192 characters, the file at most 32 MiB, and the download must finish within 60 seconds.
+3. **Files API `file_id`.** Use this when the same image is sent many times, or when one image breaks the inline limit. A `file_id` image may be up to 64 MiB and skips the 32 MiB check. A `file` block can also carry `file_data` as base64. `file_id` and `file_data` are mutually exclusive.
 
-- **Claude Code**: follow DeepSeek's official agent-integration guide for base_url / api_key / model.
-- **OpenCode / Copilot**: same OpenAI-compatible config.
-- **DeepSeek Harness**: the official agent harness is in developer preview and can call `vision-exp` directly.
+`image_url` accepts `detail`. `low` downscales to 512×512. `high` and `original` keep the image. `auto` currently matches `original`. `detail` is ignored for `file_id`.
 
-If you haven't set up the DeepSeek API yet, start with our [DeepSeek V4 API platform guide](/en/guides/deepseek-v4-api-platforms/).
+Before inference, every image is resized and the aspect ratio is kept. Images under roughly 544×544 pixels are scaled up. Larger images are scaled down to about the pixel count of a 1300×1300 image. That caps one image at **1024 tokens**. A 2000×2000 image and a 5000×5000 image cost the same number of tokens after resizing. Multiple images are counted one by one. The token calculator on DeepSeek's Token page was not used here, so no calculator output is quoted.
 
-## Billing and Caveats
+The older draft said images under about 384×384 were scaled up. The vision guide on 2026-10-18 says roughly **544×544**.
 
-- **Images are token-billed**: images are converted to tokens by dimensions and settled together with text tokens; images are auto-resized before inference (below ~384×384 get scaled up).
-- **Specific unit prices** follow the official [DeepSeek pricing page](https://api-docs.deepseek.com/quick_start/pricing); this article doesn't quote unverified numbers.
-- **Experimental warning**: the `-exp` suffix means capabilities, rate limits, and pricing can change - confirm the latest state in the official docs before integrating in production.
-- **Mainland direct access**: the DeepSeek API is directly reachable from China - a low-friction multimodal option for domestic users (vs GPT/Claude which need a proxy).
+| Limit | Value on the guide |
+| --- | --- |
+| Formats | JPEG, PNG, GIF, WebP |
+| External URL length | 8192 characters |
+| Request body | 48 MiB |
+| One image (base64 or external URL) | 32 MiB |
+| One image (Files API `file_id`) | 64 MiB |
+| Images per request | 600 |
+| Total image bytes per request | 64 MiB without `file_id` images; up to 200 MiB including `file_id` images |
+| Max side | 8192 px; 4096 px when a request has 15 or more images |
 
-## Sources and Review Dates
+```python
+import base64
+from openai import OpenAI
 
-- Model IDs, capabilities, formats, three image-sending methods, compatible APIs, token billing: DeepSeek official docs, [Vision guide](https://api-docs.deepseek.com/guides/vision/) and [Quick Start](https://api-docs.deepseek.com/), verified 2026-08-22.
-- HN traction: Hacker News front page 458 points (2026-08-21).
-- Experimental model behavior may change; re-check official docs before integration; if you spot stale content, please open an issue on the GitHub repo.
+client = OpenAI(api_key="<DeepSeek API Key>", base_url="https://api.deepseek.com")
+
+with open("image.jpg", "rb") as f:
+    b64 = base64.b64encode(f.read()).decode("utf-8")
+
+response = client.chat.completions.create(
+    model="deepseek-flash",
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {"type": "text", "text": "What is in this image?"},
+                {
+                    "type": "image_url",
+                    "image_url": {"url": f"data:image/jpeg;base64,{b64}"},
+                },
+            ],
+        }
+    ],
+)
+print(response.choices[0].message.content)
+```
+
+If a tool such as Claude Code or OpenCode only needs a new `base_url` and model name, use `deepseek-flash`. The changelog recommends DeepSeek Harness **0.2.1-rc.1** or later. This page does not retest each client's default model ID.

@@ -2,7 +2,7 @@
 title: "China Coding API Roundup 2026: Ark vs Bailian vs MiniMax vs Zhipu vs DeepSeek"
 description: "The most comprehensive 2026 comparison of Chinese AI coding API subscriptions: Volcengine Ark Lite ¥40/mo (¥9.9 first month), Alibaba Bailian ¥200, MiniMax ¥29, Zhipu GLM ¥49+, and DeepSeek pay-as-you-go. One big table, six scenarios, and a decision tree to find your fit in 30 seconds."
 date: "2026-05-19"
-updated_at: "2026-05-19"
+updated_at: "2026-10-18"
 article_type: "review"
 tags: ["coding-plan", "comparison", "roundup", "ark", "bailian", "minimax", "glm", "zhipu", "deepseek", "china", "api"]
 pillar: plans
@@ -17,12 +17,12 @@ faq:
       - **Long-term lowest**: MiniMax Token Plan ¥29 (full-modal), Ark Lite ¥40 renewal, Zhipu GLM Lite ¥49. Bailian discontinued Lite and starts at ¥200 (Pro).
   - q: "I want to use Claude Code — which Chinese gateway is best?"
     a: |
-      Depends on model preference: for Doubao + multi-model Auto, pick **Volcengine Ark**; for GLM-5.1 flagship, pick **Zhipu Coding Plan**; for Qwen Coder, pick **Bailian**; for **DeepSeek V4-Pro flagship pay-as-you-go**, pick **DeepSeek official** (`api.deepseek.com/anthropic`).
+      Depends on model preference: for Doubao + multi-model Auto, pick **Volcengine Ark**; for GLM-5.1 flagship, pick **Zhipu Coding Plan**; for Qwen Coder, pick **Bailian**; for DeepSeek's official pay-as-you-go API, pick **DeepSeek** (`api.deepseek.com/anthropic`, model `deepseek-flash` or `deepseek-v4-pro`).
       All four natively support Anthropic-protocol endpoints — Claude Code just needs two env vars, no proxy or third-party wrapper required.
   - q: "Why doesn't DeepSeek have a Coding Plan?"
     a: |
-      DeepSeek runs pure pay-per-token pricing with no monthly subscription; Web Chat is fully free.
-      V4-Pro currently has a **75% discount (until 2026-05-31)** — extremely high ROI for heavy users, but only economical if usage varies. Steady users still benefit more from subscription plans.
+      On 2026-10-18 the official pricing page lists pay-per-token only, with no monthly plan, in USD.
+      The V4-Pro 75% discount through 2026-05-31 is no longer on that page. Current rates are peak and off-peak, and off-peak is half of peak. Whether web or app chat is free is not on the pricing page or the changelog, so that is unknown. Steady usage still has to be compared with a subscription's monthly fee.
   - q: "Can annual subscriptions really save 30%? Who offers them?"
     a: |
       **Zhipu** is the most aggressive: 10% off quarterly / 30% off annually (Pro at ¥104/mo paid annually).
@@ -37,6 +37,8 @@ faq:
       Ark supports sub-accounts but doesn't bill per-seat. Zhipu, MiniMax, and DeepSeek require teams to subscribe individually or self-allocate budgets.
 ---
 
+DeepSeek sentences were updated from the [pricing page](https://api-docs.deepseek.com/quick_start/pricing), the [changelog](https://api-docs.deepseek.com/updates), and the [2026-09-10 news post](https://api-docs.deepseek.com/news/news260910), reopened on 2026-10-18. Ark, Bailian, MiniMax, and Zhipu were not reopened. Those sections are still the 2026-05-19 text.
+
 China's AI coding API subscription market exploded in 2026 — five major providers now offer fundamentally different product shapes: from Ark's daily first-month flash sales (¥9.9, renew at ¥40) to Zhipu's 30%-off annual deals, from MiniMax's full-modal bundle to DeepSeek's pure pay-as-you-go. **Which one to buy?** This is a roundup for developers actually making the decision.
 
 ## TL;DR — Decide in 4 lines
@@ -44,7 +46,7 @@ China's AI coding API subscription market exploded in 2026 — five major provid
 - **Cheapest first-month trial**: Ark Coding Plan Lite first month **¥9.9** (renews at ¥40)
 - **Want stable GLM-5.1 / maximize annual discount**: Zhipu Coding Plan **Pro ¥149** (¥104/mo annual)
 - **Heavy multimodal (audio/video included)**: MiniMax Token Plan **from ¥29**
-- **Variable usage / want direct V4-Pro flagship**: DeepSeek API (pay-per-token, V4-Pro currently **75% off**)
+- **Variable usage / official pay-as-you-go**: DeepSeek API. `deepseek-flash` is V4.1-Flash-1017, priced peak and off-peak, not the May discount
 
 For team scenarios or heavy Claude Code users, read on.
 
@@ -55,10 +57,10 @@ For team scenarios or heavy Claude Code users, read on.
 | Dimension | Volcengine Ark | Alibaba Bailian | MiniMax | Zhipu GLM | DeepSeek |
 |---|---|---|---|---|---|
 | **Standard monthly** | ¥40 (Lite) / ¥200 (Pro) | ¥200 (Pro) | from ¥29 | ¥49 (Lite) / ¥149 (Pro) / ¥469 (Max) | None (pay-per-token) |
-| **First-month promo** | **¥9.9** (Lite, ¥8.9 with referral) | None | None | **Discontinued** | V4-Pro 75% off until 5/31 |
+| **First-month promo** | **¥9.9** (Lite, ¥8.9 with referral) | None | None | **Discontinued** | No monthly fee. The old V4-Pro 75% off is not on the pricing page |
 | **Pricing model** | Subscription + sliding window | Subscription + monthly quota | Subscription + token pool | Subscription + sliding window | Per-token |
 | **Quota mechanism** | 5h sliding ~1,200 calls | Monthly ~90,000 calls | Token pool | 5h sliding ~80 prompts | True usage |
-| **Models** | 5 (Doubao+others) | 8 (full Qwen lineup) | Full multimodal | 3 (GLM-5/4.7/4.6) | DeepSeek series (V4/R1) |
+| **Models** | 5 (Doubao+others) | 8 (full Qwen lineup) | Full multimodal | 3 (GLM-5/4.7/4.6) | Two pricing-page columns: `deepseek-flash`, `deepseek-v4-pro`. V3.2 / R1 are not listed |
 | **Auto mode** | ✅ | ❌ | ❌ | ❌ | ❌ |
 | **Anthropic protocol** | ✅ | ✅ | ✅ | ✅ | ✅ (`api.deepseek.com/anthropic`) |
 | **Claude Code native** | ✅ | ✅ | ✅ | ✅ | ✅ (official native) |
@@ -77,7 +79,7 @@ For team scenarios or heavy Claude Code users, read on.
 Daily flash sale at 10:30 — new users get ¥9.9 first month, down to ¥8.9 with referral coupon. Fits daily chat + light agent tasks (1,200 calls per 5h). **Second month onwards is ¥40** — if you need to stay under ¥30/mo long-term, switch to MiniMax ¥29 full-modal after the first month.
 
 ### 🦀 Scenario B: Claude Code with domestic models
-**Verdict: Ark (multi-model) / Zhipu (GLM) / Bailian (Qwen) / DeepSeek (V4-Pro flagship) — all four work**
+**Verdict: Ark (multi-model) / Zhipu (GLM) / Bailian (Qwen) / DeepSeek (official pay-as-you-go) — all four work**
 
 All four support Anthropic-protocol endpoints. Configure Claude Code with two env vars:
 
@@ -93,12 +95,12 @@ export ANTHROPIC_BASE_URL="https://api.deepseek.com/anthropic"
 export ANTHROPIC_AUTH_TOKEN="<your-deepseek-key>"
 ```
 
-Picker: want Auto model routing → Ark; want GLM-5.1 flagship → Zhipu; want full Qwen Coder lineup → Bailian; want **V4-Pro flagship pay-as-you-go** → DeepSeek (V4-Pro 75% off until 5/31).
+Picker: want Auto model routing → Ark; want GLM-5.1 flagship → Zhipu; want full Qwen Coder lineup → Bailian; want official pay-as-you-go → DeepSeek (`deepseek-flash` is V4.1-Flash-1017, `deepseek-v4-pro` is V4-Pro-0813, peak and off-peak rates, not the May 75% discount).
 
 ### 📊 Scenario C: Variable usage, don't want subscription lock-in
 **Verdict: DeepSeek API**
 
-The only non-subscription option — pure token-based pricing. V4-Pro currently 75% off (until 2026-05-31), 80.6% SWE-bench score — the cheapest flagship token rate available. **Officially supports both OpenAI and Anthropic protocols** — use the OpenAI endpoint with Cline / Aider / Cursor, or set `ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic` for native Claude Code support, **no third-party wrapper required**.
+The official pricing page has no monthly plan. Billing is per token, in USD only. The 75% discount and the 80.6% SWE-bench figure are not on the official pages opened on 2026-10-18, so they are removed. **Both OpenAI and Anthropic protocols are supported.** For Claude Code, set `ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic` and use `deepseek-flash` or `deepseek-v4-pro`. Whether Cline, Aider, or Cursor accept those IDs directly was not retested here.
 
 ### 🎨 Scenario D: Heavy multimodal / all-modal Agent
 **Verdict: MiniMax from ¥29 or Ark Agent Plan**
@@ -181,20 +183,24 @@ See [MiniMax Token Plan explainer](/en/guides/minimax-token-plan/).
 
 **Watch out**: Repriced 2026-02 with 30%+ increase, no first-buy discount. Only GLM-family models — no multi-vendor rotation.
 
-### 5. DeepSeek API (pay-as-you-go, **outlier**)
+### 5. DeepSeek API (pay-as-you-go)
 
-**Position**: Only non-subscription option, only official direct channel for V4-Pro / R1.
+**Position**: The pay-as-you-go channel on the official pricing page. On 2026-10-18 it lists `deepseek-flash` (V4.1-Flash-1017) and `deepseek-v4-pro` (V4-Pro-0813). V3.2 / R1 are not on that page.
 
-- **V4-Flash**: $0.14/M input, 82.6% HumanEval
-- **V4-Pro**: 80.6% SWE-bench, Codeforces #1 (3,206) — currently **75% off, ends 2026-05-31**
-- Web Chat fully free
+Prices are USD per 1M tokens, off-peak / peak:
 
-**Strengths**: True usage-based pricing, no subscription lock. V4-Pro discounted is the cheapest flagship token rate in China. Direct developer access — no middlemen.
+- **Flash**: cache hit $0.003 / $0.006, cache miss $0.15 / $0.30, output $0.60 / $1.20. Vision is supported.
+- **V4-Pro**: cache hit $0.022 / $0.044, cache miss $0.66 / $1.32, output $1.98 / $3.96. Vision is not supported.
+- Context is 1M. Max output is 384K. Peak hours in Beijing time are weekdays 09:00–12:00 and 14:00–18:00, excluding public holidays.
+- The older $0.14/M, 82.6% HumanEval, 80.6% SWE-bench, Codeforces rank, and 75% discount are not on the official pages opened this round. They are removed.
+- Whether web or app chat is free: unknown.
+
+**What still holds**: you pay per token, and there is no monthly tier. Weekday daytime bills use the peak rate. There is a peak gap.
 
 **Watch out**:
-- Officially supports OpenAI + Anthropic dual protocols — Claude Code uses `ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic` natively, no third-party wrapper needed
-- Steady users likely save more with subscription plans
-- Web tier suffices for individual light usage
+- OpenAI and Anthropic protocols are both supported. Claude Code uses `ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic`
+- A steady workload may still cost less on someone else's monthly plan. Those plan prices were not rechecked, so no number is compared here
+- `deepseek-v4-flash` and `deepseek-v4-flash-vision-exp` are compatibility aliases. Those models are retired
 
 ---
 
@@ -214,8 +220,8 @@ What's your monthly budget?
 ├─ > ¥300 (heavy Agent)
 │   ├─ Multimodal + Harness → Ark Agent Plan Medium ¥200
 │   ├─ Team scale-up → Bailian Team upgrade
-│   └─ Flexible usage + flagship → DeepSeek V4-Pro (pay-as-you-go)
-└─ Very unstable usage → DeepSeek pay-as-you-go
+│   └─ Flexible usage → DeepSeek pay-as-you-go (use the peak rate, not the old 75% off)
+└─ Very unstable usage → DeepSeek pay-as-you-go (USD peak and off-peak)
 ```
 
 ---
@@ -240,4 +246,4 @@ After one month, if you find yourself:
 - [Cursor in China complete guide](/en/guides/cursor-china-usage/)
 - [GitHub Copilot June billing change](/en/guides/copilot-ai-credits-billing/)
 
-> Verified through 2026-05-19. All prices, quotas, and promotions per official channels — Chinese API pricing moves quickly, double-check before subscribing.
+> DeepSeek sections were checked on 2026-10-18. The other vendors are still as of 2026-05-19. Prices, quotas, and promos follow each vendor's site. Check again before you pay.

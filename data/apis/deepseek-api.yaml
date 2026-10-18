@@ -6,27 +6,27 @@ logo: null
 url: https://platform.deepseek.com/
 affiliate_url: null
 repo: null
-current_version: V4
-version_tracked_at: '2026-05-19'
+current_version: V4.1-Flash-1017
+version_tracked_at: '2026-10-18'
 pricing:
   model: pay_as_you_go
-  currency: CNY
+  currency: USD
   plans:
-    - name: V4-Flash
-      price: $0.14/M 输入
-      price_en: $0.14/M input
+    - name: deepseek-flash
+      price: $0.15 / $0.30
+      price_en: $0.15 / $0.30
       period: pay_as_you_go
-      limits: 高性价比模型，82.6% HumanEval
-      limits_en: Best-value model, 82.6% HumanEval
-    - name: V4-Pro
-      price: 75% 折扣中（限期至 2026-05-31）
-      price_en: 75% off (until 2026-05-31)
+      limits: 未命中输入，每百万 token，非高峰 / 高峰。缓存命中 $0.003 / $0.006，输出 $0.60 / $1.20。对应 DeepSeek-V4.1-Flash-1017，支持视觉。上下文 1M，最大输出 384K。
+      limits_en: Cache-miss input per 1M tokens, off-peak / peak. Cache hit $0.003 / $0.006, output $0.60 / $1.20. DeepSeek-V4.1-Flash-1017, vision supported. 1M context, 384K max output.
+    - name: deepseek-v4-pro
+      price: $0.66 / $1.32
+      price_en: $0.66 / $1.32
       period: pay_as_you_go
-      limits: 旗舰编程模型，80.6% SWE-bench
-      limits_en: Flagship coding model, 80.6% SWE-bench
-  price_updated_at: '2026-05-19'
-  note: DeepSeek 不提供月度订阅套餐，纯按 token 计费。Web Chat 完全免费。如需套餐制方案，请选方舟（含 DeepSeek-V3.2）或百炼。
-  note_en: DeepSeek offers no monthly subscription — pure pay-per-token only. Web Chat is fully free. For bundled plans including DeepSeek-V3.2, see Volcengine Ark or Bailian.
+      limits: 未命中输入，每百万 token，非高峰 / 高峰。缓存命中 $0.022 / $0.044，输出 $1.98 / $3.96。对应 DeepSeek-V4-Pro-0813，不支持视觉。
+      limits_en: Cache-miss input per 1M tokens, off-peak / peak. Cache hit $0.022 / $0.044, output $1.98 / $3.96. DeepSeek-V4-Pro-0813, vision not supported.
+  price_updated_at: '2026-10-18'
+  note: 官方价格页只标 USD，没有 CNY。非高峰是高峰的一半。高峰为 UTC 周一至周五 01:00–04:00 与 06:00–10:00（北京时间 09:00–12:00 与 14:00–18:00），中国法定节假日整日按非高峰。没有月费套餐。Search 与 Fetch 各 $0.75/千次成功请求；经 DeepSeek Harness、Claude Code 或 Codex 触发的服务端搜索与抓取，在 2026-11-01 00:00（北京时间）前免费。deepseek-v4-flash 与 deepseek-v4-flash-vision-exp 仍可填，模型已退役，由 V4.1-Flash-1017 按 Flash 价处理。deepseek-chat / deepseek-reasoner 原定 2026-07-24 停用，当前价格页未列出，能否调用未知。Web / App 聊天是否免费，价格页和 changelog 未写，未知。
+  note_en: The official pricing page lists USD only, not CNY. Off-peak is half of peak. Peak hours are Monday–Friday 01:00–04:00 and 06:00–10:00 UTC (09:00–12:00 and 14:00–18:00 Beijing time). Chinese public holidays are off-peak all day. There is no monthly plan. Search and Fetch are $0.75 per 1,000 successful requests. Server-side search and fetch through DeepSeek Harness, Claude Code, or Codex stay free until 00:00 Beijing time on 2026-11-01. deepseek-v4-flash and deepseek-v4-flash-vision-exp are still accepted; those models are retired and served by V4.1-Flash-1017 at the Flash price. deepseek-chat and deepseek-reasoner were scheduled to stop on 2026-07-24 and are absent from the current pricing page; whether they still respond is unknown. Whether web or app chat is free is not stated on the pricing page or changelog, so that is unknown.
 scores:
   coding_ability: 9
   cost_efficiency: 8.5
@@ -36,10 +36,8 @@ scores:
 features:
   auto_mode: false
   supported_models:
-    - DeepSeek-V4-Pro
-    - DeepSeek-V4-Flash
-    - DeepSeek-V3.2
-    - DeepSeek-R1
+    - deepseek-flash (V4.1-Flash-1017)
+    - deepseek-v4-pro (V4-Pro-0813)
   api_protocol: 官方支持 OpenAI + Anthropic 双协议
   api_endpoint: https://api.deepseek.com（OpenAI）/ https://api.deepseek.com/anthropic（Anthropic）
   supported_clients:
@@ -52,36 +50,65 @@ features:
     - Aider
   china_native: true
 best_for:
-  - 用量波动大、不愿被套餐绑定的开发者
-  - 想直接用 V4-Pro / R1 旗舰模型的 Power User
+  - 用量波动大、不想被月费套餐绑住的开发者
+  - 要直接调 deepseek-flash 或 deepseek-v4-pro 的人
   - 团队希望按真实消耗付费、便于成本分摊
 best_for_en:
-  - Developers with variable usage who don't want subscription lock-in
-  - Power users wanting direct V4-Pro / R1 access
-  - Teams needing true usage-based cost allocation
+  - Developers with variable usage who do not want a monthly plan
+  - People who want to call deepseek-flash or deepseek-v4-pro directly
+  - Teams that need usage-based cost allocation
 not_for:
   - 预算固定、希望可预测月费的用户（选套餐制 Coding Plan）
-  - 用量极小的轻度用户（套餐制首月低至 ¥9.9 试水更友好）
+  - 工作日白天（北京时间 09:00–12:00、14:00–18:00）持续跑 Agent、又把账单按非高峰估算的人
 not_for_en:
-  - Users wanting predictable monthly cost (pick a subscription plan)
-  - Very light users (subscription plans offer ¥9.9 first-month trial for easier entry)
+  - Users who want a predictable monthly fee (pick a subscription Coding Plan)
+  - People who run agents through Beijing weekday peak hours and budget only the off-peak rate
 data_sources:
   - url: https://api-docs.deepseek.com/quick_start/pricing
     type: pricing
-    last_checked: '2026-05-19'
-  - url: https://platform.deepseek.com/
-    type: documentation
-    last_checked: '2026-05-19'
-changelog:
-  - date: '2026-05-01'
-    type: pricing
-    summary: V4-Pro 75% 折扣促销期延长至 2026-05-31
-    summary_en: V4-Pro 75% discount extended to 2026-05-31
-  - date: '2026-03-15'
+    last_checked: '2026-10-18'
+  - url: https://api-docs.deepseek.com/updates
+    type: changelog
+    last_checked: '2026-10-18'
+  - url: https://api-docs.deepseek.com/news/news260910
+    type: announcement
+    last_checked: '2026-10-18'
+  - url: https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017
     type: model
-    summary: DeepSeek V4 发布，含 V4-Flash 与 V4-Pro 两档
-    summary_en: DeepSeek V4 released with V4-Flash and V4-Pro tiers
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-11'
+    last_checked: '2026-10-18'
+  - url: https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash
+    type: model
+    last_checked: '2026-10-18'
+changelog:
+  - date: '2026-10-17'
+    type: model
+    summary: deepseek-flash 升级为 DeepSeek-V4.1-Flash-1017，调用方式和 Flash 价格不变。同日 changelog 宣布开放自研 Search API。价格页同时列出 Search 与 Fetch，各 $0.75/千次成功请求；经 Harness、Claude Code、Codex 的服务端搜索与抓取在 2026-11-01 00:00（北京时间）前免费。官方提示 DeepSeek Harness 0.2.1-rc.1 及以上对新模型体验最好。
+    summary_en: deepseek-flash moved to DeepSeek-V4.1-Flash-1017. The call path and Flash price stayed the same. The same day's changelog opened the in-house Search API. The pricing page also lists Fetch. Each is $0.75 per 1,000 successful requests. Server-side search and fetch via Harness, Claude Code, or Codex are free until 00:00 Beijing time on 2026-11-01. DeepSeek says Harness 0.2.1-rc.1 or later is the best fit for the new model.
+  - date: '2026-09-10'
+    type: pricing
+    summary: 发布 DeepSeek-V4.1-Flash。API 模型名改为 deepseek-flash。V4-Flash 与 V4-Flash-Vision-Exp 退役，旧 ID 暂时路由到 V4.1-Flash。新价格 04:00 UTC 起生效。新闻页写 9 月 14 日 04:00 UTC 起 deepseek-v4-pro 全部改路由到 Flash；同日 changelog 改为 9 月 14 日后继续提供 V4 Pro，计费不变。
+    summary_en: DeepSeek-V4.1-Flash shipped. The API name became deepseek-flash. V4-Flash and V4-Flash-Vision-Exp were retired, with the old IDs temporarily routed to V4.1-Flash. The new prices started at 04:00 UTC. The news post still says deepseek-v4-pro would route to Flash from 04:00 UTC on September 14. The same day's changelog says V4 Pro would keep serving after September 14 at the same billing.
+  - date: '2026-08-21'
+    type: model
+    summary: 实验视觉模型 DeepSeek-V4-Flash-Vision-Exp 上线，模型名 deepseek-v4-flash-vision-exp。该模型后来在 2026-09-10 退役。
+    summary_en: Experimental vision model DeepSeek-V4-Flash-Vision-Exp launched as deepseek-v4-flash-vision-exp. That model was later retired on 2026-09-10.
+  - date: '2026-08-16'
+    type: pricing
+    summary: 峰谷价格于 16:00 UTC 生效。非高峰为高峰的一半。此条由 2026-08-13 changelog 预告，生效时刻以该条为准。
+    summary_en: Peak and off-peak prices took effect at 16:00 UTC. Off-peak is half of peak. Announced in the 2026-08-13 changelog.
+  - date: '2026-08-13'
+    type: model
+    summary: DeepSeek-V4-Pro GA，API 名仍为 deepseek-v4-pro，版本为后来价格页上的 V4-Pro-0813。原生支持 Responses API。V4-Pro 与 V4-Flash 的思考力度增加 low / high / max。
+    summary_en: DeepSeek-V4-Pro GA. The API name stayed deepseek-v4-pro. The pricing page later lists this as V4-Pro-0813. Native Responses API support. Thinking effort on V4-Pro and V4-Flash gained low / high / max.
+  - date: '2026-07-31'
+    type: model
+    summary: DeepSeek-V4-Flash-0731 官方发布，changelog 写的是 public beta，不是 GA。当时模型名为 deepseek-v4-flash。只升级 Flash API，Pro 与 App/Web 未动。
+    summary_en: DeepSeek-V4-Flash-0731 official release. The changelog calls it a public beta, not GA. The model name at the time was deepseek-v4-flash. Only the Flash API changed. Pro and the app/web models did not.
+  - date: '2026-04-24'
+    type: model
+    summary: API 首次提供 V4-Pro 与 V4-Flash，模型名 deepseek-v4-pro、deepseek-v4-flash。deepseek-chat 与 deepseek-reasoner 当时指向 V4-Flash 的非思考 / 思考模式，并预告 2026-07-24 停用。
+    summary_en: The API first offered V4-Pro and V4-Flash as deepseek-v4-pro and deepseek-v4-flash. deepseek-chat and deepseek-reasoner then pointed at V4-Flash non-thinking and thinking modes, and were scheduled to stop on 2026-07-24.
+last_full_review: '2026-10-18'
+next_review_due: '2026-11-17'
 review_frequency_days: 30
 confidence: high

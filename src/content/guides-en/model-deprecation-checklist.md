@@ -2,7 +2,7 @@
 title: "Model Deprecation Checklist: Find and Replace Pinned Model IDs"
 description: "Checked 2026-10-17. Copilot retires Claude Opus 4.8, Claude Opus 5, and GPT-5.6 Terra on 2026-11-16. GPT-5.5 left ChatGPT-signed-in Codex on 2026-10-14. Includes copy-paste rg commands and the config locations that store a model ID."
 date: "2026-10-17"
-updated_at: "2026-10-17"
+updated_at: "2026-10-18"
 article_type: howto
 tags: [model-deprecation, copilot, codex, openai, api]
 pillar: workflow
@@ -21,19 +21,20 @@ faq:
       The changelog says Claude Opus 4.8 stays available to individual subscribers on annual plans so they keep an Opus model. That exception does not cover Claude Opus 5 or GPT-5.6 Terra. An ID pinned in a repo or in CI is used by teammates and automation. The annual exception does not cover those calls.
 ---
 
-Checked on **2026-10-17**. Dates below come from official pages opened that day. If a page does not say it, this guide says unknown.
+Copilot, Codex, and the OpenAI deprecations page were opened on **2026-10-17** and were not reopened. The DeepSeek alias note was added on **2026-10-18** after reopening the [pricing page](https://api-docs.deepseek.com/quick_start/pricing) and the [changelog](https://api-docs.deepseek.com/updates). If a page does not say it, this guide says unknown.
 
-Copilot prices are not repeated here. See [Copilot AI Credits billing](/en/guides/copilot-ai-credits-billing/). For a different vendor retiring old aliases, see [DeepSeek V4 API platforms](/en/guides/deepseek-v4-api-platforms/). That article was checked on 2026-04-29. This one does not reopen the DeepSeek docs.
+Copilot prices are not repeated here. See [Copilot AI Credits billing](/en/guides/copilot-ai-credits-billing/). DeepSeek prices and IDs are in [DeepSeek API model IDs](/en/guides/deepseek-v4-api-platforms/).
 
 ## Bottom line
 
-Keep the three lists separate.
+Keep the four lists separate.
 
 1. **GitHub Copilot** retires Claude Opus 4.8, Claude Opus 5, and GPT-5.6 Terra on **2026-11-16**. The suggested replacements are Claude Opus 5.5, and GPT-6.1 Sol or GPT-6 Luna. Individual annual subscribers keep Claude Opus 4.8. The post uses display names. It does not publish a model ID you can search for.
 2. **Codex** already removed GPT-5.5 on **2026-10-14 at noon PDT (19:00 UTC)** for users signed in with ChatGPT. The OpenAI API and API-key sessions are not affected. The note says to use `gpt-6.1-sol` when your plan and client still offer it. CLI **0.161.0** (published 2026-10-07) made GPT-6.1 Sol the default in the bundled catalog and the Amazon Bedrock catalogs. A line you wrote yourself, `model = "gpt-5.5"` in `config.toml`, wins over that default. Upgrading the CLI does not rewrite it.
 3. The **OpenAI API** [deprecations page](https://platform.openai.com/docs/deprecations) loaded on that date. Cloudflare did not block it. It schedules **2027-01-14** shutdowns for specific GPT-4o and GPT-4.1 **snapshots**. A nearer batch is **2026-10-23**. Undated aliases `gpt-4o` and `gpt-4.1` do not have their own rows. Whether they shut down the same day is **unknown**.
+4. **DeepSeek**: `deepseek-v4-flash` and `deepseek-v4-flash-vision-exp` are now compatibility aliases. The pricing page says those models are retired and that requests are served by DeepSeek-V4.1-Flash-1017 at the Flash price. New code should send `deepseek-flash`. `deepseek-chat` and `deepseek-reasoner` were scheduled to stop on 2026-07-24 and are not on the current pricing page. Whether they still respond is **unknown**.
 
-Copilot is not the main door for every team. If you use Codex, or you send a model ID from your own service, the second and third items are the ones to search for. This guide does not say anything about network access.
+Copilot is not the main door for every team. If you use Codex, or you send a model ID from your own service, the second and third items are the ones to search for. If the repo still says `deepseek-v4-flash` or `deepseek-v4-flash-vision-exp`, item 4 is the one to change to `deepseek-flash`, unless you mean to keep the compatibility alias. This guide does not say anything about network access.
 
 ## What the pages actually say
 

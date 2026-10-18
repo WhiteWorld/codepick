@@ -2,7 +2,7 @@
 title: "国内 Coding API 横评 2026：方舟 / 百炼 / MiniMax / 智谱 / DeepSeek 谁最值得买？"
 description: "国产 AI 编程 API 套餐 2026 年最全横评：火山方舟 Lite ¥40/月（首月 ¥9.9）、阿里百炼 ¥200、MiniMax ¥29、智谱 GLM ¥49 起、DeepSeek 按量。一张大表 + 6 个场景 + 决策树，30 秒锁定最适合你的方案。"
 date: "2026-05-19"
-updated_at: "2026-05-19"
+updated_at: "2026-10-18"
 article_type: "review"
 tags: ["coding-plan", "对比", "横评", "ark", "bailian", "minimax", "glm", "智谱", "deepseek", "国内", "api"]
 pillar: plans
@@ -17,12 +17,12 @@ faq:
       - **长期最低**：MiniMax Token Plan ¥29 全模态、方舟 Lite ¥40 续费、智谱 GLM Lite ¥49。百炼 Coding Plan 已停售 Lite，仅 Pro ¥200 起。
   - q: "我想用 Claude Code，国内哪家中转最好？"
     a: |
-      看模型偏好：要 Doubao + 多模型 Auto 选 **火山方舟**；要 GLM-5.1 旗舰选 **智谱 Coding Plan**；要千问 Coder 选 **百炼**；要 DeepSeek V4-Pro 旗舰按量选 **DeepSeek 官方**（`api.deepseek.com/anthropic`）。
+      看模型偏好：要 Doubao + 多模型 Auto 选 **火山方舟**；要 GLM-5.1 旗舰选 **智谱 Coding Plan**；要千问 Coder 选 **百炼**；要 DeepSeek 官方按量选 **DeepSeek**（`api.deepseek.com/anthropic`，模型名 `deepseek-flash` 或 `deepseek-v4-pro`）。
       四家都原生支持 Anthropic 协议端点，Claude Code 配两个环境变量即可，无需中间代理或第三方包装。
   - q: "DeepSeek 为什么没有 Coding Plan？"
     a: |
-      DeepSeek 走纯按量付费路线，没有月度订阅套餐，Web Chat 完全免费。
-      V4-Pro 当前还有 **75% 折扣（限期至 2026-05-31）**，重度用户 ROI 极高，但用量波动大才划算——如果用量稳定，套餐制反而更经济。
+      2026-10-18 的官方价格页只列按量，没有月费套餐，币种只有 USD。
+      写到 2026-05-31 的 V4-Pro 75% 折扣已不在价格页上。现行价是峰谷两档，非高峰是高峰的一半。Web / App 聊天是否免费，价格页和 changelog 没写，未知。用量稳不稳定，仍要自己拿套餐月费和峰谷 token 价比。
   - q: "包年订阅真能省 30%？哪些家有？"
     a: |
       **智谱**给得最狠：包季 9 折 / 包年 7 折（Pro 包年仅 ¥104/月）。
@@ -37,6 +37,8 @@ faq:
       方舟支持子账号但不是按坐席计费的套餐。智谱、MiniMax、DeepSeek 当前都需要团队各自订阅或自己拆分预算。
 ---
 
+DeepSeek 相关句子按 2026-10-18 重开的 [价格页](https://api-docs.deepseek.com/quick_start/pricing)、[changelog](https://api-docs.deepseek.com/updates) 和 [2026-09-10 新闻](https://api-docs.deepseek.com/news/news260910) 改过。方舟、百炼、MiniMax、智谱的段落这次没重开，仍是 2026-05-19 的原文。
+
 国内 AI 编程 API 套餐 2026 年到了大爆发——5 家主流厂商分别推出了不同形态的方案：从方舟的 ¥9.9 抢购入口到智谱 7 折包年，从 MiniMax 全模态到 DeepSeek 纯按量。**到底该买哪家？** 本文是一份给做选择的开发者用的横评。
 
 ## TL;DR：4 句话决定
@@ -44,7 +46,7 @@ faq:
 - **首月最便宜试水**：方舟 Coding Plan Lite 首月 **¥9.9**（续费 ¥40）
 - **想稳定用 GLM-5.1 / 包年最省**：智谱 Coding Plan **Pro ¥149**（包年 ¥104/月）
 - **重度全模态（含音频/视频）**：MiniMax Token Plan **¥29 起**
-- **用量波动大 / 想直接用 V4-Pro 旗舰**：DeepSeek API（按 token，现 V4-Pro **75% 折**）
+- **用量波动大 / 要官方按量**：DeepSeek API。`deepseek-flash` 现为 V4.1-Flash-1017，价格按峰谷，不是 5 月那档折扣
 
 如果你是团队场景或 Claude Code 重度用户，往下看完整对比。
 
@@ -55,10 +57,10 @@ faq:
 | 维度 | 火山方舟 | 阿里百炼 | MiniMax | 智谱 GLM | DeepSeek |
 |---|---|---|---|---|---|
 | **标准月费** | ¥40（Lite）/ ¥200（Pro） | ¥200（Pro） | ¥29 起 | ¥49（Lite）/ ¥149（Pro）/ ¥469（Max） | 无（按量） |
-| **首月优惠** | **¥9.9**（Lite，叠邀券 ¥8.9） | 无 | 无 | **已取消** | V4-Pro 75% 折至 5/31 |
+| **首月优惠** | **¥9.9**（Lite，叠邀券 ¥8.9） | 无 | 无 | **已取消** | 无月费。旧的 V4-Pro 75% 折已不在价格页 |
 | **价格模型** | 订阅 + 滑动窗口 | 订阅 + 月度配额 | 订阅 + Token 池 | 订阅 + 滑动窗口 | 按 token 付费 |
 | **额度机制** | 5h 滑动 ~1,200 次 | 月度 ~90,000 次 | Token 池 | 5h 滑动 ~80 prompts | 实付实算 |
-| **模型数** | 5 款（含 Doubao） | 8 款（含千问全家桶） | 多模态全家桶 | 3 款（GLM-5/4.7/4.6） | DeepSeek 全系（V4/R1） |
+| **模型数** | 5 款（含 Doubao） | 8 款（含千问全家桶） | 多模态全家桶 | 3 款（GLM-5/4.7/4.6） | 价格页两列：`deepseek-flash`、`deepseek-v4-pro`。V3.2 / R1 未列出 |
 | **Auto 模式** | ✅ | ❌ | ❌ | ❌ | ❌ |
 | **Anthropic 协议** | ✅ | ✅ | ✅ | ✅ | ✅（`api.deepseek.com/anthropic`） |
 | **支持 Claude Code** | ✅ | ✅ | ✅ | ✅ | ✅（官方原生支持） |
@@ -77,7 +79,7 @@ faq:
 每天 10:30 限量开放抢购，新用户首月 ¥9.9，叠加邀请券可至 ¥8.9。日常 chat + 简单 agent 任务，每 5 小时 1,200 次足够。**第二个月起回到 ¥40**——如果你想保持长期 < ¥30 预算，第二个月起可考虑切到 MiniMax ¥29 全模态。
 
 ### 🦀 场景 B：想用 Claude Code 但走国内模型
-**结论：方舟（多模型）/ 智谱（GLM）/ 百炼（千问）/ DeepSeek（V4-Pro 旗舰）四家都行**
+**结论：方舟（多模型）/ 智谱（GLM）/ 百炼（千问）/ DeepSeek（官方按量）四家都行**
 
 四家都支持 Anthropic 协议端点，Claude Code 配置只需两个环境变量：
 
@@ -93,12 +95,12 @@ export ANTHROPIC_BASE_URL="https://api.deepseek.com/anthropic"
 export ANTHROPIC_AUTH_TOKEN="<your-deepseek-key>"
 ```
 
-选哪家：要 Auto 自动选模型 → 方舟；要 GLM-5.1 旗舰 → 智谱；要千问 Coder 全家桶 → 百炼；要 **V4-Pro 旗舰按量** → DeepSeek（V4-Pro 75% 折至 5/31）。
+选哪家：要 Auto 自动选模型 → 方舟；要 GLM-5.1 旗舰 → 智谱；要千问 Coder 全家桶 → 百炼；要官方按量 → DeepSeek（`deepseek-flash` 为 V4.1-Flash-1017，`deepseek-v4-pro` 为 V4-Pro-0813，按峰谷价，没有 5 月那档 75% 折扣）。
 
 ### 📊 场景 C：用量波动大、不想被套餐绑死
 **结论：DeepSeek API**
 
-唯一非套餐选项，纯按 token 付费。V4-Pro 当前 75% 折扣（限期 2026-05-31），SWE-bench 80.6%，是最便宜的旗舰编程模型 token 价。**官方同时支持 OpenAI 和 Anthropic 双协议**——Cline / Aider / Cursor 走 OpenAI endpoint，Claude Code 直接配 `ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic` 即可原生接入，**无需任何第三方包装**。
+官方价格页没有月费套餐，按 token 付费，币种只有 USD。75% 折扣和 80.6% SWE-bench 不在 2026-10-18 打开的官方页上，已删除。**官方同时支持 OpenAI 和 Anthropic 双协议**——Claude Code 配 `ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic`，模型名用 `deepseek-flash` 或 `deepseek-v4-pro`。Cline / Aider / Cursor 能否直接填这两个 ID，这篇没有重测。
 
 ### 🎨 场景 D：重度多模态/全模态 Agent
 **结论：MiniMax ¥29 起 或 方舟 Agent Plan**
@@ -190,23 +192,24 @@ MiniMax Token Plan 自带文本/图像/视频/音频/音乐五模态，¥29 门�
 
 **注意**：2026-02 已涨价 30%+ 且取消首购优惠。模型只有 GLM 系，无多家轮换。
 
-### 5. DeepSeek API（按量付费，**outlier**）
+### 5. DeepSeek API（按量付费）
 
-**定位**：唯一非套餐选项，唯一直接卖 V4-Pro / R1 token 的官方渠道。
+**定位**：官方价格页上的按量渠道。2026-10-18 只列 `deepseek-flash`（V4.1-Flash-1017）和 `deepseek-v4-pro`（V4-Pro-0813）。V3.2 / R1 不在价格页上。
 
-- **V4-Flash**：$0.14/M 输入，82.6% HumanEval
-- **V4-Pro**：80.6% SWE-bench，Codeforces #1 (3,206) —— 当前 **75% 折扣，限期 2026-05-31**
-- Web Chat 完全免费
+价格是 USD / 100 万 token，非高峰 / 高峰：
 
-**核心优势**：
-- 真实用量计费，无套餐绑死
-- V4-Pro 折后是国产旗舰里 token 价最低的
-- 模型直接面向开发者，无中间转包
+- **Flash**：缓存命中 $0.003 / $0.006，未命中 $0.15 / $0.30，输出 $0.60 / $1.20。支持视觉。
+- **V4-Pro**：缓存命中 $0.022 / $0.044，未命中 $0.66 / $1.32，输出 $1.98 / $3.96。不支持视觉。
+- 上下文 1M，最大输出 384K。高峰是北京时间工作日 09:00–12:00 和 14:00–18:00（法定节假日除外）。
+- 旧稿的 $0.14/M、82.6% HumanEval、80.6% SWE-bench、Codeforces 名次、75% 折扣，这次打开的官方页上没有，已删除。
+- Web / App 聊天是否免费：未知。
+
+**还成立的一点**：按 token 付，没有月费档。工作日白天要按高峰价估，不是「没有高峰差价」。
 
 **注意**：
-- 官方支持 OpenAI + Anthropic 双协议，Claude Code 配 `ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic` 即用，无需第三方层
-- 用量稳定的用户可能套餐制更省
-- Web 端免费层够个人轻度
+- 官方支持 OpenAI + Anthropic 双协议，Claude Code 配 `ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic`
+- 用量稳定时，别家月费套餐可能更省。套餐价这次没重核，不在这里比数字
+- `deepseek-v4-flash` 和 `deepseek-v4-flash-vision-exp` 是兼容别名，模型已退役
 
 ---
 
@@ -226,8 +229,8 @@ MiniMax Token Plan 自带文本/图像/视频/音频/音乐五模态，¥29 门�
 ├─ > ¥300（重度 Agent）
 │   ├─ 多模态 + Harness 工具链 → 方舟 Agent Plan Medium ¥200
 │   ├─ 团队场景 → 百炼团队版升级
-│   └─ 灵活用量 + 旗舰 → DeepSeek V4-Pro（按量）
-└─ 用量极不稳定 → DeepSeek 按量付费
+│   └─ 灵活用量 → DeepSeek 按量（高峰价另算，不是旧的 75% 折）
+└─ 用量极不稳定 → DeepSeek 按量付费（USD 峰谷价）
 ```
 
 ---
@@ -252,4 +255,4 @@ MiniMax Token Plan 自带文本/图像/视频/音频/音乐五模态，¥29 门�
 - [Cursor 国内使用完整指南](/zh/guides/cursor-china-usage/)
 - [GitHub Copilot 6 月计费变化](/zh/guides/copilot-ai-credits-billing/)
 
-> 数据核查截止 2026-05-19。所有价格、额度、活动以各家官网实时信息为准——国产 API 单价波动较快，下单前请二次确认。
+> DeepSeek 段落核查日 2026-10-18。其余厂商仍停在 2026-05-19。价格、额度、活动以各家官网为准，下单前再看一次。

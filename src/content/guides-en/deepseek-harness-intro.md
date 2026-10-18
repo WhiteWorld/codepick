@@ -1,7 +1,8 @@
 ---
 title: "Getting Started with DeepSeek Harness: The Open-Source Agent Framework Where Everything Is a Plugin"
-description: "DeepSeek Harness (dsh) is DeepSeek AI's official open-source agent harness — 64k+ stars, MIT licensed, built on an 'everything is a plugin' architecture. This guide explains what it is, how its plugin-based design differs from traditional frameworks like LangChain and CrewAI, how to get started, and what you can build with it during developer preview."
+description: "DeepSeek Harness (dsh) is DeepSeek AI's official open-source agent harness. On 2026-10-18 the GitHub org page showed 252,529 stars. MIT licensed. The README still says developer preview. The API changelog recommends 0.2.1-rc.1 or later with V4.1-Flash-1017."
 date: "2026-08-14"
+updated_at: "2026-10-18"
 article_type: explainer
 tags: [deepseek, harness, agent-framework, dsh, plugin, cordis]
 pillar: workflow
@@ -10,19 +11,23 @@ locale_strategy: mirrored
 draft: false
 ---
 
+Checked on **2026-10-18**. Reopened [github.com/deepseek-ai](https://github.com/deepseek-ai), the repo README on `master`, and the 2026-10-17 entry on the [DeepSeek API changelog](https://api-docs.deepseek.com/updates).
+
+> The README still says **developer preview**. Breaking changes are expected. When the org page was opened, `deepseek-harness` showed **252,529** stars. A few minutes later the GitHub API returned **252,533**. The count moves. Use the number you see.
+
+The 2026-10-17 API changelog says DeepSeek Harness **0.2.1-rc.1** or later is the best fit for the new V4.1-Flash-1017. That is a pairing note. It does not say older builds cannot run.
+
 ## Bottom Line
 
 DeepSeek Harness (the CLI command is `dsh`) is not another AI coding tool. It's DeepSeek AI's official open-source **agent harness** — a framework for building, orchestrating, and running AI agents.
 
 Unlike Claude Code or Codex, which are ready-to-use coding agents, DeepSeek Harness is more like an **agent factory**: it gives you a plugin-based architecture foundation, and you assemble your own agents by plugging in models, tools, and workflows as plugins.
 
-> ⚠️ **Important**: DeepSeek Harness is currently in **developer preview** and iterating rapidly. Compatibility-breaking changes are expected. Facts in this guide are current as of 2026-08-14; always refer to the official docs.
-
 ---
 
 ## 1. What Is DeepSeek Harness?
 
-[DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (`dsh`) is an open-source agent framework developed by DeepSeek AI, MIT licensed, written in TypeScript, with 64k+ GitHub stars.
+[DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (`dsh`) is an open-source agent framework developed by DeepSeek AI, MIT licensed, written in TypeScript. The org page showed 252,529 stars on 2026-10-18.
 
 Its core design philosophy is one sentence: **Everything is a Plugin.**
 
@@ -99,11 +104,11 @@ pnpm dsh web
 
 ### Configuring Providers
 
-In the Web UI, configure your model provider (DeepSeek API, OpenAI API, etc.), then create agents and start working. See the official [Web UI guide](https://github.com/deepseek-ai/deepseek-harness/tree/master/docs/user/guide) for details.
+In the Web UI, configure your model provider (DeepSeek API, OpenAI API, etc.), then create agents and start working. The README points at the docs site [deepseek-harness.github.io](https://deepseek-harness.github.io/deepseek-harness/). The in-repo Web UI notes are at `docs/user/guide/index.md`.
 
-### Python SDK
+If the model is the 2026-10-17 `deepseek-flash` (V4.1-Flash-1017), the API changelog recommends Harness **0.2.1-rc.1** or later.
 
-In addition to the Web UI and CLI, DeepSeek Harness offers a Python SDK for integration into Python projects.
+The English README read on 2026-10-18 has no Python SDK section. Whether a separate Python package exists is **unknown**.
 
 ---
 
@@ -120,8 +125,8 @@ DeepSeek Harness plugins are discoverable through the GitHub [`dsh-plugin` topic
 
 ### Community
 
-- **Discord**: [DeepSeek Harness Discord](https://discord.gg/Ycq5dCaS4)
-- **China**: WeCom group + official WeChat account (see the official README)
+- **Discord**: The invite in the English README is [discord.gg/4MrtZUhpxg](https://discord.gg/4MrtZUhpxg). The older invite in a previous draft of this page was not rechecked.
+- **China groups**: The English README opened this round does not mention WeCom or a WeChat account. The Chinese README was not opened, so whether those channels still exist is **unknown**.
 - **GitHub Discussions**: For feedback and bug reports
 
 ---

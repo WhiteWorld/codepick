@@ -1,112 +1,122 @@
 ---
-title: "Where Is DeepSeek V4 API Available? Official, Model IDs, and Platform Support"
-description: "As of 2026-04-29, this guide checks where DeepSeek-V4 is actually available across the official API, Alibaba Cloud Bailian, Together, Fireworks, Novita, OpenRouter, and more — plus the correct model IDs and integration path."
-date: "2026-04-29"
+title: "DeepSeek API Model IDs and Where to Call Them (2026-10-18)"
+description: "Rechecked on 2026-10-18. Call deepseek-flash (V4.1-Flash-1017) or deepseek-v4-pro (V4-Pro-0813). The old Flash names still work, but those models are retired. Includes peak pricing, the 1M context, and the OpenRouter, Fireworks, and Together pages opened that day."
+date: "2026-10-18"
+updated_at: "2026-10-18"
 article_type: "howto"
-tags: ["deepseek", "deepseek-v4", "api", "openrouter", "bailian", "together", "fireworks"]
+tags: ["deepseek", "deepseek-v4", "api", "openrouter", "together", "fireworks"]
 pillar: plans
 content_status: keep
 locale_strategy: mirrored
 draft: false
 ---
 
-If you're searching for "DeepSeek V4 API", the first thing to know is this: **DeepSeek does provide a V4 API officially, but the actual official model IDs are not `deepseek-v4`. They are `deepseek-v4-pro` and `deepseek-v4-flash`.**
+Checked on **2026-10-18**. Pages opened that day:
 
-That naming mismatch is where most confusion starts. Websites, news posts, and third-party model pages often say "DeepSeek V4", but what really matters in production is the **exact model ID**, whether the platform is **OpenAI-compatible**, and whether the model is **actually available today**.
+- [DeepSeek changelog](https://api-docs.deepseek.com/updates)
+- [Models & Pricing](https://api-docs.deepseek.com/quick_start/pricing)
+- [News post, 2026-09-10](https://api-docs.deepseek.com/news/news260910)
+- [DeepSeek-V4.1-Flash-1017](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017) and [DeepSeek-V4.1-Flash](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash)
+- [github.com/deepseek-ai](https://github.com/deepseek-ai)
+- The two OpenRouter model pages, the Fireworks 1017 model page, and Together's serverless model catalog
 
-This guide summarizes the public official information available on 2026-04-29 and answers two questions:
+Bailian, Tencent Cloud, SiliconFlow, Novita, and Replicate were not reopened. This guide does not say whether they serve V4.1-Flash.
 
-1. **Which platforms actually offer DeepSeek V4 API access?**
-2. **What is the fastest way to make your first request?**
+## Which ID to send
 
----
+The pricing page has two columns:
 
-## Quick Answer
+| Model name | Version on the pricing page | Vision |
+| --- | --- | --- |
+| `deepseek-flash` | DeepSeek-V4.1-Flash-1017 | Supported |
+| `deepseek-v4-pro` | DeepSeek-V4-Pro-0813 | Not supported |
 
-- **The official DeepSeek platform is available** and remains the safest default choice
-- **DeepSeek recommends OpenAI-compatible access** with `base_url` set to `https://api.deepseek.com`
-- The official V4 models to use are:
-  - `deepseek-v4-pro`
-  - `deepseek-v4-flash`
-- Legacy aliases `deepseek-chat` and `deepseek-reasoner` still appear in the docs, but DeepSeek marks them for deprecation on **2026-07-24**
-- As of 2026-04-29, the platforms where V4 can be clearly verified from public official pages include:
-  - DeepSeek official
-  - Alibaba Cloud Bailian
-  - Together AI
-  - Fireworks AI
-  - Novita AI
-- **OpenRouter has a `deepseek/deepseek-v4` page, but that page explicitly says the model is not available**
-- **Volcengine Ark, Tencent Cloud, and Replicate** do not have enough public official evidence here to safely describe as "DeepSeek V4 supported"
+Both columns are 1M context, 384K max output. Thinking mode is the default, and you can turn it off. JSON output, tool calls, the Responses API, and the Anthropic API are on both. FIM is non-thinking mode only.
 
----
+`deepseek-v4-flash` and `deepseek-v4-flash-vision-exp` are still accepted. The models behind those names are retired. Requests are served by V4.1-Flash-1017 and billed at the Flash price. New code should send `deepseek-flash`.
 
-## DeepSeek V4 API Platform Summary
+On 2026-04-24 the changelog said `deepseek-chat` and `deepseek-reasoner` would stop on **2026-07-24**. The pricing page opened on 2026-10-18 does not list them. Whether they still respond is **unknown**. No test call was sent.
 
-| Platform | Available on 2026-04-29 | Verified model name / ID | OpenAI-compatible | Notes |
-|----------|--------------------------|--------------------------|-------------------|-------|
-| DeepSeek official | ✅ Yes | `deepseek-v4-pro`, `deepseek-v4-flash` | ✅ | Best documentation, canonical naming |
-| Alibaba Cloud Bailian | ✅ Yes | `deepseek-v4-pro`, `deepseek-v4-flash` | Platform-specific integration path | Good fit for mainland China deployments |
-| Together AI | ✅ Yes | `deepseek-ai/DeepSeek-V4-Pro`, `deepseek-ai/DeepSeek-V4-Flash` | ✅ | Easy if you already use OpenAI SDKs |
-| Fireworks AI | ✅ Yes | `deepseek-v4-pro` | ✅ | Official docs support OpenAI client usage |
-| Novita AI | ✅ Yes | `Deepseek V4 Pro`, `Deepseek V4 Flash` | ✅ | Public model pages show pricing and context |
-| OpenRouter | ⚠️ Page exists, unavailable that day | `deepseek/deepseek-v4` | ✅ | Public page explicitly says not available |
-| SiliconFlow | ⚠️ DeepSeek models exist, but no public V4 entry confirmed here | `DeepSeek-V3.1`, `DeepSeek-V3.2`, etc. | ✅ | Do not overstate as confirmed V4 support |
-| Volcengine Ark | ❓ Not confirmed from public official pages here | — | — | Avoid claiming support without stronger evidence |
-| Tencent Cloud | ❓ Not confirmed from public official pages here | — | — | Public docs found here focus on Hunyuan |
-| Replicate | ❓ No official DeepSeek V4 entry confirmed here | — | Mostly its own prediction API style | Avoid claiming official V4 support |
+OpenAI-compatible base URL: `https://api.deepseek.com`. Anthropic-compatible base URL: `https://api.deepseek.com/anthropic`.
 
-> Methodology: only platforms that can be verified from public official docs or official model pages are marked as confirmed.
+## Price (official, USD per 1M tokens)
 
----
+The official page lists USD only. There is no CNY price. Off-peak is half of peak. Peak hours are **Monday–Friday 01:00–04:00 and 06:00–10:00 UTC**, excluding Chinese public holidays. In Beijing time that is **09:00–12:00 and 14:00–18:00**. Weekends and Chinese public holidays are off-peak for the whole day.
 
-## How to Use the Official DeepSeek V4 API
+Peak and off-peak prices took effect at **16:00 UTC on 2026-08-16**. The V4.1-Flash price level took effect at **04:00 UTC on 2026-09-10**.
 
-If you just want the fastest path to a working request, start with the official API.
+| | Flash off-peak | Flash peak | V4-Pro off-peak | V4-Pro peak |
+| --- | --- | --- | --- | --- |
+| Input, cache hit | $0.003 | $0.006 | $0.022 | $0.044 |
+| Input, cache miss | $0.15 | $0.30 | $0.66 | $1.32 |
+| Output | $0.60 | $1.20 | $1.98 | $3.96 |
 
-### Step 1: Create an API key
+Concurrency limits: Flash 2500, V4-Pro 500. The rate-limit page was not opened, so this guide does not repeat rules from it.
 
-Create a DeepSeek API key, then export it locally:
+Search and Fetch are per request, not per token: **$0.75 per 1,000 successful requests** each. The 2026-10-17 changelog is titled as opening the in-house Search API. That entry does not give Fetch its own launch date. Fetch's price is on the pricing page opened the same day. This guide does not turn that into a changelog sentence that Fetch launched the same day.
 
-```bash
-export DEEPSEEK_API_KEY="your DeepSeek API key"
-```
+When you call the DeepSeek API through DeepSeek Harness, Claude Code, or Codex, server-side tools already hit Search and Fetch. Those calls are free until **00:00 Beijing time on 2026-11-01**, then the per-request price applies. The pricing page does not say direct Search or Fetch API calls are in that free window.
 
-### Step 2: Use the OpenAI-compatible endpoint
+## Two documents disagree about V4-Pro routing
 
-Official base URL:
+The 2026-09-10 news post is still online. It says that from **04:00 UTC on 2026-09-14**, every `deepseek-v4-pro` request would route to V4.1-Flash at V4.1-Flash rates, until V4.1-Pro.
 
-```bash
-https://api.deepseek.com
-```
+The changelog entry for the same day says the opposite: after user requests, DeepSeek would **keep serving V4 Pro after 2026-09-14, with billing unchanged**.
 
-Most common endpoint:
+The pricing page on 2026-10-18 still lists `deepseek-v4-pro` as DeepSeek-V4-Pro-0813, at Pro prices, not Flash prices. Treat the pricing page as the live catalog. The routing sentence on the news post was not edited.
 
-```bash
-https://api.deepseek.com/chat/completions
-```
+## Official self-reported scores, comparison only
 
-### Step 3: Send your first request
+1017 is a minor update of V4.1-Flash. The changelog and the Hugging Face card both report these gains over the previous V4.1-Flash. These are **official self-reported** numbers:
+
+| Benchmark | V4.1-Flash-1017 | Previous V4.1-Flash |
+| --- | --- | --- |
+| HLE, no tools | 42.6 (44.0 on the text-only subset) | 36.8 (39.1 on the text-only subset) |
+| Terminal-Bench 4.0 | 42.3 | 31.2 |
+| DeepSWE v1.1 | 77.0 | 74.2 |
+| ProgramBench | 29.1 | 20.3 |
+
+Terminal-Bench 4.0 used the Claude Code harness. DeepSWE used Mini-SWE-V2. DeepSeek chose the rows. On the same Hugging Face table, Opus 5 is still ahead on HLE without tools (56.3) and Terminal-Bench 4.0 (51.8). The GLM and Kimi cells from that table are in [GLM vs DeepSeek vs Kimi](/en/compare/glm-vs-deepseek-vs-kimi-2026/).
+
+An older draft of this site cited V4-Flash at "$0.14/M and 82.6% HumanEval" and V4-Pro at "80.6% SWE-bench, 75% off until 2026-05-31". Those figures are not on the official pages opened this round. They are removed.
+
+Parameter counts come in two wordings. DeepSeek does not explain the gap. The 2026-09-10 news post says a **552B-parameter MoE backbone**, with 8B active on input and 16B active on output. Both Hugging Face cards show a model size of **763B**. Both figures are listed. No reason is added.
+
+The weights are MIT licensed.
+
+## Third-party platforms (their own pages, 2026-10-18)
+
+Prices move. The numbers below are what those pages showed when opened. They are not DeepSeek's peak and off-peak table.
+
+| Platform | IDs confirmed that day | Price on the page (USD per 1M tokens) |
+| --- | --- | --- |
+| DeepSeek official | `deepseek-flash`, `deepseek-v4-pro` | Table above |
+| OpenRouter | Both `deepseek/deepseek-v4.1-flash-1017` and `deepseek/deepseek-v4.1-flash` had pages | 1017 headline: $0.05 input / $0.60 output, cache read $0.008. The same page's provider table shows a DeepSeek row at $0.15 input, $0.60 output, $0.003 cache read. The page without 1017 headlines $0.0648 / $0.144. Providers differ |
+| Fireworks | `accounts/fireworks/models/deepseek-v4p1-flash-1017` | Serverless: $0.30 input / $0.006 cached input / $1.20 output. Context is listed as 1040k. The parameter field says 755B. That is Fireworks' own label, not the 552B / 763B pair above |
+| Together serverless catalog | `deepseek-ai/DeepSeek-V4.1-Flash`, `deepseek-ai/DeepSeek-V4-Pro-0813` | Flash: $0.30 / $0.006 cached / $1.20, context 1,000,000. Pro: $1.32 / $0.13 cached / $3.96, context 1,048,576. No 1017 snapshot in that catalog |
+
+Together's dedicated catalog was not opened. Whether it lists 1017 is **unknown**.
+
+The old OpenRouter slug `deepseek/deepseek-v4` was not opened. This update does not repeat the 2026-04-29 note that the page existed but was unavailable.
+
+Volcengine Ark: this site's `data/apis/ark-coding-plan.yaml` recorded the model name `Deepseek-V4.1-Flash` at a 2026-10-13 review. The Volcengine public pages were not reopened on 2026-10-18. Whether the public page still lists it, and whether that is the 1017 snapshot or the September 10 model, is **unknown**.
+
+## One official request
 
 ```bash
 curl https://api.deepseek.com/chat/completions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $DEEPSEEK_API_KEY" \
   -d '{
-    "model": "deepseek-v4-pro",
+    "model": "deepseek-flash",
     "messages": [
-      {"role": "user", "content": "Explain DeepSeek V4 API in one sentence."}
+      {"role": "user", "content": "Which snapshot does deepseek-flash point at today?"}
     ],
     "stream": false
   }'
 ```
 
-If you care more about speed and cost, switch the model to `deepseek-v4-flash`.
-
----
-
-## Using the OpenAI SDK with DeepSeek
-
-If your stack already uses the `openai` SDK, migration is simple: change the `base_url`, `api_key`, and model name.
+For Pro, set `model` to `deepseek-v4-pro`. For images, use `deepseek-flash`. Do not treat the retired `deepseek-v4-flash-vision-exp` as the primary ID. Image input is in the [vision guide](/en/guides/deepseek-v4-flash-vision-guide/).
 
 ```python
 import os
@@ -118,180 +128,20 @@ client = OpenAI(
 )
 
 resp = client.chat.completions.create(
-    model="deepseek-v4-pro",
-    messages=[
-        {"role": "user", "content": "What is a cache hit in LLM APIs?"}
-    ],
+    model="deepseek-flash",
+    messages=[{"role": "user", "content": "Which rate is the cache-hit price?"}],
 )
-
 print(resp.choices[0].message.content)
 ```
 
-That is also why third-party providers emphasize OpenAI compatibility: you often do not need to change your application logic.
+The changelog says DeepSeek Harness **0.2.1-rc.1** or later is the best fit for the new model. Stars and the preview label are in the [Harness guide](/en/guides/deepseek-harness-intro/).
 
----
+## Timeline (changelog wording)
 
-## How to Choose a Platform
-
-### 1. DeepSeek official
-
-**Best for** developers who want the clearest naming, the latest official rollout, and the least ambiguity.
-
-Why it is the safest default:
-- Canonical model names
-- Best official docs
-- Clear OpenAI-compatible entry point
-- Explicit migration guidance for legacy aliases
-
-Recommended choices:
-- `deepseek-v4-pro` for higher-quality, heavier tasks
-- `deepseek-v4-flash` for speed and lower cost
-
-### 2. Alibaba Cloud Bailian
-
-**Best for** teams in China, or organizations already standardized on Alibaba Cloud.
-
-Publicly verifiable details:
-- Official model pages list `deepseek-v4-pro` and `deepseek-v4-flash`
-- Mainland China and global deployment scopes differ
-- Mainland listing shows **China North 2 (Beijing)**
-- Global listing shows **US (Virginia)**
-
-For domestic production and procurement workflows, this is often easier than overseas providers.
-
-### 3. Together / Fireworks / Novita
-
-**Best for** teams already building on model aggregators and unified OpenAI-compatible gateways.
-
-Shared advantages:
-- Public official pages clearly list V4 models
-- OpenAI-compatible integration is straightforward
-- Good fit if you already route multiple providers through one abstraction layer
-
-The main differences are in:
-- Model ID naming
-- Pricing
-- Cache billing
-- Context window and output limits
-- Whether both Pro and Flash are available at the same time
-
-### 4. OpenRouter
-
-**Do not assume support just because a model page exists.**
-
-As of 2026-04-29, OpenRouter shows a `deepseek/deepseek-v4` page, but the page explicitly says:
-
-> The model "deepseek/deepseek-v4" is not available
-
-So the safe rule is: **a model page is not the same thing as an actually callable model.**
-
----
-
-## The Naming Trap: DeepSeek V4 vs `deepseek-v4-pro` vs `deepseek-chat`
-
-This is the single most important clarification.
-
-### 1. `DeepSeek-V4` is the product or series name
-
-That is the label you usually see on websites, launch posts, and model catalogs.
-
-### 2. The actual official API model IDs are:
-
-- `deepseek-v4-pro`
-- `deepseek-v4-flash`
-
-### 3. Legacy aliases still exist, but should not be your default for new projects
-
-The official docs still mention:
-
-- `deepseek-chat`
-- `deepseek-reasoner`
-
-They are compatibility aliases and already marked for deprecation. New integrations should use the V4 model IDs directly.
-
----
-
-## What to Check Before You Ship
-
-Before you use DeepSeek V4 in production, do not stop at “this platform has it.” Check these four things:
-
-1. **Input and output pricing**
-2. **Cache hit vs cache miss billing**
-3. **Context window size**
-4. **Max output token limit**
-
-DeepSeek's official pricing page is the best place to understand the baseline. Third-party platforms may change model IDs, pricing logic, or caching behavior.
-
-The safest workflow is:
-
-- understand the model from DeepSeek's own docs first
-- verify the final platform-specific model page before launch
-
----
-
-## Four Common Pitfalls on Third-Party Platforms
-
-### 1. Model names may differ completely
-
-For example:
-- official: `deepseek-v4-pro`
-- Together: `deepseek-ai/DeepSeek-V4-Pro`
-- OpenRouter: `deepseek/deepseek-v4`
-
-Never copy a model name from one provider to another blindly.
-
-### 2. OpenAI-compatible does not mean perfectly identical
-
-Providers may differ in:
-- supported parameters
-- reasoning or thinking modes
-- function calling
-- JSON mode
-- streaming behavior
-
-So “it runs” does not always mean “it behaves exactly the same.”
-
-### 3. Domestic cloud platforms may add account, region, or compliance requirements
-
-Alibaba Cloud Bailian already shows region and deployment-scope differences. In enterprise environments, you should also confirm:
-
-- whether real-name verification is required
-- whether an enterprise account is needed
-- whether you must pick a supported region
-- whether additional service activation is required
-
-### 4. Pricing changes quickly
-
-Model pricing moves fast. Any price in an article should be treated as a snapshot for that day, not a guarantee.
-
----
-
-## If You Want the Safest Default Choice
-
-My recommendation is simple:
-
-- **Solo developer / fastest path**: use the official DeepSeek API first
-- **China-based company or team**: check Alibaba Cloud Bailian first
-- **Already on global model gateways**: compare Together, Fireworks, and Novita
-- **Seeing an OpenRouter model page**: confirm actual availability before integrating
-
----
-
-## Summary
-
-As of 2026-04-29, **DeepSeek V4 API is available on more than just the official platform**. But when you actually integrate it, the important questions are not just “does this site mention DeepSeek V4?” They are:
-
-1. What is the **real callable model ID** on this platform?
-2. Is the model **actually available today**?
-3. Does the platform fit your existing **OpenAI SDK or gateway workflow**?
-
-If you want the least risky route, start with the official DeepSeek API and use **`deepseek-v4-pro`** or **`deepseek-v4-flash`** directly. Move to Bailian, Together, Fireworks, or other platforms only when you specifically need multi-provider routing, cloud procurement alignment, or different cost controls.
-
-References:
-- [DeepSeek API Docs](https://api-docs.deepseek.com/)
-- [DeepSeek Pricing](https://api-docs.deepseek.com/quick_start/pricing)
-- [Alibaba Cloud Bailian Models](https://help.aliyun.com/zh/model-studio/getting-started/models)
-- [OpenRouter DeepSeek V4 page](https://openrouter.ai/deepseek/deepseek-v4)
-- [Together Models](https://www.together.ai/models)
-- [Fireworks Models](https://fireworks.ai/models)
-- [Novita Models](https://novita.ai/models)
+- **2026-04-24**: The API added V4-Pro and V4-Flash.
+- **2026-07-31**: V4-Flash-0731. The changelog says official release and **public beta**. It does not say GA. Only the Flash API changed.
+- **2026-08-13**: V4-Pro GA. Responses API. Thinking effort low / high / max. Peak pricing was announced for three days later.
+- **2026-08-16, 16:00 UTC**: Peak and off-peak prices took effect.
+- **2026-08-21**: V4-Flash-Vision-Exp.
+- **2026-09-10**: V4.1-Flash, model name `deepseek-flash`. New prices at 04:00 UTC. The previous Flash and Vision-Exp models were retired.
+- **2026-10-17**: Upgrade to V4.1-Flash-1017. The call path and the Flash price stayed the same. The same changelog opened the in-house Search API.

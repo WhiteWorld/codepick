@@ -1,7 +1,8 @@
 ---
-title: "国产模型编码选型 2026：GLM-5.3 vs DeepSeek-V4 vs Kimi K3 怎么选"
-description: "2026 年 8 月国产模型发布潮：GLM-5.3、DeepSeek-V4、Kimi K3 三强争霸。本文从编码能力、价格、套餐限制、生态兼容四个维度横评，帮你回答 HN 热门问题——「选便宜的话停在 GLM 还是降到 DeepSeek Flash？」"
-date: "2026-08-14"
+title: "GLM-5.3、DeepSeek Flash、Kimi K3：只比同一张官方表上的数字"
+description: "2026-10-18 重开 DeepSeek 官方页。旧稿里的「参数未公开」「约 ¥0.5–2/百万 token」「DeepSeek 没有高峰差价」都不成立。GLM 与 Kimi 只采用 DeepSeek 模型卡同表数字，并标明是官方自报、对比项自选。没有同口径的旧跑分已删。"
+date: "2026-10-18"
+updated_at: "2026-10-18"
 article_type: review
 tags: [glm, deepseek, kimi, model-comparison, coding, china-model]
 pillar: plans
@@ -10,111 +11,75 @@ locale_strategy: mirrored
 draft: false
 ---
 
-## 先说结论
+核查日 **2026-10-18**。当天重新打开的是 DeepSeek 这边：
 
-2026 年 8 月，国产大模型一周内三连发：智谱 GLM-5.3、DeepSeek-V4、Kimi K3。HN 评论区最热门的问题：「选便宜的话停在 GLM 还是降到 DeepSeek Flash？」
+- [changelog](https://api-docs.deepseek.com/updates)
+- [价格页](https://api-docs.deepseek.com/quick_start/pricing)
+- [2026-09-10 新闻](https://api-docs.deepseek.com/news/news260910)
+- [DeepSeek-V4.1-Flash-1017](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017)
+- [DeepSeek-V4.1-Flash](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash)
 
-我的结论：
+智谱和月之暗面自己的价格页、模型卡这次没打开。所以 GLM、Kimi 的月费、参数、以及它们自家公布的 SWE-bench，下面都不写。旧稿那张 HumanEval / MBPP / LiveCodeBench / SWE-bench 表，在这次打开的页面上没有同口径出处，整表删掉。
 
-- **预算优先**：DeepSeek Flash（API 按量计费，编码够用）
-- **编码能力优先**：GLM-5.3（SWE-bench 57.8%，国产第一梯队）或 DeepSeek-V4（benchmark 接近）
-- **生态兼容优先**：看你的工具链——Claude Code harness 用户优先 GLM，Codex 用户优先 DeepSeek
-- **多模态需求**：Kimi K3（视觉理解能力三者最强）
+## 旧问题还在，前提变了
 
-> 核查时间：2026-08-14。benchmark 数据来自各模型官方发布，实际体验因场景而异。
+旧稿问的是：图便宜的话，停在 GLM，还是降到 DeepSeek Flash？
 
----
+那句话默认 Flash 更弱、也没有高峰差价。2026-10-18 的页面不支持这两个前提。
 
-## 一、发布潮：一周三模型
+`deepseek-flash` 现在是 **DeepSeek-V4.1-Flash-1017**（2026-10-17 的小版本）。从 **2026-08-16 16:00 UTC** 起，官方 API 有峰谷价，非高峰是高峰的一半。高峰是 UTC 工作日 01:00–04:00 和 06:00–10:00，也就是北京时间 09:00–12:00 和 14:00–18:00，法定节假日除外。
 
-| 模型 | 发布时间 | 架构 | 核心卖点 |
-|---|---|---|---|
-| **GLM-5.3** | 2026-08 | 730B MoE | 编码 + 网络安全，SWE-bench 57.8% |
-| **DeepSeek-V4** | 2026-08 | MoE（参数未公开） | 通用能力均衡，Flash 版性价比突出 |
-| **Kimi K3** | 2026-08 | MoE（参数未公开） | 超长上下文 + 多模态视觉 |
+## DeepSeek 现在的价格和规格
 
-三个模型的共同点：都是 MoE 架构，都在编码 benchmark 上对标国际一线模型，都提供了面向开发者的 API 或套餐方案。
+官方只标 USD，每 100 万 token。没有「约 ¥0.5–2」这种人民币区间，那句没有官方出处。
 
-不同点在于侧重点：GLM-5.3 偏安全和编码突破，DeepSeek-V4 偏通用均衡，Kimi K3 偏多模态和长上下文。
+| | 非高峰 | 高峰 |
+| --- | --- | --- |
+| Flash 缓存命中 / 未命中 / 输出 | $0.003 / $0.15 / $0.60 | $0.006 / $0.30 / $1.20 |
+| V4-Pro 缓存命中 / 未命中 / 输出 | $0.022 / $0.66 / $1.98 | $0.044 / $1.32 / $3.96 |
 
----
+上下文 1M，最大输出 384K。Flash 支持视觉，`deepseek-v4-pro`（V4-Pro-0813）不支持。并发上限 Flash 2500，V4-Pro 500。
 
-## 二、编码能力对比
+参数两个口径，官方没解释差额：
 
-| Benchmark | GLM-5.3 | DeepSeek-V4 | Kimi K3 |
-|---|---|---|---|
-| HumanEval | 94.5% | 93.8% | 92.1% |
-| MBPP | 91.2% | 90.5% | 89.3% |
-| LiveCodeBench | 68.3% | 66.7% | 64.2% |
-| SWE-bench Verified | 57.8% | 55.1% | 50.3% |
+- 2026-09-10 新闻：**552B backbone MoE**，输入激活 8B，输出激活 16B。
+- 两张 HF 卡的模型大小都显示 **763B**。
 
-**分析**：
+V4.1-Flash 模型卡的 base 表把 DeepSeek-V4-Pro-Base 写成 1.6T backbone、激活 49B。价格页没有再写一版「在线的 V4-Pro-0813 就是这个参数量」。在线 Pro 的参数量不把 base 表直接当成 API 规格。
 
-- **GLM-5.3 在编码基准上略微领先**，尤其在 SWE-bench（真实仓库 bug 修复）上优势明显
-- **DeepSeek-V4 紧随其后**，差距在 2-3 个百分点，实际使用中感受差异不大
-- **Kimi K3 编码稍弱**，但它的核心竞争力在超长上下文和多模态，不是纯编码
+## 同一张表上的官方自报
 
-**一句话**：如果你主要用 AI 写代码，GLM-5.3 和 DeepSeek-V4 是第一梯队；Kimi K3 更适合需要图文理解或多轮长对话的场景。
+下面全部来自 DeepSeek-V4.1-Flash-1017 的 HF 卡。DeepSeek 自己测、自己选行，标成**官方自报**。K3 和 GLM-5.3 的格子是这张卡上的数字，不是 2026-10-18 重开智谱或月之暗面页面核对过的。
 
----
+† 是 HLE 的纯文本子集。Flash-1017 的主分 42.6 和括号里的 44.0† 不是同一个子集。GLM-5.3 那一格只给了 42.0†。所以 HLE 不能把 42.6 和 42.0 直接比大小。
 
-## 三、价格对比
+| 项目 | Flash-1017 | 上一版 V4.1-Flash | K3 | GLM-5.3 | Opus 5 |
+| --- | --- | --- | --- | --- | --- |
+| HLE，无工具 | 42.6（44.0†） | 36.8（39.1†） | 43.5 | 42.0† | 56.3 |
+| Terminal-Bench 4.0 | 42.3 | 31.2 | 12.6 | 37.9 | 51.8 |
+| DeepSWE v1.1 | 77.0 | 74.2 | 67.5 | 66.9 | 74.0 |
+| ProgramBench | 29.1 | 20.3 | 17.5 | 19.0 | 37.0 |
+| NL2Repo-Bench | 68.2 | 65.4 | 58.0 | 58.0 | 75.3 |
+| Automation-Bench v1.0.6 | 60.5 | 54.8 | 46.7 | 48.8 | 50.3 |
+| Agents' Last Exam | 35.4 | 31.8 | 27.6 | 28.5 | 28.6 |
+| Apex Bench v1.1 | 72.1 | 64.6 | 47.8 | 56.6 | 65.8 |
 
-| 模型 | 入门价格 | 中档价格 | 高端价格 | 套餐限制 |
-|---|---|---|---|---|
-| **GLM-5.3** | ¥49/月（Lite） | ¥149/月（Pro） | ¥469/月（Max） | 5h 重置窗口 + 高峰/空闲差价 |
-| **DeepSeek-V4** | API 按量（约 ¥0.5-2/百万 token） | API 按量 | API 按量 | 无套餐限制，按量计费 |
-| **Kimi K3** | ¥49/月（基础） | ¥199/月（专业） | ¥599/月（企业） | 上下文窗口限制随套餐变化 |
+Chartography、BabyVision、ZeroBench 这三行，GLM-5.3 是空的，不比。K3 有数：Chartography 68.1（Flash-1017 为 83.0，Opus 5 为 84.0），BabyVision 85.7（92.5 / Opus 5 94.1），ZeroBench 41.0（51.0；Opus 5 为 52.0，GPT-5.6 Sol 为 53.0）。
 
-**关键差异**：
+Terminal-Bench 4.0 的脚注是 Claude Code。DeepSWE v1.1 的脚注是 Mini-SWE-V2。
 
-- **DeepSeek 是唯一按量计费的**：没有 5 小时限制，没有高峰差价，用多少付多少。这对重度 agent 用户非常友好。
-- **GLM 的套餐限制最复杂**：5 小时重置窗口 + 高峰/空闲差价，重度用户容易被推到 Max（¥469/月）。
-- **Kimi 的套餐最贵**：高端 ¥599/月，但包含更大的上下文窗口和多模态能力。
+另外一处对不齐：V4.1-Flash 模型卡的 instruct 表把 NL2Repo-Bench 写成 **64.0**。9 月 10 日 changelog 和 1017 对比表写的是 **65.4**。两处都是官方页面，差额原因未知，不取其中一个当唯一数。
 
-**HN 问题的答案**：「选便宜的话停在 GLM 还是降到 DeepSeek Flash？」——答案很明确：**降到 DeepSeek Flash**。按量计费对轻度用户便宜，对重度用户没有 5 小时天花板。
+Opus 5 在这张自选表上仍然更高的项：HLE 无工具、Terminal-Bench 4.0、ProgramBench、NL2Repo-Bench、Chartography、BabyVision。Flash-1017 更高的项：DeepSWE v1.1、Automation-Bench、Agents' Last Exam、Apex Bench。这不是「全面超过旗舰闭源模型」。
 
----
+## 那还要不要「降到 Flash」
 
-## 四、生态兼容
+不能沿用旧结论。
 
-| 模型 | Claude Code | Codex CLI | Cursor | Cline | OpenCode | 自建 harness |
-|---|---|---|---|---|---|---|
-| **GLM-5.3** | ✅（官方支持） | ✅ | ✅ | ✅ | ✅ | ✅（社区 harness 实测） |
-| **DeepSeek-V4** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Kimi K3** | ✅ | ✅ | ✅ | ✅ | ⚠️ | ⚠️ |
+在 DeepSeek 这张表上，Flash-1017 的 Agent 行多数高于同表的 GLM-5.3 和 K3，不是「略差两三个点的便宜货」。HLE 无工具上，K3 的 43.5 高于 Flash-1017 的 42.6；和 GLM 的 42.0† 不是同一子集。Opus 5 仍领着上面列出的几项。
 
-**分析**：
+价钱是另一轴。Flash 官方价是美元峰谷价，不是无高峰差价的按量。工作日白天在北京时间那两段里跑，按高峰付。GLM 和 Kimi 的套餐月费这次没重开，不能拿旧稿的 ¥49 / ¥149 / ¥599 和这张美元表比谁更便宜。
 
-- 三个模型都兼容主流 AI 编程工具的 API 协议（OpenAI / Anthropic 兼容）
-- GLM-5.3 的 Claude Code 接入是官方明确支持的，且 HN 上已有社区 harness 实测
-- DeepSeek-V4 的生态最广——DeepSeek 自己的 API 生态（DeepSeek Harness、开源社区）是最成熟的
-- Kimi K3 因为多模态特性，在纯编码工具链上的兼容性不如前两者
+视觉也不再是「只有 Kimi」。`deepseek-flash` 支持视觉，V4-Pro 不支持。Kimi 的视觉是不是仍强于 Flash，两家页面没对照，不写。
 
-**选型建议**：如果你用 Claude Code 为主，GLM-5.3 和 DeepSeek-V4 都可以；如果你用 Codex CLI，三者都行；如果你要自建 workflow，DeepSeek 的生态最成熟。
-
----
-
-## 五、场景推荐
-
-| 你的场景 | 推荐 | 理由 |
-|---|---|---|
-| 预算紧张，偶尔用 AI 编码 | **DeepSeek Flash** | 按量计费，无最低消费，编码够用 |
-| 每天高强度 agent 编码 | **DeepSeek-V4** | 按量计费，没有 5h 天花板 |
-| 安全研究 + 编码 | **GLM-5.3** | emergent cyber capabilities + SWE-bench 第一 |
-| 多模态 + 长文档 | **Kimi K3** | 视觉理解 + 超长上下文 |
-| 全套国产工具链 | **DeepSeek-V4 + DeepSeek Harness** | 模型 + 框架同生态，体验最一致 |
-| 包年锁定低价 | **GLM-5.3 Max 包年 ¥328/月** | 7 折后性价比接近 DeepSeek 重度使用 |
-
----
-
-## 六、总结
-
-国产模型在 2026 年 8 月这一波发布后，已经能在编码领域和国际一线模型正面竞争。选型的关键不再是"哪个模型最强"，而是**你的使用模式匹配哪种定价模型**：
-
-- 轻度用户 → DeepSeek Flash 按量计费最划算
-- 重度 agent 用户 → DeepSeek-V4 没有 5 小时天花板
-- 安全/编码专精 → GLM-5.3 的 SWE-bench 和 cyber 能力
-- 多模态需求 → Kimi K3
-
-> 延伸阅读：站内 [火山方舟 Coding Plan](/zh/guides/ark-coding-plan-guide)、[百炼 Coding Plan](/zh/guides/bailian-coding-plan)、[AI 编程成本对比 2026](/zh/compare/ai-coding-cost-comparison-2026) 可配合阅读。
+所以这题的当前答案是：若只看 DeepSeek 自己的表，Flash-1017 不是 GLM-5.3 或 K3 的降级档。若账单按北京时间工作日白天估算，要把高峰价算进去。套餐月费和自家跑分，等重开智谱、月之暗面的页面再比。
