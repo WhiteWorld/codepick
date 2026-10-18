@@ -2,7 +2,7 @@
 title: "模型下线自查清单：写死的旧模型 ID 怎么找、怎么改"
 description: "核查日 2026-10-17。Copilot 将于 2026-11-16 下线 Claude Opus 4.8、Claude Opus 5、GPT-5.6 Terra。Codex 已在 2026-10-14 让 GPT-5.5 退出 ChatGPT 登录。附可复制的 rg 命令，以及这些 ID 写在哪。"
 date: "2026-10-17"
-updated_at: "2026-10-17"
+updated_at: "2026-10-18"
 article_type: howto
 tags: [model-deprecation, copilot, codex, openai, api]
 pillar: workflow
@@ -21,19 +21,20 @@ faq:
       公告写了：Claude Opus 4.8 会留给个人年付订阅，让他们还能用一款 Opus。这条例外不覆盖 Claude Opus 5 和 GPT-5.6 Terra。仓库或 CI 里写死的 ID 会给同事和自动化用，年付例外帮不上那些调用。
 ---
 
-核查日：**2026-10-17**。日期只采用当天打开的官方页。页上没有的，下面写未知，不补。
+核查日：Copilot、Codex、OpenAI 关停页仍是 **2026-10-17** 打开的，这次没有重开。DeepSeek 别名这一节是 **2026-10-18** 重开 [价格页](https://api-docs.deepseek.com/quick_start/pricing) 和 [changelog](https://api-docs.deepseek.com/updates) 之后补的。页上没有的，写未知。
 
-计费单价不在这里重复，见 [Copilot 改为 AI Credits 计费](/zh/guides/copilot-ai-credits-billing/)。另一家「旧别名会下线」的例子见 [DeepSeek V4 API 平台汇总](/zh/guides/deepseek-v4-api-platforms/)；那篇的核查日是 2026-04-29，本文没有重开 DeepSeek 文档。
+计费单价不在这里重复，见 [Copilot 改为 AI Credits 计费](/zh/guides/copilot-ai-credits-billing/)。DeepSeek 的价格和 ID 见 [DeepSeek API 平台现状](/zh/guides/deepseek-v4-api-platforms/)。
 
 ## 先说结论
 
-三件事不要合成一张表。
+四件事不要合成一张表。
 
 1. **GitHub Copilot** 将在 **2026-11-16** 下线 Claude Opus 4.8、Claude Opus 5、GPT-5.6 Terra。公告给的替代是 Claude Opus 5.5，以及 GPT-6.1 Sol 或 GPT-6 Luna。个人年付订阅仍保留 Claude Opus 4.8。公告用的是显示名，没有给出可搜索的模型 ID。
 2. **Codex** 已在 **2026-10-14 12:00 PDT（19:00 UTC）** 让 GPT-5.5 从 ChatGPT 登录的 Codex 里退役。OpenAI API 和 API Key 会话不受影响。日志建议在套餐和客户端还提供时改用 `gpt-6.1-sol`。CLI **0.161.0**（发布于 2026-10-07）把内置目录和 Amazon Bedrock 目录的默认模型改成了 GPT-6.1 Sol。你自己在 `config.toml` 里写的 `model = "gpt-5.5"` 优先级更高，升级 CLI 不会替你改掉这一行。
 3. **OpenAI API** 的 [关停页](https://platform.openai.com/docs/deprecations) 当天能打开，没有被 Cloudflare 拦住。上面写了 **2027-01-14** 关闭若干 GPT-4o / GPT-4.1 **快照**。更近的一档是 **2026-10-23**。不带日期的别名 `gpt-4o`、`gpt-4.1` 没有单独一行，是否同一天关闭：**未知**。
+4. **DeepSeek**：`deepseek-v4-flash` 和 `deepseek-v4-flash-vision-exp` 现在是兼容别名。价格页写明对应模型已退役，请求由 DeepSeek-V4.1-Flash-1017 按 Flash 价处理。新代码写 `deepseek-flash`。`deepseek-chat` / `deepseek-reasoner` 原定 2026-07-24 停用，当前价格页未列出，是否还能调用：**未知**。
 
-Copilot 不是每个团队的主入口。用 Codex、或者在服务端把模型 ID 写进请求的人，按第 2、3 条做完搜索即可。本文不写访问是否顺畅。
+Copilot 不是每个团队的主入口。用 Codex、或者在服务端把模型 ID 写进请求的人，按第 2、3 条做完搜索即可。仓库里如果还写着 `deepseek-v4-flash` 或 `deepseek-v4-flash-vision-exp`，按第 4 条改成 `deepseek-flash`，除非你就是要留兼容别名。本文不写访问是否顺畅。
 
 ## 页面上的原句
 

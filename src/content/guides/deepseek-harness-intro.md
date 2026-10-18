@@ -1,7 +1,8 @@
 ---
 title: "DeepSeek Harness 入门：一切皆插件的开源 Agent 框架"
-description: "DeepSeek Harness（dsh）是 DeepSeek AI 官方的开源 agent harness，64k+ stars，MIT 许可，架构核心是「一切皆插件」。本文讲清它是什么、插件化架构与 LangChain/CrewAI 等传统框架的区别、怎么上手、以及 developer preview 阶段你能用它做什么。"
+description: "DeepSeek Harness（dsh）是 DeepSeek AI 官方的开源 agent harness。2026-10-18 打开 GitHub 组织页时为 252,529 stars，MIT，README 仍标 developer preview。架构核心是「一切皆插件」。changelog 建议 0.2.1-rc.1 及以上配合 V4.1-Flash-1017。"
 date: "2026-08-14"
+updated_at: "2026-10-18"
 article_type: explainer
 tags: [deepseek, harness, agent-framework, dsh, plugin, cordis]
 pillar: workflow
@@ -10,19 +11,23 @@ locale_strategy: mirrored
 draft: false
 ---
 
+核查日 **2026-10-18**。重新打开了 [github.com/deepseek-ai](https://github.com/deepseek-ai)、仓库 README（`master`），以及 [DeepSeek API changelog](https://api-docs.deepseek.com/updates) 里 2026-10-17 那一条。
+
+> README 仍写 **developer preview**，会有破坏性变更。组织页打开时 `deepseek-harness` 是 **252,529** stars。几分钟后 GitHub API 返回 **252,533**。数字在变，以你打开时为准。
+
+2026-10-17 的 API changelog 写：DeepSeek Harness **0.2.1-rc.1** 及以上，对新的 V4.1-Flash-1017 体验最好。这是官方对模型和 Harness 版本的搭配提示，不是说更低版本不能跑。
+
 ## 先说结论
 
 DeepSeek Harness（CLI 命令 `dsh`）不是又一个 AI 编程工具。它是 DeepSeek AI 官方开源的 **agent harness**——一个让你构建、编排和运行 AI Agent 的框架。
 
 和 Claude Code、Codex 这类"拿来就用的 coding agent"不同，DeepSeek Harness 更像一个**Agent 工厂**：它提供插件化的架构底座，你把模型、工具、工作流作为插件接入，组装出你自己的 Agent。
 
-> ⚠️ **重要提醒**：DeepSeek Harness 目前处于 **developer preview** 阶段，迭代速度极快，会有破坏性变更。本文事实截至 2026-08-14，请以官方文档为准。
-
 ---
 
 ## 一、DeepSeek Harness 是什么
 
-[DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（`dsh`）是 DeepSeek AI 开发的开源 agent 框架，MIT 许可，TypeScript 编写，GitHub 64k+ stars。
+[DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（`dsh`）是 DeepSeek AI 开发的开源 agent 框架，MIT 许可，TypeScript 编写。2026-10-18 打开组织页时是 252,529 stars。
 
 它的核心设计理念就一句话：**Everything is a Plugin（一切皆插件）**。
 
@@ -99,11 +104,11 @@ pnpm dsh web
 
 ### 配置 Provider
 
-在 Web UI 中配置你的模型 provider（DeepSeek API、OpenAI API 等），然后就可以创建 Agent 并开始使用了。详细配置见官方 [Web UI 指南](https://github.com/deepseek-ai/deepseek-harness/tree/master/docs/user/guide)。
+在 Web UI 中配置你的模型 provider（DeepSeek API、OpenAI API 等），然后就可以创建 Agent 并开始使用了。README 指向的文档站是 [deepseek-harness.github.io](https://deepseek-harness.github.io/deepseek-harness/)，仓库里的 Web UI 说明在 `docs/user/guide/index.md`。
 
-### Python SDK
+若模型用的是 2026-10-17 的 `deepseek-flash`（V4.1-Flash-1017），官方 changelog 建议 Harness **0.2.1-rc.1** 或更高。
 
-除了 Web UI 和 CLI，DeepSeek Harness 还提供 Python SDK，方便在 Python 项目中集成。
+2026-10-18 读到的英文 README 没有 Python SDK 这一节。有没有单独的 Python 包：**未知**。
 
 ---
 
@@ -120,8 +125,8 @@ DeepSeek Harness 的插件通过 GitHub 的 [`dsh-plugin` topic](https://github.
 
 ### 社区
 
-- **Discord**：[DeepSeek Harness Discord](https://discord.gg/Ycq5dCaS4)
-- **国内**：企微群 + 公众号（见官方 README）
+- **Discord**：英文 README 里的邀请是 [discord.gg/4MrtZUhpxg](https://discord.gg/4MrtZUhpxg)。旧稿里的另一条邀请这次没再核对是否还能用。
+- **国内群**：这次打开的英文 README 没写企微或公众号。中文 README 没打开，那些入口是否还在：**未知**。
 - **GitHub Discussions**：反馈和 bug 报告
 
 ---

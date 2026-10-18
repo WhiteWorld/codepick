@@ -1,7 +1,8 @@
 ---
-title: "China Model Showdown 2026: GLM-5.3 vs DeepSeek-V4 vs Kimi K3 for AI Coding"
-description: "August 2026 saw three major Chinese model releases in one week: GLM-5.3, DeepSeek-V4, and Kimi K3. This comparison covers coding benchmarks, pricing, tier limits, and ecosystem compatibility to answer the HN hot take: 'If I want cheap, should I stick with GLM or drop to DeepSeek Flash?'"
-date: "2026-08-14"
+title: "GLM-5.3, DeepSeek Flash, and Kimi K3: Only Numbers from the Same Official Table"
+description: "Rechecked against DeepSeek's pages on 2026-10-18. The old lines — unpublished parameter count, about ¥0.5–2 per million tokens, and no peak-price gap — do not hold. GLM and Kimi appear only as cells on DeepSeek's own card, marked official self-reported and self-selected. Older scores without a shared source are removed."
+date: "2026-10-18"
+updated_at: "2026-10-18"
 article_type: review
 tags: [glm, deepseek, kimi, model-comparison, coding, china-model]
 pillar: plans
@@ -10,111 +11,75 @@ locale_strategy: mirrored
 draft: false
 ---
 
-## Bottom Line
+Checked on **2026-10-18**. The pages reopened were DeepSeek's:
 
-August 2026: three Chinese model releases in one week — Zhipu GLM-5.3, DeepSeek-V4, Kimi K3. The hottest HN comment: "If I want cheap, should I stick with GLM or drop to DeepSeek Flash?"
+- [Changelog](https://api-docs.deepseek.com/updates)
+- [Pricing](https://api-docs.deepseek.com/quick_start/pricing)
+- [News post, 2026-09-10](https://api-docs.deepseek.com/news/news260910)
+- [DeepSeek-V4.1-Flash-1017](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017)
+- [DeepSeek-V4.1-Flash](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash)
 
-My take:
+Zhipu's and Moonshot's own pricing pages and model cards were not opened. This update does not quote GLM or Kimi monthly fees, parameter counts, or SWE-bench numbers published by those vendors. The old HumanEval / MBPP / LiveCodeBench / SWE-bench table had no shared source on the pages opened this round. The whole table is gone.
 
-- **Budget-first**: DeepSeek Flash (pay-per-use API, good enough for coding)
-- **Coding quality-first**: GLM-5.3 (SWE-bench 57.8%, top tier in China) or DeepSeek-V4 (close behind)
-- **Ecosystem-first**: Depends on your toolchain — Claude Code harness users prefer GLM, Codex users prefer DeepSeek
-- **Multimodal needs**: Kimi K3 (strongest vision understanding of the three)
+## The old question, with the premise removed
 
-> Research timestamp: 2026-08-14. Benchmark data from official model releases. Real-world experience varies by use case.
+The earlier draft asked: if you want the cheap option, do you stay on GLM or drop to DeepSeek Flash?
 
----
+That question assumed Flash was the weaker model and that DeepSeek had no peak surcharge. The pages opened on 2026-10-18 do not support either assumption.
 
-## 1. The Release Wave: Three Models in One Week
+`deepseek-flash` is now **DeepSeek-V4.1-Flash-1017**, a minor update on 2026-10-17. Since **16:00 UTC on 2026-08-16**, the official API has peak and off-peak prices. Off-peak is half of peak. Peak hours are weekdays 01:00–04:00 and 06:00–10:00 UTC, which is 09:00–12:00 and 14:00–18:00 Beijing time, excluding Chinese public holidays.
 
-| Model | Release | Architecture | Key Selling Point |
-|---|---|---|---|
-| **GLM-5.3** | Aug 2026 | 730B MoE | Coding + cybersecurity, SWE-bench 57.8% |
-| **DeepSeek-V4** | Aug 2026 | MoE (params undisclosed) | Balanced general capability, Flash tier for value |
-| **Kimi K3** | Aug 2026 | MoE (params undisclosed) | Ultra-long context + multimodal vision |
+## DeepSeek price and spec, as published
 
-All three share MoE architecture, all compete with international top-tier models on coding benchmarks, and all offer developer-facing APIs or subscription plans.
+The official page is USD per 1M tokens. There is no CNY range, and no source for the old "about ¥0.5–2 per million tokens."
 
-The differences: GLM-5.3 leans toward security and coding breakthroughs, DeepSeek-V4 toward balanced general capability, Kimi K3 toward multimodal and long-context use cases.
+| | Off-peak | Peak |
+| --- | --- | --- |
+| Flash cache hit / cache miss / output | $0.003 / $0.15 / $0.60 | $0.006 / $0.30 / $1.20 |
+| V4-Pro cache hit / cache miss / output | $0.022 / $0.66 / $1.98 | $0.044 / $1.32 / $3.96 |
 
----
+Context is 1M. Max output is 384K. Flash supports vision. `deepseek-v4-pro` (V4-Pro-0813) does not. Concurrency limits are 2500 for Flash and 500 for V4-Pro.
 
-## 2. Coding Benchmarks
+Two parameter wordings, and DeepSeek does not explain the gap:
 
-| Benchmark | GLM-5.3 | DeepSeek-V4 | Kimi K3 |
-|---|---|---|---|
-| HumanEval | 94.5% | 93.8% | 92.1% |
-| MBPP | 91.2% | 90.5% | 89.3% |
-| LiveCodeBench | 68.3% | 66.7% | 64.2% |
-| SWE-bench Verified | 57.8% | 55.1% | 50.3% |
+- The 2026-09-10 news post: a **552B MoE backbone**, 8B active on input, 16B active on output.
+- Both Hugging Face cards show a model size of **763B**.
 
-**Analysis**:
+The V4.1-Flash card's base-model table lists DeepSeek-V4-Pro-Base at 1.6T backbone parameters and 49B activated. The pricing page does not say the served V4-Pro-0813 has that count. The base-model row is not treated here as the API spec.
 
-- **GLM-5.3 leads slightly on coding benchmarks**, with a clear edge on SWE-bench (real-world repo bug fixes)
-- **DeepSeek-V4 is close behind**, within 2-3 percentage points — the difference is barely noticeable in daily use
-- **Kimi K3 trails on pure coding**, but its core strength is ultra-long context and multimodal, not raw coding
+## One table, official self-report
 
-**In short**: If you mainly use AI for coding, GLM-5.3 and DeepSeek-V4 are tier one. Kimi K3 is better suited for scenarios requiring image understanding or multi-turn long conversations.
+Every cell below is from the DeepSeek-V4.1-Flash-1017 Hugging Face card. DeepSeek ran the evals and chose the rows. Mark them **official self-reported**. The K3 and GLM-5.3 cells are that card's numbers. They were not checked against Zhipu or Moonshot pages on 2026-10-18.
 
----
+The dagger is the text-only subset of HLE. Flash-1017's headline 42.6 and the 44.0† in parentheses are not the same subset. GLM-5.3 is given only as 42.0†. Do not rank 42.6 against 42.0.
 
-## 3. Pricing Comparison
+| Benchmark | Flash-1017 | Previous V4.1-Flash | K3 | GLM-5.3 | Opus 5 |
+| --- | --- | --- | --- | --- | --- |
+| HLE, no tools | 42.6 (44.0†) | 36.8 (39.1†) | 43.5 | 42.0† | 56.3 |
+| Terminal-Bench 4.0 | 42.3 | 31.2 | 12.6 | 37.9 | 51.8 |
+| DeepSWE v1.1 | 77.0 | 74.2 | 67.5 | 66.9 | 74.0 |
+| ProgramBench | 29.1 | 20.3 | 17.5 | 19.0 | 37.0 |
+| NL2Repo-Bench | 68.2 | 65.4 | 58.0 | 58.0 | 75.3 |
+| Automation-Bench v1.0.6 | 60.5 | 54.8 | 46.7 | 48.8 | 50.3 |
+| Agents' Last Exam | 35.4 | 31.8 | 27.6 | 28.5 | 28.6 |
+| Apex Bench v1.1 | 72.1 | 64.6 | 47.8 | 56.6 | 65.8 |
 
-| Model | Entry Price | Mid Price | High Price | Tier Limits |
-|---|---|---|---|---|
-| **GLM-5.3** | ¥49/mo (Lite) | ¥149/mo (Pro) | ¥469/mo (Max) | 5h reset window + peak/off-peak differential |
-| **DeepSeek-V4** | Pay-per-use (~¥0.5-2/M tokens) | Same | Same | No tier limits, pure usage-based |
-| **Kimi K3** | ¥49/mo (Basic) | ¥199/mo (Pro) | ¥599/mo (Enterprise) | Context window limits vary by tier |
+Chartography, BabyVision, and ZeroBench have no GLM-5.3 cell, so they are not compared. K3 does have cells: Chartography 68.1 (Flash-1017 83.0, Opus 5 84.0), BabyVision 85.7 (92.5, Opus 5 94.1), ZeroBench 41.0 (51.0; Opus 5 52.0, GPT-5.6 Sol 53.0).
 
-**Key differences**:
+The footnote for Terminal-Bench 4.0 is the Claude Code harness. The footnote for DeepSWE v1.1 is Mini-SWE-V2.
 
-- **DeepSeek is the only pay-per-use option**: No 5-hour limit, no peak/off-peak differential. You pay for what you use — very friendly for heavy agent users.
-- **GLM has the most complex tier limits**: The 5-hour reset window + peak/off-peak pricing pushes heavy users toward Max (¥469/mo).
-- **Kimi is the most expensive at the high end**: ¥599/mo for Enterprise, but includes larger context windows and multimodal capabilities.
+One mismatch inside DeepSeek's own pages: the V4.1-Flash instruct table lists NL2Repo-Bench as **64.0**. The 10 September changelog and the 1017 comparison table say **65.4**. Both are official pages. The reason for the gap is unknown. Neither number is picked as the only one.
 
-**Answering the HN question**: "Should I stick with GLM or drop to DeepSeek Flash?" — the answer is clear: **drop to DeepSeek Flash**. Pay-per-use is cheaper for light users and has no 5-hour ceiling for heavy users.
+On this self-selected table, Opus 5 is still higher on HLE without tools, Terminal-Bench 4.0, ProgramBench, NL2Repo-Bench, Chartography, and BabyVision. Flash-1017 is higher on DeepSWE v1.1, Automation-Bench, Agents' Last Exam, and Apex Bench. That is not "ahead of closed flagship models across the board."
 
----
+## Whether to "drop to Flash"
 
-## 4. Ecosystem Compatibility
+The old answer does not carry over.
 
-| Model | Claude Code | Codex CLI | Cursor | Cline | OpenCode | Custom harness |
-|---|---|---|---|---|---|---|
-| **GLM-5.3** | ✅ (official) | ✅ | ✅ | ✅ | ✅ | ✅ (community harness tested) |
-| **DeepSeek-V4** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Kimi K3** | ✅ | ✅ | ✅ | ✅ | ⚠️ | ⚠️ |
+On DeepSeek's table, Flash-1017 is ahead of the GLM-5.3 and K3 cells on most of the agent rows. It is not a slightly worse cheap tier. On HLE without tools, K3's 43.5 is above Flash-1017's 42.6. GLM's 42.0† is a different subset. Opus 5 still leads the rows listed above.
 
-**Analysis**:
+Price is a separate axis. Flash's official price is a USD peak and off-peak schedule, not pay-as-you-go with no peak gap. Daytime agent runs inside the two Beijing windows pay the peak rate. GLM and Kimi monthly fees were not reopened, so the old ¥49 / ¥149 / ¥599 figures are not compared with this USD table.
 
-- All three are compatible with mainstream AI coding tools via OpenAI / Anthropic API protocols
-- GLM-5.3's Claude Code support is officially confirmed, with community harness testing on HN
-- DeepSeek-V4 has the broadest ecosystem — DeepSeek's own API ecosystem (DeepSeek Harness, open-source community) is the most mature
-- Kimi K3, due to its multimodal nature, has slightly less seamless compatibility with pure coding toolchains
+Vision is also no longer "Kimi only." `deepseek-flash` supports vision. V4-Pro does not. Whether Kimi's vision is still stronger was not checked on both vendors' pages, so it is not claimed.
 
-**Recommendation**: If you primarily use Claude Code, both GLM-5.3 and DeepSeek-V4 work. If you use Codex CLI, all three work. If you're building custom workflows, DeepSeek's ecosystem is the most mature.
-
----
-
-## 5. Scenario Recommendations
-
-| Your Scenario | Recommendation | Reason |
-|---|---|---|
-| Tight budget, occasional AI coding | **DeepSeek Flash** | Pay-per-use, no minimum, good enough for coding |
-| Heavy daily agent coding | **DeepSeek-V4** | Pay-per-use, no 5-hour ceiling |
-| Security research + coding | **GLM-5.3** | Emergent cyber capabilities + SWE-bench leader |
-| Multimodal + long documents | **Kimi K3** | Vision understanding + ultra-long context |
-| Full domestic toolchain | **DeepSeek-V4 + DeepSeek Harness** | Model + framework same ecosystem, most consistent experience |
-| Annual lock-in for low price | **GLM-5.3 Max annual ¥328/mo** | 30% off brings value close to heavy DeepSeek usage |
-
----
-
-## 6. Summary
-
-After this August 2026 wave of releases, Chinese models can now compete head-to-head with international leaders on coding. The key question is no longer "which model is strongest" — it's **which pricing model matches your usage pattern**:
-
-- Light users → DeepSeek Flash pay-per-use is the best deal
-- Heavy agent users → DeepSeek-V4 has no 5-hour ceiling
-- Security/coding specialists → GLM-5.3's SWE-bench and cyber capabilities
-- Multimodal needs → Kimi K3
-
-> Further reading: Check out our [Volcengine Ark Coding Plan guide](/en/guides/ark-coding-plan-guide), [Bailian Coding Plan guide](/en/guides/bailian-coding-plan), and [AI Coding Cost Comparison 2026](/en/compare/ai-coding-cost-comparison-2026).
+The current answer to the old question: on DeepSeek's own table, Flash-1017 is not a downgrade from the GLM-5.3 or K3 columns. If the bill is estimated for Beijing weekday daytime, use the peak rate. Subscription prices and each vendor's own scores wait until those pages are opened again.

@@ -2,6 +2,7 @@
 title: "OpenRouter Top-Up & Usage Guide (2026): One API for 500+ Models"
 description: "OpenRouter is a unified API aggregating 500+ models across 80+ providers, with credit-based pay-as-you-go billing (no subscription) and support for credit cards, AliPay, and USDC crypto. This guide covers signup, topping up, wiring the key into Cline/Aider/OpenCode, fees and refund rules, and how it compares with API relay services and official subscriptions."
 date: "2026-08-20"
+updated_at: "2026-10-18"
 article_type: howto
 tags: [openrouter, api, credits, guide, billing]
 pillar: plans
@@ -9,6 +10,8 @@ content_status: keep
 locale_strategy: mirrored
 draft: false
 ---
+
+On 2026-10-18 only the OpenRouter model page [deepseek/deepseek-v4.1-flash](https://openrouter.ai/deepseek/deepseek-v4.1-flash) was reopened, and that slug was there. [deepseek/deepseek-v4.1-flash-1017](https://openrouter.ai/deepseek/deepseek-v4.1-flash-1017) also had a page the same day. Top-up, fees, and refunds below are still the 2026-08-20 notes. Those pages were not reopened.
 
 ## Bottom Line
 
@@ -46,7 +49,7 @@ Official data (verified 2026-08-20 at openrouter.ai):
 1. **Sign up + top up**: openrouter.ai -> Sign up -> Credits page (start small, e.g. $10).
 2. **Get an API key**: Dashboard -> Keys -> Create key (format `sk-or-v1-...`).
 3. **Wire it into your tools**:
-   - **Cline**: Settings -> API Provider -> OpenRouter, paste the key, pick a model (e.g. `anthropic/claude-opus-5`, `deepseek/deepseek-chat`).
+   - **Cline**: Settings -> API Provider -> OpenRouter, paste the key, pick a model (e.g. `anthropic/claude-opus-5`, `deepseek/deepseek-v4.1-flash`).
    - **Aider / OpenCode / Roo Code**: set `OPENROUTER_API_KEY=sk-or-v1-...` and use the `org/model` model naming.
    - Or point the OpenAI SDK's base URL at OpenRouter as a drop-in replacement.
 4. **Track usage**: the Dashboard shows token spend by model and date; set an Org budget to control costs.

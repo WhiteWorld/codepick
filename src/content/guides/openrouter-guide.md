@@ -2,6 +2,7 @@
 title: "OpenRouter 充值与使用指南（2026）：一个 API 用遍 500+ 模型"
 description: "OpenRouter 是聚合 500+ 模型、80+ 提供商的统一 API 接口，支持信用卡、支付宝和 USDC 加密币充值，按量计费无订阅。本文讲清怎么注册充值、怎么配到 Cline/Aider/OpenCode 等工具里、手续费与退款规则，以及和 API 中转站、官方订阅怎么选。"
 date: "2026-08-20"
+updated_at: "2026-10-18"
 article_type: howto
 tags: [openrouter, api, credits, 充值, 指南]
 pillar: plans
@@ -9,6 +10,8 @@ content_status: keep
 locale_strategy: mirrored
 draft: false
 ---
+
+2026-10-18 只重开了 OpenRouter 模型页 [deepseek/deepseek-v4.1-flash](https://openrouter.ai/deepseek/deepseek-v4.1-flash)，确认这个 slug 存在。同日 [deepseek/deepseek-v4.1-flash-1017](https://openrouter.ai/deepseek/deepseek-v4.1-flash-1017) 也有页面。下面充值、手续费、退款仍是 2026-08-20 的记录，这次没重开。
 
 ## 先说结论
 
@@ -46,7 +49,7 @@ OpenRouter 是一个**模型聚合 API**：通过一个统一接口访问 500+ �
 1. **注册 + 充值**：openrouter.ai → Sign up → 在 Credits 页面充值（建议先充小额试水，如 $10）。
 2. **拿 API key**：Dashboard → Keys → Create key，形如 `sk-or-v1-...`。
 3. **配置到工具**：
-   - **Cline**：设置 → API Provider 选 OpenRouter，填入 key，选模型（如 `anthropic/claude-opus-5`、`deepseek/deepseek-chat`）。
+   - **Cline**：设置 → API Provider 选 OpenRouter，填入 key，选模型（如 `anthropic/claude-opus-5`、`deepseek/deepseek-v4.1-flash`）。
    - **Aider / OpenCode / Roo Code**：设置环境变量 `OPENROUTER_API_KEY=sk-or-v1-...`，模型名用 OpenRouter 的 `org/model` 格式。
    - 也可以直接用 OpenAI SDK 把 base URL 指到 OpenRouter，作为 drop-in 替换。
 4. **看用量**：Dashboard 里能按模型/日期看 token 消耗，设置 Org 预算可以控成本。
