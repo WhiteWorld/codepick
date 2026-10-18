@@ -4,8 +4,8 @@ type: cli
 logo: /images/opencode.png
 url: https://opencode.ai
 repo: https://github.com/anomalyco/opencode
-current_version: v1.19.2
-version_tracked_at: '2026-10-16'
+current_version: v2.0.32
+version_tracked_at: '2026-10-18'
 pricing:
   model: free
   currency: null
@@ -72,16 +72,28 @@ compatible_apis:
   - deepseek
   - ollama
 data_sources:
-  - url: https://github.com/anomalyco/opencode/releases/tag/v1.19.2
+  - url: https://github.com/anomalyco/opencode/tree/v2.0.32
     type: release
-    last_checked: '2026-10-16'
+    last_checked: '2026-10-18'
   - url: https://github.com/anomalyco/opencode/releases
     type: release
-    last_checked: '2026-10-16'
+    last_checked: '2026-10-18'
   - url: https://opencode.ai/changelog
     type: changelog
-    last_checked: '2026-08-19'
+    last_checked: '2026-10-18'
 changelog:
+  - date: '2026-10-16'
+    type: release
+    summary: 'v2.0.32：2.x 线最新版。2.x 通过 git tag 发布（GitHub 无 Release 对象），更新日志见官网 changelog。'
+    summary_en: 'v2.0.32: latest on the 2.x line. The 2.x line ships via git tags (no GitHub Release objects); see the official changelog for details.'
+  - date: '2026-10-16'
+    type: release
+    summary: 'v1.19.3：1.x 独立更新线继续维护（模型推理选项配置）；1.x 安装不会被自动推送到 2.x。'
+    summary_en: 'v1.19.3: the 1.x line is still maintained independently (model reasoning options); 1.x installs are never auto-upgraded to 2.x.'
+  - date: '2026-10-13'
+    type: release
+    summary: 'v2.0：大版本 — 终端 / 桌面 / Web 共用一个常驻后台服务，会话、配置、权限统一管理；新增 Code Mode（agent 自己写 JS 串 MCP 工具）、后台子 agent、可嵌入 SDK（@opencode/sdk）。破坏性变更：1.x 插件在 2.0 不运行、必须按迁移指南重写；服务端 API 重写（改用 @opencode/client）；LSP 不再运行；会话分享下线；tui.json 迁移为全局 cli.json。升级须显式执行 opencode upgrade --major（或 /update 里选 2.0），不会自动推送；agents / commands / skills / opencode.json 可继续使用。'
+    summary_en: 'v2.0: major release — terminal, desktop and web share one always-on background service with unified sessions, config and permissions; new Code Mode (agents compose MCP tools in JS), background subagents, embeddable SDK (@opencode/sdk). Breaking changes: 1.x plugins do not run on 2.0 and must be rewritten per the migration guide; server API rewritten (use @opencode/client); LSP no longer runs; session sharing discontinued; tui.json migrates to a global cli.json. Upgrading requires an explicit opencode upgrade --major (or the 2.0 option in /update) and is never automatic; agents / commands / skills / opencode.json keep working.'
   - date: '2026-10-16'
     type: release
     summary: 'v1.19.2：1.x 更新检查只看 npm opencode-ai 的 latest，不再把 2.x 当成普通更新；升到 OpenCode 2 仍须通过 /update 的 2.0 选项或 opencode upgrade --major。修复 yarn 管理的安装升级；Homebrew Core 已跟踪 2.x，因此跳过 1.x 更新；安装脚本拒绝安装 2.x。'
@@ -174,7 +186,7 @@ changelog:
     type: release
     summary: 'v0.0.55: 旧版本末期'
     summary_en: 'v0.0.55: final legacy release before v1.0 rewrite'
-last_full_review: '2026-10-16'
-next_review_due: '2026-11-15'
+last_full_review: '2026-10-18'
+next_review_due: '2026-11-17'
 review_frequency_days: 30
 confidence: medium
