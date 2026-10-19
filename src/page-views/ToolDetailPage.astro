@@ -128,6 +128,7 @@ const softwareAppSchema: object = {
     name: p.name,
     price: typeof p.price === 'number' ? p.price : 0,
     priceCurrency: pricingCurrency === 'CNY' ? 'CNY' : 'USD',
+    availability: 'https://schema.org/OnlineOnly',
     description: p.limits || '',
   })) : undefined,
 };
