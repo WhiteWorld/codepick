@@ -77,10 +77,27 @@ function checkBuiltHtml() {
   const bareInternalLinks = [];
   const forbiddenLinks = [];
   const missingAlternates = [];
+  let checkedOffers = 0;
 
   for (const file of htmlFiles) {
     const html = fs.readFileSync(file, 'utf8');
     const relFile = path.relative(root, file);
+
+    for (const match of html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)) {
+      let schema;
+      try {
+        schema = JSON.parse(match[1]);
+      } catch {
+        fail(`${relFile}: invalid JSON-LD`);
+        continue;
+      }
+      if (!['Product', 'SoftwareApplication'].includes(schema['@type'])) continue;
+      const offers = Array.isArray(schema.offers) ? schema.offers : schema.offers ? [schema.offers] : [];
+      for (const offer of offers) {
+        checkedOffers += 1;
+        assertEqual(offer.availability, 'https://schema.org/OnlineOnly', `${relFile}: offer availability`);
+      }
+    }
 
     for (const match of html.matchAll(/\bhref="(\/(?:zh|en)(?:\/[^"#?]*)?)([#?][^"]*)?"/g)) {
       const pathname = match[1];
@@ -107,6 +124,8 @@ function checkBuiltHtml() {
       }
     }
   }
+
+  if (checkedOffers === 0) fail('No built offers found to validate availability');
 
   if (bareInternalLinks.length > 0) {
     fail(`Found internal page links without trailing slash:\n${bareInternalLinks.slice(0, 25).join('\n')}`);

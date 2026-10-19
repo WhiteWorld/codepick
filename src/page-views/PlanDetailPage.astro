@@ -59,6 +59,7 @@ const productSchema: object = {
     '@type': 'Offer',
     price: priceNum,
     priceCurrency,
+    availability: 'https://schema.org/OnlineOnly',
     description: `${plan.name} ${lang === 'zh' ? '每月费用约' : 'monthly cost ~'} ${costStr}`,
   },
 };
