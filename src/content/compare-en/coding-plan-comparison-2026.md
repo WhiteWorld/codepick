@@ -2,7 +2,7 @@
 title: "5 China-Native AI Coding Subscriptions Compared: August 2026 Guide"
 description: "An August 2026 comparison of Volcengine Ark Coding Plan, Alibaba Bailian Token Plan, MiniMax Token Plan, GLM Coding Plan, and Kimi Code: price, quota, models, API compatibility, and best-fit scenarios."
 date: "2026-03-03"
-updated_at: "2026-08-26"
+updated_at: "2026-10-22"
 tags: ["bailian", "volcengine-ark", "minimax", "zhipu", "kimi", "coding-plan", "token-plan", "china", "comparison", "api"]
 pillar: compare
 content_status: keep
@@ -53,7 +53,9 @@ Ark keeps two tiers, Lite and Pro. Its current page says “limited-time CNY 9.9
 | Lite | CNY 40/month | Limited-time CNY 9.9 and up | Up to about 1,200 requests |
 | Pro | CNY 200/month | Common promo CNY 49.9 | 5x Lite, up to about 6,000 requests |
 
-Ark now applies more than a five-hour window: its console can also show weekly and monthly limits. One complex agent task can trigger many underlying requests, so “1,200 requests” does not mean 1,200 user prompts.
+Ark now applies more than a five-hour window: its console can also show weekly and monthly limits. One complex agent task can trigger many underlying requests, so "1,200 requests" does not mean 1,200 user prompts.
+
+On 2026-10-22 the Ark Coding Plan model docs were opened again. The pricing page behind the table above was not. The plan overview still marks MiniMax-M3 and Kimi-K2.7-Code as retiring. The deprecation page says `minimax-m3` shuts down at 2026-11-02 14:00:00 (UTC+8) and `kimi-k2.7-code` shuts down at 2026-10-28 14:00:00 (UTC+8). Prices and the model column in this table are still the 2026-08-26 record. Bailian, MiniMax, Zhipu, and Kimi were not reopened. Migration notes are in the [Ark Coding Plan guide](/en/guides/ark-coding-plan-guide/).
 
 ### Alibaba Bailian Token Plan
 

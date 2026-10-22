@@ -2,7 +2,7 @@
 title: "China Coding API Roundup 2026: Ark vs Bailian vs MiniMax vs Zhipu vs DeepSeek"
 description: "The most comprehensive 2026 comparison of Chinese AI coding API subscriptions: Volcengine Ark Lite ¥40/mo (¥9.9 first month), Alibaba Bailian ¥200, MiniMax ¥29, Zhipu GLM ¥49+, and DeepSeek pay-as-you-go. One big table, six scenarios, and a decision tree to find your fit in 30 seconds."
 date: "2026-05-19"
-updated_at: "2026-10-18"
+updated_at: "2026-10-22"
 article_type: "review"
 tags: ["coding-plan", "comparison", "roundup", "ark", "bailian", "minimax", "glm", "zhipu", "deepseek", "china", "api"]
 pillar: plans
@@ -37,7 +37,7 @@ faq:
       Ark supports sub-accounts but doesn't bill per-seat. Zhipu, MiniMax, and DeepSeek require teams to subscribe individually or self-allocate budgets.
 ---
 
-DeepSeek sentences were updated from the [pricing page](https://api-docs.deepseek.com/quick_start/pricing), the [changelog](https://api-docs.deepseek.com/updates), and the [2026-09-10 news post](https://api-docs.deepseek.com/news/news260910), reopened on 2026-10-18. Ark, Bailian, MiniMax, and Zhipu were not reopened. Those sections are still the 2026-05-19 text.
+DeepSeek sentences were updated from the [pricing page](https://api-docs.deepseek.com/quick_start/pricing), the [changelog](https://api-docs.deepseek.com/updates), and the [2026-09-10 news post](https://api-docs.deepseek.com/news/news260910), reopened on 2026-10-18. Ark monthly prices, the first-month price, and the 1,200 / 6,000 request figures are still the 2026-05-19 text. The pricing page was not reopened on 2026-10-22. Ark Coding Plan model docs were opened that day: `minimax-m3` shuts down at 2026-11-02 14:00:00 (UTC+8), and `kimi-k2.7-code` shuts down at 2026-10-28 14:00:00 (UTC+8). The list is in the [guide](/en/guides/ark-coding-plan-guide/). Bailian, MiniMax, and Zhipu are still the 2026-05-19 text.
 
 China's AI coding API subscription market exploded in 2026 — five major providers now offer fundamentally different product shapes: from Ark's daily first-month flash sales (¥9.9, renew at ¥40) to Zhipu's 30%-off annual deals, from MiniMax's full-modal bundle to DeepSeek's pure pay-as-you-go. **Which one to buy?** This is a roundup for developers actually making the decision.
 
@@ -246,4 +246,4 @@ After one month, if you find yourself:
 - [Cursor in China complete guide](/en/guides/cursor-china-usage/)
 - [GitHub Copilot June billing change](/en/guides/copilot-ai-credits-billing/)
 
-> DeepSeek sections were checked on 2026-10-18. The other vendors are still as of 2026-05-19. Prices, quotas, and promos follow each vendor's site. Check again before you pay.
+> DeepSeek sections were checked on 2026-10-18. Ark prices are still the 2026-05-19 text. The Ark model shutdowns are from docs opened on 2026-10-22. Bailian, MiniMax, and Zhipu are still as of 2026-05-19. Prices, quotas, and promos follow each vendor's site. Check again before you pay.

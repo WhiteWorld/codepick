@@ -2,6 +2,7 @@
 title: "百炼 Coding Plan vs 火山方舟 Coding Plan：2026 深度对比"
 description: "阿里云百炼与火山引擎方舟两款国产 AI 编程 API 套餐全面横评：价格、额度机制、模型生态、客户端兼容性与选型建议。"
 date: "2026-02-26"
+updated_at: "2026-10-22"
 tags: ["百炼", "火山方舟", "coding-plan", "国内", "对比", "api"]
 pillar: compare
 content_status: keep
@@ -41,7 +42,7 @@ draft: false
 | 用完后处理 | 停止服务，不转按量 | 停止服务直到窗口重置 |
 
 **百炼**按月总量计，可以集中突击使用，适合偶发大量调用的场景（如深夜密集开发）。
-**方舟**按 5 小时滑动窗口限速，日常长期使用更平滑，但短时间高强度使用容易触达上限。
+**方舟**按 5 小时滑动窗口限速，日常长期使用更平滑，但短时间高强度使用容易触达上限。2026-10-22 的套餐概览还写了周限额和月限额。1200 / 6000 次没有出现在这次打开的页面上，上表仍是旧记录。
 
 ---
 
@@ -60,17 +61,15 @@ draft: false
 | GLM-4.7 | 智谱编程优化版 |
 | Kimi-K2.5 | Moonshot 编程模型 |
 
-### 方舟支持模型（5 款）
+### 方舟支持模型
 
-| 模型 | 特点 |
-|------|------|
-| Doubao-Seed-Code | 字节自研编程模型 |
-| GLM-4.7 | 智谱编程优化版 |
-| DeepSeek-V3.2 | DeepSeek 通用旗舰 |
-| Kimi-K2-Thinking | Moonshot 推理模型 |
-| Kimi-K2.5 | Moonshot 编程模型 |
+上面这张 5 款表已经不能当现行名单。2026-10-22 的下线公告把 `doubao-seed-code`、`glm-4.7`、`deepseek-v3.2`、`kimi-k2-thinking`、`kimi-k2.5` 放在已下线表里。
 
-百炼**模型数量更多（8 vs 5）**，且拥有完整千问 Coder 系列。方舟独有 Doubao-Seed-Code 和 DeepSeek-V3.2。两者都有 GLM-4.7 和 Kimi-K2.5。
+同一天的快速开始页，可写入配置的 Model Name 是：`doubao-seed-evolving`、`doubao-seed-2.1-pro`、`doubao-seed-2.1-lite`、`doubao-seed-2.0-mini`、`glm-5.3`（`glm-latest`）、`glm-5.3-flash`、`deepseek-v4.1-flash`、`deepseek-v4.1-flash-economy`、`deepseek-v4-flash`、`deepseek-v4-pro`、`kimi-k2.8-preview`、`kimi-k3`。
+
+套餐概览另外还列着 `minimax-m3` 和 `kimi-k2.7-code`，标了即将下线。停服时间是 2026-11-02 14:00:00（UTC+8）和 2026-10-28 14:00:00（UTC+8）。这两行不在快速开始的可配置名单里。
+
+百炼上面 8 款这次没有重开百炼页面。「8 vs 5」不再当作当前结论。方舟迁移见 [指南](/zh/guides/ark-coding-plan-guide/)。
 
 ---
 
@@ -80,7 +79,7 @@ draft: false
 |------|------|----------|
 | Auto 模式 | ❌ 不支持 | ✅ 支持 |
 
-方舟的 Auto 模式可根据任务复杂度自动匹配最合适的模型，简单任务用轻量模型节省配额，复杂任务切换旗舰模型。百炼需要手动切换模型。
+2026-10-22 的套餐概览仍把 Auto 写成默认选择，并写它按「效果 + 速度」匹配。折扣页写 Coding Plan 里 Auto 的抵扣系数到 2026-11-08 23:59:59 为 1，且会路由到 `kimi-k3`，夜间 00:00–8:00 比例提高。夜间时区没写。「简单任务用轻量模型」不是这页的原句。百炼是否仍不支持 Auto，这次没重开百炼页面。
 
 ---
 

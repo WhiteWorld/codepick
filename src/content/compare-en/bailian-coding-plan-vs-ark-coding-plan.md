@@ -2,6 +2,7 @@
 title: "Bailian Coding Plan vs Volcengine Ark Coding Plan: 2026 Deep Comparison"
 description: "A comprehensive comparison of Alibaba Cloud Bailian and Volcengine Ark — two major China-native AI coding API plans: pricing, quota mechanisms, model ecosystems, client compatibility, and selection advice."
 date: "2026-02-26"
+updated_at: "2026-10-22"
 tags: ["bailian", "volcengine-ark", "coding-plan", "china", "comparison", "api"]
 pillar: compare
 content_status: keep
@@ -41,7 +42,7 @@ This is the **most critical difference** between the two:
 | When Exhausted | Service stops; no pay-as-you-go fallback | Service stops until the window resets |
 
 **Bailian** uses a monthly total quota, allowing burst usage — ideal for scenarios with occasional high-intensity calls (e.g., late-night intensive coding sessions).
-**Ark** uses a rolling 5-hour sliding window rate limit, making it smoother for steady long-term daily use, but heavy short-burst usage can hit the ceiling quickly.
+**Ark** uses a rolling 5-hour sliding window rate limit, making it smoother for steady long-term daily use, but heavy short-burst usage can hit the ceiling quickly. The plan overview opened on 2026-10-22 also names a weekly limit and a monthly limit. The 1,200 / 6,000 request figures were not on the pages opened that day. The table above is still the older record.
 
 ---
 
@@ -60,17 +61,15 @@ This is the **most critical difference** between the two:
 | GLM-4.7 | Zhipu coding-optimized version |
 | Kimi-K2.5 | Moonshot coding model |
 
-### Ark Supported Models (5)
+### Ark supported models
 
-| Model | Highlights |
-|-------|-----------|
-| Doubao-Seed-Code | ByteDance's in-house coding model |
-| GLM-4.7 | Zhipu coding-optimized version |
-| DeepSeek-V3.2 | DeepSeek general-purpose flagship |
-| Kimi-K2-Thinking | Moonshot reasoning model |
-| Kimi-K2.5 | Moonshot coding model |
+The five-model table that used to sit here is not a current list. The deprecation page opened on 2026-10-22 puts `doubao-seed-code`, `glm-4.7`, `deepseek-v3.2`, `kimi-k2-thinking`, and `kimi-k2.5` on the already-offline table.
 
-Bailian offers **more models (8 vs 5)** and includes the complete Qwen Coder lineup. Ark exclusively features Doubao-Seed-Code and DeepSeek-V3.2. Both platforms share GLM-4.7 and Kimi-K2.5.
+The get-started page opened the same day allows these Model Names in a config file: `doubao-seed-evolving`, `doubao-seed-2.1-pro`, `doubao-seed-2.1-lite`, `doubao-seed-2.0-mini`, `glm-5.3` (`glm-latest`), `glm-5.3-flash`, `deepseek-v4.1-flash`, `deepseek-v4.1-flash-economy`, `deepseek-v4-flash`, `deepseek-v4-pro`, `kimi-k2.8-preview`, `kimi-k3`.
+
+The plan overview also still lists `minimax-m3` and `kimi-k2.7-code`, marked as retiring. Shutdown is 2026-11-02 14:00:00 (UTC+8) and 2026-10-28 14:00:00 (UTC+8). Those two IDs are not on the get-started config list.
+
+Bailian's eight models above were not rechecked. Bailian's pages were not reopened. "8 vs 5" is not a current conclusion. Ark migration notes are in the [guide](/en/guides/ark-coding-plan-guide/).
 
 ---
 
@@ -80,7 +79,7 @@ Bailian offers **more models (8 vs 5)** and includes the complete Qwen Coder lin
 |---------|---------|----------------|
 | Auto Mode | Not supported | Supported |
 
-Ark's Auto mode automatically matches the most suitable model based on task complexity — using lightweight models for simple tasks to conserve quota, and switching to flagship models for complex tasks. Bailian requires manual model switching.
+The plan overview opened on 2026-10-22 still lists Auto as the default and says it matches on effect and speed. The discount page says Auto's deduction coefficient on Coding Plan is 1 through 2026-11-08 23:59:59, that it can route to `kimi-k3`, and that the share rises sharply from 00:00 to 8:00 at night. That night window has no timezone on the page. "Lightweight models for simple tasks" is not a sentence from that page. Whether Bailian still has no Auto mode was not rechecked. Bailian's pages were not reopened.
 
 ---
 

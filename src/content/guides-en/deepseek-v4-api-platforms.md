@@ -2,7 +2,7 @@
 title: "DeepSeek API Model IDs and Where to Call Them (2026-10-18)"
 description: "Rechecked on 2026-10-18. Call deepseek-flash (V4.1-Flash-1017) or deepseek-v4-pro (V4-Pro-0813). The old Flash names still work, but those models are retired. Includes peak pricing, the 1M context, and the OpenRouter, Fireworks, and Together pages opened that day."
 date: "2026-10-18"
-updated_at: "2026-10-18"
+updated_at: "2026-10-22"
 article_type: "howto"
 tags: ["deepseek", "deepseek-v4", "api", "openrouter", "together", "fireworks"]
 pillar: plans
@@ -99,7 +99,7 @@ Together's dedicated catalog was not opened. Whether it lists 1017 is **unknown*
 
 The old OpenRouter slug `deepseek/deepseek-v4` was not opened. This update does not repeat the 2026-04-29 note that the page existed but was unavailable.
 
-Volcengine Ark: this site's `data/apis/ark-coding-plan.yaml` recorded the model name `Deepseek-V4.1-Flash` at a 2026-10-13 review. The Volcengine public pages were not reopened on 2026-10-18. Whether the public page still lists it, and whether that is the 1017 snapshot or the September 10 model, is **unknown**.
+Volcengine Ark Coding Plan: on 2026-10-22 the plan overview, get-started page, and model-release note were opened. All three list `deepseek-v4.1-flash`. The same day also lists `deepseek-v4.1-flash-economy`. The release note says it uses the same weights as the standard model. These pages do not say 1017, and they do not say the September 10 snapshot. Which snapshot it is remains **unknown**. The Ark pay-as-you-go pricing page was not opened.
 
 ## One official request
 
