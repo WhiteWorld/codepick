@@ -4,8 +4,8 @@ type: client
 logo: /images/cline.png
 url: https://cline.bot
 repo: https://github.com/cline/cline
-current_version: v4.1.24
-version_tracked_at: '2026-10-16'
+current_version: v4.1.25
+version_tracked_at: '2026-10-22'
 pricing:
   model: free
   currency: null
@@ -77,13 +77,20 @@ compatible_apis:
   - deepseek
   - ollama
 data_sources:
-  - url: https://github.com/cline/cline/releases/tag/v4.1.24
+  - url: https://github.com/cline/cline/releases/tag/v4.1.25
     type: release
-    last_checked: '2026-10-16'
+    last_checked: '2026-10-22'
+  - url: https://github.com/cline/cline/tags
+    type: release
+    last_checked: '2026-10-22'
   - url: https://github.com/cline/cline/releases
     type: release
-    last_checked: '2026-10-16'
+    last_checked: '2026-10-22'
 changelog:
+  - date: '2026-10-16'
+    type: release
+    summary: 'v4.1.25：逐步开放 Cline Cloud，可在选定的 GitHub 仓库和分支上用托管沙箱跑任务（Settings 开启）；云任务出现在 Recent 与 History，完成后通知，关闭编辑器后继续运行。未选模型时 Cline 提供商默认改为 Gemini 4 Argon（推荐列表首位），OpenRouter 仍是 Claude Sonnet 5.5。目录新增 Boundless 与 Standard Compute；SambaNova 改由目录提供，默认 MiniMax M3；推荐列表加入 Gemini 4 Argon 并去掉 Grok 4.7，免费列表用 Nemotron 3.5 Super VL 替换 Step 5 Preview；多家提供商默认模型调整。修复本地模型（LM Studio、Ollama）静默超过 5 分钟被 BodyTimeoutError 打断、OpenAI Compatible 的 host-only base URL 被静默追加 /v1、提问附件未送达模型、流式中断不重试、JetBrains 任务卡片被 Auto-approve 挡住，以及 Auto Compact 与策略设置分开。2026-10-22 按 tag 核对为最新稳定扩展版（v 前缀，不含 cli/sdk/desktop）。'
+    summary_en: 'v4.1.25: Cline Cloud sessions roll out gradually, running a task in a hosted sandbox on a chosen GitHub repo and branch (enable in Settings). Cloud tasks appear in Recent and History, notify on completion, and keep running after the editor closes. With no model pinned, the Cline provider defaults to Gemini 4 Argon (first on the recommended list); OpenRouter stays on Claude Sonnet 5.5. Catalog adds Boundless and Standard Compute; SambaNova now comes from the catalog with MiniMax M3 as its default; the recommended list adds Gemini 4 Argon and drops Grok 4.7; the free list replaces Step 5 Preview with Nemotron 3.5 Super VL; several provider defaults change. Fixes local-model requests (LM Studio, Ollama) failing after 5 minutes of silence with BodyTimeoutError, host-only OpenAI Compatible base URLs silently gaining /v1, attachments on answers to Cline questions being dropped, mid-stream provider errors not retrying, the JetBrains Run task card sitting under the Auto-approve bar, and Auto Compact separating from its strategy setting. Verified 2026-10-22 from tags as the latest stable extension release (v-prefixed; cli/sdk/desktop lines excluded).'
   - date: '2026-10-13'
     type: release
     summary: 'v4.1.24：未选模型时 Cline / OpenRouter 默认 Claude Sonnet 5.5；ai& 使用独立 API Key 与模型选择器；目录新增 Claude Haiku 5.5 以及 AI/ML API、LowRouter、Prime Inference。修复关闭 reasoning 时 GPT-6 Astra、GPT-6.1 Sol、Claude Fable 5、Claude Opus 5.5 的 400，MCP/hook 提前退出导致扩展宿主崩溃，过期模型 404 被误报为未登录，图片抬高 token 估算并过早触发压缩，以及符号链接规则和 .claude/skills 发现。2026-10-16 核对仍为最新稳定扩展版（v 前缀，不含 cli/sdk/desktop 线）。'
