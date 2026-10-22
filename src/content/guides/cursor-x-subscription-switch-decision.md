@@ -1,8 +1,8 @@
 ---
 title: "Cursor 老用户要不要切到 The X Subscription？保留、迁移、改用 API 的决策表"
-description: "给已经在用 Cursor 的人：按主力模型决定留旧计划、切到 The X Subscription，还是把第三方用量改去 Copilot 或 Claude。写明什么时候先别切，以及同一份用量怎么复算。"
+description: "给已经在用 Cursor 的人：按主力模型决定留旧计划、切到 The X Subscription，还是把第三方用量改去 Copilot 或 Claude。2026-10-20 论坛回复：切换是 opt-in，不切则旧计划不变，切换永久。"
 date: "2026-10-17"
-updated_at: "2026-10-17"
+updated_at: "2026-10-22"
 article_type: review
 tags: [cursor, 老用户, 切换, x-subscription, 迁移]
 pillar: plans
@@ -13,7 +13,7 @@ draft: false
 
 ## 先说结论
 
-2026-10-17 重开官方页之后，老用户的默认动作是先别切。例外是：主力模型已经是 Grok 或 Composer，而且你接受切换永久、不能撤销。
+2026-10-22 打开了论坛 [第 408 楼](https://forum.cursor.com/t/introducing-the-x-subscription/174450/408)。帮助页、公告和模型文档仍是 2026-10-17 的核对，这次没有重开。@Colin 在 2026-10-20 写明：切到 The X Subscription 是 opt-in。不切，现在的 Cursor 计划照旧，包括第三方模型用量。切换永久。老用户的默认动作仍是先别切。例外是：主力模型已经是 Grok 或 Composer，而且你接受切换永久、不能撤销。
 
 | 你的情况 | 动作 |
 |----------|------|
@@ -25,7 +25,9 @@ draft: false
 
 ## 和切换有关的官方事实
 
-2026-10-12，[xAI 公告](https://x.ai/news/x-subscription) 发布 The X Subscription。同一天论坛开帖：[Introducing The X Subscription](https://forum.cursor.com/t/introducing-the-x-subscription/174450)。下面是 2026-10-17 打开页面后，和「动不动」有关的句子。
+2026-10-12，[xAI 公告](https://x.ai/news/x-subscription) 发布 The X Subscription。同一天论坛开帖：[Introducing The X Subscription](https://forum.cursor.com/t/introducing-the-x-subscription/174450)。
+
+帮助页、公告、模型文档是 2026-10-17 打开的，这次没有重开。下面是那次核对里和「动不动」有关的句子。2026-10-20 的论坛原话在「留下旧计划」一节，2026-10-22 打开的是第 408 楼。
 
 付费档有一份 Grok 模型用量，Grok 和 Cursor 共用，按周刷新。[帮助页](https://cursor.com/help/the-x-subscription/overview) 写的是 shared weekly included pool。[模型与定价](https://cursor.com/docs/models-and-pricing) 写这个池覆盖 Grok 4.7、Grok 4.6、Grok 4.5 和 Composer 2.5，编辑器、CLI、Cloud Agents、Grok Bot 和 Grok 应用一起扣。各产品扣多少不一样。Grok API 另计，不扣这个池。池子的美元大小，公告、定价页、帮助页、模型文档都没写。这里不估 Plus 或 Premium 能跑多少次。
 
@@ -62,7 +64,7 @@ draft: false
 - 第三方模型仍是主力，而且你还在旧的 Pro、Pro+ 或 Ultra 上。模型文档写这些 legacy 档对现有客户继续有效，有两份额度池，超出走 on-demand。
 - 还没从账单里找出近一个月各模型的 token。没有这个数，公式算的是别人的账。
 - Cursor 通过 Apple App Store 扣款。切完官方退不了那一笔，你不自己取消就会两头扣。
-- 你还想保留「切错了可以回来」。帮助页写了不能撤销。
+- 你还想保留「切错了可以回来」。帮助页写了不能撤销。2026-10-20 @Colin 又写了 Switching is permanent，以及旧计划结束后不能再买回。
 - 你是 Enterprise。帮助页写：没有活跃 Grok 账号的 Cursor Enterprise 要找客户团队才能切；其他 Enterprise 还不能切。
 - 只是因为 Plus $8 比旧 Pro $20 低。Plus 没有 Claude、GPT、Gemini。
 
@@ -86,9 +88,25 @@ for now 出现在这句里。帮助页和公告没有这四个词，也没有截
 
 > On how long the current plan lasts: it isn’t going away today, and there’s no timeline for moving remaining customers. If that changes, you’ll get advance notice first.
 
-今天不会被强制迁，也没有公布日期。将来迁不迁、迁到哪一档、通知提前多久，这三件是未知。
+按 10 月 13 日这两段：今天不会被强制迁，也没有公布日期。将来迁不迁、迁到哪一档、通知提前多久，这三件当时是未知。
 
-自己取消旧计划之后还能不能买回 Pro、Pro+ 或 Ultra，也是未知。Colin 写以前的 Cursor Ultra 已经不对新用户开放。模型文档把 Pro、Pro+、Ultra、Start，以及 Teams 的 Standard 和 Premium，称为 legacy，并写它们对现有客户继续有效。没写取消后能否重新订阅。
+2026-10-20，@Colin 在 [第 408 楼](https://forum.cursor.com/t/introducing-the-x-subscription/174450/408) 又写了一段。2026-10-22 打开核对的是这一楼。
+
+> To be clear: for existing subscribers, switching is opt-in. If you’re on a current Cursor plan, it keeps working exactly as it does today, including its third-party model usage, unless you choose to switch. You can also keep moving between legacy plans (Pro → Ultra, Ultra → Pro+, etc.). There’s no timeline for migrating existing plans, and we’ll give advance notice before anything changes.
+
+opt-in 就是自己选了才切。不切，现在的 Cursor 计划照旧，第三方模型用量也照旧。旧档之间仍可以升降，他举的例子是 Pro 到 Ultra、Ultra 到 Pro+。没有迁移时间表。有变化会提前通知。
+
+这楼没有再写 10 月 13 日那句 “will be migrated”。10 月 13 日的回复还在帖里。两段都算他说过的话。日期仍然没有。
+
+同一楼后面写切换当时会发生什么：
+
+> Before checkout, you’ll confirm that third-party models aren’t included in the plan price and are billed separately based on usage. Switching is permanent, and legacy plans can’t be repurchased once they end. If third-party models or a monthly usage pool matter most to you, staying on your current plan is a perfectly good choice.
+
+结账前要确认：第三方模型不在档位月费里，按用量另算。切换永久。旧计划一旦结束，不能再买回来。这句写在切换流程里。自己取消、但没有走切换，这一楼没有单独说。第三方模型或按月的用量池更要紧的话，他写留下当前计划完全可以。
+
+同一楼后半在看已经切过去的人，额度是不是掉得比预期快。那不是「不切则旧计划不变」的条件，这里不展开。
+
+自己取消旧计划、但没有切到新计划，之后还能不能再订 Pro、Pro+ 或 Ultra，第 408 楼没有单独写，仍是未知。切换之后不能再买回，上面那句已经写了。Colin 在更早的回复里写以前的 Cursor Ultra 已经不对新用户开放。模型文档把 Pro、Pro+、Ultra、Start，以及 Teams 的 Standard 和 Premium，称为 legacy，并写它们对现有客户继续有效。没写「只取消、不切换」之后能否重新订阅。
 
 ## 同一份第三方用量怎么复算
 
@@ -159,8 +177,8 @@ Copilot credits = 20 × 200 + 2 × 1,000 = **6,000**。输入 $2/M 等于 200 cr
 ## 写成未知的
 
 - 周池的美元大小，以及 Plus、Premium 能跑多少次请求：未公布
-- 旧计划何时迁、迁到哪一档、提前多久通知：未知
-- 取消旧计划后能否重新订阅：未知
+- 旧计划何时迁、迁到哪一档、提前多久通知：10 月 20 日仍写没有时间表，有变化会提前通知。日期未知
+- 只取消、不切换之后能否重新订阅：未知。切换之后不能再买回，第 408 楼写了
 - 你的账号今天能否看到切换入口，以及限时优惠的内容：未知
 - 按比例退款的分项公式：未知
 - Claude Max 附带的 Platform API credits 能否抵同一批编码用量：未知

@@ -1,6 +1,6 @@
 ---
 title: "Model Deprecation Checklist: Find and Replace Pinned Model IDs"
-description: "Checked 2026-10-17. Copilot retires Claude Opus 4.8, Claude Opus 5, and GPT-5.6 Terra on 2026-11-16. GPT-5.5 left ChatGPT-signed-in Codex on 2026-10-14. Ark Coding Plan: minimax-m3 shuts down 2026-11-02 14:00 UTC+8; kimi-k2.7-code shuts down 2026-10-28 14:00 UTC+8."
+description: "Checked 2026-10-22. Copilot already removed Gemini 3.7 Flash, GPT-5.5, GPT-5.4, GPT-5.4 mini, GPT-5 mini, and Grok 4.5 on 2026-10-19. Claude Opus 4.8, Claude Opus 5, and GPT-5.6 Terra are still scheduled for 2026-11-16. Those Copilot posts give display names only. Ark Coding Plan: minimax-m3 shuts down 2026-11-02 14:00 UTC+8; kimi-k2.7-code shuts down 2026-10-28 14:00 UTC+8. Includes rg commands."
 date: "2026-10-17"
 updated_at: "2026-10-22"
 article_type: howto
@@ -18,10 +18,13 @@ faq:
       No. rg cannot see an ID built at runtime, and it cannot see a default model that exists only in a web console. By default it also skips gitignored files, which is where `.env` and `settings.local.json` often live. Zero hits only means these patterns did not match a literal string.
   - q: "Do individual annual Copilot subscribers still change Opus 4.8?"
     a: |
-      The changelog says Claude Opus 4.8 stays available to individual subscribers on annual plans so they keep an Opus model. That exception does not cover Claude Opus 5 or GPT-5.6 Terra. An ID pinned in a repo or in CI is used by teammates and automation. The annual exception does not cover those calls.
+      The changelog says Claude Opus 4.8 stays available to individual subscribers on annual plans so they keep an Opus model. That exception does not cover Claude Opus 5 or GPT-5.6 Terra, and it does not cover the six models removed on 2026-10-19. An ID pinned in a repo or in CI is used by teammates and automation. The annual exception does not cover those calls.
+  - q: "Which model ID should a repo search use for the six models removed on October 19?"
+    a: |
+      That changelog does not publish an ID. Search the display names: Gemini 3.7 Flash, GPT-5.5, GPT-5.4, GPT-5.4 mini, GPT-5 mini, and Grok 4.5. Do not invent a lowercase hyphenated ID. The ID inside Copilot clients is still unknown.
 ---
 
-Copilot, Codex, and the OpenAI deprecations page were opened on **2026-10-17** and were not reopened. The DeepSeek alias note was added on **2026-10-18** after reopening the [pricing page](https://api-docs.deepseek.com/quick_start/pricing) and the [changelog](https://api-docs.deepseek.com/updates). The Ark rows were added on **2026-10-22** after opening the [feature release](https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-feature-release) and the [model deprecation](https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-model-deprecation) pages. If a page does not say it, this guide says unknown.
+On **2026-10-22** this guide reopened the [Copilot models removed on 2026-10-19](https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026/). Display names follow that post. It has no model IDs, and none are invented below. The 2026-11-16 Copilot post and the Codex notes were opened on **2026-10-17** and were not reopened. The DeepSeek alias note was added on **2026-10-18** after reopening the [pricing page](https://api-docs.deepseek.com/quick_start/pricing) and the [changelog](https://api-docs.deepseek.com/updates). The **2026-10-23** table on the OpenAI [deprecations page](https://platform.openai.com/docs/deprecations) was copied on **2026-10-17**. That check date has passed. The page was opened again on **2026-10-22**, and that batch was still listed as a future shutdown. Whether it is actually off follows the deprecations page. The Ark rows were added on **2026-10-22** after opening the [feature release](https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-feature-release) and the [model deprecation](https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-model-deprecation) pages. If a page does not say it, this guide says unknown.
 
 Copilot prices are not repeated here. See [Copilot AI Credits billing](/en/guides/copilot-ai-credits-billing/). DeepSeek prices and IDs are in [DeepSeek API model IDs](/en/guides/deepseek-v4-api-platforms/).
 
@@ -29,9 +32,11 @@ Copilot prices are not repeated here. See [Copilot AI Credits billing](/en/guide
 
 Keep the lists separate.
 
-1. **GitHub Copilot** retires Claude Opus 4.8, Claude Opus 5, and GPT-5.6 Terra on **2026-11-16**. The suggested replacements are Claude Opus 5.5, and GPT-6.1 Sol or GPT-6 Luna. Individual annual subscribers keep Claude Opus 4.8. The post uses display names. It does not publish a model ID you can search for.
-2. **Codex** already removed GPT-5.5 on **2026-10-14 at noon PDT (19:00 UTC)** for users signed in with ChatGPT. The OpenAI API and API-key sessions are not affected. The note says to use `gpt-6.1-sol` when your plan and client still offer it. CLI **0.161.0** (published 2026-10-07) made GPT-6.1 Sol the default in the bundled catalog and the Amazon Bedrock catalogs. A line you wrote yourself, `model = "gpt-5.5"` in `config.toml`, wins over that default. Upgrading the CLI does not rewrite it.
-3. The **OpenAI API** [deprecations page](https://platform.openai.com/docs/deprecations) loaded on that date. Cloudflare did not block it. It schedules **2027-01-14** shutdowns for specific GPT-4o and GPT-4.1 **snapshots**. A nearer batch is **2026-10-23**. Undated aliases `gpt-4o` and `gpt-4.1` do not have their own rows. Whether they shut down the same day is **unknown**.
+1. **GitHub Copilot** is two batches.
+   - **Already removed, 2026-10-19:** Gemini 3.7 Flash, GPT-5.5, GPT-5.4, GPT-5.4 mini, GPT-5 mini, and Grok 4.5. The suggested replacement for each one is in the table below. The post uses display names. It does not publish a model ID.
+   - **Scheduled, 2026-11-16:** Claude Opus 4.8, Claude Opus 5, and GPT-5.6 Terra. The suggested replacements are Claude Opus 5.5, and GPT-6.1 Sol or GPT-6 Luna. Individual annual subscribers keep Claude Opus 4.8. That post also uses display names and does not publish a model ID you can search for.
+2. **Codex** already removed GPT-5.5 on **2026-10-14 at noon PDT (19:00 UTC)** for users signed in with ChatGPT. The OpenAI API and API-key sessions are not affected. The note says to use `gpt-6.1-sol` when your plan and client still offer it. CLI **0.161.0** (published 2026-10-07) made GPT-6.1 Sol the default in the bundled catalog and the Amazon Bedrock catalogs. A line you wrote yourself, `model = "gpt-5.5"` in `config.toml`, wins over that default. Upgrading the CLI does not rewrite it. The Copilot display name GPT-5.5 is a different product. It does not replace this ID.
+3. The **OpenAI API** [deprecations page](https://platform.openai.com/docs/deprecations) loaded on 2026-10-17. Cloudflare did not block it. It schedules **2027-01-14** shutdowns for specific GPT-4o and GPT-4.1 **snapshots**. A nearer batch is **2026-10-23**. The table below was copied on 2026-10-17, and that check date has passed. Whether those IDs are off, and whether the replacements changed, follows the deprecations page. Undated aliases `gpt-4o` and `gpt-4.1` do not have their own rows. Whether they shut down the same day is **unknown**.
 4. **DeepSeek**: `deepseek-v4-flash` and `deepseek-v4-flash-vision-exp` are now compatibility aliases. The pricing page says those models are retired and that requests are served by DeepSeek-V4.1-Flash-1017 at the Flash price. New code should send `deepseek-flash`. `deepseek-chat` and `deepseek-reasoner` were scheduled to stop on 2026-07-24 and are not on the current pricing page. Whether they still respond is **unknown**.
 5. **Volcengine Ark Coding Plan**: `minimax-m3` shuts down at **2026-11-02 14:00:00 (UTC+8)**. The page suggests `doubao-seed-evolving` or `kimi-k3`. `kimi-k2.7-code` shuts down at **2026-10-28 14:00:00 (UTC+8)**. The page suggests `kimi-k3`. On the same page, `minimax-latest` and `kimi-latest` still point at those old IDs.
 
@@ -39,9 +44,32 @@ Copilot is not the main door for every team. If you use Codex, or you send a mod
 
 ## What the pages actually say
 
-### Copilot: 2026-11-16
+### Copilot: removed on 2026-10-19
 
-Source: [Upcoming deprecation of selected GitHub Copilot models in mid-November](https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november/) (dated October 15, 2026).
+Source: [GitHub Copilot models deprecated on October 19, 2026](https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026/) (dated October 19, 2026). Opened on 2026-10-22.
+
+The sentence is "As of today, October 19, 2026, we have deprecated the following models." This batch is already removed. The same post says these deprecations were announced on September 18, 2026. That September post was not opened for this check.
+
+| Model in the post | Deprecation date | Suggested alternative |
+| --- | --- | --- |
+| Gemini 3.7 Flash | 2026-10-19 | Gemini 3.8 Flash |
+| GPT-5.5 | 2026-10-19 | GPT-6.1 Sol |
+| GPT-5.4 | 2026-10-19 | GPT-6.1 Sol |
+| GPT-5.4 mini | 2026-10-19 | GPT-6 Luna |
+| GPT-5 mini | 2026-10-19 | GPT-6 Luna |
+| Grok 4.5 | 2026-10-19 | Grok 4.7 |
+
+The scope word is "most GitHub Copilot experiences." The post names Copilot Chat, inline edits, ask mode, agent mode, and code completions. Experiences it does not name are unknown.
+
+The post does not give a model ID for these six. **Unknown.** Do not invent a lowercase hyphenated ID. GPT-5.5 in this table is a display name. `gpt-5.5` in the Codex note is an ID from another product.
+
+Copilot Enterprise administrators may need to enable the alternatives in model policies under Copilot settings. The post says that after the policy is on, the model shows up in the Copilot Chat model selector in VS Code and on github.com. It also says no action is required to remove the deprecated models. Workflows and integrations that still select the old display name need the replacement from that row.
+
+This batch is a different day from the three models dated 2026-11-16. November 16 has not arrived.
+
+### Copilot: scheduled for 2026-11-16
+
+Source: [Upcoming deprecation of selected GitHub Copilot models in mid-November](https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november/) (dated October 15, 2026). That post was opened on 2026-10-17 and was not reopened. These three are still before their deprecation date.
 
 | Model in the post | Deprecation date | Suggested alternative |
 | --- | --- | --- |
@@ -71,13 +99,13 @@ The CLI default is a separate line. Both the [0.161.0 changelog entry](https://l
 
 ### API: the deprecations page loaded
 
-Source: [Deprecations](https://platform.openai.com/docs/deprecations), markdown opened on 2026-10-17.
+Source: [Deprecations](https://platform.openai.com/docs/deprecations). The tables below are the markdown opened on 2026-10-17. On 2026-10-22 the page was opened again only to see whether the 2026-10-23 batch was still listed as a future shutdown. The page was not copied again cell by cell.
 
 The page says you can call `GET /v1/models` and read each model's optional `shutdown_date`. A date is `YYYY-MM-DD`. If none has been announced, the field is `null`. Retrieve a model exposes it too. That is more reliable than searching blog posts for the word "deprecation".
 
 Rows that show up most often in coding repos are below. Speech, image, and Evals have more rows. Use the source page for those. This guide does not copy the whole page.
 
-**2026-10-23** (sooner than Copilot's November 16 date):
+**2026-10-23** (copied 2026-10-17; that check date has passed). On 2026-10-22 the deprecations page still listed this batch under future shutdowns, dated October 23, 2026. It was not under Past deprecations. On the shutdown date and after it, use the deprecations page. Do not treat the copy below as proof that the models are already off. The same visit showed a fine-tune row for `ft-davinci-002`, with replacement `gpt-5.6-terra`. The 2026-10-17 copy does not include that row. The other cells were not re-copied one by one.
 
 | Shutdown | IDs in that cell | Replacement |
 | --- | --- | --- |
@@ -112,7 +140,7 @@ Fine-tuned versions of these models follow the same shutdown date as the base mo
 
 Two easy mix-ups:
 
-- The shutdown table does **not** list undated `gpt-4o` or `gpt-4.1` as their own rows. The [Responses create](https://platform.openai.com/docs/api-reference/responses/create) enum, opened the same day, still includes those aliases and `gpt-5.5`. An ID still listed in the enum only means the reference page has not removed it. It does not mean the ID stays up. When the aliases shut down: **unknown**.
+- The shutdown table does **not** list undated `gpt-4o` or `gpt-4.1` as their own rows. The [Responses create](https://platform.openai.com/docs/api-reference/responses/create) enum, opened on 2026-10-17, still included those aliases and `gpt-5.5`. That page was not reopened. An ID still listed in the enum that day only means the reference page had not removed it. When the aliases shut down: **unknown**.
 - The API page lists `gpt-5.6-terra` as a replacement for some older snapshots. The Copilot post lists GPT-5.6 Terra as retiring on 2026-11-16. Those are different products. Follow the API page for API calls. Follow the Copilot post for Copilot.
 
 ### Volcengine Ark Coding Plan: two shutdowns that have not arrived
@@ -141,6 +169,25 @@ The commands use [ripgrep](https://github.com/BurntSushi/ripgrep) (`rg`). Run th
 Default `rg` **skips gitignored files**. That hides `.env`, `.env.local`, `.claude/settings.local.json`, and `.github/copilot/settings.local.json` often enough to matter. Search twice: once with defaults, once with `--no-ignore`, and exclude dependency directories with `--glob`.
 
 Literals have their own trap. `Claude Opus 5` also matches the replacement `Claude Opus 5.5`. `claude-opus-5` also matches `claude-opus-5-5`. Default `rg` has no lookahead, so the patterns below say "5 is not followed by `.`, `-`, or a digit". That runs without `--pcre2`.
+
+The October 19 six have display names only. The command below searches those names and does not add an ID the post never published. `GPT-5.4` also matches `GPT-5.4 mini`. Both names are on the removed list. `Grok 4.5` also shows up in Cursor's weekly-pool docs, which are a different product. Read the path. `GPT-5.5` here is the Copilot display name. A repo hit on `gpt-5.5` still belongs with the Codex section.
+
+```bash
+rg -n --hidden \
+  --glob '!.git/**' \
+  --glob '!node_modules/**' \
+  --glob '!dist/**' \
+  --glob '!.next/**' \
+  -e 'Gemini 3\.7 Flash' \
+  -e 'GPT-5\.4 mini' \
+  -e 'GPT-5\.4' \
+  -e 'GPT-5 mini' \
+  -e 'GPT-5\.5' \
+  -e 'Grok 4\.5' \
+  .
+```
+
+Include the same six display names on the `--no-ignore` pass. Still do not add an ID you made up.
 
 ```bash
 rg -n --hidden \
@@ -271,7 +318,7 @@ Hits from that command still have an **unknown** shutdown date. Match them again
 | Copilot CLI, user | `model` in `~/.copilot/settings.json`. `"auto"` lets Copilot choose. `/model` and `copilot config` write it. `COPILOT_HOME` moves the directory | Verified: [CLI configuration directory](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference) |
 | Copilot CLI, repo | `model` in `.github/copilot/settings.json`, only in a trusted working directory. Personal override: `.github/copilot/settings.local.json` (keep it gitignored) | Verified, same page |
 | Copilot CLI subagents | `subagents.agents.<name>.model` in `settings.json` | Verified, same page |
-| Copilot CLI allowlist | `.github/allowed_models.txt`. One ID or glob per line. `fallback:` names the model used when the requested one is not allowed. This is an allowlist, not the default model | Verified, same page. The documented example uses `gpt-6-astra` and `claude-sonnet-*`, not the three models in the November retirement |
+| Copilot CLI allowlist | `.github/allowed_models.txt`. One ID or glob per line. `fallback:` names the model used when the requested one is not allowed. This is an allowlist, not the default model | Verified, same page. The documented example uses `gpt-6-astra` and `claude-sonnet-*`. Neither the October 19 post nor the November 16 post publishes a Copilot model ID |
 | Copilot enterprise managed settings | In the enterprise `.github-private` repo: `copilot/managed-settings.json` and `copilot/teams/*.json`. The key is top-level `model`. Older `permissions.model` is still read when the top-level key is absent | Verified: [Getting started](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/get-started), [Enterprise managed settings](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings) |
 | Copilot managed file on the machine | macOS `/Library/Application Support/GitHubCopilot/managed-settings.json`; Windows `%ProgramFiles%\GitHubCopilot\managed-settings.json`; Linux `/etc/github-copilot/managed-settings.json` | Verified: [Choosing how to deploy](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/deploy-managed-settings) |
 | Copilot org policy UI | Enable or disable models in the organization or enterprise settings. Not in your app repo, so rg will not see it | Verified that the UI exists: [Configuring access to AI models](https://docs.github.com/en/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models). Follow that page for which control to click |
@@ -308,7 +355,7 @@ Split the check by product. A "write a short bio" prompt is not the regression.
 1. Run the `rg` commands again. Old IDs should be gone from config and scripts. Strings left in articles, changelogs, or lockfiles need a look at the path before you delete them.
 2. **Codex (ChatGPT sign-in):** start it and run `/status`. The active model should be the one you just wrote. Then run a small task you already trust, such as "run the existing unit tests, do not edit code". If `/model` still lists GPT-5.5, trust the screen and write down the client version. This guide was not checked by opening a model picker in the app.
 3. **API:** send one request to the endpoint you actually use, with the replacement ID from the deprecations page, such as `gpt-6-luna` or `gpt-6-sol`. On failure, read the model name in the error body. This guide did not verify the current error code string. Do not memorize an `error.code`. Then run the test or CI job that owns that call. The check is whether the test still passes, not whether two paragraphs match.
-4. **Copilot:** before November 16 the removal has not happened. What you can check is that workflows and managed settings already name the posted replacements, and that Enterprise or Business has not disabled those replacements. After November 16, open the chat model menu and see whether the old display names are still there. An individual annual subscriber who still sees Claude Opus 4.8 matches the post. That is not a missed edit.
+4. **Copilot:** the six names from October 19 are already removed. Open the chat model menu and see whether Gemini 3.7 Flash, GPT-5.5, GPT-5.4, GPT-5.4 mini, GPT-5 mini, and Grok 4.5 are still there. On Enterprise, confirm the replacement model's policy is enabled first. The post says the selector in VS Code and on github.com shows it after that. The three names dated November 16 are still before that day. What you can check now is that workflows and managed settings already name the replacements from that post, and that Enterprise or Business has not disabled those replacements. After November 16, look for those three display names. An individual annual subscriber who still sees Claude Opus 4.8 matches the November post. This guide was not checked by opening a model picker in the app.
 5. **Cursor Cloud Agents and Copilot org policy** live in a web console. After the change, start one run that does not pin a model and read the model name on the task. rg does not cover that.
 
 If `GET /v1/models` already shows a `shutdown_date` for the model you care about, put that date on your own calendar. Do not wait for the request to fail on the shutdown day.

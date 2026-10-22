@@ -4,8 +4,8 @@ type: cli
 logo: /images/claude-code.png
 url: https://docs.anthropic.com/en/docs/claude-code
 repo: null
-current_version: 2.1.150
-version_tracked_at: '2026-05-24'
+current_version: 2.1.308
+version_tracked_at: '2026-10-22'
 pricing:
   model: subscription
   currency: USD
@@ -108,11 +108,21 @@ data_sources:
   - url: https://docs.anthropic.com/en/docs/claude-code
     type: docs
     last_checked: '2026-10-13'
+  - url: https://github.com/anthropics/claude-code/releases/tag/v2.1.308
+    type: release
+    last_checked: '2026-10-22'
+  - url: https://github.com/anthropics/claude-code/releases
+    type: release
+    last_checked: '2026-10-22'
 changelog:
+  - date: '2026-10-22'
+    type: release
+    summary: 'v2.1.308：GitHub Releases 当天最新非预发布稳定版（2026-10-22 发布）。该 tag 的说明只有 bug 修复与可靠性改进。站内此前记录停在 v2.1.150（2026-05-24），中间稳定版未逐条改写。'
+    summary_en: 'v2.1.308: latest non-prerelease stable release on GitHub (published 2026-10-22). The tag notes only bug fixes and reliability improvements. The site previously recorded v2.1.150 (2026-05-24); intermediate stable releases were not rewritten one by one.'
   - date: '2026-05-24'
     type: release
-    summary: v2.1.150（最新）：npm 安装已弃用，官方推荐改用 curl 安装脚本（curl -fsSL https://claude.ai/install.sh | bash）；原生安装支持后台自动更新；新增更强的插件依赖处理、/plugin 市场成本预估、后台会话与 Agent 控制、扩展 PowerShell 支持（Windows）；持续 worktree 和 daemon 稳定性改进
-    summary_en: 'v2.1.150 (latest): npm install is deprecated — recommended to migrate to the curl install script (curl -fsSL https://claude.ai/install.sh | bash); native installs auto-update in background; stronger plugin dependency handling, /plugin marketplace context cost estimates, background session and agent controls, expanded PowerShell support (Windows); improved worktree and daemon reliability'
+    summary: v2.1.150：npm 安装已弃用，官方推荐改用 curl 安装脚本（curl -fsSL https://claude.ai/install.sh | bash）；原生安装支持后台自动更新；新增更强的插件依赖处理、/plugin 市场成本预估、后台会话与 Agent 控制、扩展 PowerShell 支持（Windows）；持续 worktree 和 daemon 稳定性改进
+    summary_en: 'v2.1.150: npm install is deprecated — recommended to migrate to the curl install script (curl -fsSL https://claude.ai/install.sh | bash); native installs auto-update in background; stronger plugin dependency handling, /plugin marketplace context cost estimates, background session and agent controls, expanded PowerShell support (Windows); improved worktree and daemon reliability'
   - date: '2026-05-10'
     type: release
     summary: v2.1.127→2.1.138（2026-05-01 至 2026-05-10，12个版本）：持续迭代 bug 修复与稳定性改进；详细变更见 npm changelog

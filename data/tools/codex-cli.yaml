@@ -4,8 +4,8 @@ type: cli
 logo: /images/codex-cli.png
 url: https://openai.com/codex/
 repo: https://github.com/openai/codex
-current_version: rust-v0.162.1
-version_tracked_at: '2026-10-13'
+current_version: rust-v0.163.0
+version_tracked_at: '2026-10-22'
 pricing:
   model: subscription
   currency: USD
@@ -105,7 +105,17 @@ data_sources:
   - url: https://github.com/openai/codex
     type: changelog
     last_checked: '2026-04-19'
+  - url: https://github.com/openai/codex/releases/tag/rust-v0.163.0
+    type: release
+    last_checked: '2026-10-22'
+  - url: https://github.com/openai/codex/releases
+    type: release
+    last_checked: '2026-10-22'
 changelog:
+  - date: '2026-10-15'
+    type: release
+    summary: 'rust-v0.163.0：/config 可跨分类搜索并立即改受支持的设置，同时标出需要重启的项；回复过程中可追加指令立即转向，中断也会停掉正在运行的 Code Mode 单元格；/keymap 可配置 leader（默认 Ctrl+X），语音静音改到 F9；/daemon 可重启托管后台服务；只读工具（含 skill、memory、会话历史）可并行。符合条件的账号默认开启 Daybreak，codex exec 在服务端允许时也可用 API Key 选择。修复冷恢复线程的权限与网络批准、代理在 DNS 查询前检查权限并拒绝重复 Host 头、/side 回到已有侧会话、Windows 文本粘贴，以及子进程占着输出管道时本地命令不结束、codex exec 重复打印同一文件 diff。不再捆绑打过补丁的 zsh。2026-10-22 核对：最新非预发布稳定版是 rust-v0.163.0（2026-10-15 发布）；rust-v0.164.0-alpha.* 为 pre-release，未跟。'
+    summary_en: 'rust-v0.163.0: /config searches preferences across categories, applies supported settings immediately, and marks changes that need a restart. A follow-up can steer Codex while it is responding, and interrupting a turn also stops active Code Mode cells. /keymap configures a leader key (default Ctrl+X); voice mute moves to F9. /daemon can restart a managed background server. Independent read-only tools, including skill, memory, and conversation-history lookups, can run in parallel. Daybreak is on by default for eligible accounts, and codex exec can select it with an API key when the server allows it. Fixes restored permissions and network approvals on resume, proxy permission checks before DNS plus rejection of duplicate Host headers, returning to an existing side conversation with /side, Windows text paste, local commands that stayed open while a child held the output pipe, and codex exec reprinting the same file diff. Codex no longer bundles a patched zsh. Verified 2026-10-22: latest non-prerelease stable tag is rust-v0.163.0 (published 2026-10-15); rust-v0.164.0-alpha.* pre-releases were not followed.'
   - date: '2026-10-13'
     type: 版本更新 v0.130.0 → rust-v0.162.1（GitHub release 核验）
     summary: Version bump v0.130.0 → rust-v0.162.1 (verified via GitHub releases)

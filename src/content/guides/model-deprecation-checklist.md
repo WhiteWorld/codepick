@@ -1,6 +1,6 @@
 ---
 title: "模型下线自查清单：写死的旧模型 ID 怎么找、怎么改"
-description: "核查日 2026-10-17。Copilot 将于 2026-11-16 下线 Claude Opus 4.8、Claude Opus 5、GPT-5.6 Terra。Codex 已在 2026-10-14 让 GPT-5.5 退出 ChatGPT 登录。方舟 Coding Plan：minimax-m3 于 2026-11-02 14:00（UTC+8）停服，kimi-k2.7-code 于 2026-10-28 14:00（UTC+8）停服。"
+description: "核查日 2026-10-22。Copilot 已于 2026-10-19 下线 Gemini 3.7 Flash、GPT-5.5、GPT-5.4、GPT-5.4 mini、GPT-5 mini、Grok 4.5。2026-11-16 还将下线 Claude Opus 4.8、Claude Opus 5、GPT-5.6 Terra。Copilot 公告只有显示名。方舟 Coding Plan：minimax-m3 于 2026-11-02 14:00（UTC+8）停服，kimi-k2.7-code 于 2026-10-28 14:00（UTC+8）停服。附 rg 命令。"
 date: "2026-10-17"
 updated_at: "2026-10-22"
 article_type: howto
@@ -18,10 +18,13 @@ faq:
       不是。rg 看不到运行时拼出来的 ID，也看不到只存在于网页控制台里的默认模型。默认还会跳过 gitignore，`.env` 和 `settings.local.json` 经常在里面。命中为零只说明这几条正则没扫到字面量。
   - q: "个人年付的 Copilot 还要改 Opus 4.8 吗？"
     a: |
-      公告写了：Claude Opus 4.8 会留给个人年付订阅，让他们还能用一款 Opus。这条例外不覆盖 Claude Opus 5 和 GPT-5.6 Terra。仓库或 CI 里写死的 ID 会给同事和自动化用，年付例外帮不上那些调用。
+      公告写了：Claude Opus 4.8 会留给个人年付订阅，让他们还能用一款 Opus。这条例外不覆盖 Claude Opus 5 和 GPT-5.6 Terra，也不覆盖 2026-10-19 已经下线的那六款。仓库或 CI 里写死的 ID 会给同事和自动化用，年付例外帮不上那些调用。
+  - q: "10 月 19 日下线的六款，仓库里该搜哪个模型 ID？"
+    a: |
+      这则 changelog 没有给 ID。只搜显示名：Gemini 3.7 Flash、GPT-5.5、GPT-5.4、GPT-5.4 mini、GPT-5 mini、Grok 4.5。不要自己编一串小写连字符 ID。Copilot 客户端里的 ID 仍是未知。
 ---
 
-核查日：Copilot、Codex、OpenAI 关停页仍是 **2026-10-17** 打开的，这次没有重开。DeepSeek 别名这一节是 **2026-10-18** 重开 [价格页](https://api-docs.deepseek.com/quick_start/pricing) 和 [changelog](https://api-docs.deepseek.com/updates) 之后补的。方舟两行是 **2026-10-22** 打开 [功能发布](https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-feature-release) 和 [模型下线](https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-model-deprecation) 之后补的。页上没有的，写未知。
+核查日：**2026-10-22** 重开了 [Copilot 10 月 19 日已下线公告](https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026/)。显示名以这则为准。它没有模型 ID，下面不编。2026-11-16 的 Copilot 公告、Codex 日志仍是 **2026-10-17** 打开的，这次没有重开。DeepSeek 别名这一节是 **2026-10-18** 重开 [价格页](https://api-docs.deepseek.com/quick_start/pricing) 和 [changelog](https://api-docs.deepseek.com/updates) 之后补的。OpenAI [关停页](https://platform.openai.com/docs/deprecations) 上 2026-10-23 那张表是 **2026-10-17** 抄的，核查日已过。**2026-10-22** 又打开了关停页，这批仍列在未来关停里。关没关以关停页为准。方舟两行是 **2026-10-22** 打开 [功能发布](https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-feature-release) 和 [模型下线](https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-model-deprecation) 之后补的。页上没有的，写未知。
 
 计费单价不在这里重复，见 [Copilot 改为 AI Credits 计费](/zh/guides/copilot-ai-credits-billing/)。DeepSeek 的价格和 ID 见 [DeepSeek API 平台现状](/zh/guides/deepseek-v4-api-platforms/)。
 
@@ -29,9 +32,11 @@ faq:
 
 下面几件事不要合成一张表。
 
-1. **GitHub Copilot** 将在 **2026-11-16** 下线 Claude Opus 4.8、Claude Opus 5、GPT-5.6 Terra。公告给的替代是 Claude Opus 5.5，以及 GPT-6.1 Sol 或 GPT-6 Luna。个人年付订阅仍保留 Claude Opus 4.8。公告用的是显示名，没有给出可搜索的模型 ID。
-2. **Codex** 已在 **2026-10-14 12:00 PDT（19:00 UTC）** 让 GPT-5.5 从 ChatGPT 登录的 Codex 里退役。OpenAI API 和 API Key 会话不受影响。日志建议在套餐和客户端还提供时改用 `gpt-6.1-sol`。CLI **0.161.0**（发布于 2026-10-07）把内置目录和 Amazon Bedrock 目录的默认模型改成了 GPT-6.1 Sol。你自己在 `config.toml` 里写的 `model = "gpt-5.5"` 优先级更高，升级 CLI 不会替你改掉这一行。
-3. **OpenAI API** 的 [关停页](https://platform.openai.com/docs/deprecations) 当天能打开，没有被 Cloudflare 拦住。上面写了 **2027-01-14** 关闭若干 GPT-4o / GPT-4.1 **快照**。更近的一档是 **2026-10-23**。不带日期的别名 `gpt-4o`、`gpt-4.1` 没有单独一行，是否同一天关闭：**未知**。
+1. **GitHub Copilot** 分两批。
+   - **已下线，2026-10-19**：Gemini 3.7 Flash、GPT-5.5、GPT-5.4、GPT-5.4 mini、GPT-5 mini、Grok 4.5。各自的建议替代在下面的表里。公告只有显示名，没有模型 ID。
+   - **即将下线，2026-11-16**：Claude Opus 4.8、Claude Opus 5、GPT-5.6 Terra。公告给的替代是 Claude Opus 5.5，以及 GPT-6.1 Sol 或 GPT-6 Luna。个人年付订阅仍保留 Claude Opus 4.8。这则也是显示名，没有可搜索的模型 ID。
+2. **Codex** 已在 **2026-10-14 12:00 PDT（19:00 UTC）** 让 GPT-5.5 从 ChatGPT 登录的 Codex 里退役。OpenAI API 和 API Key 会话不受影响。日志建议在套餐和客户端还提供时改用 `gpt-6.1-sol`。CLI **0.161.0**（发布于 2026-10-07）把内置目录和 Amazon Bedrock 目录的默认模型改成了 GPT-6.1 Sol。你自己在 `config.toml` 里写的 `model = "gpt-5.5"` 优先级更高，升级 CLI 不会替你改掉这一行。Copilot 公告里的显示名 GPT-5.5 是另一个产品，不代替这行 ID。
+3. **OpenAI API** 的 [关停页](https://platform.openai.com/docs/deprecations) 在 2026-10-17 能打开，没有被 Cloudflare 拦住。上面写了 **2027-01-14** 关闭若干 GPT-4o / GPT-4.1 **快照**。更近的一档是 **2026-10-23**。下面那张表的核查日是 2026-10-17，已经过了。关没关、替代有没有变，以关停页为准。不带日期的别名 `gpt-4o`、`gpt-4.1` 没有单独一行，是否同一天关闭：**未知**。
 4. **DeepSeek**：`deepseek-v4-flash` 和 `deepseek-v4-flash-vision-exp` 现在是兼容别名。价格页写明对应模型已退役，请求由 DeepSeek-V4.1-Flash-1017 按 Flash 价处理。新代码写 `deepseek-flash`。`deepseek-chat` / `deepseek-reasoner` 原定 2026-07-24 停用，当前价格页未列出，是否还能调用：**未知**。
 5. **火山方舟 Coding Plan**：`minimax-m3` 于 **2026-11-02 14:00:00（UTC+8）** 停服，公告建议改 `doubao-seed-evolving` 或 `kimi-k3`。`kimi-k2.7-code` 于 **2026-10-28 14:00:00（UTC+8）** 停服，公告建议改 `kimi-k3`。同页的 `minimax-latest`、`kimi-latest` 仍指向这两个旧 ID。
 
@@ -39,9 +44,32 @@ Copilot 不是每个团队的主入口。用 Codex、或者在服务端把模型
 
 ## 页面上的原句
 
-### Copilot：2026-11-16
+### Copilot：2026-10-19 已下线
 
-来源：[Upcoming deprecation of selected GitHub Copilot models in mid-November](https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november/)（文首日期 October 15, 2026）。
+来源：[GitHub Copilot models deprecated on October 19, 2026](https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026/)（文首日期 October 19, 2026）。2026-10-22 打开。
+
+原句是 “As of today, October 19, 2026, we have deprecated the following models”。这批已经下线。同一则写，这些下线曾在 2026-09-18 宣布。9 月 18 日那篇这次没打开。
+
+| 公告中的模型 | 下线日 | 建议替代 |
+| --- | --- | --- |
+| Gemini 3.7 Flash | 2026-10-19 | Gemini 3.8 Flash |
+| GPT-5.5 | 2026-10-19 | GPT-6.1 Sol |
+| GPT-5.4 | 2026-10-19 | GPT-6.1 Sol |
+| GPT-5.4 mini | 2026-10-19 | GPT-6 Luna |
+| GPT-5 mini | 2026-10-19 | GPT-6 Luna |
+| Grok 4.5 | 2026-10-19 | Grok 4.7 |
+
+范围用的词是 most GitHub Copilot experiences。公告点名了 Copilot Chat、inline edits、ask、agent，以及代码补全。没点名的体验，未知。
+
+这六款在 Copilot 里的模型 ID，公告没写。**未知**。不要自己编一串小写连字符 ID。表里的 GPT-5.5 是显示名。Codex 日志里的 `gpt-5.5` 是另一个产品的 ID。
+
+Copilot Enterprise 管理员可能要在 Copilot settings 的模型策略里打开替代模型。公告写：策略打开之后，VS Code 和 github.com 的 Copilot Chat 模型选择器里能看到。已经下线的模型，公告写不用再手动从策略里删。工作流和集成仍点着旧显示名的，改成表里那一格的替代。
+
+这批和下面 2026-11-16 的三款不是同一天。11 月 16 日还没到。
+
+### Copilot：2026-11-16 即将下线
+
+来源：[Upcoming deprecation of selected GitHub Copilot models in mid-November](https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november/)（文首日期 October 15, 2026）。这则仍是 2026-10-17 打开的，这次没有重开。这三款还在下线日之前。
 
 | 公告中的模型 | 下线日 | 建议替代 |
 | --- | --- | --- |
@@ -71,13 +99,13 @@ CLI 默认模型另有一条。[changelog 的 Codex CLI 0.161.0](https://learn.c
 
 ### API：关停页当天开着
 
-来源：[Deprecations](https://platform.openai.com/docs/deprecations)，2026-10-17 打开的 markdown。
+来源：[Deprecations](https://platform.openai.com/docs/deprecations)。下面的表是 2026-10-17 打开的 markdown。2026-10-22 只复查了 2026-10-23 这批还在不在未来关停里，没有整页重抄。
 
 页首写：可以调 `GET /v1/models`，看每个模型可选的 `shutdown_date`。有日期就是 `YYYY-MM-DD`，没有公布则为 `null`。Retrieve a model 也有这个字段。这比在博客里搜「下线」可靠。
 
 和写代码的仓库最相关的几行如下。语音、图像、Evals 还有更多行，以原页为准，这里不整页抄。
 
-**2026-10-23**（这批比 Copilot 的 11 月 16 日更近）：
+**2026-10-23**（这张表抄于 2026-10-17，核查日已过）。2026-10-22 又打开了关停页：这批仍写在未来关停一节，日期是 October 23, 2026，还没进 Past deprecations。关停日当天及之后，以关停页为准，不要把下面的抄录当成已经关掉。同一次打开，微调表里还有 `ft-davinci-002`，替代写的是 `gpt-5.6-terra`。10 月 17 日的抄录没有这一行。其余格子这次没有逐格重抄。
 
 | 关停日 | 页上同一格里的 ID | 替代 |
 | --- | --- | --- |
@@ -112,7 +140,7 @@ CLI 默认模型另有一条。[changelog 的 Codex CLI 0.161.0](https://learn.c
 
 两件容易混的事：
 
-- 关停表**没有**单独列出不带日期的 `gpt-4o`、`gpt-4.1`。同一天打开的 [Responses create](https://platform.openai.com/docs/api-reference/responses/create) 枚举里，这两个别名以及 `gpt-5.5` 还在。枚举还在，只说明参考页没删；不等于不会关。别名何时关：**未知**。
+- 关停表**没有**单独列出不带日期的 `gpt-4o`、`gpt-4.1`。2026-10-17 打开的 [Responses create](https://platform.openai.com/docs/api-reference/responses/create) 枚举里，这两个别名以及 `gpt-5.5` 还在。这次没有重开那一页。枚举还在，只说明当时参考页没删。别名何时关：**未知**。
 - API 页把 `gpt-5.6-terra` 写成一部分旧快照的替代。Copilot 公告则把 GPT-5.6 Terra 列为 2026-11-16 下线。这是两个产品。API 迁移跟着 API 页，Copilot 迁移跟着 Copilot 公告。
 
 ### 火山方舟 Coding Plan：两个还没到的停服时刻
@@ -141,6 +169,25 @@ rg -n -e 'minimax-m3' -e 'kimi-k2\.7-code' -e 'minimax-latest' -e 'kimi-latest' 
 默认的 `rg` **会跳过 gitignore**。`.env`、`.env.local`、`.claude/settings.local.json`、`.github/copilot/settings.local.json` 经常因此漏掉。所以搜两次：一次默认，一次 `--no-ignore`，并用 `--glob` 排除依赖目录。
 
 字面量也有坑。`Claude Opus 5` 会命中替代模型 `Claude Opus 5.5`。`claude-opus-5` 会命中 `claude-opus-5-5`。默认的 `rg` 没有前瞻，所以下面要求「5 后面不能再跟 `.`、`-` 或数字」，这样不用加 `--pcre2`。
+
+10 月 19 日那六款只有显示名。下面只搜显示名，不加公告里没有的 ID。`GPT-5.4` 会命中 `GPT-5.4 mini`，两条都在已下线名单里。`Grok 4.5` 也会出现在 Cursor 的周池文档里，那是另一个产品，看路径。`GPT-5.5` 是 Copilot 显示名；仓库里的 `gpt-5.5` 还要对照 Codex 那一节。
+
+```bash
+rg -n --hidden \
+  --glob '!.git/**' \
+  --glob '!node_modules/**' \
+  --glob '!dist/**' \
+  --glob '!.next/**' \
+  -e 'Gemini 3\.7 Flash' \
+  -e 'GPT-5\.4 mini' \
+  -e 'GPT-5\.4' \
+  -e 'GPT-5 mini' \
+  -e 'GPT-5\.5' \
+  -e 'Grok 4\.5' \
+  .
+```
+
+gitignore 那次把这六个显示名也带上。仍然不要加自己编的 ID。
 
 ```bash
 rg -n --hidden \
@@ -271,7 +318,7 @@ rg -n -e '(^|[^A-Za-z0-9-])gpt-4o([^A-Za-z0-9-]|$)' -e 'gpt-4\.1([^0-9-]|$)' .
 | Copilot CLI 用户配置 | `~/.copilot/settings.json` 的 `model`。`"auto"` 表示让 Copilot 选。`/model` 和 `copilot config` 会改它。可用 `COPILOT_HOME` 换目录 | 已核实：[CLI configuration directory](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference) |
 | Copilot CLI 仓库配置 | `.github/copilot/settings.json` 的 `model`，受信工作区才生效。个人覆盖是 `.github/copilot/settings.local.json`（应进 gitignore） | 已核实，同上 |
 | Copilot CLI 子代理 | `settings.json` 里 `subagents.agents.<名字>.model` | 已核实，同上 |
-| Copilot CLI 允许列表 | `.github/allowed_models.txt`。一行一个 ID 或 glob，`fallback:` 指定不允许时用哪个模型。这是允许列表，不是默认模型 | 已核实，同上。文档示例写了 `gpt-6-astra`、`claude-sonnet-*`，不是本次下线的三款 |
+| Copilot CLI 允许列表 | `.github/allowed_models.txt`。一行一个 ID 或 glob，`fallback:` 指定不允许时用哪个模型。这是允许列表，不是默认模型 | 已核实，同上。文档示例写了 `gpt-6-astra`、`claude-sonnet-*`。10 月 19 日和 11 月 16 日两则公告都没给 Copilot 模型 ID |
 | Copilot 企业托管 | 企业的 `.github-private` 仓库：`copilot/managed-settings.json`，以及 `copilot/teams/*.json`。键是顶层 `model`。旧的 `permissions.model` 在没有顶层键时仍会被读 | 已核实：[Getting started](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/get-started)、[Enterprise managed settings](https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings) |
 | Copilot 本机托管文件 | macOS `/Library/Application Support/GitHubCopilot/managed-settings.json`；Windows `%ProgramFiles%\GitHubCopilot\managed-settings.json`；Linux `/etc/github-copilot/managed-settings.json` | 已核实：[Choosing how to deploy](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/deploy-managed-settings) |
 | Copilot 组织策略界面 | 组织或企业后台里启用/禁用模型。不在你的应用仓库里，rg 找不到 | 已核实有这个界面：[Configuring access to AI models](https://docs.github.com/en/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models)。具体点哪一个下拉，以该页步骤为准 |
@@ -308,7 +355,7 @@ ChatGPT 登录的会话仍会去要这个已退役的 ID。删掉这一行才会
 1. 再跑上面的 `rg`。配置和脚本里的旧 ID 应该没了。文章、changelog、锁文件里的历史字符串可以留着，看路径再判断。
 2. **Codex（ChatGPT 登录）**：启动后输入 `/status`，看当前模型是不是你刚写进配置的那个。再发一个你平时会跑的小任务，例如「只跑已有的单元测试，不要改代码」。`/model` 列表里如果还出现 GPT-5.5，以你屏幕为准，把日志日期和客户端版本记下来。本文核查时没有在客户端里点开模型列表。
 3. **API**：用新 ID 打一次你真正在用的端点。Responses 可以是一条最短请求，模型字段换成关停页给的替代，例如 `gpt-6-luna` 或 `gpt-6-sol`。失败时读错误正文里的模型名。本文没有核对当前的错误码字符串，不要背某个 `error.code`。然后跑这条调用所在的测试或 CI job。对比的是测试是否仍通过，不是两段散文是否相似。
-4. **Copilot**：11 月 16 日之前，下线还没发生。能做的是确认工作流和托管配置里的名字已经换成公告中的替代，并确认 Enterprise / Business 没有把这些替代模型禁用。11 月 16 日之后，打开聊天模型下拉，看旧显示名是否还在。个人年付用户仍看到 Claude Opus 4.8，和公告一致，不是漏改。
+4. **Copilot**：10 月 19 日那六款已经下线。打开聊天模型下拉，看 Gemini 3.7 Flash、GPT-5.5、GPT-5.4、GPT-5.4 mini、GPT-5 mini、Grok 4.5 还在不在。Enterprise 要先确认替代模型的策略已经打开，公告写打开后才会出现在 VS Code 和 github.com 的选择器里。11 月 16 日那三款还没到下线日。能做的是确认工作流和托管配置里的名字已经换成那则公告中的替代，并确认 Enterprise / Business 没有把这些替代模型禁用。11 月 16 日之后再看那三个显示名。个人年付用户仍看到 Claude Opus 4.8，和 11 月公告一致，不是漏改。本文核查时没有在客户端里点开模型列表。
 5. **Cursor Cloud Agent 和 Copilot 组织策略** 在网页控制台里。改完发一次不指定模型的运行，看任务记录里实际用的模型名。rg 代替不了这一步。
 
 `GET /v1/models` 里目标模型的 `shutdown_date` 如果已经是一个日期，就把它记到你们自己的日历，不要等请求在关停日当天失败。
