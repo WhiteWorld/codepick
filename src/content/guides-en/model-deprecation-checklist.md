@@ -1,10 +1,10 @@
 ---
 title: "Model Deprecation Checklist: Find and Replace Pinned Model IDs"
-description: "Checked 2026-10-22. Copilot already removed Gemini 3.7 Flash, GPT-5.5, GPT-5.4, GPT-5.4 mini, GPT-5 mini, and Grok 4.5 on 2026-10-19. Claude Opus 4.8, Claude Opus 5, and GPT-5.6 Terra are still scheduled for 2026-11-16. The posts give display names only. Includes rg commands."
+description: "Checked 2026-10-22. Copilot already removed Gemini 3.7 Flash, GPT-5.5, GPT-5.4, GPT-5.4 mini, GPT-5 mini, and Grok 4.5 on 2026-10-19. Claude Opus 4.8, Claude Opus 5, and GPT-5.6 Terra are still scheduled for 2026-11-16. Those Copilot posts give display names only. Ark Coding Plan: minimax-m3 shuts down 2026-11-02 14:00 UTC+8; kimi-k2.7-code shuts down 2026-10-28 14:00 UTC+8. Includes rg commands."
 date: "2026-10-17"
 updated_at: "2026-10-22"
 article_type: howto
-tags: [model-deprecation, copilot, codex, openai, api]
+tags: [model-deprecation, copilot, codex, openai, api, ark]
 pillar: workflow
 content_status: keep
 locale_strategy: mirrored
@@ -24,13 +24,13 @@ faq:
       That changelog does not publish an ID. Search the display names: Gemini 3.7 Flash, GPT-5.5, GPT-5.4, GPT-5.4 mini, GPT-5 mini, and Grok 4.5. Do not invent a lowercase hyphenated ID. The ID inside Copilot clients is still unknown.
 ---
 
-On **2026-10-22** this guide reopened the [Copilot models removed on 2026-10-19](https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026/). Display names follow that post. It has no model IDs, and none are invented below. The 2026-11-16 Copilot post and the Codex notes were opened on **2026-10-17** and were not reopened. The DeepSeek alias note was added on **2026-10-18** after reopening the [pricing page](https://api-docs.deepseek.com/quick_start/pricing) and the [changelog](https://api-docs.deepseek.com/updates). The **2026-10-23** table on the OpenAI [deprecations page](https://platform.openai.com/docs/deprecations) was copied on **2026-10-17**. That check date has passed. The page was opened again on **2026-10-22**, and that batch was still listed as a future shutdown. Whether it is actually off follows the deprecations page. If a page does not say it, this guide says unknown.
+On **2026-10-22** this guide reopened the [Copilot models removed on 2026-10-19](https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026/). Display names follow that post. It has no model IDs, and none are invented below. The 2026-11-16 Copilot post and the Codex notes were opened on **2026-10-17** and were not reopened. The DeepSeek alias note was added on **2026-10-18** after reopening the [pricing page](https://api-docs.deepseek.com/quick_start/pricing) and the [changelog](https://api-docs.deepseek.com/updates). The **2026-10-23** table on the OpenAI [deprecations page](https://platform.openai.com/docs/deprecations) was copied on **2026-10-17**. That check date has passed. The page was opened again on **2026-10-22**, and that batch was still listed as a future shutdown. Whether it is actually off follows the deprecations page. The Ark rows were added on **2026-10-22** after opening the [feature release](https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-feature-release) and the [model deprecation](https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-model-deprecation) pages. If a page does not say it, this guide says unknown.
 
 Copilot prices are not repeated here. See [Copilot AI Credits billing](/en/guides/copilot-ai-credits-billing/). DeepSeek prices and IDs are in [DeepSeek API model IDs](/en/guides/deepseek-v4-api-platforms/).
 
 ## Bottom line
 
-Keep the four lists separate.
+Keep the lists separate.
 
 1. **GitHub Copilot** is two batches.
    - **Already removed, 2026-10-19:** Gemini 3.7 Flash, GPT-5.5, GPT-5.4, GPT-5.4 mini, GPT-5 mini, and Grok 4.5. The suggested replacement for each one is in the table below. The post uses display names. It does not publish a model ID.
@@ -38,8 +38,9 @@ Keep the four lists separate.
 2. **Codex** already removed GPT-5.5 on **2026-10-14 at noon PDT (19:00 UTC)** for users signed in with ChatGPT. The OpenAI API and API-key sessions are not affected. The note says to use `gpt-6.1-sol` when your plan and client still offer it. CLI **0.161.0** (published 2026-10-07) made GPT-6.1 Sol the default in the bundled catalog and the Amazon Bedrock catalogs. A line you wrote yourself, `model = "gpt-5.5"` in `config.toml`, wins over that default. Upgrading the CLI does not rewrite it. The Copilot display name GPT-5.5 is a different product. It does not replace this ID.
 3. The **OpenAI API** [deprecations page](https://platform.openai.com/docs/deprecations) loaded on 2026-10-17. Cloudflare did not block it. It schedules **2027-01-14** shutdowns for specific GPT-4o and GPT-4.1 **snapshots**. A nearer batch is **2026-10-23**. The table below was copied on 2026-10-17, and that check date has passed. Whether those IDs are off, and whether the replacements changed, follows the deprecations page. Undated aliases `gpt-4o` and `gpt-4.1` do not have their own rows. Whether they shut down the same day is **unknown**.
 4. **DeepSeek**: `deepseek-v4-flash` and `deepseek-v4-flash-vision-exp` are now compatibility aliases. The pricing page says those models are retired and that requests are served by DeepSeek-V4.1-Flash-1017 at the Flash price. New code should send `deepseek-flash`. `deepseek-chat` and `deepseek-reasoner` were scheduled to stop on 2026-07-24 and are not on the current pricing page. Whether they still respond is **unknown**.
+5. **Volcengine Ark Coding Plan**: `minimax-m3` shuts down at **2026-11-02 14:00:00 (UTC+8)**. The page suggests `doubao-seed-evolving` or `kimi-k3`. `kimi-k2.7-code` shuts down at **2026-10-28 14:00:00 (UTC+8)**. The page suggests `kimi-k3`. On the same page, `minimax-latest` and `kimi-latest` still point at those old IDs.
 
-Copilot is not the main door for every team. If you use Codex, or you send a model ID from your own service, the second and third items are the ones to search for. If the repo still says `deepseek-v4-flash` or `deepseek-v4-flash-vision-exp`, item 4 is the one to change to `deepseek-flash`, unless you mean to keep the compatibility alias. This guide does not say anything about network access.
+Copilot is not the main door for every team. If you use Codex, or you send a model ID from your own service, the second and third items are the ones to search for. If the repo still says `deepseek-v4-flash` or `deepseek-v4-flash-vision-exp`, item 4 is the one to change to `deepseek-flash`, unless you mean to keep the compatibility alias. If an Ark config still has an ID from item 5, use that section. This guide does not say anything about network access.
 
 ## What the pages actually say
 
@@ -141,6 +142,25 @@ Two easy mix-ups:
 
 - The shutdown table does **not** list undated `gpt-4o` or `gpt-4.1` as their own rows. The [Responses create](https://platform.openai.com/docs/api-reference/responses/create) enum, opened on 2026-10-17, still included those aliases and `gpt-5.5`. That page was not reopened. An ID still listed in the enum that day only means the reference page had not removed it. When the aliases shut down: **unknown**.
 - The API page lists `gpt-5.6-terra` as a replacement for some older snapshots. The Copilot post lists GPT-5.6 Terra as retiring on 2026-11-16. Those are different products. Follow the API page for API calls. Follow the Copilot post for Copilot.
+
+### Volcengine Ark Coding Plan: two shutdowns that have not arrived
+
+Source: [model deprecation](https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-model-deprecation), opened 2026-10-22. The feature-release page opened the same day matches the start dates: `minimax-m3` on 10.19, `kimi-k2.7-code` on 10.13.
+
+| Model | Shutdown | Suggested move |
+| --- | --- | --- |
+| `minimax-m3` | 2026-11-02 14:00:00 (UTC+8) | `doubao-seed-evolving` or `kimi-k3` |
+| `kimi-k2.7-code` | 2026-10-28 14:00:00 (UTC+8) | `kimi-k3` |
+
+Both rows stop new users at 10:00:00 (UTC+8) on the start day. A new user is someone who bought Coding Plan and has not used that model.
+
+The same page's "method one" table still says `minimax-latest` → `minimax-m3` and `kimi-latest` → `kimi-k2.7-code`. That is not the same sentence as the migration advice. Search the latest aliases too.
+
+```bash
+rg -n -e 'minimax-m3' -e 'kimi-k2\.7-code' -e 'minimax-latest' -e 'kimi-latest' .
+```
+
+The console was not opened. Whether the dropdown still lists them is unknown. The longer note is in the [Ark Coding Plan guide](/en/guides/ark-coding-plan-guide/).
 
 ## Search the repo
 

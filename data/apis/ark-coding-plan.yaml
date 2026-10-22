@@ -6,7 +6,7 @@ url: https://www.volcengine.com/L/s3lNTNYxaEc/
 affiliate_url: https://volcengine.com/L/GHwMUAPkBr0/
 repo: null
 current_version: v2
-version_tracked_at: '2026-06-06'
+version_tracked_at: '2026-10-22'
 pricing:
   model: subscription
   currency: CNY
@@ -21,8 +21,9 @@ pricing:
       period: month
       limits: 每5小时约6000次请求，Lite的5倍用量；首月低至 ¥49.9
       note: Pro 标准月费 ¥200。首月优惠 ¥49.9。首购一次性下单三个月可享 5 折；价格与活动以官网实时页面为准。
-  price_updated_at: '2026-10-13'
-  note: Lite 标准月费 ¥40（活动价 ¥9.9/月，连续包月 2.5 折），Pro 标准月费 ¥200（活动价 ¥49.9/月）；连续包季 4.9 折、连续包年 8.7 折，另有受邀再享 9.5 折。2026-10-13 复核官网活动页：Lite/Pro 价格与 6 月记录一致；模型阵容已更新。优惠是否仅限首月未能在文档页确认，价格以官网实时页面为准。
+  price_updated_at: '2026-10-22'
+  note: 2026-10-22 打开的是模型文档，不是价格页。¥40 / ¥200 / ¥9.9 / ¥49.9 和每 5 小时约 1200 / 6000 次没有出现在这次的页面上，仍是 2026-10-13 及更早的记录。current_version 仍写 v2，这几页没有版本号。套餐概览写了 5 小时、每周一 00:00:00 的周限额、订阅月第 1 日 00:00:00 的月限额，没给次数。时区未写。
+  note_en: The 2026-10-22 pass opened model docs, not a pricing page. CNY 40 / 200 / 9.9 / 49.9 and the roughly 1,200 / 6,000 requests per 5 hours were not on those pages. They remain the 2026-10-13 and earlier record. current_version is still the old label v2; these pages do not print a version string. The plan overview names a 5-hour limit, a weekly limit resetting Monday 00:00:00, and a monthly limit resetting at 00:00:00 on day 1 of the subscription month. It does not give request counts. It does not name a timezone.
 scores:
   coding_ability: 8
   cost_efficiency: 9.5
@@ -31,12 +32,23 @@ scores:
   privacy: 7
 features:
   auto_mode: true
+  # 前五个会出在专题页卡片上。顺序按这次要看的变化排，不是快速开始的原序。
+  # 可配置 Model Name 以快速开始页为准；即将下线的两个不在那份名单里，但套餐概览仍列出。
   supported_models:
-    - Doubao-Seed-Evolving
-    - GLM-5.3 系列
-    - Deepseek-V4.1-Flash
-    - Kimi-K3
-    - Kimi-K2.8-Preview
+    - deepseek-v4.1-flash-economy
+    - doubao-seed-evolving
+    - kimi-k3
+    - deepseek-v4.1-flash
+    - glm-5.3
+    - glm-5.3-flash
+    - doubao-seed-2.1-pro
+    - doubao-seed-2.1-lite
+    - doubao-seed-2.0-mini
+    - deepseek-v4-flash
+    - deepseek-v4-pro
+    - kimi-k2.8-preview
+    - minimax-m3
+    - kimi-k2.7-code
   api_protocol: 兼容 OpenAI / Anthropic 协议
   api_endpoint: https://ark.cn-beijing.volces.com/api/coding
   supported_clients:
@@ -61,16 +73,32 @@ not_for:
   - 只想用 Claude/GPT 原版模型的用户
   - 需要 API 直接调用（非编程场景）的用户
 data_sources:
+  - url: https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-feature-release
+    type: changelog
+    last_checked: '2026-10-22'
+  - url: https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-model-deprecation
+    type: changelog
+    last_checked: '2026-10-22'
+  - url: https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-plan-overview
+    type: documentation
+    last_checked: '2026-10-22'
+  - url: https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-get-started
+    type: documentation
+    last_checked: '2026-10-22'
+  - url: https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-model-release
+    type: announcement
+    last_checked: '2026-10-22'
+  - url: https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-model-discount
+    type: pricing
+    last_checked: '2026-10-22'
   - url: https://www.volcengine.com/L/s3lNTNYxaEc/
     type: pricing
     last_checked: '2026-10-13'
-  - url: https://www.volcengine.com/docs/82379/1925114
-    type: documentation
-    last_checked: '2026-10-13'
-  - url: https://developer.volcengine.com/articles/7595502342175195187
-    type: announcement
-    last_checked: '2026-10-13'
 changelog:
+  - date: '2026-10-22'
+    type: model
+    summary: 功能发布页 10.20 增加 deepseek-v4.1-flash-economy，抵扣系数 5 折，截止 2026-12-30 23:59:59（未写时区）。minimax-m3 于 2026-11-02 14:00:00（UTC+8）停服，建议迁 doubao-seed-evolving 或 kimi-k3。kimi-k2.7-code 于 2026-10-28 14:00:00（UTC+8）停服，建议迁 kimi-k3。快速开始的可配置名单不含这两个 ID。月费数字这次没见到。
+    summary_en: The feature-release page adds deepseek-v4.1-flash-economy on 10.20, with a 50% deduction coefficient through 2026-12-30 23:59:59 (no timezone on the page). minimax-m3 shuts down at 2026-11-02 14:00:00 UTC+8; the page suggests doubao-seed-evolving or kimi-k3. kimi-k2.7-code shuts down at 2026-10-28 14:00:00 UTC+8; the page suggests kimi-k3. The get-started Model Name list omits both IDs. Monthly prices were not on the pages opened this pass.
   - date: '2026-10-13'
     type: model
     summary: 模型阵容更新：Doubao-Seed-Evolving、GLM-5.3 系列、Deepseek-V4.1-Flash、Kimi-K3（含 Kimi-K2.8-Preview），支持 Auto 模式调度；Lite ¥9.9/Pro ¥49.9 活动价复核无变化
@@ -92,7 +120,7 @@ changelog:
   - date: '2026-01-10'
     type: feature
     summary: 支持接入 Trae / Claude Code / Cursor 等更多客户端
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-12'
+last_full_review: '2026-10-22'
+next_review_due: '2026-10-29'
 review_frequency_days: 30
-confidence: high
+confidence: medium

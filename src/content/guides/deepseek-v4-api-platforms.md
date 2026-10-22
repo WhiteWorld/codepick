@@ -2,7 +2,7 @@
 title: "DeepSeek API 模型 ID 与平台现状（2026-10-18）"
 description: "2026-10-18 重开官方价格页和 changelog。现在应调 deepseek-flash（V4.1-Flash-1017）或 deepseek-v4-pro（V4-Pro-0813）。旧 Flash 别名仍能填，但模型已退役。附峰谷价、1M 上下文，以及当天核过的 OpenRouter、Fireworks、Together。"
 date: "2026-10-18"
-updated_at: "2026-10-18"
+updated_at: "2026-10-22"
 article_type: "howto"
 tags: ["deepseek", "deepseek-v4", "api", "openrouter", "together", "fireworks"]
 pillar: plans
@@ -99,7 +99,7 @@ Together 的 dedicated 目录这次没打开。那里有没有 1017：**未知**
 
 OpenRouter 旧 slug `deepseek/deepseek-v4` 这次没打开，不沿用 2026-04-29 那篇「页面存在但不可用」的结论。
 
-火山方舟：本站 `data/apis/ark-coding-plan.yaml` 在 2026-10-13 的复核里写了模型名 `Deepseek-V4.1-Flash`。2026-10-18 没有重开火山引擎公开页。公开页是否仍列出、对应 1017 还是 9 月 10 日那一版：**未知**。
+火山方舟 Coding Plan：2026-10-22 打开了套餐概览、快速开始和模型上线公告。三页都列出 `deepseek-v4.1-flash`。同一天还有 `deepseek-v4.1-flash-economy`，上线公告写与标准版同一套权重。这几页没有写 1017，也没有写 9 月 10 日那一版。对应哪一版快照，仍是**未知**。方舟按量 API 价格页这次没开。
 
 ## 发一条官方请求
 

@@ -1,10 +1,10 @@
 ---
 title: "模型下线自查清单：写死的旧模型 ID 怎么找、怎么改"
-description: "核查日 2026-10-22。Copilot 已于 2026-10-19 下线 Gemini 3.7 Flash、GPT-5.5、GPT-5.4、GPT-5.4 mini、GPT-5 mini、Grok 4.5。2026-11-16 还将下线 Claude Opus 4.8、Claude Opus 5、GPT-5.6 Terra。公告只有显示名。附 rg 命令。"
+description: "核查日 2026-10-22。Copilot 已于 2026-10-19 下线 Gemini 3.7 Flash、GPT-5.5、GPT-5.4、GPT-5.4 mini、GPT-5 mini、Grok 4.5。2026-11-16 还将下线 Claude Opus 4.8、Claude Opus 5、GPT-5.6 Terra。Copilot 公告只有显示名。方舟 Coding Plan：minimax-m3 于 2026-11-02 14:00（UTC+8）停服，kimi-k2.7-code 于 2026-10-28 14:00（UTC+8）停服。附 rg 命令。"
 date: "2026-10-17"
 updated_at: "2026-10-22"
 article_type: howto
-tags: [model-deprecation, copilot, codex, openai, api]
+tags: [model-deprecation, copilot, codex, openai, api, ark]
 pillar: workflow
 content_status: keep
 locale_strategy: mirrored
@@ -24,13 +24,13 @@ faq:
       这则 changelog 没有给 ID。只搜显示名：Gemini 3.7 Flash、GPT-5.5、GPT-5.4、GPT-5.4 mini、GPT-5 mini、Grok 4.5。不要自己编一串小写连字符 ID。Copilot 客户端里的 ID 仍是未知。
 ---
 
-核查日：**2026-10-22** 重开了 [Copilot 10 月 19 日已下线公告](https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026/)。显示名以这则为准。它没有模型 ID，下面不编。2026-11-16 的 Copilot 公告、Codex 日志仍是 **2026-10-17** 打开的，这次没有重开。DeepSeek 别名这一节是 **2026-10-18** 重开 [价格页](https://api-docs.deepseek.com/quick_start/pricing) 和 [changelog](https://api-docs.deepseek.com/updates) 之后补的。OpenAI [关停页](https://platform.openai.com/docs/deprecations) 上 2026-10-23 那张表是 **2026-10-17** 抄的，核查日已过。**2026-10-22** 又打开了关停页，这批仍列在未来关停里。关没关以关停页为准。页上没有的，写未知。
+核查日：**2026-10-22** 重开了 [Copilot 10 月 19 日已下线公告](https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026/)。显示名以这则为准。它没有模型 ID，下面不编。2026-11-16 的 Copilot 公告、Codex 日志仍是 **2026-10-17** 打开的，这次没有重开。DeepSeek 别名这一节是 **2026-10-18** 重开 [价格页](https://api-docs.deepseek.com/quick_start/pricing) 和 [changelog](https://api-docs.deepseek.com/updates) 之后补的。OpenAI [关停页](https://platform.openai.com/docs/deprecations) 上 2026-10-23 那张表是 **2026-10-17** 抄的，核查日已过。**2026-10-22** 又打开了关停页，这批仍列在未来关停里。关没关以关停页为准。方舟两行是 **2026-10-22** 打开 [功能发布](https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-feature-release) 和 [模型下线](https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-model-deprecation) 之后补的。页上没有的，写未知。
 
 计费单价不在这里重复，见 [Copilot 改为 AI Credits 计费](/zh/guides/copilot-ai-credits-billing/)。DeepSeek 的价格和 ID 见 [DeepSeek API 平台现状](/zh/guides/deepseek-v4-api-platforms/)。
 
 ## 先说结论
 
-四件事不要合成一张表。
+下面几件事不要合成一张表。
 
 1. **GitHub Copilot** 分两批。
    - **已下线，2026-10-19**：Gemini 3.7 Flash、GPT-5.5、GPT-5.4、GPT-5.4 mini、GPT-5 mini、Grok 4.5。各自的建议替代在下面的表里。公告只有显示名，没有模型 ID。
@@ -38,8 +38,9 @@ faq:
 2. **Codex** 已在 **2026-10-14 12:00 PDT（19:00 UTC）** 让 GPT-5.5 从 ChatGPT 登录的 Codex 里退役。OpenAI API 和 API Key 会话不受影响。日志建议在套餐和客户端还提供时改用 `gpt-6.1-sol`。CLI **0.161.0**（发布于 2026-10-07）把内置目录和 Amazon Bedrock 目录的默认模型改成了 GPT-6.1 Sol。你自己在 `config.toml` 里写的 `model = "gpt-5.5"` 优先级更高，升级 CLI 不会替你改掉这一行。Copilot 公告里的显示名 GPT-5.5 是另一个产品，不代替这行 ID。
 3. **OpenAI API** 的 [关停页](https://platform.openai.com/docs/deprecations) 在 2026-10-17 能打开，没有被 Cloudflare 拦住。上面写了 **2027-01-14** 关闭若干 GPT-4o / GPT-4.1 **快照**。更近的一档是 **2026-10-23**。下面那张表的核查日是 2026-10-17，已经过了。关没关、替代有没有变，以关停页为准。不带日期的别名 `gpt-4o`、`gpt-4.1` 没有单独一行，是否同一天关闭：**未知**。
 4. **DeepSeek**：`deepseek-v4-flash` 和 `deepseek-v4-flash-vision-exp` 现在是兼容别名。价格页写明对应模型已退役，请求由 DeepSeek-V4.1-Flash-1017 按 Flash 价处理。新代码写 `deepseek-flash`。`deepseek-chat` / `deepseek-reasoner` 原定 2026-07-24 停用，当前价格页未列出，是否还能调用：**未知**。
+5. **火山方舟 Coding Plan**：`minimax-m3` 于 **2026-11-02 14:00:00（UTC+8）** 停服，公告建议改 `doubao-seed-evolving` 或 `kimi-k3`。`kimi-k2.7-code` 于 **2026-10-28 14:00:00（UTC+8）** 停服，公告建议改 `kimi-k3`。同页的 `minimax-latest`、`kimi-latest` 仍指向这两个旧 ID。
 
-Copilot 不是每个团队的主入口。用 Codex、或者在服务端把模型 ID 写进请求的人，按第 2、3 条做完搜索即可。仓库里如果还写着 `deepseek-v4-flash` 或 `deepseek-v4-flash-vision-exp`，按第 4 条改成 `deepseek-flash`，除非你就是要留兼容别名。本文不写访问是否顺畅。
+Copilot 不是每个团队的主入口。用 Codex、或者在服务端把模型 ID 写进请求的人，按第 2、3 条做完搜索即可。仓库里如果还写着 `deepseek-v4-flash` 或 `deepseek-v4-flash-vision-exp`，按第 4 条改成 `deepseek-flash`，除非你就是要留兼容别名。方舟配置里如果写了第 5 条的 ID，按那一节改。本文不写访问是否顺畅。
 
 ## 页面上的原句
 
@@ -141,6 +142,25 @@ CLI 默认模型另有一条。[changelog 的 Codex CLI 0.161.0](https://learn.c
 
 - 关停表**没有**单独列出不带日期的 `gpt-4o`、`gpt-4.1`。2026-10-17 打开的 [Responses create](https://platform.openai.com/docs/api-reference/responses/create) 枚举里，这两个别名以及 `gpt-5.5` 还在。这次没有重开那一页。枚举还在，只说明当时参考页没删。别名何时关：**未知**。
 - API 页把 `gpt-5.6-terra` 写成一部分旧快照的替代。Copilot 公告则把 GPT-5.6 Terra 列为 2026-11-16 下线。这是两个产品。API 迁移跟着 API 页，Copilot 迁移跟着 Copilot 公告。
+
+### 火山方舟 Coding Plan：两个还没到的停服时刻
+
+来源：[模型下线公告](https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-model-deprecation)，2026-10-22 打开。功能发布页同一天能对上启动日期：`minimax-m3` 是 10.19，`kimi-k2.7-code` 是 10.13。
+
+| 模型 | 停服 | 公告建议改去 |
+| --- | --- | --- |
+| `minimax-m3` | 2026-11-02 14:00:00（UTC+8） | `doubao-seed-evolving` 或 `kimi-k3` |
+| `kimi-k2.7-code` | 2026-10-28 14:00:00（UTC+8） | `kimi-k3` |
+
+两则都从启动当天 10:00:00（UTC+8）起停新用户。新用户指买了 Coding Plan、但没用过该模型的人。
+
+同页「方式一」仍写 `minimax-latest` → `minimax-m3`、`kimi-latest` → `kimi-k2.7-code`。这和迁移建议不是同一句话。配置里如果写了 latest 别名，也要搜。
+
+```bash
+rg -n -e 'minimax-m3' -e 'kimi-k2\.7-code' -e 'minimax-latest' -e 'kimi-latest' .
+```
+
+控制台这次没打开。下拉里还在不在，未知。更长的说明在 [火山方舟 Coding Plan 指南](/zh/guides/ark-coding-plan-guide/)。
 
 ## 在仓库里搜
 

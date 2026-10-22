@@ -2,7 +2,7 @@
 title: "国内 Coding API 横评 2026：方舟 / 百炼 / MiniMax / 智谱 / DeepSeek 谁最值得买？"
 description: "国产 AI 编程 API 套餐 2026 年最全横评：火山方舟 Lite ¥40/月（首月 ¥9.9）、阿里百炼 ¥200、MiniMax ¥29、智谱 GLM ¥49 起、DeepSeek 按量。一张大表 + 6 个场景 + 决策树，30 秒锁定最适合你的方案。"
 date: "2026-05-19"
-updated_at: "2026-10-18"
+updated_at: "2026-10-22"
 article_type: "review"
 tags: ["coding-plan", "对比", "横评", "ark", "bailian", "minimax", "glm", "智谱", "deepseek", "国内", "api"]
 pillar: plans
@@ -37,7 +37,7 @@ faq:
       方舟支持子账号但不是按坐席计费的套餐。智谱、MiniMax、DeepSeek 当前都需要团队各自订阅或自己拆分预算。
 ---
 
-DeepSeek 相关句子按 2026-10-18 重开的 [价格页](https://api-docs.deepseek.com/quick_start/pricing)、[changelog](https://api-docs.deepseek.com/updates) 和 [2026-09-10 新闻](https://api-docs.deepseek.com/news/news260910) 改过。方舟、百炼、MiniMax、智谱的段落这次没重开，仍是 2026-05-19 的原文。
+DeepSeek 相关句子按 2026-10-18 重开的 [价格页](https://api-docs.deepseek.com/quick_start/pricing)、[changelog](https://api-docs.deepseek.com/updates) 和 [2026-09-10 新闻](https://api-docs.deepseek.com/news/news260910) 改过。方舟的月费、首月价、1200/6000 次仍是 2026-05-19 的原文，2026-10-22 没有重开价格页。同一天重开了方舟 Coding Plan 的模型文档：`minimax-m3` 定于 2026-11-02 14:00:00（UTC+8）停服，`kimi-k2.7-code` 定于 2026-10-28 14:00:00（UTC+8）停服。名单见 [指南](/zh/guides/ark-coding-plan-guide/)。百炼、MiniMax、智谱的段落仍是 2026-05-19 的原文。
 
 国内 AI 编程 API 套餐 2026 年到了大爆发——5 家主流厂商分别推出了不同形态的方案：从方舟的 ¥9.9 抢购入口到智谱 7 折包年，从 MiniMax 全模态到 DeepSeek 纯按量。**到底该买哪家？** 本文是一份给做选择的开发者用的横评。
 
@@ -255,4 +255,4 @@ MiniMax Token Plan 自带文本/图像/视频/音频/音乐五模态，¥29 门�
 - [Cursor 国内使用完整指南](/zh/guides/cursor-china-usage/)
 - [GitHub Copilot 6 月计费变化](/zh/guides/copilot-ai-credits-billing/)
 
-> DeepSeek 段落核查日 2026-10-18。其余厂商仍停在 2026-05-19。价格、额度、活动以各家官网为准，下单前再看一次。
+> DeepSeek 段落核查日 2026-10-18。方舟月费仍是 2026-05-19 的原文；模型下线是 2026-10-22 的文档。百炼、MiniMax、智谱仍停在 2026-05-19。价格、额度、活动以各家官网为准，下单前再看一次。

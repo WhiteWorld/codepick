@@ -2,7 +2,7 @@
 title: "5 大国产 AI 编程订阅横评：2026 年 8 月选型指南"
 description: "按 2026 年 8 月官网现状，横评火山方舟 Coding Plan、百炼 Token Plan、MiniMax Token Plan、GLM Coding Plan 与 Kimi Code：价格、额度、模型、协议与适用场景。"
 date: "2026-03-03"
-updated_at: "2026-08-26"
+updated_at: "2026-10-22"
 tags: ["百炼", "火山方舟", "minimax", "智谱", "kimi", "coding-plan", "token-plan", "国内", "对比", "api"]
 pillar: compare
 content_status: keep
@@ -54,6 +54,8 @@ draft: false
 | Pro | ¥200/月 | 常见活动价 ¥49.9 | Lite 的 5 倍，最多约 6,000 次请求 |
 
 需要注意，方舟现在不只有 5 小时窗口，控制台还会展示周/月周期限制。单个复杂 Agent 任务会产生多次底层请求，所以「1,200 次请求」不等于 1,200 次用户提问。
+
+2026-10-22 另开了方舟 Coding Plan 的模型文档，没有重开上面的价格页。套餐概览仍把 MiniMax-M3、Kimi-K2.7-Code 标成即将下线。下线公告写 `minimax-m3` 于 2026-11-02 14:00:00（UTC+8）停服，`kimi-k2.7-code` 于 2026-10-28 14:00:00（UTC+8）停服。本表的价格和模型列仍是 2026-08-26 的记录。百炼、MiniMax、智谱、Kimi 这次没重开。模型迁移见 [火山方舟 Coding Plan 指南](/zh/guides/ark-coding-plan-guide/)。
 
 ### 百炼 Token Plan
 
