@@ -1,8 +1,8 @@
 ---
 title: "Should existing Cursor users switch to The X Subscription?"
-description: "A keep, move, or API decision for people already on Cursor. Split by whether Grok or Claude, GPT, and Gemini is the daily model, when to stay put, and how to recompute the same third-party usage."
+description: "A keep, move, or API decision for people already on Cursor. Split by whether Grok or Claude, GPT, and Gemini is the daily model. Forum reply on 2026-10-20: switching is opt-in, the old plan stays if you do not switch, and the switch is permanent."
 date: "2026-10-17"
-updated_at: "2026-10-17"
+updated_at: "2026-10-22"
 article_type: review
 tags: [cursor, existing-users, switch, x-subscription, migration]
 pillar: plans
@@ -13,7 +13,7 @@ draft: false
 
 ## Start with the decision
 
-Checked again on 2026-10-17, the default for an existing Cursor user is to stay put. Switch only if Grok or Composer is already the model you use, and you accept that the switch is permanent.
+On 2026-10-22 this note opened forum [post 408](https://forum.cursor.com/t/introducing-the-x-subscription/174450/408). The help pages, the announcement, and the models doc are still the 2026-10-17 check. They were not reopened. On 2026-10-20 @Colin wrote that switching to The X Subscription is opt-in. A current Cursor plan keeps working, including its third-party model usage, unless you switch. The switch is permanent. The default for an existing user is still to stay put. Switch only if Grok or Composer is already the model you use, and you accept that the switch cannot be undone.
 
 | Your week | What to do |
 |-----------|------------|
@@ -25,7 +25,7 @@ Plan prices stay in [How to control Cursor spend](/en/guides/cursor-cost-saving/
 
 ## What the pages actually say
 
-On 2026-10-12, the [xAI announcement](https://x.ai/news/x-subscription) introduced The X Subscription. The forum thread from the same day is [Introducing The X Subscription](https://forum.cursor.com/t/introducing-the-x-subscription/174450). These are the lines that change the move, as opened on 2026-10-17.
+On 2026-10-12, the [xAI announcement](https://x.ai/news/x-subscription) introduced The X Subscription. The forum thread from the same day is [Introducing The X Subscription](https://forum.cursor.com/t/introducing-the-x-subscription/174450). The help overview, the announcement, and the models doc were opened on 2026-10-17 and were not reopened. The lines below are from that check. Colin's 2026-10-20 wording is under [What "keep the old plan" does not promise](#what-keep-the-old-plan-does-not-promise). Post 408 was opened on 2026-10-22.
 
 Paid plans include one pool of Grok-model usage, shared by Grok and Cursor, refreshing weekly. The [help overview](https://cursor.com/help/the-x-subscription/overview) calls it a shared weekly included pool. [Models and pricing](https://cursor.com/docs/models-and-pricing) says the pool covers Grok 4.7, Grok 4.6, Grok 4.5, and Composer 2.5, across the editor, CLI, Cloud Agents, Grok Bot, and the Grok apps. Products do not draw it at the same rate. The Grok API is billed separately and does not draw the pool. None of the announcement, the pricing page, the help overview, or the models doc publishes the pool in dollars. This note does not estimate how many runs Plus or Premium can cover.
 
@@ -60,7 +60,7 @@ The old Pro+ at $60 has no one-to-one replacement. Colin wrote the same day that
 - Third-party models are still the main path, and you are on legacy Pro, Pro+, or Ultra. The models doc says those legacy plans keep working for existing customers, with two usage pools and on-demand usage past them.
 - You cannot pull last month's tokens by model. Without that, the formula is someone else's bill.
 - Apple bills the Cursor subscription. After a switch they cannot refund that charge, and a second bill continues until you cancel it yourself.
-- You still want a way back. The help page says the switch cannot be undone.
+- You still want a way back. The help page says the switch cannot be undone. On 2026-10-20 @Colin wrote "Switching is permanent," and that legacy plans cannot be repurchased once they end.
 - The account is Enterprise. The help page says Cursor Enterprise customers without an active Grok account can switch with their account team. Other Enterprise accounts cannot switch yet.
 - The only reason is that Plus at $8 is less than the old Pro at $20. Plus does not include Claude, GPT, or Gemini.
 
@@ -84,9 +84,25 @@ The next sentence is not "for now":
 
 > On how long the current plan lasts: it isn’t going away today, and there’s no timeline for moving remaining customers. If that changes, you’ll get advance notice first.
 
-There is no forced move today, and no published date. Whether a later move happens, which tier it lands on, and how much notice comes first are unknown.
+Read from those two 2026-10-13 replies: there is no forced move today, and no published date. Whether a later move happens, which tier it lands on, and how much notice comes first were unknown from that day's replies.
 
-Whether you can buy Pro, Pro+, or Ultra again after you cancel is also unknown. Colin wrote that the previous Cursor Ultra plan is no longer available for new signups. The models doc calls Pro, Pro+, Ultra, Start, and Teams Standard and Premium seats legacy plans, and says they keep working for existing customers. It does not say a cancelled plan can be restarted.
+On 2026-10-20 @Colin wrote again in [post 408](https://forum.cursor.com/t/introducing-the-x-subscription/174450/408). This note opened that post on 2026-10-22.
+
+> To be clear: for existing subscribers, switching is opt-in. If you’re on a current Cursor plan, it keeps working exactly as it does today, including its third-party model usage, unless you choose to switch. You can also keep moving between legacy plans (Pro → Ultra, Ultra → Pro+, etc.). There’s no timeline for migrating existing plans, and we’ll give advance notice before anything changes.
+
+Opt-in means the move happens only if you choose it. Leave it alone and the current Cursor plan keeps working, including third-party model usage. You can still move between legacy tiers. His examples are Pro to Ultra and Ultra to Pro+. There is no migration timeline. A change comes with advance notice.
+
+This post does not repeat the 2026-10-13 sentence "will be migrated." That earlier reply is still in the thread. Both stand. There is still no date.
+
+Later in the same post he describes the switch itself:
+
+> Before checkout, you’ll confirm that third-party models aren’t included in the plan price and are billed separately based on usage. Switching is permanent, and legacy plans can’t be repurchased once they end. If third-party models or a monthly usage pool matter most to you, staying on your current plan is a perfectly good choice.
+
+Before checkout you confirm that third-party models are outside the plan price and billed from usage. The switch is permanent. Once a legacy plan ends, it cannot be bought again. That sentence sits in the switch flow. Cancelling without switching is not a separate sentence in this post. If third-party models or a monthly usage pool matter more, he says staying is a perfectly good choice.
+
+The rest of the post looks at people who already switched and at usage limits running out faster than expected. That does not change the line for people who have not switched. It is not expanded here.
+
+Whether you can buy Pro, Pro+, or Ultra again after you cancel without switching is not a separate sentence in post 408. That case is still unknown. After a switch, the quote above says the legacy plan cannot be repurchased. In an earlier reply Colin wrote that the previous Cursor Ultra plan is no longer available for new signups. The models doc calls Pro, Pro+, Ultra, Start, and Teams Standard and Premium seats legacy plans, and says they keep working for existing customers. It does not say a plan that was only cancelled, and not switched, can be restarted.
 
 ## Recomputing one third-party workload
 
@@ -157,8 +173,8 @@ A new billing cycle starts the day you switch. The help overview points at Invoi
 ## Left as unknown
 
 - Dollar size of the weekly pool, and how many requests Plus or Premium can run: not published
-- When a legacy plan would be moved, to which tier, and how much notice: unknown
-- Whether a cancelled legacy plan can be bought again: unknown
+- When a legacy plan would be moved, to which tier, and how much notice: the 2026-10-20 post still gives no timeline and says a change comes with advance notice. The date is unknown
+- Whether a legacy plan can be bought again after a cancel that is not a switch: unknown. After a switch, post 408 says it cannot be repurchased
 - Whether your account can see the switch today, and what the limited-time offer is: unknown
 - The line-item prorated-refund formula: unknown
 - Whether Claude Max's Platform API credits offset the same coding usage: unknown
