@@ -55,7 +55,7 @@ Concurrency limits: Flash 2500, V4-Pro 500. The rate-limit page was not opened, 
 
 Search and Fetch are per request, not per token: **$0.75 per 1,000 successful requests** each. The 2026-10-17 changelog is titled as opening the in-house Search API. That entry does not give Fetch its own launch date. Fetch's price is on the pricing page opened the same day. This guide does not turn that into a changelog sentence that Fetch launched the same day.
 
-When you call the DeepSeek API through DeepSeek Harness, Claude Code, or Codex, server-side tools already hit Search and Fetch. Those calls are free until **00:00 Beijing time on 2026-11-01**, then the per-request price applies. The pricing page does not say direct Search or Fetch API calls are in that free window.
+When you call the DeepSeek API through DeepSeek Harness, Claude Code, or Codex, server-side tools already hit Search and Fetch. Those calls are free until **00:00 Beijing time on 2026-11-01**, then the per-request price applies. The pricing page does not say direct Search or Fetch API calls are in that free window. What to log before the cutoff, and which Harness switch sends direct requests to those APIs, is in [Search and Fetch free window](/en/guides/deepseek-search-fetch-free-window/).
 
 ## Two documents disagree about V4-Pro routing
 

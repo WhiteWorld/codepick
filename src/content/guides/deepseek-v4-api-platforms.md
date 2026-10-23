@@ -55,7 +55,7 @@ OpenAI 兼容 base URL 是 `https://api.deepseek.com`。Anthropic 兼容是 `htt
 
 Search 和 Fetch 按次收费，不是按 token：各 **$0.75 / 1000 次成功请求**。2026-10-17 的 changelog 标题是开放自研 Search API，正文没有单独写 Fetch 的发布日。Fetch 的价格是同一天价格页上的，不把「同一天发布」写成 changelog 原话。
 
-通过 DeepSeek Harness、Claude Code 或 Codex 调用时，服务端已经在打 Search 和 Fetch。这两类调用在 **2026-11-01 00:00 北京时间** 之前免费，之后按上面的按次价格。直接打 Search / Fetch API 的单价，价格页没有写免单。
+通过 DeepSeek Harness、Claude Code 或 Codex 调用时，服务端已经在打 Search 和 Fetch。这两类调用在 **2026-11-01 00:00 北京时间** 之前免费，之后按上面的按次价格。直接打 Search / Fetch API 的单价，价格页没有写免单。截止日前要记的次数，以及 Harness 里哪个开关会改成直接请求这两个 API，见 [Search 与 Fetch 免费窗口](/zh/guides/deepseek-search-fetch-free-window/)。
 
 ## 一条对不上的路由说明
 
