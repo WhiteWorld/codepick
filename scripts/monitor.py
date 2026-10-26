@@ -74,6 +74,56 @@ def check_github_release(repo: str, current_version: str, tag_pattern: str = r"^
     return None
 
 
+def _stable_semver(version: str):
+    """解析 vX.Y.Z / X.Y.Z。预发布和非 semver tag 返回 None。"""
+    match = re.fullmatch(r"v?(\d+)\.(\d+)\.(\d+)", (version or "").strip())
+    if not match:
+        return None
+    return tuple(int(part) for part in match.groups())
+
+
+def check_github_stable_tag(repo: str, current_version: str) -> "dict | None":
+    """最高的 vX.Y.Z git tag，且只在高于 YAML 记录时报警。
+
+    OpenCode 2.x 只打 git tag、不建 GitHub Release。/releases 的最新稳定版
+    仍是继续维护的 1.x，用字符串不等比较会把 2.x 误报成降级。
+    """
+    url = f"https://api.github.com/repos/{repo}/git/matching-refs/tags/v"
+    headers = {
+        "Accept": "application/vnd.github.v3+json",
+        "User-Agent": "CodePick-Monitor/1.0",
+    }
+    token = os.environ.get("GITHUB_TOKEN")
+    if token:
+        headers["Authorization"] = f"token {token}"
+
+    try:
+        req = urllib.request.Request(url, headers=headers)
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            refs = json.loads(resp.read())
+        if not isinstance(refs, list):
+            print(f"  ⚠ 检查 {repo} tags 失败: 响应不是 tag 列表")
+            return None
+        best = None
+        for ref in refs:
+            name = ref.get("ref", "").rsplit("/", 1)[-1]
+            parsed = _stable_semver(name)
+            if parsed and (best is None or parsed > best[0]):
+                best = (parsed, name.lstrip("v"))
+        current = _stable_semver(current_version or "")
+        if best and current and best[0] > current:
+            return {
+                "repo": repo,
+                "current": current_version,
+                "latest": best[1],
+                "url": f"https://github.com/{repo}/tags",
+                "published": "",
+            }
+    except Exception as e:
+        print(f"  ⚠ 检查 {repo} tags 失败: {e}")
+    return None
+
+
 def check_pypi_version(package: str, current_version: str) -> "dict | None":
     """检查 PyPI 包是否有新版本（适用于以 PyPI 为主要发布渠道的工具，如 aider）。"""
     url = f"https://pypi.org/pypi/{package}/json"
@@ -128,8 +178,11 @@ def main():
     github_repos = {
         "cline": ("cline/cline", r"^v\d"),
         "roo-code": ("RooCodeInc/Roo-Code", r"^v\d"),
-        "opencode": ("anomalyco/opencode", r"^v\d"),
         "gemini-cli": ("google-gemini/gemini-cli", r"^v\d"),
+    }
+    # 2.x 无 Release 对象。跟最高稳定 tag，避免 /releases 上的 1.x 被当成降级。
+    github_tag_repos = {
+        "opencode": "anomalyco/opencode",
     }
     pypi_packages = {
         # aider 的 GitHub Releases 落后于 PyPI（0.86.1+ 仅发 PyPI/源码 tag），以 PyPI 为准
@@ -148,6 +201,17 @@ def main():
             updates.append(result)
         else:
             print(f"  ✅ {name}: 已是最新 (PyPI)")
+    for name, repo in github_tag_repos.items():
+        current_version = read_current_version(name)
+        if not current_version:
+            print(f"  ⚠ {name}: 无法从 data/tools/{name}.yaml 读取 current_version，跳过")
+            continue
+        result = check_github_stable_tag(repo, current_version)
+        if result:
+            print(f"  🆕 {name}: {result['current']} → {result['latest']} (git tag)")
+            updates.append(result)
+        else:
+            print(f"  ✅ {name}: 已是最新 (git tag)")
     for name, (repo, tag_pattern) in github_repos.items():
         current_version = read_current_version(name)
         if not current_version:
