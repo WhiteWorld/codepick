@@ -1,0 +1,128 @@
+id: yap
+name: Yap
+type: app
+logo: /images/yap.png
+url: https://yapapp.cc
+repo: null
+current_version: '0.7.50'
+version_tracked_at: '2026-10-26'
+tagline: 闭源桌面听写。按住快捷键把话打进当前窗口；网站版识别据称在本机，但仍要账号，并会上报听写次数
+tagline_en: Closed-source desktop dictation. Hold a shortcut and it types into the focused window. The website edition describes on-device recognition, but it still needs an account and reports dictation counts
+pricing:
+  model: subscription
+  currency: USD
+  plans:
+    - name: Monthly
+      price: 6.90
+      period: month
+      limits: 定价页写月付 $6.90，或年付 $69。邮箱账号可先听写 3 天，不要银行卡；要继续就用银行卡开 10 天试用，结束前取消不计费。没有长期免费档。一份订阅覆盖该账号连接的设备。Mac App Store 版是另一套订阅，支持页没有标价。本次没有走结账
+      limits_en: The pricing page lists $6.90/month or $69/year. An email account can dictate for 3 days with no card; continuing requires a 10-day card trial, and cancelling before it ends avoids the charge. There is no lasting free plan. One subscription covers the devices connected to that account. The Mac App Store edition is a separate subscription, and the support page does not list its price. Checkout was not completed
+  price_updated_at: '2026-10-26'
+  note: 2026-10-26 核对 https://yapapp.cc/download 、https://yapapp.cc/pricing 、https://yapapp.cc/voice-coding 、https://yapapp.cc/windows 、https://yapapp.cc/support 、https://yapapp.cc/legal/privacy 和 https://github.com/founden-bot/yap-releases/releases/tag/v0.7.50 。没有安装。GitHub v0.7.50（2026-10-25）是 Windows 与 Android 安装包；下载页的 Mac 包写 142 MB、Developer ID 签名并公证，但没有印版本号。2026-10-13 的 v0.7.40 说明曾写「无账号可听写 3 天」，与现在的定价页、下载页和隐私政策不一致，这里采用后三者。定价页另有邀请抵扣，未当折扣核实。延迟没有复现
+  note_en: Checked 2026-10-26 at https://yapapp.cc/download , https://yapapp.cc/pricing , https://yapapp.cc/voice-coding , https://yapapp.cc/windows , https://yapapp.cc/support , https://yapapp.cc/legal/privacy , and https://github.com/founden-bot/yap-releases/releases/tag/v0.7.50 . The app was not installed. GitHub v0.7.50 (2026-10-25) publishes Windows and Android installers. The download page's Mac build is listed as 142 MB, Developer ID signed and notarized, with no version string. The v0.7.40 notes from 2026-10-13 said three days with no account, which does not match the current pricing, download, and privacy pages; those three are what this record uses. The pricing page also describes an invite credit; it was not checked as a discount. Latency was not reproduced
+# Scores are CodePick's from vendor pages only. The app was not installed.
+# coding_ability 5: Yap types into the focused window. It does not write code. Not tested.
+# cost_efficiency 6: published price is $6.90/month or $69/year after a short trial. No lasting free tier. Competitor prices were not rechecked.
+# flexibility 6: Apple Silicon Mac, Windows 10/11 x64 and Arm64, Android, and an iPhone TestFlight build. No Intel Mac and no Linux desktop app. The two Mac editions do not behave the same.
+# china_friendly 4: not tested from mainland China. Windows installers come from GitHub. Models come from third-party hosts or Hugging Face. The published language list does not include Chinese.
+# privacy 5: the privacy policy says audio and transcripts stay on device, and also says the website edition sends account data, setup telemetry, and daily dictation counts. Not audited.
+scores:
+  coding_ability: 5
+  cost_efficiency: 6
+  flexibility: 6
+  china_friendly: 4
+  privacy: 5
+features:
+  code_completion: false
+  chat: false
+  agent_mode: false
+  multi_file_edit: false
+  mcp_support: false
+  voice_typing: true
+  open_source: false
+  self_hosted: false
+  supported_os:
+    - macOS 13+ Apple Silicon
+    - Windows 10/11 x64
+    - Windows 10/11 Arm64
+    - Android
+    - iPhone via TestFlight
+  ide_base: 桌面语音助手
+best_for:
+  - 想在 Apple Silicon Mac 或 Windows 上按住快捷键，把提示词说进当前终端或编辑器的人
+  - 能接受订阅，并且读过隐私政策里「本机转写」和「上报听写次数」这两句话的人
+best_for_en:
+  - People who want a hold-to-talk shortcut on an Apple Silicon Mac or Windows, and want the prompt typed into the focused terminal or editor
+  - People who can accept a subscription and have read both sentences in the privacy policy, on-device transcription and reported dictation counts
+not_for:
+  - Intel Mac、Linux 桌面，或需要中文识别的人
+  - 把「完全不联网、不建账号」当成硬要求的人
+  - 期望语音工具自己改代码、维护项目词表，或替你按下 Enter
+not_for_en:
+  - Intel Macs, a Linux desktop, or Chinese-language recognition
+  - A hard requirement that the app never touch the network and never need an account
+  - Expecting the voice app to edit code, keep a project vocabulary, or press Enter
+pros:
+  - 下载页同时给出 Mac 与 Windows。Windows 含 x64 和 Arm64。GitHub v0.7.50 附有这两种 Windows 包和 Android APK
+  - 语音编程页写网站版把文字打进当前窗口，不按 Enter，也不改剪贴板。Windows 页写 Parakeet 在本机处理器上运行
+  - 隐私政策写音频和正文不上云、History 不同步。Mac 网站版安装包写明已签名并公证
+pros_en:
+  - The download page offers both Mac and Windows. Windows includes x64 and Arm64. GitHub v0.7.50 attaches both Windows builds and Android APKs
+  - The voice-coding page says the website edition types into the focused window, does not press Enter, and does not change the clipboard. The Windows page says Parakeet runs on the PC's processor
+  - The privacy policy says audio and finished text are not uploaded, and History is not synced. The Mac website build is described as signed and notarized
+cons:
+  - 没有长期免费档。3 天之后要银行卡试用。Mac App Store 版不能打进其他应用，只能复制到剪贴板。没有自定义词表，语言列表里没有中文
+  - 网站版不是「装完即离线」。有效期内离线最多约 24 小时，而且订阅检查会带上当天完成的听写条数。产品 FAQ 写的「不上传用量统计」和隐私政策不一致
+  - Windows 安装包页面写明尚未代码签名。iPhone 仍是 TestFlight。没有 Linux 桌面版，也没有 Intel Mac。本次没有安装，延迟是厂商自测
+cons_en:
+  - No lasting free plan. After 3 days the trial needs a card. The Mac App Store edition cannot type into other apps and copies to the clipboard instead. There is no custom vocabulary, and the language list does not include Chinese
+  - The website edition is not offline after install. Offline use lasts up to about 24 hours inside an active period, and the subscription check includes how many dictations finished that day. The product FAQ's "no usage statistics" line does not match the privacy policy
+  - The Windows page says the installer is not code-signed yet. iPhone is still TestFlight. There is no Linux desktop app and no Intel Mac build. This review did not install Yap. The latency figures are the vendor's own
+quick_start:
+  - 从 https://yapapp.cc/download 下载。不要使用带 utm 参数的发布说明链接。Mac 为 Apple Silicon、macOS 13 或更高；Windows 为 10 或 11 的 64 位
+  - 按页面授予麦克风。网站版 Mac 还需要辅助功能。Windows 安装包尚未签名，页面要求在系统警告里选择仍要运行
+  - 用邮箱登录后开始 3 天。付费前再看定价页和隐私政策里的用量上报
+quick_start_en:
+  - Download from https://yapapp.cc/download . Do not use release-note links that add utm parameters. Mac means Apple Silicon on macOS 13 or later. Windows means 64-bit Windows 10 or 11
+  - Grant the microphone as the page describes. The Mac website edition also needs Accessibility. The Windows installer is not signed yet, and the page tells you to choose Run anyway on the system warning
+  - Sign in with email to start the 3 days. Read the pricing page and the usage reporting in the privacy policy before paying
+register_url: https://yapapp.cc/download
+china_note: 没有找到面向中国大陆的说明，这次也没有从大陆网络测试下载、登录或识别。Windows 安装包在 GitHub，手机和扩展的模型从 Hugging Face 下载，账号要邮箱验证码。公开的 25 种语言里没有中文
+china_note_en: No mainland-China documentation was found, and downloads, sign-in, and recognition were not tested from a mainland network. Windows installers are on GitHub, phone and extension models download from Hugging Face, and the account needs an email code. Chinese is not in the published list of 25 languages
+data_sources:
+  - url: https://yapapp.cc/download
+    type: docs
+    last_checked: '2026-10-26'
+  - url: https://yapapp.cc/pricing
+    type: pricing
+    last_checked: '2026-10-26'
+  - url: https://yapapp.cc/voice-coding
+    type: docs
+    last_checked: '2026-10-26'
+  - url: https://yapapp.cc/windows
+    type: docs
+    last_checked: '2026-10-26'
+  - url: https://yapapp.cc/support
+    type: docs
+    last_checked: '2026-10-26'
+  - url: https://yapapp.cc/legal/privacy
+    type: docs
+    last_checked: '2026-10-26'
+  - url: https://yapapp.cc/wispr-flow-alternative
+    type: docs
+    last_checked: '2026-10-26'
+  - url: https://github.com/founden-bot/yap-releases/releases/tag/v0.7.50
+    type: docs
+    last_checked: '2026-10-26'
+  - url: https://github.com/founden-bot/yap-mcp
+    type: repo
+    last_checked: '2026-10-26'
+changelog:
+  - date: '2026-10-26'
+    type: launch
+    summary: 按官网下载、定价、隐私政策和 GitHub v0.7.50 加入工具库。未安装。评分不采用厂商的速度和隐私口号。延迟未复现
+    summary_en: Added from the download page, pricing page, privacy policy, and GitHub v0.7.50. Not installed. Scores do not follow the vendor's speed or privacy slogans. Latency was not reproduced
+last_full_review: '2026-10-26'
+next_review_due: '2026-11-25'
+review_frequency_days: 30
+confidence: low

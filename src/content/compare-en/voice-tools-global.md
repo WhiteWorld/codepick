@@ -1,9 +1,9 @@
 ---
 title: "Best Voice Input Tools for Vibe Coding Developers (2026)"
-description: "Compare voice dictation tools for AI-assisted coding: Wispr Flow, superwhisper, Typeless, Willow, Talon Voice, Spokenly, OpenWhispr, and VoiceVibe — with notes for Cursor, Claude Code, and VS Code."
+description: "Compare voice dictation tools for AI-assisted coding: Wispr Flow, superwhisper, Typeless, Willow, Talon Voice, Spokenly, OpenWhispr, VoiceVibe, and Yap — with notes for Cursor, Claude Code, and VS Code."
 date: "2026-03-03"
-updated_at: "2026-10-16"
-tags: ["voice-input", "vibe-coding", "wispr-flow", "superwhisper", "voicevibe", "comparison"]
+updated_at: "2026-10-26"
+tags: ["voice-input", "vibe-coding", "wispr-flow", "superwhisper", "voicevibe", "yap", "comparison"]
 pillar: compare
 content_status: keep
 locale_strategy: mirrored
@@ -24,6 +24,7 @@ This article compares the top voice dictation tools that work with Cursor, Claud
 - **Spokenly**: Free, unlimited, offline, macOS only
 - **OpenWhispr**: Free, open-source, cross-platform (Win/Mac/Linux)
 - **VoiceVibe**: Installers for three desktop OSes. Free tier is dictation; handing a task to a coding agent is Pro
+- **Yap**: Hold a shortcut and it types into the focused window. Subscription only, with no lasting free plan. The website edition still reports how many dictations finished
 
 ---
 
@@ -39,6 +40,7 @@ This article compares the top voice dictation tools that work with Cursor, Claud
 | Spokenly | macOS | Free | ✅ | BYOK (OpenAI/Groq), unlimited | Fast | Budget macOS devs |
 | OpenWhispr | Win/Mac/Linux | Free | ✅ | Open-source, MIT license | Offline | Linux / privacy devs |
 | VoiceVibe | Win 10+ x64; macOS 14+ Apple Silicon; Linux x86-64 X11 | Free dictation; Pro $14.99/mo | Free dictation: vendor says on-device | Hotkey dictation; Pro can hand a task to an installed coding agent | — | Try free dictation first |
+| Yap | Apple Silicon Mac (macOS 13+, no Intel); Windows 10/11 x64 and Arm64; Android; iPhone via TestFlight | $6.90/mo or $69/yr. Email account for 3 days, then a 10-day card trial | Vendor: up to about 24h after an access check, inside an active period | Hotkey typing into the focused window; does not press Enter; no custom vocabulary | Vendor median, not reproduced | Dictate a prompt on Mac or Windows |
 | macOS Dictation | macOS | Free | M1+ only | Basic | Limited | Casual, zero setup |
 | Windows Voice Access | Windows 11 | Free | ✅ | Commands + dictation | Native | Windows 11 devs |
 
@@ -158,6 +160,20 @@ Microsoft's built-in voice tool for Windows 11 combines dictation and voice comm
 
 ---
 
+## Subscription dictation
+
+### Yap
+
+Yap ([tool page](/en/tool/yap/)) is a closed-source dictation app from O-mega Enterprise Inc. It is not a coding agent. On 2026-10-26 this page was checked against the [download page](https://yapapp.cc/download), [pricing page](https://yapapp.cc/pricing), [voice-coding page](https://yapapp.cc/voice-coding), [Windows page](https://yapapp.cc/windows), [support page](https://yapapp.cc/support), and [privacy policy](https://yapapp.cc/legal/privacy). The app was not installed.
+
+The download page offers an Apple Silicon Mac build, listed as 142 MB, Developer ID signed and notarized, with no Intel build. Support says it needs macOS 13 or later and downloads about 1.4GB of speech models on first setup. The Windows page says 64-bit Windows 10 and 11, including a native Arm build. Recognition there uses NVIDIA Parakeet on the PC's processor, and the model is about 0.7GB. GitHub [v0.7.50](https://github.com/founden-bot/yap-releases/releases/tag/v0.7.50) (2026-10-25) attaches Windows x64, Windows Arm64, and Android installers. The download page labels the Android file 0.7.50, about 36MB, and says iPhone installs through TestFlight on an iPhone 12 Pro, 13 Pro, 14, or newer, with iOS 17 or later. There is no Linux desktop app. The download page does not print a version string for the Mac build. The vendor's [Wispr comparison](https://yapapp.cc/wispr-flow-alternative) adds two limits: on macOS 14 or later the newer engine covers 25 languages, and earlier macOS uses another local recognizer; Android is 10 or later with 3GB of memory or more. The 25 languages listed on the Windows page are European languages. Chinese is not among them.
+
+The [pricing page](https://yapapp.cc/pricing) lists $6.90 a month or $69 a year. An email account can dictate for 3 days with no card. Keeping it requires a 10-day trial with a card, and cancelling before that trial ends avoids the charge. There is no lasting free plan. One subscription covers the computers and phones connected to the account. Support says the Mac App Store edition is a separate subscription, and that page does not list its price. The website edition holds Fn on a Mac, or Ctrl+Win on Windows, and types when you release. The voice-coding page says it does not press Enter, the website edition does not change the clipboard, and there is no custom vocabulary, so file and function names have to be fixed by hand. Support says the Mac App Store edition cannot type into other apps and copies the text for you to paste. The Windows page says programs running as administrator do not receive the keystrokes, and the text stays in local History. The vendor's comparison page says English dictation drops "um" and "uh" and adds a closing period. It also says there is no AI rewrite. That same page caps a Mac recording at about 5 minutes. The Windows page does not state that cap.
+
+Offline use has a clock. The pricing page says the first launch, activation, and periodic checks need a network. After the model is downloaded, offline use inside the free days, trial, or paid period lasts up to 24 hours from the last successful check. The privacy policy was updated on 2026-10-23. It says transcription stays on the device, audio is not uploaded, and finished text stays in local History and is not synced. The same policy says the website edition still stores the email address, the plan, and a random device id. With the subscription check it reports the calendar days that had a finished dictation, how many dictations finished that day, and how far setup got, including the device model or processor, memory size, and whether microphone and typing permissions were allowed. The Mac App Store edition and the browser extension do not send that usage count. The voice-coding FAQ says no usage statistics are uploaded. That does not match the privacy policy. The latency numbers are the vendor's own measurement and were not reproduced here. The voice-coding page says the median of 7 dictations on an Apple M5 Pro was 0.56 seconds from releasing the key to finished text, and 1.4 seconds on an M2 Pro. The Windows page says the installer is not code-signed yet. A separate MIT-licensed [Yap MCP](https://github.com/founden-bot/yap-mcp) transcribes audio files on the computer. It is not the source of the desktop app.
+
+---
+
 ## Integrations with AI Coding Tools
 
 ### IDE-based tools (Cursor / Windsurf / GitHub Copilot in VS Code)
@@ -180,7 +196,7 @@ Terminal tools accept text input via the active line. The workflow:
 3. Speak your task
 4. Tool transcribes → copies to clipboard or auto-pastes → Enter
 
-**superwhisper and Wispr Flow** both support auto-paste into the active terminal input. **Spokenly and OpenWhispr** copy to clipboard, requiring a manual `Cmd+V`.
+**superwhisper and Wispr Flow** both support auto-paste into the active terminal input. **Spokenly and OpenWhispr** copy to clipboard, requiring a manual `Cmd+V`. Yap's voice-coding page says it types into the focused terminal and does not press Enter. That is the vendor's description. This comparison did not install it.
 
 **Claude Code practical tip**: Voice input is most valuable for the initial high-level task description. Once Claude Code is executing sub-tasks, the interaction becomes "y/n" approvals — far less typing either way.
 
@@ -230,6 +246,7 @@ The key is to speak full, complete requirements as you would explain them to a j
 | Budget-conscious (any platform) | Spokenly or OpenWhispr (both free) |
 | Newest tech, fastest latency | Willow for Developers |
 | Try free dictation on three desktop OSes before paying to hand tasks to a coding agent | VoiceVibe |
+| Dictate a prompt into the focused window on an Apple Silicon Mac or Windows, and accept a subscription plus reported dictation counts | Yap |
 
 ---
 
@@ -237,4 +254,4 @@ Voice input adds roughly 2-3x throughput to the describe → generate → review
 
 For Chinese developers looking for tools optimized for the domestic ecosystem, see [/zh/compare/voice-tools-china](/zh/compare/voice-tools-china).
 
-> VoiceVibe was checked on 2026-10-16 against [voicevibe.ai](https://voicevibe.ai), the [pricing page](https://voicevibe.ai/pricing), the [download page](https://voicevibe.ai/download), and the [privacy policy](https://voicevibe.ai/privacy). The app was not installed. The other rows are still the March 2026 notes; check each vendor site before buying.
+> Yap was checked on 2026-10-26 against the [download page](https://yapapp.cc/download), the [pricing page](https://yapapp.cc/pricing), the [voice-coding page](https://yapapp.cc/voice-coding), the [Windows page](https://yapapp.cc/windows), the [support page](https://yapapp.cc/support), the [privacy policy](https://yapapp.cc/legal/privacy), and GitHub [v0.7.50](https://github.com/founden-bot/yap-releases/releases/tag/v0.7.50). The app was not installed, and the latency figures were not reproduced. VoiceVibe's check date is still 2026-10-16. The other rows are still the March 2026 notes; check each vendor site before buying.
