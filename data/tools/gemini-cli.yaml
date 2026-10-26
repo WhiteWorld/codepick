@@ -4,8 +4,8 @@ type: cli
 logo: /images/gemini-cli.png
 url: https://github.com/google-gemini/gemini-cli
 repo: https://github.com/google-gemini/gemini-cli
-current_version: v0.64.0
-version_tracked_at: '2026-10-16'
+current_version: v0.65.0
+version_tracked_at: '2026-10-26'
 pricing:
   model: freemium
   currency: USD
@@ -90,20 +90,27 @@ china_note: 需要 Google 账号，中国大陆访问 Google 服务需要代理�
 china_note_en: Requires Google account; accessing Google services from mainland China requires a proxy; no domestic mirror; China users can try Kimi Code or Trae CN as alternatives
 plans_using_this: []
 data_sources:
-  - url: https://github.com/google-gemini/gemini-cli/releases/tag/v0.64.0
+  - url: https://github.com/google-gemini/gemini-cli/releases/tag/v0.65.0
     type: release
-    last_checked: '2026-10-16'
+    last_checked: '2026-10-26'
   - url: https://github.com/google-gemini/gemini-cli/releases
     type: release
-    last_checked: '2026-10-16'
+    last_checked: '2026-10-26'
+  - url: https://www.npmjs.com/package/@google/gemini-cli
+    type: release
+    last_checked: '2026-10-26'
   - url: https://ai.google.dev/gemini-api/docs/pricing
     type: pricing
     last_checked: '2026-08-19'
 changelog:
+  - date: '2026-10-20'
+    type: release
+    summary: 'v0.65.0：GitHub Releases 的 latest 与 npm @google/gemini-cli 的 latest 都是 0.65.0（2026-10-20 发布）。说明以修复为主：不可信目录强制只读工作区设置；恢复会话时不再重复工具响应，快速退出也不再删掉已恢复的会话历史；修复 OAuth 校验/重试死循环、交互模式回车挂起，以及快速 Ctrl-C 污染会话；@目录 引用不再急切递归读文件；遥测配置可带自定义 OTLP headers。同日及之后的 v0.66.0-preview.0 与 v0.67.0-nightly 为预发布，未计入。2026-10-26 核对。免费层额度未重新打开 Gemini API 定价页，仍沿用上次记录。'
+    summary_en: 'v0.65.0: GitHub Releases latest and npm @google/gemini-cli latest are both 0.65.0 (published 2026-10-20). The notes are mostly fixes: untrusted folders enforce read-only workspace settings; resuming a session no longer duplicates tool-response turns, and a quick exit no longer deletes resumed session history; OAuth verification/retry loops, the interactive Enter hang, and session poisoning from rapid Ctrl-C are fixed; @directory references no longer eagerly read files recursively; telemetry config can send custom OTLP headers. v0.66.0-preview.0 and v0.67.0-nightly from the same day onward are prereleases and are not tracked. Verified 2026-10-26. Free-tier quotas were not re-checked against the Gemini API pricing page and still reflect the previous record.'
   - date: '2026-10-13'
     type: release
-    summary: 'v0.64.0：ACP 补上用量回传；无头模式传递已解析的工作区信任状态；文件工具串行化且写入改为原子操作；聊天记录改为追加 delta 并限制历史窗口；状态原子持久化，损坏时可从备份恢复；支持 @file:line 引用。2026-10-16 核对为最新稳定版（nightly/preview 未计入）。免费层额度本次未重新打开 Gemini API 定价页，仍沿用上次记录。'
-    summary_en: 'v0.64.0: ACP bridges usage and emits usage updates; headless mode propagates resolved folder trust; file tools are serialized and writes are atomic; chat recording uses append-only deltas with a bounded history window; state persists atomically and can recover from backup; @file:line references resolve. Verified 2026-10-16 as the latest stable release (nightly/preview excluded). Free-tier quotas were not re-checked against the Gemini API pricing page and still reflect the previous record.'
+    summary: 'v0.64.0：ACP 补上用量回传；无头模式传递已解析的工作区信任状态；文件工具串行化且写入改为原子操作；聊天记录改为追加 delta 并限制历史窗口；状态原子持久化，损坏时可从备份恢复；支持 @file:line 引用。2026-10-16 核对为当时的最新稳定版（nightly/preview 未计入）。免费层额度当时未重新打开 Gemini API 定价页。'
+    summary_en: 'v0.64.0: ACP bridges usage and emits usage updates; headless mode propagates resolved folder trust; file tools are serialized and writes are atomic; chat recording uses append-only deltas with a bounded history window; state persists atomically and can recover from backup; @file:line references resolve. Verified 2026-10-16 as the latest stable release at that time (nightly/preview excluded). Free-tier quotas were not re-checked against the Gemini API pricing page then.'
   - date: '2026-10-06'
     type: release
     summary: 'v0.63.0：连接恢复时显示重试进度；限制工具输出大小；修复认证死循环；非交互模式可以自主执行计划。'
