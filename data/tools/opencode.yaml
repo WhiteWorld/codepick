@@ -4,8 +4,8 @@ type: cli
 logo: /images/opencode.png
 url: https://opencode.ai
 repo: https://github.com/anomalyco/opencode
-current_version: v2.1.4
-version_tracked_at: '2026-10-26'
+current_version: v2.2.5
+version_tracked_at: '2026-11-03'
 pricing:
   model: free
   currency: null
@@ -72,19 +72,27 @@ compatible_apis:
   - deepseek
   - ollama
 data_sources:
-  - url: https://github.com/anomalyco/opencode/tree/v2.1.4
+  - url: https://github.com/anomalyco/opencode/releases/tag/v2.2.5
     type: release
-    last_checked: '2026-10-26'
-  - url: https://github.com/anomalyco/opencode/releases/tag/v1.19.4
+    last_checked: '2026-11-03'
+  - url: https://github.com/anomalyco/opencode/releases/tag/v1.19.5
     type: release
-    last_checked: '2026-10-26'
+    last_checked: '2026-11-03'
   - url: https://github.com/anomalyco/opencode/releases
     type: release
-    last_checked: '2026-10-26'
+    last_checked: '2026-11-03'
   - url: https://opencode.ai/changelog
     type: changelog
-    last_checked: '2026-10-26'
+    last_checked: '2026-11-03'
 changelog:
+  - date: '2026-10-30'
+    type: release
+    summary: 'v2.2.5：2.x 线最高稳定版。GitHub 上已有 Release 对象（2026-10-30 发布），官网 changelog 置顶同版，git tag v2.2.5 指向该版本。GitHub Latest 和 npm opencode-ai 的 latest 仍是 1.x 的 v1.19.5，且 npm 没有 opencode-ai@2.2.5。current_version 停在 2.x，不降到 1.x。本版：可用快捷键选择 worktree（macOS 为 ⌘⌥O，Windows/Linux 为 Ctrl+Alt+O）及其基线分支（⌘⌥B / Ctrl+Alt+B）；⌘⇧X / Ctrl+Shift+X 在输入框切换 shell 模式。引用弹窗里按住 ⌘ 或 Ctrl，或按 ⌘Enter / Ctrl+Enter，只发送这一条引用和评论。compaction.buffer 可以写成模型上下文窗口的百分比（例如 "20%"），写 token 数仍然有效。名为 bash 的工具调用会按 shell 执行，权限相同；真正叫 bash 的插件工具优先。超过 10 MiB 的 MCP stdio 消息不再断开服务器。LiteLLM 报上下文窗口错误时会触发压缩，而不是停掉会话。切换模型或恢复被打断的回复时，推理内容不再被改成纯文本（此前会在部分提供商上报错）。v2.2.0 至 v2.2.4 未逐条改写。官网 changelog 写明：2.2.0 把 @opencode/ai 的根导出改成 Promise API，并停止发布 OpenCode GitHub Action；2.2.3 起 TUI 插件要求 OpenTUI 0.8。2026-11-03 核对。'
+    summary_en: 'v2.2.5: highest stable 2.x release. A GitHub Release object now exists (published 2026-10-30), the same version is the top entry on opencode.ai/changelog, and git tag v2.2.5 points at that release. GitHub Latest and the npm opencode-ai latest dist-tag are still v1.19.5 on the 1.x line, and npm has no opencode-ai@2.2.5, so current_version stays on 2.x. This version adds shortcuts to choose a worktree (Command-Option-O on macOS, Ctrl+Alt+O on Windows and Linux) and its base branch (Command-Option-B / Ctrl+Alt+B). Command-Shift-X / Ctrl+Shift+X toggles shell mode in the composer. In the quote popup, holding Command or Ctrl, or pressing Command-Enter / Ctrl+Enter, sends only that quote and comment. compaction.buffer accepts a percentage of the model context window, such as "20%", and a token count still works. A tool call named bash runs as shell with the same permissions; a plugin tool that is actually named bash still takes precedence. MCP stdio messages larger than 10 MiB no longer disconnect the server. A LiteLLM context-window error triggers compaction instead of stopping the session. Switching models or resuming an interrupted response no longer turns reasoning into plain text, which had caused request errors on some providers. v2.2.0 through v2.2.4 were not rewritten one by one. The official changelog says 2.2.0 makes the @opencode/ai package root export the Promise API and stops publishing the OpenCode GitHub Action, and that TUI plugins require OpenTUI 0.8 starting in 2.2.3. Verified 2026-11-03.'
+  - date: '2026-10-28'
+    type: release
+    summary: 'v1.19.5：1.x 线的 GitHub Latest，也是 npm opencode-ai 的 latest（2026-10-28 发布）。发布说明只有一条：失败的 TUI worker 请求现在返回错误，不再让调用方一直等待。这是仍在维护的 1.x，不是把跟踪版本降到 1.x。2026-11-03 核对。'
+    summary_en: 'v1.19.5: GitHub Latest on the 1.x line, and the npm opencode-ai dist-tag latest (published 2026-10-28). The release notes contain one fix: a failed TUI worker request now returns an error instead of leaving the caller waiting. This is the maintained 1.x line, not a downgrade of the tracked 2.x version. Verified 2026-11-03.'
   - date: '2026-10-23'
     type: release
     summary: 'v2.1.4：2.x 线最高稳定 git tag（commit 2026-10-23，message 为 release: v2.1.4；opencode.ai/changelog 置顶同版）。2.x 仍无 GitHub Release 对象。本版：MCP 在工具调用中请求输入时会弹出表单（含桌面和 Web）；可设 experimental.background_compaction，在接近压缩阈值时后台准备摘要，未使用的摘要仍会计入 token。2026-10-26 核对。v2.0.33 至 v2.1.3 未逐条改写。'
