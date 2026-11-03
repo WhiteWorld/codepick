@@ -14,16 +14,16 @@ pricing:
     - name: Lite
       price: 40
       period: month
-      limits: 每5小时约1200次请求；首月低至 ¥9.9（2.5 折，叠加邀请券可至 ¥8.9）
-      note: Lite 标准月费 ¥40。首月优惠 ¥9.9（2.5 折），叠加邀请券可低至 ¥8.9。续费回到 ¥40。
+      limits: 活动至 2026-11-08，前两个月 ¥9.9，第三个月起 ¥40
+      note: 折扣规则页原价 ¥40、活动价 ¥9.9。9.5 折裂变可叠加，页面没有写出叠加后的金额。
     - name: Pro
       price: 200
       period: month
-      limits: 每5小时约6000次请求，Lite的5倍用量；首月低至 ¥49.9
-      note: Pro 标准月费 ¥200。首月优惠 ¥49.9。首购一次性下单三个月可享 5 折；价格与活动以官网实时页面为准。
-  price_updated_at: '2026-10-22'
-  note: 2026-10-22 打开的是模型文档，不是价格页。¥40 / ¥200 / ¥9.9 / ¥49.9 和每 5 小时约 1200 / 6000 次没有出现在这次的页面上，仍是 2026-10-13 及更早的记录。current_version 仍写 v2，这几页没有版本号。套餐概览写了 5 小时、每周一 00:00:00 的周限额、订阅月第 1 日 00:00:00 的月限额，没给次数。时区未写。
-  note_en: The 2026-10-22 pass opened model docs, not a pricing page. CNY 40 / 200 / 9.9 / 49.9 and the roughly 1,200 / 6,000 requests per 5 hours were not on those pages. They remain the 2026-10-13 and earlier record. current_version is still the old label v2; these pages do not print a version string. The plan overview names a 5-hour limit, a weekly limit resetting Monday 00:00:00, and a monthly limit resetting at 00:00:00 on day 1 of the subscription month. It does not give request counts. It does not name a timezone.
+      limits: 用量约为 Lite 的 5 倍；活动至 2026-11-08，前两个月 ¥49.9，第三个月起 ¥200
+      note: 折扣规则页原价 ¥200、活动价 ¥49.9。活动页 Pro 月付卡片的价格字段写成 9.9 / 40/月，与这张表和季年划线价冲突，未采用。
+  price_updated_at: '2026-11-03'
+  note: 2026-11-03 打开了折扣规则页 https://www.volcengine.com/docs/82379/2525065 （页面 UpdatedTime 2026-07-27）和活动页 https://www.volcengine.com/L/s3lNTNYxaEc/ 。折扣规则表写 Lite 原价 40 元、折扣价 9.9 元，Pro 原价 200 元、折扣价 49.9 元。活动窗口是 2026-06-08 至 2026-11-08，每个账号最多两个月特惠，新购、续费、升配共享同一资格，第三个月起原价。9.5 折裂变可叠加，页面没有给出叠加后的金额；旧记录里的 ¥8.9 这次没出现，三个月 5 折也没出现。活动页连续包月的 Lite 卡片是 9.9、划线 40/月。Pro 月付卡片的 priceConfig 也写成 9.9 和 40/月，但 SKU 是 Coding_Plan_Pro_monthly，和折扣规则表以及季付划线 600/季、年付划线 2400/年对不上。本文件 Pro 月费仍取折扣规则表的 200。季/年划线价等于月费乘 3 或乘 12（Lite 120/季、480/年；Pro 600/季、2400/年）。连续包月页签的图片文件名是 2.5折，和折扣规则正文一致；连续包季、连续包年的图片文件名是 4.9折、8.7折，但卡片金额是季付 116.4 与 582、年付 456 与 2280，对不上这两个折扣，这里不把 4.9折或 8.7折写成现行折扣率。每 5 小时约 1200 / 6000 次这次的文档和活动页都没有，仍是更早的记录。套餐概览只写了 5 小时、每周一 00:00:00 的周限额、订阅月第 1 日 00:00:00 的月限额，没给次数，也没写时区。current_version 仍是旧标签 v2，这几页没有版本号。
+  note_en: On 2026-11-03 the discount-rules page https://www.volcengine.com/docs/82379/2525065 (page UpdatedTime 2026-07-27) and the activity page https://www.volcengine.com/L/s3lNTNYxaEc/ were opened. The rules table lists Lite at 40 yuan list / 9.9 yuan promo and Pro at 200 yuan list / 49.9 yuan promo. The window is 2026-06-08 through 2026-11-08. Each account gets at most two promo months, shared across new purchase, renewal, and upgrade, then list price. The referral promo can stack an extra 5% off (the page says 9.5折), and it does not print the combined amount.  The old 8.9 yuan figure and the three-month half-price claim were not on these pages. The activity page's monthly Lite card shows 9.9 against 40/month. The Pro monthly card's priceConfig also says 9.9 and 40/month, while its SKU is Coding_Plan_Pro_monthly. That conflicts with the rules table and with the quarterly 600 and annual 2400 strikethrough prices. This file keeps Pro at 200 from the rules table. Quarterly and annual strikethrough prices equal the monthly list times 3 or 12 (Lite 120/quarter and 480/year; Pro 600/quarter and 2400/year). The monthly tab image filename says 2.5折, matching the rules-page text. The quarterly and annual tab image filenames say 4.9折 and 8.7折, but the card amounts are 116.4 and 582 per quarter and 456 and 2280 per year, which do not match those two rates, so 4.9折 and 8.7折 are not recorded as current discount rates. The roughly 1,200 / 6,000 requests per 5 hours were not on the docs or the activity page and remain the earlier record. The plan overview names a 5-hour limit, a weekly limit resetting Monday 00:00:00, and a monthly limit resetting at 00:00:00 on day 1 of the subscription month. It does not give request counts or a timezone. current_version is still the old label v2. These pages do not print a version string.
 scores:
   coding_ability: 8
   cost_efficiency: 9.5
@@ -32,24 +32,26 @@ scores:
   privacy: 7
 features:
   auto_mode: true
-  # 前五个会出在专题页卡片上。顺序按这次要看的变化排，不是快速开始的原序。
-  # 可配置 Model Name 以快速开始页为准；即将下线的两个不在那份名单里，但套餐概览仍列出。
+  # 前五个会出在专题页卡片上。顺序按这次要露出的变化排，不是快速开始的原序。
+  # 可配置 Model Name 以快速开始页为准。minimax-m3、kimi-k2.7-code 已过停服时间，且不在这份名单里。
   supported_models:
+    - kimi-k3.1-pro
     - deepseek-v4.1-flash-economy
     - doubao-seed-evolving
     - kimi-k3
-    - deepseek-v4.1-flash
     - glm-5.3
-    - glm-5.3-flash
     - doubao-seed-2.1-pro
     - doubao-seed-2.1-lite
     - doubao-seed-2.0-mini
+    - glm-5.3-flash
+    - deepseek-v4.1-flash
     - deepseek-v4-flash
     - deepseek-v4-pro
     - kimi-k2.8-preview
-    - minimax-m3
-    - kimi-k2.7-code
   api_protocol: 兼容 OpenAI / Anthropic 协议
+  # Anthropic：https://ark.cn-beijing.volces.com/api/coding
+  # OpenAI：https://ark.cn-beijing.volces.com/api/coding/v3
+  # 不要用 https://ark.cn-beijing.volces.com/api/v3 ，那不会消耗 Coding Plan 额度。
   api_endpoint: https://ark.cn-beijing.volces.com/api/coding
   supported_clients:
     - Claude Code
@@ -75,26 +77,37 @@ not_for:
 data_sources:
   - url: https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-feature-release
     type: changelog
-    last_checked: '2026-10-22'
+    last_checked: '2026-11-03'
   - url: https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-model-deprecation
     type: changelog
-    last_checked: '2026-10-22'
+    last_checked: '2026-11-03'
   - url: https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-plan-overview
     type: documentation
-    last_checked: '2026-10-22'
+    last_checked: '2026-11-03'
   - url: https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-get-started
     type: documentation
-    last_checked: '2026-10-22'
+    last_checked: '2026-11-03'
   - url: https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-model-release
     type: announcement
-    last_checked: '2026-10-22'
+    last_checked: '2026-11-03'
   - url: https://ark.volcengine.com/region:cn-beijing/docs/coding-plan-personal-model-discount
     type: pricing
-    last_checked: '2026-10-22'
+    last_checked: '2026-11-03'
+  - url: https://www.volcengine.com/docs/82379/2525065
+    type: pricing
+    last_checked: '2026-11-03'
   - url: https://www.volcengine.com/L/s3lNTNYxaEc/
     type: pricing
-    last_checked: '2026-10-13'
+    last_checked: '2026-11-03'
 changelog:
+  - date: '2026-11-03'
+    type: model
+    summary: 快速开始的可配置 Model Name 新增 kimi-k3.1-pro（功能发布 10.24），不再包含 minimax-m3 和 kimi-k2.7-code。两则停服时间都已过（minimax-m3 为 2026-11-02 14:00:00 UTC+8，kimi-k2.7-code 为 2026-10-28 14:00:00 UTC+8），supported_models 按可配置名单去掉这两个 ID。下线公告的已下线表还没列入它们，套餐概览仍标即将下线，latest 别名仍指向 minimax-m3 与 kimi-k2.7-code。模型上线页把 deepseek-latest 写成 deepseek-v4-pro，下线页写成 deepseek-v4.1-flash。抵扣活动页把 kimi-k3 的日期写到 2026-10-25，状态表仍写进行中，套餐概览的现行活动条没有 kimi-k3。deepseek-v4.1-flash 与 economy 的 5 折写到 2026-12-30 23:59:59，kimi-k3.1-pro 写到 2026-11-09 23:59:59，Auto 写到 2026-11-08 23:59:59 并会路由到 kimi-k3.1-pro。这几段都没写时区。
+    summary_en: The get-started configurable Model Name list adds kimi-k3.1-pro (feature release 10.24) and no longer includes minimax-m3 or kimi-k2.7-code. Both shutdown times have passed (minimax-m3 at 2026-11-02 14:00:00 UTC+8, kimi-k2.7-code at 2026-10-28 14:00:00 UTC+8), so supported_models follows the configurable list and drops both IDs. The deprecation page's retired table does not list them yet, the plan overview still marks them as retiring, and the latest aliases still point at minimax-m3 and kimi-k2.7-code. The model-release page maps deepseek-latest to deepseek-v4-pro, while the deprecation page maps it to deepseek-v4.1-flash. The deduction page dates kimi-k3 through 2026-10-25 but its status table still says in progress. The plan overview's current promo bullets do not include kimi-k3. deepseek-v4.1-flash and the economy variant are listed at 50% deduction through 2026-12-30 23:59:59, kimi-k3.1-pro through 2026-11-09 23:59:59, and Auto through 2026-11-08 23:59:59 with routing to kimi-k3.1-pro. Those windows do not name a timezone.
+  - date: '2026-11-03'
+    type: pricing
+    summary: 折扣规则页确认 Lite/Pro 原价 ¥40/¥200、活动价 ¥9.9/¥49.9，窗口 2026-06-08 至 2026-11-08，每个账号最多两个月，第三个月原价。9.5 折裂变可叠加，但没有叠加后的金额。旧记录的 ¥8.9 和三个月 5 折这次没出现。活动页 Pro 月付卡片的价格字段写成 9.9 / 40/月，和折扣规则以及季年划线价 600/季、2400/年冲突，未采用。每 5 小时约 1200/6000 次仍未在页面上看到。
+    summary_en: The discount-rules page confirms Lite/Pro list prices of CNY 40/200 and promo prices of CNY 9.9/49.9, from 2026-06-08 through 2026-11-08, for at most two months per account, then list price. The referral promo can stack an extra 5% off (the page says 9.5折), with no combined amount printed.  The old CNY 8.9 figure and the three-month half-price claim were not on the pages. The activity page's Pro monthly card price fields say 9.9 / 40 per month, which conflicts with the rules table and with the 600/quarter and 2400/year strikethrough prices, so that card was not used. The roughly 1,200/6,000 requests per 5 hours were still not on the pages.
   - date: '2026-10-22'
     type: model
     summary: 功能发布页 10.20 增加 deepseek-v4.1-flash-economy，抵扣系数 5 折，截止 2026-12-30 23:59:59（未写时区）。minimax-m3 于 2026-11-02 14:00:00（UTC+8）停服，建议迁 doubao-seed-evolving 或 kimi-k3。kimi-k2.7-code 于 2026-10-28 14:00:00（UTC+8）停服，建议迁 kimi-k3。快速开始的可配置名单不含这两个 ID。月费数字这次没见到。
@@ -120,7 +133,7 @@ changelog:
   - date: '2026-01-10'
     type: feature
     summary: 支持接入 Trae / Claude Code / Cursor 等更多客户端
-last_full_review: '2026-10-22'
-next_review_due: '2026-10-29'
+last_full_review: '2026-11-03'
+next_review_due: '2026-12-03'
 review_frequency_days: 30
 confidence: medium
