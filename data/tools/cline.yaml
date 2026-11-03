@@ -4,8 +4,8 @@ type: client
 logo: /images/cline.png
 url: https://cline.bot
 repo: https://github.com/cline/cline
-current_version: v4.1.25
-version_tracked_at: '2026-10-22'
+current_version: v4.1.26
+version_tracked_at: '2026-11-03'
 pricing:
   model: free
   currency: null
@@ -77,16 +77,20 @@ compatible_apis:
   - deepseek
   - ollama
 data_sources:
-  - url: https://github.com/cline/cline/releases/tag/v4.1.25
+  - url: https://github.com/cline/cline/releases/tag/v4.1.26
     type: release
-    last_checked: '2026-10-22'
+    last_checked: '2026-11-03'
   - url: https://github.com/cline/cline/tags
     type: release
-    last_checked: '2026-10-22'
+    last_checked: '2026-11-03'
   - url: https://github.com/cline/cline/releases
     type: release
-    last_checked: '2026-10-22'
+    last_checked: '2026-11-03'
 changelog:
+  - date: '2026-10-26'
+    type: release
+    summary: 'v4.1.26：云端会话开启后，Settings > API Configuration 有 Local | Cloud 开关。Cloud 单独保存新云任务用的 Cline 模型，与本地模型分开；在云会话输入框点击模型名会打开它。启动或恢复云沙箱时显示进度卡（仓库、分支、启动沙箱、克隆仓库、启动 agent），agent 开始后收起。云会话隐藏 Plan/Act 开关和自动批准条，而不是显示成禁用。未选择模型时，Cline 提供商默认改回 Claude Sonnet 5.5，并回到推荐列表首位。模型请求最多重试 3 次，原先是 5 次。Kimi K3 的 Extra High 和 Max 改为发送 max reasoning，不再发送会被拒绝的 xhigh。模型目录新增 CommandCode、Reflection、Liquid Inference、Munito AI，去掉 CrofAI、iFlow、Llama。Cline 免费列表加入 Reflection Beam、Nemotron 3.5 Lightning、Laguna S 2.1，去掉 Mimo V2.6 Flash 和 Muse Spark 1.3 Contributor。ClinePass 默认改为 Kimi K3.1 Pro，并加入 MiniMax M3.1 Flash 与 DeepSeek V4.1 Flash 1017。多数其他提供商的默认模型也变了，常见是这三款；如果没有钉住模型，默认值会变。修复：GPT-6（如 gpt-6-sol、gpt-6.1-sol）可在 OpenAI 与 Azure OpenAI 兼容端点使用，SAP AI Core 不再因 max_tokens 拒绝请求，两处都改发 max_completion_tokens。gemini 提供商的 Gemini API Key 不再附带原生 Google Search；免费层 Key 在 Gemini 3+ 上每轮都会 429，在 Gemini 2.x 上会丢掉全部 Cline 工具。任务刚启动时切换 Plan/Act 不再丢掉第一条提示，会话也不会带着另一模式的工具继续跑。已禁用的规则保持禁用。启动命令不再把键盘焦点移进终端。取消任务，或在 Cline 提问时打开另一个任务，下一条消息不再被当成旧问题的回答。某一轮在模型只流式返回了推理内容后断线时会重试，而不是结束任务。上下文上限未知的模型不再自动压缩，第一次压缩之后也不会每隔几次工具调用再压一次。ask_question 在选定选项后模型会继续，空回答会被拒绝。run_commands 的命令列表为空时返回错误，而不是静默成功；在 PowerShell 下会说明引号转义，并要求先确认递归删除。任务标题徽章会换行，避免挡住关闭按钮。2026-11-03 按 GitHub Release 核对，这是最新稳定扩展版（v 前缀，不含 cli、sdk、desktop）。'
+    summary_en: 'v4.1.26: with cloud sessions on, Settings > API Configuration has a Local | Cloud toggle. Cloud stores the Cline model used by new cloud tasks separately from local models; clicking the model label in a cloud session composer opens that picker. Starting or resuming a cloud sandbox shows a progress card with the repo, branch, and steps (start sandbox, clone repository, start agent), then collapses once the agent starts. Cloud sessions hide the Plan/Act toggle and the auto-approve bar. With no model chosen, the Cline provider uses Claude Sonnet 5.5 again, back at the top of the recommended list. Model requests retry at most 3 times, down from 5. Kimi K3 Extra High and Max now send max reasoning instead of an xhigh value the model rejects. The catalog adds CommandCode, Reflection, Liquid Inference, and Munito AI, and drops CrofAI, iFlow, and Llama. The Cline free list adds Reflection Beam, Nemotron 3.5 Lightning, and Laguna S 2.1, and drops Mimo V2.6 Flash and Muse Spark 1.3 Contributor. ClinePass now defaults to Kimi K3.1 Pro and adds MiniMax M3.1 Flash and DeepSeek V4.1 Flash 1017. Default models change for most other providers, often to those three; an unpinned model will follow the new default. Fixes: GPT-6 models such as gpt-6-sol and gpt-6.1-sol work on OpenAI and Azure OpenAI-compatible endpoints, and SAP AI Core no longer rejects max_tokens; both send max_completion_tokens. Gemini API keys on the gemini provider no longer send native Google Search; free-tier keys failed every turn with HTTP 429 on Gemini 3+, and on Gemini 2.x every Cline tool was dropped. Toggling Plan/Act while a task is starting no longer drops the first prompt or keeps the other mode tools. Disabled rules stay disabled. Starting a command no longer moves keyboard focus into the terminal. Cancelling a task, or opening another task while Cline is asking a question, no longer treats the next message as the answer to the old question. A turn that drops after the model has streamed only reasoning is retried instead of ending the task. Auto-compaction no longer runs for models with an unknown context limit, and it no longer runs again every few tool calls after the first compaction. ask_question continues after an option is picked, and empty answers are rejected. run_commands with an empty command list returns an error instead of a silent success; on PowerShell it explains quote escaping and asks the model to confirm recursive deletes first. Task header badges wrap so the close button stays visible. Verified 2026-11-03 from the GitHub Release as the latest stable extension release (v-prefixed; cli, sdk, and desktop lines excluded).'
   - date: '2026-10-16'
     type: release
     summary: 'v4.1.25：逐步开放 Cline Cloud，可在选定的 GitHub 仓库和分支上用托管沙箱跑任务（Settings 开启）；云任务出现在 Recent 与 History，完成后通知，关闭编辑器后继续运行。未选模型时 Cline 提供商默认改为 Gemini 4 Argon（推荐列表首位），OpenRouter 仍是 Claude Sonnet 5.5。目录新增 Boundless 与 Standard Compute；SambaNova 改由目录提供，默认 MiniMax M3；推荐列表加入 Gemini 4 Argon 并去掉 Grok 4.7，免费列表用 Nemotron 3.5 Super VL 替换 Step 5 Preview；多家提供商默认模型调整。修复本地模型（LM Studio、Ollama）静默超过 5 分钟被 BodyTimeoutError 打断、OpenAI Compatible 的 host-only base URL 被静默追加 /v1、提问附件未送达模型、流式中断不重试、JetBrains 任务卡片被 Auto-approve 挡住，以及 Auto Compact 与策略设置分开。2026-10-22 按 tag 核对为最新稳定扩展版（v 前缀，不含 cli/sdk/desktop）。'
