@@ -4,8 +4,8 @@ type: cli
 logo: /images/opencode.png
 url: https://opencode.ai
 repo: https://github.com/anomalyco/opencode
-current_version: v2.2.5
-version_tracked_at: '2026-11-03'
+current_version: v2.2.6
+version_tracked_at: '2026-11-10'
 pricing:
   model: free
   currency: null
@@ -72,19 +72,23 @@ compatible_apis:
   - deepseek
   - ollama
 data_sources:
-  - url: https://github.com/anomalyco/opencode/releases/tag/v2.2.5
+  - url: https://github.com/anomalyco/opencode/releases/tag/v2.2.6
     type: release
-    last_checked: '2026-11-03'
+    last_checked: '2026-11-10'
   - url: https://github.com/anomalyco/opencode/releases/tag/v1.19.5
     type: release
-    last_checked: '2026-11-03'
+    last_checked: '2026-11-10'
   - url: https://github.com/anomalyco/opencode/releases
     type: release
-    last_checked: '2026-11-03'
+    last_checked: '2026-11-10'
   - url: https://opencode.ai/changelog
     type: changelog
-    last_checked: '2026-11-03'
+    last_checked: '2026-11-10'
 changelog:
+  - date: '2026-11-06'
+    type: release
+    summary: 'v2.2.6：2.x 线最高稳定版。GitHub Release 于 2026-11-06 发布，官网 changelog 置顶同版，git tag v2.2.6 指向该版本。GitHub Latest 仍是 1.x 的 v1.19.5（2026-10-28），npm opencode-ai 的 latest 也仍是 1.19.5，且 npm 没有 opencode-ai@2.2.6。1.x 没有高于 1.19.5 的稳定版，因此不新增 1.x 记录。current_version 停在 2.x。本版：MCP 可设 pool: true，同一配置的多个项目共用一条连接。GUI 插件可以加配色主题、改写代码块或给代码块加操作，并用原生的设置和菜单组件。手机和平板上，输入操作放到键盘上方的触控栏，按钮更大。opencode run -w 在新建的 git worktree 里开会话，--worktree=<名称> 可指定名字，不能和 --continue 或 --session 一起用。opencode run --archived 把脚本和 CI 会话直接建成已归档，不出现在收件箱、主页和会话列表，TUI 列表也不显示，--continue 会跳过。opencode run 会等本次提示启动的后台 shell、子 agent 和图片任务结束，再让模型根据结果回复后退出；等待时打印 waiting for N background job(s)（--format json 时是 background_wait 事件）。没有时间上限，一直不退出的任务（例如开发服务器或文件监视）会把这次运行留着，直到 Ctrl+C 或 SIGTERM，所以 CI 要自己设超时。SIGTERM 会取消会话及其后台任务，退出码 143。服务端把文件读取和媒体做成沙箱下载，并拒绝跨站浏览器打开或请求 /api/*，避免项目里的文件在服务源上跑脚本。Webfetch 和 Code Mode 的 fetch 拒绝带凭据的 URL，匹配权限时忽略 #fragment；Code Mode 的每次重定向都再按 webfetch 规则检查。session_move 离开当前项目前会先请求 external_directory 权限。模型调用前最多等 2 秒，让还在连接的 MCP 把工具带进第一次提示和 opencode run；本地 MCP 工作目录里的 ~ 会展开。OpenCode Console 的配置请求 5 秒超时，连接被接受但一直不返回时不再卡住启动。可以按提供商和模型设置会话预热，interval 可以写成基于缓存 TTL 的 auto。实验性 Code Mode 字节码虚拟机默认关闭，用 experimental.codemode_vm: true 或 OPENCODE_FLAGS=codemode_vm 打开。Windows 认 Microsoft Store 安装的 PowerShell 7。Azure 上的 Foundry Claude 模型可以走 Messages。新增 websearch.use 策略，OPENCODE_FLAGS=all 或 experimental.all_flags 打开全部功能开关。TUI 设置里有发送后滚动，选 Keep（session.submit_scroll: "keep"）会留在当前阅读位置。对话框或表单打开时，Ctrl+Z 仍可挂起。桌面端还有：关闭其他标签、关闭右侧标签；收件箱按未读分组，失败的运行标在标签上；MCP 登录无法自动跳转时可以粘贴回调地址；命令面板里 7 天及以上的会话显示日期；提示历史最多 200 条，超过最新 100 条后只保留没有附件的。SDK 增加 client.experimental.job.list()，可按会话、后代、类型和状态列出后台 shell、子 agent 和图片任务。其余 TUI 和桌面端的零碎修复见发布说明，这里不逐条改写。2026-11-10 核对。'
+    summary_en: 'v2.2.6: highest stable 2.x release. GitHub Release published 2026-11-06, the same version is the top entry on opencode.ai/changelog, and git tag v2.2.6 points at that release. GitHub Latest is still v1.19.5 on the 1.x line (published 2026-10-28). The npm opencode-ai latest dist-tag is still 1.19.5, and npm has no opencode-ai@2.2.6. No stable 1.x release is newer than 1.19.5, so this update adds no 1.x changelog entry. current_version stays on 2.x. This version lets an MCP server set pool: true and share one connection across projects that use the same setup. GUI plugins can add color themes, replace or add actions on code blocks, and use native settings and menu components. On phones and tablets, composer actions sit in a touch dock above the keyboard with larger buttons. opencode run -w starts the session in a new git worktree; --worktree=<name> sets the name. It cannot be combined with --continue or --session. opencode run --archived creates the session already archived, so scripted and CI runs stay out of the inbox, home, and session lists. The TUI session list hides them, and --continue skips them. opencode run waits for the background shell commands, subagents, and image jobs that its prompt started, then lets the model answer from those results before it exits. While waiting it prints waiting for N background job(s) (a background_wait event with --format json). There is no time limit. A job that never exits, such as a dev server or file watcher, keeps the run open until Ctrl+C or SIGTERM, so CI jobs need their own timeout. SIGTERM cancels the session and its background jobs and exits with code 143. The server API serves file reads and media as sandboxed downloads and refuses cross-site browser navigations and requests to /api/*, so a file in the project cannot run scripts on the server origin. Webfetch and Code Mode fetch reject URLs that contain credentials and ignore the #fragment when matching permission rules. Code Mode fetch checks every redirect against webfetch rules. session_move asks for external_directory permission before it leaves the current project. A model call waits up to 2 seconds for MCP servers that are still connecting, so tools from servers that connect quickly reach the first prompt and opencode run. A tilde in a local MCP working directory is expanded. OpenCode Console config requests time out after 5 seconds, so startup no longer hangs when the Console accepts the connection and never answers. Session warming can be set per provider and model, including interval auto based on cache TTL. An experimental bytecode VM for Code Mode is off by default; turn it on with experimental.codemode_vm: true or OPENCODE_FLAGS=codemode_vm. Windows supports Microsoft Store installs of PowerShell 7. Foundry Claude models on Azure can use Messages. A websearch.use policy action was added, and OPENCODE_FLAGS=all or experimental.all_flags turns on every feature flag. The TUI Settings screen adds Scroll on send. Keep (session.submit_scroll: "keep") leaves the reading position in place after a prompt is sent. Ctrl+Z still suspends OpenCode while a form or dialog is open. Desktop also adds close-other-tabs and close-tabs-after, unread grouping in Inbox, failed-run marks on tabs, a pasted redirect URL when MCP sign-in cannot redirect, a date instead of a relative age for sessions 7 or more days old in the command palette, and prompt history of up to 200 prompts (past the newest 100, only prompts without attachments are kept). The SDK adds client.experimental.job.list() to list background shell, subagent, and image jobs, with filters for session, descendant, kind, and status. Smaller TUI and desktop fixes in the release notes are not rewritten one by one. Verified 2026-11-10.'
   - date: '2026-10-30'
     type: release
     summary: 'v2.2.5：2.x 线最高稳定版。GitHub 上已有 Release 对象（2026-10-30 发布），官网 changelog 置顶同版，git tag v2.2.5 指向该版本。GitHub Latest 和 npm opencode-ai 的 latest 仍是 1.x 的 v1.19.5，且 npm 没有 opencode-ai@2.2.5。current_version 停在 2.x，不降到 1.x。本版：可用快捷键选择 worktree（macOS 为 ⌘⌥O，Windows/Linux 为 Ctrl+Alt+O）及其基线分支（⌘⌥B / Ctrl+Alt+B）；⌘⇧X / Ctrl+Shift+X 在输入框切换 shell 模式。引用弹窗里按住 ⌘ 或 Ctrl，或按 ⌘Enter / Ctrl+Enter，只发送这一条引用和评论。compaction.buffer 可以写成模型上下文窗口的百分比（例如 "20%"），写 token 数仍然有效。名为 bash 的工具调用会按 shell 执行，权限相同；真正叫 bash 的插件工具优先。超过 10 MiB 的 MCP stdio 消息不再断开服务器。LiteLLM 报上下文窗口错误时会触发压缩，而不是停掉会话。切换模型或恢复被打断的回复时，推理内容不再被改成纯文本（此前会在部分提供商上报错）。v2.2.0 至 v2.2.4 未逐条改写。官网 changelog 写明：2.2.0 把 @opencode/ai 的根导出改成 Promise API，并停止发布 OpenCode GitHub Action；2.2.3 起 TUI 插件要求 OpenTUI 0.8。2026-11-03 核对。'

@@ -4,8 +4,8 @@ type: cli
 logo: /images/gemini-cli.png
 url: https://github.com/google-gemini/gemini-cli
 repo: https://github.com/google-gemini/gemini-cli
-current_version: v0.66.0
-version_tracked_at: '2026-11-03'
+current_version: v0.67.0
+version_tracked_at: '2026-11-10'
 pricing:
   model: freemium
   currency: USD
@@ -90,19 +90,23 @@ china_note: 需要 Google 账号，中国大陆访问 Google 服务需要代理�
 china_note_en: Requires Google account; accessing Google services from mainland China requires a proxy; no domestic mirror; China users can try Kimi Code or Trae CN as alternatives
 plans_using_this: []
 data_sources:
-  - url: https://github.com/google-gemini/gemini-cli/releases/tag/v0.66.0
+  - url: https://github.com/google-gemini/gemini-cli/releases/tag/v0.67.0
     type: release
-    last_checked: '2026-11-03'
+    last_checked: '2026-11-10'
   - url: https://github.com/google-gemini/gemini-cli/releases
     type: release
-    last_checked: '2026-11-03'
+    last_checked: '2026-11-10'
   - url: https://www.npmjs.com/package/@google/gemini-cli
     type: release
-    last_checked: '2026-11-03'
+    last_checked: '2026-11-10'
   - url: https://ai.google.dev/gemini-api/docs/pricing
     type: pricing
     last_checked: '2026-08-19'
 changelog:
+  - date: '2026-11-04'
+    type: release
+    summary: 'v0.67.0：GitHub Releases 的 latest 与 npm @google/gemini-cli 的 latest 都是 0.67.0（2026-11-04 发布）。Release 正文是 pull request 列表，没有单独摘要；下面按标题归纳用户能碰到的变化，没有逐条打开每个 PR。新增 models 命令和 --list-models，用来查看可用模型。IDE 伴侣可以通过 exec stdio 接到容器沙箱。工作区是用户主目录时不再重复加载 agent。打开文件的上下文不再包含 IDE 设置和 GEMINI.md。不可信 flag 的检查只针对外部输出，并记住已批准的 flag。原子写入尊重只读文件和硬链接。相对文件路径按当前 IDE 工作区根目录解析。非交互模式处理终止信号，取消之后不再执行工具；请求取消后停止续写流和自动 nudge。迁移旧设置时保留 ${VAR} 占位符；从 Claude 迁来的 hook 超时由秒换算为毫秒。项目花费上限错误被标成终态配额错误。ACP 权限请求带上 MCP 服务器和工具元数据。/chat list 自动补全不再插入父命令名。数字设置编辑器拒绝非有限数字。Android（Termux）上，ripgrep 可以使用受信任的系统路径。生成 diff 上下文前先把 CRLF 换行归一化。修正泰语、老挝语 SARA AM 的显示宽度，并适配把歧义宽度字符画成宽字符的终端。confirm_action 不再重复记历史和遥测。带函数调用的每个模型回合都会带上 thought signature。自定义请求头按 RFC 9110 的 token 规则拆分。扩展的 token 用量元数据会保留，并按回合对齐上报。A2A 服务器在注册路由前挂上 express.json()。同日的 v0.68.0-preview.0，以及 v0.67.0-nightly.*（核对时 npm nightly 为 0.67.0-nightly.20261104.g89e9d25d6）是预发布，未计入。没有更高的稳定版。2026-11-10 核对。免费层额度未重新打开 Gemini API 定价页，仍沿用上次记录。'
+    summary_en: 'v0.67.0: GitHub Releases latest and npm @google/gemini-cli latest are both 0.67.0 (published 2026-11-04). The release body is a pull request list with no separate summary. The items below are read from those titles; each linked pull request was not opened. This version adds a models command and a --list-models flag for model discovery. The IDE companion can be bridged into a container sandbox over exec stdio. Agent loading is no longer duplicated when the workspace is the home directory. Open-file context excludes IDE settings and GEMINI.md. Untrusted-flag checks are limited to external output, and approved flags are remembered. Atomic writes respect read-only files and hard links. Relative file paths resolve against the active IDE workspace root. Non-interactive mode handles termination signals and does not run tools after cancellation; continuation streams and the auto-nudge stop after a request is cancelled. Deprecated settings migration keeps ${VAR} placeholders. Claude hook timeouts are converted from seconds to milliseconds during migration. Project spending-cap errors are classified as terminal quota errors. ACP permission requests include MCP server and tool metadata. /chat list autocomplete no longer inserts the parent command name. The numeric settings editor rejects non-finite numbers. On Android (Termux), ripgrep can use trusted system paths. Diff context snippets normalize CRLF line endings before comparing. Thai and Lao SARA AM display width is corrected, and terminals that render ambiguous-width characters as wide are handled. The confirm_action flow no longer writes duplicate history or double telemetry. Every model turn that includes a function call receives a thought signature. Custom headers are split using RFC 9110 token rules. Extended token-usage metadata is preserved and per-turn reporting is aligned. The A2A server mounts express.json() before route registration. v0.68.0-preview.0 from the same day, and v0.67.0-nightly.* (npm nightly was 0.67.0-nightly.20261104.g89e9d25d6 when checked), are prereleases and are not tracked. No newer stable release was published. Verified 2026-11-10. Free-tier quotas were not re-checked against the Gemini API pricing page and still reflect the previous record.'
   - date: '2026-10-27'
     type: release
     summary: 'v0.66.0：GitHub Releases 的 latest 与 npm @google/gemini-cli 的 latest 都是 0.66.0（2026-10-27 发布）。Release 正文是 pull request 列表，没有单独摘要；下面按标题归纳用户能碰到的变化，没有逐条打开每个 PR。这版以修复为主：终端输出同步并单独渲染 spinner；修正调试控制台高度和 terminalBuffer 闪烁；可滚动的工具容器不再把右边框画出去；工具调用分组改由调度器发出，并去掉界面预读。Windows 上 openDiff 会格式化并给 diff 参数加引号。设置里的占位符改在加载 .env 之后再解析。keybindings.json 支持 keys 数组。更新检查会确认正在运行的二进制已经换成新版本，避免 PATH 上的旧文件被当成更新成功。启动进程会把终止信号转给子进程。刷新视口时保留终端回滚内容。shell 和 git 环境保留用户目录下的 .gitconfig，并关闭交互式凭据与 SSH 提示。认证错误判断减少误报。MCP OAuth 可以选用内网端点。SKILL.md 里单行 description 的 frontmatter 解析更严格。界面增加一条横幅，说明 Gemini CLI 并未针对 Gemini 4 做优化。同日及之后的 v0.67.0-preview.0 和 v0.67.0-nightly.* 是预发布，未计入。2026-11-03 核对。免费层额度未重新打开 Gemini API 定价页，仍沿用上次记录。'
