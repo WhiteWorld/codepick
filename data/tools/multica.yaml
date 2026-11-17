@@ -18,16 +18,25 @@ pricing:
       limits_en: Additional Multica License conditions apply; server/model/tool costs separate
   price_updated_at: "2026-11-17"
   note: >-
-    仓库为 Multica License（Apache-2.0 加托管服务、商业嵌入和品牌附加条件），不能等同无限制开源。Cloud 当前价格/试用权益未在公开页面核实，移除旧 $0 Cloud
-    展示。重要：默认运行拥有 daemon OS 用户全部权限，不提供文件系统沙箱；Codex 默认 danger-full-access，Claude Code 默认 bypassPermissions。应以专用
-    OS 用户、容器或 VM 隔离，不要把 workdir 或自托管视为安全边界。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
+    Multica License（Apache-2.0
+    加附加条件）明确允许组织内部免费使用，包括全团队自托管；服务器/模型/工具费用另计。向组织外部提供托管服务、商业嵌入及品牌豁免须分别核对许可/商务报价。官网通用 JSON-LD 的 $0 未说明 Cloud
+    权益，/pricing 实为未找到页面，不能据此承诺 Cloud 免费、试用、席位、额度或 SLA；这些金额和权益须向官方核实，本表只列已验证的自托管软件 $0。默认运行继承 daemon OS
+    用户全部权限，无文件系统沙箱保证；Codex 默认 danger-full-access，Claude Code 默认 bypassPermissions；Windows 的 Codex
+    原生沙箱须明确选择启用，不能推广为全平台保证。Cloud 保存工作区数据，标题/跟进建议会向厂商选择的第三方 LLM 发送部分消息；厂商声明不以内容训练自身模型。自托管默认发送无内容的每日用量快照，可用
+    DO_NOT_TRACK=1 关闭；模型/集成仍适用各自条款。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
-    Multica License adds hosted-service, commercial-embedding and branding conditions to Apache-2.0, not
-    unrestricted open source. Current Cloud pricing/trial entitlements were not established publicly; old
-    Cloud $0 is removed. Critical: runs inherit the daemon OS user’s full permissions with no
-    filesystem-sandbox guarantee; default Codex danger-full-access and Claude Code bypassPermissions. Use a
-    dedicated OS user/container/VM; workdirs and self-hosting are not security boundaries. Historical
-    editorial scores retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
+    The Multica License (Apache-2.0 plus conditions) permits free internal organizational use, including
+    whole-team self-hosting; server/model/tool costs are separate. External hosted services, commercial
+    embedding and branding waivers require their respective license/commercial checks. Generic website JSON-LD
+    says $0 without establishing Cloud entitlements; /pricing is a not-found page. Do not infer free Cloud,
+    trials, seats, quotas or an SLA. Verify those amounts and entitlements with the vendor; this table lists
+    only verified $0 self-hosted software. Runs inherit full daemon OS-user permissions, with no
+    filesystem-sandbox guarantee: default Codex danger-full-access and Claude Code bypassPermissions. Windows
+    native Codex sandbox requires explicit opt-in, not a cross-platform guarantee. Cloud stores workspace
+    data; titles/follow-ups send some messages to a vendor-selected third-party LLM. Multica says it does not
+    train AI models on content. Self-hosted servers send a content-free daily usage snapshot by default,
+    disabled with DO_NOT_TRACK=1; model/integration terms still apply. Historical editorial scores retained,
+    not newly measured or re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 7.5
@@ -134,16 +143,37 @@ data_sources:
   - url: https://github.com/multica-ai/multica/releases/tag/v0.10.0
     type: release
     last_checked: "2026-11-17"
+  - url: https://multica.ai/licensing
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://multica.ai/contact-sales
+    type: pricing
+    last_checked: "2026-11-17"
+  - url: https://multica.ai/privacy
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://multica.ai/docs
+    type: docs
+    last_checked: "2026-11-17"
 
 changelog:
-  - date: '2026-10-13'
+  - date: "2026-11-17"
+    type: fix
+    summary: 完整文档复核：仅确认组织内部自托管软件免费，不把通用 $0 结构化数据当 Cloud 报价；补充隐私外发、遥测及 Windows 沙箱例外
+    summary_en: >-
+      Documentary review: verify free internal self-hosted software, not Cloud pricing from generic $0 schema;
+      disclose privacy egress, telemetry and the Windows sandbox exception
+  - date: "2026-10-13"
     type: 版本更新 v0.3.17 → v0.6.2（GitHub release 核验）
     summary: Version bump v0.3.17 → v0.6.2 (verified via GitHub releases)
-  - date: '2026-05-09'
+  - date: "2026-05-09"
     type: launch
     summary: 加入 CodePick Agent 协作栏目
     summary_en: Added to CodePick Agent Collaboration section
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-11'
+
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: low

@@ -14,14 +14,21 @@ pricing:
   plans: []
   price_updated_at: "2026-11-17"
   note: >-
-    现为日历驱动的 Agent Workspace，提供内置模型、MCP 与 Combo / Workflow Store。定价页显示订阅计费和独立的 3,000 credits / $12.99
-    补充包（有效一年）；本次公开页面未呈现基础订阅档位价格，待确认，不能视为免费无限使用。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
+    现为日历驱动的 Agent Workspace，内置模型、MCP 与 Combo / Workflow Store，无须一概自备 API Key。公开定价响应仅显示独立加油包：3,000 credits /
+    $12.99（中文页为
+    ¥89），有效一年、每次最多20包；不是基础订阅金额。基础档位名、价格和包含额度仍需浏览器核实，未完成完整复审。条款要求订阅期结束前至少24小时取消自动续费（强制消费者权利除外），余期通常不按比例退款；具体价格、周期、续费日以结算/账户披露为准。隐私政策明确上下文可发给模型商，模型商可能保留并用于训练，不应视为离线或零留存。账号文档警告：同一电脑切换账号仍可看到本机相同工作区/任务，退出登录不提供本机数据隔离。
+    历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
-    Now a calendar-driven agent workspace with built-in models, MCP and Combo/Workflow stores. Pricing shows
-    subscriptions and a separate 3,000-credit $12.99 booster (valid one year); base subscription tier prices
-    were not exposed in the public response and remain unconfirmed. Do not treat it as unlimited free use.
-    Historical editorial scores retained, not newly measured or re-rated; not a fresh performance or cost
-    benchmark.
+    A calendar-driven agent workspace with built-in models, MCP and Combo/Workflow stores; bringing an API key
+    is not universally required. Public pricing responses show only a separate 3,000-credit booster: $12.99
+    (CNY89 on the Chinese page), valid one year, up to 20 packs per checkout—not the base subscription price.
+    Tier names, base prices and included allowances still need browser verification; the full review remains
+    incomplete. Terms require canceling auto-renewal at least 24 hours before renewal, subject to mandatory
+    consumer rights; partial terms generally are not prorated. Checkout/account terms establish the actual
+    price, period and renewal date. Privacy policy permits context to go to model providers that may retain it
+    or train on it; not offline or zero-retention. Account docs warn that different accounts on one computer
+    can see the same local spaces/tasks: signing out does not isolate local data. Historical editorial scores
+    retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 7
@@ -67,10 +74,14 @@ best_for_en:
 not_for:
   - 需要完全离线、无需外部模型服务的用户
   - 要求已验证的数据驻留、团队权限和服务保障的部署（需另行核实）
+  - 要求模型商绝不留存/训练，或依赖同一 OS 用户下退出登录来隔离不同账号工作文件的环境
 
 not_for_en:
   - Users requiring fully offline operation without external model services
   - Deployments requiring verified data residency, team permissions and service guarantees (verify separately)
+  - >-
+    Environments requiring no provider retention/training, or relying on sign-out to isolate different
+    accounts’ work files within one OS user
 
 quick_start:
   - 从 floatboat.ai 下载 Mac / Windows / UOS 对应客户端
@@ -83,14 +94,34 @@ quick_start_en:
   - Configure a workspace and calendar event; review permissions before running a Combo / Workflow
 
 register_url: https://floatboat.ai/download/success?from=landing
-china_note: 桌面客户端需自行下载；需自行配置 API Key
-china_note_en: Desktop client download required; requires own API key
+china_note: 内置模型不要求用户一概自备 API Key；BYOK 若使用则另受服务商费用/条款约束。官网中文定价页显示人民币加油包；国内下载、模型连通性、订阅和支付均未实测，不能保证无需代理。
+
+china_note_en: >-
+  Built-in models do not universally require your own API key; optional BYOK carries separate provider
+  costs/terms. The Chinese pricing page shows CNY boosters. Mainland downloads, model connectivity,
+  subscriptions and payment were not tested; no no-proxy guarantee.
+
 data_sources:
   - url: https://floatboat.ai
     type: docs
     last_checked: "2026-11-17"
   - url: https://floatboat.ai/pricing
     type: pricing
+    last_checked: "2026-11-17"
+  - url: https://floatboat.ai/zh/pricing
+    type: pricing
+    last_checked: "2026-11-17"
+  - url: https://floatboat.ai/payment
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://floatboat.ai/terms
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://floatboat.ai/privacy
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://floatboat.ai/docs/settings/account
+    type: docs
     last_checked: "2026-11-17"
 
 changelog:
