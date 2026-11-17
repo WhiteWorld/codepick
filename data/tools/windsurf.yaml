@@ -1,11 +1,14 @@
 id: windsurf
-name: Windsurf
+name: Devin Desktop (formerly Windsurf)
+
 type: ide
 logo: /images/windsurf.png
 url: https://windsurf.com
 repo: null
-current_version: 2.3.9
-version_tracked_at: '2026-05-24'
+current_version: 3.13.3
+
+version_tracked_at: "2026-11-17"
+
 pricing:
   model: subscription
   currency: USD
@@ -13,12 +16,16 @@ pricing:
     - name: Free
       price: 0
       limits: 轻度 Agent 配额（页面未再给出 25 credits 这个数字），模型可用范围有限，无限 inline edits 与 Tab 补全
-      limits_en: Light agent quota (the page no longer states 25 credits), limited model availability, unlimited inline edits and Tab completions
+      limits_en: >-
+        Light agent quota (the page no longer states 25 credits), limited model availability, unlimited inline
+        edits and Tab completions
     - name: Pro
       price: 20
       period: month
-      limits: 更高配额，可使用 OpenAI、Claude、Gemini、SpaceXAI 的前沿模型以及主流开源模型；完整模型列表；SWE-2 免费使用（页面未写截止日期）；含 Devin Cloud；超出后按 API 价格购买；可用自己的 ChatGPT 计划
-      limits_en: Higher quotas with frontier models from OpenAI, Claude, Gemini, and SpaceXAI plus leading open source models; full model availability; free use of SWE-2 with no end date on the page; Devin Cloud included; extra usage at API pricing; use your ChatGPT plan
+      limits: 保留更高配额/完整模型范围与 Devin Cloud/ChatGPT 计划接入条款；SWE-2 免费有模型文档期限，非永久。额外用量按 API 价格另计
+      limits_en: >-
+        Higher quota/full model range and Devin Cloud/ChatGPT-plan terms retained; model docs put an end date
+        on free SWE-2, not permanent. Additional usage bills at API rates
     - name: Max
       price: 200
       period: month
@@ -27,16 +34,46 @@ pricing:
     - name: Teams
       price: 80
       period: month
-      limits: 基础费 $80/月，另加 $40/月/全职开发席位；最多 100 用户；多人会话；每位用户在 Free 模式 2 个并发会话；SAML/OIDC SSO；3 档用量成本控制；集中账单；Slack 频道支持；可用自己的 ChatGPT 计划；每名全职用户自带配额
-      limits_en: $80/month base plus $40/month per full dev seat; up to 100 users; multiplayer sessions; 2 concurrent sessions in Free mode per user; SAML/OIDC SSO; cost controls with 3 usage tiers; centralized billing; Slack channel support; use your ChatGPT plan; each full user includes their own quota
+      limits: >-
+        基础费 $80/月，另加 $40/月/全职开发席位；最多 100 用户；多人会话；每位用户在 Free 模式 2 个并发会话；SAML/OIDC SSO；3 档用量成本控制；集中账单；Slack
+        频道支持；可用自己的 ChatGPT 计划；每名全职用户自带配额
+      limits_en: >-
+        $80/month base plus $40/month per full dev seat; up to 100 users; multiplayer sessions; 2 concurrent
+        sessions in Free mode per user; SAML/OIDC SSO; cost controls with 3 usage tiers; centralized billing;
+        Slack channel support; use your ChatGPT plan; each full user includes their own quota
     - name: Enterprise
       price: null
       period: month
       limits: 联系销售；最高优先级支持、专属客户经理、SAML/OIDC SSO、SCIM、基于角色的访问控制、集中管理、专属部署、主流模型提供商
-      limits_en: Contact sales; highest-priority support, dedicated account management, SAML/OIDC SSO, SCIM, role-based access control, centralized admin controls, dedicated deployment, and major model providers
-  price_updated_at: '2026-11-17'
-  note: 2026-11-17 核对 https://devin.ai/pricing（windsurf.com/pricing 返回 308，转到这里）。个人档仍为 Free $0、Pro $20、Max $200。付费档用量按日/周自动刷新，页面仍没有写出具体 credit 数字。SWE-2 现为免费使用，页面不再写 2026-10-16 截止日期。Teams 仍是 $80/月基础费加 $40/月/全职席位，人数上限改为最多 100 用户。Pro、Max 和 Teams 写明可用自己的 ChatGPT 计划。Enterprise 仍是联系销售，对比项里有 SCIM 和基于角色的访问控制。2026-03-19 的 $15 老用户价和学生折扣没有出现在当前定价页，是否仍然有效未知。
-  note_en: 'Verified 2026-11-17 at https://devin.ai/pricing (windsurf.com/pricing returns 308 to this page). Individual tiers are still Free $0, Pro $20, and Max $200. Paid allowances still refresh daily and weekly; the page still does not publish a credit count. SWE-2 is now free use with no end date on the page. Teams is still an $80/month base plus $40/month per full seat, and the cap is now up to 100 users. Pro, Max, and Teams list use your ChatGPT plan. Enterprise is still contact sales; the compare table adds SCIM and role-based access control. The 2026-03-19 grandfathered $15 rate and the student discount are not on the current pricing page, so whether they still apply is unknown.'
+      limits_en: >-
+        Contact sales; highest-priority support, dedicated account management, SAML/OIDC SSO, SCIM, role-based
+        access control, centralized admin controls, dedicated deployment, and major model providers
+  price_updated_at: "2026-11-17"
+  note: >-
+    2026-11-17 核对 https://devin.ai/pricing（windsurf.com/pricing 返回 308，转到这里）。个人档仍为 Free $0、Pro $20、Max
+    $200。付费档用量按日/周自动刷新，页面仍没有写出具体 credit 数字。SWE-2 现为免费使用，页面不再写 2026-10-16 截止日期。Teams 仍是 $80/月基础费加
+    $40/月/全职席位，人数上限改为最多 100 用户。Pro、Max 和 Teams 写明可用自己的 ChatGPT 计划。Enterprise 仍是联系销售，对比项里有 SCIM
+    和基于角色的访问控制。2026-03-19 的 $15 老用户价和学生折扣没有出现在当前定价页，是否仍然有效未知。 2026-11-17 完整复核：官方确认 Windsurf 已更名 Devin
+    Desktop，当前稳定3.13.3。虽然 pricing 页未写免费截止时间，模型文档注明 SWE-2 自助套餐免费至2026-11-30（原文未标时区，不含 Cloud），SWE-2 Flash
+    免费至2026-12-05 02:00上海时间；不能永久外推。实时 Voice 通话的 Agent 模型另扣配额/ACU，不享受免费 SWE-2 优惠。迁移 FAQ 又称 Devin Cloud 为单独
+    SKU，而 pricing 列 Pro 包含 Cloud，保留此官方范围差异，具体账号权益须核对，不能承诺无限 Cloud。JetBrains 旧插件维护模式、Cascade 正在弃用，应优先按官方 ACP
+    文档迁移，不承诺 Vim/所有插件同功能。
+  note_en: >-
+    Verified 2026-11-17 at https://devin.ai/pricing (windsurf.com/pricing returns 308 to this page).
+    Individual tiers are still Free $0, Pro $20, and Max $200. Paid allowances still refresh daily and weekly;
+    the page still does not publish a credit count. SWE-2 is now free use with no end date on the page. Teams
+    is still an $80/month base plus $40/month per full seat, and the cap is now up to 100 users. Pro, Max, and
+    Teams list use your ChatGPT plan. Enterprise is still contact sales; the compare table adds SCIM and
+    role-based access control. The 2026-03-19 grandfathered $15 rate and the student discount are not on the
+    current pricing page, so whether they still apply is unknown. Full review2026-11-17: official docs confirm
+    Windsurf renamed Devin Desktop, stable3.13.3. Although pricing omits an expiry, model docs end self-serve
+    free SWE-2 on2026-11-30 (zone unspecified; excludes Cloud), and free SWE-2 Flash at2026-12-05 02:00
+    Asia/Shanghai. Do not extrapolate permanent free usage. Live Voice agent usage consumes quota/ACUs without
+    free SWE-2 promotions. Migration FAQ calls Cloud a separate SKU while pricing lists Cloud in Pro; disclose
+    the scope difference and verify account entitlements, not unlimited Cloud. Legacy JetBrains plugin is
+    maintenance-mode/Cascade deprecating; use official ACP migration guidance, not identical
+    Vim/plugin-feature promises.
+
 scores:
   coding_ability: 8.5
   cost_efficiency: 8
@@ -51,62 +88,91 @@ features:
   mcp_support: true
   cascade: true
   tab_supercomplete: true
-  context_window: 标准上下文窗口
+  context_window: 依所选模型、推理模式与账号
   supported_models:
-    - Claude Opus 4.7 (fast mode，内置)
-    - Claude Sonnet 4 (BYOK)
-    - Claude Opus 4 (BYOK)
-    - GPT-5.2
-    - GPT-5.4
-    - GPT-5.4 mini
-    - Gemini 3 Pro（付费预览）
-    - Gemini 3 Flash
-    - Gemini 2.5 Pro
-    - SWE-1.5（Windsurf 自研）
-    - SWE-grep / SWE-grep-mini
+    - SWE-2 (Medium / High / Max; billing and availability vary)
+    - "SWE-2 Flash (Free: Medium; paid: High / Max)"
+    - Other provider models from current account model selector
   ide_base: VS Code Fork
   supported_os:
     - macOS
     - Windows
     - Linux
   jetbrains_support: true
-  vim_support: true
   git_integration: true
+  devin_local: true
+  sub_agent: true
+  jetbrains_via_acp: true
+
 best_for:
-  - 预算有限但想要 Cursor 级别体验的开发者
-  - JetBrains / Vim 用户（插件覆盖广）
-  - 需要多模型灵活切换的团队
+  - 需要原生编辑器与本地/云 Agent 管理、并会审查 diff/权限的团队
+  - 愿意核对账号模型、额度与 ACP/旧插件差异的多模型用户
+
 best_for_en:
-  - Budget-conscious developers who want Cursor-level experience
-  - JetBrains / Vim users (broad plugin coverage)
-  - Teams that need flexible multi-model switching
+  - Teams needing a native editor/local-cloud agent management while reviewing diffs and permissions
+  - Multi-model users checking account models/quotas and ACP-versus-legacy-plugin differences
+
 not_for:
-  - 国内网络用户（无国内节点）
-  - 需要自托管或本地模型的用户
+  - 要求无条件离线或所有界面完全相同能力的环境
+  - 将有限日/周配额、临时免费模型或订阅 Cloud 访问当成永久无限用量的预算
+
 not_for_en:
-  - Users in China (no China-based servers)
-  - Users who need self-hosting or local models
+  - Environments requiring unconditional offline use or identical capabilities across surfaces
+  - >-
+    Budgets interpreting daily/weekly limits, temporary free models or included Cloud access as permanently
+    unlimited use
+
 quick_start:
-  - 访问 windsurf.com/download，下载并安装 Windsurf（支持 macOS/Windows/Linux）
-  - 注册账号（Free 为轻度配额，可直接体验），或用 GitHub 登录
-  - 打开项目，使用 Cascade 面板（右侧）进行 AI 对话，支持多文件编辑和 Agent 模式
-  - JetBrains / Vim 用户：在插件市场搜索 Windsurf 插件，安装后同样支持 Cascade
+  - 按官方 Devin Desktop getting-started 下载 macOS/Windows/Linux 版本（当前稳定3.13.3），原 Windsurf 设置有兼容迁移
+  - 在 Agent Command Center 选择 Devin Local/Cloud 或已有 legacy Cascade，核对执行位置与账号费用
+  - 检查 Allow/Ask/Deny、sandbox 与网络范围；MCP 默认询问，但管理员/用户授权和会话级 grants 会改变后续提示行为
+  - 先审查小任务 diff/测试；JetBrains 旧插件是维护模式，按 ACP 文档选择迁移，不再保证所有插件支持同一 Cascade
+
 quick_start_en:
-  - Visit windsurf.com/download, download and install Windsurf (macOS/Windows/Linux)
-  - 'Sign up (Free is a light quota and ready to use) or log in with GitHub'
-  - Open your project and use the Cascade panel (right side) for AI chat with multi-file editing and Agent mode
-  - 'JetBrains/Vim users: search for the Windsurf plugin in the marketplace; Cascade works there too'
+  - >-
+    Use official Devin Desktop getting-started for macOS/Windows/Linux (stable3.13.3); legacy Windsurf
+    settings have migration compatibility
+  - >-
+    Choose Devin Local/Cloud or existing legacy Cascade in Agent Command Center and check execution
+    location/account billing
+  - >-
+    Inspect Allow/Ask/Deny, sandbox and network scope; MCP prompts by default but admin/user/session grants
+    change subsequent prompting
+  - >-
+    Review a small task’s diffs/tests; legacy JetBrains plugin is maintenance-mode, so consult ACP migration
+    rather than expect identical Cascade in every plugin
+
 register_url: https://windsurf.com
-china_note: 需要翻墙，暂无官方国内镜像；国内用户可考虑 Trae CN（免费）或 Cline + 火山方舟（Lite 首月 ¥9.9 / 续费 ¥40）作为替代
-china_note_en: Requires VPN from China; no official domestic mirror; China users can consider Trae CN (free) or Cline + Volcengine Ark (¥9.9 first month / ¥40 renewal) as alternatives
+china_note: 本次未实测中国大陆可达性、账号资格或支付。Devin Local 的“Local”不等于模型推理不外发，Cloud/第三方模型/集成适用各自数据条款。
+
+china_note_en: >-
+  Mainland reachability/account eligibility/payment were not tested. Devin Local does not mean model inference
+  has no egress; Cloud/third-party models/integrations have separate data terms.
+
 plans_using_this: []
 data_sources:
   - url: https://devin.ai/pricing
     type: pricing
-    last_checked: '2026-11-17'
+    last_checked: "2026-11-17"
   - url: https://windsurf.com/changelog
     type: changelog
-    last_checked: '2026-10-13'
+    last_checked: "2026-11-17"
+  - url: https://docs.devin.ai/desktop/devin-desktop-faq.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.devin.ai/desktop/getting-started.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.devin.ai/desktop/models.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.devin.ai/desktop/devin-local/permissions.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.devin.ai/windsurf/plugins/getting-started.md
+    type: docs
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-11-17'
     type: pricing
@@ -184,7 +250,9 @@ changelog:
     type: update
     summary: 推出 SWE-1.5 自研 Agent 模型，速度和代码能力双提升
     summary_en: Launched SWE-1.5 proprietary Agent model, improving both speed and code quality
-last_full_review: '2026-10-16'
-next_review_due: '2026-11-15'
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
-confidence: high
+confidence: medium

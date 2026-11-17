@@ -4,35 +4,63 @@ type: ide
 logo: /images/antigravity.png
 url: https://antigravity.google/
 repo: null
-current_version: 1.22.2
-version_tracked_at: '2026-04-19'
+current_version: 2.7.0 (standalone IDE)
+
+version_tracked_at: "2026-11-17"
+
 pricing:
   model: freemium
   currency: USD
   plans:
     - name: Individual
       price: 0
-      limits: 多种 Agent 模型，无限 Tab 补全与 Command 请求，基础的每周速率限制
-      limits_en: A variety of agent models, unlimited Tab completions and Command requests, basic weekly rate limits
-    - name: Google AI Pro
-      price: null
+      limits: 基础每周 Agent 配额；当前免费模型包括 Gemini3.8Flash；不再承诺所有模型/Tab/Command无限
+      limits_en: >-
+        Baseline weekly agent quota, currently including Gemini3.8Flash; no blanket
+        unlimited-model/Tab/Command promise
+    - name: Google AI Pro (US)
+      price: 19.99
       period: month
-      limits: 更高速率限制与灵活 AI credit 池；antigravity.google/pricing 未标注美元价格。首页写明 Gemini 4 Argon 面向 Google AI Pro 与 Ultra
-      limits_en: Higher rate limits and a flexible AI credit pool; antigravity.google/pricing does not list a dollar price. The homepage says Gemini 4 Argon is for Google AI Pro and Ultra
-    - name: Google AI Ultra
-      price: null
+      limits: 美国公开月价；更高5小时/周配额，可选AI credits超额；trial与非trial模型权限不同
+      limits_en: >-
+        Published US monthly price; higher5-hour/weekly limits, optional AI-credit overages; trial/nontrial
+        model access differs
+    - name: Google AI Ultra 5x (US)
+      price: 99.99
       period: month
-      limits: 比 Pro 更高的速率限制与灵活 AI credit 池；定价页未标注美元价格
-      limits_en: Higher rate limits than Pro and a flexible AI credit pool; the pricing page does not list a dollar price
+      limits: 美国公开月价；相对Pro更高用量，非无限；以地区/账号权益为准
+      limits_en: Published US monthly price; higher usage versusPro, not unlimited; regional/account entitlements apply
+    - name: Google AI Ultra 20x (US)
+      price: 199.99
+      period: month
+      limits: 美国公开月价；最高Agent速率/周配额；地区、年龄、账号及模型条件适用
+      limits_en: >-
+        Published US monthly price; highest agent rate/weekly allowance; region/age/account/model conditions
+        apply
     - name: Gemini Enterprise
       price: 30
       period: month
       per_user: true
-      limits: Google Cloud 客户可用 Antigravity App、CLI 与 IDE 扩展。Standard/Plus 起价 $30/席/月；另有 $0 席位费的按量方案。花费上限与集中管理
-      limits_en: Google Cloud customers can use the Antigravity App, CLI, and IDE extensions. Standard/Plus starts at $30/seat/month; a pay-as-you-go plan has a $0 seat fee. Spend caps and centralized admin controls
-  price_updated_at: '2026-10-16'
-  note: 2026-10-16 核对 https://antigravity.google/pricing。产品标为 Generally Available。个人版 $0/月。Google AI Pro 与 Ultra 的美元价格在该页没有写出，旧记录里的 $20 与 $249.99 不能再当作当前价格。监控脚本检查的 https://antigravity.dev 现在是 nginx 默认页，不是产品站。$25/2,500 credits 与「每天约 20 次」也没有出现在当前定价页。
-  note_en: 'Verified 2026-10-16 at https://antigravity.google/pricing. The product is marked Generally Available. Individual is $0/month. Dollar prices for Google AI Pro and Ultra are not on that page, so the previously recorded $20 and $249.99 are not current prices. https://antigravity.dev, which the monitor checks, is now a default nginx page rather than the product site. The $25/2,500 credits pack and the ~20 requests/day figure are also absent from the current pricing page.'
+      limits: Standard/Plus起价$30/席/月；另有$0席位费按用量方案（不是免费推理）；合作方模型管理员opt-in且按token计费
+      limits_en: >-
+        Standard/Plus from$30/seat/month; separate$0-seat PAYG option is not free inference; partner models
+        require admin opt-in and token billing
+  price_updated_at: "2026-11-17"
+  note: >-
+    2026-11-17 全面复核 pricing、product、downloads、terms 和
+    Google美国订阅页；USD价格为美国公开报价，不推断中国账号/支付资格，也不把日本站JPY价格换算。现有网页产品分别为 App2.32.1、CLI1.5.9、Standalone
+    IDE2.7.0及各IDE扩展，版本不可混用。重要：官网计划说明
+    Claude4.6/GPT-OSS120b将于2026-11-18移除（未列时区）；模型清单不再当作长期保证。付费/试用、个人/Workspace/Enterprise资格不同；企业合作方模型另按token计费。条款允许记录交互用于改进/机器学习且员工/承包商可查看；可改设置，但关闭Telemetry仍会为服务、安全和反馈处理数据，非完全本地/无条件零保留。
+  note_en: >-
+    Full pricing/product/download/terms/US-Google-subscription review2026-11-17. USD amounts are published US
+    quotes, not China account/payment eligibility or JPY conversions. Separate products are
+    App2.32.1,CLI1.5.9,standalone IDE2.7.0 and IDE extensions; versions are not interchangeable. Plan notes
+    remove Claude4.6/GPT-OSS120b on2026-11-18 (zone unspecified), not permanent availability.
+    Paid/trial/personal/Workspace/Enterprise eligibility differs; enterprise partner models bill separately by
+    token. Terms permit interaction use for improvement/ML and employee/contractor review. Settings can change
+    this preference, but Telemetry off still permits service/safety/feedback processing, not
+    local-only/unconditional zero retention.
+
 scores:
   coding_ability: 9
   cost_efficiency: 9
@@ -49,60 +77,83 @@ features:
   artifacts: true
   linux_sandbox: true
   agents_md_support: true
-  context_window: 超长上下文（Gemini 3 Pro 2M token）
+  context_window: 依模型、套餐和界面；不沿用未核实的Gemini3 Pro2M统一上限
   supported_models:
-    - Gemini 4 Argon
+    - Gemini 4 Carbon (plan/account-dependent)
+    - Gemini 4 Argon (plan/account-dependent)
+    - Gemini 4 Hydrogen (plan/account-dependent)
     - Gemini 3.8 Flash
-    - Gemini 3 Pro
-    - Gemini 3 Flash
-    - Claude Sonnet 4.5
-    - Claude Sonnet 4.5 Thinking
-    - Claude Opus 4.5 Thinking
-    - GPT-OSS 120B
-  ide_base: VS Code Fork
+    - Claude Sonnet 5.5 Thinking (paid/nontrial conditions)
+    - Claude Opus 5.5 Thinking (paid/nontrial conditions)
+  ide_base: Antigravity standalone IDE (VS Code-based); App/CLI/extensions are separate surfaces
   supported_os:
     - macOS
     - Windows
     - Linux
-  jetbrains_support: false
+  jetbrains_support: true
   git_integration: true
+
 best_for:
-  - 想先用 $0 个人版体验 Agent IDE 的开发者
-  - 已有 Google AI Pro / Ultra，需要 Gemini 4 Argon 的用户
-  - 已在 Google 生态（GCP、Firebase）的开发者
+  - 希望选择独立IDE、CLI或现有编辑器扩展并管理Agent权限的开发者
+  - 能审查生成结果、模型/地区资格与额外AI credit费用的团队
+
 best_for_en:
-  - Developers who want to start on the $0 Individual plan
-  - Google AI Pro or Ultra subscribers who want Gemini 4 Argon
-  - Developers already in the Google ecosystem (GCP, Firebase)
+  - Developers choosing a standalone IDE/CLI/editor extension while managing agent permissions
+  - Teams reviewing outputs, model/region eligibility and additional AI-credit spending
+
 not_for:
-  - 国内网络用户（Google 服务被屏蔽）
-  - 需要在产品定价页上看到 Google AI Pro / Ultra 明确美元价格的用户
+  - 在未核对交互收集偏好/条款前提交机密代码的环境
+  - 要求所有地区、trial及免费账号都能使用所有旗舰模型的工作流
+  - 将Agent自主行为或厂商技能当作生产安全/正确性保证的部署
+
 not_for_en:
-  - Users in China (Google services are blocked)
-  - Users who need a published dollar price for Google AI Pro or Ultra on the product pricing page
+  - Submitting confidential code without reviewing interaction collection preferences/terms
+  - Workflows expecting all flagship models on every region/trial/free account
+  - Deployments treating autonomous agent/vendor skills as production safety/correctness guarantees
+
 quick_start:
-  - 访问 antigravity.google 下载桌面版（macOS / Windows / Linux；页面还列出 Googlebook）
-  - 用 Google 账号登录。个人版 $0/月，含基础每周速率限制
-  - 需要更高限额时查看 Google AI Pro / Ultra；组织通过 Google Cloud 的 Gemini Enterprise 开通
-  - 打开项目，通过 Agent 面板开始对话和代码生成
+  - 在官方 downloads 选择正确的App/CLI/Standalone IDE/编辑器扩展；当前Standalone IDE2.7.0
+  - 按所选平台安装并核实个人/组织账号、地区与付费/试用资格
+  - 先核对交互收集和Telemetry设置、工具/终端/浏览器权限，用非敏感小任务审查diff与测试
+  - 核实模型退役日期和额外credits/token账单后再扩展工作流；不保证全部界面同功能
+
 quick_start_en:
-  - Download the desktop app from antigravity.google (macOS, Windows, Linux; the page also lists Googlebook)
-  - Sign in with a Google account. Individual is $0/month with basic weekly rate limits
-  - For higher limits, see Google AI Pro or Ultra; organizations enable it through Gemini Enterprise on Google Cloud
-  - Open a project and start agent chat and code generation from the agent panel
-china_note: Google 服务在中国大陆被屏蔽，需要代理才能访问；暂无国内镜像版本
-china_note_en: Google services are blocked in mainland China; a proxy is required; no domestic mirror available
+  - Choose the correct App/CLI/standalone IDE/editor extension from official downloads; standalone IDE is2.7.0
+  - Install for the platform and verify personal/organization, region and paid/trial eligibility
+  - >-
+    Review interaction/Telemetry preferences and tool/terminal/browser permissions, then inspect diffs/tests
+    on a small nonsensitive task
+  - >-
+    Check model retirement dates and extra credit/token bills before expanding; not identical features on
+    every surface
+
+china_note: 本次未验证中国大陆网络、账号或支付。美国USD报价仅供对应地区比较；个人Google AI Pro/Ultra与Workspace/Google Cloud企业资格不同。
+
+china_note_en: >-
+  Mainland network/account/payment were not tested. US USD quotes apply to that region; consumer AI Pro/Ultra
+  and Workspace/Google Cloud eligibility differ.
+
 plans_using_this: []
 data_sources:
   - url: https://antigravity.google/pricing
     type: pricing
-    last_checked: '2026-10-16'
+    last_checked: "2026-11-17"
   - url: https://antigravity.google/
     type: product
-    last_checked: '2026-10-16'
+    last_checked: "2026-11-17"
   - url: https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/
     type: product
-    last_checked: '2026-10-13'
+    last_checked: "2026-10-13"
+  - url: https://antigravity.google/download
+    type: release
+    last_checked: "2026-11-17"
+  - url: https://antigravity.google/terms
+    type: privacy
+    last_checked: "2026-11-17"
+  - url: https://gemini.google/us/subscriptions/
+    type: pricing
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-10-16'
     type: pricing
@@ -132,7 +183,9 @@ changelog:
     type: launch
     summary: Google Antigravity 公开预览发布，随 Gemini 3 同期推出，VS Code Fork，免费支持多顶级模型
     summary_en: Google Antigravity public preview launched alongside Gemini 3 — VS Code Fork, free access to multiple top-tier models
-last_full_review: '2026-10-16'
-next_review_due: '2026-11-15'
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: medium

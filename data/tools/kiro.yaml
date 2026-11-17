@@ -4,8 +4,10 @@ type: ide
 logo: /images/kiro.png
 url: https://kiro.dev
 repo: https://github.com/kirodotdev/Kiro
-current_version: GA
-version_tracked_at: '2026-06-06'
+current_version: 1.4.154 (IDE)
+
+version_tracked_at: "2026-11-17"
+
 pricing:
   model: subscription
   currency: USD
@@ -42,11 +44,48 @@ pricing:
       price: 20
       period: month
       per_user: true
-      limits: 2 席起。$20/席/月，每席每月 500 included credits，池内共享并按账单周期按比例计入；未用完的 included credits 不结转。加购 $0.04/credit，加购额度购买后 12 个月过期。这是新 Enterprise 客户的默认且唯一模型；已有 Enterprise 可以选择加入，也可以继续使用 Pro、Pro+、Pro Max 或 Power
-      limits_en: Teams of 2 or more. $20/seat/month, 500 included credits per seat each month, pooled and prorated to the billing cycle; unused included credits do not roll over. Add-on credits are $0.04 each and expire 12 months after purchase. This is the default and only model for new Enterprise customers; existing Enterprise customers can opt in or stay on Pro, Pro+, Pro Max, or Power
-  price_updated_at: '2026-11-17'
-  note: 2026-11-17 核对 https://kiro.dev/pricing/ 与 https://kiro.dev/students/。个人档价格和 credits 未变，数字来自页面 JSON-LD：Free 50、Pro $20/1,000、Pro+ $40/2,000、Pro Max $100/5,000、Power $200/10,000。加购仍为 $0.04/credit。未用完的 included credits 不结转。第一次从 Free 升到 Pro 时，当月剩余时间免费，另有 500 trial credits，12 个月内可用；费用和 credits 按秒比例计算，trial credits 在套餐 credits 用完后使用，升级需要信用卡。若一开始就买更高档，免费的 Pro 月仍算，只付差额。2026-11-01 之前升级的人保留 $20 折扣和未用完的 credits。定价页已不再把 $20 订阅抵扣或「500 bonus credits、30 天有效」写成当前优惠。团队 credit pooling 面向 2 席及以上，也是新 Enterprise 的默认且唯一模型。FAQ 写明 credit pooling 不使用 overage；仍停在 Pro、Pro+、Pro Max 或 Power 的已有 Enterprise 可以继续使用 overage。学生计划仍有效：符合条件的高校学生一年内每月 1,000 credits。
-  note_en: 'Verified 2026-11-17 at https://kiro.dev/pricing/ and https://kiro.dev/students/. Individual prices and credit amounts are unchanged, taken from the page JSON-LD: Free 50, Pro $20/1,000, Pro+ $40/2,000, Pro Max $100/5,000, and Power $200/10,000. Add-on credits are still $0.04 each. Unused included credits do not roll over. The first upgrade from Free to Pro makes the rest of that month free and adds 500 trial credits usable within 12 months. Fees and credits are prorated, trial credits are used after plan credits, and a card is required. Starting on a higher paid plan still includes the free Pro month; you pay only the difference. People who upgraded before November 1 keep the $20 discount and unused credits. The pricing page no longer lists a $20 subscription credit, or 500 bonus credits valid for 30 days, as the current offer. Credit pooling is for teams of 2 or more and is the default and only model for new Enterprise customers. The FAQ says credit pooling does not use overages, and existing Enterprise customers who stay on Pro, Pro+, Pro Max, or Power can keep using overages. Students remains valid: eligible university students get 1,000 credits/month free for one year.'
+      limits: >-
+        2 席起。$20/席/月，每席每月 500 included credits，池内共享并按账单周期按比例计入；未用完的 included credits 不结转。加购
+        $0.04/credit，加购额度购买后 12 个月过期。这是新 Enterprise 客户的默认且唯一模型；已有 Enterprise 可以选择加入，也可以继续使用 Pro、Pro+、Pro Max 或
+        Power
+      limits_en: >-
+        Teams of 2 or more. $20/seat/month, 500 included credits per seat each month, pooled and prorated to
+        the billing cycle; unused included credits do not roll over. Add-on credits are $0.04 each and expire
+        12 months after purchase. This is the default and only model for new Enterprise customers; existing
+        Enterprise customers can opt in or stay on Pro, Pro+, Pro Max, or Power
+  price_updated_at: "2026-11-17"
+  note: >-
+    2026-11-17 核对 https://kiro.dev/pricing/ 与 https://kiro.dev/students/。个人档价格和 credits 未变，数字来自页面 JSON-LD：Free
+    50、Pro $20/1,000、Pro+ $40/2,000、Pro Max $100/5,000、Power $200/10,000。加购仍为 $0.04/credit。未用完的 included
+    credits 不结转。第一次从 Free 升到 Pro 时，当月剩余时间免费，另有 500 trial credits，12 个月内可用；费用和 credits 按秒比例计算，trial credits 在套餐
+    credits 用完后使用，升级需要信用卡。若一开始就买更高档，免费的 Pro 月仍算，只付差额。2026-11-01 之前升级的人保留 $20 折扣和未用完的 credits。定价页已不再把 $20
+    订阅抵扣或「500 bonus credits、30 天有效」写成当前优惠。团队 credit pooling 面向 2 席及以上，也是新 Enterprise 的默认且唯一模型。FAQ 写明 credit
+    pooling 不使用 overage；仍停在 Pro、Pro+、Pro Max 或 Power 的已有 Enterprise 可以继续使用 overage。学生计划仍有效：符合条件的高校学生一年内每月
+    1,000 credits。 2026-11-17 完整文档复核：公开下载分别为 IDE1.4.154、CLI3.4.0、Crew0.12.2，不混用版本。个人
+    Free/付费订阅默认可收集内容用于服务改进/训练，IDE 中 telemetry 与 content collection 需分别退出；Enterprise
+    不用于此改进，但仍有滥用检测保留例外（Free最多60天、GPT被标记流量最多30天、Fable5.1全流量最多30天）。Supervised
+    是事后变更审查工作流，不是沙箱；工具执行时已写盘，shell/网络/读取另有权限边界。Auto 可路由到管理员模型 allowlist 之外的可用Active模型；需要严格模型限制时应禁用Auto并指定批准模型。
+  note_en: >-
+    Verified 2026-11-17 at https://kiro.dev/pricing/ and https://kiro.dev/students/. Individual prices and
+    credit amounts are unchanged, taken from the page JSON-LD: Free 50, Pro $20/1,000, Pro+ $40/2,000, Pro Max
+    $100/5,000, and Power $200/10,000. Add-on credits are still $0.04 each. Unused included credits do not
+    roll over. The first upgrade from Free to Pro makes the rest of that month free and adds 500 trial credits
+    usable within 12 months. Fees and credits are prorated, trial credits are used after plan credits, and a
+    card is required. Starting on a higher paid plan still includes the free Pro month; you pay only the
+    difference. People who upgraded before November 1 keep the $20 discount and unused credits. The pricing
+    page no longer lists a $20 subscription credit, or 500 bonus credits valid for 30 days, as the current
+    offer. Credit pooling is for teams of 2 or more and is the default and only model for new Enterprise
+    customers. The FAQ says credit pooling does not use overages, and existing Enterprise customers who stay
+    on Pro, Pro+, Pro Max, or Power can keep using overages. Students remains valid: eligible university
+    students get 1,000 credits/month free for one year. Full documentary review2026-11-17: public downloads
+    separately list IDE1.4.154,CLI3.4.0,Crew0.12.2. Consumer Free/paid plans collect content for service
+    improvement/training by default; IDE telemetry/content opt-outs are separate. Enterprise excludes this
+    improvement use, but abuse-retention exceptions remain (Free up to60days,GPT flagged traffic up
+    to30days,Fable5.1 all traffic up to30days). Supervised is a post-change review workflow, not sandboxing;
+    tools already write to disk and shell/network/read boundaries differ. Auto can route to available Active
+    models outside the administrator model allowlist; strict model restrictions require blocking Auto and
+    selecting an approved model.
+
 scores:
   coding_ability: 8.5
   cost_efficiency: 6
@@ -65,7 +104,7 @@ features:
   autonomous_agent: true
   checkpointing: true
   kiro_cli: true
-  context_window: 标准上下文窗口
+  context_window: 依模型、账号与地理配置；部分模型1M，非所有界面统一
   supported_models:
     - Auto
     - Claude Opus 5
@@ -78,62 +117,108 @@ features:
     - GPT-5.6 Sol
     - GPT-5.6 Terra
     - GPT-5.6 Luna
-    - Grok 4.7
-    - Qwen3 Coder Next
-    - DeepSeek 3.2
+    - Grok 4.7 (Experimental)
+    - Qwen3 Coder Next (Experimental)
+    - DeepSeek 3.2 (Experimental)
     - MiniMax M2.5
-    - MiniMax M2.1
+    - MiniMax M2.1 (Experimental)
     - GLM-5
+    - Claude Sonnet 5.5
+    - Claude Haiku 5.5
+    - Claude Fable 5.1
+    - Kimi K3
   ide_base: VS Code Fork
   supported_os:
     - macOS
     - Windows
     - Linux
-  jetbrains_support: false
+  jetbrains_support: true
   git_integration: true
+  jetbrains_via_acp: true
+
 best_for:
-  - 注重原型到生产全流程的团队
-  - 需要规格驱动开发（Spec-driven）的项目
-  - 喜欢 AWS 生态的开发者
+  - 需要规格、steering、hooks 和多界面共享配置的团队
+  - 能够管理模型地理范围、credits、内容共享与 Agent 权限的用户
+
 best_for_en:
-  - Teams focused on the full prototype-to-production workflow
-  - Projects that need spec-driven development
-  - Developers in the AWS ecosystem
+  - Teams using specs/steering/hooks and shared multi-surface configuration
+  - Users able to manage model geographies, credits, content sharing and agent permissions
+
 not_for:
-  - 国内网络用户（无国内节点）
-  - 需要自定义模型 API 的用户
-  - JetBrains 用户
+  - 要求个人套餐默认不收集内容或无条件零保留的环境
+  - 把 Supervised 当作文件系统/网络隔离的部署
+  - 要求所有模型与 ACP 客户端都有相同功能/地区可用性的工作流
+
 not_for_en:
-  - Users in China (no China servers)
-  - Users who need custom model APIs
-  - JetBrains users
+  - >-
+    Environments requiring consumer plans to exclude content collection by default or unconditional zero
+    retention
+  - Deployments treating Supervised mode as filesystem/network isolation
+  - Workflows requiring identical model/ACP client features and regional access
+
 quick_start:
-  - 访问 kiro.dev，下载并安装 Kiro IDE（支持 macOS/Windows/Linux）
-  - 用 AWS 账号、社交登录或邮箱注册。第一次从 Free 升到 Pro：当月剩余时间免费，另有 500 trial credits，12 个月内可用，需要信用卡。费用和 credits 按剩余时间比例计算，trial credits 在套餐 credits 用完后使用。一开始就买更高档时，免费的 Pro 月仍算，只付差额。2026-11-01 前已升级的人保留原来的 $20 折扣
-  - 打开项目，在 Spec 面板用自然语言编写需求规格，Kiro 自动分析并生成实现方案
-  - 使用 Kiro CLI（kiro 命令）可在终端执行 Agent 任务
+  - 从官方 downloads 选择 IDE1.4.154 或另行选择 CLI/Crew，不混淆安装器与版本
+  - 按 authentication 文档选择 GitHub/Google/AWS Builder ID 或组织身份；核对账号/地区资格及现行 credits 条款
+  - 在 IDE 使用 specs/steering/hooks 前检查 telemetry/content sharing、受保护路径与 trusted commands
+  - JetBrains/Zed 可通过 ACP 集成，但以客户端协商能力为准；先审查小任务 diff/测试，不把 Supervised 视作沙箱
+
 quick_start_en:
-  - Visit kiro.dev, download and install Kiro IDE (macOS/Windows/Linux)
-  - 'Sign up with an AWS account, social login, or email. The first upgrade from Free to Pro makes the rest of that month free and adds 500 trial credits usable within 12 months; a card is required. Fees and credits are prorated, and trial credits are used after plan credits. Starting on a higher paid plan still includes the free Pro month; you pay only the difference. Upgrades before 2026-11-01 keep the previous $20 discount'
-  - Open your project, write requirements in the Spec panel in natural language; Kiro auto-generates implementation
-  - Use Kiro CLI (kiro command) to run Agent tasks in the terminal
+  - Choose IDE1.4.154 from official downloads or separately choose CLI/Crew; do not mix installers/versions
+  - >-
+    Use documented GitHub/Google/AWS Builder ID or organization authentication; check account/region
+    eligibility and current credits
+  - Before specs/steering/hooks, inspect telemetry/content sharing, protected paths and trusted commands
+  - >-
+    JetBrains/Zed can connect via ACP with negotiated client capabilities; review a small task’s diff/tests
+    and do not treat Supervised as sandboxing
+
 register_url: https://kiro.dev
-china_note: 需要代理访问，AWS 服务在中国大陆受限；无官方国内镜像；不支持自定义模型 API
-china_note_en: Requires a proxy; AWS services are restricted in mainland China; no official domestic mirror; custom model APIs not supported
+china_note: 本次未实测国内可达性；部分模型限定 US/EU 等 profile geography，地理推理、账号资格和内容条款需逐项核对。不再写“JetBrains 不支持”或保证所有后端可自定义。
+
+china_note_en: >-
+  Mainland reachability was not tested. Some models require US/EU or other profile geographies; verify
+  inference geography, eligibility and content terms. No longer claim no JetBrains support or arbitrary custom
+  providers everywhere.
+
 plans_using_this: []
 data_sources:
   - url: https://kiro.dev/pricing/
     type: pricing
-    last_checked: '2026-11-17'
+    last_checked: "2026-11-17"
   - url: https://kiro.dev/students/
     type: pricing
-    last_checked: '2026-11-17'
+    last_checked: "2026-11-17"
   - url: https://kiro.dev/blog/introducing-kiro/
     type: changelog
-    last_checked: '2026-10-13'
+    last_checked: "2026-10-13"
   - url: https://kiro.dev/docs/billing/
     type: documentation
-    last_checked: '2026-10-13'
+    last_checked: "2026-11-17"
+  - url: https://kiro.dev/downloads/
+    type: release
+    last_checked: "2026-11-17"
+  - url: https://kiro.dev/docs/
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://kiro.dev/docs/getting-started/installation/
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://kiro.dev/docs/getting-started/authentication/
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://kiro.dev/docs/models/available-models/
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://kiro.dev/docs/acp/
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://kiro.dev/docs/privacy-and-security/
+    type: privacy
+    last_checked: "2026-11-17"
+  - url: https://kiro.dev/docs/privacy-and-security/data-protection/
+    type: privacy
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-11-17'
     type: pricing
@@ -175,7 +260,9 @@ changelog:
     type: launch
     summary: Kiro 公开预览版发布，AWS 出品的 Spec 驱动 Agentic IDE
     summary_en: Kiro public preview launched — AWS-built Spec-driven Agentic IDE
-last_full_review: '2026-10-16'
-next_review_due: '2026-11-15'
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
-confidence: high
+confidence: medium
