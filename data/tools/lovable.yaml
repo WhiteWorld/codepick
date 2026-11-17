@@ -7,27 +7,43 @@ repo: null
 current_version: null
 version_tracked_at: '2026-03-04'
 pricing:
-  model: subscription
+  model: freemium
   currency: USD
   plans:
     - name: Free
       price: 0
-      limits: 每天 5 credits（每月最多 30 credits），无限公开项目
-      limits_en: 5 credits/day (max 30/month), unlimited public projects
+      limits: 5 build credits/天、最多30/月；另有每月20 Cloud和4 AI grants；支持私有 workspace 项目与无限成员
+      limits_en: >-
+        5 build credits/day capped30/month; monthly20 Cloud and4 AI grants; private workspace projects and
+        unlimited members
     - name: Pro
-      price: 25
-      period: month
-      per_user: true
-      limits: 每月 100 credits，私有项目，代码编辑，未用 credits 可滚存
-      limits_en: 100 credits/month, private projects, code editing, unused credits roll over
-    - name: Business
-      price: 50
-      period: month
+      price: null
       per_user: false
-      limits: 团队共享 100 credits，SSO，角色权限，数据训练退出
-      limits_en: Shared 100 credits, SSO, role-based access, training opt-out
-  price_updated_at: '2026-04-19'
-  note: 基于 credit 计费，Pro 每月 100 credits；Pro/Business 未用 credits 可滚存到下月
+      limits: 按 workspace credits 定价，月度 credits 从100起，非按席位；当前美元档价未从公开卡片核实
+      limits_en: >-
+        Workspace-credit pricing from100 monthly credits, not per-seat; current USD tier amount not verified
+        from public cards
+    - name: Business
+      price: null
+      per_user: false
+      limits: 月度 credits 从100起；SSO/角色权限、workspace 数据默认不训练；当前美元价待核实
+      limits_en: >-
+        From100 monthly credits; SSO/roles and default workspace training exclusion; current USD price pending
+        verification
+  price_updated_at: "2026-11-17"
+  note: >-
+    已核实 workspace 共享余额/无限成员，不是 Pro 每用户 $25；旧25/50美元无法从现行公开 cards 核实，暂不作为当前价。credits 同时覆盖构建、Cloud 与 app
+    AI，且不同套餐 credits 价值/消耗率可不同，不能统一换成美元或消息数。月付 credits 发放后2个月到期、年付在年周期结束后1个月到期，top-up12个月、每日额度当天到期。Free/Pro
+    自2026-09-09起内容可用于训练，免费账号级 opt-out 仅向后生效、不改变同事设置；Business/Enterprise 默认排除。完整复审日期保留等待价格核实。
+  note_en: >-
+    Verified workspace-shared balances/unlimited members, not Pro $25 per user. Current public cards did not
+    establish old$25/$50 amounts, so they are not current prices. Credits cover build/Cloud/app AI and can
+    differ in value/rate across plans, not uniformly dollars/messages. Monthly credits expire2 months after
+    issue, annual1 month after annual period ends, top-ups12 months, daily grants that day. Free/Pro content
+    may train models since2026-09-09; free account-level opt-out is forward-only and does not change
+    teammates’ settings; Business/Enterprise default exclusion. Full-review date retained pending price
+    verification.
+
 scores:
   coding_ability: 8.5
   cost_efficiency: 7.5
@@ -39,39 +55,55 @@ features:
   chat: true
   agent_mode: true
   multi_file_edit: true
-  mcp_support: false
+  mcp_support: true
   builder_mode: true
   ide_base: Web Builder
   supported_models:
-    - Claude Sonnet 4.5
-    - GPT-4o
+    - >-
+      Lovable-managed models and app AI gateway (availability varies; no pinned legacy GPT-4o/Sonnet4.5
+      guarantee)
   supported_os:
     - Web
+  git_integration: true
+  database_integration: true
+
 best_for:
-  - 独立开发者快速构建 SaaS 产品
-  - 需要 GitHub 版本控制的团队
+  - 需要 Git sync、全栈原型、Cloud 或自选 API/连接器并能审查安全的团队
+  - 能够管理 workspace 共享 credits 和训练偏好的协作用户
+
 best_for_en:
-  - Solo developers building SaaS quickly
-  - Teams needing GitHub version control
+  - Teams needing Git sync/full-stack prototypes/Cloud or external APIs while reviewing security
+  - Collaborators able to manage shared workspace credits and training preferences
+
 not_for:
-  - 需要复杂自定义后端逻辑的项目
-  - 不想依赖 Supabase 的团队
+  - 需要完全离线或无任何外部云处理的环境
+  - 无法审查数据库行级权限、连接器权限与生成代码的部署
+
 not_for_en:
-  - Projects needing complex custom backends
-  - Teams avoiding Supabase lock-in
+  - Environments requiring offline/no external cloud processing
+  - Deployments unable to review database row-level permissions, connector access and generated code
+
 quick_start:
-  - 访问 lovable.dev，用 GitHub 账号或邮箱注册（Free 套餐每月 30 条消息）
-  - 在输入框用自然语言描述你想构建的 Web 应用（如"构建一个带用户登录的 SaaS 定价页"）
-  - AI 自动生成完整 React 应用并实时预览，可继续对话迭代修改
-  - 连接 Supabase 后端，或将代码推送到 GitHub 后继续本地开发
+  - 注册并确认账号训练偏好、workspace 的共享 credits 和实际价格
+  - 描述应用并选择计划/构建模式，按需使用 Lovable Cloud 或连接自己的后端/API
+  - 检查数据库 RLS、认证、secrets、Quick/Deep scan；扫描不能代替专业安全审查
+  - 通过 GitHub/GitLab/Bitbucket sync 审查版本，再自行发布；Free 的 credits 不是每月固定30条消息
+
 quick_start_en:
-  - 'Visit lovable.dev and sign up with GitHub or email (Free plan: 30 messages/month)'
-  - Describe the web app you want in natural language (e.g. "build a SaaS pricing page with user login")
-  - AI generates a full React app with live preview; keep chatting to iterate and refine
-  - Connect Supabase backend, or push code to GitHub for continued local development
+  - Sign up and check training preferences, shared workspace credits and actual price
+  - Describe the app and choose plan/build mode; use Lovable Cloud or connect a backend/API as needed
+  - Inspect database RLS/auth/secrets and Quick/Deep scans; scans do not replace professional security review
+  - >-
+    Review versions through GitHub/GitLab/Bitbucket sync before publishing; Free credits are not30 fixed
+    messages/month
+
 register_url: https://lovable.dev
-china_note: 需要翻墙访问，国内暂无镜像；以全栈 React Web 应用生成为主，适合快速原型验证
-china_note_en: Requires VPN from China; no domestic mirror; focused on full-stack React web app generation, great for rapid prototyping
+china_note: 本次未验证中国大陆服务可达性或支付；云端构建、运行、第三方连接器与模型数据条款各自适用。
+
+china_note_en: >-
+  Mainland reachability/payment was not tested; cloud build/runtime, connectors and model data terms apply
+  separately.
+
 changelog:
   - date: '2026-05-10'
     type: announcement
@@ -88,11 +120,30 @@ changelog:
 data_sources:
   - url: https://lovable.dev/pricing
     type: pricing
-    last_checked: '2026-04-19'
+    last_checked: "2026-11-17"
   - url: https://docs.lovable.dev/introduction/plans-and-credits
     type: docs
-    last_checked: '2026-04-19'
+    last_checked: "2026-11-17"
+  - url: https://docs.lovable.dev/introduction/subscription-plans.md
+    type: pricing
+    last_checked: "2026-11-17"
+  - url: https://docs.lovable.dev/introduction/plans-and-credits.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.lovable.dev/features/business/data-opt-out.md
+    type: privacy
+    last_checked: "2026-11-17"
+  - url: https://docs.lovable.dev/integrations/introduction.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.lovable.dev/integrations/cloud.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.lovable.dev/features/security.md
+    type: docs
+    last_checked: "2026-11-17"
+
 last_full_review: '2026-10-13'
 next_review_due: '2026-11-11'
 review_frequency_days: 30
-confidence: high
+confidence: medium

@@ -7,9 +7,20 @@ repo: null
 current_version: null
 version_tracked_at: '2026-02-17'
 pricing:
-  model: subscription
+  model: freemium
   currency: USD
   plans:
+    - name: Free / limited desktop
+      price: 0
+      limits: 当前定价页列 GPT-6 Luna Standard 桌面访问，取决于 rollout；不是所有模型/所有界面都免费
+      limits_en: >-
+        Current pricing lists GPT-6 Luna Standard desktop access subject to rollout; not every model/surface
+        is free
+    - name: Go / limited desktop
+      price: 8
+      period: month
+      limits: 有限 GPT-6 Luna Standard 桌面访问，取决于 rollout
+      limits_en: Limited GPT-6 Luna Standard desktop access, subject to rollout
     - name: ChatGPT Plus
       price: 20
       period: month
@@ -30,9 +41,20 @@ pricing:
       period: month
       limits: 含 GPT-6 Astra Ultrafast（包含额度按 8 倍扣）
       limits_en: Includes GPT-6 Astra Ultrafast (included allowance consumed at 8x)
-  price_updated_at: '2026-10-13'
-  note: 2026-09-30 起 Pro 为 $100/$200/$500 三档（官网定价页 2026-10-13 复核结构一致）；Pro 相对 Plus 的倍数官方未公布，帮助页的 5x/20x 仅为报道口径；桌面 Voice 按 $0.05/分钟扣额度
-  note_en: Since 2026-09-30 Pro has three tiers $100/$200/$500 (structure re-verified 2026-10-13); official multipliers vs Plus unpublished (help-center 5x/20x is reported-only); desktop Voice billed at $0.05/min
+  price_updated_at: "2026-11-17"
+  note: >-
+    2026-11-17 复核官方 app/features/cloud/pricing：旧 Codex 文档已重定向到 ChatGPT Work/桌面文档，产品入口共享但桌面、CLI、IDE 与 Cloud
+    不是同一执行环境。保留 Codex 稳定 ID，不把所有 ChatGPT 功能自动当作所有 Codex 平台能力。Plus/Pro 现有 $20/$100/$200/$500 月费保留；Pro 无 5
+    小时上限不等于无限总额度。Free/Go 桌面 rollout 有限。模型旧 GPT-5.5 已于 2026-10-15 上海时间 03:00 在 ChatGPT 登录场景退役；当前模型表以
+    GPT-6.1/GPT-6 为主。生成、语音、额度追加与第三方服务费用需分别核对。
+  note_en: >-
+    Official app/features/cloud/pricing rechecked 2026-11-17: legacy Codex docs redirect to ChatGPT
+    Work/desktop docs; desktop, CLI, IDE and Cloud remain distinct execution surfaces. Preserve stable Codex
+    ID, not assume every ChatGPT feature exists on every Codex surface. Existing Plus/Pro $20/$100/$200/$500
+    monthly prices retained; no Pro 5-hour limit is not unlimited overall usage. Free/Go desktop rollout is
+    limited. GPT-5.5 retired for ChatGPT sign-in on 2026-10-15 at 03:00 Asia/Shanghai; current docs emphasize
+    GPT-6.1/GPT-6. Generation, voice, additional credits and third-party bills need separate checks.
+
 scores:
   coding_ability: 9
   cost_efficiency: 6
@@ -41,7 +63,7 @@ scores:
   privacy: 4
 features:
   code_completion: false
-  chat: false
+  chat: true
   agent_mode: true
   multi_file_edit: true
   mcp_support: true
@@ -58,57 +80,94 @@ features:
   memories: true
   plugins_marketplace: true
   artifact_viewer: true
-  remote_ssh: true
   context_window: 标准上下文窗口
   supported_models:
-    - GPT-5.5
-    - GPT-5.4
-    - GPT-5.3-Codex
-    - GPT-5.4 mini
-    - o3
-    - o4-mini
-  ide_base: macOS/Windows 原生 App + VS Code/Cursor/Windsurf 扩展
+    - GPT-6.1 Sol
+    - GPT-6.1 Terra
+    - GPT-6 Sol
+    - GPT-6 Luna
+    - Other plan/workspace-enabled models
+  ide_base: ChatGPT/Codex desktop + Codex Cloud; IDE extension is a separate surface
   supported_os:
-    - macOS（Apple Silicon）
+    - macOS (desktop requirements vary)
     - Windows
+    - Linux (current ChatGPT desktop docs)
+    - Web / Cloud
   jetbrains_support: false
   git_integration: true
+
 best_for:
-  - 已订阅 ChatGPT Plus/Pro 的用户（无额外成本）
-  - 需要并行处理多个独立任务的开发者（多 Agent 同时跑）
-  - 编写 PR、修复 Bug、添加测试等明确的异步任务
+  - 需要交互审查或并行云任务并能管理权限/credits 的开发者
+  - 为任务配置仓库、依赖、测试和网络边界的团队
+  - 愿意在桌面/CLI/IDE/Cloud 之间核对功能差异的用户
+
 best_for_en:
-  - Users already subscribed to ChatGPT Plus/Pro (no extra cost)
-  - Developers who need to run multiple independent tasks in parallel
-  - Well-defined async tasks like writing PRs, fixing bugs, adding tests
+  - Developers reviewing interactive work or parallel cloud tasks while managing permissions/credits
+  - Teams configuring repository, dependency, test and network boundaries
+  - Users willing to check feature differences across desktop/CLI/IDE/Cloud
+
 not_for:
-  - Linux 用户（暂不支持）
-  - 国内网络用户（OpenAI 被封锁）
-  - 需要实时交互逐步确认的工作流
+  - 需要不依赖任何云模型或托管执行环境的工作流
+  - 无法审查 Agent 权限、外部集成和生成代码的部署
+  - 把订阅包含访问当成无限免费执行或所有 OS 同功能的预算
+
 not_for_en:
-  - Linux users (not supported yet)
-  - Users in China (OpenAI is blocked)
-  - Workflows that require real-time interactive step-by-step confirmation
+  - Workflows requiring no cloud model/hosted execution dependency
+  - Deployments unable to review agent permissions, external integrations and generated code
+  - Budgets treating included access as unlimited free execution or identical capabilities on every OS
+
 quick_start:
-  - 订阅 ChatGPT Plus（$20/月）或 Pro（$200/月），Codex 包含在订阅内
-  - 访问 openai.com/codex 下载 macOS 或 Windows 客户端（需 Apple Silicon 或 Windows 设备）
-  - 连接 GitHub 仓库（授权 GitHub App），描述编程任务
-  - Codex 在云端沙箱中自动执行任务，完成后生成 PR 等待审查
+  - 在官方 app 文档选择桌面平台或使用 Web；先核实账号、套餐、rollout 与组织政策
+  - 登录后选择本机项目/文件夹或 Cloud 工作环境；不必把每个任务都当作云端执行
+  - 云端可连接获授权 GitHub 或 GitLab 仓库，按需配置依赖/网络并核对权限
+  - 分阶段描述任务并审查 diff、命令与测试；是否创建 PR/发布由工作流和用户决定，不保证自动安全完成
+
 quick_start_en:
-  - Subscribe to ChatGPT Plus ($20/mo) or Pro ($200/mo); Codex is included
-  - Download the macOS or Windows client from openai.com/codex (requires Apple Silicon or Windows)
-  - Connect your GitHub repo (authorize GitHub App), then describe your coding task
-  - Codex executes the task in a cloud sandbox and opens a PR for review when done
-china_note: 需要翻墙访问，OpenAI 账号在中国大陆受限；国内用户可考虑使用 Kimi Code 或 Claude Code + 方舟替代
-china_note_en: Requires VPN; OpenAI accounts are restricted in mainland China; China users may consider Kimi Code or Claude Code + Volcengine Ark as alternatives
+  - >-
+    Choose a desktop platform in official app docs or use web; verify account, plan, rollout and organization
+    policy
+  - Sign in and choose a local project/folder or Cloud environment; not every task is cloud execution
+  - Cloud can use authorized GitHub/GitLab repos; configure dependencies/network and inspect permissions
+  - >-
+    Describe focused stages and review diffs/commands/tests; PR/publishing depends on workflow and user
+    decisions, not guaranteed safe automatic delivery
+
+china_note: 本次未验证中国大陆网络/账号资格；遵守官方支持地区和服务条款。第三方兼容模型/工具不等同原版 OpenAI 或相同数据与功能保证。
+
+china_note_en: >-
+  Mainland network/account eligibility were not tested; follow official region/service rules. Compatible
+  third-party models/tools are not original OpenAI or identical data/feature guarantees.
+
 plans_using_this: []
 data_sources:
   - url: https://openai.com/codex/
     type: product
-    last_checked: '2026-03-27'
+    last_checked: "2026-11-17"
   - url: https://developers.openai.com/codex/pricing
     type: pricing
-    last_checked: '2026-03-27'
+    last_checked: "2026-03-27"
+  - url: https://developers.openai.com/codex/app/
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://developers.openai.com/codex/app/features
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://developers.openai.com/codex/cloud/
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://developers.openai.com/codex/pricing/
+    type: pricing
+    last_checked: "2026-11-17"
+  - url: https://developers.openai.com/codex/models/
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://developers.openai.com/codex/auth
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://developers.openai.com/codex/permission-modes
+    type: docs
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-10-13'
     type: 定价变更：Pro 改为 $100/$200/$500 三档，取消 5 小时窗口，仅 $500 含 Astra Ultrafast（旧 5x/20x 倍数口径已失效）
@@ -141,7 +200,9 @@ changelog:
     type: launch
     summary: Codex macOS 原生 App 发布，支持并行多 Agent、原生沙箱、Diff 审查，仅限 Apple Silicon
     summary_en: Codex macOS native App launched — parallel multi-Agent, native sandbox, Diff review; Apple Silicon only
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-11'
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: medium
