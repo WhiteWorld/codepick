@@ -21,6 +21,8 @@ const fresh = nextReviewDue ? isFresh(nextReviewDue) : true;
 
 const pricingPlans = (tool as any).pricing?.plans || [];
 const pricingCurrency = (tool as any).pricing?.currency || 'USD';
+const currencySymbol = pricingCurrency === 'CNY' ? '¥' : pricingCurrency === 'EUR' ? '€' : pricingCurrency === 'USD' ? '$' : `${pricingCurrency} `;
+const formatPlanPrice = (p: any) => `${currencySymbol}${p.price}${p.period === 'year' ? (lang === 'zh' ? '/年' : '/year') : p.period === 'month' ? t('price.perMonth', lang) : ''}`;
 
 // features 是对象 {key: value}，转为展示列表
 const rawFeatures = (tool as any).features || {};
@@ -157,10 +159,10 @@ if (lang === 'zh') {
     const freePlan = pricingPlans.find((p: any) => p.price === 0);
     const cheapest = pricingPlans.filter((p: any) => typeof p.price === 'number' && p.price > 0).sort((a: any, b: any) => a.price - b.price)[0];
     const priceSummary = freePlan
-      ? `${tool.name} 有免费版本${cheapest ? `，付费方案最低 ¥${cheapest.price}/${cheapest.period === 'month' ? '月' : '次'}` : ''}。`
+      ? `${tool.name} 有免费版本${cheapest ? `，所列付费方案从 ${formatPlanPrice(cheapest)} 起` : ''}。`
       : cheapest
-        ? `${tool.name} 付费方案起价 $${cheapest.price}${cheapest.period === 'month' ? '/月' : ''} (${pricingCurrency})。`
-        : `${tool.name} 为免费开源工具，模型费用自定。`;
+        ? `${tool.name} 所列付费方案从 ${formatPlanPrice(cheapest)} 起。`
+        : `${tool.name} 的价格未以数值列明，请查看官方定价及适用条件。`;
     faqEntries.push({ q: `${tool.name} 多少钱？`, a: priceSummary });
   }
   const bf = (tool as any).best_for;
@@ -173,10 +175,10 @@ if (lang === 'zh') {
     const freePlan = pricingPlans.find((p: any) => p.price === 0);
     const cheapest = pricingPlans.filter((p: any) => typeof p.price === 'number' && p.price > 0).sort((a: any, b: any) => a.price - b.price)[0];
     const priceSummary = freePlan
-      ? `${tool.name} has a free tier${cheapest ? `. Paid plans start at $${cheapest.price}/${cheapest.period === 'month' ? 'month' : 'use'}` : ''}.`
+      ? `${tool.name} has a free tier${cheapest ? `. Listed paid plans start at ${formatPlanPrice(cheapest)}` : ''}.`
       : cheapest
-        ? `${tool.name} paid plans start at $${cheapest.price}${cheapest.period === 'month' ? '/month' : ''} (${pricingCurrency}).`
-        : `${tool.name} is free and open-source; model API costs vary.`;
+        ? `${tool.name} listed paid plans start at ${formatPlanPrice(cheapest)}.`
+        : `${tool.name} prices are not listed numerically; consult official pricing and conditions.`;
     faqEntries.push({ q: `How much does ${tool.name} cost?`, a: priceSummary });
   }
   const bfe = (tool as any).best_for_en || (tool as any).best_for;
@@ -320,7 +322,7 @@ const allJsonLd = [softwareAppSchema, breadcrumbSchema, ...(faqSchema ? [faqSche
               {pricingPlans.map((p: any) => (
                 <tr>
                   <td class="font-medium">{p.name}</td>
-                  <td>{typeof p.price === 'number' ? `${pricingCurrency === 'CNY' ? '¥' : pricingCurrency === 'EUR' ? '€' : '$'}${p.price}${p.period === 'year' ? (lang === 'zh' ? '/年' : '/year') : t('price.perMonth', lang)}` : p.price}</td>
+                  <td>{typeof p.price === 'number' ? formatPlanPrice(p) : p.price}</td>
                   <td class="text-[var(--text-muted)]">{p.limits || '—'}</td>
                   <td>
                     {registerUrl && (
