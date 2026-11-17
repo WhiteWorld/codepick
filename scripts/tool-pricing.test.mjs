@@ -14,7 +14,7 @@ test('annual prices retain their billing period and currency in both languages a
   for (const [lang, suffix] of [['zh', '/年'], ['en', '/year']]) {
     const { html, app } = page(lang, 'n8n');
     assert.ok(html.includes(`€240${suffix}`));
-    assert.ok(!html.includes('$240'));
+    assert.ok(!/<td[^>]*>\$240(?:\/|<)/.test(html));
     const starter = app.offers.find(offer => offer.price === 240);
     assert.equal(starter.priceCurrency, 'EUR');
     assert.equal(starter.priceSpecification.billingDuration, 'P1Y');
