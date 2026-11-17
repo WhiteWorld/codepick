@@ -4,16 +4,32 @@ type: api
 logo: /images/ollama.png
 url: https://ollama.com
 repo: https://github.com/ollama/ollama
-current_version: v0.30.6
-version_tracked_at: '2026-06-06'
+current_version: v0.40.16
+
+version_tracked_at: "2026-11-17"
+
 pricing:
   model: free
-  currency: null
+  currency: USD
   plans:
-    - name: 完全免费
+    - name: Local inference
       price: 0
-      limits: 无限制（需本地 GPU，建议 8GB+ 显存）
-  price_updated_at: '2026-06-06'
+      limits: 本地运行无平台用量费；硬件、电力、存储和所选模型许可成本另计。不是所有云模型都免费。
+      limits_en: >-
+        No local-inference platform usage fee; hardware, electricity, storage and model-license costs
+        separate. Cloud models are not all free.
+  price_updated_at: "2026-11-17"
+  note: >-
+    本条以本地运行方式为主。Ollama 同时提供付费云推理：公开页列 PAYG、Pro $20/月或 $200/年、Max $100/月和 Team $500/月，使用 credits/模型 token
+    费率，不能把 $0 账户理解成免费云推理。纯本地模式须禁用云功能（OLLAMA_NO_CLOUD=1 或 server.json 的
+    disable_ollama_cloud），重启并确认日志。云模型/搜索、客户端外部工具和远端端点会改变数据外发边界。
+  note_en: >-
+    This entry focuses on local use. Ollama also sells cloud inference: the public page lists PAYG, Pro
+    $20/month or $200/year, Max $100/month and Team $500/month, with usage credits/model token rates. A $0
+    account is not free cloud inference. Disable cloud features (OLLAMA_NO_CLOUD=1 or server.json
+    disable_ollama_cloud), restart and verify logs for local-only mode. Cloud models/search, client tools and
+    remote endpoints change egress boundaries.
+
 scores:
   coding_ability: 5.5
   cost_efficiency: 10
@@ -22,32 +38,51 @@ scores:
   privacy: 10
 features:
   supported_models:
-    - Qwen3-Coder
-    - DeepSeek-Coder-V3
-    - CodeLlama
-    - StarCoder2
-    - Phi-4
-  local_only: true
-  api_protocol: OpenAI 兼容协议
+    - Qwen3-Coder (qwen3-coder:30b / :480b, subject to memory and model license)
+  local_only: false
+  api_protocol: OpenAI API 子集（非所有端点/语义完全兼容）
   supported_clients:
-    - Aider
-    - Cline
-    - Continue
-    - OpenCode
-  gpu_required: true
-  min_vram: 8GB
+    - OpenCode (official integration example)
+    - Other compatible clients require model/tool/endpoint configuration
+  gpu_required: false
+  min_vram: 无固定最低值；取决于模型、量化、上下文与 CPU/RAM 或 GPU/统一内存
+
 best_for:
-  - 隐私极度敏感，代码不出本机
-  - 有独显的开发者
-  - 完全免费方案
+  - 希望自行控制模型、硬件与数据路径并能禁用云功能的用户
+  - 可接受 CPU 推理速度或拥有受支持 GPU/统一内存的开发者
+  - 愿意承担本地硬件成本而避免平台逐 token 账单的工作流
+
 not_for:
-  - 没有 GPU 的用户
-  - 追求顶级编码能力的用户
-  - 大型项目（本地模型能力有限）
+  - 把本地 API 与云模型混用却仍要求无条件零外发保证的场景
+  - 内存不足或期望任意本地模型都有同一编码能力/速度的用户
+  - 未部署额外访问控制却把 API 暴露到公网的服务
+
 data_sources:
   - url: https://github.com/ollama/ollama/releases
     type: release
-    last_checked: '2026-06-06'
+    last_checked: "2026-11-17"
+  - url: https://github.com/ollama/ollama
+    type: official
+    last_checked: "2026-11-17"
+  - url: https://docs.ollama.com/faq.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.ollama.com/gpu.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.ollama.com/api/openai-compatibility.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.ollama.com/cloud/faq.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://ollama.com/pricing
+    type: pricing
+    last_checked: "2026-11-17"
+  - url: https://ollama.com/library/qwen3-coder
+    type: docs
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-06-05'
     type: feature
@@ -55,7 +90,21 @@ changelog:
   - date: '2026-01-15'
     type: model
     summary: 支持 Qwen3-Coder 模型
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-11'
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
-confidence: high
+confidence: medium
+
+
+best_for_en:
+  - Users able to control models, hardware and data paths and disable cloud features
+  - Developers accepting CPU inference speed or with supported GPU/unified memory
+  - Workflows accepting local hardware costs instead of platform per-token billing
+
+
+not_for_en:
+  - Mixing local APIs with cloud models while requiring unconditional zero egress
+  - Insufficient-memory systems or expecting uniform quality/speed across local models
+  - Publicly exposing the API without additional access controls

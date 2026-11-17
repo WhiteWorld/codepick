@@ -7,24 +7,32 @@ repo: https://github.com/google-gemini/gemini-cli
 current_version: v0.68.0
 version_tracked_at: '2026-11-17'
 pricing:
-  model: freemium
+  model: enterprise / usage-based
   currency: USD
   plans:
-    - name: Free（个人 Google 账号）
-      price: 0
-      limits: 60 请求/分钟，1000 请求/天；免费使用 Gemini 2.5 Pro
-      limits_en: 60 requests/min, 1000 requests/day; free access to Gemini 2.5 Pro
-    - name: 付费（AI Studio API Key）
+    - name: Code Assist Standard / Enterprise
       price: null
-      limits: 按 Gemini API 用量计费，无每日上限；适合重度用户
-      limits_en: Billed by Gemini API usage, no daily cap; for heavy users
-    - name: Vertex AI
+      limits: 当前 README 限定企业 Code Assist 工作流；价格与资格按所持组织许可核实
+      limits_en: >-
+        Current README scopes enterprise Code Assist workflows; verify pricing/eligibility against the
+        organization license
+    - name: Legacy paid API / Vertex keys
       price: null
-      limits: 企业级，支持 VPC、审计日志、区域部署
-      limits_en: Enterprise-grade, VPC support, audit logs, regional deployment
-  price_updated_at: '2026-02-17'
-  note: 免费层对大多数开发者完全够用（1000次/天）；使用个人 Google 账号登录即可，无需信用卡
-  note_en: Free tier is sufficient for most developers (1000/day); just log in with a personal Google account, no credit card required
+      limits: 按模型/平台计费且有配额；不是无每日限制或所有用户免费
+      limits_en: Model/platform billing and quotas apply; not unlimited daily usage or free access for everyone
+  price_updated_at: "2026-11-17"
+  note: >-
+    重要来源冲突（2026-11-17）：当前官方 README 和 plans 页横幅称免费个人及 Google AI Pro/Ultra 已于 2026-06-18 迁往 Antigravity
+    CLI，本项目保留企业 Code Assist/legacy paid API；但 quota 文档仍列 1000/1500/2000
+    次等旧个人档。移除把旧免费权益当现行承诺的展示，待厂商澄清资格/价格后再完整复审。保留 PR #158 已核实稳定版本 v0.68.0 与发布记录，不将 Antigravity 功能自动转移至此条。
+  note_en: >-
+    Important source conflict (2026-11-17): current official README and the plans banner say free
+    individual/Google AI Pro/Ultra access moved to Antigravity CLI on 2026-06-18, leaving enterprise Code
+    Assist/legacy paid API workflows; quota docs still list old 1000/1500/2000-request individual tiers.
+    Remove old free entitlements as a current promise; full review awaits clarified eligibility/pricing.
+    Preserve PR #158’s verified stable v0.68.0 and release history; do not transfer Antigravity features to
+    this entry.
+
 scores:
   coding_ability: 8.5
   cost_efficiency: 9.5
@@ -61,50 +69,78 @@ features:
   jetbrains_support: false
   git_integration: true
 best_for:
-  - 想零成本体验顶级模型的开发者
-  - 需要超长上下文（100 万 token）处理大型项目
-  - 已有 Google 账号、不想配置 API Key 的用户
+  - 已有 Code Assist Standard/Enterprise 许可、需维护 Gemini CLI 工作流的组织
+  - 能按组织条款配置 paid API/Vertex 并核实配额的用户
+
 best_for_en:
-  - Developers who want to experience top-tier models at zero cost
-  - Users who need ultra-long context (1M tokens) for large projects
-  - Anyone with a Google account who doesn't want to configure API Keys
+  - Organizations with Code Assist Standard/Enterprise maintaining Gemini CLI workflows
+  - Users able to configure paid API/Vertex under their organization’s terms and verify quotas
+
 not_for:
-  - 国内网络用户（Google 服务被屏蔽）
-  - 需要 IDE 内补全体验的用户
-  - 需要离线/本地模型的用户
+  - 寻找当前免费个人或 Google AI Pro/Ultra 终端入口的新用户（README 指向 Antigravity CLI）
+  - 需要 Gemini 4+ 调优或用此 harness 做模型性能基准的场景
+  - 要求完全离线或所有后端同一隐私条款的环境
+
 not_for_en:
-  - Users in China (Google services are blocked)
-  - Users who need in-IDE completion experience
-  - Users who need offline/local models
+  - New users seeking current free/Google AI Pro/Ultra terminal access (README points to Antigravity CLI)
+  - Gemini 4+-optimized workflows or model benchmarks using this harness
+  - Environments requiring offline operation or identical privacy terms across backends
+
 quick_start:
-  - 安装 Node.js 18+，运行：npm install -g @google/gemini-cli
-  - 在项目目录运行：gemini（首次运行会弹出浏览器引导 Google 账号授权）
-  - 授权完成后立即免费使用 Gemini 2.5 Pro，每天 1000 次请求，无需信用卡
-  - 重度用户可在 aistudio.google.com 获取 API Key 以突破免费额度限制
+  - 先阅读 README 的企业范围/迁移警告，确认当前 Code Assist 许可或 legacy paid API/Vertex 资格
+  - 官方安装文档当前要求 Node.js 20+；npm install -g @google/gemini-cli
+  - 按所选组织账号/API/Vertex 认证，在项目运行 gemini；组织账号可能需要 Google Cloud project
+  - 检查 /stats model 的用量与具体服务数据条款；不要把免费 API Key 当成无限付费用量
+
 quick_start_en:
-  - 'Install Node.js 18+, run: npm install -g @google/gemini-cli'
-  - 'Run: gemini in your project directory (first run opens browser for Google account auth)'
-  - After auth, use Gemini 2.5 Pro for free immediately — 1000 requests/day, no credit card needed
-  - Heavy users can get an API Key at aistudio.google.com to bypass free tier limits
-china_note: 需要 Google 账号，中国大陆访问 Google 服务需要代理；无国内镜像；国内用户推荐 Kimi Code 或 Trae CN 作为替代
-china_note_en: Requires Google account; accessing Google services from mainland China requires a proxy; no domestic mirror; China users can try Kimi Code or Trae CN as alternatives
+  - >-
+    Read README enterprise-scope/migration warnings and confirm Code Assist or legacy paid API/Vertex
+    eligibility
+  - Current installation docs require Node.js 20+; npm install -g @google/gemini-cli
+  - >-
+    Authenticate with the selected organization account/API/Vertex and run gemini; organization accounts may
+    need a Google Cloud project
+  - Check /stats model and backend-specific data terms; a free API key is not unlimited paid usage
+
+china_note: 本次未实测国内服务可达性；须符合 Google 服务支持地区与账号资格。免费/付费 API、Code Assist 和 Vertex 的数据条款不同，免费 API 数据可能用于产品改进。
+
+china_note_en: >-
+  Mainland reachability was not tested; Google service region/account eligibility rules apply. Free/paid API,
+  Code Assist and Vertex data terms differ; free API data may be used to improve products.
+
 plans_using_this: []
 data_sources:
   - url: https://github.com/google-gemini/gemini-cli/releases/tag/v0.68.0
     type: release
-    last_checked: '2026-11-17'
+    last_checked: "2026-11-17"
   - url: https://github.com/google-gemini/gemini-cli/releases
     type: release
-    last_checked: '2026-11-17'
+    last_checked: "2026-11-17"
   - url: https://www.npmjs.com/package/@google/gemini-cli
     type: release
-    last_checked: '2026-11-17'
+    last_checked: "2026-11-17"
   - url: https://github.com/google-gemini/gemini-cli/blob/main/docs/changelogs/latest.md
     type: changelog
-    last_checked: '2026-11-17'
+    last_checked: "2026-11-17"
   - url: https://ai.google.dev/gemini-api/docs/pricing
     type: pricing
-    last_checked: '2026-08-19'
+    last_checked: "2026-08-19"
+  - url: https://github.com/google-gemini/gemini-cli
+    type: official
+    last_checked: "2026-11-17"
+  - url: https://geminicli.com/plans/
+    type: pricing
+    last_checked: "2026-11-17"
+  - url: https://geminicli.com/docs/resources/quota-and-pricing.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://geminicli.com/llms.txt
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://geminicli.com/docs/get-started/authentication/
+    type: docs
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-11-10'
     type: release
@@ -193,4 +229,4 @@ changelog:
 last_full_review: '2026-10-16'
 next_review_due: '2026-11-15'
 review_frequency_days: 30
-confidence: high
+confidence: low
