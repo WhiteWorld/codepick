@@ -19,11 +19,12 @@ pricing:
   price_updated_at: "2026-11-17"
   note: >-
     MIT 开源本地桌面 App，无需额外订阅；Agent CLI / 模型费用另计。支持多种终端 Agent、隔离 worktree、可选 Docker 沙箱及 Wi-Fi / Tailscale
-    手机访问；不提供关机后持续运行的托管 Agent。
+    手机访问；不提供关机后持续运行的托管 Agent。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     MIT local desktop app with no extra subscription; agent CLI/model costs are separate. Supports multiple
     terminal agents, isolated worktrees, optional Docker sandboxes and phone access over Wi-Fi/Tailscale; not
-    a hosted agent that keeps running with the computer off.
+    a hosted agent that keeps running with the computer off. Historical editorial scores retained, not newly
+    measured or re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 8.5

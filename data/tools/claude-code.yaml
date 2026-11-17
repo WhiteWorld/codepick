@@ -50,13 +50,15 @@ pricing:
     2026-11-17 官方价格已是 Pro / Max / Ultra，旧 Max 20x 和固定请求数不再照抄。模型别名随提供商变化（Anthropic API 当前 Opus/Sonnet/Haiku
     5.5），上下文与可用性依模型/账号。Agent Teams 仍实验性且默认关闭、token 随队友增加；CLI computer-use 是 macOS 研究预览，仅 Pro/Max/Ultra，不适用
     Team/Enterprise。语音把录音流发往 Anthropic，仅 Claude.ai 登录可用，非本地转写。个人与商业条款的数据训练/保留不同，须检查设置；不承诺零外发。
+    历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Official pricing on 2026-11-17 is Pro/Max/Ultra; do not retain obsolete Max 20x or fixed request counts.
     Model aliases vary by provider (Anthropic API currently Opus/Sonnet/Haiku 5.5); context/access vary by
     model/account. Agent Teams remain experimental, off by default, with per-teammate token costs. CLI
     computer-use is macOS research preview for Pro/Max/Ultra, not Team/Enterprise. Voice streams audio to
     Anthropic and requires Claude.ai login, not local transcription. Consumer/commercial training and
-    retention terms differ; review settings, with no zero-egress guarantee.
+    retention terms differ; review settings, with no zero-egress guarantee. Historical editorial scores
+    retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 9.6

@@ -46,7 +46,7 @@ pricing:
     2026-11-17 复核官方 app/features/cloud/pricing：旧 Codex 文档已重定向到 ChatGPT Work/桌面文档，产品入口共享但桌面、CLI、IDE 与 Cloud
     不是同一执行环境。保留 Codex 稳定 ID，不把所有 ChatGPT 功能自动当作所有 Codex 平台能力。Plus/Pro 现有 $20/$100/$200/$500 月费保留；Pro 无 5
     小时上限不等于无限总额度。Free/Go 桌面 rollout 有限。模型旧 GPT-5.5 已于 2026-10-15 上海时间 03:00 在 ChatGPT 登录场景退役；当前模型表以
-    GPT-6.1/GPT-6 为主。生成、语音、额度追加与第三方服务费用需分别核对。
+    GPT-6.1/GPT-6 为主。生成、语音、额度追加与第三方服务费用需分别核对。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Official app/features/cloud/pricing rechecked 2026-11-17: legacy Codex docs redirect to ChatGPT
     Work/desktop docs; desktop, CLI, IDE and Cloud remain distinct execution surfaces. Preserve stable Codex
@@ -54,6 +54,8 @@ pricing:
     monthly prices retained; no Pro 5-hour limit is not unlimited overall usage. Free/Go desktop rollout is
     limited. GPT-5.5 retired for ChatGPT sign-in on 2026-10-15 at 03:00 Asia/Shanghai; current docs emphasize
     GPT-6.1/GPT-6. Generation, voice, additional credits and third-party bills need separate checks.
+    Historical editorial scores retained, not newly measured or re-rated; not a fresh performance or cost
+    benchmark.
 
 scores:
   coding_ability: 9

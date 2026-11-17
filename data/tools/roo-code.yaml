@@ -19,12 +19,13 @@ pricing:
   price_updated_at: "2026-11-17"
   note: >-
     官方 README 与文档明确：Roo Code 扩展于 2026-05-15 停运。此条仅保留 Apache-2.0 历史源码与 v3.54.0 发布信息，不代表托管 Cloud/Router
-    或新插件仍可用。官方提及 ZooCode 和 Cline 作为替代；其许可、功能、价格和安全性不继承到此条，也未在本次评测。
+    或新插件仍可用。官方提及 ZooCode 和 Cline 作为替代；其许可、功能、价格和安全性不继承到此条，也未在本次评测。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Official README/docs state the Roo Code extension shut down on 2026-05-15. This entry retains historical
     Apache-2.0 source and v3.54.0 release information, not availability of hosted Cloud/Router or a new
     install. Upstream mentions ZooCode and Cline as alternatives; their license, features, prices and security
-    are separate and not reviewed here.
+    are separate and not reviewed here. Historical editorial scores retained, not newly measured or re-rated;
+    not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 8.5

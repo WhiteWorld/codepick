@@ -18,11 +18,12 @@ pricing:
   price_updated_at: "2026-11-17"
   note: >-
     PyPI aider-chat 当前为 0.86.2；GitHub Releases 的 Latest 仍显示 v0.86.0，不据此回退已发布的 PyPI
-    版本。隐私取决于模型端点：云模型会接收上下文，使用本地模型也应检查可关闭的使用分析。
+    版本。隐私取决于模型端点：云模型会接收上下文，使用本地模型也应检查可关闭的使用分析。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     PyPI aider-chat is 0.86.2 while GitHub Releases Latest still shows v0.86.0; do not downgrade the published
     PyPI version based on that badge. Privacy depends on the endpoint: cloud models receive context; even
-    local-model users should review optional/disableable usage analytics.
+    local-model users should review optional/disableable usage analytics. Historical editorial scores
+    retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 7

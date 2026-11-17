@@ -65,6 +65,7 @@ pricing:
     Free/付费订阅默认可收集内容用于服务改进/训练，IDE 中 telemetry 与 content collection 需分别退出；Enterprise
     不用于此改进，但仍有滥用检测保留例外（Free最多60天、GPT被标记流量最多30天、Fable5.1全流量最多30天）。Supervised
     是事后变更审查工作流，不是沙箱；工具执行时已写盘，shell/网络/读取另有权限边界。Auto 可路由到管理员模型 allowlist 之外的可用Active模型；需要严格模型限制时应禁用Auto并指定批准模型。
+    历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Verified 2026-11-17 at https://kiro.dev/pricing/ and https://kiro.dev/students/. Individual prices and
     credit amounts are unchanged, taken from the page JSON-LD: Free 50, Pro $20/1,000, Pro+ $40/2,000, Pro Max
@@ -84,7 +85,8 @@ pricing:
     to30days,Fable5.1 all traffic up to30days). Supervised is a post-change review workflow, not sandboxing;
     tools already write to disk and shell/network/read boundaries differ. Auto can route to available Active
     models outside the administrator model allowlist; strict model restrictions require blocking Auto and
-    selecting an approved model.
+    selecting an approved model. Historical editorial scores retained, not newly measured or re-rated; not a
+    fresh performance or cost benchmark.
 
 scores:
   coding_ability: 8.5

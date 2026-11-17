@@ -16,12 +16,14 @@ pricing:
   note: >-
     Cloud 工作区需 Pro / Teams / Enterprise；具体订阅价格本次公开来源未给出，待确认。模型费用由自备订阅/API Key 承担；Cloud FAQ
     说暂不额外收计算用量费，但计划以后引入。不能再将整个产品标为完全免费。 本地会话数据留在设备并直接调用模型商；Cloud 会话输入/输出存储在 Conductor 服务器。
+    历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Cloud workspaces require Pro / Teams / Enterprise; exact subscription prices were not established from
     public sources in this review. Bring your own model subscription/API keys. Cloud FAQ says no additional
     compute usage fee for now, with usage pricing planned. The entire product must not be labeled completely
     free. Local session data stays on-device and goes directly to model providers; Cloud inputs/outputs are
-    stored on Conductor servers.
+    stored on Conductor servers. Historical editorial scores retained, not newly measured or re-rated; not a
+    fresh performance or cost benchmark.
 
 scores:
   coding_ability: 8.5

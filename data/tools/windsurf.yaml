@@ -57,7 +57,7 @@ pricing:
     Desktop，当前稳定3.13.3。虽然 pricing 页未写免费截止时间，模型文档注明 SWE-2 自助套餐免费至2026-11-30（原文未标时区，不含 Cloud），SWE-2 Flash
     免费至2026-12-05 02:00上海时间；不能永久外推。实时 Voice 通话的 Agent 模型另扣配额/ACU，不享受免费 SWE-2 优惠。迁移 FAQ 又称 Devin Cloud 为单独
     SKU，而 pricing 列 Pro 包含 Cloud，保留此官方范围差异，具体账号权益须核对，不能承诺无限 Cloud。JetBrains 旧插件维护模式、Cascade 正在弃用，应优先按官方 ACP
-    文档迁移，不承诺 Vim/所有插件同功能。
+    文档迁移，不承诺 Vim/所有插件同功能。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Verified 2026-11-17 at https://devin.ai/pricing (windsurf.com/pricing returns 308 to this page).
     Individual tiers are still Free $0, Pro $20, and Max $200. Paid allowances still refresh daily and weekly;
@@ -72,7 +72,8 @@ pricing:
     free SWE-2 promotions. Migration FAQ calls Cloud a separate SKU while pricing lists Cloud in Pro; disclose
     the scope difference and verify account entitlements, not unlimited Cloud. Legacy JetBrains plugin is
     maintenance-mode/Cascade deprecating; use official ACP migration guidance, not identical
-    Vim/plugin-feature promises.
+    Vim/plugin-feature promises. Historical editorial scores retained, not newly measured or re-rated; not a
+    fresh performance or cost benchmark.
 
 scores:
   coding_ability: 8.5

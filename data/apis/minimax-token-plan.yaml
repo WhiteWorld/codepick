@@ -22,6 +22,7 @@ pricing:
     Image仍可用，H3视频不属Token Plan；继续自动续费可保旧价/权益且不能在旧档之间升降，关闭后不可重开。但iOS App Store订阅例外：当期后不能续费，官方补偿积分有效1年。升级M
     Plan不可回退且历史额外权益不保留；Plus可转Go/Explore/Build、Max转Explore/Build、Ultra转Build，剩余期限折抵。新M
     Plan的金额本次未核实，不宣称完成该新产品的定价复核，也不把旧Starter¥29等当当前报价。服务端留存/训练或旧账号精确配额需按合同核实，不承诺零处理或把MPlan额度直接反推旧合同。历史评分不是现售推荐。
+    历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     This entry reviews retired-for-new-sale TokenPlan, not MPlan as the same current product. No universally
     purchasable new-user plan quote; existing charges/extras depend on the account renewal contract. Official
@@ -32,7 +33,8 @@ pricing:
     unusedtermvaluecredited. NewMPlanamounts were notverified and this is NOT a fullpricingreview of
     thatnewproduct; oldStarter¥29etc are notcurrentoffers. Verify retention/training/accountquotas
     undercontract; nozeroprocessingpromise orautomaticMPlanquotaequivalence. Historicalscores are notanew-sale
-    recommendation.
+    recommendation. Historical editorial scores retained, not newly measured or re-rated; not a fresh
+    performance or cost benchmark.
 
 scores:
   coding_ability: 7.8

@@ -19,7 +19,9 @@ pricing:
     - name: Plus
       price: 8
       period: month
-      limits: 与 Grok 共享的 AI 用量池（按周刷新）；含 Cursor、Grok Chat/Voice/Imagine/Build 与 Grok API；以自有模型为主；Plus 的 Composer2.5 权益存在官方页面差异，见说明
+      limits: >-
+        与 Grok 共享的 AI 用量池（按周刷新）；含 Cursor、Grok Chat/Voice/Imagine/Build 与 Grok API；以自有模型为主；Plus 的 Composer2.5
+        权益存在官方页面差异，见说明
       limits_en: >-
         Shared AI usage pool with Grok, refreshed weekly; includes Cursor, Grok Chat/Voice/Imagine/Build, and
         Grok API; own models; official pages differ on Plus Composer2.5 access, see note
@@ -63,7 +65,7 @@ pricing:
     2026-11-17 复核 pricing、模型/用量文档、changelog、公开下载与 data-use。保留 PR158 已核实全部个人/团队价格、共享周用量池及第三方 API
     标价另计规则；公开下载页现明确把3.30标为Latest，不再沿用未核实的3.5。Plus 的 pricing 描述为 Grok-only，但 models-and-pricing 文档同时列
     Composer2.5 为 Cursor 自有模型并进入共享池，实际权限以账号为准，不把该差异隐藏。Premium起第三方模型需预付余额、并非月费已包。Privacy Mode
-    关闭时内容可用于训练；开启也有滥用检测保留例外/非ZDR模型的显式选择，不能承诺所有请求无条件零保留。
+    关闭时内容可用于训练；开启也有滥用检测保留例外/非ZDR模型的显式选择，不能承诺所有请求无条件零保留。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Pricing/model-usage/changelog/public-download/data-use reviewed2026-11-17. Preserve all PR158 verified
     individual/team prices, shared weekly pool and separate third-party API list-price billing. Public
@@ -71,7 +73,8 @@ pricing:
     models-and-pricing also includes Composer2.5 as a Cursor model in the shared pool; verify account access
     rather than hide the difference. Third-party use from Premium draws prepaid balance, not included monthly
     usage. Privacy Mode off permits training; on still has abuse-retention exceptions/explicit non-ZDR model
-    selection, not unconditional zero retention.
+    selection, not unconditional zero retention. Historical editorial scores retained, not newly measured or
+    re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 9.5

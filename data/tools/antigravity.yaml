@@ -51,6 +51,7 @@ pricing:
     Google美国订阅页；USD价格为美国公开报价，不推断中国账号/支付资格，也不把日本站JPY价格换算。现有网页产品分别为 App2.32.1、CLI1.5.9、Standalone
     IDE2.7.0及各IDE扩展，版本不可混用。重要：官网计划说明
     Claude4.6/GPT-OSS120b将于2026-11-18移除（未列时区）；模型清单不再当作长期保证。付费/试用、个人/Workspace/Enterprise资格不同；企业合作方模型另按token计费。条款允许记录交互用于改进/机器学习且员工/承包商可查看；可改设置，但关闭Telemetry仍会为服务、安全和反馈处理数据，非完全本地/无条件零保留。
+    历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Full pricing/product/download/terms/US-Google-subscription review2026-11-17. USD amounts are published US
     quotes, not China account/payment eligibility or JPY conversions. Separate products are
@@ -59,7 +60,8 @@ pricing:
     Paid/trial/personal/Workspace/Enterprise eligibility differs; enterprise partner models bill separately by
     token. Terms permit interaction use for improvement/ML and employee/contractor review. Settings can change
     this preference, but Telemetry off still permits service/safety/feedback processing, not
-    local-only/unconditional zero retention.
+    local-only/unconditional zero retention. Historical editorial scores retained, not newly measured or
+    re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 9

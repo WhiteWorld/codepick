@@ -19,10 +19,12 @@ pricing:
   note: >-
     官网列 68 个 Agent、107 个 Skills、8 个部门；source-available（BSL 1.1），不是现行 Apache-2.0，按每个 release 四年后转换。托管版尚未开放：公布的
     Solo $49/月、Startup $149/月、Scale $499/月均为 Coming Soon，且不含 Anthropic API 用量。
+    历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Website lists 68 agents, 107 skills and 8 departments. Source-available under BSL 1.1, not currently
     Apache-2.0; each release converts after four years. Hosted Solo $49/mo, Startup $149/mo and Scale $499/mo
-    are Coming Soon, not available subscriptions, and exclude Anthropic API usage.
+    are Coming Soon, not available subscriptions, and exclude Anthropic API usage. Historical editorial scores
+    retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 7

@@ -15,12 +15,15 @@ pricing:
       limits: FAQ 确认有限资源免费档；具体资源额度未公开，LLM API 费用另计
       limits_en: FAQ confirms a limited-resource free tier; exact quotas not published; LLM API charges are separate
   price_updated_at: "2026-11-17"
-  note: 有付费订阅；公开 FAQ 未给出付费金额。BYOK 模型调用向模型商直接计费。内置沙箱工具自动批准，外部 MCP 服务工具经审批工作流；不能理解为每一个操作都人工审批。安全/隐私描述为厂商声明，非独立审计结论。
+  note: >-
+    有付费订阅；公开 FAQ 未给出付费金额。BYOK 模型调用向模型商直接计费。内置沙箱工具自动批准，外部 MCP 服务工具经审批工作流；不能理解为每一个操作都人工审批。安全/隐私描述为厂商声明，非独立审计结论。
+    历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Paid subscriptions are available but amounts are not stated in the public FAQ. BYOK model use is billed
     directly by model providers. Built-in sandbox tools are auto-approved; external MCP actions use approval
     workflows, not manual approval for every operation. Security/privacy descriptions are vendor claims, not
-    independent audit findings.
+    independent audit findings. Historical editorial scores retained, not newly measured or re-rated; not a
+    fresh performance or cost benchmark.
 
 scores:
   coding_ability: 7.5

@@ -40,12 +40,13 @@ pricing:
   price_updated_at: "2026-11-17"
   note: >-
     2026-11-17 复核官方定价、下载、功能和隐私页面。下载页为 0.9.979（发布日 2026-11-10）；月付/年付价格按 FAQ
-    分开记录，卡片仍把月费与年总额并列，购买前以结账页为准。本次未安装、未重新测量听写/Agent 效果，也未重新进行独立用户评测检索。
+    分开记录，卡片仍把月费与年总额并列，购买前以结账页为准。本次未安装、未重新测量听写/Agent 效果，也未重新进行独立用户评测检索。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Official pricing, download, features and privacy pages rechecked 2026-11-17. Download is 0.9.979 (release
     date 2026-11-10). Monthly/annual prices follow the FAQ; cards still mix monthly amounts with annual
     totals, so verify checkout. No installation, dictation/agent benchmark or renewed independent user-review
-    search was performed.
+    search was performed. Historical editorial scores retained, not newly measured or re-rated; not a fresh
+    performance or cost benchmark.
 
 scores:
   coding_ability: 5

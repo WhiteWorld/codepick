@@ -44,13 +44,15 @@ pricing:
   note: >-
     2026-11-17 复核：常规 Cloud Solo $29/月（400M tokens、1 repo），Pro $79/月（1.2B tokens、5 repos）；前 3 个合并 PR
     免费，额度用尽暂停新交付，不按 token 超额计费。页面另有名额受限的 founding 优惠，不能作为所有用户的固定价格；年付常规 $290/$790。AGPL-3.0 或厂商 SUL 1.0
-    双许可，按选择的许可履行义务。自托管无平台费，但 GitHub 和远端模型仍可能接收代码；Cloud 克隆授权仓库到厂商机器。
+    双许可，按选择的许可履行义务。自托管无平台费，但 GitHub 和远端模型仍可能接收代码；Cloud 克隆授权仓库到厂商机器。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Rechecked 2026-11-17: regular Cloud Solo $29/mo (400M tokens, 1 repo), Pro $79/mo (1.2B tokens, 5 repos);
     first 3 merged PRs free, exhausted allowances pause new deliveries with no per-token overage. Limited
     founding offers are not a guaranteed price for everyone; regular annual totals are $290/$790. Dual
     AGPL-3.0/vendor SUL 1.0 licensing requires following the chosen terms. Self-hosting has no platform fee,
     but GitHub/remote models may still receive code; Cloud clones authorized repos onto vendor machines.
+    Historical editorial scores retained, not newly measured or re-rated; not a fresh performance or cost
+    benchmark.
 
 scores:
   coding_ability: 5

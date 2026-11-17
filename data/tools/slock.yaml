@@ -27,11 +27,12 @@ pricing:
   price_updated_at: "2026-11-17"
   note: >-
     Slock 官网和应用现已迁移品牌为 Raft；保留 slock ID 避免破坏已有链接。免费与 Pro 均不含底层 AI 订阅/API；Enterprise 的私有部署、SSO 等标为 Coming
-    Soon。Agent 工作区和记忆位于自己的电脑，不等于所有团队聊天/文件均不经过云端。
+    Soon。Agent 工作区和记忆位于自己的电脑，不等于所有团队聊天/文件均不经过云端。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Slock website/app now use the Raft brand; the slock ID is retained for link stability. Free/Pro exclude
     underlying AI subscriptions/API costs. Enterprise private deployment and SSO are Coming Soon. Agent
-    workspaces/memory on your computer do not imply all team chat/files stay off the cloud.
+    workspaces/memory on your computer do not imply all team chat/files stay off the cloud. Historical
+    editorial scores retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 8

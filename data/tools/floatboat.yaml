@@ -15,11 +15,13 @@ pricing:
   price_updated_at: "2026-11-17"
   note: >-
     现为日历驱动的 Agent Workspace，提供内置模型、MCP 与 Combo / Workflow Store。定价页显示订阅计费和独立的 3,000 credits / $12.99
-    补充包（有效一年）；本次公开页面未呈现基础订阅档位价格，待确认，不能视为免费无限使用。
+    补充包（有效一年）；本次公开页面未呈现基础订阅档位价格，待确认，不能视为免费无限使用。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Now a calendar-driven agent workspace with built-in models, MCP and Combo/Workflow stores. Pricing shows
     subscriptions and a separate 3,000-credit $12.99 booster (valid one year); base subscription tier prices
     were not exposed in the public response and remain unconfirmed. Do not treat it as unlimited free use.
+    Historical editorial scores retained, not newly measured or re-rated; not a fresh performance or cost
+    benchmark.
 
 scores:
   coding_ability: 7

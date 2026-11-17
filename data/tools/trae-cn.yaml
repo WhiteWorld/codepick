@@ -57,6 +57,7 @@ pricing:
     仅内置模型，Max/高思考会增加费用。TraeWork/TraeCode 已合并为
     TRAE，Agent/IDE、桌面/Web/移动端的功能及存储边界不同。隐私模式关闭时，对话/片段/输出可用于训练；开启须登录，退出即关闭。索引会临时上传代码算向量，不能承诺完全本地/端到端加密/云端零处理。自动运行可绕过逐次确认并在沙箱外执行高风险命令；目录信任不是审批或沙箱替代。
     云会话与IDE索引不是同一存储边界：仓库、配置、上下文及对话会留存至主动删除会话，官方承诺该云端数据不用于训练。上下文压缩仅内置Agent，子智能体也须配置/授权工具，不能把上下文隔离视作系统沙箱。
+    历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     The old all-free/unlimited claim is false. Lite/Pro/Pro+/Ultra one31-day term ¥49/99/239/699; auto-renew
     every31days ¥45/89/219/629 (not calendar months; no first-term promotion quoted as standard). Membership
@@ -69,7 +70,8 @@ pricing:
     the sandbox without per-command approval; directory trust is not an approval/sandbox substitute. Cloud
     sessions differ from IDE indexing: repositories/config/context/chats remain until proactively deleted,
     with a vendor no-training commitment for that Cloud data. Context compaction is for built-inAgent;
-    subagents need configured tool permissions and context isolation is not an OS sandbox.
+    subagents need configured tool permissions and context isolation is not an OS sandbox. Historical
+    editorial scores retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 8

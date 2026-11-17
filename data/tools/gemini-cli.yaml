@@ -25,7 +25,7 @@ pricing:
     Enterprise Standard/Plus也不再自动包含；旧Code Assist按合同期限支持，年付可自动续至2027-01-31、月付至2027-12-31，旧Gemini
     Enterprise附带权益至2027-03-31（这些是续费/权益规则，不是统一停服日；官方未注明时区）。Code
     Assist仅Gemini3.x。旧FAQ正文标04-10，早于05-19公告；其个人免费/Pro/Ultra数字不作为现行承诺。具体旧合同费用与API模型费/限额分别核实，不引用失效的新购价或固定个人次数。保留PR158稳定v0.68.0及双语发布历史，不把Antigravity特性移植过来。隐私/训练由认证后端分别约束；关闭CLI统计不等于停止服务端处理。禁止把CodeAssist
-    OAuth凭证转给第三方工具调用底层服务，官方条款警告可封号。
+    OAuth凭证转给第三方工具调用底层服务，官方条款警告可封号。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     OfficialMay19retirement announcement says consumerFree/GoogleAIPro/Ultra requests stoppedJune18, moving
     toAntigravityCLI; paidGemini/VertexAPI and then-enterprise licenses continued. Active software releases do
@@ -38,7 +38,8 @@ pricing:
     existing contract charges and model-specificAPI fees/quotas separately.
     PreservePR158stablev0.68.0/bilingual release history, not Antigravity features. Privacy/training terms
     differ by auth backend; statistics opt-out is not no service processing. Official terms prohibit
-    third-party access to CodeAssist services using its OAuth(e.g.OpenClaw), with suspension risk.
+    third-party access to CodeAssist services using its OAuth(e.g.OpenClaw), with suspension risk. Historical
+    editorial scores retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 8.5

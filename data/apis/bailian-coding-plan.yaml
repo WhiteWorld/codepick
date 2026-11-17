@@ -22,6 +22,7 @@ pricing:
     旧版 Coding Plan Pro 常规 ¥200/月；官方文档当前列新客首月 ¥39.90，限量且以下单页为准，不是长期续费价。额度 6,000 次/5h、45,000 次/周、90,000
     次/月按模型调用次数而非用户提问扣除。Lite 已停新购及续费。需专属 sk-sp- Key 和 coding.dashscope Base URL，通用百炼 Key 不互通。仅可用于允许的交互式 AI
     工具，禁止脚本、应用后端或非交互批量 API。不可退款、不可共享账号；输入和生成内容会用于服务改进/模型优化。RAM 子账号可在主账号授权后订阅，不再是仅主账号。
+    历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Legacy Coding Plan Pro is normally ¥200/mo. Docs currently advertise a limited first month at ¥39.90 for
     new subscribers, subject to checkout, not a recurring price. Quotas of 6,000/5h, 45,000/week and
@@ -29,7 +30,8 @@ pricing:
     dedicated sk-sp- credentials and coding.dashscope endpoints, separate from standard Bailian credentials.
     Only permitted interactive AI-tool use; no scripts, app backends or noninteractive batch API calls. No
     refunds/account sharing; inputs and outputs may be used for service/model improvement. Authorized RAM
-    subaccounts can now subscribe.
+    subaccounts can now subscribe. Historical editorial scores retained, not newly measured or re-rated; not a
+    fresh performance or cost benchmark.
 
 scores:
   coding_ability: 8.5

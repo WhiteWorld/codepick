@@ -80,7 +80,7 @@ pricing:
     2026-11-17 复核官方 plans：Pro/Pro+/Max 月费与 1500/7000/20000 总 AI Credits 暂未变，弹性部分可调整；1 AI
     Credit=$0.01，不能等同请求数。Business/Enterprise 为每席19/39美元、组织池1900/3900 credits。新增 Copilot access：有 GHE Cloud
     许可席位费0，否则 Standalone $10/席，但两者均无赠送用量、从首次用量计费；同一企业不能混用两种账单模型，迁移自愿。补全/Next Edit 与 Agent/Chat/CLI
-    的计费不同；付费用量预算可产生额外账单。模型与功能按套餐、界面和组织策略变化，不给所有用户同一模型/128K 上下文保证。
+    的计费不同；付费用量预算可产生额外账单。模型与功能按套餐、界面和组织策略变化，不给所有用户同一模型/128K 上下文保证。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Official plans rechecked 2026-11-17: Pro/Pro+/Max prices and total1500/7000/20000 AI Credits unchanged for
     now; flex allotments may change.1 credit=$0.01, not one request. Business/Enterprise19/39USD per seat
@@ -88,7 +88,8 @@ pricing:
     Standalone $10/seat, but neither includes usage; billing starts from first use. An enterprise cannot mix
     the two billing models; transition is voluntary. Completion/Next Edit billing differs from Agent/Chat/CLI;
     paid-usage budgets can incur extra bills. Models/features depend on plan, surface and organization policy,
-    not uniform model/128K guarantees.
+    not uniform model/128K guarantees. Historical editorial scores retained, not newly measured or re-rated;
+    not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 8.2

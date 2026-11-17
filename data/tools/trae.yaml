@@ -69,6 +69,7 @@ pricing:
   note: >-
     国际官方完整计费文档补齐Lite$8/月或$80/年、Pro$20/$200、Pro+$60/$600、Ultra$200/$2000（年付为全年实扣）。Lite仅指定12地区；付费支持地区含香港/澳门，但未列中国大陆，不代表大陆可购买。旧Pro$10等只对符合连续续费保护的存量合同适用，旧价不等于原额度永久保留；新售不含旧首月$3/600次承诺。模型按token折成Dollar
     Usage，超额可启用On-Demand并按$3增量扣费，税另计。Free仅Auto，SOLO属付费档；新模型还取决于旧账号迁移状态。IDE隐私模式关闭时对话/代码片段/输出可训练，须登录才生效，退出即关闭；索引可临时上传代码算嵌入，不能称全本地。云会话另存仓库/上下文/对话直至主动删除，官方声明相应云数据不用于训练。Auto-Run可在沙箱外跳过逐次检查执行高风险命令；MCP授权和工具权限需单独审查。
+    历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Full international billing docs resolve Lite$8monthly/$80annually, Pro$20/$200, Pro+$60/$600,
     Ultra$200/$2000 (annual figures are actual totals). Lite is limited to12regions; paid availability
@@ -79,7 +80,8 @@ pricing:
     off, chats/snippets/outputs may train; it requires sign-in and deactivates on logout. Indexing may
     temporarily upload code, not all-local. Cloud sessions retain repositories/context/chats until proactively
     deleted, with vendor no-training commitment for thatCloud data. Auto-Run can skip per-command checks and
-    execute high-risk commands outside sandbox; inspect MCP grants/tool permissions separately.
+    execute high-risk commands outside sandbox; inspect MCP grants/tool permissions separately. Historical
+    editorial scores retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 8

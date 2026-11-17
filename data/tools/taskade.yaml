@@ -44,14 +44,15 @@ pricing:
   note: >-
     2026-11-17 公开页选中 Yearly，数字为实际年付总额，不是按月扣款。付费 credits 每月重置，团队共享；追加包和可选 auto top-up 可产生额外账单。BYOK 从 Pro
     起可用、Business 增加部分提供商；模型商另计费，Agent/EVE/automation 仍可能收 Taskade step fee，且日请求限制未消失。免费不再承诺固定月度 AI
-    额度。隐私页声明不作通用 AI/ML 训练，但仍有按所选功能向第三方传输，不是完全本地或零外发。
+    额度。隐私页声明不作通用 AI/ML 训练，但仍有按所选功能向第三方传输，不是完全本地或零外发。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Public page selected Yearly on 2026-11-17; numbers are actual annual totals, not monthly charges. Paid
     credits reset monthly and are shared; packs/optional auto top-up can add bills. BYOK starts on Pro, with
     more providers on Business; providers bill separately and Taskade agent/EVE/automation step fees and daily
     limits can still apply. Free has no promised monthly AI allowance. Privacy policy states no generalized
     AI/ML training but still permits feature-related third-party transfers, not local-only/zero-egress
-    operation.
+    operation. Historical editorial scores retained, not newly measured or re-rated; not a fresh performance
+    or cost benchmark.
 
 scores:
   coding_ability: 7.5

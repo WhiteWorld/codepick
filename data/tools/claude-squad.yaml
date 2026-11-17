@@ -16,10 +16,11 @@ pricing:
       limits: 无限制（自备 Claude Code / Codex / Aider 等底层 CLI）
       limits_en: Unlimited (bring your own Claude Code / Codex / Aider CLI)
   price_updated_at: "2026-11-17"
-  note: AGPL-3.0 开源；本质是 tmux 多 pane 管理器，把多个 Agent CLI 放在隔离的 git worktree 里并行跑
+  note: AGPL-3.0 开源；本质是 tmux 多 pane 管理器，把多个 Agent CLI 放在隔离的 git worktree 里并行跑 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     AGPL-3.0 open source; essentially a tmux multi-pane manager that runs multiple agent CLIs in parallel
-    isolated git worktrees
+    isolated git worktrees Historical editorial scores retained, not newly measured or re-rated; not a fresh
+    performance or cost benchmark.
 
 scores:
   coding_ability: 8.5

@@ -32,11 +32,13 @@ pricing:
   note: >-
     官网当前显示 EUR 年付价格，不将欧元标成美元，也不将年付等值当月付价。n8n 为 fair-code / source-available，Sustainable Use License 和
     Enterprise License 适用，不是无限制的 OSI 开源。云端免费试用不等于永久免费；Enterprise/Business 有额外商业范围。自托管并不阻止工作流向模型/SaaS 发送数据。
+    历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Current page shows annual EUR pricing, not USD or a month-to-month rate. n8n is fair-code/source-available
     under Sustainable Use and Enterprise licenses, not unrestricted OSI open source. Cloud free trial is not
     perpetual free hosting; Business/Enterprise have separate commercial scopes. Self-hosting does not stop
-    workflows sending data to models/SaaS.
+    workflows sending data to models/SaaS. Historical editorial scores retained, not newly measured or
+    re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 7.5

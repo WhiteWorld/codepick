@@ -39,13 +39,15 @@ pricing:
     团队版标准/高级/尊享坐席现为 ¥150/550/1298 每月，分别 25,000/100,000/250,000 Credits；单坐席绑定单成员/独立 Key，不可共享，额度不跨坐席共享。共享用量包
     ¥5,000/625,000 Credits，有效一个月。Credits 不等于
     token；用完套餐和共享包后阻断，不自动转按量。未用完额度不结转。仅北京地域；个人版与团队版独立计费，旧首购/多坐席折扣未在现行权益页确认，移除。
+    历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Team Standard/Premium/Enterprise seats are now ¥150/550/1298 per month for 25,000/100,000/250,000 Credits.
     Each seat is one member with a dedicated key; keys and seat quotas cannot be shared. A shared pack is
     ¥5,000/625,000 Credits, valid one month. Credits are not tokens. Exhausting all plan/shared credits blocks
     calls without automatic pay-as-you-go; unused credits do not roll over. Beijing region only;
     individual/team plans bill independently. Historical introductory/multi-seat discounts were not confirmed
-    in current entitlement docs and are removed.
+    in current entitlement docs and are removed. Historical editorial scores retained, not newly measured or
+    re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 8.5

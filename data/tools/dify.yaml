@@ -33,12 +33,13 @@ pricing:
   price_updated_at: "2026-11-17"
   note: >-
     页面默认显示年付，上述付费金额为年总价，不是月费；税费另计。Community 采用基于 Apache-2.0 且带附加条件的 Dify License，不是无条件
-    Apache-2.0，也不是自托管无限制。企业商业授权/多工作区/SSO 另议。模型 credits 用尽可自配 Key，模型商费用另计。
+    Apache-2.0，也不是自托管无限制。企业商业授权/多工作区/SSO 另议。模型 credits 用尽可自配 Key，模型商费用另计。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     The page defaults to annual billing; paid amounts above are annual totals, not monthly fees. Taxes are
     extra. Community uses the Dify License based on Apache-2.0 with additional conditions, not unmodified
     Apache-2.0 or unlimited self-hosting. Enterprise commercial licensing/multiple workspaces/SSO are
-    separate. After model credits run out, bring your own key and pay the provider.
+    separate. After model credits run out, bring your own key and pay the provider. Historical editorial
+    scores retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 7

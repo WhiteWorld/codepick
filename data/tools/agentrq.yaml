@@ -19,11 +19,12 @@ pricing:
   price_updated_at: "2026-11-17"
   note: >-
     服务端 AGPL-3.0-only / 商业双许可；机器守护进程及独立包保留 Apache-2.0。官网页脚仍写 Apache-2.0，与仓库有差异，以对应组件 LICENSE 为准。支持 Claude
-    Channels、ACP、工作区记忆和共享 Skills。
+    Channels、ACP、工作区记忆和共享 Skills。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Server is AGPL-3.0-only / commercially dual-licensed; daemon and separate packages retain Apache-2.0. The
     website footer still says Apache-2.0; check each component LICENSE. Supports Claude Channels, ACP,
-    workspace memory and shared skills.
+    workspace memory and shared skills. Historical editorial scores retained, not newly measured or re-rated;
+    not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 8

@@ -18,12 +18,13 @@ pricing:
   price_updated_at: "2026-11-17"
   note: >-
     开源代码 Apache-2.0；JetBrains 插件当前不开放源码，并列入 Enterprise 定制定价，不应理解为全部客户端均免费开源。Cloud、ClinePass、SDK
-    与扩展有独立版本/商业范围，v4.1.26 仅指此处跟踪的扩展。自动批准和 Cloud 会话的权限行为不同，模型上下文会发往所选服务商。
+    与扩展有独立版本/商业范围，v4.1.26 仅指此处跟踪的扩展。自动批准和 Cloud 会话的权限行为不同，模型上下文会发往所选服务商。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Open-source code is Apache-2.0. JetBrains plugins are not currently open-sourced and are listed under
     custom-priced Enterprise; not every client is free/open source. Cloud, ClinePass, SDK and extension have
     separate version/commercial scopes; v4.1.26 here tracks the extension. Auto-approval and Cloud sessions
-    differ in permission behavior; context goes to the selected model provider.
+    differ in permission behavior; context goes to the selected model provider. Historical editorial scores
+    retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 8.2

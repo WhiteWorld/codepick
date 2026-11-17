@@ -27,11 +27,12 @@ pricing:
   price_updated_at: "2026-11-17"
   note: >-
     开源 Python 框架与托管 Control Plane / Enterprise 服务分开计费。默认匿名使用分析可用 OTEL_SDK_DISABLED=true 关闭；share_crew=True
-    会分享更详细的任务/输出数据。不能把 MIT 或自托管理解为没有外发、遥测和模型费用。
+    会分享更详细的任务/输出数据。不能把 MIT 或自托管理解为没有外发、遥测和模型费用。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     The open-source Python framework is distinct from hosted Control Plane/Enterprise services. Anonymous
     telemetry can be disabled with OTEL_SDK_DISABLED=true; share_crew=True shares more detailed task/output
-    data. MIT or self-hosting does not imply no egress, telemetry or model costs.
+    data. MIT or self-hosting does not imply no egress, telemetry or model costs. Historical editorial scores
+    retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 8.5

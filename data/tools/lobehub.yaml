@@ -34,12 +34,13 @@ pricing:
   price_updated_at: "2026-11-17"
   note: >-
     当前为 LobeHub Community License，不应泛称无限制开源；企业私有部署/商业授权另议。官网当前默认年付并显示 10% off，旧 Pro $20/月已不能代表现售 Pro。Cloud
-    使用模型 credits、Agent 任务和沙箱等有各自计量；自托管仍需数据库、存储、密钥及模型服务。
+    使用模型 credits、Agent 任务和沙箱等有各自计量；自托管仍需数据库、存储、密钥及模型服务。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Current repository uses the LobeHub Community License, not unrestricted open source; enterprise private
     deployment/commercial licensing is separate. Pricing currently defaults to annual with 10% off; old Pro
     $20/mo is not the current Pro tier. Cloud model credits, agent tasks and sandboxes have distinct metering;
-    self-hosting still needs database, storage, credentials and model services.
+    self-hosting still needs database, storage, credentials and model services. Historical editorial scores
+    retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 7

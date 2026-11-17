@@ -82,6 +82,7 @@ pricing:
     等合同仍可续，不把旧49/99当新售报价。新套餐无周上限，但有共享月额度和5小时滚动限流；Pro起可用指定1M/高速模型，高速/思考增加消耗。可选加油包会自动超额扣费，未设月消费上限则不限额。旧 Python
     kimi-cli 已归档，不再修复且旧安装将停止工作；Node.js/MIT kimi-code 是不同实现，不能沿用旧 Apache-2.0 许可或安装包。Kimi 总隐私政策明确覆盖
     Code：去标识输入/输出可用于优化模型，可联系支持申请停止训练，产品独立政策优先；第三方提供商另按其条款。默认读自动、改文件/命令先审批，不保证沙箱/零外发。
+    历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Official domestic help lists recurring Plus/Pro/Max/Ultra ¥99/199/699/1399 monthly and actual annual
     totals ¥948/1908/6708/13428 (purchase-page screenshot dated2026-10-19; current eligibility/checkout
@@ -92,7 +93,8 @@ pricing:
     Node.js/MIT kimi-code is a different implementation/package/license. Kimi general privacy policy
     explicitly covers Code: de-identified inputs/outputs can improve models; request training opt-out through
     support, subject to any product-specific policy. Third-party providers have separate terms. Reads run
-    automatically, writes/commands ask by default, not guaranteed sandboxing/zero egress.
+    automatically, writes/commands ask by default, not guaranteed sandboxing/zero egress. Historical editorial
+    scores retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 8.5

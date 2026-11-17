@@ -39,12 +39,14 @@ pricing:
   note: >-
     定价卡片的 credits 可配置，所列价格对应本次公开页面选中额度，不是所有配置的统一起价。README 仍写付费 $11.99 起及旧发布上限，与当前 pricing 页有差异，以现行配置/结账为准。MIT
     源码与打包版云功能不同；月度 credits 不结转，长期包另计。自备 Key 直连提供商；内置模型、语音识别和可选云同步会使用 Orkas 服务，不能等同完全离线。
+    历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Credits are configurable; prices reflect the amounts selected in the public page, not a universal minimum.
     README still mentions paid plans from $11.99 and older publishing limits, inconsistent with current
     pricing; verify configuration/checkout. MIT source and packaged cloud features differ. Monthly credits do
     not roll over; lifetime packs are separate. BYOK calls go directly to providers; built-in models, speech
-    recognition and optional sync use Orkas services, not fully offline operation.
+    recognition and optional sync use Orkas services, not fully offline operation. Historical editorial scores
+    retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 8

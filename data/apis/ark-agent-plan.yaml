@@ -37,12 +37,14 @@ pricing:
   note: >-
     常规定价 Small/Medium/Large/Max 为 ¥40/200/500/1000 每月，AFP 不等于 token/请求次数。Small、Medium 不含视频生成；多模态/Harness
     的日额度为月额度一半，具体模型限制另见官方表。未开超额后付费时用尽等待恢复；开启后可能自动转后付费并产生额外账单。模型抵扣系数与活动会变化，不能沿用旧的统一 7.5 倍或赠送伙伴承诺。
+    历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Standard monthly prices are ¥40/200/500/1000 for Small/Medium/Large/Max. AFP is not tokens or request
     count. Small/Medium exclude video; multimodal/Harness daily quotas are half the monthly quota, subject to
     the model table. Exhaustion blocks use unless overage postpaid is enabled, which can switch automatically
     and incur extra charges. Model multipliers/promotions vary; old blanket 7.5× and companion-gift claims are
-    not retained.
+    not retained. Historical editorial scores retained, not newly measured or re-rated; not a fresh
+    performance or cost benchmark.
 
 scores:
   coding_ability: 8.5

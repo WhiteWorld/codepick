@@ -40,13 +40,14 @@ pricing:
   note: >-
     Premium $20 正在下线且不向新用户销售；旧 Team 已由当前 Plus 命名取代。月度 credits 可结转但 65 天到期，登录日额度不结转；购买 credits
     一年到期且使用时需要有效付费套餐。可连接合资格 ChatGPT 套餐支付部分 OpenAI 生成，但每次请求的平台费、图像、子代理等仍用 v0 credits。额度耗尽/ChatGPT
-    限额暂停，不等于无限使用或自动改扣另一账户。
+    限额暂停，不等于无限使用或自动改扣另一账户。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Premium $20 is being sunset and closed to new users; current collaboration tier is Plus, not old Team.
     Monthly credits roll over with 65-day expiry; daily login credits do not roll over. Purchased credits
     expire after a year and require an active paid plan to use. Eligible connected ChatGPT plans can cover
     some OpenAI responses, but platform fees, images and subagent work still use v0 credits. Exhaustion pauses
-    generation, not unlimited use or automatic fallback billing.
+    generation, not unlimited use or automatic fallback billing. Historical editorial scores retained, not
+    newly measured or re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 7.5

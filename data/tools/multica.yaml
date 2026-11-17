@@ -20,13 +20,14 @@ pricing:
   note: >-
     仓库为 Multica License（Apache-2.0 加托管服务、商业嵌入和品牌附加条件），不能等同无限制开源。Cloud 当前价格/试用权益未在公开页面核实，移除旧 $0 Cloud
     展示。重要：默认运行拥有 daemon OS 用户全部权限，不提供文件系统沙箱；Codex 默认 danger-full-access，Claude Code 默认 bypassPermissions。应以专用
-    OS 用户、容器或 VM 隔离，不要把 workdir 或自托管视为安全边界。
+    OS 用户、容器或 VM 隔离，不要把 workdir 或自托管视为安全边界。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Multica License adds hosted-service, commercial-embedding and branding conditions to Apache-2.0, not
     unrestricted open source. Current Cloud pricing/trial entitlements were not established publicly; old
     Cloud $0 is removed. Critical: runs inherit the daemon OS user’s full permissions with no
     filesystem-sandbox guarantee; default Codex danger-full-access and Claude Code bypassPermissions. Use a
-    dedicated OS user/container/VM; workdirs and self-hosting are not security boundaries.
+    dedicated OS user/container/VM; workdirs and self-hosting are not security boundaries. Historical
+    editorial scores retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 7.5

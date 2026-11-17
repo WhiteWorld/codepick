@@ -18,12 +18,13 @@ pricing:
   price_updated_at: "2026-11-17"
   note: >-
     MIT 代码 / CC-BY-4.0 文档；项目已归档，Microsoft 不再提供维护、安全修复或支持。Studio 仅适合原型/历史研究，新项目应评估官方推荐的 Microsoft Agent
-    Framework。模型 API 另计。 current_version 为上游 Python 框架版本，并非单独核实的 Studio 包版本。
+    Framework。模型 API 另计。 current_version 为上游 Python 框架版本，并非单独核实的 Studio 包版本。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     MIT code / CC-BY-4.0 documentation. Archived: Microsoft no longer provides maintenance, security fixes or
     support. Studio is for prototyping/historical research; new projects should evaluate Microsoft Agent
     Framework as recommended upstream. Model API fees are separate. current_version tracks the upstream Python
-    framework, not a separately verified Studio package version.
+    framework, not a separately verified Studio package version. Historical editorial scores retained, not
+    newly measured or re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 8

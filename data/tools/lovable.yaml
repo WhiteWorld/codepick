@@ -59,6 +59,7 @@ pricing:
     AI与连接器，价值/消耗率按方案不同，不能统一换成美元或消息数。月付credits发放后2个月到期，年付在年周期结束后1个月到期；top-up12个月。Pro增购$15/50credits、Business$30/50；自动增购可选No
     limit，可能持续扣费。每日chat/build额度于08:00
     Asia/Shanghai刷新且不滚存，Free每日build5、每自然月最多30；Cloud/AI赠额是可变的临时安排。Free/Pro自2026-09-09起内容可训练，账号级免费opt-out仅向后生效且不改变同事设置；Business/Enterprise默认排除。
+    历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Public cards were incomplete, but the official expanded subscription table verifies base100credits/month:
     Pro$25monthly/$250annually; Business$50/$500. Workspace pricing, not per-user; larger credit tiers cost
@@ -68,6 +69,8 @@ pricing:
     chat/build grants reset08:00 Asia/Shanghai without rollover; Free build5/day capped30/calendar month.
     Cloud/AI grants are temporary and variable. Free/Pro content can train since2026-09-09; free account-level
     opt-out is forward-only and does not change teammates’ settings. Business/Enterprise excluded by default.
+    Historical editorial scores retained, not newly measured or re-rated; not a fresh performance or cost
+    benchmark.
 
 scores:
   coding_ability: 8.5

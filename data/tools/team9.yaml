@@ -33,6 +33,7 @@ pricing:
   note: >-
     新找到官方/pricing页核实Free0、Pro常规$19/月且Beta暂免、Enterprise定制；不能把临时Beta免费推广为永久或包含所有模型成本。官网共享记忆/Playbooks/可观测性和仓库自托管步骤已核实；仓库仍称早期，部分电脑控制为路线图，营销方案不是上线验收。基于OpenClaw，Team9
     License在Apache文本上附加条件，不是无条件Apache-2.0。没有核实托管部署完整留存/训练承诺或实际SLA；自托管仍可向所接模型/工具外发，不能当成零外发保证。
+    历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Newly found official/pricing verifies Free0, regular Pro$19/month currently waived during Beta, and
     customEnterprise. Temporary Beta access is not permanent free inference or inclusion of all model costs.
@@ -40,7 +41,8 @@ pricing:
     early-stage and some computer control is roadmap, not acceptance-tested marketing promises.
     OpenClaw-based, under Team9 License with Apache-based additional conditions, not unmodifiedApache-2.0.
     Hosted retention/training guarantees and actualSLA were not verified; self-hosting can still send data to
-    connected models/tools, not zero egress.
+    connected models/tools, not zero egress. Historical editorial scores retained, not newly measured or
+    re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 7

@@ -50,13 +50,14 @@ pricing:
   note: >-
     2026-11-17 复核官方 CLI、认证、模型与定价。CLI 为本机终端 Agent，不等于每个任务在云端；可提交云任务。公开价格也列 Free/Go 的有限桌面访问，不再写“整个 Codex
     无免费档”，但不把桌面权益直接承诺为 CLI 的同等资格。API Key 单独计费。模型表已更新至 GPT-6.1/GPT-6 系列，旧 GPT-5.5 已退役于 ChatGPT 登录场景；不保留 o3/o4
-    作为现行默认模型。
+    作为现行默认模型。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Official CLI/auth/model/pricing docs rechecked 2026-11-17. CLI is a local terminal agent, not inherently
     cloud execution; it can submit cloud tasks. Public pricing also lists limited Free/Go desktop access, so
     remove “all Codex has no free tier” without promising identical CLI eligibility. API keys bill separately.
     Model docs now list GPT-6.1/GPT-6; GPT-5.5 retired for ChatGPT sign-in, and o3/o4 are not retained as
-    current defaults.
+    current defaults. Historical editorial scores retained, not newly measured or re-rated; not a fresh
+    performance or cost benchmark.
 
 scores:
   coding_ability: 9

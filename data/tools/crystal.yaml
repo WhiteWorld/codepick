@@ -18,11 +18,12 @@ pricing:
   price_updated_at: "2026-11-17"
   note: >-
     历史 MIT 开源桌面 App；Crystal 已弃用并被 Nimbalyst 替代。此条保留 Crystal v0.3.5 的历史信息，不代表 Nimbalyst 的价格、许可或功能。底层 Agent
-    费用另计。
+    费用另计。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
     Historical MIT desktop app. Crystal is deprecated and replaced by Nimbalyst. This entry retains historical
     Crystal v0.3.5 information, not Nimbalyst pricing, license or features. Underlying agent fees are
-    separate.
+    separate. Historical editorial scores retained, not newly measured or re-rated; not a fresh performance or
+    cost benchmark.
 
 scores:
   coding_ability: 8.5
