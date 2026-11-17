@@ -4,19 +4,30 @@ type: agent_platform
 logo: /images/conductor.png
 url: https://www.conductor.build
 repo: null
-current_version: null
-version_tracked_at: '2026-05-16'
+current_version: 0.95.0
+
+version_tracked_at: "2026-11-17"
+
 pricing:
-  model: free
+  model: subscription
   currency: null
-  plans:
-    - name: Free
-      price: 0
-      limits: App 完全免费；底层 Agent 成本由 Claude Code / Codex 订阅决定
-      limits_en: App is completely free; underlying agent cost determined by Claude Code / Codex subscription
-  price_updated_at: '2026-05-16'
-  note: BYOK 模式——直接复用本机已有的 Claude Code / Codex 登录态（Pro / Max / API Key 均可）。Conductor 不收费、不持有凭证，所有费用由底层 Agent 提供商收取。
-  note_en: BYOK model — reuses your existing Claude Code / Codex login on the machine (Pro / Max / API Key all work). Conductor takes no fee and stores no credentials; cost flows to the underlying agent provider.
+  plans: []
+  price_updated_at: "2026-11-17"
+  note: >-
+    Cloud 工作区要求 Pro / Teams / Enterprise；所核对的官网、完整官方文档导出及 Teams 页面未列订阅金额，Teams
+    为邀请制，具体费用和用量限制须核对官方订单/账户或联系官方，不能按 $0 推算。自备模型订阅/API Key 的费用另计；Cloud FAQ 目前不另收计算用量费，但计划引入。Mac
+    本地会话记录保存在设备；隐私政策说明可选聊天标题等功能可能把首条消息发送给外部 AI，不能概括为本地完全不外发。Cloud 输入/输出存于 Conductor 服务器；Enterprise data
+    privacy 设置仅适用于本地，不能用于 Cloud。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
+  note_en: >-
+    Cloud workspaces require Pro / Teams / Enterprise. The checked website, complete official documentation
+    export and Teams page list no subscription amounts; Teams is invite-only. Verify fees and usage limits in
+    the official order/account or with the vendor, rather than inferring $0. Bring your own model
+    subscriptions/API keys; provider charges are separate. Cloud FAQ currently adds no compute-usage fee but
+    says this will change. Local session history is on the Mac, but the privacy policy says optional features
+    such as chat titles may send the first message to an external AI provider. Cloud inputs/outputs are stored
+    by Conductor. Enterprise data privacy is local-only, not available in Cloud. Historical editorial scores
+    retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
+
 scores:
   coding_ability: 8.5
   cost_efficiency: 8
@@ -28,7 +39,7 @@ features:
   chat: true
   agent_mode: true
   multi_file_edit: true
-  mcp_support: false
+  mcp_support: true
   multi_agent: true
   agent_teams: true
   parallel_execution: true
@@ -41,9 +52,12 @@ features:
   supported_runtimes:
     - Claude Code
     - Codex
+    - Cursor
+    - OpenCode
   supported_os:
     - macOS
   ide_base: Agent 并行编排器（桌面 App）
+
 best_for:
   - 已重度使用 Claude Code / Codex，想突破单 Agent 串行瓶颈的 Mac 开发者
   - Issue / Feature 驱动的工作流（尤其 Linear 用户）
@@ -54,44 +68,108 @@ best_for_en:
   - Solo developers willing to spend more tokens to save time
 not_for:
   - Windows / Linux 用户（目前 Mac only）
-  - 代码托管在 GitLab / Bitbucket / 自建 Git 的团队（仅支持 GitHub）
   - 刚接触 AI 编程工具的新手（先把单 Agent 玩熟）
   - 预算紧、对 token 消耗敏感的用户（并行很烧）
+  - 需要 Cloud 工作区直接使用 GitLab / Bitbucket 的团队（Cloud 仅支持 GitHub；其他 Git 主机用本地工作区）
+  - 不允许代码会话输入/输出存储于服务商云端的 Cloud 场景
+  - 把本地 worktree 或默认 Agent 权限当作系统沙箱的部署；本地 Agent 可访问当前 OS 用户权限内的文件和工具
+
 not_for_en:
   - Windows / Linux users (Mac only today)
-  - Teams hosting code on GitLab / Bitbucket / self-hosted git (GitHub only)
   - Beginners new to AI coding tools (master single-agent first)
   - Token-sensitive users on a tight budget (parallel runs burn quota fast)
+  - >-
+    Teams needing GitLab / Bitbucket in Cloud workspaces (Cloud supports GitHub; use local workspaces for
+    other hosts)
+  - Cloud workflows that cannot allow session inputs/outputs on provider servers
+  - >-
+    Deployments treating local worktrees or default agent permissions as an OS sandbox; local agents can
+    access the OS user’s files and tools
+
 quick_start:
   - 在 conductor.build 下载 Mac 应用
-  - 确认本机已登录 Claude Code 或 Codex
+  - 核对当前账户/订单费用；登录所选 Claude Code / Codex，或按文档配置 Cursor / OpenCode；不要把模型费用当作已包含
   - 打开 GitHub repo，点击 "New Workspace" 自动建分支 + worktree
   - 在 workspace 内启动 Agent 并描述任务
   - 同时开 2-3 个 workspace 做不同 feature，仪表盘统一查看
   - 完成后在 Conductor 内 review diff、发 PR、合并
+
 quick_start_en:
   - Download the Mac app at conductor.build
-  - Confirm Claude Code or Codex is already logged in locally
+  - >-
+    Check account/order fees; sign in to Claude Code / Codex or configure Cursor / OpenCode per the docs;
+    model charges are not assumed included
   - Open your GitHub repo and click "New Workspace" — it auto-creates a branch + worktree
   - Launch an agent inside the workspace and describe the task
   - Open 2–3 parallel workspaces for different features; monitor from one dashboard
   - When done, review diff, open PR, and merge — all inside Conductor
+
 register_url: https://www.conductor.build
-china_note: App 本身可下载使用；底层 Claude Code / Codex 调用需自行解决 API 访问（如通过火山方舟中转 Claude API）。GitHub 访问国内可能受限。
-china_note_en: App is downloadable; underlying Claude Code / Codex calls require your own API access (e.g., relay Claude API via Volcengine Ark). GitHub access may be restricted in China.
+china_note: 本地 Mac App 与 Cloud 的网络需求不同；Cloud 在美国 us-east-1 运行。国内可达性未实测，模型商地区政策和费用仍适用。
+
+china_note_en: >-
+  Local Mac and Cloud have different networking requirements; Cloud runs in us-east-1. Mainland China
+  reachability is untested; model-provider regional policies and charges still apply.
+
 data_sources:
   - url: https://www.conductor.build
     type: docs
-    last_checked: '2026-05-16'
+    last_checked: "2026-11-17"
   - url: https://docs.conductor.build
     type: docs
-    last_checked: '2026-05-16'
+    last_checked: "2026-11-17"
+  - url: https://www.conductor.build/docs/cloud/faq
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://www.conductor.build/llms-full.txt
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://www.conductor.build/team-plan
+    type: pricing
+    last_checked: "2026-11-17"
+  - url: https://www.conductor.build/terms
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://www.conductor.build/privacy
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://www.conductor.build/docs/reference/privacy
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://www.conductor.build/docs/reference/security-and-permissions
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://www.conductor.build/docs/guides/configure-mcp-servers
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://www.conductor.build/docs/installation
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://www.conductor.build/changelog/0.95.0-agents-that-manage-your-local-workspaces
+    type: release
+    last_checked: "2026-11-17"
+  - url: https://www.conductor.build/changelog/0.94.2-conductor-is-back
+    type: release
+    last_checked: "2026-11-17"
+  - url: https://www.conductor.build/announcement
+    type: docs
+    last_checked: "2026-11-17"
+
 changelog:
-  - date: '2026-05-16'
+  - date: "2026-11-17"
+    type: fix
+    summary: 完整文档复核：披露未公开订阅金额、MCP 与本地/Cloud 权限和隐私差异；停运段落已被官方划线撤回，11月13日确认继续开发
+    summary_en: >-
+      Documentary review: disclose unlisted subscription amounts, MCP and local/Cloud privacy and permissions;
+      shutdown paragraph is struck out and Nov 13 confirms continued development
+  - date: "2026-05-16"
     type: launch
     summary: 加入 CodePick Agent 并行编排器栏目
     summary_en: Added to CodePick Agent parallel orchestrator section
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-11'
+
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
-confidence: medium
+confidence: low

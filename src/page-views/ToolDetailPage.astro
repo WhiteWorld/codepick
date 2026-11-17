@@ -20,7 +20,10 @@ const confidenceLevel = (tool as any).confidence || '';
 const fresh = nextReviewDue ? isFresh(nextReviewDue) : true;
 
 const pricingPlans = (tool as any).pricing?.plans || [];
+const pricingNote = (tool as any).pricing?.note;
 const pricingCurrency = (tool as any).pricing?.currency || 'USD';
+const currencySymbol = pricingCurrency === 'CNY' ? '¥' : pricingCurrency === 'EUR' ? '€' : pricingCurrency === 'USD' ? '$' : `${pricingCurrency} `;
+const formatPlanPrice = (p: any) => `${currencySymbol}${p.price}${p.period === 'year' ? (lang === 'zh' ? '/年' : '/year') : p.period === 'month' ? t('price.perMonth', lang) : ''}`;
 
 // features 是对象 {key: value}，转为展示列表
 const rawFeatures = (tool as any).features || {};
@@ -123,11 +126,12 @@ const softwareAppSchema: object = {
     worstRating: 1,
     ratingCount: 1,
   } : undefined,
-  offers: pricingPlans.length > 0 ? pricingPlans.map((p: any) => ({
+  offers: pricingPlans.some((p: any) => typeof p.price === 'number' && Number.isFinite(p.price)) ? pricingPlans.filter((p: any) => typeof p.price === 'number' && Number.isFinite(p.price)).map((p: any) => ({
     '@type': 'Offer',
     name: p.name,
-    price: typeof p.price === 'number' ? p.price : 0,
-    priceCurrency: pricingCurrency === 'CNY' ? 'CNY' : 'USD',
+    price: p.price,
+    priceCurrency: pricingCurrency,
+    ...(p.period === 'year' ? { priceSpecification: { '@type': 'UnitPriceSpecification', price: p.price, priceCurrency: pricingCurrency, billingDuration: 'P1Y' } } : {}),
     availability: 'https://schema.org/OnlineOnly',
     description: p.limits || '',
   })) : undefined,
@@ -156,10 +160,10 @@ if (lang === 'zh') {
     const freePlan = pricingPlans.find((p: any) => p.price === 0);
     const cheapest = pricingPlans.filter((p: any) => typeof p.price === 'number' && p.price > 0).sort((a: any, b: any) => a.price - b.price)[0];
     const priceSummary = freePlan
-      ? `${tool.name} 有免费版本${cheapest ? `，付费方案最低 ¥${cheapest.price}/${cheapest.period === 'month' ? '月' : '次'}` : ''}。`
+      ? `${tool.name} 有免费版本${cheapest ? `，所列付费方案从 ${formatPlanPrice(cheapest)} 起` : ''}。`
       : cheapest
-        ? `${tool.name} 付费方案起价 $${cheapest.price}${cheapest.period === 'month' ? '/月' : ''} (${pricingCurrency})。`
-        : `${tool.name} 为免费开源工具，模型费用自定。`;
+        ? `${tool.name} 所列付费方案从 ${formatPlanPrice(cheapest)} 起。`
+        : `${tool.name} 的价格未以数值列明，请查看官方定价及适用条件。`;
     faqEntries.push({ q: `${tool.name} 多少钱？`, a: priceSummary });
   }
   const bf = (tool as any).best_for;
@@ -172,10 +176,10 @@ if (lang === 'zh') {
     const freePlan = pricingPlans.find((p: any) => p.price === 0);
     const cheapest = pricingPlans.filter((p: any) => typeof p.price === 'number' && p.price > 0).sort((a: any, b: any) => a.price - b.price)[0];
     const priceSummary = freePlan
-      ? `${tool.name} has a free tier${cheapest ? `. Paid plans start at $${cheapest.price}/${cheapest.period === 'month' ? 'month' : 'use'}` : ''}.`
+      ? `${tool.name} has a free tier${cheapest ? `. Listed paid plans start at ${formatPlanPrice(cheapest)}` : ''}.`
       : cheapest
-        ? `${tool.name} paid plans start at $${cheapest.price}${cheapest.period === 'month' ? '/month' : ''} (${pricingCurrency}).`
-        : `${tool.name} is free and open-source; model API costs vary.`;
+        ? `${tool.name} listed paid plans start at ${formatPlanPrice(cheapest)}.`
+        : `${tool.name} prices are not listed numerically; consult official pricing and conditions.`;
     faqEntries.push({ q: `How much does ${tool.name} cost?`, a: priceSummary });
   }
   const bfe = (tool as any).best_for_en || (tool as any).best_for;
@@ -231,13 +235,13 @@ const allJsonLd = [softwareAppSchema, breadcrumbSchema, ...(faqSchema ? [faqSche
           {hasFree && registerUrl && (
             <a href={registerUrl} target="_blank" rel="noopener noreferrer"
                class="inline-flex items-center gap-1 text-xs bg-emerald-600 hover:bg-emerald-500 text-white px-2.5 py-1 rounded-md no-underline transition-colors font-medium">
-              🎁 {t('cta.freeTrial', lang)}
+              {t('link.official', lang)}
             </a>
           )}
           {!hasFree && registerUrl && (tool as any).url !== registerUrl && (
             <a href={registerUrl} target="_blank" rel="noopener noreferrer"
                class="inline-flex items-center gap-1 text-xs border border-[var(--brand-500)] text-[var(--brand-400)] hover:bg-[var(--brand-500)] hover:text-white px-2.5 py-1 rounded-md no-underline transition-colors font-medium">
-              {t('cta.tryNow', lang)} ↗
+              {t('link.official', lang)}
             </a>
           )}
           {lastVerified && (
@@ -302,10 +306,10 @@ const allJsonLd = [softwareAppSchema, breadcrumbSchema, ...(faqSchema ? [faqSche
     )}
 
     <!-- Pricing -->
-    {pricingPlans.length > 0 && (
+    {(pricingPlans.length > 0 || pricingNote) && (
       <section class="card p-6 mb-8">
         <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">{t('section.pricing', lang)}</h2>
-        <div class="overflow-x-auto">
+        {pricingPlans.length > 0 && (<div class="overflow-x-auto">
           <table class="compare-table">
             <thead>
               <tr>
@@ -319,7 +323,7 @@ const allJsonLd = [softwareAppSchema, breadcrumbSchema, ...(faqSchema ? [faqSche
               {pricingPlans.map((p: any) => (
                 <tr>
                   <td class="font-medium">{p.name}</td>
-                  <td>{typeof p.price === 'number' ? `${pricingCurrency === 'CNY' ? '¥' : '$'}${p.price}${t('price.perMonth', lang)}` : p.price}</td>
+                  <td>{typeof p.price === 'number' ? formatPlanPrice(p) : p.price}</td>
                   <td class="text-[var(--text-muted)]">{p.limits || '—'}</td>
                   <td>
                     {registerUrl && (
@@ -332,11 +336,12 @@ const allJsonLd = [softwareAppSchema, breadcrumbSchema, ...(faqSchema ? [faqSche
               ))}
             </tbody>
           </table>
-        </div>
+        </div>)}
+        {pricingNote && <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-4 mb-0">{pricingNote}</p>}
       </section>
     )}
 
-    <!-- Free Trial CTA -->
+    <!-- Official site CTA; a software free tier does not establish hosted trial eligibility -->
     {registerUrl && (
       <div class={`flex flex-col sm:flex-row items-center justify-between gap-4 rounded-xl px-6 py-5 mb-8 border ${hasFree ? 'border-emerald-600 bg-emerald-950/30' : 'border-[var(--brand-500)] bg-[var(--surface-2)]'}`}>
         <div>
@@ -349,7 +354,7 @@ const allJsonLd = [softwareAppSchema, breadcrumbSchema, ...(faqSchema ? [faqSche
         </div>
         <a href={registerUrl} target="_blank" rel="noopener noreferrer"
            class={`shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold px-5 py-2.5 rounded-lg no-underline transition-colors ${hasFree ? 'bg-emerald-600 hover:bg-emerald-500 text-white' : 'bg-[var(--brand-500)] hover:bg-[var(--brand-400)] text-white'}`}>
-          {hasFree ? `🎁 ${t('cta.freeTrial', lang)}` : t('cta.tryNow', lang)} ↗
+          {t('link.official', lang)}
         </a>
       </div>
     )}

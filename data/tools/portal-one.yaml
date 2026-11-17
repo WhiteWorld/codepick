@@ -7,15 +7,24 @@ repo: null
 current_version: null
 version_tracked_at: '2026-05-09'
 pricing:
-  model: free
+  model: subscription
   currency: null
   plans:
-    - name: Early Access
+    - name: Free
       price: 0
-      limits: 早期访问
-      limits_en: Early access
-  price_updated_at: '2026-05-09'
-  note: AI Agent Command Center；支持 sandbox、memory、human oversight、agent scheduling；适合与 Slock 的 daemon/reminder 对比
+      limits: FAQ 确认有限资源免费档；具体资源额度未公开，LLM API 费用另计
+      limits_en: FAQ confirms a limited-resource free tier; exact quotas not published; LLM API charges are separate
+  price_updated_at: "2026-11-17"
+  note: >-
+    有付费订阅；公开 FAQ 未给出付费金额。BYOK 模型调用向模型商直接计费。内置沙箱工具自动批准，外部 MCP 服务工具经审批工作流；不能理解为每一个操作都人工审批。安全/隐私描述为厂商声明，非独立审计结论。
+    历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
+  note_en: >-
+    Paid subscriptions are available but amounts are not stated in the public FAQ. BYOK model use is billed
+    directly by model providers. Built-in sandbox tools are auto-approved; external MCP actions use approval
+    workflows, not manual approval for every operation. Security/privacy descriptions are vendor claims, not
+    independent audit findings. Historical editorial scores retained, not newly measured or re-rated; not a
+    fresh performance or cost benchmark.
+
 scores:
   coding_ability: 7.5
   cost_efficiency: 9
@@ -27,13 +36,13 @@ features:
   chat: true
   agent_mode: true
   multi_file_edit: false
-  mcp_support: false
+  mcp_support: true
   sub_agent: true
   multi_agent: true
   agent_teams: true
   task_management: true
   persistent_memory: true
-  skill_sharing: false
+  skill_sharing: true
   runtime_monitoring: true
   open_source: false
   self_hosted: false
@@ -44,33 +53,55 @@ features:
   supported_runtimes:
     - 内置 Agent 引擎
   ide_base: Agent 协作平台
+
 best_for:
-  - 需要 Agent 沙箱和安全管控的企业场景
-  - Agent 调度 + Human Oversight 的合规需求
+  - 需要沙箱执行、MCP 集成、持久记忆与人工审批的个人或小团队
+
 best_for_en:
-  - Enterprise scenarios requiring agent sandboxing and security
-  - Compliance needs with agent scheduling + human oversight
+  - >-
+    Individuals or small teams needing sandbox execution, MCP integrations, persistent memory and human
+    approval
+
 not_for:
-  - 快速原型开发（功能偏企业级）
+  - 需要已核实的合规认证、数据驻留或完全离线运行的部署
+
 not_for_en:
-  - Rapid prototyping (enterprise-leaning features)
+  - Deployments requiring verified compliance certifications, data residency or fully offline operation
+
 quick_start:
-  - 访问 portal.one 申请早期访问
+  - 从 portal.one 的 Get Started 进入服务
+  - 先核实当前免费额度/订阅费用，配置自己的模型 API Key
+  - 连接 MCP 工具并检查审批与沙箱权限
+
 quick_start_en:
-  - Visit portal.one to request early access
+  - Open the service through Get Started on portal.one
+  - Verify current free quotas/subscription charges and configure your model API key
+  - Connect MCP tools and review approval/sandbox permissions
+
 register_url: https://portal.one
-china_note: Web 端访问
-china_note_en: Web accessible
+china_note: Web 服务；国内可达性与底层模型商地区政策未实测。
+
+china_note_en: Web service; mainland reachability and underlying model-provider regional policies are untested.
+
 data_sources:
   - url: https://portal.one
     type: docs
-    last_checked: '2026-05-09'
+    last_checked: "2026-11-17"
+  - url: https://portal.one/faq/
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://portal.one/docs/
+    type: docs
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-05-09'
     type: launch
     summary: 加入 CodePick Agent 协作栏目
     summary_en: Added to CodePick Agent Collaboration section
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-11'
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: low

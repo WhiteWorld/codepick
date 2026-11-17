@@ -4,8 +4,10 @@ type: ide
 logo: /images/cursor.png
 url: https://cursor.com
 repo: null
-current_version: '3.5'
-version_tracked_at: '2026-05-24'
+current_version: "3.30"
+
+version_tracked_at: "2026-11-17"
+
 pricing:
   model: subscription
   currency: USD
@@ -17,13 +19,19 @@ pricing:
     - name: Plus
       price: 8
       period: month
-      limits: 与 Grok 共享的 AI 用量池（按周刷新）；含 Cursor、Grok Chat/Voice/Imagine/Build 与 Grok API；仅 Grok 模型
-      limits_en: Shared AI usage pool with Grok, refreshed weekly; includes Cursor, Grok Chat/Voice/Imagine/Build, and Grok API; Grok models only
+      limits: >-
+        与 Grok 共享的 AI 用量池（按周刷新）；含 Cursor、Grok Chat/Voice/Imagine/Build 与 Grok API；以自有模型为主；Plus 的 Composer2.5
+        权益存在官方页面差异，见说明
+      limits_en: >-
+        Shared AI usage pool with Grok, refreshed weekly; includes Cursor, Grok Chat/Voice/Imagine/Build, and
+        Grok API; own models; official pages differ on Plus Composer2.5 access, see note
     - name: Premium
       price: 30
       period: month
-      limits: Plus 的 4 倍用量；最新 Grok 模型、云端 Agent 与 Automations、Origin 代码托管、Bugbot；第三方模型按 API 标价另计，不包含在月费内
-      limits_en: 4x Plus usage; latest Grok models, cloud agents and automations, Origin code hosting, Bugbot; third-party models billed separately at API list price
+      limits: Plus 的 4 倍用量；最新 Grok 模型、云端 Agent 与 Automations、Origin 代码托管、Bugbot、Grok Bot；第三方模型按 API 标价另计，不包含在月费内
+      limits_en: >-
+        4x Plus usage; latest Grok models, cloud agents and automations, Origin code hosting, Bugbot, and Grok
+        Bot; third-party models billed separately at API list price
     - name: Super
       price: 100
       period: month
@@ -33,22 +41,41 @@ pricing:
       price: 200
       period: month
       limits: Plus 的 50 倍用量；最早体验全部产品与模型；第三方模型按 API 标价另计
-      limits_en: 50x Plus usage; earliest access to all products and models; third-party models billed at API list price
+      limits_en: >-
+        50x Plus usage; earliest access to all products and models; third-party models billed at API list
+        price
     - name: Teams
       price: 30
       period: month
       per_user: true
       limits: 起价 $30/用户/月（页面为 $30+）；用量为 Plus 的 4–50 倍（按席位档）；集中账单、用量分析、团队隐私、SAML/OIDC SSO、可混用席位、内部规则/技能/插件市场
-      limits_en: From $30/user/month (page shows $30+); usage is 4-50x Plus by seat tier; centralized billing, usage analytics, team privacy, SAML/OIDC SSO, mixed seat types, internal rules/skills/plugin marketplace
+      limits_en: >-
+        From $30/user/month (page shows $30+); usage is 4-50x Plus by seat tier; centralized billing, usage
+        analytics, team privacy, SAML/OIDC SSO, mixed seat types, internal rules/skills/plugin marketplace
     - name: Enterprise
       price: null
       period: month
       per_user: true
       limits: 用量池化；发票/PO；SCIM；细粒度花费控制；审计日志与服务账号；优先支持
-      limits_en: Pooled usage; invoice/PO billing; SCIM; granular spend controls; audit logs and service accounts; priority support
-  price_updated_at: '2026-10-16'
-  note: 2026-10-16 核对 https://cursor.com/en/pricing。个人档为 Free $0、Plus $8、Premium $30（标为 Most popular）、Super $100、Ultra $200。用量池与 Grok 共享并按周刷新，页面没有给出各档的美元额度。Plus 只有 Grok 模型；Premium 及以上的第三方模型按 API 标价另计。Teams 为 $30+/用户/月。公开 changelog 没有新的 IDE 语义化版本，current_version 仍是上次记录的 3.5，本次没有重新确认安装包版本。旧的 Hobby / Pro $20 / Pro+ $60 与「$20 额度池、Auto 无限」已不在该定价页上。
-  note_en: 'Verified 2026-10-16 at https://cursor.com/en/pricing. Individual tiers are Free $0, Plus $8, Premium $30 (marked Most popular), Super $100, and Ultra $200. The usage pool is shared with Grok and refreshes weekly; the page does not publish a dollar allowance per tier. Plus is Grok models only; third-party models on Premium and above are billed at API list price. Teams is $30+/user/month. The public changelog does not publish a newer IDE semver, so current_version stays at the previously recorded 3.5 and the installer version was not re-confirmed. Hobby, Pro $20, Pro+ $60, and the $20 credit pool with unlimited Auto are no longer on this pricing page.'
+      limits_en: >-
+        Pooled usage; invoice/PO billing; SCIM; granular spend controls; audit logs and service accounts;
+        priority support
+  price_updated_at: "2026-11-17"
+  note: >-
+    2026-11-17 复核 pricing、模型/用量文档、changelog、公开下载与 data-use。保留 PR158 已核实全部个人/团队价格、共享周用量池及第三方 API
+    标价另计规则；公开下载页现明确把3.30标为Latest，不再沿用未核实的3.5。Plus 的 pricing 描述为 Grok-only，但 models-and-pricing 文档同时列
+    Composer2.5 为 Cursor 自有模型并进入共享池，实际权限以账号为准，不把该差异隐藏。Premium起第三方模型需预付余额、并非月费已包。Privacy Mode
+    关闭时内容可用于训练；开启也有滥用检测保留例外/非ZDR模型的显式选择，不能承诺所有请求无条件零保留。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
+  note_en: >-
+    Pricing/model-usage/changelog/public-download/data-use reviewed2026-11-17. Preserve all PR158 verified
+    individual/team prices, shared weekly pool and separate third-party API list-price billing. Public
+    download now labels3.30 Latest, replacing unverified3.5. Pricing describes Plus as Grok-only, while
+    models-and-pricing also includes Composer2.5 as a Cursor model in the shared pool; verify account access
+    rather than hide the difference. Third-party use from Premium draws prepaid balance, not included monthly
+    usage. Privacy Mode off permits training; on still has abuse-retention exceptions/explicit non-ZDR model
+    selection, not unconditional zero retention. Historical editorial scores retained, not newly measured or
+    re-rated; not a fresh performance or cost benchmark.
+
 scores:
   coding_ability: 9.5
   cost_efficiency: 6
@@ -65,21 +92,19 @@ features:
   code_review: true
   sub_agents: true
   cursor_cli: true
-  context_window: 最大上下文窗口
+  context_window: 依模型与套餐；例如 Plus 的 Grok4.7 固定256k，不是所有模型统一上限
   automations: true
   self_hosted_agents: true
   supported_models:
-    - Claude Sonnet 4.5
-    - Claude Opus 4.6
-    - GPT-5
-    - GPT-5.4
-    - GPT-5.3-Codex
-    - Gemini 3 Pro
-    - Gemini 3 Flash
-    - Gemini 2.5 Pro
-    - Grok 4 (xAI)
-    - Composer 2.5 (Cursor 自研，最新)
-    - cursor-small (Auto)
+    - Grok 4.7
+    - Grok 4.6
+    - Grok 4.5
+    - Composer 2.5
+    - Claude Sonnet 5.5 (third-party billing)
+    - Claude Opus 5.5 (third-party billing)
+    - Claude Haiku 5.5 (third-party billing)
+    - Gemini 4 Carbon / Hydrogen / Argon (third-party billing)
+    - GPT-5.6 Sol / Terra / Luna (third-party billing)
   ide_base: VS Code Fork
   supported_os:
     - macOS
@@ -88,33 +113,45 @@ features:
   jetbrains_support: true
   jetbrains_via_acp: true
   git_integration: true
+  voice_chat: true
+
 best_for:
-  - 全栈开发者
-  - 需要Agent自主编码的重度用户
-  - 大型项目多文件重构
+  - 需要 IDE/CLI/云端工作流并会审查代码和权限的团队
+  - 能管理共享周额度、预付第三方模型费用和组织政策的用户
+
 best_for_en:
-  - Full-stack developers
-  - Heavy users who need autonomous Agent coding
-  - Large-project multi-file refactoring
+  - Teams needing IDE/CLI/cloud workflows while reviewing code and permissions
+  - Users able to manage shared weekly allowance, prepaid third-party model costs and organization policy
+
 not_for:
-  - 预算有限的个人用户
-  - 国内网络不稳定的用户
+  - 要求完全离线或无条件零保留的环境
+  - 把付费订阅理解成所有第三方模型和云任务无限全包的预算
+
 not_for_en:
-  - Budget-conscious individual developers
-  - Users with unstable internet in China
+  - Environments requiring offline/unconditional zero retention
+  - Budgets treating a paid plan as unlimited all-inclusive third-party models/cloud work
+
 quick_start:
-  - 访问 cursor.com/download，下载并安装 Cursor（支持 macOS/Windows/Linux）
-  - 注册账号或用 GitHub/Google 登录，Free 套餐无需绑卡即可体验
-  - 打开项目，按 Cmd/Ctrl+L 开启 AI 对话，Tab 键接受代码补全建议
-  - 想体验 Agent 能力：在聊天框选择 Agent 模式，让 AI 自主完成多步任务
+  - 从官方 download 页选择 macOS/Windows/Linux 安装器（当前Latest3.30），登录并打开项目
+  - 先检查 Privacy Mode、模型/套餐资格和第三方预付余额
+  - 从小范围任务开始，审查 Agent diff 并运行项目自己的测试/类型检查/lint
+  - 云端 Agent、Automations、外部 MCP 和发布/仓库访问需要另行审查权限与成本
+
 quick_start_en:
-  - Visit cursor.com/download, download and install Cursor (macOS/Windows/Linux)
-  - Sign up or log in with GitHub/Google; Free plan works with no credit card required
-  - Open your project; press Cmd/Ctrl+L for AI chat, Tab to accept completions
-  - 'For Agent mode: select Agent in the chat panel to let AI complete multi-step tasks autonomously'
+  - Choose the official macOS/Windows/Linux download (currently Latest3.30), sign in and open a project
+  - Check Privacy Mode, model/plan eligibility and third-party prepaid balance
+  - Start with a focused task, review agent diffs and run project tests/type checks/lint
+  - >-
+    Separately review permissions/costs for Cloud Agents, Automations, external MCP and publishing/repository
+    access
+
 register_url: https://cursor.com/signup
-china_note: 需要翻墙，国内网络不稳定；暂无官方国内镜像；国内用户可考虑 Trae CN（免费）或 Cline + 火山方舟（Lite 首月 ¥9.9 / 续费 ¥40）替代
-china_note_en: Requires VPN from China; no official domestic mirror; China users may try Trae CN (free) or Cline + Volcengine Ark (¥9.9 first month / ¥40 renewal) as alternatives
+china_note: 本次未验证中国大陆网络、支付或账号资格；不要将本地 IDE 等同模型/云端处理完全在本地。
+
+china_note_en: >-
+  Mainland network/payment/account eligibility were not tested; a local IDE does not imply local-only
+  model/cloud processing.
+
 plans_using_this:
   - id: cursor-pro
     name: Cursor Pro
@@ -123,15 +160,35 @@ plans_using_this:
 data_sources:
   - url: https://cursor.com/en/pricing
     type: pricing
-    last_checked: '2026-10-16'
+    last_checked: "2026-11-17"
   - url: https://cursor.com/changelog
     type: changelog
-    last_checked: '2026-10-16'
+    last_checked: "2026-11-17"
+  - url: https://cursor.com/downloads
+    type: release
+    last_checked: "2026-11-17"
+  - url: https://cursor.com/docs/models
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://cursor.com/docs/get-started/quickstart
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://cursor.com/data-use
+    type: privacy
+    last_checked: "2026-11-17"
+  - url: https://cursor.com/security
+    type: privacy
+    last_checked: "2026-11-17"
+
 changelog:
+  - date: '2026-11-17'
+    type: pricing
+    summary: 再核对 cursor.com/en/pricing。Free、Plus、Premium、Super、Ultra 和 Teams 的价格与档位结构未变。对比表写明 Grok Bot 从 Premium 起；此前 Premium 的记录里没有这一条。
+    summary_en: 'Re-checked cursor.com/en/pricing. Prices and tier structure for Free, Plus, Premium, Super, Ultra, and Teams are unchanged. The comparison table lists Grok Bot starting at Premium; the previous Premium limits did not include that.'
   - date: '2026-10-16'
     type: pricing
-    summary: 定价页改为与 Grok 共享的周刷新用量池。个人档为 Free $0、Plus $8（仅 Grok 模型）、Premium $30（4 倍 Plus，含云端 Agent、Origin 代码托管与 Bugbot）、Super $100（15 倍）、Ultra $200（50 倍）。Premium 及以上的第三方模型按 API 标价另计。Teams 起价 $30/用户/月。
-    summary_en: 'Pricing page now uses a weekly usage pool shared with Grok. Individual tiers are Free $0, Plus $8 (Grok models only), Premium $30 (4x Plus, includes cloud agents, Origin code hosting, and Bugbot), Super $100 (15x), and Ultra $200 (50x). Third-party models on Premium and above are billed at API list price. Teams starts at $30/user/month.'
+    summary: 定价页改为与 Grok 共享的周刷新用量池。个人档为 Free $0、Plus $8（以自有模型为主；Plus 的 Composer2.5 权益存在官方页面差异，见说明）、Premium $30（4 倍 Plus，含云端 Agent、Origin 代码托管与 Bugbot）、Super $100（15 倍）、Ultra $200（50 倍）。Premium 及以上的第三方模型按 API 标价另计。Teams 起价 $30/用户/月。
+    summary_en: 'Pricing page now uses a weekly usage pool shared with Grok. Individual tiers are Free $0, Plus $8 (own models; official pages differ on Plus Composer2.5 access, see note), Premium $30 (4x Plus, includes cloud agents, Origin code hosting, and Bugbot), Super $100 (15x), and Ultra $200 (50x). Third-party models on Premium and above are billed at API list price. Teams starts at $30/user/month.'
   - date: '2026-10-13'
     type: feature
     summary: Origin App Marketplace 接入 Cloudflare、Linear、Sentry 等 20 多个应用，并开放公开提交。
@@ -232,7 +289,9 @@ changelog:
     type: pricing
     summary: Pro 从500次请求制改为$20额度池制, Auto模式无限使用
     summary_en: Pro switched from 500-request quota to $20 credit pool; unlimited Auto mode
-last_full_review: '2026-10-16'
-next_review_due: '2026-11-15'
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: high

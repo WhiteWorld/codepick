@@ -12,42 +12,85 @@ pricing:
   plans:
     - name: Free
       price: 0
-      limits: 50 次 Chat 请求/月（含 Copilot Edits），2000 次补全/月；自动选模型；Agent 用量有限
-      limits_en: 50 chat requests/mo (including Copilot Edits), 2000 completions/mo; auto model selection; limited agent usage
+      limits: 聊天和 Agent 用量有限；计划页列 CLI/Agent 可用，不把历史 50 chat / 2000 补全数当作当前保证
+      limits_en: >-
+        Limited chat/agent usage; plan page lists CLI/agent access, without guaranteeing historical
+        50-chat/2000-completion counts
     - name: Student
       price: 0
       limits: 已验证学生免费；含 AI Credits 额度（计划表未公布具体数量）；自动选模型
-      limits_en: Free for verified students; includes an AI credit allowance (amount not published on the plans table); auto model selection
+      limits_en: >-
+        Free for verified students; includes an AI credit allowance (amount not published on the plans table);
+        auto model selection
     - name: Pro
       price: 10
       period: month
-      limits: 每月合计 1,500 AI Credits（基础 1,000 + 弹性 500）；无限补全与 Next Edit；可选模型；云端 Agent 与代码审查；第三方 Agent（Claude Code、Codex）
-      limits_en: 1,500 AI credits/mo total (base 1,000 + flex 500); unlimited completions and Next Edit; model selection; cloud agent and code review; third-party agents (Claude Code and Codex)
+      limits: >-
+        每月合计 1,500 AI Credits（基础 1,000 + 弹性 500）；无限补全与 Next Edit；可选模型；云端 Agent 与代码审查；第三方 Agent（Claude
+        Code、Codex）
+      limits_en: >-
+        1,500 AI credits/mo total (base 1,000 + flex 500); unlimited completions and Next Edit; model
+        selection; cloud agent and code review; third-party agents (Claude Code and Codex)
     - name: Pro+
       price: 39
       period: month
       limits: Pro 全部功能，另含 premium 模型（功能页写明包含 Opus）；每月合计 7,000 AI Credits（基础 3,900 + 弹性 3,100）；用量约为 Pro 的 4 倍以上；审计日志
-      limits_en: Everything in Pro, plus premium models (features page includes Opus); 7,000 AI credits/mo total (base 3,900 + flex 3,100); 4x+ included usage vs Pro; audit logs
+      limits_en: >-
+        Everything in Pro, plus premium models (features page includes Opus); 7,000 AI credits/mo total (base
+        3,900 + flex 3,100); 4x+ included usage vs Pro; audit logs
     - name: Max
       price: 100
       period: month
       limits: Pro+ 全部功能；优先体验新模型与功能；每月合计 20,000 AI Credits（基础 10,000 + 弹性 10,000）；用量约为 Pro+ 的 2.9 倍以上
-      limits_en: Everything in Pro+; priority access to new models and features; 20,000 AI credits/mo total (base 10,000 + flex 10,000); 2.9x+ included usage vs Pro+
+      limits_en: >-
+        Everything in Pro+; priority access to new models and features; 20,000 AI credits/mo total (base
+        10,000 + flex 10,000); 2.9x+ included usage vs Pro+
     - name: Business
       price: 19
       period: month
       per_user: true
       limits: 每席位每月 1,900 AI Credits，组织内池化；无限补全与 Next Edit；云端 Agent、代码审查、访问控制、预算与 IP 赔偿
-      limits_en: 1,900 AI credits per user per month, pooled in the org; unlimited completions and Next Edit; cloud agent, code review, access control, budgets, and IP indemnity
+      limits_en: >-
+        1,900 AI credits per user per month, pooled in the org; unlimited completions and Next Edit; cloud
+        agent, code review, access control, budgets, and IP indemnity
     - name: Enterprise
       price: 39
       period: month
       per_user: true
       limits: Business 全部功能；每席位每月 3,900 AI Credits，企业内池化；优先模型访问与企业级能力（含代码库索引）
-      limits_en: Everything in Business; 3,900 AI credits per user per month, pooled in the enterprise; priority model access and enterprise features, including codebase indexing
-  price_updated_at: '2026-10-16'
-  note: 2026-10-16 核对 github.com/features/copilot 与 docs.github.com/en/copilot/get-started/plans。1 AI Credit = $0.01；聊天、Agent、CLI、Spaces、Spark 消耗 Credits，代码补全和 Next Edit 不消耗。弹性配额页面写明可能调整。超出按 $0.01/Credit 计。已验证教师和热门开源维护者可能获得免费 Pro；学生走 Copilot Student。当前计划页可以自助开通，没有再写 2026-04-20 的新注册暂停。年付价格当前计划页未列出。文档里的模型矩阵勾选在抓取文本中没有保留，supported_models 未按该表重写。
-  note_en: 'Verified 2026-10-16 against github.com/features/copilot and docs.github.com/en/copilot/get-started/plans. 1 AI Credit = $0.01. Chat, agents, CLI, Spaces, and Spark spend credits; code completions and Next Edit Suggestions do not. The page says flex allotments may change. Overage is $0.01 per credit. Verified teachers and maintainers of popular open source projects may be eligible for free Pro; students use Copilot Student. The current plans page offers self-serve signup and no longer states the 2026-04-20 signup pause. Annual prices are not listed on the current plans page. Checkmarks in the docs model matrix did not survive the fetch, so supported_models was not rewritten from that table.'
+      limits_en: >-
+        Everything in Business; 3,900 AI credits per user per month, pooled in the enterprise; priority model
+        access and enterprise features, including codebase indexing
+    - name: Copilot access (licensed GHE Cloud)
+      price: 0
+      period: month
+      per_user: true
+      limits: 已有 GitHub Enterprise Cloud 许可者的席位费；不含 AI Credits，从首次用量另计费，非免费 AI
+      limits_en: >-
+        Seat fee for existing GitHub Enterprise Cloud licensed users; no included AI Credits, usage billed
+        from first use, not free AI
+    - name: Copilot Standalone access
+      price: 10
+      period: month
+      per_user: true
+      limits: 无 GHE Cloud 许可的 access 席位；不含任何 AI Credits，另按用量计费
+      limits_en: Access seat without a GHE Cloud license; no included AI Credits, metered usage billed separately
+  price_updated_at: "2026-11-17"
+  note: >-
+    2026-11-17 复核官方 plans：Pro/Pro+/Max 月费与 1500/7000/20000 总 AI Credits 暂未变，弹性部分可调整；1 AI
+    Credit=$0.01，不能等同请求数。Business/Enterprise 为每席19/39美元、组织池1900/3900 credits。新增 Copilot access：有 GHE Cloud
+    许可席位费0，否则 Standalone $10/席，但两者均无赠送用量、从首次用量计费；同一企业不能混用两种账单模型，迁移自愿。补全/Next Edit 与 Agent/Chat/CLI
+    的计费不同；付费用量预算可产生额外账单。模型与功能按套餐、界面和组织策略变化，不给所有用户同一模型/128K 上下文保证。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
+  note_en: >-
+    Official plans rechecked 2026-11-17: Pro/Pro+/Max prices and total1500/7000/20000 AI Credits unchanged for
+    now; flex allotments may change.1 credit=$0.01, not one request. Business/Enterprise19/39USD per seat
+    include pooled1900/3900 credits. New Copilot access has $0 seat cost for licensed GHE Cloud users or
+    Standalone $10/seat, but neither includes usage; billing starts from first use. An enterprise cannot mix
+    the two billing models; transition is voluntary. Completion/Next Edit billing differs from Agent/Chat/CLI;
+    paid-usage budgets can incur extra bills. Models/features depend on plan, surface and organization policy,
+    not uniform model/128K guarantees. Historical editorial scores retained, not newly measured or re-rated;
+    not a fresh performance or cost benchmark.
+
 scores:
   coding_ability: 8.2
   cost_efficiency: 8.5
@@ -62,21 +105,14 @@ features:
   code_review: true
   multi_file_edit: true
   mcp_support: true
-  context_window: 128K tokens
+  context_window: 依模型、功能入口与组织策略而异
   custom_agents: true
-  copilot_extensions: true
   supported_models:
-    - Claude Sonnet 4.5
-    - Claude Sonnet 4.6
-    - Claude Opus 4.7
-    - GPT-5
-    - GPT-5 mini
-    - GPT-5.3-Codex
-    - GPT-5.4
-    - GPT-5.4 mini
-    - Gemini 2.5 Pro
-    - Gemini 3 Flash
-    - Grok Code Fast 1 (xAI)
+    - Claude Sonnet 5.5 (plan/surface-dependent)
+    - Claude Opus 5.5 (plan/surface-dependent)
+    - GPT-6.1 Sol (plan/surface-dependent)
+    - Gemini 4 Argon (plan/surface-dependent)
+    - Grok 4.7 (plan/surface-dependent)
   ide_base: 插件 (VS Code / JetBrains / Vim / Xcode)
   supported_os:
     - macOS
@@ -85,42 +121,54 @@ features:
   jetbrains_support: true
   git_integration: true
   copilot_cli: true
+
 best_for:
-  - GitHub 重度用户
-  - JetBrains 用户
-  - 追求性价比的订阅方案
-  - 零预算入门（Free版）
+  - 已有 GitHub/受支持 IDE 工作流并可管理 credits 预算的用户
+  - 需要 JetBrains 等 IDE 集成、组织策略和账单管理的团队
+  - 愿意在 Free 有限额度中试用并核对资格的用户
+
 best_for_en:
-  - Heavy GitHub users
-  - JetBrains users
-  - Developers looking for a cost-effective subscription
-  - Zero-budget starters (Free tier)
+  - Users with GitHub/supported-IDE workflows able to manage credit budgets
+  - Teams needing IDE integration such as JetBrains plus organization policy/billing controls
+  - Users trying limited Free allowance while checking eligibility
+
 not_for:
-  - 需要完全自定义模型的用户
-  - 对Agent自主编码要求极高的用户
+  - 要求任意自定义模型/完全离线的环境
+  - 把席位费0或无限补全理解成无限免费 Agent 推理的预算
+
 not_for_en:
-  - Users who need full custom model control
-  - Users who demand the strongest Agent autonomy
+  - Environments requiring arbitrary model providers or fully offline use
+  - Budgets treating zero seat fees/unlimited completions as unlimited free agent inference
+
 quick_start:
-  - 访问 github.com/features/copilot/plans，选择套餐（Free 免费，Pro $10/月）
-  - 打开 VS Code，在扩展商店搜索并安装 "GitHub Copilot" 和 "GitHub Copilot Chat"
-  - 使用 GitHub 账号登录授权，代码补全和聊天功能立即可用
-  - JetBrains 用户：在插件市场搜索 "GitHub Copilot" 插件安装后同样登录即可
+  - 在官方 plans 比较 Free/个人/组织账单模型和实际 credits 权益
+  - 在受支持 IDE 的 Copilot 入口安装/启用所需扩展并使用合资格 GitHub 账号登录
+  - 确认模型和功能是否获组织启用；CLI/云端任务并非每个 IDE 同一功能
+  - 设置付费用量预算并审查 Agent 命令、代码差异与测试
+
 quick_start_en:
-  - Visit github.com/features/copilot/plans, choose a plan (Free is free, Pro $10/mo)
-  - Open VS Code, search and install "GitHub Copilot" and "GitHub Copilot Chat" extensions
-  - Sign in with your GitHub account; code completion and chat are immediately available
-  - 'JetBrains users: search "GitHub Copilot" in the plugin marketplace and sign in'
+  - Compare official Free/individual/organization billing models and actual credit entitlements
+  - >-
+    Install/enable the required Copilot integration in a supported IDE and sign in with an eligible GitHub
+    account
+  - Check model/feature organization policy; CLI/cloud capabilities are not identical across IDEs
+  - Set a paid-usage budget and review agent commands, diffs and tests
+
 register_url: https://github.com/features/copilot
-china_note: 需要翻墙，国内网络访问不稳定；GitHub 服务部分地区可直连，但 Copilot AI 接口稳定性较差；已验证学生使用免费 Student 档，已验证教师和热门开源维护者可能获得免费 Pro
-china_note_en: Requires VPN from China; GitHub services are partially accessible but Copilot AI endpoints are unreliable; verified students use the free Student plan, and verified teachers and popular open-source maintainers may be eligible for free Pro
+china_note: 本次未验证中国大陆网络或账号资格；服务支持地区、组织策略与云端数据条款仍适用。免费学生/教师/维护者权益必须逐项验证资格。
+
+china_note_en: >-
+  Mainland network/account eligibility was not tested; supported regions, organization policy and cloud-data
+  terms apply. Student/teacher/maintainer free entitlements require individual eligibility checks.
+
 data_sources:
   - url: https://github.com/features/copilot/plans
     type: pricing
-    last_checked: '2026-10-16'
+    last_checked: "2026-11-17"
   - url: https://docs.github.com/en/copilot/get-started/plans
     type: docs
-    last_checked: '2026-10-16'
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-10-16'
     type: pricing
@@ -186,7 +234,9 @@ changelog:
     type: pricing
     summary: 推出永久免费版 Copilot Free
     summary_en: Copilot Free permanently free tier launched
-last_full_review: '2026-10-16'
-next_review_due: '2026-11-15'
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: high

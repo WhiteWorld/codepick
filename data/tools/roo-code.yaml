@@ -2,21 +2,31 @@ id: roo-code
 name: Roo Code
 type: client
 logo: /images/roo-code.png
-url: https://github.com/Zoo-Code-Org/Zoo-Code
+url: https://github.com/RooCodeInc/Roo-Code
+
 repo: https://github.com/RooCodeInc/Roo-Code
 current_version: v3.54.0
-version_tracked_at: '2026-08-19'
+version_tracked_at: "2026-11-17"
+
 pricing:
   model: free
   currency: null
   plans:
-    - name: 开源免费
+    - name: Historical source
       price: 0
-      limits: 无限制（需自备 API Key）
-      limits_en: Unlimited (requires your own API Key)
-  price_updated_at: '2026-05-24'
-  note: ⛔ 已停运（2026-05-15）：Roo Code 官方云服务和 Router 已关闭；原始 VS Code 扩展 repo 已存档（无 kill switch，已安装版本仍可用）；社区 Fork Zoo Code（https://github.com/Zoo-Code-Org/Zoo-Code）接管插件维护；原团队转型至 Roomote（Slack 云端 Agent）；官方建议迁移至 Cline 或 Zoo Code
-  note_en: '⛔ Discontinued (May 15, 2026): Roo Code Cloud and Router have shut down; original VS Code extension repo archived (no kill switch — installed versions still work); community fork Zoo Code (https://github.com/Zoo-Code-Org/Zoo-Code) carries plugin maintenance forward; original team pivoted to Roomote (Slack cloud agent); recommend migrating to Cline or Zoo Code'
+      limits: 历史源码可用；模型服务另计，不承诺持续维护或托管服务
+      limits_en: Historical source available; model services cost extra; no ongoing maintenance/hosting promise
+  price_updated_at: "2026-11-17"
+  note: >-
+    官方 README 与文档明确：Roo Code 扩展于 2026-05-15 停运。此条仅保留 Apache-2.0 历史源码与 v3.54.0 发布信息，不代表托管 Cloud/Router
+    或新插件仍可用。官方提及 ZooCode 和 Cline 作为替代；其许可、功能、价格和安全性不继承到此条，也未在本次评测。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
+  note_en: >-
+    Official README/docs state the Roo Code extension shut down on 2026-05-15. This entry retains historical
+    Apache-2.0 source and v3.54.0 release information, not availability of hosted Cloud/Router or a new
+    install. Upstream mentions ZooCode and Cline as alternatives; their license, features, prices and security
+    are separate and not reviewed here. Historical editorial scores retained, not newly measured or re-rated;
+    not a fresh performance or cost benchmark.
+
 scores:
   coding_ability: 8.5
   cost_efficiency: 9
@@ -32,12 +42,11 @@ features:
   context_window: 取决于所选模型
   supported_models: 任意 OpenAI / Anthropic / Google / 自定义 API 兼容模型
   ide_base: VS Code 插件
-  cloud_agents: true
+  cloud_agents: false
   supported_os:
     - macOS
     - Windows
     - Linux
-  jetbrains_support: true
   git_integration: true
   multi_role: true
   roles:
@@ -46,34 +55,37 @@ features:
     - Debug (调试)
     - Ask (问答)
     - Custom (自定义角色)
+
 best_for:
-  - 需要多角色 Agent 的进阶用户
-  - 搭配 OpenRouter 用全球模型
-  - 复杂项目需要架构分析+编码
-  - 需要 Cloud Agents 在 Slack/GitHub 自动跑任务的团队
+  - 需要研究或迁移既有 Roo Code 安装的用户
+
 best_for_en:
-  - Power users who need multi-role Agents
-  - Teams using OpenRouter for global model access
-  - Complex projects needing architecture analysis + coding
-  - Teams who want Cloud Agents to auto-run tasks on Slack/GitHub
+  - Studying or migrating an existing Roo Code installation
+
 not_for:
-  - 国内直连需求（OpenRouter 需代理）
-  - 新手用户
+  - 新部署、需要持续维护与官方支持的团队
+  - 需要仍在运营的 Cloud Agents 或 JetBrains 插件的用户
+
 not_for_en:
-  - Users who need direct China access (OpenRouter requires proxy)
-  - Beginner users
+  - New deployments requiring ongoing maintenance and official support
+  - Users needing currently operating Cloud Agents or a JetBrains plugin
+
 quick_start:
-  - 打开 VS Code，在扩展商店搜索 "Roo Code" 并安装（或直接访问 roocode.com）
-  - 在侧边栏打开 Roo Code 面板，选择角色（Code / Architect / Debug）和模型提供商
-  - 填写 API Key，推荐搭配火山方舟 Coding Plan（Lite 首月 ¥9.9 / 续费 ¥40）国内低成本使用
-  - JetBrains 用户：在插件市场搜索并安装独立的 Roo Code 扩展
+  - 先阅读官方停运公告，不再按旧文直接新装
+  - 既有部署应备份配置、检查所用模型商并规划迁移
+  - 按官方链接自行评估 ZooCode / Cline；不要把替代产品当作 Roo Code 的同一版本
+
 quick_start_en:
-  - Open VS Code, search for "Roo Code" in the extension marketplace and install
-  - Open the Roo Code panel in the sidebar, select a role (Code/Architect/Debug) and model provider
-  - 'Enter your API Key; recommended: Volcengine Ark Coding Plan (¥9.9 first month / ¥40 renewal) for budget-friendly China access'
-  - 'JetBrains users: search and install the separate Roo Code extension in the plugin marketplace'
-china_note: 插件本身无需翻墙，支持国内 API（火山方舟、阿里百炼、月之暗面等）；OpenRouter 需要代理，推荐改用国内 API
-china_note_en: Plugin requires no VPN; supports Chinese APIs (Volcengine Ark, Alibaba Bailian, Moonshot, etc.); OpenRouter needs a proxy — switch to a domestic API instead
+  - Read the official shutdown notice before considering a new installation
+  - Back up existing configuration, review model providers and plan migration
+  - Evaluate ZooCode/Cline via upstream links; they are separate products, not the same Roo Code version
+
+china_note: 停运工具不提供可用性保证；历史客户端或社区 Fork 的网络和模型费用需分别评估。
+
+china_note_en: >-
+  No availability guarantee for a discontinued tool; evaluate historical clients/community forks and their
+  model/network costs separately.
+
 compatible_apis:
   - openrouter
   - anthropic
@@ -83,7 +95,14 @@ compatible_apis:
 data_sources:
   - url: https://github.com/RooCodeInc/Roo-Code/releases
     type: release
-    last_checked: '2026-08-19'
+    last_checked: "2026-11-17"
+  - url: https://github.com/RooCodeInc/Roo-Code
+    type: repo
+    last_checked: "2026-11-17"
+  - url: https://roocodeinc.github.io/Roo-Code/
+    type: docs
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-05-15'
     type: release
@@ -141,7 +160,9 @@ changelog:
     type: feature
     summary: 支持 Claude Opus 4.6；tool use 消息改为结构化 delta 流式传输，提升效率
     summary_en: Claude Opus 4.6 support added; tool use messages switched to structured delta streaming for better performance
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-12'
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
-confidence: high
+confidence: medium

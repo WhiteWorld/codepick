@@ -4,19 +4,76 @@ type: ide
 logo: /images/trae.png
 url: https://trae.cn
 repo: null
-current_version: null
-version_tracked_at: '2026-03-27'
+current_version: 3.4.18
+
+version_tracked_at: "2026-11-17"
+
 pricing:
-  model: free
+  model: freemium
   currency: CNY
   plans:
-    - name: 免费
+    - name: Free
       price: 0
-      limits: 全部内置模型免费调用，无用量限制
-      limits_en: All built-in models free, no usage limits
-  price_updated_at: '2026-03-27'
-  note: 字节跳动出品，国内专属版本，个人用户全部功能完全免费；企业版已上线（支持 10 万文件/1.5 亿行代码，端到端加密）；访问 trae.cn，无需代理
-  note_en: Made by ByteDance, China-exclusive edition, all features completely free for individuals; Enterprise Edition launched (supports 100K files/150M LOC, end-to-end encryption); access trae.cn, no proxy required
+      limits: 登录每自然月送 500 积分（当月有效）；新用户一次 1500（31天有效）；并非全部模型免费不限量
+      limits_en: >-
+        Monthly login grants500 credits expiring that calendar month; new users once1,500 valid31days; not
+        unlimited/all-model free usage
+    - name: Lite 单次 / one-off
+      price: 49
+      limits: 单次 31 自然日；2000 积分，云端并发 2；不含无限模型用量
+      limits_en: One31-calendar-day term; 2000 credits, 2 concurrent Cloud tasks; not unlimited model usage
+    - name: Lite 连续包月 / auto-renew
+      price: 45
+      limits: 每 31 自然日续费，提前 12 小时扣款；2000 积分，云端并发 2
+      limits_en: Renews every31calendar days, billed12hours before expiry; 2000 credits, 2 concurrent Cloud tasks
+    - name: Pro 单次 / one-off
+      price: 99
+      limits: 单次 31 自然日；4000 积分，云端并发 10；不含无限模型用量
+      limits_en: One31-calendar-day term; 4000 credits, 10 concurrent Cloud tasks; not unlimited model usage
+    - name: Pro 连续包月 / auto-renew
+      price: 89
+      limits: 每 31 自然日续费，提前 12 小时扣款；4000 积分，云端并发 10
+      limits_en: Renews every31calendar days, billed12hours before expiry; 4000 credits, 10 concurrent Cloud tasks
+    - name: Pro+ 单次 / one-off
+      price: 239
+      limits: 单次 31 自然日；12000 积分，云端并发 10；不含无限模型用量
+      limits_en: One31-calendar-day term; 12000 credits, 10 concurrent Cloud tasks; not unlimited model usage
+    - name: Pro+ 连续包月 / auto-renew
+      price: 219
+      limits: 每 31 自然日续费，提前 12 小时扣款；12000 积分，云端并发 10
+      limits_en: Renews every31calendar days, billed12hours before expiry; 12000 credits, 10 concurrent Cloud tasks
+    - name: Ultra 单次 / one-off
+      price: 699
+      limits: 单次 31 自然日；40000 积分，云端并发 20；不含无限模型用量
+      limits_en: One31-calendar-day term; 40000 credits, 20 concurrent Cloud tasks; not unlimited model usage
+    - name: Ultra 连续包月 / auto-renew
+      price: 629
+      limits: 每 31 自然日续费，提前 12 小时扣款；40000 积分，云端并发 20
+      limits_en: Renews every31calendar days, billed12hours before expiry; 40000 credits, 20 concurrent Cloud tasks
+  price_updated_at: "2026-11-17"
+  note: >-
+    旧“全部功能/模型免费不限量”不成立。Lite/Pro/Pro+/Ultra 单次31天 ¥49/99/239/699，连续包月每31天
+    ¥45/89/219/629（不是自然月；未把首月促销作常规价）。会员积分31天有效；会员可增购 ¥50/1000 积分，有效31天。自定义模型不扣 TRAE 积分，但第三方 API 自行计费；Auto
+    仅内置模型，Max/高思考会增加费用。TraeWork/TraeCode 已合并为
+    TRAE，Agent/IDE、桌面/Web/移动端的功能及存储边界不同。隐私模式关闭时，对话/片段/输出可用于训练；开启须登录，退出即关闭。索引会临时上传代码算向量，不能承诺完全本地/端到端加密/云端零处理。自动运行可绕过逐次确认并在沙箱外执行高风险命令；目录信任不是审批或沙箱替代。
+    云会话与IDE索引不是同一存储边界：仓库、配置、上下文及对话会留存至主动删除会话，官方承诺该云端数据不用于训练。上下文压缩仅内置Agent，子智能体也须配置/授权工具，不能把上下文隔离视作系统沙箱。
+    历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
+  note_en: >-
+    The old all-free/unlimited claim is false. Lite/Pro/Pro+/Ultra cost ¥49/99/239/699 for one 31-day term, or
+    ¥45/89/219/629 on auto-renewal every 31 days, not calendar months. These are standard prices, not
+    first-term promotions. Membership credits expire in 31 days; eligible members can buy 1,000 credits for
+    ¥50, also valid for 31 days. Custom models do not consume TRAE credits, but provider APIs bill separately.
+    Auto uses built-in models only; Max and higher thinking effort cost more. TraeWork/TraeCode merged into
+    TRAE; Agent/IDE and desktop/Web/mobile have different functionality and storage boundaries. With Privacy
+    Mode off, conversations, snippets and outputs can train models; the setting requires sign-in and turns off
+    on logout. Indexing can temporarily upload code for embeddings, not guarantee entirely local processing,
+    end-to-end encryption or zero cloud processing. Auto-run can execute high-risk commands outside the
+    sandbox without per-command approval; directory trust is not an approval or sandbox substitute. Cloud
+    sessions differ from IDE indexing: repositories, configuration, context and chats remain until proactively
+    deleted, with a vendor no-training commitment for that Cloud data. Context compaction is for the built-in
+    Agent. Subagents need configured tool permissions; separate contexts are not OS sandboxes. Historical
+    editorial scores retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
+
 scores:
   coding_ability: 8
   cost_efficiency: 10
@@ -28,7 +85,6 @@ features:
   chat: true
   agent_mode: true
   solo_mode: true
-  builder_mode: true
   voice_interaction: true
   sub_agent: true
   context_compression: true
@@ -36,89 +92,173 @@ features:
   mcp_support: true
   context_window: 取决于所选模型
   supported_models:
-    - Doubao-Seed-Code（字节自研）
-    - Doubao-1.5-pro（Builder 模式）
-    - DeepSeek-V3-0324
-    - DeepSeek-R1
-    - Kimi-K2
-    - GLM-4.5
-    - Qwen3-Coder
+    - Seed-Evolving（指定付费会员 / eligible paid tiers）
+    - Seed-2.1-Pro-0915 / Seed-2.1-Turbo / Seed-Code
+    - MiMo-V2.6-Flash / Pro
+    - Step-5-Preview
+    - GLM-5.3-FlashX / Flash / 5.3 / 5.2
+    - DeepSeek-V4.1-Flash / V4-Flash / V4-Pro
+    - Kimi-K3 / K2.8-Preview
+    - MiniMax-M3
+    - Qwen3.8-Flash / Max / Qwen3.7-Plus
   ide_base: VS Code Fork
   supported_os:
     - macOS
     - Windows
     - Linux
-  jetbrains_support: false
   git_integration: true
+  custom_api: true
+  cloud_ide: true
+
 best_for:
-  - 国内开发者首选免费 AI IDE
-  - 零成本体验国产顶级编程模型
-  - 不想折腾代理和付费的开发者
-  - 企业/学生用户（完全免费）
+  - 需要人民币计费、内置国产模型与独立 IDE 的开发者
+  - 希望在 Agent/IDE 与桌面/Web/移动端间协作并管理积分预算的用户
+
 best_for_en:
-  - Chinese developers' top free AI IDE choice
-  - Zero-cost access to leading Chinese coding models
-  - Developers who don't want to deal with proxies or payments
-  - Enterprise/student users (completely free)
+  - Developers seeking CNY billing, built-in Chinese models and a standalone IDE
+  - Users coordinating Agent/IDE across desktop/Web/mobile while budgeting credits
+
 not_for:
-  - 需要 Claude / GPT 等海外模型的用户（用 Trae 国际版）
-  - JetBrains 用户
+  - 要求全部模型免费不限量的用户
+  - 代码/对话不能发送至云服务的项目
+  - 不愿检查隐私模式、目录信任、命令审批及云端任务边界的团队
+
 not_for_en:
-  - Users who need Claude/GPT or other overseas models (use Trae international)
-  - JetBrains users
+  - Users requiring unlimited free access to every model
+  - Projects unable to send code/conversations to cloud services
+  - Teams unwilling to inspect privacy, trust, command approvals and Cloud boundaries
+
 quick_start:
-  - 访问 trae.cn，下载并安装 Trae（国内版，支持 macOS/Windows/Linux）
-  - 用手机号注册/登录（支持抖音账号一键登录），全程无需翻墙
-  - 无需任何额外配置，打开项目即可开始 AI 对话和代码生成
-  - 免费使用豆包-Seed-Code、DeepSeek-V3、Kimi-K2、通义等国产顶级编程模型
+  - 从 CN 官方下载中心选择系统对应安装包；当前要求 macOS 12+、Windows 10/11 x64，或文档支持的 Linux .deb/.rpm 发行版/架构
+  - 按官方引导注册/登录并导入项目；未知来源的目录先保持不信任，勿直接信任整个父目录
+  - 根据 Agent/IDE、IDE/SOLO 模式选择工作流；核对模型权限、积分余额、Max/思考费用以及是否启用自动续费
+  - 使用真实项目之前，保持登录并确认隐私模式；逐项检查 MCP/命令自动运行，云任务另有服务端存储条款
+
 quick_start_en:
-  - Visit trae.cn, download and install Trae (China edition, macOS/Windows/Linux)
-  - Register with phone number or Douyin one-click login — no VPN needed throughout
-  - No additional configuration needed; open your project and start AI chat and code generation
-  - 'Free access to top Chinese coding models: Doubao-Seed-Code, DeepSeek-V3, Kimi-K2, Qwen, and more'
+  - >-
+    Choose a matching CN installer; current requirements are macOS12+, Windows10/11x64, or documented
+    Linux.deb/.rpm distributions/architectures
+  - Follow official sign-in/project import; keep unknown folders untrusted and avoid broadly trusting parents
+  - >-
+    Choose Agent/IDE and IDE/SOLO workflows; inspect model eligibility, credits, Max/thinking costs and
+    auto-renewal
+  - >-
+    Before real projects, stay signed in and verify Privacy Mode; inspect MCP/command auto-run and separate
+    Cloud storage terms
+
 register_url: https://trae.cn
-china_note: 专为国内用户设计，直连无需代理，全部功能完全免费；个人版完全免费，企业版支持 10 万文件/1.5 亿行代码
-china_note_en: Designed for China users — direct access without proxy, all features completely free; Enterprise edition supports 100K files/150M lines of code
+china_note: 这是 CN 服务，不能套用国际版美元价格或模型列表；国内网络、注册及支付未实测，不保证无需代理。已核实人民币付费/积分方案，并非全免费；企业数据约定不能直接移植给个人版。
+
+china_note_en: >-
+  CN service is distinct from international USD pricing/models. Mainland network, registration/payment were
+  not tested; no no-proxy guarantee. Verified paid CNY/credit plans are not all-free; enterprise data terms do
+  not automatically apply to personal service.
+
 plans_using_this: []
 compatible_apis:
   - ark-coding-plan
 data_sources:
   - url: https://trae.cn
     type: product
-    last_checked: '2026-10-13'
+    last_checked: "2026-10-13"
   - url: https://docs.trae.cn/ide/models
     type: docs
-    last_checked: '2026-10-13'
+    last_checked: "2026-11-17"
+  - url: https://docs.trae.cn/ide_plans-and-billing.md
+    type: pricing
+    last_checked: "2026-11-17"
+  - url: https://docs.trae.cn/ide_privacy-mode.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.trae.cn/ide_traework-to-traecode-data-migration.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.trae.cn/ide_trae-built-in-models.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.trae.cn/ide_custom-models.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.trae.cn/ide_get-started-with-trae.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.trae.cn/ide_trae-overview.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.trae.cn/ide_changelog.md
+    type: changelog
+    last_checked: "2026-11-17"
+  - url: https://docs.trae.cn/ide_auto-run-and-security.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.trae.cn/ide_subagents.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.trae.cn/ide_context-compaction.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.trae.cn/ide_voice-discussion.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.trae.cn/ide_data-storage-policy-for-remote-agents.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.trae.cn/ide_model-context-protocol.md
+    type: docs
+    last_checked: "2026-11-17"
+
 changelog:
-  - date: '2026-05-10'
+  - date: "2026-11-17"
+    type: fix
+    summary: >-
+      完整文档复核：官方最新日志3.4.18；纠正免费不限量为积分/会员计费（31天周期），更新模型、统一TRAE产品边界、隐私训练/临时上传与沙箱外自动运行风险。移除无依据的个人版企业加密/容量保证。未做安装、支付或性能测试。
+    summary_en: >-
+      Full documentary review: latest official changelog3.4.18; correct unlimited-free claims to31-day
+      membership/credits, current models, unifiedTRAE boundaries, training/temporary uploads and
+      outside-sandbox auto-run risks. Remove unsupported personal-plan enterprise encryption/capacity
+      guarantees. No install/payment/performance testing.
+  - date: "2026-05-10"
     type: announcement
     summary: 数据月度复核：个人版仍完全免费；模型列表（Doubao-Seed-Code/DeepSeek-V3/Kimi-K2/GLM-4.5/Qwen3-Coder）保持稳定
-    summary_en: Monthly data review — personal edition remains completely free; model lineup (Doubao-Seed-Code/DeepSeek-V3/Kimi-K2/GLM-4.5/Qwen3-Coder) stable
-  - date: '2026-04-01'
+    summary_en: >-
+      Monthly data review — personal edition remains completely free; model lineup
+      (Doubao-Seed-Code/DeepSeek-V3/Kimi-K2/GLM-4.5/Qwen3-Coder) stable
+  - date: "2026-04-01"
     type: feature
     summary: Agent 系统升级，支持 MCP 协议调用外部工具（Figma 转代码、数据库操作等）；Builder 模式新增 Doubao-1.5-pro；新增 DeepSeek-V3-0324 支持
-    summary_en: Agent system upgraded with MCP protocol for external tool calling (Figma-to-code, database ops); Doubao-1.5-pro added to Builder mode; DeepSeek-V3-0324 support added
-  - date: '2026-03-01'
+    summary_en: >-
+      Agent system upgraded with MCP protocol for external tool calling (Figma-to-code, database ops);
+      Doubao-1.5-pro added to Builder mode; DeepSeek-V3-0324 support added
+  - date: "2026-03-01"
     type: feature
     summary: 企业版上线，支持 10 万文件/1.5 亿行代码，端到端代码加密，云端零存储；92% 字节内部工程师使用
-    summary_en: Enterprise Edition launched — supports 100K files/150M LOC, end-to-end code encryption, cloud zero-storage; used by 92% of ByteDance engineers internally
-  - date: '2026-02-01'
+    summary_en: >-
+      Enterprise Edition launched — supports 100K files/150M LOC, end-to-end code encryption, cloud
+      zero-storage; used by 92% of ByteDance engineers internally
+  - date: "2026-02-01"
     type: update
     summary: TRAE 2.0 正式发布：SOLO 模式(Context Engineering)、Plan Mode、多任务并行、Sub Agent、DiffView、上下文压缩、语音交互
-    summary_en: TRAE 2.0 officially launched — SOLO mode (Context Engineering), Plan Mode, multi-task parallelism, Sub Agent, DiffView, context compression, voice interaction
-  - date: '2026-01-01'
+    summary_en: >-
+      TRAE 2.0 officially launched — SOLO mode (Context Engineering), Plan Mode, multi-task parallelism, Sub
+      Agent, DiffView, context compression, voice interaction
+  - date: "2026-01-01"
     type: feature
     summary: 新增 Kimi-K2、GLM-4.5、Qwen3-Coder 等国产顶级模型
     summary_en: Added Kimi-K2, GLM-4.5, Qwen3-Coder and other leading Chinese models
-  - date: '2025-11-04'
+  - date: "2025-11-04"
     type: update
     summary: Claude 模型因服务中断从 Trae CN 下线；Pro 会员获补偿：2026-01-31 前每月300次快速请求（+50%）
-    summary_en: Claude models removed from Trae CN due to service disruption; Pro members compensated with 300 extra fast requests/mo (+50%) until 2026-01-31
-  - date: '2025-03-04'
+    summary_en: >-
+      Claude models removed from Trae CN due to service disruption; Pro members compensated with 300 extra
+      fast requests/mo (+50%) until 2026-01-31
+  - date: "2025-03-04"
     type: launch
     summary: Trae CN 正式发布，字节跳动国内专属 AI IDE，免费使用豆包和 DeepSeek
     summary_en: Trae CN officially launched — ByteDance's China-exclusive AI IDE, free access to Doubao and DeepSeek
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-12'
+
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: medium

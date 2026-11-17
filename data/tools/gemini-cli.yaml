@@ -4,27 +4,48 @@ type: cli
 logo: /images/gemini-cli.png
 url: https://github.com/google-gemini/gemini-cli
 repo: https://github.com/google-gemini/gemini-cli
-current_version: v0.67.0
-version_tracked_at: '2026-11-10'
+current_version: v0.68.0
+version_tracked_at: '2026-11-17'
 pricing:
-  model: freemium
+  model: enterprise / usage-based
   currency: USD
   plans:
-    - name: Free（个人 Google 账号）
-      price: 0
-      limits: 60 请求/分钟，1000 请求/天；免费使用 Gemini 2.5 Pro
-      limits_en: 60 requests/min, 1000 requests/day; free access to Gemini 2.5 Pro
-    - name: 付费（AI Studio API Key）
+    - name: Existing Code Assist Standard / Enterprise
       price: null
-      limits: 按 Gemini API 用量计费，无每日上限；适合重度用户
-      limits_en: Billed by Gemini API usage, no daily cap; for heavy users
-    - name: Vertex AI
+      limits: 已于2026-10-09停止新售；旧合同按期限/许可支持，不列当前新购价格
+      limits_en: >-
+        Closed to new subscriptions on October 9, 2026; existing contract/license support only, not a current
+        new-purchase quote.
+    - name: Paid Gemini / Vertex API
       price: null
-      limits: 企业级，支持 VPC、审计日志、区域部署
-      limits_en: Enterprise-grade, VPC support, audit logs, regional deployment
-  price_updated_at: '2026-02-17'
-  note: 免费层对大多数开发者完全够用（1000次/天）；使用个人 Google 账号登录即可，无需信用卡
-  note_en: Free tier is sufficient for most developers (1000/day); just log in with a personal Google account, no credit card required
+      limits: 按模型/平台计费且有配额；不是无每日限制或所有用户免费
+      limits_en: Model/platform billing and quotas apply; not unlimited daily usage or free access for everyone
+  price_updated_at: "2026-11-17"
+  note: >-
+    官方2026-05-19停服公告明确：个人免费及Google AI Pro/Ultra请求自06-18停止，由Antigravity CLI承接；付费Gemini/Vertex
+    API及当时企业许可继续，不能把软件发布活跃当个人服务仍在。更新的Cloud停售通知（11-10更新）进一步限定：Code Assist Standard/Enterprise自10-09不再新售，新Gemini
+    Enterprise Standard/Plus也不再自动包含；旧Code Assist按合同期限支持，年付可自动续至2027-01-31、月付至2027-12-31，旧Gemini
+    Enterprise附带权益至2027-03-31（这些是续费/权益规则，不是统一停服日；官方未注明时区）。Code
+    Assist仅Gemini3.x。旧FAQ正文标04-10，早于05-19公告；其个人免费/Pro/Ultra数字不作为现行承诺。具体旧合同费用与API模型费/限额分别核实，不引用失效的新购价或固定个人次数。保留PR158稳定v0.68.0及双语发布历史，不把Antigravity特性移植过来。隐私/训练由认证后端分别约束；关闭CLI统计不等于停止服务端处理。禁止把CodeAssist
+    OAuth凭证转给第三方工具调用底层服务，官方条款警告可封号。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
+  note_en: >-
+    The official May 19, 2026 announcement says consumer Free/Google AI Pro/Ultra requests stopped on June 18
+    and moved to Antigravity CLI. Paid Gemini/Vertex API access and then-existing enterprise licenses
+    continued; active software releases do not prove continued consumer service. A newer Cloud notice, updated
+    November 10, says Code Assist Standard/Enterprise closed to new purchases on October 9 and new Gemini
+    Enterprise Standard/Plus no longer includes it. Existing Code Assist subscriptions are supported through
+    their contract. Annual auto-renewals are allowed until January 31, 2027, monthly renewals until December
+    31, 2027; existing Gemini Enterprise entitlements continue until March 31, 2027. These are
+    renewal/entitlement rules, not a universal shutdown date; the official timezone is unspecified. Code
+    Assist model support is limited to Gemini 3.x. The legacy FAQ dated April 10 predates the May 19 notice;
+    its individual Free/Pro/Ultra quotas are not current promises. Verify existing contract charges and
+    model-specific API fees/quotas separately. PR158 stable v0.68.0 and its bilingual release history are
+    preserved; Antigravity features are not transferred to this entry. Privacy/training terms differ by
+    authentication backend; statistics opt-out does not stop service-side processing. Official terms prohibit
+    third-party access to Code Assist services using its OAuth, for example through OpenClaw, with suspension
+    risk. Historical editorial scores retained, not newly measured or re-rated; not a fresh performance or
+    cost benchmark.
+
 scores:
   coding_ability: 8.5
   cost_efficiency: 9.5
@@ -44,15 +65,9 @@ features:
   sdk_custom_skills: true
   browser_agent: true
   memory_manager: true
-  context_window: 100万 token（Gemini 3.1 Pro）
+  context_window: 随模型/后端及组织配置；不承诺全服务1M
   supported_models:
-    - Gemini 3.8 Flash
-    - Gemini 3.5 Flash Lite
-    - Gemini 3.1 Pro (Preview)
-    - Gemini 3 Pro
-    - Gemini 3 Flash
-    - Gemini 2.5 Pro
-    - Gemini 2.5 Flash
+    - Gemini 3.x（Code Assist；具体模型依许可 / models depend on license）
   ide_base: 终端
   supported_os:
     - macOS
@@ -60,130 +75,332 @@ features:
     - Linux
   jetbrains_support: false
   git_integration: true
+
 best_for:
-  - 想零成本体验顶级模型的开发者
-  - 需要超长上下文（100 万 token）处理大型项目
-  - 已有 Google 账号、不想配置 API Key 的用户
+  - 已有 Code Assist Standard/Enterprise 许可、需维护 Gemini CLI 工作流的组织
+  - 能按组织条款配置 paid API/Vertex 并核实配额的用户
+
 best_for_en:
-  - Developers who want to experience top-tier models at zero cost
-  - Users who need ultra-long context (1M tokens) for large projects
-  - Anyone with a Google account who doesn't want to configure API Keys
+  - Organizations with Code Assist Standard/Enterprise maintaining Gemini CLI workflows
+  - Users able to configure paid API/Vertex under their organization’s terms and verify quotas
+
 not_for:
-  - 国内网络用户（Google 服务被屏蔽）
-  - 需要 IDE 内补全体验的用户
-  - 需要离线/本地模型的用户
+  - 寻找当前免费个人或 Google AI Pro/Ultra 终端入口的新用户（README 指向 Antigravity CLI）
+  - 需要 Gemini 4+ 调优或用此 harness 做模型性能基准的场景
+  - 要求完全离线或所有后端同一隐私条款的环境
+
 not_for_en:
-  - Users in China (Google services are blocked)
-  - Users who need in-IDE completion experience
-  - Users who need offline/local models
+  - New users seeking current free/Google AI Pro/Ultra terminal access (README points to Antigravity CLI)
+  - Gemini 4+-optimized workflows or model benchmarks using this harness
+  - Environments requiring offline operation or identical privacy terms across backends
+
 quick_start:
-  - 安装 Node.js 18+，运行：npm install -g @google/gemini-cli
-  - 在项目目录运行：gemini（首次运行会弹出浏览器引导 Google 账号授权）
-  - 授权完成后立即免费使用 Gemini 2.5 Pro，每天 1000 次请求，无需信用卡
-  - 重度用户可在 aistudio.google.com 获取 API Key 以突破免费额度限制
+  - 先确认仍有效的旧Code Assist合同，或受支持的付费Gemini/Vertex API；新个人用户查看Antigravity CLI，不购买已停售许可
+  - 官方安装文档当前要求 Node.js 20+；npm install -g @google/gemini-cli
+  - 按所选组织账号/API/Vertex 认证，在项目运行 gemini；组织账号可能需要 Google Cloud project
+  - 检查 /stats model 的用量与具体服务数据条款；不要把免费 API Key 当成无限付费用量
+
 quick_start_en:
-  - 'Install Node.js 18+, run: npm install -g @google/gemini-cli'
-  - 'Run: gemini in your project directory (first run opens browser for Google account auth)'
-  - After auth, use Gemini 2.5 Pro for free immediately — 1000 requests/day, no credit card needed
-  - Heavy users can get an API Key at aistudio.google.com to bypass free tier limits
-china_note: 需要 Google 账号，中国大陆访问 Google 服务需要代理；无国内镜像；国内用户推荐 Kimi Code 或 Trae CN 作为替代
-china_note_en: Requires Google account; accessing Google services from mainland China requires a proxy; no domestic mirror; China users can try Kimi Code or Trae CN as alternatives
+  - >-
+    Verify an existing valid Code Assist contract or supported paid Gemini/Vertex API access; new consumer
+    users should use Antigravity CLI, not buy retired licenses.
+  - Current installation docs require Node.js 20+; npm install -g @google/gemini-cli
+  - >-
+    Authenticate with the selected organization account/API/Vertex and run gemini; organization accounts may
+    need a Google Cloud project
+  - Check /stats model and backend-specific data terms; a free API key is not unlimited paid usage
+
+china_note: 本次未实测国内服务可达性；须符合 Google 服务支持地区与账号资格。免费/付费 API、Code Assist 和 Vertex 的数据条款不同，免费 API 数据可能用于产品改进。
+
+china_note_en: >-
+  Mainland reachability was not tested; Google service region/account eligibility rules apply. Free/paid API,
+  Code Assist and Vertex data terms differ; free API data may be used to improve products.
+
 plans_using_this: []
 data_sources:
-  - url: https://github.com/google-gemini/gemini-cli/releases/tag/v0.67.0
+  - url: https://github.com/google-gemini/gemini-cli/releases/tag/v0.68.0
     type: release
-    last_checked: '2026-11-10'
+    last_checked: "2026-11-17"
   - url: https://github.com/google-gemini/gemini-cli/releases
     type: release
-    last_checked: '2026-11-10'
+    last_checked: "2026-11-17"
   - url: https://www.npmjs.com/package/@google/gemini-cli
     type: release
-    last_checked: '2026-11-10'
+    last_checked: "2026-11-17"
+  - url: https://github.com/google-gemini/gemini-cli/blob/main/docs/changelogs/latest.md
+    type: changelog
+    last_checked: "2026-11-17"
   - url: https://ai.google.dev/gemini-api/docs/pricing
     type: pricing
-    last_checked: '2026-08-19'
+    last_checked: "2026-08-19"
+  - url: https://github.com/google-gemini/gemini-cli
+    type: official
+    last_checked: "2026-11-17"
+  - url: https://geminicli.com/plans/
+    type: pricing
+    last_checked: "2026-11-17"
+  - url: https://geminicli.com/docs/resources/quota-and-pricing.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://geminicli.com/llms.txt
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://geminicli.com/docs/get-started/authentication/
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.cloud.google.com/gemini/docs/codeassist/sunset
+    type: pricing
+    last_checked: "2026-11-17"
+  - url: https://cloud.google.com/products/gemini/pricing
+    type: pricing
+    last_checked: "2026-11-17"
+  - url: https://geminicli.com/docs/resources/faq/
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://geminicli.com/docs/resources/tos-privacy/
+    type: privacy
+    last_checked: "2026-11-17"
+  - url: https://geminicli.com/docs/resources/quota-and-pricing/
+    type: docs
+    last_checked: "2026-11-17"
+
 changelog:
-  - date: '2026-11-04'
+  - date: "2026-11-17"
+    type: fix
+    summary: 完整复核：以05-19正式停服公告和11-10更新的Cloud停售通知厘清旧FAQ（04-10）冲突，补充消费者迁移、企业合同/续费期限、3.x限制与OAuth/隐私边界；保留PR158版本和历史。
+    summary_en: >-
+      Full review: the May 19 retirement announcement and November 10 Cloud sunset notice supersede the April
+      10 legacy FAQ. Clarify consumer migration, enterprise contract/renewal deadlines, Gemini 3.x limits and
+      OAuth/privacy boundaries; preserve PR158 version and history.
+  - date: "2026-11-10"
     type: release
-    summary: 'v0.67.0：GitHub Releases 的 latest 与 npm @google/gemini-cli 的 latest 都是 0.67.0（2026-11-04 发布）。Release 正文是 pull request 列表，没有单独摘要；下面按标题归纳用户能碰到的变化，没有逐条打开每个 PR。新增 models 命令和 --list-models，用来查看可用模型。IDE 伴侣可以通过 exec stdio 接到容器沙箱。工作区是用户主目录时不再重复加载 agent。打开文件的上下文不再包含 IDE 设置和 GEMINI.md。不可信 flag 的检查只针对外部输出，并记住已批准的 flag。原子写入尊重只读文件和硬链接。相对文件路径按当前 IDE 工作区根目录解析。非交互模式处理终止信号，取消之后不再执行工具；请求取消后停止续写流和自动 nudge。迁移旧设置时保留 ${VAR} 占位符；从 Claude 迁来的 hook 超时由秒换算为毫秒。项目花费上限错误被标成终态配额错误。ACP 权限请求带上 MCP 服务器和工具元数据。/chat list 自动补全不再插入父命令名。数字设置编辑器拒绝非有限数字。Android（Termux）上，ripgrep 可以使用受信任的系统路径。生成 diff 上下文前先把 CRLF 换行归一化。修正泰语、老挝语 SARA AM 的显示宽度，并适配把歧义宽度字符画成宽字符的终端。confirm_action 不再重复记历史和遥测。带函数调用的每个模型回合都会带上 thought signature。自定义请求头按 RFC 9110 的 token 规则拆分。扩展的 token 用量元数据会保留，并按回合对齐上报。A2A 服务器在注册路由前挂上 express.json()。同日的 v0.68.0-preview.0，以及 v0.67.0-nightly.*（核对时 npm nightly 为 0.67.0-nightly.20261104.g89e9d25d6）是预发布，未计入。没有更高的稳定版。2026-11-10 核对。免费层额度未重新打开 Gemini API 定价页，仍沿用上次记录。'
-    summary_en: 'v0.67.0: GitHub Releases latest and npm @google/gemini-cli latest are both 0.67.0 (published 2026-11-04). The release body is a pull request list with no separate summary. The items below are read from those titles; each linked pull request was not opened. This version adds a models command and a --list-models flag for model discovery. The IDE companion can be bridged into a container sandbox over exec stdio. Agent loading is no longer duplicated when the workspace is the home directory. Open-file context excludes IDE settings and GEMINI.md. Untrusted-flag checks are limited to external output, and approved flags are remembered. Atomic writes respect read-only files and hard links. Relative file paths resolve against the active IDE workspace root. Non-interactive mode handles termination signals and does not run tools after cancellation; continuation streams and the auto-nudge stop after a request is cancelled. Deprecated settings migration keeps ${VAR} placeholders. Claude hook timeouts are converted from seconds to milliseconds during migration. Project spending-cap errors are classified as terminal quota errors. ACP permission requests include MCP server and tool metadata. /chat list autocomplete no longer inserts the parent command name. The numeric settings editor rejects non-finite numbers. On Android (Termux), ripgrep can use trusted system paths. Diff context snippets normalize CRLF line endings before comparing. Thai and Lao SARA AM display width is corrected, and terminals that render ambiguous-width characters as wide are handled. The confirm_action flow no longer writes duplicate history or double telemetry. Every model turn that includes a function call receives a thought signature. Custom headers are split using RFC 9110 token rules. Extended token-usage metadata is preserved and per-turn reporting is aligned. The A2A server mounts express.json() before route registration. v0.68.0-preview.0 from the same day, and v0.67.0-nightly.* (npm nightly was 0.67.0-nightly.20261104.g89e9d25d6 when checked), are prereleases and are not tracked. No newer stable release was published. Verified 2026-11-10. Free-tier quotas were not re-checked against the Gemini API pricing page and still reflect the previous record.'
-  - date: '2026-10-27'
+    summary: >-
+      v0.68.0：GitHub Releases 的 latest 与 npm @google/gemini-cli 的 latest 都是 0.68.0（GitHub 于 2026-11-10 发布，npm
+      于 2026-11-10 发布）。Release 正文主要是 pull request 列表。下面按官网 docs/changelogs/latest.md 的 highlights
+      写用户能碰到的变化，没有逐条打开每个 PR。新增扩展校验命令，并按扩展加锁，避免同时安装互相覆盖。加载指示器会显示 HTTP 429 的冷却倒计时。临时改用别的模型、取消请求、以及 rewind
+      之后，用户选中的模型仍保留。Hooks 支持 SubagentStop 事件映射。rootless Podman 沙箱带上 --userns=keep-id。另有 Windows 进程查找、libuv
+      文件状态，以及 glob 搜索里符号链接路径的修复。同日的 v0.69.0-preview.0（npm dist-tag preview）和 nightly 是预发布，未计入。核对时 npm nightly
+      仍是 0.67.0-nightly.20261104.g89e9d25d6。没有高于 0.68.0 的稳定版。2026-11-17 核对。免费层额度未重新打开 Gemini API 定价页，仍沿用上次记录。
+    summary_en: >-
+      v0.68.0: GitHub Releases latest and npm @google/gemini-cli latest are both 0.68.0 (GitHub published
+      2026-11-10, npm published 2026-11-10). The GitHub Release body is largely a pull request list. The items
+      below are the user-facing highlights from docs/changelogs/latest.md; each linked pull request was not
+      opened. This version adds an extension validation command and serialized per-extension install locking.
+      The loading indicator shows the HTTP 429 cool-down countdown. The selected model is kept across a
+      transient fallback, cancel, and rewind. Hooks map the SubagentStop event. Rootless Podman sandboxes pass
+      --userns=keep-id. There are also Windows process-lookup, libuv file-stat, and symlink-glob fixes.
+      v0.69.0-preview.0 from the same day (the npm preview dist-tag) and nightlies are prereleases and are not
+      tracked. When checked, the npm nightly dist-tag was still 0.67.0-nightly.20261104.g89e9d25d6. No newer
+      stable release was published. Verified 2026-11-17. Free-tier quotas were not re-checked against the
+      Gemini API pricing page and still reflect the previous record.
+  - date: "2026-11-04"
     type: release
-    summary: 'v0.66.0：GitHub Releases 的 latest 与 npm @google/gemini-cli 的 latest 都是 0.66.0（2026-10-27 发布）。Release 正文是 pull request 列表，没有单独摘要；下面按标题归纳用户能碰到的变化，没有逐条打开每个 PR。这版以修复为主：终端输出同步并单独渲染 spinner；修正调试控制台高度和 terminalBuffer 闪烁；可滚动的工具容器不再把右边框画出去；工具调用分组改由调度器发出，并去掉界面预读。Windows 上 openDiff 会格式化并给 diff 参数加引号。设置里的占位符改在加载 .env 之后再解析。keybindings.json 支持 keys 数组。更新检查会确认正在运行的二进制已经换成新版本，避免 PATH 上的旧文件被当成更新成功。启动进程会把终止信号转给子进程。刷新视口时保留终端回滚内容。shell 和 git 环境保留用户目录下的 .gitconfig，并关闭交互式凭据与 SSH 提示。认证错误判断减少误报。MCP OAuth 可以选用内网端点。SKILL.md 里单行 description 的 frontmatter 解析更严格。界面增加一条横幅，说明 Gemini CLI 并未针对 Gemini 4 做优化。同日及之后的 v0.67.0-preview.0 和 v0.67.0-nightly.* 是预发布，未计入。2026-11-03 核对。免费层额度未重新打开 Gemini API 定价页，仍沿用上次记录。'
-    summary_en: 'v0.66.0: GitHub Releases latest and npm @google/gemini-cli latest are both 0.66.0 (published 2026-10-27). The release body is a pull request list with no separate summary. The items below are read from those titles; each linked pull request was not opened. The release is mostly fixes: synchronized terminal output with the spinner rendered separately; debug console height and terminalBuffer flicker; scrollable tool containers no longer bleed past the right border; tool-call groups come from the scheduler and the UI lookahead is removed. On Windows, openDiff formats and quotes diff arguments. Settings placeholders resolve after .env files load. keybindings.json accepts a keys array. The update check confirms the running binary actually changed, so an older file earlier on PATH is not reported as a successful update. The bootstrap process forwards termination signals to the child. Viewport refreshes keep terminal scrollback. Shell and git environments keep the user-level .gitconfig and disable interactive credential and SSH prompts. Authentication-error detection has fewer false positives. MCP OAuth can opt in to private-network endpoints. SKILL.md frontmatter parsing is stricter for a single-line description. A banner states that Gemini CLI is not optimized for Gemini 4. v0.67.0-preview.0 and v0.67.0-nightly.* from the same day onward are prereleases and are not tracked. Verified 2026-11-03. Free-tier quotas were not re-checked against the Gemini API pricing page and still reflect the previous record.'
-  - date: '2026-10-20'
+    summary: >-
+      v0.67.0：GitHub Releases 的 latest 与 npm @google/gemini-cli 的 latest 都是 0.67.0（2026-11-04 发布）。Release 正文是
+      pull request 列表，没有单独摘要；下面按标题归纳用户能碰到的变化，没有逐条打开每个 PR。新增 models 命令和 --list-models，用来查看可用模型。IDE 伴侣可以通过 exec
+      stdio 接到容器沙箱。工作区是用户主目录时不再重复加载 agent。打开文件的上下文不再包含 IDE 设置和 GEMINI.md。不可信 flag 的检查只针对外部输出，并记住已批准的
+      flag。原子写入尊重只读文件和硬链接。相对文件路径按当前 IDE 工作区根目录解析。非交互模式处理终止信号，取消之后不再执行工具；请求取消后停止续写流和自动 nudge。迁移旧设置时保留 ${VAR}
+      占位符；从 Claude 迁来的 hook 超时由秒换算为毫秒。项目花费上限错误被标成终态配额错误。ACP 权限请求带上 MCP 服务器和工具元数据。/chat list
+      自动补全不再插入父命令名。数字设置编辑器拒绝非有限数字。Android（Termux）上，ripgrep 可以使用受信任的系统路径。生成 diff 上下文前先把 CRLF 换行归一化。修正泰语、老挝语
+      SARA AM 的显示宽度，并适配把歧义宽度字符画成宽字符的终端。confirm_action 不再重复记历史和遥测。带函数调用的每个模型回合都会带上 thought signature。自定义请求头按
+      RFC 9110 的 token 规则拆分。扩展的 token 用量元数据会保留，并按回合对齐上报。A2A 服务器在注册路由前挂上 express.json()。同日的
+      v0.68.0-preview.0，以及 v0.67.0-nightly.*（核对时 npm nightly 为
+      0.67.0-nightly.20261104.g89e9d25d6）是预发布，未计入。没有更高的稳定版。2026-11-10 核对。免费层额度未重新打开 Gemini API 定价页，仍沿用上次记录。
+    summary_en: >-
+      v0.67.0: GitHub Releases latest and npm @google/gemini-cli latest are both 0.67.0 (published
+      2026-11-04). The release body is a pull request list with no separate summary. The items below are read
+      from those titles; each linked pull request was not opened. This version adds a models command and a
+      --list-models flag for model discovery. The IDE companion can be bridged into a container sandbox over
+      exec stdio. Agent loading is no longer duplicated when the workspace is the home directory. Open-file
+      context excludes IDE settings and GEMINI.md. Untrusted-flag checks are limited to external output, and
+      approved flags are remembered. Atomic writes respect read-only files and hard links. Relative file paths
+      resolve against the active IDE workspace root. Non-interactive mode handles termination signals and does
+      not run tools after cancellation; continuation streams and the auto-nudge stop after a request is
+      cancelled. Deprecated settings migration keeps ${VAR} placeholders. Claude hook timeouts are converted
+      from seconds to milliseconds during migration. Project spending-cap errors are classified as terminal
+      quota errors. ACP permission requests include MCP server and tool metadata. /chat list autocomplete no
+      longer inserts the parent command name. The numeric settings editor rejects non-finite numbers. On
+      Android (Termux), ripgrep can use trusted system paths. Diff context snippets normalize CRLF line
+      endings before comparing. Thai and Lao SARA AM display width is corrected, and terminals that render
+      ambiguous-width characters as wide are handled. The confirm_action flow no longer writes duplicate
+      history or double telemetry. Every model turn that includes a function call receives a thought
+      signature. Custom headers are split using RFC 9110 token rules. Extended token-usage metadata is
+      preserved and per-turn reporting is aligned. The A2A server mounts express.json() before route
+      registration. v0.68.0-preview.0 from the same day, and v0.67.0-nightly.* (npm nightly was
+      0.67.0-nightly.20261104.g89e9d25d6 when checked), are prereleases and are not tracked. No newer stable
+      release was published. Verified 2026-11-10. Free-tier quotas were not re-checked against the Gemini API
+      pricing page and still reflect the previous record.
+  - date: "2026-10-27"
     type: release
-    summary: 'v0.65.0：GitHub Releases 的 latest 与 npm @google/gemini-cli 的 latest 都是 0.65.0（2026-10-20 发布）。说明以修复为主：不可信目录强制只读工作区设置；恢复会话时不再重复工具响应，快速退出也不再删掉已恢复的会话历史；修复 OAuth 校验/重试死循环、交互模式回车挂起，以及快速 Ctrl-C 污染会话；@目录 引用不再急切递归读文件；遥测配置可带自定义 OTLP headers。同日及之后的 v0.66.0-preview.0 与 v0.67.0-nightly 为预发布，未计入。2026-10-26 核对。免费层额度未重新打开 Gemini API 定价页，仍沿用上次记录。'
-    summary_en: 'v0.65.0: GitHub Releases latest and npm @google/gemini-cli latest are both 0.65.0 (published 2026-10-20). The notes are mostly fixes: untrusted folders enforce read-only workspace settings; resuming a session no longer duplicates tool-response turns, and a quick exit no longer deletes resumed session history; OAuth verification/retry loops, the interactive Enter hang, and session poisoning from rapid Ctrl-C are fixed; @directory references no longer eagerly read files recursively; telemetry config can send custom OTLP headers. v0.66.0-preview.0 and v0.67.0-nightly from the same day onward are prereleases and are not tracked. Verified 2026-10-26. Free-tier quotas were not re-checked against the Gemini API pricing page and still reflect the previous record.'
-  - date: '2026-10-13'
+    summary: >-
+      v0.66.0：GitHub Releases 的 latest 与 npm @google/gemini-cli 的 latest 都是 0.66.0（2026-10-27 发布）。Release 正文是
+      pull request 列表，没有单独摘要；下面按标题归纳用户能碰到的变化，没有逐条打开每个 PR。这版以修复为主：终端输出同步并单独渲染 spinner；修正调试控制台高度和 terminalBuffer
+      闪烁；可滚动的工具容器不再把右边框画出去；工具调用分组改由调度器发出，并去掉界面预读。Windows 上 openDiff 会格式化并给 diff 参数加引号。设置里的占位符改在加载 .env
+      之后再解析。keybindings.json 支持 keys 数组。更新检查会确认正在运行的二进制已经换成新版本，避免 PATH
+      上的旧文件被当成更新成功。启动进程会把终止信号转给子进程。刷新视口时保留终端回滚内容。shell 和 git 环境保留用户目录下的 .gitconfig，并关闭交互式凭据与 SSH
+      提示。认证错误判断减少误报。MCP OAuth 可以选用内网端点。SKILL.md 里单行 description 的 frontmatter 解析更严格。界面增加一条横幅，说明 Gemini CLI
+      并未针对 Gemini 4 做优化。同日及之后的 v0.67.0-preview.0 和 v0.67.0-nightly.* 是预发布，未计入。2026-11-03 核对。免费层额度未重新打开 Gemini
+      API 定价页，仍沿用上次记录。
+    summary_en: >-
+      v0.66.0: GitHub Releases latest and npm @google/gemini-cli latest are both 0.66.0 (published
+      2026-10-27). The release body is a pull request list with no separate summary. The items below are read
+      from those titles; each linked pull request was not opened. The release is mostly fixes: synchronized
+      terminal output with the spinner rendered separately; debug console height and terminalBuffer flicker;
+      scrollable tool containers no longer bleed past the right border; tool-call groups come from the
+      scheduler and the UI lookahead is removed. On Windows, openDiff formats and quotes diff arguments.
+      Settings placeholders resolve after .env files load. keybindings.json accepts a keys array. The update
+      check confirms the running binary actually changed, so an older file earlier on PATH is not reported as
+      a successful update. The bootstrap process forwards termination signals to the child. Viewport refreshes
+      keep terminal scrollback. Shell and git environments keep the user-level .gitconfig and disable
+      interactive credential and SSH prompts. Authentication-error detection has fewer false positives. MCP
+      OAuth can opt in to private-network endpoints. SKILL.md frontmatter parsing is stricter for a
+      single-line description. A banner states that Gemini CLI is not optimized for Gemini 4.
+      v0.67.0-preview.0 and v0.67.0-nightly.* from the same day onward are prereleases and are not tracked.
+      Verified 2026-11-03. Free-tier quotas were not re-checked against the Gemini API pricing page and still
+      reflect the previous record.
+  - date: "2026-10-20"
     type: release
-    summary: 'v0.64.0：ACP 补上用量回传；无头模式传递已解析的工作区信任状态；文件工具串行化且写入改为原子操作；聊天记录改为追加 delta 并限制历史窗口；状态原子持久化，损坏时可从备份恢复；支持 @file:line 引用。2026-10-16 核对为当时的最新稳定版（nightly/preview 未计入）。免费层额度当时未重新打开 Gemini API 定价页。'
-    summary_en: 'v0.64.0: ACP bridges usage and emits usage updates; headless mode propagates resolved folder trust; file tools are serialized and writes are atomic; chat recording uses append-only deltas with a bounded history window; state persists atomically and can recover from backup; @file:line references resolve. Verified 2026-10-16 as the latest stable release at that time (nightly/preview excluded). Free-tier quotas were not re-checked against the Gemini API pricing page then.'
-  - date: '2026-10-06'
+    summary: >-
+      v0.65.0：GitHub Releases 的 latest 与 npm @google/gemini-cli 的 latest 都是 0.65.0（2026-10-20
+      发布）。说明以修复为主：不可信目录强制只读工作区设置；恢复会话时不再重复工具响应，快速退出也不再删掉已恢复的会话历史；修复 OAuth 校验/重试死循环、交互模式回车挂起，以及快速 Ctrl-C
+      污染会话；@目录 引用不再急切递归读文件；遥测配置可带自定义 OTLP headers。同日及之后的 v0.66.0-preview.0 与 v0.67.0-nightly
+      为预发布，未计入。2026-10-26 核对。免费层额度未重新打开 Gemini API 定价页，仍沿用上次记录。
+    summary_en: >-
+      v0.65.0: GitHub Releases latest and npm @google/gemini-cli latest are both 0.65.0 (published
+      2026-10-20). The notes are mostly fixes: untrusted folders enforce read-only workspace settings;
+      resuming a session no longer duplicates tool-response turns, and a quick exit no longer deletes resumed
+      session history; OAuth verification/retry loops, the interactive Enter hang, and session poisoning from
+      rapid Ctrl-C are fixed; @directory references no longer eagerly read files recursively; telemetry config
+      can send custom OTLP headers. v0.66.0-preview.0 and v0.67.0-nightly from the same day onward are
+      prereleases and are not tracked. Verified 2026-10-26. Free-tier quotas were not re-checked against the
+      Gemini API pricing page and still reflect the previous record.
+  - date: "2026-10-13"
     type: release
-    summary: 'v0.63.0：连接恢复时显示重试进度；限制工具输出大小；修复认证死循环；非交互模式可以自主执行计划。'
-    summary_en: 'v0.63.0: shows retry progress during connection recovery; bounds tool output size; fixes an infinite auth loop; enables autonomous plan execution in non-interactive mode.'
-  - date: '2026-09-29'
+    summary: >-
+      v0.64.0：ACP 补上用量回传；无头模式传递已解析的工作区信任状态；文件工具串行化且写入改为原子操作；聊天记录改为追加 delta 并限制历史窗口；状态原子持久化，损坏时可从备份恢复；支持
+      @file:line 引用。2026-10-16 核对为当时的最新稳定版（nightly/preview 未计入）。免费层额度当时未重新打开 Gemini API 定价页。
+    summary_en: >-
+      v0.64.0: ACP bridges usage and emits usage updates; headless mode propagates resolved folder trust; file
+      tools are serialized and writes are atomic; chat recording uses append-only deltas with a bounded
+      history window; state persists atomically and can recover from backup; @file:line references resolve.
+      Verified 2026-10-16 as the latest stable release at that time (nightly/preview excluded). Free-tier
+      quotas were not re-checked against the Gemini API pricing page then.
+  - date: "2026-10-06"
     type: release
-    summary: 'v0.62.0：发布说明包含 Gemini 3.8 Flash 与 Gemini 3.5 Flash Lite 的合并变更，并继续修复 PTY 生命周期、OAuth refresh token 保留，以及 VS Code 伴侣扩展关闭 diff 时抢焦点的问题。'
-    summary_en: 'v0.62.0: release notes include the merged Gemini 3.8 Flash and Gemini 3.5 Flash Lite change, plus PTY lifecycle fixes, OAuth refresh-token retention, and a VS Code companion fix that preserves terminal focus when closing diff tabs.'
-  - date: '2026-09-23'
+    summary: v0.63.0：连接恢复时显示重试进度；限制工具输出大小；修复认证死循环；非交互模式可以自主执行计划。
+    summary_en: >-
+      v0.63.0: shows retry progress during connection recovery; bounds tool output size; fixes an infinite
+      auth loop; enables autonomous plan execution in non-interactive mode.
+  - date: "2026-09-29"
+    type: release
+    summary: >-
+      v0.62.0：发布说明包含 Gemini 3.8 Flash 与 Gemini 3.5 Flash Lite 的合并变更，并继续修复 PTY 生命周期、OAuth refresh token 保留，以及
+      VS Code 伴侣扩展关闭 diff 时抢焦点的问题。
+    summary_en: >-
+      v0.62.0: release notes include the merged Gemini 3.8 Flash and Gemini 3.5 Flash Lite change, plus PTY
+      lifecycle fixes, OAuth refresh-token retention, and a VS Code companion fix that preserves terminal
+      focus when closing diff tabs.
+  - date: "2026-09-23"
     type: release
     summary: v0.61.0：官方稳定版发布；2026-09-28 核对版本。
-    summary_en: 'v0.61.0: official stable release; version verified on 2026-09-28.'
-  - date: '2026-08-11'
+    summary_en: "v0.61.0: official stable release; version verified on 2026-09-28."
+  - date: "2026-08-11"
     type: release
-    summary: v0.55.1：0.44→0.55 系列累积更新--工具注册表发现机制（tool registry discovery）、Vertex base URL 更新、敏感路径拦截改为大小写不敏感并加固 VS Code HITL、发布流程与 npm 包安全加固（防止 workspace 二进制遮蔽与坏包发布）；0.56 已进入 nightly/preview 通道
-    summary_en: 'v0.55.1: Cumulative 0.44-0.55 series updates - tool registry discovery, Vertex base URL update, case-insensitive sensitive-path blocklist with hardened VS Code HITL, release pipeline and npm package security hardening (prevents workspace binary shadowing and bad NPM releases); 0.56 is currently in the nightly/preview channel'
-  - date: '2026-05-22'
+    summary: >-
+      v0.55.1：0.44→0.55 系列累积更新--工具注册表发现机制（tool registry discovery）、Vertex base URL 更新、敏感路径拦截改为大小写不敏感并加固 VS
+      Code HITL、发布流程与 npm 包安全加固（防止 workspace 二进制遮蔽与坏包发布）；0.56 已进入 nightly/preview 通道
+    summary_en: >-
+      v0.55.1: Cumulative 0.44-0.55 series updates - tool registry discovery, Vertex base URL update,
+      case-insensitive sensitive-path blocklist with hardened VS Code HITL, release pipeline and npm package
+      security hardening (prevents workspace binary shadowing and bad NPM releases); 0.56 is currently in the
+      nightly/preview channel
+  - date: "2026-05-22"
     type: release
-    summary: v0.43.0：精准代码编辑模式（引导模型优先使用 edit 工具进行外科手术式代码修改）；会话可移植性（支持导出/导入会话文件）；自适应 Token 计算器（更精确的内容大小估算）；多 Agent 架构协议（本地+远程子 Agent）；修复 OAuth 认证挂起（无头 Linux）、并行工具调用流式传输问题、Git 环境 PATH 保留等80处变更
-    summary_en: 'v0.43.0: Surgical code edits — model steered to use edit tool for precise changes; session portability (export/import sessions via CLI flag); adaptive token calculator for accurate content size measurements; multi-agent protocols for local and remote subagent interactions; 80 total changes including OAuth hang fix on headless Linux, parallel tool call streaming fixes, and Git PATH preservation'
-  - date: '2026-05-20'
+    summary: >-
+      v0.43.0：精准代码编辑模式（引导模型优先使用 edit 工具进行外科手术式代码修改）；会话可移植性（支持导出/导入会话文件）；自适应 Token 计算器（更精确的内容大小估算）；多 Agent
+      架构协议（本地+远程子 Agent）；修复 OAuth 认证挂起（无头 Linux）、并行工具调用流式传输问题、Git 环境 PATH 保留等80处变更
+    summary_en: >-
+      v0.43.0: Surgical code edits — model steered to use edit tool for precise changes; session portability
+      (export/import sessions via CLI flag); adaptive token calculator for accurate content size measurements;
+      multi-agent protocols for local and remote subagent interactions; 80 total changes including OAuth hang
+      fix on headless Linux, parallel tool call streaming fixes, and Git PATH preservation
+  - date: "2026-05-20"
     type: release
-    summary: v0.43.0-preview.1：多 Agent 架构预览，ACP 工具展示原生属性渲染，沙箱改进；v0.42.x 系列累积补丁（OAuth token 保留、快照恢复、Sublime Text/Emacs 编辑器集成）
-    summary_en: 'v0.43.0-preview.1: Multi-agent architecture preview, ACP-compliant native ToolDisplay properties, sandbox improvements; v0.42.x patch series: OAuth token preservation, snapshot recovery fixes, Sublime Text and Emacs editor integrations'
-  - date: '2026-05-05'
+    summary: >-
+      v0.43.0-preview.1：多 Agent 架构预览，ACP 工具展示原生属性渲染，沙箱改进；v0.42.x 系列累积补丁（OAuth token 保留、快照恢复、Sublime Text/Emacs
+      编辑器集成）
+    summary_en: >-
+      v0.43.0-preview.1: Multi-agent architecture preview, ACP-compliant native ToolDisplay properties,
+      sandbox improvements; v0.42.x patch series: OAuth token preservation, snapshot recovery fixes, Sublime
+      Text and Emacs editor integrations
+  - date: "2026-05-05"
     type: release
-    summary: v0.41.0：实时语音模式（云端+本地双后端）；无头环境强制工作区信任（安全增强）；健壮 shell 命令验证层和核心工具许可名单；新 ContextManager + AgentChatHistory 会话管理；自动记忆便签跨轮次持久化（技能提取）
-    summary_en: 'v0.41.0: Real-time Voice Mode with cloud-based and local processing backends; mandatory workspace trust for headless environments (security); robust shell command validation and core tools allowlist; new ContextManager + AgentChatHistory for improved session handling; auto-memory scratchpad persists across turns for skill extraction'
-  - date: '2026-05-01'
+    summary: >-
+      v0.41.0：实时语音模式（云端+本地双后端）；无头环境强制工作区信任（安全增强）；健壮 shell 命令验证层和核心工具许可名单；新 ContextManager + AgentChatHistory
+      会话管理；自动记忆便签跨轮次持久化（技能提取）
+    summary_en: >-
+      v0.41.0: Real-time Voice Mode with cloud-based and local processing backends; mandatory workspace trust
+      for headless environments (security); robust shell command validation and core tools allowlist; new
+      ContextManager + AgentChatHistory for improved session handling; auto-memory scratchpad persists across
+      turns for skill extraction
+  - date: "2026-05-01"
     type: release
-    summary: 'v0.40.1: 基于 v0.40.0 的补丁修复版本'
-    summary_en: 'v0.40.1: Patch fix cherry-picked from v0.40.0'
-  - date: '2026-04-28'
+    summary: "v0.40.1: 基于 v0.40.0 的补丁修复版本"
+    summary_en: "v0.40.1: Patch fix cherry-picked from v0.40.0"
+  - date: "2026-04-28"
     type: feature
     summary: v0.40.0：Gemma 本地模型一键配置（gemini gemma 命令）；提示驱动记忆管理（替换旧版 MemoryManagerAgent，更高效的内存编辑系统）
-    summary_en: 'v0.40.0: Streamlined local Gemma setup via gemini gemma command; prompt-driven memory management replaces legacy MemoryManagerAgent with a more efficient prompt-based editing system'
-  - date: '2026-04-24'
+    summary_en: >-
+      v0.40.0: Streamlined local Gemma setup via gemini gemma command; prompt-driven memory management
+      replaces legacy MemoryManagerAgent with a more efficient prompt-based editing system
+  - date: "2026-04-24"
     type: release
-    summary: 'v0.39.1: v0.39.0 基础上的补丁修复版本'
-    summary_en: 'v0.39.1: Patch fixes on top of v0.39.0'
-  - date: '2026-04-23'
+    summary: "v0.39.1: v0.39.0 基础上的补丁修复版本"
+    summary_en: "v0.39.1: Patch fixes on top of v0.39.0"
+  - date: "2026-04-23"
     type: feature
-    summary: 'v0.39.0: /memory inbox 内存管理命令；子 Agent 委托集成；对话记录迁移至 JSONL 流式格式；40+ 贡献者里程碑'
-    summary_en: 'v0.39.0: /memory inbox command for memory management; subagent delegation integration; chat recording migrated to JSONL streaming format; 40+ contributors milestone'
-  - date: '2026-04-17'
+    summary: "v0.39.0: /memory inbox 内存管理命令；子 Agent 委托集成；对话记录迁移至 JSONL 流式格式；40+ 贡献者里程碑"
+    summary_en: >-
+      v0.39.0: /memory inbox command for memory management; subagent delegation integration; chat recording
+      migrated to JSONL streaming format; 40+ contributors milestone
+  - date: "2026-04-17"
     type: release
-    summary: 'v0.38.2: Cherry-pick 修复补丁，提升稳定性'
-    summary_en: 'v0.38.2: Cherry-picked stability fixes patch release'
-  - date: '2026-04-15'
+    summary: "v0.38.2: Cherry-pick 修复补丁，提升稳定性"
+    summary_en: "v0.38.2: Cherry-picked stability fixes patch release"
+  - date: "2026-04-15"
     type: release
-    summary: 'v0.38.1: Chapters 叙事流（工具调用话题分组，长任务结构更清晰）; 上下文压缩服务（蒸馏历史对话）; Terminal Buffer 模式消除渲染闪烁; 上下文感知策略批准（持久化工具授权）; 后台进程监控工具'
-    summary_en: 'v0.38.1: Chapters narrative flow (tool-based topic grouping for long tasks); context compression service (distills conversation history); Terminal Buffer mode eliminates rendering flicker; context-aware policy approvals (persistent tool authorization); background process monitoring tools'
-  - date: '2026-03-24'
+    summary: >-
+      v0.38.1: Chapters 叙事流（工具调用话题分组，长任务结构更清晰）; 上下文压缩服务（蒸馏历史对话）; Terminal Buffer 模式消除渲染闪烁; 上下文感知策略批准（持久化工具授权）;
+      后台进程监控工具
+    summary_en: >-
+      v0.38.1: Chapters narrative flow (tool-based topic grouping for long tasks); context compression service
+      (distills conversation history); Terminal Buffer mode eliminates rendering flicker; context-aware policy
+      approvals (persistent tool authorization); background process monitoring tools
+  - date: "2026-03-24"
     type: release
-    summary: 'v0.35.0: Plan Mode 默认启用; 策略引擎支持项目级策略和 MCP Server 通配符'
-    summary_en: 'v0.35.0: Plan Mode enabled by default; policy engine with project-level policies and MCP server wildcards'
-  - date: '2026-02-27'
+    summary: "v0.35.0: Plan Mode 默认启用; 策略引擎支持项目级策略和 MCP Server 通配符"
+    summary_en: >-
+      v0.35.0: Plan Mode enabled by default; policy engine with project-level policies and MCP server
+      wildcards
+  - date: "2026-02-27"
     type: model
-    summary: 'v0.31.0: Gemini 3.1 Pro Preview 模型支持; Computer Use 工具; SDK 自定义 Skills; 实验性 Browser Agent 和 Memory Manager'
-    summary_en: 'v0.31.0: Gemini 3.1 Pro Preview model; Computer Use tool; SDK custom Skills; experimental Browser Agent and Memory Manager'
-  - date: '2025-06-01'
+    summary: >-
+      v0.31.0: Gemini 3.1 Pro Preview 模型支持; Computer Use 工具; SDK 自定义 Skills; 实验性 Browser Agent 和 Memory
+      Manager
+    summary_en: >-
+      v0.31.0: Gemini 3.1 Pro Preview model; Computer Use tool; SDK custom Skills; experimental Browser Agent
+      and Memory Manager
+  - date: "2025-06-01"
     type: launch
     summary: Gemini CLI 开源发布，免费使用 Gemini 2.5 Pro，1000 次/天
     summary_en: Gemini CLI open-sourced, free Gemini 2.5 Pro access, 1000 requests/day
-last_full_review: '2026-10-16'
-next_review_due: '2026-11-15'
+
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
-confidence: high
+confidence: low

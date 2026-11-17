@@ -5,18 +5,27 @@ logo: /images/cline.png
 url: https://cline.bot
 repo: https://github.com/cline/cline
 current_version: v4.1.26
-version_tracked_at: '2026-11-03'
+version_tracked_at: "2026-11-17"
+
 pricing:
   model: free
   currency: null
   plans:
     - name: 开源免费
       price: 0
-      limits: 无限制（需自备 API Key）
-      limits_en: Unlimited (requires your own API Key)
-  price_updated_at: '2026-02-09'
-  note: 客户端免费，模型费用取决于你接的 API
-  note_en: Client is free; model costs depend on the API you connect
+      limits: 个人开源 VS Code / CLI 客户端免费；BYOK 或 Cline provider 推理费用另计
+      limits_en: Individual open-source VS Code/CLI client is free; BYOK or Cline-provider inference costs are separate
+  price_updated_at: "2026-11-17"
+  note: >-
+    开源代码 Apache-2.0；JetBrains 插件当前不开放源码，并列入 Enterprise 定制定价，不应理解为全部客户端均免费开源。Cloud、ClinePass、SDK
+    与扩展有独立版本/商业范围，v4.1.26 仅指此处跟踪的扩展。自动批准和 Cloud 会话的权限行为不同，模型上下文会发往所选服务商。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
+  note_en: >-
+    Open-source code is Apache-2.0. JetBrains plugins are not currently open-sourced and are listed under
+    custom-priced Enterprise; not every client is free/open source. Cloud, ClinePass, SDK and extension have
+    separate version/commercial scopes; v4.1.26 here tracks the extension. Auto-approval and Cloud sessions
+    differ in permission behavior; context goes to the selected model provider. Historical editorial scores
+    retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
+
 scores:
   coding_ability: 8.2
   cost_efficiency: 9.6
@@ -30,10 +39,9 @@ features:
   multi_file_edit: true
   mcp_support: true
   context_window: 取决于所选模型
-  supported_models: 任意 OpenAI / Anthropic / Google / 自定义 API 兼容模型
-  ide_base: VS Code 插件（兼容 Cursor / Windsurf / VSCodium / Zed / Neovim）
+  supported_models: Anthropic、OpenAI、Gemini、OpenRouter、兼容 API 或 Ollama / LM Studio；可用模型受提供商和功能限制
+  ide_base: VS Code 插件；另有 CLI / macOS、Windows 桌面端 / Enterprise JetBrains
   cli_support: true
-  cli_platforms: macOS / Linux（预览）
   supported_os:
     - macOS
     - Windows
@@ -43,32 +51,45 @@ features:
   plan_act_mode: true
   auto_approve: true
   browser_preview: true
+
 best_for:
   - 想自由选择模型的开发者
-  - 搭配方舟 Coding Plan 的性价比方案
+  - 愿意自行比较模型费用和订阅限制的多提供商用户
   - VS Code 用户想要 Agent 能力
+
 best_for_en:
   - Developers who want full model freedom
-  - Cost-effective setup with Volcengine Ark Coding Plan
+  - Multi-provider users willing to compare model charges and plan restrictions
   - VS Code users who want Agent capabilities
+
 not_for:
-  - 不想折腾 API 配置的新手
+  - 不愿管理模型费用、权限与自动执行风险的用户
   - 需要代码补全（Tab）功能的用户
+
 not_for_en:
-  - Beginners who don't want to configure APIs
+  - Users unwilling to manage model costs, permissions and autonomous execution risks
   - Users who need Tab code completion
+
 quick_start:
   - 打开 VS Code，在扩展商店搜索 "Cline" 并安装（或访问 cline.bot）
   - 在侧边栏点击 Cline 图标，选择模型提供商并填写 API Key
-  - 推荐搭配火山方舟 Coding Plan（Lite 首月 ¥9.9 / 续费 ¥40），国内直连无需翻墙
+  - 按所选提供商的当前接入文档配置模型；不要沿用过期的首月促销或国内直连承诺
   - 在聊天框描述任务，Cline 自动读写文件并执行终端命令
+
 quick_start_en:
   - Open VS Code, search for "Cline" in the extension marketplace and install
   - Click the Cline icon in the sidebar, select model provider and enter API Key
-  - 'Recommended: pair with Volcengine Ark Coding Plan (¥9.9 first month / ¥40 renewal) for direct China access without VPN'
+  - >-
+    Configure the model using current provider documentation; do not rely on expired introductory promotions
+    or direct-China-access promises
   - Describe tasks in chat; Cline reads/edits files and runs terminal commands automatically
-china_note: 插件本身无需翻墙，强烈推荐搭配火山方舟 Coding Plan（Lite 首月 ¥9.9 / 续费 ¥40），DeepSeek V3 等模型国内直连
-china_note_en: Plugin requires no VPN; strongly recommend pairing with Volcengine Ark Coding Plan (¥9.9 first month / ¥40 renewal) for direct access to DeepSeek V3 and other models from China
+
+china_note: 可选国内 API 或本地模型，但各提供商地区政策、网络可达性和费用仍适用；本次未从中国大陆实测。
+
+china_note_en: >-
+  Domestic APIs or local models are options, but provider regional policies, reachability and charges still
+  apply; no mainland network test was performed.
+
 compatible_apis:
   - ark-coding-plan
   - openrouter
@@ -79,13 +100,23 @@ compatible_apis:
 data_sources:
   - url: https://github.com/cline/cline/releases/tag/v4.1.26
     type: release
-    last_checked: '2026-11-03'
+    last_checked: "2026-11-17"
   - url: https://github.com/cline/cline/tags
     type: release
-    last_checked: '2026-11-03'
+    last_checked: "2026-11-17"
   - url: https://github.com/cline/cline/releases
     type: release
-    last_checked: '2026-11-03'
+    last_checked: "2026-11-17"
+  - url: https://github.com/cline/cline
+    type: repo
+    last_checked: "2026-11-17"
+  - url: https://cline.bot/pricing
+    type: pricing
+    last_checked: "2026-11-17"
+  - url: https://docs.cline.bot/cline-overview
+    type: docs
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-10-26'
     type: release
@@ -179,7 +210,9 @@ changelog:
     type: feature
     summary: 支持 MCP Server 管理
     summary_en: MCP Server management support added
-last_full_review: '2026-10-16'
-next_review_due: '2026-11-15'
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: high

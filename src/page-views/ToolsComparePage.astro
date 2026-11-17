@@ -19,11 +19,13 @@ const toolsData = allTools.map((tool: any) => ({
     const plans = tool.pricing?.plans || [];
     const free = plans.find((p: any) => p.price === 0);
     const paid = plans.find((p: any) => typeof p.price === 'number' && p.price > 0);
-    const currency = tool.pricing?.currency === 'CNY' ? '¥' : '$';
-    if (free && paid) return lang === 'zh' ? `免费 / ${currency}${paid.price}起` : `Free / ${currency}${paid.price}+`;
+    const currency = tool.pricing?.currency === 'CNY' ? '¥' : tool.pricing?.currency === 'EUR' ? '€' : '$';
+    const period = paid?.period === 'year' ? (lang === 'zh' ? '/年' : '/year') : paid?.period === 'month' ? t('price.perMonth', lang) : '';
+    const paidLabel = paid ? `${currency}${paid.price}${period}` : '';
+    if (free && paid) return lang === 'zh' ? `免费 / ${paidLabel}起` : `Free / ${paidLabel}+`;
     if (free) return lang === 'zh' ? '免费' : 'Free';
-    if (paid) return `${currency}${paid.price}${lang === 'zh' ? '/月' : '/mo'}`;
-    return lang === 'zh' ? '按量计费' : 'Pay-as-you-go';
+    if (paid) return paidLabel;
+    return tool.pricing?.model === 'pay_as_you_go' ? t('price.payAsYouGo', lang) : (lang === 'zh' ? '价格待确认' : 'Price not established');
   })(),
   scores: {
     coding_ability: tool.scores?.coding_ability ?? 0,

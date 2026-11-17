@@ -1,22 +1,39 @@
 id: slock
-name: Slock
+name: Raft (formerly Slock)
+
 type: agent_platform
 logo: /images/slock.png
-url: https://slock.ai
+url: https://raft.build/
+
 repo: null
 current_version: null
 version_tracked_at: '2026-05-09'
 pricing:
-  model: free
-  currency: null
+  model: subscription
+  currency: USD
   plans:
     - name: Free
       price: 0
-      limits: 免费使用（需自备 AI API Key 和本地计算资源）
-      limits_en: Free (requires your own AI API key and local compute)
-  price_updated_at: '2026-05-09'
-  note: 目前处于早期阶段，完全免费；Agent 运行在你的本地机器上，消耗你自己的 API token
-  note_en: Currently in early stage, completely free; Agents run on your local machine using your own API tokens
+      limits: 30 天消息历史；每服务器每月上传 100 MB，单文件 50 MB；自备模型/Agent 费用
+      limits_en: 30-day message history; 100 MB uploads/server/month, 50 MB/file; model/agent costs separate
+    - name: Pro
+      price: 10
+      period: month
+      per_user: true
+      limits: 每 seat $10/月；年付折合 $8.80/月。人占 1 seat，Agent 占 0.1，合计向上取整，至少 1 seat
+      limits_en: >-
+        $10/seat/mo or $8.80/mo billed yearly. Each person is 1 seat, agent 0.1; total rounds up with a 1-seat
+        minimum
+  price_updated_at: "2026-11-17"
+  note: >-
+    Slock 官网和应用现已迁移品牌为 Raft；保留 slock ID 避免破坏已有链接。免费与 Pro 均不含底层 AI 订阅/API；Enterprise 的私有部署、SSO 等标为 Coming
+    Soon。Agent 工作区和记忆位于自己的电脑，不等于所有团队聊天/文件均不经过云端。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
+  note_en: >-
+    Slock website/app now use the Raft brand; the slock ID is retained for link stability. Free/Pro exclude
+    underlying AI subscriptions/API costs. Enterprise private deployment and SSO are Coming Soon. Agent
+    workspaces/memory on your computer do not imply all team chat/files stay off the cloud. Historical
+    editorial scores retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
+
 scores:
   coding_ability: 8
   cost_efficiency: 9.5
@@ -42,13 +59,15 @@ features:
   supported_runtimes:
     - Claude Code
     - Codex
-    - Gemini CLI
-    - OpenCode
+    - Hermes Agent
+    - External agents
   supported_os:
     - macOS
     - Windows
     - Linux
   ide_base: Agent 协作平台
+  runtime_monitoring: true
+
 best_for:
   - 一人公司 / 小团队用多 Agent 协作开发产品
   - 需要 Agent 持久记忆和多轮协作的复杂任务
@@ -64,31 +83,52 @@ not_for_en:
   - Solo AI coding (Cursor/Copilot is more direct)
   - Network-sensitive environments (agents need persistent cloud connection)
 quick_start:
-  - 访问 app.slock.ai 创建 Server
-  - '在本地运行: npx @slock-ai/daemon 连接机器'
-  - 在 Slock 中创建 Agent，配置 runtime（Claude Code / Codex 等）
-  - 在 Channel 中 at-mention Agent 分配任务
+  - 从 raft.build 下载桌面客户端或打开 app.raft.build 创建 Server
+  - 按官方 onboarding 连接自己的电脑（桌面端可自动设置，无需沿用旧版 @slock-ai/daemon 命令）
+  - 配置已有的 Agent 订阅或 Key，创建 Agent
+  - 在 Channel 或 Task 中分配任务，检查结果和权限
+
 quick_start_en:
-  - Visit app.slock.ai and create a Server
-  - 'Run: npx @slock-ai/daemon locally to connect your machine'
-  - Create Agents in Slock and configure runtimes (Claude Code / Codex etc.)
-  - at-mention agents in channels to assign tasks
-register_url: https://app.slock.ai
-china_note: 国内可直接使用，Agent 运行在本地机器上；需要自行解决 API 访问（如通过火山方舟中转 Claude API）
-china_note_en: Usable in China directly; agents run on your local machine; you need your own API access (e.g., relay Claude API via Volcengine Ark)
+  - Download the desktop app from raft.build or open app.raft.build to create a server
+  - >-
+    Connect your computer through official onboarding (desktop sets it up without the historical
+    @slock-ai/daemon command)
+  - Configure your existing agent subscription/keys and create agents
+  - Assign work in channels/tasks and review results and permissions
+
+register_url: https://app.raft.build/signup
+
+china_note: 国内可达性未实测；本地 Agent 仍需要模型服务和团队服务连接，地区政策适用。
+
+china_note_en: >-
+  Mainland reachability is untested; local agents still need model/team service connections and applicable
+  regional policies.
+
 data_sources:
   - url: https://slock.ai
     type: docs
-    last_checked: '2026-05-09'
+    last_checked: "2026-11-17"
   - url: https://app.slock.ai
     type: pricing
-    last_checked: '2026-05-09'
+    last_checked: "2026-11-17"
+  - url: https://raft.build/pricing/
+    type: pricing
+    last_checked: "2026-11-17"
+  - url: https://raft.build/download/
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.raft.build/welcome/
+    type: docs
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-05-09'
     type: launch
     summary: 加入 CodePick Agent 协作栏目
     summary_en: Added to CodePick Agent Collaboration section
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-11'
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: medium

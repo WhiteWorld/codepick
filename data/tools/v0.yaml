@@ -7,34 +7,48 @@ repo: null
 current_version: null
 version_tracked_at: '2026-04-19'
 pricing:
-  model: subscription
+  model: freemium
   currency: USD
   plans:
     - name: Free
       price: 0
-      limits: 每月 $5 token 额度，每天最多 7 条消息
-      limits_en: $5/month in credits, 7 messages/day limit
-    - name: Premium
-      price: 20
-      period: month
-      per_user: true
-      limits: 每月 $20 token 额度，可随时购买额外额度，Figma 导入，API 访问
-      limits_en: $20/month in credits, buy more anytime, Figma imports, API access
-    - name: Team
+      limits: 7 条消息/天；新用户 $5 一次性 credits（非每月），旧账号是否保留月额以账单设置为准
+      limits_en: >-
+        7 messages/day; new users receive $5 one-time credits, not monthly; legacy account allowance follows
+        billing settings
+    - name: Plus
       price: 30
       period: month
       per_user: true
-      limits: 共享工作区，集中账单，团队协作，API 访问
-      limits_en: Shared workspace, centralized billing, team collaboration, API access
+      limits: 每用户 $30 月度 credits，登录日另有 $2 当日到期 credits；页面 $90 被划线，所列为当前价
+      limits_en: >-
+        $30 monthly credits/user plus $2 on login days expiring that day; $90 is struck through, listed price
+        is current offer
     - name: Business
       price: 100
       period: month
       per_user: true
-      limits: 所有 Team 功能 + 数据训练退出，更高安全控制
-      limits_en: All Team features plus training opt-out, enhanced security controls
-  price_updated_at: '2026-04-19'
-  note: （2026-10-13 复核注：官网定价页已改为按模型 token 计费展示，订阅档位 Premium $20 / Team $30 未在页面文本中确认，待下次人工核对） 已从固定消息数改为 token 计费，额度单位为美元价值；网址已由 v0.dev 迁移至 v0.app
-  note_en: Switched from fixed message counts to token-based billing; credits are in USD value; URL migrated from v0.dev to v0.app
+      limits: 每用户 $30 月度 credits + 登录日 $2；默认退出训练；额外 credits 与托管成本另计
+      limits_en: >-
+        $30 monthly credits/user plus $2 on login days; training opt-out by default; extra credits and hosting
+        costs separate
+    - name: Enterprise
+      price: null
+      limits: 定制报价，SAML SSO、RBAC 等；数据不用于训练的企业条款
+      limits_en: Custom quote, SAML SSO/RBAC; enterprise no-training terms
+  price_updated_at: "2026-11-17"
+  note: >-
+    Premium $20 正在下线且不向新用户销售；旧 Team 已由当前 Plus 命名取代。月度 credits 可结转但 65 天到期，登录日额度不结转；购买 credits
+    一年到期且使用时需要有效付费套餐。可连接合资格 ChatGPT 套餐支付部分 OpenAI 生成，但每次请求的平台费、图像、子代理等仍用 v0 credits。额度耗尽/ChatGPT
+    限额暂停，不等于无限使用或自动改扣另一账户。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
+  note_en: >-
+    Premium $20 is being sunset and closed to new users; current collaboration tier is Plus, not old Team.
+    Monthly credits roll over with 65-day expiry; daily login credits do not roll over. Purchased credits
+    expire after a year and require an active paid plan to use. Eligible connected ChatGPT plans can cover
+    some OpenAI responses, but platform fees, images and subagent work still use v0 credits. Exhaustion pauses
+    generation, not unlimited use or automatic fallback billing. Historical editorial scores retained, not
+    newly measured or re-rated; not a fresh performance or cost benchmark.
+
 scores:
   coding_ability: 7.5
   cost_efficiency: 8
@@ -46,46 +60,63 @@ features:
   chat: true
   agent_mode: true
   multi_file_edit: true
-  mcp_support: false
+  mcp_support: true
   builder_mode: true
   git_integration: true
   database_integration: true
   ide_base: Web Builder
   supported_models:
-    - GPT-4o
-    - Claude Sonnet 4.5
     - v0 Mini
     - v0 Pro
     - v0 Max
+    - v0 Max Fast
+    - Eligible connected ChatGPT models (availability and platform fees vary)
   supported_os:
     - Web
+
 best_for:
-  - React/Next.js 开发者快速生成 UI 组件
-  - 使用 Vercel 部署的团队
-  - 需要从 Figma 设计稿生成代码的设计师
+  - 需要迭代 UI 和全栈原型并审查生成代码的团队
+  - 愿意结合 Vercel、GitHub、数据库与外部 API 的项目
+  - 从 Figma/截图生成可编辑界面的设计与开发协作
+
 best_for_en:
-  - React/Next.js developers generating UI components fast
-  - Teams deploying on Vercel
-  - Designers generating code from Figma designs
+  - Teams iterating on UI/full-stack prototypes and reviewing generated code
+  - Projects using Vercel, GitHub, databases and external APIs
+  - Design/development collaboration turning Figma/screenshots into editable interfaces
+
 not_for:
-  - 需要复杂自定义后端逻辑的项目
-  - 非 Vercel 生态的团队
+  - 需要无条件离线、零外发或所有档位默认退出训练的环境
+  - 不能审查外部 MCP 工具、发布和数据库权限的部署
+  - 把订阅 credits 当作托管、外部 API 和无限模型调用全包的预算
+
 not_for_en:
-  - Projects needing complex custom backend logic
-  - Teams outside Vercel ecosystem
+  - Environments requiring offline/zero-egress or default training opt-out on every tier
+  - Deployments unable to review external MCP, deployment and database permissions
+  - Budgets treating subscription credits as all-inclusive hosting/external APIs/unlimited generation
+
 quick_start:
-  - 访问 v0.app，用 Vercel 账号（可 GitHub 一键登录）注册，Free 套餐每月 $5 额度
-  - 在输入框描述你想要的 UI 组件（如"带搜索的数据表格，使用 shadcn/ui 风格"）
-  - AI 生成 React + shadcn/ui 组件代码，可继续对话调整样式和功能
-  - 通过 Git 面板创建分支/PR，或直接关联 Vercel 项目一键部署
+  - 访问 v0.app 登录并确认新/旧账号的实际 credits 权益和计费
+  - 描述应用/UI，迭代预览并在 Code view 审查代码
+  - 按需要连接数据库、API 或 MCP；Full 权限模式可跳过工具审批，不要默认所有破坏性操作都弹窗
+  - 审查 GitHub 变更、部署可见性、环境变量及外部账单后再自行发布到 Vercel
+
 quick_start_en:
-  - 'Visit v0.app and sign up with a Vercel account (GitHub one-click login supported); Free plan: $5/month in credits'
-  - Describe the UI component you need (e.g. "a data table with search in shadcn/ui style")
-  - AI generates React + shadcn/ui component code; keep chatting to refine style and functionality
-  - Use the Git panel to create branches/PRs, or link a Vercel project for direct deployment
+  - Sign in at v0.app and verify actual new/legacy account credits and billing
+  - Describe the app/UI, iterate in preview and review code in Code view
+  - >-
+    Connect databases/APIs/MCP as needed; Full mode skips tool approval, so destructive calls are not
+    guaranteed to prompt
+  - >-
+    Review GitHub changes, deployment visibility, environment variables and external bills before publishing
+    to Vercel
+
 register_url: https://v0.app
-china_note: 需要翻墙，Vercel 域名在国内访问受限；网站已迁移至 v0.app；专注前端 UI 组件和全栈应用生成
-china_note_en: Requires VPN from China; Vercel domain restricted in China; site migrated to v0.app; focuses on frontend UI and full-stack app generation
+china_note: 本次未实测中国大陆可达性或支付；云端生成、MCP、第三方 API 与部署的数据边界分别适用各自条款。
+
+china_note_en: >-
+  Mainland reachability/payments were not tested; cloud generation, MCP, external APIs and deployment each
+  have their own data boundaries and terms.
+
 changelog:
   - date: '2026-04-19'
     type: pricing
@@ -102,8 +133,26 @@ changelog:
 data_sources:
   - url: https://v0.app/pricing
     type: pricing
-    last_checked: '2026-04-19'
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-11'
+    last_checked: "2026-11-17"
+  - url: https://v0.app/docs
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://v0.app/docs/pricing
+    type: pricing
+    last_checked: "2026-11-17"
+  - url: https://v0.app/docs/MCP
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://v0.app/docs/security
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://v0.app/docs/quickstart
+    type: docs
+    last_checked: "2026-11-17"
+
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: medium

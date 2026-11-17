@@ -4,8 +4,10 @@ type: cli
 logo: /images/codex-cli.png
 url: https://openai.com/codex/
 repo: https://github.com/openai/codex
-current_version: rust-v0.163.0
-version_tracked_at: '2026-10-22'
+current_version: rust-v0.169.0
+
+version_tracked_at: "2026-11-17"
+
 pricing:
   model: subscription
   currency: USD
@@ -13,31 +15,50 @@ pricing:
     - name: ChatGPT Plus
       price: 20
       period: month
-      limits: Codex CLI + App + IDE 扩展，token 计费，基础用量（GPT-5.6 Sol 10-100 条/5h 等）
-      limits_en: Codex CLI + App + IDE extension, token billing, base usage (GPT-5.6 Sol 10-100 msgs/5h etc.)
-    - name: ChatGPT Pro 5x
+      limits: 任务/模型/上下文相关的 5 小时与周用量；可另购 credits，不是无限调用
+      limits_en: Task/model/context-dependent 5-hour and weekly usage; extra credits available, not unlimited calls
+    - name: ChatGPT Pro $100
       price: 100
       period: month
-      limits: Plus 5 倍本地消息量（GPT-5.6 Sol 50-500 条/5h），全系模型 + Codex-Spark 预览
-      limits_en: 5x Plus local-message capacity (GPT-5.6 Sol 50-500 msgs/5h), full model lineup + Codex-Spark preview
-    - name: ChatGPT Pro 20x
+      limits: 当前 Pro 无 5 小时上限，其他计划/模型/用量规则仍适用；不照抄旧 5x/20x 倍数
+      limits_en: >-
+        Current Pro has no 5-hour limit; other plan/model/usage rules apply; old 5x/20x multipliers are not
+        reused
+    - name: ChatGPT Pro $200
       price: 200
       period: month
-      limits: 20 倍本地消息量（GPT-5.6 Sol 200-2,000 条/5h），Voice 无限时长
-      limits_en: 20x local-message capacity (GPT-5.6 Sol 200-2,000 msgs/5h), unlimited Voice
-    - name: API Key（按量计费）
-      price: null
-      limits: 按 token 计费，GPT-5.6 全系可用；灵活但成本随用量波动
-      limits_en: Billed by token, full GPT-5.6 family; flexible but cost scales with usage
-    - name: Business / Enterprise
-      price: null
+      limits: 当前 Pro 无 5 小时上限，其他计划/模型/用量规则仍适用；不照抄旧 5x/20x 倍数
+      limits_en: >-
+        Current Pro has no 5-hour limit; other plan/model/usage rules apply; old 5x/20x multipliers are not
+        reused
+    - name: ChatGPT Pro $500
+      price: 500
       period: month
-      per_user: true
-      limits: 团队管理，自动 Code Review，Slack/Linear 集成，审计日志
-      limits_en: Team management, automated Code Review, Slack/Linear integration, audit logs
-  price_updated_at: '2026-08-19'
-  note: 需要 ChatGPT Plus（$20/月）、Pro 5x（$100/月）或 Pro 20x（$200/月）或 API Key；2026-08 起 Codex 以「Codex App」为主交付形态，CLI 仍可用；套餐按 5 小时窗口 + 周上限计；与 Gemini CLI 不同，无免费额度
-  note_en: Requires ChatGPT Plus ($20/mo), Pro 5x ($100/mo), Pro 20x ($200/mo), or an API Key; since 2026-08 Codex is primarily delivered as the Codex App, CLI remains available; plans run on 5-hour windows + weekly caps; unlike Gemini CLI, no free tier
+      limits: 当前 Pro 无 5 小时上限，其他计划/模型/用量规则仍适用；不照抄旧 5x/20x 倍数
+      limits_en: >-
+        Current Pro has no 5-hour limit; other plan/model/usage rules apply; old 5x/20x multipliers are not
+        reused
+    - name: API key
+      price: null
+      limits: 单独按 API 模型/token 费率计费，部分账号/云功能不可用
+      limits_en: Separately billed at API model/token rates; some account/cloud features unavailable
+    - name: Business / Enterprise / Edu
+      price: null
+      limits: 组织条款、席位和 credits；功能以组织设置/模型可用性为准
+      limits_en: Organization seat/credit terms; features depend on workspace policy and model availability
+  price_updated_at: "2026-11-17"
+  note: >-
+    2026-11-17 复核官方 CLI、认证、模型与定价。CLI 为本机终端 Agent，不等于每个任务在云端；可提交云任务。公开价格也列 Free/Go 的有限桌面访问，不再写“整个 Codex
+    无免费档”，但不把桌面权益直接承诺为 CLI 的同等资格。API Key 单独计费。模型表已更新至 GPT-6.1/GPT-6 系列，旧 GPT-5.5 已退役于 ChatGPT 登录场景；不保留 o3/o4
+    作为现行默认模型。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
+  note_en: >-
+    Official CLI/auth/model/pricing docs rechecked 2026-11-17. CLI is a local terminal agent, not inherently
+    cloud execution; it can submit cloud tasks. Public pricing also lists limited Free/Go desktop access, so
+    remove “all Codex has no free tier” without promising identical CLI eligibility. API keys bill separately.
+    Model docs now list GPT-6.1/GPT-6; GPT-5.5 retired for ChatGPT sign-in, and o3/o4 are not retained as
+    current defaults. Historical editorial scores retained, not newly measured or re-rated; not a fresh
+    performance or cost benchmark.
+
 scores:
   coding_ability: 9
   cost_efficiency: 6
@@ -52,16 +73,15 @@ features:
   mcp_support: true
   shell_exec: true
   full_screen_tui: true
-  context_window: 标准上下文窗口
+  context_window: 依模型、提供商和账号而异
   web_search: true
   hooks_engine: true
   supported_models:
-    - GPT-5.4
-    - GPT-5.3-Codex
-    - GPT-5.4 mini
-    - Codex-Spark (研究预览)
-    - o3
-    - o4-mini
+    - GPT-6.1 Sol
+    - GPT-6.1 Terra
+    - GPT-6 Sol
+    - GPT-6 Luna
+    - Other account/provider-enabled models
   ide_base: 终端
   supported_os:
     - macOS
@@ -69,48 +89,88 @@ features:
     - Linux
   jetbrains_support: false
   git_integration: true
+
 best_for:
-  - 已订阅 ChatGPT Plus 的开发者（无额外成本）
-  - 需要 OpenAI o3/o4 推理能力的复杂编程任务
-  - 偏好终端工作流的 OpenAI 用户
+  - 已有合资格 ChatGPT 方案、可管理用量上限的终端用户
+  - 需要审查文件修改、命令和本地代码评审的开发者
+  - 愿意独立管理 API 或组织模型/权限配置的工作流
+
 best_for_en:
-  - Developers already subscribed to ChatGPT Plus (no extra cost)
-  - Complex coding tasks that need OpenAI o3/o4 reasoning capability
-  - OpenAI users who prefer terminal workflows
+  - Terminal users with eligible ChatGPT plans who can manage usage limits
+  - Developers reviewing file edits, commands and local code reviews
+  - Workflows able to manage API or organization model/permission configuration
+
 not_for:
-  - 国内网络用户（OpenAI 在国内被封锁）
-  - 预算有限、不想订阅 ChatGPT 的用户
-  - 需要 IDE 内补全体验的用户
+  - 要求本地执行就一定无代码外发的环境
+  - 不能接受模型/credits/API 成本和服务地区资格限制的用户
+  - 不能为 Full access 或自动审批配置外部权限边界的部署
+
 not_for_en:
-  - Users in China (OpenAI is blocked)
-  - Budget-conscious users who don't want a ChatGPT subscription
-  - Users who need in-IDE completion experience
+  - Environments assuming local execution guarantees no code egress
+  - Users unable to accept model/credit/API costs and region/account eligibility limits
+  - Deployments unable to bound Full access or automatic approvals externally
+
 quick_start:
-  - 订阅 ChatGPT Plus（$20/月），CLI 包含在订阅内；或准备 OpenAI API Key
-  - 安装 Node.js 22+，运行：npm install -g @openai/codex
-  - 使用 ChatGPT 账号登录：codex login；或设置 API Key：export OPENAI_API_KEY=sk-xxx
-  - 进入项目目录运行：codex "描述你的任务"
+  - 从官方 README 选择 macOS/Linux/Windows 独立安装器或包管理器；npm 包当前 engines 为 Node >=16，优先按官方平台安装文档
+  - 在项目目录运行 codex，选择 ChatGPT 或 API Key 认证（API 独立计费）
+  - 检查模型、权限模式、sandbox 和 writable roots；Full access 允许更广文件与网络权限
+  - 先用小范围任务，审查 diff、命令和测试结果；按需显式启用 MCP、hooks 或云任务
+
 quick_start_en:
-  - Subscribe to ChatGPT Plus ($20/mo, CLI included); or get an OpenAI API Key
-  - 'Install Node.js 22+, run: npm install -g @openai/codex'
-  - 'Sign in with ChatGPT: codex login; or set API Key: export OPENAI_API_KEY=sk-xxx'
-  - 'Run in your project directory: codex "describe your task"'
-china_note: 需要 OpenAI 账号，国内访问 OpenAI 需要代理；可替换为支持 OpenAI 格式的国内 API（如 DeepSeek、月之暗面）
-china_note_en: Requires OpenAI account; accessing OpenAI from China requires a proxy; can substitute with OpenAI-compatible Chinese APIs (e.g. DeepSeek, Moonshot)
+  - >-
+    Choose the official macOS/Linux/Windows standalone installer or package manager; current npm engines is
+    Node >=16, prefer platform installation docs
+  - Run codex in the repo and choose ChatGPT/API authentication (API bills separately)
+  - >-
+    Inspect model, permission mode, sandbox and writable roots; Full access grants broader files/network
+    access
+  - Start with a focused task and review diffs/commands/tests; enable MCP/hooks/cloud tasks only as needed
+
+china_note: 本次未验证国内可达性或账号资格；遵守服务支持地区与平台规则。第三方兼容接口不是原版 OpenAI 模型或相同功能/隐私保证。
+
+china_note_en: >-
+  Mainland reachability/account eligibility were not tested; follow service region/platform rules. Compatible
+  third-party endpoints are not original OpenAI models or identical feature/privacy guarantees.
+
 plans_using_this: []
 data_sources:
   - url: https://openai.com/codex/
     type: product
-    last_checked: '2026-04-19'
+    last_checked: "2026-11-17"
   - url: https://github.com/openai/codex
     type: changelog
-    last_checked: '2026-04-19'
+    last_checked: "2026-11-17"
   - url: https://github.com/openai/codex/releases/tag/rust-v0.163.0
     type: release
-    last_checked: '2026-10-22'
+    last_checked: "2026-10-22"
   - url: https://github.com/openai/codex/releases
     type: release
-    last_checked: '2026-10-22'
+    last_checked: "2026-11-17"
+  - url: https://developers.openai.com/codex/cli/
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://developers.openai.com/codex/pricing/
+    type: pricing
+    last_checked: "2026-11-17"
+  - url: https://developers.openai.com/codex/models/
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://developers.openai.com/codex/auth
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://developers.openai.com/codex/permission-modes
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://developers.openai.com/codex/agent-approvals-security
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://developers.openai.com/codex/config-reference/
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://registry.npmjs.org/@openai/codex/latest
+    type: release
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-10-15'
     type: release
@@ -151,7 +211,9 @@ changelog:
     type: launch
     summary: Codex CLI 开源发布，OpenAI 出品的终端 Agent，支持 o3/o4-mini
     summary_en: Codex CLI open-sourced — OpenAI's terminal Agent, supports o3/o4-mini
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-11'
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: medium

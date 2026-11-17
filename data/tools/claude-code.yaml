@@ -2,10 +2,13 @@ id: claude-code
 name: Claude Code
 type: cli
 logo: /images/claude-code.png
-url: https://docs.anthropic.com/en/docs/claude-code
+url: https://code.claude.com/docs/en/overview
+
 repo: null
-current_version: 2.1.308
-version_tracked_at: '2026-10-22'
+current_version: 2.1.326
+
+version_tracked_at: "2026-11-17"
+
 pricing:
   model: subscription
   currency: USD
@@ -14,33 +17,49 @@ pricing:
       price: 20
       period: month
       annual_price: 200
-      limits: 基础用量, ~45次请求/5小时窗口
-      limits_en: Basic usage, ~45 requests per 5-hour window
-      note: 年付$200/年预付（折合约$16.7/月）
-    - name: Max 5x
+      limits: 按模型、上下文和任务共享 5 小时/周用量限制，不保证固定请求数
+      limits_en: Model/context/task-dependent shared 5-hour and weekly limits, not a guaranteed request count
+    - name: Max
       price: 100
       period: month
-      limits: 5倍Pro用量, ~225次请求/5小时窗口, Opus 4.6优先
-      limits_en: 5x Pro usage, ~225 requests per 5-hour window, Opus 4.6 priority
-    - name: Max 20x
+      limits: 5 小时与周额度为 Pro 的 5 倍；仍有用量限制
+      limits_en: 5x Pro 5-hour and weekly allowance; usage limits still apply
+    - name: Ultra
       price: 200
       period: month
-      limits: 20倍Pro用量, Opus 4.6完整访问, Agent Teams
-      limits_en: 20x Pro usage, full Opus 4.6 access, Agent Teams
-    - name: Team (Premium Seat)
-      price: 100
-      period: month
+      limits: 周额度为 Pro 的 10 倍；已验证账号无 5 小时限制，非无限总用量
+      limits_en: 10x Pro weekly allowance; verified accounts have no 5-hour limit, not unlimited overall usage
+    - name: Team Standard (annual)
+      price: 240
+      period: year
       per_user: true
-      limits: 含 Claude Code, 6.25倍Pro用量, 年付$100/月(月付$125-150); 另有Standard座席$25-30不含Code
-      limits_en: Includes Claude Code, 6.25x Pro usage, $100/mo annual ($125-150 monthly); Standard seats $25-30 without Code
-    - name: API
+      limits: 每座席年付总额（$20/月等值），月付 $25；包含 Claude Code
+      limits_en: Per-seat annual total ($20/month equivalent); monthly billing $25; includes Claude Code
+    - name: Team Premium (annual)
+      price: 1200
+      period: year
+      per_user: true
+      limits: 每座席年付总额（$100/月等值），月付 $125；Standard 的 5 倍用量
+      limits_en: Per-seat annual total ($100/month equivalent); monthly billing $125; 5x Standard usage
+    - name: API / third-party platform
       price: null
-      period: null
-      limits: 按量付费, Sonnet 4.6 $3/$15, Opus 4.6 $5/$25, Haiku 4.5 $1/$5 per 1M tokens
-      limits_en: Pay-as-you-go, Sonnet 4.6 $3/$15, Opus 4.6 $5/$25, Haiku 4.5 $1/$5 per 1M tokens
-  price_updated_at: '2026-08-19'
-  note: Pro可年付$200/年（约$16.7/月）; Max包含Opus 4.6的1M上下文(GA)和Agent Teams; Team有Standard/Premium两种座席; 也可通过方舟Coding Plan接入
-  note_en: Pro available at $200/year upfront (~$16.7/mo); Max includes Opus 4.6 1M context (GA) and Agent Teams; Team offers Standard/Premium seat types; can also connect via Volcengine Ark Coding Plan
+      limits: 按所选模型、缓存、上下文和托管平台费率计费，非订阅无限额度
+      limits_en: Billed by selected model, caching, context and hosting-platform rates, not unlimited subscription use
+  price_updated_at: "2026-11-17"
+  note: >-
+    2026-11-17 官方价格已是 Pro / Max / Ultra，旧 Max 20x 和固定请求数不再照抄。模型别名随提供商变化（Anthropic API 当前 Opus/Sonnet/Haiku
+    5.5），上下文与可用性依模型/账号。Agent Teams 仍实验性且默认关闭、token 随队友增加；CLI computer-use 是 macOS 研究预览，仅 Pro/Max/Ultra，不适用
+    Team/Enterprise。语音把录音流发往 Anthropic，仅 Claude.ai 登录可用，非本地转写。个人与商业条款的数据训练/保留不同，须检查设置；不承诺零外发。
+    历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
+  note_en: >-
+    Official pricing on 2026-11-17 is Pro/Max/Ultra; do not retain obsolete Max 20x or fixed request counts.
+    Model aliases vary by provider (Anthropic API currently Opus/Sonnet/Haiku 5.5); context/access vary by
+    model/account. Agent Teams remain experimental, off by default, with per-teammate token costs. CLI
+    computer-use is macOS research preview for Pro/Max/Ultra, not Team/Enterprise. Voice streams audio to
+    Anthropic and requires Claude.ai login, not local transcription. Consumer/commercial training and
+    retention terms differ; review settings, with no zero-egress guarantee. Historical editorial scores
+    retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
+
 scores:
   coding_ability: 9.6
   cost_efficiency: 3.5
@@ -59,61 +78,105 @@ features:
   adaptive_thinking: true
   voice_mode: true
   computer_use: true
-  context_window: 1M tokens (Opus 4.6 / Sonnet 4.6 GA)
+  context_window: 依模型/提供商，最高 1M；非所有模型和账号统一
   supported_models:
-    - Claude Opus 4.6
-    - Claude Sonnet 4.6
-    - Claude Haiku 4.5
+    - Claude Opus 5.5 (Anthropic API alias)
+    - Claude Sonnet 5.5 (Anthropic API alias)
+    - Claude Haiku 5.5 (Anthropic API alias)
+    - Other documented provider/model configurations
   ide_base: 终端 CLI
   supported_os:
     - macOS
     - Windows
     - Linux
   git_integration: true
+
 best_for:
-  - 终端党追求最强编码能力
-  - 复杂大型项目自主开发
-  - 需要 Multi-Agent 协作
+  - 需要终端、IDE 或 Desktop 工作流及仓库多文件修改的开发者
+  - 能审查权限、代码差异和模型结果的团队
+  - 愿意承担多会话额外用量的实验性 Agent Teams 工作流
+
 best_for_en:
-  - Terminal users who demand the highest code quality
-  - Complex large-project autonomous development
-  - Teams needing Multi-Agent collaboration
+  - Developers needing terminal, IDE or Desktop repository-editing workflows
+  - Teams able to review permissions, diffs and model output
+  - Experimental Agent Teams workflows accepting additional multi-session usage
+
 not_for:
-  - 预算有限的用户
-  - 国内直连需求（可通过方舟中转）
-  - 想要GUI界面的用户
+  - 需要无条件离线或零外发保证的环境
+  - 无法接受订阅/模型用量上限和额外 API 成本的用户
+  - 要求所有 OS/套餐都有 CLI computer-use 或稳定 Agent Teams 的部署
+
 not_for_en:
-  - Budget-constrained users
-  - Users who need direct China access (can relay via Ark)
-  - Users who prefer a GUI interface
+  - Environments requiring unconditional offline/zero-egress guarantees
+  - Users unable to accept subscription/model limits and additional API costs
+  - Deployments requiring CLI computer-use on every OS/plan or stable Agent Teams
+
 quick_start:
-  - 订阅 Claude.ai Pro（$20/月），或 Max 5x/20x 套餐获取更高用量
-  - 安装 Node.js 18+，运行：npm install -g @anthropic-ai/claude-code
-  - 在项目目录运行：claude（首次自动跳转浏览器完成账号授权）
-  - 也可通过火山方舟 Coding Plan（Lite 首月 ¥9.9 / 续费 ¥40）在国内低成本使用
+  - 先核对官方支持地区、账号资格与套餐/商业数据条款，选择订阅或 API/平台认证
+  - 按官方 setup 使用本机平台安装器；若用 npm 安装，当前要求 Node.js 22+，不是旧的 18+
+  - 在项目中运行 claude 并完成所选认证，检查 /model、/usage 和权限模式
+  - 先在非敏感仓库试用并审查 diff/测试；第三方兼容模型不是原版 Claude，不照抄旧首月促销或“中转 Claude”承诺
+
 quick_start_en:
-  - Subscribe to Claude.ai Pro ($20/mo), or Max 5x/20x for higher usage
-  - 'Install Node.js 18+, run: npm install -g @anthropic-ai/claude-code'
-  - 'Run: claude in your project directory (first run opens browser for account auth)'
-  - Alternatively, use via Volcengine Ark Coding Plan (¥9.9 first month / ¥40 renewal) for budget-friendly China access
+  - >-
+    Check supported regions/account eligibility, plan and commercial data terms; choose subscription or
+    API/platform authentication
+  - Use the official platform installer; npm installation currently requires Node.js 22+, not the old 18+
+  - Run claude in the project, authenticate as selected, and inspect /model, /usage and permission mode
+  - >-
+    Try a nonsensitive repo and review diffs/tests; compatible third-party models are not original Claude, and
+    old first-month/Claude-relay promises are not reused
+
 register_url: https://claude.ai/upgrade
-china_note: 官方不支持国内直连；推荐通过火山方舟 Coding Plan 中转（Lite 首月 ¥9.9 / 续费 ¥40），或配置代理后使用
-china_note_en: No official direct China access; recommend Volcengine Ark Coding Plan (¥9.9 first month / ¥40 renewal) as a relay, or configure a proxy
+china_note: 本次未验证中国大陆服务可达性/账号资格。应遵守官方支持地区与平台规则；方舟等兼容接口运行的是各自模型，不等同获得原版 Claude。
+
+china_note_en: >-
+  Mainland reachability/account eligibility was not tested. Follow official supported-region/platform rules;
+  compatible services such as Ark run their own models, not original Claude.
+
 compatible_apis:
   - ark-coding-plan
 data_sources:
   - url: https://claude.ai/pricing
     type: pricing
-    last_checked: '2026-10-13'
+    last_checked: "2026-10-13"
   - url: https://docs.anthropic.com/en/docs/claude-code
     type: docs
-    last_checked: '2026-10-13'
+    last_checked: "2026-11-17"
   - url: https://github.com/anthropics/claude-code/releases/tag/v2.1.308
     type: release
-    last_checked: '2026-10-22'
+    last_checked: "2026-10-22"
   - url: https://github.com/anthropics/claude-code/releases
     type: release
-    last_checked: '2026-10-22'
+    last_checked: "2026-11-17"
+  - url: https://claude.com/pricing
+    type: pricing
+    last_checked: "2026-11-17"
+  - url: https://code.claude.com/docs/en/overview.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://code.claude.com/docs/en/setup.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://code.claude.com/docs/en/model-config.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://code.claude.com/docs/en/data-usage.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://code.claude.com/docs/en/agent-teams.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://code.claude.com/docs/en/voice-dictation.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://code.claude.com/docs/en/computer-use.md
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://github.com/anthropics/claude-code/releases/tag/v2.1.326
+    type: release
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-10-22'
     type: release
@@ -171,7 +234,9 @@ changelog:
     type: pricing
     summary: 推出 Max 5x ($100) 和 Max 20x ($200) 高用量套餐
     summary_en: Launched Max 5x ($100) and Max 20x ($200) high-usage tiers
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-12'
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: high

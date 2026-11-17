@@ -7,36 +7,53 @@ repo: null
 current_version: null
 version_tracked_at: '2026-05-09'
 pricing:
-  model: subscription
+  model: freemium
   currency: USD
   plans:
     - name: Free
       price: 0
-      limits: 基础 AI 用量，最多 3 个 app，1 个工作区
-      limits_en: Basic AI quota, up to 3 apps, 1 workspace
-    - name: Pro
-      price: 10
-      period: month
-      limits: 含 10 用户，50,000 credits/月，无限 app/agent/工作区
-      limits_en: 10 users included, 50,000 credits/mo, unlimited apps/agents/workspaces
-    - name: Business
-      price: 25
-      period: month
-      limits: 150,000 credits/月，自定义域名，SSO
-      limits_en: 150,000 credits/mo, custom domains, SSO
-    - name: Max
-      price: 100
-      period: month
-      limits: 400,000 credits/月
-      limits_en: 400,000 credits/mo
+      limits: 3 apps、1 workspace；没有每月 AI credits，需按现行规则赚取；10 automation runs/月
+      limits_en: 3 apps, 1 workspace; no monthly AI credits, earn credits under current rules; 10 automation runs/month
+    - name: Starter (annual)
+      price: 72
+      period: year
+      limits: $6/月等值，3 用户，10,000 credits/月，3 agents，350 automation runs/月
+      limits_en: $6/month equivalent, 3 users, 10,000 credits/month, 3 agents, 350 automation runs/month
+    - name: Pro (annual)
+      price: 120
+      period: year
+      limits: $10/月等值，10 用户、50,000 credits/月，无限 apps/agents/workspaces，1,000 automation runs/月
+      limits_en: >-
+        $10/month equivalent, 10 users, 50,000 credits/month, unlimited apps/agents/workspaces, 1,000
+        automation runs/month
+    - name: Business (annual)
+      price: 300
+      period: year
+      limits: $25/月等值，无限用户、150,000 credits/月，SAML SSO，10,000 automation runs/月
+      limits_en: $25/month equivalent, unlimited users, 150,000 credits/month, SAML SSO, 10,000 automation runs/month
+    - name: Max (annual)
+      price: 1200
+      period: year
+      limits: $100/月等值，无限用户、400,000 credits/月；AI request 日限额仍适用
+      limits_en: $100/month equivalent, unlimited users, 400,000 credits/month; daily AI request caps still apply
     - name: Enterprise
-      price: 250
-      period: month
-      limits: 110 万 credits/月，SCIM，BYOK，专属支持
-      limits_en: 1.1M credits/mo, SCIM, BYOK, dedicated support
-  price_updated_at: '2026-10-13'
-  note: 2026-10-13 核验官网：Pro 从 $8 涨至 $10/月；新增 Business $25、Max $100、Enterprise $250 三档
-  note_en: 'Verified 2026-10-13: Pro raised from $8 to $10/mo; new Business $25, Max $100, Enterprise $250 tiers added'
+      price: null
+      limits: 当前定制报价，不再把旧 $250/月当作现行价格；SCIM、定制 SLA/volume terms
+      limits_en: Current custom quote, not old $250/month; SCIM, custom SLA/volume terms
+  price_updated_at: "2026-11-17"
+  note: >-
+    2026-11-17 公开页选中 Yearly，数字为实际年付总额，不是按月扣款。付费 credits 每月重置，团队共享；追加包和可选 auto top-up 可产生额外账单。BYOK 从 Pro
+    起可用、Business 增加部分提供商；模型商另计费，Agent/EVE/automation 仍可能收 Taskade step fee，且日请求限制未消失。免费不再承诺固定月度 AI
+    额度。隐私页声明不作通用 AI/ML 训练，但仍有按所选功能向第三方传输，不是完全本地或零外发。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
+  note_en: >-
+    Public page selected Yearly on 2026-11-17; numbers are actual annual totals, not monthly charges. Paid
+    credits reset monthly and are shared; packs/optional auto top-up can add bills. BYOK starts on Pro, with
+    more providers on Business; providers bill separately and Taskade agent/EVE/automation step fees and daily
+    limits can still apply. Free has no promised monthly AI allowance. Privacy policy states no generalized
+    AI/ML training but still permits feature-related third-party transfers, not local-only/zero-egress
+    operation. Historical editorial scores retained, not newly measured or re-rated; not a fresh performance
+    or cost benchmark.
+
 scores:
   coding_ability: 7.5
   cost_efficiency: 9
@@ -54,8 +71,6 @@ features:
   agent_teams: true
   task_management: true
   persistent_memory: true
-  skill_sharing: false
-  runtime_monitoring: false
   open_source: false
   self_hosted: false
   visual_builder: true
@@ -72,37 +87,57 @@ features:
     - iOS
     - Android
   ide_base: Agent 协作平台
+  byok: true
+
 best_for:
-  - 一人公司需要全能 AI 工作台
-  - AI Team Generator 一键生成专业 Agent 团队
-  - 同时需要项目管理 + Agent 协作 + 自动化
+  - 需要项目、Agent、应用构建与自动化结合的团队
+  - 能够管理共享 credits、连接器和 BYOK 外部账单的用户
+
 best_for_en:
-  - Solo founders needing an all-in-one AI workspace
-  - One-click AI Team Generator for professional agent teams
-  - Simultaneous project management + agent collaboration + automation
+  - Teams combining projects, agents, app building and automations
+  - Users able to manage pooled credits, connectors and external BYOK bills
+
 not_for:
-  - 纯编程场景（用专业 IDE 更高效）
-  - 仅需轻量聊天工具的场景
+  - 要求自托管或完全离线的部署
+  - 把无限应用数量理解成无限免费 AI/自动化运行的用户
+
 not_for_en:
-  - Pure coding scenarios (dedicated IDE is more efficient)
-  - Lightweight chat-only scenarios
+  - Deployments requiring self-hosting or offline use
+  - Users interpreting unlimited app count as unlimited free AI/automation execution
+
 quick_start:
-  - 注册 taskade.com 免费开始
-  - 使用 AI Team Generator 一键生成 Agent 团队
-  - 在 Workspace 中管理项目、任务和 Agent 协作
-  - 通过 MCP 连接 Claude Code 等外部工具
+  - 确认 Free 无月度 credits，或选定用户数/额度/实际年付总额
+  - 在 Workspace 创建项目、agents 或 team，配置每个 Agent 的知识和权限
+  - 按需连接工具/MCP 或 BYOK，检查外部账户权限与 step fees
+  - 先试小任务并检查生成结果、自动化运行、credits 与追加消费设置
+
 quick_start_en:
-  - Sign up at taskade.com to start free
-  - Use AI Team Generator to create agent teams in one click
-  - Manage projects, tasks, and agent collaboration in Workspace
-  - Connect external tools like Claude Code via MCP
+  - Check Free has no monthly credits, or select user/credit capacity and actual annual total
+  - Create projects/agents/teams in a workspace and configure each agent’s knowledge/permissions
+  - Connect tools/MCP/BYOK only as needed, reviewing external permissions and step fees
+  - Try a small task and inspect outputs, automation runs, credits and additional-spend settings
+
 register_url: https://www.taskade.com/signup
-china_note: 网页端直接访问；移动端和桌面端 App Store 可下载
-china_note_en: Web accessible directly; mobile and desktop apps available via App Store
+china_note: 本次未实测中国大陆访问、下载或支付；网页、桌面/移动端及连接器的数据和服务条款需分别核对。
+
+china_note_en: >-
+  Mainland access/download/payment was not tested; check web/desktop/mobile and connector data/service terms
+  separately.
+
 data_sources:
   - url: https://www.taskade.com
     type: docs
-    last_checked: '2026-05-09'
+    last_checked: "2026-11-17"
+  - url: https://www.taskade.com/pricing
+    type: pricing
+    last_checked: "2026-11-17"
+  - url: https://www.taskade.com/agents/teams
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://www.taskade.com/privacy
+    type: privacy
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-10-13'
     type: 定价变更：Pro $8 → $10/月，新增 Business/Max/Enterprise 三档
@@ -111,7 +146,9 @@ changelog:
     type: launch
     summary: 加入 CodePick Agent 协作栏目
     summary_en: Added to CodePick Agent Collaboration section
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-11'
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: medium

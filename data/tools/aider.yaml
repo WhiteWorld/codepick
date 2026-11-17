@@ -5,16 +5,26 @@ logo: /images/aider.png
 url: https://aider.chat
 repo: https://github.com/Aider-AI/aider
 current_version: v0.86.2
-version_tracked_at: '2026-04-16'
+version_tracked_at: "2026-11-17"
+
 pricing:
   model: free
   currency: null
   plans:
     - name: 开源免费
       price: 0
-      limits: 无限制（需自备 API Key 或本地模型）
-      limits_en: Unlimited (requires your own API Key or local model)
-  price_updated_at: '2026-04-16'
+      limits: 客户端开源免费；模型 API、算力和服务商限额另计
+      limits_en: Open-source client is free; model APIs, compute costs and provider limits are separate
+  price_updated_at: "2026-11-17"
+  note: >-
+    PyPI aider-chat 当前为 0.86.2；GitHub Releases 的 Latest 仍显示 v0.86.0，不据此回退已发布的 PyPI
+    版本。隐私取决于模型端点：云模型会接收上下文，使用本地模型也应检查可关闭的使用分析。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
+  note_en: >-
+    PyPI aider-chat is 0.86.2 while GitHub Releases Latest still shows v0.86.0; do not downgrade the published
+    PyPI version based on that badge. Privacy depends on the endpoint: cloud models receive context; even
+    local-model users should review optional/disableable usage analytics. Historical editorial scores
+    retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
+
 scores:
   coding_ability: 7
   cost_efficiency: 10
@@ -28,7 +38,7 @@ features:
   multi_file_edit: true
   mcp_support: false
   context_window: 取决于所选模型
-  supported_models: 20+ 提供商 + Ollama 本地模型（含 GPT-5、Gemini 2.5 Pro/Flash、Grok-4、Claude Sonnet 4/Opus 4）
+  supported_models: 云端或本地 LLM；支持的提供商、模型 ID 和参数以当前连接指南为准
   ide_base: 终端 CLI
   supported_os:
     - macOS
@@ -38,32 +48,45 @@ features:
   auto_commit: true
   lint_integration: true
   test_integration: true
+
 best_for:
-  - 隐私优先，代码不出本机
-  - 搭配 Ollama 本地模型的完全免费方案
-  - Git 重度用户（自动提交+描述）
+  - 愿意自己选择和配置模型的终端用户
+  - 希望配合本地模型控制代码外发的用户（仍需检查分析设置）
+  - 希望使用自动 Git 提交、lint 和测试集成的开发者
+
 best_for_en:
-  - Privacy-first users who keep code on-device
-  - Fully free setup paired with Ollama local models
-  - Heavy Git users (auto-commit with descriptive messages)
+  - Terminal users willing to select and configure models
+  - Users choosing local models to control code egress (review analytics settings too)
+  - Developers wanting automated Git commits, linting and test integration
+
 not_for:
-  - 没有本地 GPU 的用户（本地模型体验差）
-  - 追求最强 Agent 能力的用户
+  - 需要即开即用、无需模型配置的用户
+  - 需要 IDE Tab 补全而非终端对话式修改的用户
+
 not_for_en:
-  - Users without a local GPU (local model experience is poor)
-  - Users who want the strongest Agent capabilities
+  - Users seeking zero-configuration model setup
+  - Users needing IDE Tab completion rather than terminal conversational edits
+
 quick_start:
-  - 安装 Python 3.10+，运行：pip install aider-install && aider-install
-  - 配置 API Key：export OPENAI_API_KEY=sk-xxx（支持 DeepSeek、通义千问、火山方舟等）
-  - 进入项目目录，运行：aider（首次会引导配置模型）
-  - 用自然语言描述改动，Aider 自动修改文件并提交到 Git
+  - 运行 python -m pip install aider-install，然后 aider-install；安装器可建立独立 Python 3.12 环境
+  - 按模型提供商指南配置 Key 和 --model，不要假设 OPENAI_API_KEY 适用于所有提供商
+  - 进入项目目录运行 aider，先审阅上下文与改动
+  - 配置 lint/test 命令并检查 Git 提交；工具执行结果仍需人工复核
+
 quick_start_en:
-  - 'Install Python 3.10+, run: pip install aider-install && aider-install'
-  - 'Set API Key: export OPENAI_API_KEY=sk-xxx (supports DeepSeek, Tongyi Qianwen, Volcengine Ark, etc.)'
-  - 'cd to your project directory and run: aider (first run guides model setup)'
-  - Describe changes in natural language; Aider edits files and commits to Git automatically
-china_note: 支持国内模型（DeepSeek、通义千问、火山方舟等），无需翻墙；安装包可通过国内 PyPI 镜像（如阿里云）加速
-china_note_en: Supports Chinese models (DeepSeek, Tongyi Qianwen, Volcengine Ark, etc.); no VPN needed; install faster via domestic PyPI mirrors (e.g. Alibaba Cloud)
+  - >-
+    Run python -m pip install aider-install, then aider-install; the installer can create a separate Python
+    3.12 environment
+  - Configure provider credentials and --model per the provider guide; OPENAI_API_KEY is not universal
+  - Run aider in the project directory and review context and edits
+  - Configure lint/test commands and inspect Git commits; execution results still need human review
+
+china_note: 可选择本地或国内提供商端点；安装源和各模型服务的地区可达性未实测，不保证无需代理。
+
+china_note_en: >-
+  Local and domestic provider endpoints are options; package-source and model-service regional reachability is
+  untested, with no no-proxy guarantee.
+
 compatible_apis:
   - ollama
   - openrouter
@@ -74,7 +97,23 @@ compatible_apis:
 data_sources:
   - url: https://github.com/Aider-AI/aider/releases
     type: release
-    last_checked: '2026-04-16'
+    last_checked: "2026-11-17"
+  - url: https://pypi.org/pypi/aider-chat/json
+    type: release
+    last_checked: "2026-11-17"
+  - url: https://aider.chat/
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://aider.chat/docs/install.html
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://aider.chat/docs/usage/lint-test.html
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://aider.chat/docs/legal/privacy.html
+    type: docs
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-05-10'
     type: announcement
@@ -96,7 +135,9 @@ changelog:
     type: release
     summary: 新增 GPT-4.1/mini/nano 支持；Gemini 2.5 Pro Architect 模式改进；支持 Grok-3-beta 和新 Claude Sonnet 4/Opus 4 别名
     summary_en: Added GPT-4.1/mini/nano; improved Gemini 2.5 Pro Architect mode; Grok-3-beta and new Claude Sonnet 4/Opus 4 alias support
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-12'
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: medium

@@ -3,30 +3,101 @@ name: Kimi Code
 type: cli
 logo: /images/kimi-code.png
 url: https://www.kimi.com/code
-repo: https://github.com/MoonshotAI/kimi-cli
-current_version: 1.52.0
-version_tracked_at: '2026-10-13'
+repo: https://github.com/MoonshotAI/kimi-code
+
+current_version: 2.6.2
+
+version_tracked_at: "2026-11-17"
+
 pricing:
   model: freemium
   currency: CNY
   plans:
-    - name: Adagio（免费版）
+    - name: CLI（MIT 软件 / software only）
       price: 0
-      limits: 基础对话，Kimi Code 额度有限
-      limits_en: Basic conversations, limited Kimi Code quota
-    - name: Andante（基础会员）
-      price: 49
-      period: month
-      limits: 更多 Kimi Code 使用额度，适合轻度开发者
-      limits_en: More Kimi Code quota, suitable for casual developers
-    - name: Moderato（高级会员）
+      limits: CLI 源码 MIT 免费；需自备付费 API 或符合条件的 Kimi Code 会员，不含免费托管推理保证
+      limits_en: >-
+        MIT CLI software is free; bring a separately billed API or eligible Kimi Code subscription; no
+        guaranteed free hosted inference
+    - name: Plus
       price: 99
       period: month
-      limits: 完整 Kimi Code 额度，适合日常重度开发
-      limits_en: Full Kimi Code quota, ideal for daily heavy development
-  price_updated_at: '2026-04-16'
-  note: 订阅 Kimi 会员即可使用 Kimi Code；Moderato 套餐提供完整编码额度
-  note_en: Subscribe to Kimi membership to use Kimi Code; Moderato plan offers full coding quota
+      limits: 国内新会员连续包月；与 Kimi 共享月额度，Code 另有5小时滚动限流，无新套餐周限额
+      limits_en: >-
+        Domestic recurring monthly subscription; shared Kimi monthly pool plus rolling five-hour Code limits,
+        with no new-plan weekly cap.
+    - name: Plus 年付 / annual
+      price: 948
+      period: year
+      limits: 实际一次扣全年总额；额度仍按月刷新，不结转；模型/上下文权限按档位
+      limits_en: >-
+        Actual annual charge paid once; allowances still refresh monthly without rollover; model/context
+        entitlements vary by tier.
+    - name: Pro
+      price: 199
+      period: month
+      limits: 国内新会员连续包月；与 Kimi 共享月额度，Code 另有5小时滚动限流，无新套餐周限额
+      limits_en: >-
+        Domestic recurring monthly subscription; shared Kimi monthly pool plus rolling five-hour Code limits,
+        with no new-plan weekly cap.
+    - name: Pro 年付 / annual
+      price: 1908
+      period: year
+      limits: 实际一次扣全年总额；额度仍按月刷新，不结转；模型/上下文权限按档位
+      limits_en: >-
+        Actual annual charge paid once; allowances still refresh monthly without rollover; model/context
+        entitlements vary by tier.
+    - name: Max
+      price: 699
+      period: month
+      limits: 国内新会员连续包月；与 Kimi 共享月额度，Code 另有5小时滚动限流，无新套餐周限额
+      limits_en: >-
+        Domestic recurring monthly subscription; shared Kimi monthly pool plus rolling five-hour Code limits,
+        with no new-plan weekly cap.
+    - name: Max 年付 / annual
+      price: 6708
+      period: year
+      limits: 实际一次扣全年总额；额度仍按月刷新，不结转；模型/上下文权限按档位
+      limits_en: >-
+        Actual annual charge paid once; allowances still refresh monthly without rollover; model/context
+        entitlements vary by tier.
+    - name: Ultra
+      price: 1399
+      period: month
+      limits: 国内新会员连续包月；与 Kimi 共享月额度，Code 另有5小时滚动限流，无新套餐周限额
+      limits_en: >-
+        Domestic recurring monthly subscription; shared Kimi monthly pool plus rolling five-hour Code limits,
+        with no new-plan weekly cap.
+    - name: Ultra 年付 / annual
+      price: 13428
+      period: year
+      limits: 实际一次扣全年总额；额度仍按月刷新，不结转；模型/上下文权限按档位
+      limits_en: >-
+        Actual annual charge paid once; allowances still refresh monthly without rollover; model/context
+        entitlements vary by tier.
+  price_updated_at: "2026-11-17"
+  note: >-
+    国内官方帮助中心现列 Plus/Pro/Max/Ultra 连续包月 ¥99/199/699/1399，年付实扣
+    ¥948/1908/6708/13428（文档购买页截图2026-10-19，实际购买资格/价格以当前页面为准）。Go ¥49 不含 Kimi Code；旧 Andante
+    等合同仍可续，不把旧49/99当新售报价。新套餐无周上限，但有共享月额度和5小时滚动限流；Pro起可用指定1M/高速模型，高速/思考增加消耗。可选加油包会自动超额扣费，未设月消费上限则不限额。旧 Python
+    kimi-cli 已归档，不再修复且旧安装将停止工作；Node.js/MIT kimi-code 是不同实现，不能沿用旧 Apache-2.0 许可或安装包。Kimi 总隐私政策明确覆盖
+    Code：去标识输入/输出可用于优化模型，可联系支持申请停止训练，产品独立政策优先；第三方提供商另按其条款。默认读自动、改文件/命令先审批，不保证沙箱/零外发。
+    历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
+  note_en: >-
+    Official domestic help lists recurring Plus/Pro/Max/Ultra at ¥99/199/699/1399 per month and actual annual
+    totals of ¥948/1908/6708/13428 (purchase-page screenshot dated October 19, 2026; current eligibility and
+    checkout prices control). Go at ¥49 excludes Code. Legacy Andante contracts may renew, but their old
+    prices are not new offers. New plans have no weekly cap, but retain shared monthly allowances and rolling
+    five-hour limits. Eligible 1M-context and high-speed models start at Pro and consume more allowance.
+    Optional Extra Usage automatically bills beyond quota, without a monthly spending cap unless one is
+    configured. The archived Python kimi-cli receives no fixes and warns that old installations will stop
+    working; current Node.js/MIT kimi-code is a different implementation, package and license. Kimi's general
+    privacy policy explicitly covers Code: de-identified inputs and outputs can improve models; request
+    training opt-out through support, subject to any product-specific policy. Third-party providers have
+    separate terms. Reads run automatically; writes and commands ask by default. This is not guaranteed
+    sandboxing or zero egress. Historical editorial scores retained, not newly measured or re-rated; not a
+    fresh performance or cost benchmark.
+
 scores:
   coding_ability: 8.5
   cost_efficiency: 9.5
@@ -39,11 +110,15 @@ features:
   agent_mode: true
   multi_file_edit: true
   mcp_support: true
-  sub_agent: false
-  context_window: null
+  sub_agent: true
+  context_window: 依模型与会员权限，部分最高 1M；并非全模型/全档位
   supported_models:
-    - Kimi K2.6 (code-preview)
-    - Kimi K2.5
+    - Kimi K3.1 Pro
+    - Kimi K3.1 Pro Highspeed
+    - Kimi K3 / K3-256K
+    - Kimi K2.8 Preview
+    - Kimi K2.7 Code Highspeed
+    - 自定义 Anthropic / OpenAI / Google / Vertex AI 提供商
   ide_base: 终端 CLI
   supported_os:
     - macOS
@@ -52,70 +127,150 @@ features:
   git_integration: true
   vscode_extension: true
   acp_support: true
+  custom_api: true
+  jetbrains_support: true
+  open_source: true
+
 best_for:
-  - 国内开发者（国产工具，直连无阻）
-  - 预算敏感、希望低价使用 Agent 编程
-  - 终端党 + VS Code 用户
+  - 需要终端 Agent、MCP、子智能体与 ACP 工作流的开发者
+  - 愿意管理 Kimi 会员配额或自带 API 成本的用户
+
 best_for_en:
-  - China-based developers (native tool, no VPN needed)
-  - Budget-conscious developers seeking affordable agent coding
-  - Terminal users and VS Code fans
+  - Developers needing terminal agents, MCP, subagents and ACP workflows
+  - Users willing to manage Kimi subscription quotas or separate API costs
+
 not_for:
-  - 需要使用自定义第三方模型（仅支持 Kimi 自有模型）
-  - JetBrains 重度用户（ACP 支持尚处早期）
-  - 追求顶级编码能力的团队
+  - 要求免费不限量托管推理的用户
+  - 不接受将选定代码/提示发送给模型提供商的项目
+  - 仍依赖已归档 Python 版本且无法迁移的工作流
+
 not_for_en:
-  - Users who need custom third-party models (only Kimi's own models supported)
-  - Heavy JetBrains users (ACP support is still early-stage)
-  - Teams demanding top-tier coding performance
+  - Users requiring unlimited free hosted inference
+  - Projects that cannot send selected code/prompts to model providers
+  - Workflows unable to migrate from the archived Python implementation
+
 quick_start:
-  - 安装 Node.js 18+（CLI 用户），运行：npm install -g kimi-code；或打开 VS Code 安装 Kimi Code 插件
-  - 访问 kimi.com，用手机号注册 Moonshot AI 账号（支持微信/手机号登录）
-  - 在终端运行 kimi-code 登录，或在 VS Code 侧边栏打开 Kimi Code 面板并授权
-  - 订阅 Andante（¥49/月）或 Moderato（¥99/月）套餐获取完整编码额度
+  - 从当前官方文档选择安装器，或在 Node.js >=22.19.0 环境安装 @moonshot-ai/kimi-code；Windows 还需 Git for Windows/Git Bash
+  - 在项目目录运行 kimi；通过 /login 选择 Kimi Code OAuth 或 Kimi Platform API，自定义提供商按官方配置文档设置
+  - 旧版可运行 kimi migrate 导入配置与选定历史，但 OAuth/MCP 授权和旧插件不会迁移；先检查敏感数据及权限
+  - 用 /model、/usage 检查权限及额度；按需先处理训练偏好，并为加油包设置消费上限、审阅写入/命令审批
+
 quick_start_en:
-  - 'Install Node.js 18+ (for CLI), run: npm install -g kimi-code; or install Kimi Code extension in VS Code'
-  - Visit kimi.com and register a Moonshot AI account (WeChat or phone number login supported)
-  - Run kimi-code login in terminal, or open the Kimi Code panel in VS Code sidebar and authorize
-  - Subscribe to Andante (¥49/mo) or Moderato (¥99/mo) for full coding quota
-register_url: https://kimi.ai
-china_note: 国产工具，国内直连无需翻墙；支持中文对话；Kimi K2.5 模型专为编程优化，月之暗面自研
-china_note_en: Domestic tool, directly accessible in China without VPN; supports Chinese conversation; Kimi K2.5 model optimized for coding, developed by Moonshot AI
+  - >-
+    Choose an official installer, or install @moonshot-ai/kimi-code with Node.js >=22.19.0; Windows also needs
+    Git for Windows/Git Bash
+  - >-
+    Run kimi in a project; /login selects Code OAuth or Platform API, while custom providers follow official
+    configuration docs
+  - >-
+    kimi migrate can import old configuration/selected history, not OAuth/MCP authorization or old plugins;
+    inspect sensitive data/permissions first
+  - >-
+    Use /model and /usage to inspect entitlement and quota; address training preferences, set Extra Usage
+    spending caps, and review write/command approvals.
+
+register_url: https://www.kimi.com/code
+china_note: 文档分别提供国内/海外 API 地址，但未实测国内登录、网络、支付或可用性；选择正确的服务条款与端点。CLI 本地运行不等于模型请求离线。
+
+china_note_en: >-
+  Docs distinguish domestic/overseas API endpoints; China login, network, payment and availability were not
+  tested. Use the correct endpoint/terms; a local CLI does not mean offline model inference.
+
 changelog:
-  - date: '2026-10-13'
+  - date: "2026-11-17"
+    type: fix
+    summary: >-
+      完整文档复核：旧 Python CLI 归档，当前 Node.js/MIT kimi-code
+      2.6.2；核实国内新会员月/年实扣价格、Code资格、共享配额、模型路由与训练政策，纠正安装包、ACP和子智能体等信息。未安装/登录/支付或重跑性能评分。
+    summary_en: >-
+      Full documentary review: archived Python CLI replaced by Node.js/MIT kimi-code 2.6.2; verify domestic
+      monthly/annual totals, Code eligibility, shared quotas, model routing and training policy; correct
+      package, ACP and subagents. No installation, sign-in, payment or performance re-benchmark.
+  - date: "2026-10-13"
     type: 版本更新 1.41.0 → 1.52.0（GitHub release 核验）
     summary: Version bump 1.41.0 → 1.52.0 (verified via GitHub releases)
-  - date: '2026-04-30'
+  - date: "2026-04-30"
     type: release
     summary: v1.41.0：修复 SSH 无头 Linux 环境下剪贴板粘贴失败；支持从 .zip URL 安装插件；持续修复 OAuth 流程恢复、配额显示等问题
-    summary_en: 'v1.41.0: Fixed clipboard paste on headless Linux over SSH; plugin installation from .zip URLs; continued OAuth flow recovery and quota display fixes'
-  - date: '2026-04-28'
+    summary_en: >-
+      v1.41.0: Fixed clipboard paste on headless Linux over SSH; plugin installation from .zip URLs; continued
+      OAuth flow recovery and quota display fixes
+  - date: "2026-04-28"
     type: release
     summary: v1.40.0：改善 agent 任务计数在提示状态中的显示；增强 OAuth 流程恢复（短暂失败后自动恢复）；修正使用量配额显示
-    summary_en: 'v1.40.0: Improved active agent task count display in prompt status; enhanced OAuth flow recovery after transient failures; corrected usage quota display'
-  - date: '2026-04-13'
+    summary_en: >-
+      v1.40.0: Improved active agent task count display in prompt status; enhanced OAuth flow recovery after
+      transient failures; corrected usage quota display
+  - date: "2026-04-13"
     type: model
-    summary: v1.33.0：Kimi K2.6-code-preview 正式向所有 Kimi Code 订阅用户开放；CLI 欢迎界面移除硬编码的 K2.5 引用；K2.6 提升了推理深度、Agent 规划、长程代码写作稳定性及指令遵循与自我纠正能力
-    summary_en: 'v1.33.0: Kimi K2.6-code-preview rolled out to all Kimi Code subscribers; CLI welcome screen drops hardcoded K2.5 references; K2.6 improves reasoning depth, agent planning, long-context code writing stability, and instruction compliance with self-correction'
-  - date: '2026-04-16'
+    summary: >-
+      v1.33.0：Kimi K2.6-code-preview 正式向所有 Kimi Code 订阅用户开放；CLI 欢迎界面移除硬编码的 K2.5 引用；K2.6 提升了推理深度、Agent
+      规划、长程代码写作稳定性及指令遵循与自我纠正能力
+    summary_en: >-
+      v1.33.0: Kimi K2.6-code-preview rolled out to all Kimi Code subscribers; CLI welcome screen drops
+      hardcoded K2.5 references; K2.6 improves reasoning depth, agent planning, long-context code writing
+      stability, and instruction compliance with self-correction
+  - date: "2026-04-16"
     type: announcement
     summary: 数据月度复核：会员定价档位（Adagio/Andante/Moderato）与 Kimi K2.5 模型能力保持不变
-    summary_en: Monthly data review — membership tiers (Adagio/Andante/Moderato) and Kimi K2.5 model capabilities unchanged
-  - date: '2026-03-03'
+    summary_en: >-
+      Monthly data review — membership tiers (Adagio/Andante/Moderato) and Kimi K2.5 model capabilities
+      unchanged
+  - date: "2026-03-03"
     type: feature
     summary: 发布 v1.17.0，支持 MCP、ACP、VS Code 扩展及 Zsh 集成
     summary_en: Released v1.17.0 with MCP, ACP, VS Code extension, and Zsh integration support
+
 data_sources:
   - url: https://www.kimi.com/code
     type: docs
-    last_checked: '2026-04-16'
+    last_checked: "2026-11-17"
   - url: https://github.com/MoonshotAI/kimi-cli
     type: changelog
-    last_checked: '2026-04-16'
+    last_checked: "2026-11-17"
   - url: https://www.kimi.com/membership/pricing
     type: pricing
-    last_checked: '2026-04-16'
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-11'
+    last_checked: "2026-04-16"
+  - url: https://github.com/MoonshotAI/kimi-code
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://registry.npmjs.org/@moonshot-ai/kimi-code/latest
+    type: changelog
+    last_checked: "2026-11-17"
+  - url: https://www.kimi.com/code/docs/kimi-code/membership.html
+    type: pricing
+    last_checked: "2026-11-17"
+  - url: https://www.kimi.com/code/docs/kimi-code/models.html
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://www.kimi.com/code/docs/kimi-code-cli/guides/migration.html
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://www.kimi.com/code/docs/kimi-code-cli/guides/getting-started.html
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://www.kimi.com/code/docs/kimi-code-cli/configuration/providers.html
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://www.kimi.com/help/membership/membership-pricing
+    type: pricing
+    last_checked: "2026-11-17"
+  - url: https://www.kimi.com/help/membership/membership-overview
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://www.kimi.com/user/agreement/userPrivacy?version=v2
+    type: privacy
+    last_checked: "2026-11-17"
+  - url: https://www.kimi.com/user/agreement/modelUse?version=v2
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://www.kimi.com/code/docs/kimi-code/faq.html
+    type: docs
+    last_checked: "2026-11-17"
+
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: medium

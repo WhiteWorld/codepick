@@ -4,19 +4,64 @@ type: agent_platform
 logo: /images/floatboat.png
 url: https://floatboat.ai
 repo: null
-current_version: null
-version_tracked_at: '2026-05-09'
+current_version: v0.4.0
+
+version_tracked_at: "2026-11-17"
+
 pricing:
-  model: free
-  currency: null
+  model: subscription
+  currency: USD
   plans:
     - name: Free
       price: 0
-      limits: 免费下载使用（桌面客户端）
-      limits_en: Free download (desktop client)
-  price_updated_at: '2026-05-09'
-  note: 桌面客户端；AI Agent Workspace for One-Person Companies；Combo Skills 技能复用；Tacit Engine 学习你的工作方式
-  note_en: Desktop client; AI Agent Workspace for One-Person Companies; Combo Skills for reusable capabilities; Tacit Engine learns your work patterns
+      period: month
+      limits: 页面标注 $0/月、forever；免费 credits 数量未列，不是无限模型用量承诺
+      limits_en: >-
+        Page labels $0/month, forever; free credit amount is not stated, not a promise of unlimited model
+        usage
+    - name: Lite (annual)
+      price: 199
+      period: year
+      limits: 年付总额 $199；页面折算 $16.58/月，5,000 credits/月；中文 Lite 为 ¥1,399/年（显示 ¥116.58/月），非同币种混算
+      limits_en: >-
+        $199 billed annually; displayed equivalent $16.58/month, 5,000 credits/month. Chinese Lite is
+        CNY1,399/year (displayed CNY116.58/month); do not mix currencies
+    - name: Pro (annual, 15,000 credits/month)
+      price: 599.76
+      period: year
+      limits: 默认 15,000 credits/月时年付 $599.76，显示折算 $49.98/月及「2 months free」；可选 10k/15k/30k，但其他档位报价未核实
+      limits_en: >-
+        Default 15,000-credit/month selection: $599.76 billed annually, displayed equivalent $49.98/month and
+        “2 months free”. Selector offers 10k/15k/30k; other selection prices not verified
+    - name: Max (annual)
+      price: 2003.76
+      period: year
+      limits: 年付 $2,003.76，显示折算 $166.98/月及「2 months free」；50,000 credits/月。中文 Pro/Max 仍标 US$，不是人民币
+      limits_en: >-
+        $2,003.76 billed annually; displayed equivalent $166.98/month and “2 months free”; 50,000
+        credits/month. Chinese Pro/Max remain US$, not CNY
+  price_updated_at: "2026-11-17"
+  note: >-
+    现为日历驱动的 Agent Workspace，内置模型、MCP 与 Combo / Workflow Store，无须一概自备 API Key。2026-11-17 官方公开浏览器页面的付费卡片选中年付；本表
+    price 记录页面明确列出的年付总额、period=year，不把折算月价当成已验证的月付合同，也不按四舍五入月价反算全年。页首却写「按月计费 / Billed monthly, cancel
+    anytime」，月付切换未改变显示，因此实际月付价格未确认；Pro/Max 划线 $59.98/$199.98 不作为月付报价。Free 赠送 credits
+    数量、基础额度结转/过期、超额计费、是否按人/工作区收费均未核实；不要假定无限或不结转。加油包独立一次性购买：3,000 credits / $12.99（中文
+    ¥89），有效一年、每次最多20包，不改变订阅续费。条款要求续费前至少24小时取消自动续费（强制消费者权利除外），余期通常不按比例退款。隐私政策说明上下文可发给可能保留/训练的模型商；同一电脑切换账号仍可看到本机相同工作区/任务，退出登录不提供本机文件隔离。历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
+  note_en: >-
+    A calendar-driven agent workspace with built-in models, MCP and Combo/Workflow stores; an API key is not
+    universally required. Official public browser cards on 2026-11-17 have annual billing selected. Numeric
+    price fields record the stated annual totals with period=year, not monthly contracts or totals recomputed
+    from rounded monthly equivalents. The introduction contradictorily says “Billed monthly, cancel anytime”;
+    the monthly toggle did not change displayed values, so actual monthly-billed rates remain unverified.
+    Crossed-out Pro/Max $59.98/$199.98 are not treated as verified monthly quotes. Free credit amounts,
+    base-credit rollover/expiry, overage charges and seat/workspace billing units remain unverified: do not
+    assume unlimited use or no rollover. Separate one-time boosters provide 3,000 credits for $12.99 (CNY89),
+    valid one year, up to 20 packs, without changing subscription renewal. Terms require canceling
+    auto-renewal at least 24 hours before renewal, subject to mandatory consumer rights; partial terms
+    generally are not prorated. Context may go to model providers that retain/train; different sign-ins on one
+    computer see the same local spaces/tasks, so sign-out does not isolate local files. Historical editorial
+    scores retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
+
 scores:
   coding_ability: 7
   cost_efficiency: 9.5
@@ -28,7 +73,7 @@ features:
   chat: true
   agent_mode: true
   multi_file_edit: true
-  mcp_support: false
+  mcp_support: true
   sub_agent: false
   multi_agent: true
   agent_teams: true
@@ -39,54 +84,96 @@ features:
   open_source: false
   self_hosted: false
   combo_skills: true
-  tacit_engine: true
   desktop_app: true
   browser_integration: true
   context_window: 取决于所选模型
   supported_runtimes:
     - 内置 Agent 引擎
-    - OpenClaw
   supported_os:
     - macOS
     - Windows
+    - UOS
   ide_base: Agent 协作平台
+
 best_for:
-  - 一人公司需要全功能 AI 工作台
-  - 希望 AI 学习自己工作方式并自动化
-  - 需要桌面端深度集成（文件、浏览器、邮件）
+  - 需要日历触发、提前准备与任务跟进的个人或小团队
+  - 希望复用 Combo Skills 和持久工作区的用户
+
 best_for_en:
-  - Solo founders needing a full-featured AI workspace
-  - Users who want AI to learn their work patterns
-  - Desktop deep integration (files, browser, email)
+  - Individuals or small teams needing calendar-triggered preparation and follow-up
+  - Users reusing Combo Skills and persistent workspaces
+
 not_for:
-  - Web 端协作需求（仅有桌面端）
-  - 团队协作场景（定位一人公司）
+  - 需要完全离线、无需外部模型服务的用户
+  - 要求已验证的数据驻留、团队权限和服务保障的部署（需另行核实）
+  - 要求模型商绝不留存/训练，或依赖同一 OS 用户下退出登录来隔离不同账号工作文件的环境
+
 not_for_en:
-  - Web-based collaboration needs (desktop only)
-  - Team collaboration scenarios (solo-founder focused)
+  - Users requiring fully offline operation without external model services
+  - Deployments requiring verified data residency, team permissions and service guarantees (verify separately)
+  - >-
+    Environments requiring no provider retention/training, or relying on sign-out to isolate different
+    accounts’ work files within one OS user
+
 quick_start:
-  - floatboat.ai 下载桌面客户端
-  - 配置 AI API Key
-  - Agent Chat 界面开始对话
-  - 使用 Combo Skills 复用工作模式
+  - 从 floatboat.ai 下载 Mac / Windows / UOS 对应客户端
+  - 阅读当前订阅与 credits 限制，再选择模型和连接工具
+  - 配置工作区与日历事件，检查权限后运行 Combo / Workflow
+
 quick_start_en:
-  - Download desktop client from floatboat.ai
-  - Configure AI API key
-  - Start chatting in Agent Chat interface
-  - Use Combo Skills to reuse work patterns
+  - Download the Mac / Windows / UOS client from floatboat.ai
+  - Review subscription and credit limits, then choose models and connect tools
+  - Configure a workspace and calendar event; review permissions before running a Combo / Workflow
+
 register_url: https://floatboat.ai/download/success?from=landing
-china_note: 桌面客户端需自行下载；需自行配置 API Key
-china_note_en: Desktop client download required; requires own API key
+china_note: >-
+  内置模型不要求用户一概自备 API Key；BYOK 若使用则另受服务商费用/条款约束。中文 Lite 年付 ¥1,399，Pro/Max 仍为 US$，加油包
+  ¥89；不作币种换算。国内下载、模型连通性、订阅和支付均未实测，不能保证无需代理。
+
+china_note_en: >-
+  Built-in models do not universally require your own API key; optional BYOK carries separate provider
+  costs/terms. Chinese Lite is CNY1,399/year, Pro/Max remain US$, and the booster is CNY89; no currency
+  conversion inferred. Mainland downloads, connectivity, subscriptions and payment were not tested; no
+  no-proxy guarantee.
+
 data_sources:
   - url: https://floatboat.ai
     type: docs
-    last_checked: '2026-05-09'
+    last_checked: "2026-11-17"
+  - url: https://floatboat.ai/pricing
+    type: pricing
+    last_checked: "2026-11-17"
+  - url: https://floatboat.ai/zh/pricing
+    type: pricing
+    last_checked: "2026-11-17"
+  - url: https://floatboat.ai/payment
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://floatboat.ai/terms
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://floatboat.ai/privacy
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://floatboat.ai/docs/settings/account
+    type: docs
+    last_checked: "2026-11-17"
+
 changelog:
-  - date: '2026-05-09'
+  - date: "2026-11-17"
+    type: pricing
+    summary: 完整文档复核：浏览器核实公开 Free/Lite/Pro/Max；付费数字记录年付总额，明确月付文案冲突、未核实结转/超额规则及隐私边界
+    summary_en: >-
+      Full documentary review: public Free/Lite/Pro/Max cards verified in browser; record annual totals,
+      disclose conflicting monthly copy, unknown rollover/overage terms and privacy boundaries
+  - date: "2026-05-09"
     type: launch
     summary: 加入 CodePick Agent 协作栏目
     summary_en: Added to CodePick Agent Collaboration section
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-11'
+
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
-confidence: medium
+confidence: low

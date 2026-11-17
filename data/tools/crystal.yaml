@@ -5,7 +5,8 @@ logo: /images/crystal.png
 url: https://github.com/stravu/crystal
 repo: https://github.com/stravu/crystal
 current_version: v0.3.5
-version_tracked_at: '2026-10-13'
+version_tracked_at: "2026-11-17"
+
 pricing:
   model: open_source
   currency: null
@@ -14,9 +15,16 @@ pricing:
       price: 0
       limits: 无限制（自备 Claude Code / Codex 订阅或 API Key）
       limits_en: Unlimited (bring your own Claude Code / Codex subscription or API Key)
-  price_updated_at: '2026-05-16'
-  note: MIT 开源桌面 App，并行运行 Claude Code / Codex 会话，可视化管理每个 session 的状态、diff 和 PR
-  note_en: MIT open-source desktop app that runs Claude Code / Codex sessions in parallel with a visual UI for state, diffs, and PRs
+  price_updated_at: "2026-11-17"
+  note: >-
+    历史 MIT 开源桌面 App；Crystal 已弃用并被 Nimbalyst 替代。此条保留 Crystal v0.3.5 的历史信息，不代表 Nimbalyst 的价格、许可或功能。底层 Agent
+    费用另计。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
+  note_en: >-
+    Historical MIT desktop app. Crystal is deprecated and replaced by Nimbalyst. This entry retains historical
+    Crystal v0.3.5 information, not Nimbalyst pricing, license or features. Underlying agent fees are
+    separate. Historical editorial scores retained, not newly measured or re-rated; not a fresh performance or
+    cost benchmark.
+
 scores:
   coding_ability: 8.5
   cost_efficiency: 9
@@ -45,38 +53,50 @@ features:
     - Linux
   ide_base: Agent 并行编排器（桌面 App）
 best_for:
-  - 想要 Conductor 的并行体验但需要开源 / 跨平台（Linux）的用户
-  - 偏好图形界面 review diff，而不是终端
-  - 喜欢能自己 fork 修改的开源工具
+  - 需要维护既有 Crystal 安装或研究历史实现的用户
+
 best_for_en:
-  - Want Conductor-style parallel UX but need open source / cross-platform (Linux)
-  - Prefer graphical diff review over the terminal
-  - Like open source tools they can fork and modify
+  - Maintaining an existing Crystal installation or studying the historical implementation
+
 not_for:
+  - 新部署或需要持续功能、安全更新的团队（官方建议迁移 Nimbalyst）
   - Windows 用户（暂未原生支持）
   - 需要 Linear / Issue tracker 深度集成的团队
+
 not_for_en:
+  - New deployments or teams requiring ongoing feature/security updates (upstream recommends Nimbalyst)
   - Windows users (no native support yet)
   - Teams needing deep Linear / issue tracker integration
+
 quick_start:
+  - 注意：Crystal 已弃用；新用户先阅读仓库迁移公告，不要将历史安装包当成现行 Nimbalyst
   - 到 GitHub releases 下载对应平台安装包（macOS / Linux）
   - 启动 Crystal，导入你的 GitHub repo
   - 在 UI 里点 "New Session" 自动建独立 worktree + 分支
   - 选择 Claude Code 或 Codex 作为该 session 的 runtime
   - 并行开多个 session 处理不同任务，diff 视图统一 review
+
 quick_start_en:
+  - >-
+    Warning: Crystal is deprecated; read the repository migration notice before using historical installers,
+    which are not current Nimbalyst
   - Download the installer for your platform (macOS / Linux) from GitHub releases
   - Launch Crystal and import your GitHub repo
   - Click "New Session" in the UI to auto-create an isolated worktree + branch
   - Choose Claude Code or Codex as that session's runtime
   - Run multiple sessions in parallel; review diffs from one place
+
 register_url: https://github.com/stravu/crystal
 china_note: 工具开源可下载；底层 Claude Code / Codex 调用需自行解决 API 访问
 china_note_en: Tool is open source and downloadable; underlying Claude Code / Codex calls require your own API access
 data_sources:
   - url: https://github.com/stravu/crystal
     type: repo
-    last_checked: '2026-05-16'
+    last_checked: "2026-11-17"
+  - url: https://github.com/stravu/crystal/releases/tag/v0.3.5
+    type: release
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-10-13'
     type: 开始跟踪版本号：v0.3.5（GitHub release 核验）
@@ -85,7 +105,9 @@ changelog:
     type: launch
     summary: 加入 CodePick Agent 并行编排器栏目
     summary_en: Added to CodePick Agent parallel orchestrator section
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-11'
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: low

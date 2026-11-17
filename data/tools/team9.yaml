@@ -3,19 +3,48 @@ name: Team9.ai
 type: agent_platform
 logo: /images/team9.png
 url: https://team9.ai
-repo: null
+repo: https://github.com/team9ai/team9
+
 current_version: null
 version_tracked_at: '2026-05-09'
 pricing:
-  model: free
-  currency: null
+  model: freemium
+  currency: USD
   plans:
-    - name: Free (Beta)
+    - name: Free
       price: 0
-      limits: 早期测试阶段
-      limits_en: Early beta stage
-  price_updated_at: '2026-05-09'
-  note: AI Agent Team for Real Work；早期阶段，产品形态定位于 Agent Team Workspace
+      period: month
+      limits: 基础组织AI workspace与社区支持；不据此承诺模型调用免费或无限额
+      limits_en: Basic organization AI workspace/community support; not a free/unlimited model-usage promise
+    - name: Pro
+      price: 19
+      period: month
+      limits: 页面标常规$19/月，目前Beta期间免费（未公布结束日）；1个OpenClaw实例，API费用/配额及席位单位需确认
+      limits_en: >-
+        Listed regular price $19/month, currently waived during Beta with no published end; one OpenClaw
+        instance. Confirm API costs, quotas and the seat billing unit.
+    - name: Enterprise
+      price: Custom
+      limits: 页面列不限OpenClaw、SLA、定制和私有化，需合同确认；非本次验收上线能力
+      limits_en: >-
+        Page advertises unlimited OpenClaw agents, SLA, custom integrations and on-premises deployment;
+        contractual confirmation needed, not acceptance-tested capabilities.
+  price_updated_at: "2026-11-17"
+  note: >-
+    新找到官方/pricing页核实Free0、Pro常规$19/月且Beta暂免、Enterprise定制；不能把临时Beta免费推广为永久或包含所有模型成本。官网共享记忆/Playbooks/可观测性和仓库自托管步骤已核实；仓库仍称早期，部分电脑控制为路线图，营销方案不是上线验收。基于OpenClaw，Team9
+    License在Apache文本上附加条件，不是无条件Apache-2.0。没有核实托管部署完整留存/训练承诺或实际SLA；自托管仍可向所接模型/工具外发，不能当成零外发保证。
+    历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
+  note_en: >-
+    The newly located official pricing page verifies Free at $0, regular Pro at $19/month currently waived
+    during Beta, and custom Enterprise pricing. Temporary Beta access does not mean permanently free inference
+    or inclusion of all model costs. Shared memory, playbooks, observability and repository self-hosting steps
+    are documented. The repository remains early-stage; some computer-control features are roadmap items, not
+    acceptance-tested marketing promises. It is OpenClaw-based and uses a Team9 License with Apache-based
+    additional conditions, not unmodified Apache-2.0. Hosted retention/training guarantees and an actual SLA
+    were not verified. Self-hosting can still send data to connected models and tools; it is not a zero-egress
+    guarantee. Historical editorial scores retained, not newly measured or re-rated; not a fresh performance
+    or cost benchmark.
+
 scores:
   coding_ability: 7
   cost_efficiency: 9
@@ -28,19 +57,24 @@ features:
   agent_mode: true
   multi_file_edit: false
   mcp_support: false
-  sub_agent: true
   multi_agent: true
   agent_teams: true
   task_management: true
-  persistent_memory: false
-  skill_sharing: false
-  runtime_monitoring: false
+  persistent_memory: true
+  skill_sharing: true
+  runtime_monitoring: true
   open_source: false
-  self_hosted: false
+  self_hosted: true
   context_window: 取决于所选模型
   supported_runtimes:
-    - 内置 Agent 引擎
+    - OpenClaw
   ide_base: Agent 协作平台
+  source_available: true
+  supported_os:
+    - macOS
+    - Windows
+    - Web
+
 best_for:
   - 探索 AI Agent Team 工作方式的早期用户
   - 一人公司构建 AI 团队工作空间
@@ -52,22 +86,49 @@ not_for:
 not_for_en:
   - Users needing mature, stable products (early stage)
 quick_start:
-  - 访问 team9.ai 注册早期测试
+  - 在官网选择托管工作区，先核实当前费用和权限
+  - 自托管步骤见官方仓库，要求 Node.js 18+、pnpm 8+、PostgreSQL 和 Redis；本次未实机部署
+  - 阅读 Team9 附加许可条件，勿当成无条件 Apache-2.0
+
 quick_start_en:
-  - Visit team9.ai to sign up for early access
+  - Choose a hosted workspace on the official site; verify current charges and permissions first
+  - >-
+    For self-hosting follow the repository: Node.js 18+, pnpm 8+, PostgreSQL and Redis; deployment not tested
+    in this review
+  - Read Team9 license conditions; do not assume unmodified Apache-2.0
+
 register_url: https://team9.ai
-china_note: Web 端访问
-china_note_en: Web accessible
+china_note: 国内可达性及所接模型服务的地区限制未实测。
+
+china_note_en: Mainland reachability and connected model-provider regional restrictions are untested.
+
 data_sources:
   - url: https://team9.ai
     type: docs
-    last_checked: '2026-05-09'
+    last_checked: "2026-11-17"
+  - url: https://github.com/team9ai/team9
+    type: repo
+    last_checked: "2026-11-17"
+  - url: https://team9.ai/pricing
+    type: pricing
+    last_checked: "2026-11-17"
+
 changelog:
-  - date: '2026-05-09'
+  - date: "2026-11-17"
+    type: fix
+    summary: 完整文档复核：补齐官方Free/Pro/Enterprise价格与Beta暂免条件，保留源码许可限制、早期/路线图与托管隐私未保证等边界；未部署、登录或实测。
+    summary_en: >-
+      Full documentary review: official Free/Pro/Enterprise pricing and temporary Beta waiver resolved;
+      preserve license restrictions, early-stage/roadmap and non-guaranteed hosted privacy boundaries. No
+      deployment, sign-in or runtime test.
+  - date: "2026-05-09"
     type: launch
     summary: 加入 CodePick Agent 协作栏目
     summary_en: Added to CodePick Agent Collaboration section
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-11'
+
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: low

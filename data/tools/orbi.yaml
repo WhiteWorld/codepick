@@ -4,8 +4,10 @@ type: agent_platform
 logo: /images/orbi.png
 url: https://orbi.build
 repo: https://github.com/orbi-build/orbi
-current_version: v0.7.0
-version_tracked_at: '2026-10-16'
+current_version: v0.7.45
+
+version_tracked_at: "2026-11-17"
+
 tagline: 用 GitHub Issue 驱动的自托管交付 runner：Pi 在独立 worktree 写代码，另一场会话评审后再合并
 tagline_en: Self-hosted delivery runner driven by GitHub Issues. Pi writes code in an isolated worktree; a separate session reviews it before merge
 pricing:
@@ -15,30 +17,43 @@ pricing:
     - name: Self-hosted
       price: 0
       limits: 软件不收平台费。需要自备模型（OpenAI 兼容接口、本地端点，或 Pi 里的 Codex 登录）
-      limits_en: No platform fee. Bring your own model (OpenAI-compatible API, a local endpoint, or a Codex login inside Pi)
+      limits_en: >-
+        No platform fee. Bring your own model (OpenAI-compatible API, a local endpoint, or a Codex login
+        inside Pi)
     - name: Cloud trial
       price: 0
       limits: 前 3 次成功合并不需要信用卡；失败的交付不计入。草稿 Issue 不占用这 3 次
-      limits_en: First 3 successful merges need no credit card; failed deliveries do not count. Drafting an Issue does not use one of the three
+      limits_en: >-
+        First 3 successful merges need no credit card; failed deliveries do not count. Drafting an Issue does
+        not use one of the three
     - name: Cloud Solo
       price: 29
       period: month
-      limits: 每月 400M tokens，同时连接 1 个仓库。用完后新交付暂停，不按 token 超额计费。首页 FAQ 另写年付 $290（折合 $24/月）；本次未走结账
-      limits_en: 400M tokens/month, 1 repo at a time. New deliveries pause when the allowance runs out; no per-token overage. The homepage FAQ also lists $290/year ($24/month); checkout was not completed
+      limits: 400M tokens/月、同时 1 个仓库；额度用尽暂停。常规年付 $290；限量促销另计
+      limits_en: >-
+        400M tokens/month, 1 repo at a time; pauses on exhaustion. Regular annual total $290; limited
+        promotions separate
     - name: Cloud Pro
       price: 79
       period: month
-      limits: 每月 1.2B tokens，同时最多 5 个仓库。用完后新交付暂停。首页 FAQ 另写年付 $790（折合 $66/月）；本次未走结账
-      limits_en: 1.2B tokens/month, up to 5 repos at a time. New deliveries pause when the allowance runs out. The homepage FAQ also lists $790/year ($66/month); checkout was not completed
-  price_updated_at: '2026-10-16'
-  note: 2026-10-16 核对。月付价格见 https://orbi.build/self-hosted-coding-agent/ 与 https://orbi.build/terms/ ；token 与仓库上限见 https://orbi.build/cloud/ 。年付价格只出现在首页 FAQ。许可证为 AGPL-3.0，或厂商自拟的 Sustainable Use License 1.0（不在 SPDX 列表）。SUL 下把 Orbi 本身做成托管服务或放进付费产品需要另行授权；AGPL 没有这条额外限制，但修改后以网络服务提供时要公开对应源码
-  note_en: Checked 2026-10-16. Monthly prices are on https://orbi.build/self-hosted-coding-agent/ and https://orbi.build/terms/ ; token and repo caps are on https://orbi.build/cloud/ . Annual prices appear only in the homepage FAQ. License is AGPL-3.0, or the vendor's Sustainable Use License 1.0 (not an SPDX id). Under the SUL, hosting Orbi as a service or embedding it in a paid product needs separate permission; AGPL has no such extra clause, but offering a modified version as a network service requires publishing that source
-# Scores are CodePick's, from public docs and one inspected PR, not a hands-on run.
-# coding_ability 5: implementation is Pi plus the user's model; no benchmark.
-# cost_efficiency 8: self-host software fee is $0; a model or Cloud plan is still required.
-# flexibility 4.5: GitHub only, Pi only, Linux systemd / macOS launchd, Python >= 3.14, Node >= 22.19, gh >= 2.94.
-# china_friendly 5: not tested from mainland China. Chinese README and docs/zh exist.
-# privacy 7: self-host worktrees stay local per docs; Cloud clones the repo onto Orbi machines. No code audit.
+      limits: 1.2B tokens/月、最多 5 个仓库；额度用尽暂停。常规年付 $790；限量促销另计
+      limits_en: >-
+        1.2B tokens/month, up to 5 repos; pauses on exhaustion. Regular annual total $790; limited promotions
+        separate
+  price_updated_at: "2026-11-17"
+  note: >-
+    2026-11-17 复核：常规 Cloud Solo $29/月（400M tokens、1 repo），Pro $79/月（1.2B tokens、5 repos）；前 3 个合并 PR
+    免费，额度用尽暂停新交付，不按 token 超额计费。页面另有名额受限的 founding 优惠，不能作为所有用户的固定价格；年付常规 $290/$790。AGPL-3.0 或厂商 SUL 1.0
+    双许可，按选择的许可履行义务。自托管无平台费，但 GitHub 和远端模型仍可能接收代码；Cloud 克隆授权仓库到厂商机器。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
+  note_en: >-
+    Rechecked 2026-11-17: regular Cloud Solo $29/mo (400M tokens, 1 repo), Pro $79/mo (1.2B tokens, 5 repos);
+    first 3 merged PRs free, exhausted allowances pause new deliveries with no per-token overage. Limited
+    founding offers are not a guaranteed price for everyone; regular annual totals are $290/$790. Dual
+    AGPL-3.0/vendor SUL 1.0 licensing requires following the chosen terms. Self-hosting has no platform fee,
+    but GitHub/remote models may still receive code; Cloud clones authorized repos onto vendor machines.
+    Historical editorial scores retained, not newly measured or re-rated; not a fresh performance or cost
+    benchmark.
+
 scores:
   coding_ability: 5
   cost_efficiency: 8
@@ -93,52 +108,77 @@ pros_en:
   - Self-hosting has no platform fee, and the model can be any OpenAI-compatible endpoint
 cons:
   - 只支持 GitHub。安装脚本只接受 Linux（systemd）和 macOS（launchd）；README 写明 macOS 调度尚未在真机验证
-  - 需要 Python ≥ 3.14、Node ≥ 22.19（Pi 的运行时，安装脚本不代装）、GitHub CLI ≥ 2.94，以及已安装的 Pi
+  - 需要 GitHub CLI ≥2.94、git、curl 和 Linux systemd / macOS launchd；uv 可准备 Python 3.14，安装器可装 Pi，但不代装 Node ≥22.19
   - 发版不是合并的副作用：要另开 release Issue，并由人打上 ai-release。Cloud 会把授权仓库克隆到 Orbi 的机器上
-  - 仓库创建于 2026-08-24。本次没有安装，也没有在第三方仓库复现整条交付
+  - 本次为官方源码/文档与价格复核，未安装或在第三方仓库复现完整交付；独立评审不等于所有错误都能被发现
+
 cons_en:
-  - GitHub only. The installer accepts Linux (systemd) and macOS (launchd); the README says the macOS scheduler is not yet verified on real hardware
-  - Requires Python ≥ 3.14, Node ≥ 22.19 (Pi's runtime; the installer does not install it), GitHub CLI ≥ 2.94, and Pi
-  - 'A release is not a side effect of merge: someone must open a release Issue and apply ai-release. Cloud clones authorized repos onto Orbi''s machines'
-  - The repo was created on 2026-08-24. This review did not install Orbi or replay a delivery on a third-party repo
+  - >-
+    GitHub only. The installer accepts Linux (systemd) and macOS (launchd); the README says the macOS
+    scheduler is not yet verified on real hardware
+  - >-
+    Requires GitHub CLI ≥2.94, git, curl and Linux systemd/macOS launchd; uv can provision Python 3.14 and
+    installer can install Pi, but not Node ≥22.19
+  - >-
+    A release is not a side effect of merge: someone must open a release Issue and apply ai-release. Cloud
+    clones authorized repos onto Orbi's machines
+  - >-
+    This was source/documentation/pricing review, not installation or an end-to-end delivery on a third-party
+    repo; independent review does not guarantee catching all errors
+
 quick_start:
   - 阅读 https://docs.orbi.build/ 和仓库 README，不要使用带 ref 参数的推广链接
-  - 准备 Python ≥ 3.14、Node ≥ 22.19、GitHub CLI ≥ 2.94、git，以及 Linux systemd 或 macOS launchd
-  - 按 README 安装 orbi-cli 和 Pi，配置 orbi.toml 与自己的模型
+  - 准备 git、curl、已认证 GitHub CLI ≥2.94 和 Linux systemd / macOS launchd；Pi 缺失时还要 Node ≥22.19/npm
+  - 按官方 getting-started 安装；uv 可准备 Python 3.14、安装器可装 Pi，之后配置 orbi.toml 与模型连接
   - 给 GitHub Issue 打上 ai-ready。需要发版时另开 release Issue 并打上 ai-release
+
 quick_start_en:
   - Read https://docs.orbi.build/ and the repo README. Do not use referral query parameters
-  - Prepare Python ≥ 3.14, Node ≥ 22.19, GitHub CLI ≥ 2.94, git, and either Linux systemd or macOS launchd
-  - Install orbi-cli and Pi as the README describes, then configure orbi.toml and your own model
+  - >-
+    Prepare git, curl, authenticated GitHub CLI ≥2.94 and Linux systemd/macOS launchd; Node ≥22.19/npm is
+    needed when Pi is missing
+  - >-
+    Follow official getting-started: uv can provision Python 3.14 and installer can add Pi; then configure
+    orbi.toml and a model connection
   - Label a GitHub Issue ai-ready. For a release, open a separate release Issue and label it ai-release
+
 register_url: https://orbi.build
 china_note: 有 README.zh-CN.md 和 docs/zh，但这次没有从中国大陆访问测试。任务板依赖 GitHub；自托管时模型走你自己的端点，Cloud 则把仓库克隆到 Orbi 的机器
 china_note_en: A README.zh-CN.md and docs/zh exist, but access from mainland China was not tested. The board depends on GitHub; self-hosting uses your model endpoint, while Cloud clones the repo onto Orbi's machines
 data_sources:
   - url: https://github.com/orbi-build/orbi
     type: repo
-    last_checked: '2026-10-16'
+    last_checked: "2026-11-17"
   - url: https://orbi.build
     type: docs
-    last_checked: '2026-10-16'
+    last_checked: "2026-11-17"
   - url: https://orbi.build/cloud/
     type: pricing
-    last_checked: '2026-10-16'
+    last_checked: "2026-11-17"
   - url: https://orbi.build/self-hosted-coding-agent/
     type: pricing
-    last_checked: '2026-10-16'
+    last_checked: "2026-11-17"
   - url: https://orbi.build/terms/
     type: pricing
-    last_checked: '2026-10-16'
+    last_checked: "2026-11-17"
   - url: https://docs.orbi.build/
     type: docs
-    last_checked: '2026-10-16'
+    last_checked: "2026-11-17"
+  - url: https://github.com/orbi-build/orbi/releases/tag/v0.7.45
+    type: release
+    last_checked: "2026-11-17"
+  - url: https://docs.orbi.build/getting-started/
+    type: docs
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-10-16'
     type: launch
     summary: 按公开仓库 v0.7.0、安装脚本和官网加入工具库。评分由 CodePick 填写，未跑通安装
     summary_en: Added from public repo v0.7.0, the install script, and the website. Scores are CodePick's; the install was not run
-last_full_review: '2026-10-16'
-next_review_due: '2026-11-15'
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: low
