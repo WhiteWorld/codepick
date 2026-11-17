@@ -4,23 +4,30 @@ type: agent_platform
 logo: /images/multica.png
 url: https://multica.ai
 repo: https://github.com/multica-ai/multica
-current_version: v0.6.2
-version_tracked_at: '2026-10-13'
+current_version: v0.10.0
+
+version_tracked_at: "2026-11-17"
+
 pricing:
   model: free
   currency: null
   plans:
-    - name: 开源免费 (Self-hosted)
+    - name: Self-hosted
       price: 0
-      limits: 无限制（自托管，需自备 API Key 和服务器）
-      limits_en: Unlimited (self-hosted, requires own API keys and server)
-    - name: Cloud
-      price: 0
-      limits: 免费试用（后续可能推出付费套餐）
-      limits_en: Free trial (paid plans may follow)
-  price_updated_at: '2026-05-09'
-  note: Modified Apache 2.0 开源，可自托管（Docker Compose / K8s）；官方提供 Cloud 托管版本；Agent 在本地 daemon 或自有 runtime 执行
-  note_en: Modified Apache 2.0 open source, self-hostable (Docker Compose / K8s); official Cloud hosted version available; agents execute on local daemons or owned runtimes
+      limits: Multica License 附加条件适用；服务器/模型/工具费用另计
+      limits_en: Additional Multica License conditions apply; server/model/tool costs separate
+  price_updated_at: "2026-11-17"
+  note: >-
+    仓库为 Multica License（Apache-2.0 加托管服务、商业嵌入和品牌附加条件），不能等同无限制开源。Cloud 当前价格/试用权益未在公开页面核实，移除旧 $0 Cloud
+    展示。重要：默认运行拥有 daemon OS 用户全部权限，不提供文件系统沙箱；Codex 默认 danger-full-access，Claude Code 默认 bypassPermissions。应以专用
+    OS 用户、容器或 VM 隔离，不要把 workdir 或自托管视为安全边界。
+  note_en: >-
+    Multica License adds hosted-service, commercial-embedding and branding conditions to Apache-2.0, not
+    unrestricted open source. Current Cloud pricing/trial entitlements were not established publicly; old
+    Cloud $0 is removed. Critical: runs inherit the daemon OS user’s full permissions with no
+    filesystem-sandbox guarantee; default Codex danger-full-access and Claude Code bypassPermissions. Use a
+    dedicated OS user/container/VM; workdirs and self-hosting are not security boundaries.
+
 scores:
   coding_ability: 7.5
   cost_efficiency: 9
@@ -40,7 +47,7 @@ features:
   persistent_memory: false
   skill_sharing: true
   runtime_monitoring: true
-  open_source: true
+  open_source: false
   self_hosted: true
   issue_tracking: true
   realtime_progress: true
@@ -63,42 +70,70 @@ features:
     - Windows
     - Linux
   ide_base: Agent 协作平台
+  source_available: true
+
 best_for:
   - 需要项目管理 + Agent 执行的团队
-  - 重视代码隐私、希望自托管的场景
+  - 能在专用用户/容器/VM 内隔离 Agent 运行权限的自托管团队
   - 希望积累可复用 Agent Skills 的团队
+
 best_for_en:
   - Teams needing project management + agent execution
-  - Privacy-conscious teams wanting self-hosted solutions
+  - Self-hosted teams able to isolate agent permissions with a dedicated user/container/VM
   - Teams building reusable agent skill libraries
+
 not_for:
   - 仅需单人轻量 AI 编程辅助的场景
   - 不想管理自托管基础设施的用户
+  - 把个人电脑主用户的全部文件/凭据暴露给无人值守 Agent、又不能做外部隔离的部署
+
 not_for_en:
   - Solo lightweight AI coding
   - Users who don't want to manage self-hosted infrastructure
+  - >-
+    Deployments exposing the personal OS account’s files/credentials to unattended agents without external
+    isolation
+
 quick_start:
   - 访问 multica.ai 注册 Cloud 版本，或 clone GitHub 仓库自托管
   - 运行 multica setup CLI 工具连接本地机器
-  - Multica 自动扫描已安装的 Coding Agent（官方 README 当前列出 12 种命令）
+  - 按当前 docs 安装所选 AI coding runtime，不把历史 12 种命令数量当成固定上限
   - 创建 Agent 并配置指令和 Skills
   - 将 Issue 分配给 Agent，实时查看执行进度
+
 quick_start_en:
   - Sign up at multica.ai for Cloud, or clone the GitHub repo for self-hosting
   - Run multica setup CLI to connect your local machine
-  - Multica auto-detects installed coding agents (12 commands listed in the current README)
+  - >-
+    Install the selected coding runtime per current docs; the historical count of 12 commands is not a fixed
+    limit
   - Create agents with custom instructions and attach skills
   - Assign issues to agents and watch real-time progress
+
 register_url: https://multica.ai/login
-china_note: 开源可自托管，国内可直接部署；Agent 执行在本地，需自行解决 API 访问
-china_note_en: Open source and self-hostable, deployable in China; agents execute locally, requires own API access
+china_note: 可自托管，但镜像/运行时/模型的国内可达性未实测；本地运行不等于沙箱或零外发。
+
+china_note_en: >-
+  Self-hostable, but mainland reachability of images/runtimes/models is untested; local execution does not
+  imply sandboxing or zero egress.
+
 data_sources:
   - url: https://multica.ai
     type: docs
-    last_checked: '2026-06-06'
+    last_checked: "2026-11-17"
   - url: https://github.com/multica-ai/multica
     type: repo
-    last_checked: '2026-06-06'
+    last_checked: "2026-11-17"
+  - url: https://multica.ai/docs/security-model
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://multica.ai/docs/cloud-quickstart
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://github.com/multica-ai/multica/releases/tag/v0.10.0
+    type: release
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-10-13'
     type: 版本更新 v0.3.17 → v0.6.2（GitHub release 核验）
@@ -110,4 +145,4 @@ changelog:
 last_full_review: '2026-10-13'
 next_review_due: '2026-11-11'
 review_frequency_days: 30
-confidence: medium
+confidence: low

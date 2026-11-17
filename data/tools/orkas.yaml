@@ -4,19 +4,48 @@ type: agent_platform
 logo: /images/orkas.png
 url: https://github.com/Orkas-AI/Orkas
 repo: https://github.com/Orkas-AI/Orkas
-current_version: v2026.10.1
-version_tracked_at: '2026-10-13'
+current_version: v2026.11.16
+
+version_tracked_at: "2026-11-17"
+
 pricing:
-  model: free
-  currency: null
+  model: subscription
+  currency: USD
   plans:
-    - name: 开源免费
+    - name: Free / source build
       price: 0
-      limits: 无限制（需自备 API Key）
-      limits_en: Unlimited (requires own API keys)
-  price_updated_at: '2026-05-09'
-  note: MIT 开源；桌面客户端本地运行；Pro 版提供团队协作和专家 Agent
-  note_en: MIT licensed; desktop client runs locally; Pro edition offers team collaboration and expert agents
+      limits: 打包版登录桌面 App 领取 500 welcome credits（非每月）；源码版不含云同步、共享项目和公开 Web 发布
+      limits_en: >-
+        Packaged desktop sign-in grants 500 welcome credits (not monthly); source build excludes cloud sync,
+        shared projects and public web publishing
+    - name: Lite (1,000 credits)
+      price: 5.99
+      period: month
+      limits: 当前选中 1,000 credits/月；1 GB 云存储；自动续费价，单月不续费为 $6.99
+      limits_en: >-
+        Selected 1,000 credits/month; 1 GB cloud storage; auto-renew price, one-month nonrenewing purchase
+        $6.99
+    - name: Pro (5,000 credits)
+      price: 16.99
+      period: month
+      limits: 当前选中 5,000 credits/月；5 GB 云存储；单月不续费为 $17.99
+      limits_en: Selected 5,000 credits/month; 5 GB cloud storage; one-month nonrenewing purchase $17.99
+    - name: Max (10,000 credits)
+      price: 29.99
+      period: month
+      limits: 当前选中 10,000 credits/月；10 GB 云存储；单月不续费为 $30.99
+      limits_en: Selected 10,000 credits/month; 10 GB cloud storage; one-month nonrenewing purchase $30.99
+  price_updated_at: "2026-11-17"
+  note: >-
+    定价卡片的 credits 可配置，所列价格对应本次公开页面选中额度，不是所有配置的统一起价。README 仍写付费 $11.99 起及旧发布上限，与当前 pricing 页有差异，以现行配置/结账为准。MIT
+    源码与打包版云功能不同；月度 credits 不结转，长期包另计。自备 Key 直连提供商；内置模型、语音识别和可选云同步会使用 Orkas 服务，不能等同完全离线。
+  note_en: >-
+    Credits are configurable; prices reflect the amounts selected in the public page, not a universal minimum.
+    README still mentions paid plans from $11.99 and older publishing limits, inconsistent with current
+    pricing; verify configuration/checkout. MIT source and packaged cloud features differ. Monthly credits do
+    not roll over; lifetime packs are separate. BYOK calls go directly to providers; built-in models, speech
+    recognition and optional sync use Orkas services, not fully offline operation.
+
 scores:
   coding_ability: 8
   cost_efficiency: 9.5
@@ -34,7 +63,7 @@ features:
   agent_teams: true
   task_management: true
   persistent_memory: true
-  skill_sharing: false
+  skill_sharing: true
   runtime_monitoring: false
   open_source: true
   self_hosted: true
@@ -46,6 +75,7 @@ features:
   supported_runtimes:
     - Claude Code
     - Codex
+    - OpenCode
     - OpenClaw
     - Hermes-Agent
   supported_os:
@@ -53,6 +83,7 @@ features:
     - Windows
     - Linux
   ide_base: Agent 协作平台
+
 best_for:
   - 想要桌面端统一管理 Agent 团队的开发者
   - 需要 Agent 从经验中自演化的场景
@@ -62,28 +93,53 @@ best_for_en:
   - Scenarios requiring agent self-evolution from experience
   - Commander-orchestrated multi-agent parallel collaboration
 not_for:
-  - 需要 Web 端远程协作的团队
-  - 仅需单一 AI 助手的简单场景
+  - 需要无条件完全离线和零外发保证的环境
+  - 希望 Linux 有打包安装器或使用 Alpine/musl 的用户（Linux 当前从源码运行，需 glibc 2.34+）
+  - 将自我改进/自动推进的厂商描述当成可靠性保证的场景
+
 not_for_en:
-  - Teams needing web-based remote collaboration
-  - Simple single-AI-assistant scenarios
+  - Environments requiring unconditional offline/no-egress guarantees
+  - >-
+    Users requiring a packaged Linux installer or Alpine/musl (Linux currently runs from source with glibc
+    2.34+)
+  - Treating vendor self-improvement/auto-advance claims as reliability guarantees
+
 quick_start:
-  - git clone https://github.com/Orkas-AI/Orkas && cd Orkas && ./run.sh
-  - 首次启动自动安装依赖和嵌入模型（~95MB）
-  - 在 Settings → AI Providers 配置 API Key
-  - 通过对话创建 Agent 团队，Commander 自动调度
+  - macOS 12+ / Windows 10+ 可下载官方打包版；Linux x64/arm64 使用源码（glibc 2.34+）
+  - 源码要求 Node 22.12+；macOS/Linux 用 ./run.sh，Windows 用 run.cmd；Python 3 和 C/C++ 工具链仅为原生模块回退编译准备
+  - 首次启动准备锁定依赖、embedding、OfficeCLI、FFmpeg、语音运行时等，不只是下载约 95 MB 模型
+  - 按所选内置模型/自备 Key/本地端点配置，检查权限及可选云同步；外部 CLI 保留自己的模型设置
+
 quick_start_en:
-  - git clone https://github.com/Orkas-AI/Orkas && cd Orkas && ./run.sh
-  - First launch auto-installs dependencies and embedding model (~95MB)
-  - Configure API keys in Settings → AI Providers
-  - Create agent teams through conversation, Commander auto-dispatches
+  - Use official packaged downloads on macOS 12+/Windows 10+; Linux x64/arm64 runs from source (glibc 2.34+)
+  - >-
+    Source requires Node 22.12+; run ./run.sh on macOS/Linux or run.cmd on Windows; Python 3/C++ tools are for
+    native-module fallback builds
+  - >-
+    First launch prepares locked dependencies, embeddings, OfficeCLI, FFmpeg and speech runtimes, not just a
+    95 MB model
+  - >-
+    Configure built-in/BYOK/local endpoints and review permissions/optional sync; external CLIs keep their own
+    model settings
+
 register_url: https://github.com/Orkas-AI/Orkas
-china_note: 开源本地运行，国内可直接 clone 使用；需自行配置国内模型 API（DeepSeek/Kimi/GLM/Qwen 等）
-china_note_en: Open source, runs locally; usable directly in China with domestic model APIs (DeepSeek/Kimi/GLM/Qwen etc.)
+china_note: 支持自备提供商或本地端点；下载、内置模型、云服务和第三方模型的国内可达性未实测。
+
+china_note_en: >-
+  BYOK/local endpoints are supported; mainland reachability of downloads, built-in models, cloud services and
+  external models is untested.
+
 data_sources:
   - url: https://github.com/Orkas-AI/Orkas
     type: repo
-    last_checked: '2026-05-09'
+    last_checked: "2026-11-17"
+  - url: https://orkas.ai/pricing/
+    type: pricing
+    last_checked: "2026-11-17"
+  - url: https://github.com/Orkas-AI/Orkas/releases/tag/v2026.11.16
+    type: release
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-10-13'
     type: 版本更新 2026.5.8 → v2026.10.1（GitHub release 核验）
@@ -92,7 +148,9 @@ changelog:
     type: launch
     summary: 加入 CodePick Agent 协作栏目
     summary_en: Added to CodePick Agent Collaboration section
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-11'
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: medium

@@ -123,11 +123,12 @@ const softwareAppSchema: object = {
     worstRating: 1,
     ratingCount: 1,
   } : undefined,
-  offers: pricingPlans.length > 0 ? pricingPlans.map((p: any) => ({
+  offers: pricingPlans.some((p: any) => typeof p.price === 'number' && Number.isFinite(p.price)) ? pricingPlans.filter((p: any) => typeof p.price === 'number' && Number.isFinite(p.price)).map((p: any) => ({
     '@type': 'Offer',
     name: p.name,
-    price: typeof p.price === 'number' ? p.price : 0,
-    priceCurrency: pricingCurrency === 'CNY' ? 'CNY' : 'USD',
+    price: p.price,
+    priceCurrency: pricingCurrency,
+    ...(p.period === 'year' ? { priceSpecification: { '@type': 'UnitPriceSpecification', price: p.price, priceCurrency: pricingCurrency, billingDuration: 'P1Y' } } : {}),
     availability: 'https://schema.org/OnlineOnly',
     description: p.limits || '',
   })) : undefined,
@@ -319,7 +320,7 @@ const allJsonLd = [softwareAppSchema, breadcrumbSchema, ...(faqSchema ? [faqSche
               {pricingPlans.map((p: any) => (
                 <tr>
                   <td class="font-medium">{p.name}</td>
-                  <td>{typeof p.price === 'number' ? `${pricingCurrency === 'CNY' ? '¥' : '$'}${p.price}${t('price.perMonth', lang)}` : p.price}</td>
+                  <td>{typeof p.price === 'number' ? `${pricingCurrency === 'CNY' ? '¥' : pricingCurrency === 'EUR' ? '€' : '$'}${p.price}${p.period === 'year' ? (lang === 'zh' ? '/年' : '/year') : t('price.perMonth', lang)}` : p.price}</td>
                   <td class="text-[var(--text-muted)]">{p.limits || '—'}</td>
                   <td>
                     {registerUrl && (
