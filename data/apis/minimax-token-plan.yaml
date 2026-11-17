@@ -24,15 +24,16 @@ pricing:
     Plan的金额本次未核实，不宣称完成该新产品的定价复核，也不把旧Starter¥29等当当前报价。服务端留存/训练或旧账号精确配额需按合同核实，不承诺零处理或把MPlan额度直接反推旧合同。历史评分不是现售推荐。
     历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
-    This entry reviews retired-for-new-sale TokenPlan, not MPlan as the same current product. No universally
-    purchasable new-user plan quote; existing charges/extras depend on the account renewal contract. Official
-    legacy notice confirmsM3.1Flash/H3Image, notH3video. Continuousrenewal retainslegacyprice/benefits with
-    nolegacytierchanges; once disabled it cannot restart. Exception:iOSAppStoresubscriptions cannot renew
-    after thecurrentterm; vendorcompensationcreditsvalid1year. MPlanmigration isirreversible and
-    forfeitslegacyextras; Plus can move toGo/Explore/Build, Max toExplore/Build, Ultra toBuild, with
-    unusedtermvaluecredited. NewMPlanamounts were notverified and this is NOT a fullpricingreview of
-    thatnewproduct; oldStarter¥29etc are notcurrentoffers. Verify retention/training/accountquotas
-    undercontract; nozeroprocessingpromise orautomaticMPlanquotaequivalence. Historicalscores are notanew-sale
+    This entry reviews Token Plan, which is closed to new sales, not M Plan as the same current product. There
+    is no universally purchasable new-user Token Plan quote; existing charges and extras depend on the renewal
+    contract. The official legacy notice confirms M3.1 Flash and H3 Image, but not H3 video. Continuous
+    renewal retains legacy prices and benefits, with no legacy tier changes; once disabled, renewal cannot
+    restart. Exception: iOS App Store subscriptions cannot renew after the current term; vendor compensation
+    credits are valid for one year. Migration to M Plan is irreversible and forfeits legacy extras. Plus can
+    move to Go/Explore/Build, Max to Explore/Build, Ultra to Build, with unused term value credited. New M
+    Plan amounts were not verified: this is NOT a full pricing review of that new product, and old Starter ¥29
+    offers are not current prices. Verify retention, training and account quotas under the contract; there is
+    no zero-processing promise or automatic equivalence to M Plan quotas. Historical scores are not a new-sale
     recommendation. Historical editorial scores retained, not newly measured or re-rated; not a fresh
     performance or cost benchmark.
 
@@ -101,9 +102,9 @@ changelog:
     type: fix
     summary: 完成旧Token Plan生命周期/合同范围复核（不是新M Plan定价复核）：停止新售、旧合同续费与不可逆迁移，补充iOS不可续例外、当前文本/图片支持及不含H3视频。无新售套餐、不猜旧账号合同价。
     summary_en: >-
-      Complete legacyTokenPlan lifecycle/contract-scope review, NOT newMPlanpricing: closednewsales,
-      legacyrenewals/irreversiblemigration, iOSnonrenewalexception andtext/imagebutnoH3video. Nonewplanoffers,
-      no inventedaccountcontractprice.
+      Complete legacy Token Plan lifecycle/contract-scope review, NOT new M Plan pricing: closed new sales,
+      legacy renewals and irreversible migration, the iOS non-renewal exception, and text/image support
+      without H3 video. No new plan offers or invented account contract prices.
   - date: "2026-03-23"
     type: announcement
     summary: 原 Coding Plan 全量升级为 Token Plan，首发「全球首个全模态订阅」

@@ -21,28 +21,29 @@ pricing:
       period: month
       limits: 页面标常规$19/月，目前Beta期间免费（未公布结束日）；1个OpenClaw实例，API费用/配额及席位单位需确认
       limits_en: >-
-        Listed regular$19/month, currently waived during Beta with no published end; oneOpenClaw instance;
-        confirm API costs/quotas/seat unit
+        Listed regular price $19/month, currently waived during Beta with no published end; one OpenClaw
+        instance. Confirm API costs, quotas and the seat billing unit.
     - name: Enterprise
       price: Custom
       limits: 页面列不限OpenClaw、SLA、定制和私有化，需合同确认；非本次验收上线能力
       limits_en: >-
-        Page advertises unlimitedOpenClaw/SLA/custom/on-premises; contractual confirmation needed, not
-        acceptance-tested capabilities
+        Page advertises unlimited OpenClaw agents, SLA, custom integrations and on-premises deployment;
+        contractual confirmation needed, not acceptance-tested capabilities.
   price_updated_at: "2026-11-17"
   note: >-
     新找到官方/pricing页核实Free0、Pro常规$19/月且Beta暂免、Enterprise定制；不能把临时Beta免费推广为永久或包含所有模型成本。官网共享记忆/Playbooks/可观测性和仓库自托管步骤已核实；仓库仍称早期，部分电脑控制为路线图，营销方案不是上线验收。基于OpenClaw，Team9
     License在Apache文本上附加条件，不是无条件Apache-2.0。没有核实托管部署完整留存/训练承诺或实际SLA；自托管仍可向所接模型/工具外发，不能当成零外发保证。
     历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
-    Newly found official/pricing verifies Free0, regular Pro$19/month currently waived during Beta, and
-    customEnterprise. Temporary Beta access is not permanent free inference or inclusion of all model costs.
-    Verified shared memory/playbooks/observability and repository self-host steps; repository remains
-    early-stage and some computer control is roadmap, not acceptance-tested marketing promises.
-    OpenClaw-based, under Team9 License with Apache-based additional conditions, not unmodifiedApache-2.0.
-    Hosted retention/training guarantees and actualSLA were not verified; self-hosting can still send data to
-    connected models/tools, not zero egress. Historical editorial scores retained, not newly measured or
-    re-rated; not a fresh performance or cost benchmark.
+    The newly located official pricing page verifies Free at $0, regular Pro at $19/month currently waived
+    during Beta, and custom Enterprise pricing. Temporary Beta access does not mean permanently free inference
+    or inclusion of all model costs. Shared memory, playbooks, observability and repository self-hosting steps
+    are documented. The repository remains early-stage; some computer-control features are roadmap items, not
+    acceptance-tested marketing promises. It is OpenClaw-based and uses a Team9 License with Apache-based
+    additional conditions, not unmodified Apache-2.0. Hosted retention/training guarantees and an actual SLA
+    were not verified. Self-hosting can still send data to connected models and tools; it is not a zero-egress
+    guarantee. Historical editorial scores retained, not newly measured or re-rated; not a fresh performance
+    or cost benchmark.
 
 scores:
   coding_ability: 7
@@ -117,9 +118,9 @@ changelog:
     type: fix
     summary: 完整文档复核：补齐官方Free/Pro/Enterprise价格与Beta暂免条件，保留源码许可限制、早期/路线图与托管隐私未保证等边界；未部署、登录或实测。
     summary_en: >-
-      Full documentary review: officialFree/Pro/Enterprise pricing and temporaryBeta waiver resolved; preserve
-      license restrictions, early-stage/roadmap and non-guaranteed hosted privacy boundaries. No
-      deployment/sign-in/runtime test.
+      Full documentary review: official Free/Pro/Enterprise pricing and temporary Beta waiver resolved;
+      preserve license restrictions, early-stage/roadmap and non-guaranteed hosted privacy boundaries. No
+      deployment, sign-in or runtime test.
   - date: "2026-05-09"
     type: launch
     summary: 加入 CodePick Agent 协作栏目

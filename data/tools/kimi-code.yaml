@@ -24,57 +24,57 @@ pricing:
       period: month
       limits: 国内新会员连续包月；与 Kimi 共享月额度，Code 另有5小时滚动限流，无新套餐周限额
       limits_en: >-
-        Domestic new recurring monthly subscription; shared Kimi monthly pool plus rolling5-hour Code limits,
-        no new-plan weekly cap
+        Domestic recurring monthly subscription; shared Kimi monthly pool plus rolling five-hour Code limits,
+        with no new-plan weekly cap.
     - name: Plus 年付 / annual
       price: 948
       period: year
       limits: 实际一次扣全年总额；额度仍按月刷新，不结转；模型/上下文权限按档位
       limits_en: >-
-        Actual annual charge paid at once; allowances still refresh monthly without rollover; model/context
-        entitlements vary by tier
+        Actual annual charge paid once; allowances still refresh monthly without rollover; model/context
+        entitlements vary by tier.
     - name: Pro
       price: 199
       period: month
       limits: 国内新会员连续包月；与 Kimi 共享月额度，Code 另有5小时滚动限流，无新套餐周限额
       limits_en: >-
-        Domestic new recurring monthly subscription; shared Kimi monthly pool plus rolling5-hour Code limits,
-        no new-plan weekly cap
+        Domestic recurring monthly subscription; shared Kimi monthly pool plus rolling five-hour Code limits,
+        with no new-plan weekly cap.
     - name: Pro 年付 / annual
       price: 1908
       period: year
       limits: 实际一次扣全年总额；额度仍按月刷新，不结转；模型/上下文权限按档位
       limits_en: >-
-        Actual annual charge paid at once; allowances still refresh monthly without rollover; model/context
-        entitlements vary by tier
+        Actual annual charge paid once; allowances still refresh monthly without rollover; model/context
+        entitlements vary by tier.
     - name: Max
       price: 699
       period: month
       limits: 国内新会员连续包月；与 Kimi 共享月额度，Code 另有5小时滚动限流，无新套餐周限额
       limits_en: >-
-        Domestic new recurring monthly subscription; shared Kimi monthly pool plus rolling5-hour Code limits,
-        no new-plan weekly cap
+        Domestic recurring monthly subscription; shared Kimi monthly pool plus rolling five-hour Code limits,
+        with no new-plan weekly cap.
     - name: Max 年付 / annual
       price: 6708
       period: year
       limits: 实际一次扣全年总额；额度仍按月刷新，不结转；模型/上下文权限按档位
       limits_en: >-
-        Actual annual charge paid at once; allowances still refresh monthly without rollover; model/context
-        entitlements vary by tier
+        Actual annual charge paid once; allowances still refresh monthly without rollover; model/context
+        entitlements vary by tier.
     - name: Ultra
       price: 1399
       period: month
       limits: 国内新会员连续包月；与 Kimi 共享月额度，Code 另有5小时滚动限流，无新套餐周限额
       limits_en: >-
-        Domestic new recurring monthly subscription; shared Kimi monthly pool plus rolling5-hour Code limits,
-        no new-plan weekly cap
+        Domestic recurring monthly subscription; shared Kimi monthly pool plus rolling five-hour Code limits,
+        with no new-plan weekly cap.
     - name: Ultra 年付 / annual
       price: 13428
       period: year
       limits: 实际一次扣全年总额；额度仍按月刷新，不结转；模型/上下文权限按档位
       limits_en: >-
-        Actual annual charge paid at once; allowances still refresh monthly without rollover; model/context
-        entitlements vary by tier
+        Actual annual charge paid once; allowances still refresh monthly without rollover; model/context
+        entitlements vary by tier.
   price_updated_at: "2026-11-17"
   note: >-
     国内官方帮助中心现列 Plus/Pro/Max/Ultra 连续包月 ¥99/199/699/1399，年付实扣
@@ -84,17 +84,19 @@ pricing:
     Code：去标识输入/输出可用于优化模型，可联系支持申请停止训练，产品独立政策优先；第三方提供商另按其条款。默认读自动、改文件/命令先审批，不保证沙箱/零外发。
     历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
-    Official domestic help lists recurring Plus/Pro/Max/Ultra ¥99/199/699/1399 monthly and actual annual
-    totals ¥948/1908/6708/13428 (purchase-page screenshot dated2026-10-19; current eligibility/checkout
-    controls). Go¥49 excludes Code; legacy Andante contracts may renew, not new¥49/99 offers. New plans have
-    no weekly cap but retain shared monthly/rolling5-hour limits; eligible1M/high-speed models start at Pro
-    and consume more. Optional Extra Usage automatically bills beyond quota, uncapped unless a monthly cap is
-    configured. Archived Python kimi-cli receives no fixes and warns old installs will stop working; current
-    Node.js/MIT kimi-code is a different implementation/package/license. Kimi general privacy policy
-    explicitly covers Code: de-identified inputs/outputs can improve models; request training opt-out through
-    support, subject to any product-specific policy. Third-party providers have separate terms. Reads run
-    automatically, writes/commands ask by default, not guaranteed sandboxing/zero egress. Historical editorial
-    scores retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
+    Official domestic help lists recurring Plus/Pro/Max/Ultra at ¥99/199/699/1399 per month and actual annual
+    totals of ¥948/1908/6708/13428 (purchase-page screenshot dated October 19, 2026; current eligibility and
+    checkout prices control). Go at ¥49 excludes Code. Legacy Andante contracts may renew, but their old
+    prices are not new offers. New plans have no weekly cap, but retain shared monthly allowances and rolling
+    five-hour limits. Eligible 1M-context and high-speed models start at Pro and consume more allowance.
+    Optional Extra Usage automatically bills beyond quota, without a monthly spending cap unless one is
+    configured. The archived Python kimi-cli receives no fixes and warns that old installations will stop
+    working; current Node.js/MIT kimi-code is a different implementation, package and license. Kimi's general
+    privacy policy explicitly covers Code: de-identified inputs and outputs can improve models; request
+    training opt-out through support, subject to any product-specific policy. Third-party providers have
+    separate terms. Reads run automatically; writes and commands ask by default. This is not guaranteed
+    sandboxing or zero egress. Historical editorial scores retained, not newly measured or re-rated; not a
+    fresh performance or cost benchmark.
 
 scores:
   coding_ability: 8.5
@@ -164,8 +166,8 @@ quick_start_en:
     kimi migrate can import old configuration/selected history, not OAuth/MCP authorization or old plugins;
     inspect sensitive data/permissions first
   - >-
-    Use /model and /usage to inspect entitlement/quota; address training preferences, set Extra Usage spending
-    caps and review write/command approvals
+    Use /model and /usage to inspect entitlement and quota; address training preferences, set Extra Usage
+    spending caps, and review write/command approvals.
 
 register_url: https://www.kimi.com/code
 china_note: 文档分别提供国内/海外 API 地址，但未实测国内登录、网络、支付或可用性；选择正确的服务条款与端点。CLI 本地运行不等于模型请求离线。
@@ -181,9 +183,9 @@ changelog:
       完整文档复核：旧 Python CLI 归档，当前 Node.js/MIT kimi-code
       2.6.2；核实国内新会员月/年实扣价格、Code资格、共享配额、模型路由与训练政策，纠正安装包、ACP和子智能体等信息。未安装/登录/支付或重跑性能评分。
     summary_en: >-
-      Full documentary review: archived Python CLI replaced by Node.js/MIT kimi-code2.6.2; verify domestic
+      Full documentary review: archived Python CLI replaced by Node.js/MIT kimi-code 2.6.2; verify domestic
       monthly/annual totals, Code eligibility, shared quotas, model routing and training policy; correct
-      package, ACP and subagents. No install/sign-in/payment/performance re-benchmark.
+      package, ACP and subagents. No installation, sign-in, payment or performance re-benchmark.
   - date: "2026-10-13"
     type: 版本更新 1.41.0 → 1.52.0（GitHub release 核验）
     summary: Version bump 1.41.0 → 1.52.0 (verified via GitHub releases)

@@ -13,7 +13,9 @@ pricing:
     - name: Existing Code Assist Standard / Enterprise
       price: null
       limits: 已于2026-10-09停止新售；旧合同按期限/许可支持，不列当前新购价格
-      limits_en: Closed to new subscriptions2026-10-09; existing contract/license support only, no new-purchase quote
+      limits_en: >-
+        Closed to new subscriptions on October 9, 2026; existing contract/license support only, not a current
+        new-purchase quote.
     - name: Paid Gemini / Vertex API
       price: null
       limits: 按模型/平台计费且有配额；不是无每日限制或所有用户免费
@@ -27,19 +29,22 @@ pricing:
     Assist仅Gemini3.x。旧FAQ正文标04-10，早于05-19公告；其个人免费/Pro/Ultra数字不作为现行承诺。具体旧合同费用与API模型费/限额分别核实，不引用失效的新购价或固定个人次数。保留PR158稳定v0.68.0及双语发布历史，不把Antigravity特性移植过来。隐私/训练由认证后端分别约束；关闭CLI统计不等于停止服务端处理。禁止把CodeAssist
     OAuth凭证转给第三方工具调用底层服务，官方条款警告可封号。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
-    OfficialMay19retirement announcement says consumerFree/GoogleAIPro/Ultra requests stoppedJune18, moving
-    toAntigravityCLI; paidGemini/VertexAPI and then-enterprise licenses continued. Active software releases do
-    not prove consumer service. NewerCloud notice(updatedNov10) says CodeAssistStandard/Enterprise closed to
-    new purchasesOct9 and newGeminiEnterpriseStandard/Plus no longer includes it. ExistingCodeAssist supported
-    through contract; annual auto-renewals allowed untilJan31,2027, monthly untilDec31,2027;
-    existingGeminiEnterprise entitlement untilMar31,2027. These are renewal/entitlement rules, not one
-    universal shutdown date; official timezone unspecified. CodeAssist models limited toGemini3.x. LegacyFAQ
-    datedApr10predatesMay19notice; its individualFree/Pro/Ultra quotas are not current promises. Verify
-    existing contract charges and model-specificAPI fees/quotas separately.
-    PreservePR158stablev0.68.0/bilingual release history, not Antigravity features. Privacy/training terms
-    differ by auth backend; statistics opt-out is not no service processing. Official terms prohibit
-    third-party access to CodeAssist services using its OAuth(e.g.OpenClaw), with suspension risk. Historical
-    editorial scores retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
+    The official May 19, 2026 announcement says consumer Free/Google AI Pro/Ultra requests stopped on June 18
+    and moved to Antigravity CLI. Paid Gemini/Vertex API access and then-existing enterprise licenses
+    continued; active software releases do not prove continued consumer service. A newer Cloud notice, updated
+    November 10, says Code Assist Standard/Enterprise closed to new purchases on October 9 and new Gemini
+    Enterprise Standard/Plus no longer includes it. Existing Code Assist subscriptions are supported through
+    their contract. Annual auto-renewals are allowed until January 31, 2027, monthly renewals until December
+    31, 2027; existing Gemini Enterprise entitlements continue until March 31, 2027. These are
+    renewal/entitlement rules, not a universal shutdown date; the official timezone is unspecified. Code
+    Assist model support is limited to Gemini 3.x. The legacy FAQ dated April 10 predates the May 19 notice;
+    its individual Free/Pro/Ultra quotas are not current promises. Verify existing contract charges and
+    model-specific API fees/quotas separately. PR158 stable v0.68.0 and its bilingual release history are
+    preserved; Antigravity features are not transferred to this entry. Privacy/training terms differ by
+    authentication backend; statistics opt-out does not stop service-side processing. Official terms prohibit
+    third-party access to Code Assist services using its OAuth, for example through OpenClaw, with suspension
+    risk. Historical editorial scores retained, not newly measured or re-rated; not a fresh performance or
+    cost benchmark.
 
 scores:
   coding_ability: 8.5
@@ -97,8 +102,8 @@ quick_start:
 
 quick_start_en:
   - >-
-    Verify an existing validCodeAssist contract or supportedpaidGemini/VertexAPI; new consumer users should
-    useAntigravityCLI, not purchase retired licenses
+    Verify an existing valid Code Assist contract or supported paid Gemini/Vertex API access; new consumer
+    users should use Antigravity CLI, not buy retired licenses.
   - Current installation docs require Node.js 20+; npm install -g @google/gemini-cli
   - >-
     Authenticate with the selected organization account/API/Vertex and run gemini; organization accounts may
@@ -167,9 +172,9 @@ changelog:
     type: fix
     summary: 完整复核：以05-19正式停服公告和11-10更新的Cloud停售通知厘清旧FAQ（04-10）冲突，补充消费者迁移、企业合同/续费期限、3.x限制与OAuth/隐私边界；保留PR158版本和历史。
     summary_en: >-
-      Full review: May19retirement announcement and Nov10Cloudsunset supersede Apr10legacyFAQ; clarify
-      consumer migration, enterprisecontract/renewaldeadlines,3.xlimits andOAuth/privacyboundaries;
-      preservePR158version/history.
+      Full review: the May 19 retirement announcement and November 10 Cloud sunset notice supersede the April
+      10 legacy FAQ. Clarify consumer migration, enterprise contract/renewal deadlines, Gemini 3.x limits and
+      OAuth/privacy boundaries; preserve PR158 version and history.
   - date: "2026-11-10"
     type: release
     summary: >-

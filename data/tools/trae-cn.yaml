@@ -59,18 +59,19 @@ pricing:
     云会话与IDE索引不是同一存储边界：仓库、配置、上下文及对话会留存至主动删除会话，官方承诺该云端数据不用于训练。上下文压缩仅内置Agent，子智能体也须配置/授权工具，不能把上下文隔离视作系统沙箱。
     历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
-    The old all-free/unlimited claim is false. Lite/Pro/Pro+/Ultra one31-day term ¥49/99/239/699; auto-renew
-    every31days ¥45/89/219/629 (not calendar months; no first-term promotion quoted as standard). Membership
-    credits expire in31days; eligible members can buy1,000credits for¥50, valid31days. Custom models do not
-    consume TRAE credits but provider APIs bill separately; Auto uses built-in models only, Max/high thinking
-    costs more. TraeWork/TraeCode merged into TRAE; Agent/IDE and desktop/Web/mobile have different
-    functionality/storage boundaries. With Privacy Mode off, conversations/snippets/outputs can train models;
-    it requires sign-in and turns off on logout. Indexing can temporarily upload code for embeddings, not
-    entirely local/end-to-end encrypted/zero cloud processing. Auto-run can execute high-risk commands outside
-    the sandbox without per-command approval; directory trust is not an approval/sandbox substitute. Cloud
-    sessions differ from IDE indexing: repositories/config/context/chats remain until proactively deleted,
-    with a vendor no-training commitment for that Cloud data. Context compaction is for built-inAgent;
-    subagents need configured tool permissions and context isolation is not an OS sandbox. Historical
+    The old all-free/unlimited claim is false. Lite/Pro/Pro+/Ultra cost ¥49/99/239/699 for one 31-day term, or
+    ¥45/89/219/629 on auto-renewal every 31 days, not calendar months. These are standard prices, not
+    first-term promotions. Membership credits expire in 31 days; eligible members can buy 1,000 credits for
+    ¥50, also valid for 31 days. Custom models do not consume TRAE credits, but provider APIs bill separately.
+    Auto uses built-in models only; Max and higher thinking effort cost more. TraeWork/TraeCode merged into
+    TRAE; Agent/IDE and desktop/Web/mobile have different functionality and storage boundaries. With Privacy
+    Mode off, conversations, snippets and outputs can train models; the setting requires sign-in and turns off
+    on logout. Indexing can temporarily upload code for embeddings, not guarantee entirely local processing,
+    end-to-end encryption or zero cloud processing. Auto-run can execute high-risk commands outside the
+    sandbox without per-command approval; directory trust is not an approval or sandbox substitute. Cloud
+    sessions differ from IDE indexing: repositories, configuration, context and chats remain until proactively
+    deleted, with a vendor no-training commitment for that Cloud data. Context compaction is for the built-in
+    Agent. Subagents need configured tool permissions; separate contexts are not OS sandboxes. Historical
     editorial scores retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
 
 scores:

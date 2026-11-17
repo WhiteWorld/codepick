@@ -21,67 +21,70 @@ pricing:
         每月$8 Dollar
         Usage、无限自动补全、2云任务并发；仅限Thailand/Indonesia/Vietnam/Philippines/India/Pakistan/Turkey/Malaysia/Brazil/Colombia/Peru/Nigeria；模型调用非无限量
       limits_en: >-
-        $8monthlyDollarUsage, unlimited autocomplete, 2concurrentCloud tasks; only
-        Thailand/Indonesia/Vietnam/Philippines/India/Pakistan/Turkey/Malaysia/Brazil/Colombia/Peru/Nigeria;
-        model calls not unlimited
+        $8 monthly Dollar Usage, unlimited autocomplete, 2 concurrent Cloud tasks; only Thailand, Indonesia,
+        Vietnam, Philippines, India, Pakistan, Turkey, Malaysia, Brazil, Colombia, Peru and Nigeria. Model
+        usage is not unlimited.
     - name: Lite 年付 / annual
       price: 80
       period: year
       limits: 实际全年总额；每月$8用量，2云任务并发；Lite仍限指定地区
-      limits_en: Actual annual total; $8monthlyusage, 2concurrentCloud tasks; Lite remains region-limited
+      limits_en: >-
+        Actual annual total; $8 monthly usage, 2 concurrent Cloud tasks. Lite remains limited to the 12 listed
+        regions.
     - name: Pro
       price: 20
       period: month
       limits: 每月$20 Dollar Usage、无限自动补全、10云任务并发；新售常规月付；模型调用非无限量
       limits_en: >-
-        $20monthlyDollarUsage, unlimited autocomplete, 10concurrentCloud tasks; standard new monthly
-        subscription; model calls not unlimited
+        $20 monthly Dollar Usage, unlimited autocomplete, 10 concurrent Cloud tasks; standard new monthly
+        subscription. Model usage is not unlimited.
     - name: Pro 年付 / annual
       price: 200
       period: year
       limits: 实际全年总额；每月$20用量，10云任务并发；Lite仍限指定地区
-      limits_en: Actual annual total; $20monthlyusage, 10concurrentCloud tasks; Lite remains region-limited
+      limits_en: Actual annual total; $20 monthly usage, 10 concurrent Cloud tasks.
     - name: Pro+
       price: 60
       period: month
       limits: 每月$60 Dollar Usage、无限自动补全、15云任务并发；新售常规月付；模型调用非无限量
       limits_en: >-
-        $60monthlyDollarUsage, unlimited autocomplete, 15concurrentCloud tasks; standard new monthly
-        subscription; model calls not unlimited
+        $60 monthly Dollar Usage, unlimited autocomplete, 15 concurrent Cloud tasks; standard new monthly
+        subscription. Model usage is not unlimited.
     - name: Pro+ 年付 / annual
       price: 600
       period: year
       limits: 实际全年总额；每月$60用量，15云任务并发；Lite仍限指定地区
-      limits_en: Actual annual total; $60monthlyusage, 15concurrentCloud tasks; Lite remains region-limited
+      limits_en: Actual annual total; $60 monthly usage, 15 concurrent Cloud tasks.
     - name: Ultra
       price: 200
       period: month
       limits: 每月$200 Dollar Usage、无限自动补全、20云任务并发；新售常规月付；模型调用非无限量
       limits_en: >-
-        $200monthlyDollarUsage, unlimited autocomplete, 20concurrentCloud tasks; standard new monthly
-        subscription; model calls not unlimited
+        $200 monthly Dollar Usage, unlimited autocomplete, 20 concurrent Cloud tasks; standard new monthly
+        subscription. Model usage is not unlimited.
     - name: Ultra 年付 / annual
       price: 2000
       period: year
       limits: 实际全年总额；每月$200用量，20云任务并发；Lite仍限指定地区
-      limits_en: Actual annual total; $200monthlyusage, 20concurrentCloud tasks; Lite remains region-limited
+      limits_en: Actual annual total; $200 monthly usage, 20 concurrent Cloud tasks.
   price_updated_at: "2026-11-17"
   note: >-
     国际官方完整计费文档补齐Lite$8/月或$80/年、Pro$20/$200、Pro+$60/$600、Ultra$200/$2000（年付为全年实扣）。Lite仅指定12地区；付费支持地区含香港/澳门，但未列中国大陆，不代表大陆可购买。旧Pro$10等只对符合连续续费保护的存量合同适用，旧价不等于原额度永久保留；新售不含旧首月$3/600次承诺。模型按token折成Dollar
     Usage，超额可启用On-Demand并按$3增量扣费，税另计。Free仅Auto，SOLO属付费档；新模型还取决于旧账号迁移状态。IDE隐私模式关闭时对话/代码片段/输出可训练，须登录才生效，退出即关闭；索引可临时上传代码算嵌入，不能称全本地。云会话另存仓库/上下文/对话直至主动删除，官方声明相应云数据不用于训练。Auto-Run可在沙箱外跳过逐次检查执行高风险命令；MCP授权和工具权限需单独审查。
     历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
   note_en: >-
-    Full international billing docs resolve Lite$8monthly/$80annually, Pro$20/$200, Pro+$60/$600,
-    Ultra$200/$2000 (annual figures are actual totals). Lite is limited to12regions; paid availability
-    listsHongKong/Macao but not mainlandChina, not a mainland purchase guarantee. OldPro$10 applies only to
-    protected uninterrupted legacy renewals; old price does not preserve old allowances forever. No
-    new-sale$3/600-request promise. Tokens convert toDollarUsage; optionalOn-Demand charges in$3increments,
-    taxes extra. FreeAuto only, SOLOpaid; new-model access depends on legacy migration. With IDEPrivacyMode
-    off, chats/snippets/outputs may train; it requires sign-in and deactivates on logout. Indexing may
-    temporarily upload code, not all-local. Cloud sessions retain repositories/context/chats until proactively
-    deleted, with vendor no-training commitment for thatCloud data. Auto-Run can skip per-command checks and
-    execute high-risk commands outside sandbox; inspect MCP grants/tool permissions separately. Historical
-    editorial scores retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
+    Full international billing docs verify Lite at $8/month or $80/year, Pro at $20/$200, Pro+ at $60/$600 and
+    Ultra at $200/$2,000. Annual figures are actual yearly charges. Lite is limited to 12 regions; paid
+    availability includes Hong Kong and Macao, but not mainland China. Old Pro pricing of $10 applies only to
+    protected uninterrupted legacy renewals and does not preserve old allowances forever. New subscriptions do
+    not include the old $3/600-request promise. Tokens convert to Dollar Usage; optional On-Demand charges
+    accrue in $3 increments, with taxes extra. Free is Auto-only; SOLO is paid. New-model access also depends
+    on legacy migration. With IDE Privacy Mode off, chats, snippets and outputs may train models; the setting
+    requires sign-in and deactivates on logout. Indexing may temporarily upload code, so it is not entirely
+    local. Cloud sessions retain repositories, context and chats until proactively deleted, with a vendor
+    no-training commitment for that Cloud data. Auto-Run can skip per-command checks and execute high-risk
+    commands outside the sandbox; inspect MCP grants and tool permissions separately. Historical editorial
+    scores retained, not newly measured or re-rated; not a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 8
@@ -137,16 +140,16 @@ quick_start:
   - 先核对隐私模式（须保持登录）、云会话存储和Auto-Run/MCP授权，再审查生成的多文件改动与测试
 
 quick_start_en:
-  - Choose an official international macOS12+, Windows10/11x64 or documentedLinux.deb/.rpm installer
+  - Choose an official international macOS 12+, Windows 10/11 x64 or documented Linux .deb/.rpm installer.
   - >-
-    Follow official desktop sign-in/project import, optionally migrateVSCode/Cursor settings;
-    install/login/network/payment untested
+    Follow official desktop sign-in and project import, optionally migrate VS Code/Cursor settings;
+    installation, login, network and payment were not tested.
   - >-
-    ChooseIDE/Agent windows andIDE/SOLO, checking region, legacy migration, allowance and optionalOn-Demand
-    billing
+    Choose Agent/IDE windows and IDE/SOLO modes, checking region, legacy migration, allowance and optional
+    On-Demand billing.
   - >-
-    Check signed-inPrivacyMode, Cloud retention andAuto-Run/MCP grants before reviewing multi-file
-    changes/tests
+    Check signed-in Privacy Mode, Cloud retention and Auto-Run/MCP grants before reviewing multi-file changes
+    and tests.
 
 register_url: https://trae.ai
 china_note: 国际付费支持列表含港澳、未列中国大陆；Lite另限12地区。未实测中国大陆网络/注册/支付，也不承诺必须或无需代理。CN与国际服务/模型/价格不同，CN同样有付费积分方案。
@@ -192,9 +195,10 @@ changelog:
     summary: >-
       完整文档复核：国际正文由WebFetch读取（原HTTP仅返回壳），核实区域Lite/全部月年价、旧用户保护及超额扣费、当前模型、Linux/Agent/Subagents、隐私与云留存、沙箱外自动执行。未把CN文档代作国际证据。
     summary_en: >-
-      Full documentary review: WebFetch recovered international text where HTTP returned shells; verify
-      regionalLite/allmonthlyannualprices, legacyprotection/overage, models, Linux/Agent/Subagents,
-      privacy/Cloudretention andoutside-sandboxAuto-Run. CN docs not substituted as international evidence.
+      Full documentary review: WebFetch recovered international text where HTTP returned shells. Verify
+      regional Lite and all monthly/annual prices, legacy protection, overage, models, Linux, Agent/Subagents,
+      privacy, Cloud retention and outside-sandbox Auto-Run. CN docs were not substituted as international
+      evidence.
   - date: "2026-05-10"
     type: announcement
     summary: 数据月度复核：Pro 套餐每月 600 次 Premium 模型快速请求；定价不变（$10/月，首月 $3，年付 $90）；整体功能保持稳定
