@@ -3,19 +3,23 @@ name: Team9.ai
 type: agent_platform
 logo: /images/team9.png
 url: https://team9.ai
-repo: null
+repo: https://github.com/team9ai/team9
+
 current_version: null
 version_tracked_at: '2026-05-09'
 pricing:
-  model: free
+  model: unknown
   currency: null
-  plans:
-    - name: Free (Beta)
-      price: 0
-      limits: 早期测试阶段
-      limits_en: Early beta stage
-  price_updated_at: '2026-05-09'
-  note: AI Agent Team for Real Work；早期阶段，产品形态定位于 Agent Team Workspace
+  plans: []
+  price_updated_at: "2026-11-17"
+  note: >-
+    官网已介绍共享记忆、Playbooks 与运行可观测性；本次公开来源未确认套餐价格或免费额度，旧 Free Beta 零价格已移除。仓库称基于 OpenClaw，提供自托管步骤；许可证是带附加条件的 Team9
+    License，不应等同标准 Apache-2.0。
+  note_en: >-
+    Website now documents shared memory, playbooks and runtime observability. Public sources did not establish
+    plan prices or free quotas; the old Free Beta zero price is removed. Repository describes OpenClaw-based
+    self-hosting under a Team9 license with additional conditions, not standard Apache-2.0.
+
 scores:
   coding_ability: 7
   cost_efficiency: 9
@@ -28,19 +32,24 @@ features:
   agent_mode: true
   multi_file_edit: false
   mcp_support: false
-  sub_agent: true
   multi_agent: true
   agent_teams: true
   task_management: true
-  persistent_memory: false
-  skill_sharing: false
-  runtime_monitoring: false
+  persistent_memory: true
+  skill_sharing: true
+  runtime_monitoring: true
   open_source: false
-  self_hosted: false
+  self_hosted: true
   context_window: 取决于所选模型
   supported_runtimes:
-    - 内置 Agent 引擎
+    - OpenClaw
   ide_base: Agent 协作平台
+  source_available: true
+  supported_os:
+    - macOS
+    - Windows
+    - Web
+
 best_for:
   - 探索 AI Agent Team 工作方式的早期用户
   - 一人公司构建 AI 团队工作空间
@@ -52,16 +61,30 @@ not_for:
 not_for_en:
   - Users needing mature, stable products (early stage)
 quick_start:
-  - 访问 team9.ai 注册早期测试
+  - 在官网选择托管工作区，先核实当前费用和权限
+  - 自托管步骤见官方仓库，要求 Node.js 18+、pnpm 8+、PostgreSQL 和 Redis；本次未实机部署
+  - 阅读 Team9 附加许可条件，勿当成无条件 Apache-2.0
+
 quick_start_en:
-  - Visit team9.ai to sign up for early access
+  - Choose a hosted workspace on the official site; verify current charges and permissions first
+  - >-
+    For self-hosting follow the repository: Node.js 18+, pnpm 8+, PostgreSQL and Redis; deployment not tested
+    in this review
+  - Read Team9 license conditions; do not assume unmodified Apache-2.0
+
 register_url: https://team9.ai
-china_note: Web 端访问
-china_note_en: Web accessible
+china_note: 国内可达性及所接模型服务的地区限制未实测。
+
+china_note_en: Mainland reachability and connected model-provider regional restrictions are untested.
+
 data_sources:
   - url: https://team9.ai
     type: docs
-    last_checked: '2026-05-09'
+    last_checked: "2026-11-17"
+  - url: https://github.com/team9ai/team9
+    type: repo
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-05-09'
     type: launch

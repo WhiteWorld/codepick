@@ -4,19 +4,25 @@ type: agent_platform
 logo: /images/conductor.png
 url: https://www.conductor.build
 repo: null
-current_version: null
-version_tracked_at: '2026-05-16'
+current_version: 0.95.0
+
+version_tracked_at: "2026-11-17"
+
 pricing:
-  model: free
+  model: subscription
   currency: null
-  plans:
-    - name: Free
-      price: 0
-      limits: App 完全免费；底层 Agent 成本由 Claude Code / Codex 订阅决定
-      limits_en: App is completely free; underlying agent cost determined by Claude Code / Codex subscription
-  price_updated_at: '2026-05-16'
-  note: BYOK 模式——直接复用本机已有的 Claude Code / Codex 登录态（Pro / Max / API Key 均可）。Conductor 不收费、不持有凭证，所有费用由底层 Agent 提供商收取。
-  note_en: BYOK model — reuses your existing Claude Code / Codex login on the machine (Pro / Max / API Key all work). Conductor takes no fee and stores no credentials; cost flows to the underlying agent provider.
+  plans: []
+  price_updated_at: "2026-11-17"
+  note: >-
+    Cloud 工作区需 Pro / Teams / Enterprise；具体订阅价格本次公开来源未给出，待确认。模型费用由自备订阅/API Key 承担；Cloud FAQ
+    说暂不额外收计算用量费，但计划以后引入。不能再将整个产品标为完全免费。 本地会话数据留在设备并直接调用模型商；Cloud 会话输入/输出存储在 Conductor 服务器。
+  note_en: >-
+    Cloud workspaces require Pro / Teams / Enterprise; exact subscription prices were not established from
+    public sources in this review. Bring your own model subscription/API keys. Cloud FAQ says no additional
+    compute usage fee for now, with usage pricing planned. The entire product must not be labeled completely
+    free. Local session data stays on-device and goes directly to model providers; Cloud inputs/outputs are
+    stored on Conductor servers.
+
 scores:
   coding_ability: 8.5
   cost_efficiency: 8
@@ -41,9 +47,12 @@ features:
   supported_runtimes:
     - Claude Code
     - Codex
+    - Cursor
+    - OpenCode
   supported_os:
     - macOS
   ide_base: Agent 并行编排器（桌面 App）
+
 best_for:
   - 已重度使用 Claude Code / Codex，想突破单 Agent 串行瓶颈的 Mac 开发者
   - Issue / Feature 驱动的工作流（尤其 Linear 用户）
@@ -54,14 +63,20 @@ best_for_en:
   - Solo developers willing to spend more tokens to save time
 not_for:
   - Windows / Linux 用户（目前 Mac only）
-  - 代码托管在 GitLab / Bitbucket / 自建 Git 的团队（仅支持 GitHub）
   - 刚接触 AI 编程工具的新手（先把单 Agent 玩熟）
   - 预算紧、对 token 消耗敏感的用户（并行很烧）
+  - 需要 Cloud 工作区直接使用 GitLab / Bitbucket 的团队（Cloud 仅支持 GitHub；其他 Git 主机用本地工作区）
+  - 不允许代码会话输入/输出存储于服务商云端的 Cloud 场景
+
 not_for_en:
   - Windows / Linux users (Mac only today)
-  - Teams hosting code on GitLab / Bitbucket / self-hosted git (GitHub only)
   - Beginners new to AI coding tools (master single-agent first)
   - Token-sensitive users on a tight budget (parallel runs burn quota fast)
+  - >-
+    Teams needing GitLab / Bitbucket in Cloud workspaces (Cloud supports GitHub; use local workspaces for
+    other hosts)
+  - Cloud workflows that cannot allow session inputs/outputs on provider servers
+
 quick_start:
   - 在 conductor.build 下载 Mac 应用
   - 确认本机已登录 Claude Code 或 Codex
@@ -77,15 +92,23 @@ quick_start_en:
   - Open 2–3 parallel workspaces for different features; monitor from one dashboard
   - When done, review diff, open PR, and merge — all inside Conductor
 register_url: https://www.conductor.build
-china_note: App 本身可下载使用；底层 Claude Code / Codex 调用需自行解决 API 访问（如通过火山方舟中转 Claude API）。GitHub 访问国内可能受限。
-china_note_en: App is downloadable; underlying Claude Code / Codex calls require your own API access (e.g., relay Claude API via Volcengine Ark). GitHub access may be restricted in China.
+china_note: 本地 Mac App 与 Cloud 的网络需求不同；Cloud 在美国 us-east-1 运行。国内可达性未实测，模型商地区政策和费用仍适用。
+
+china_note_en: >-
+  Local Mac and Cloud have different networking requirements; Cloud runs in us-east-1. Mainland China
+  reachability is untested; model-provider regional policies and charges still apply.
+
 data_sources:
   - url: https://www.conductor.build
     type: docs
-    last_checked: '2026-05-16'
+    last_checked: "2026-11-17"
   - url: https://docs.conductor.build
     type: docs
-    last_checked: '2026-05-16'
+    last_checked: "2026-11-17"
+  - url: https://www.conductor.build/docs/cloud/faq
+    type: docs
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-05-16'
     type: launch
@@ -94,4 +117,4 @@ changelog:
 last_full_review: '2026-10-13'
 next_review_due: '2026-11-11'
 review_frequency_days: 30
-confidence: medium
+confidence: low

@@ -4,19 +4,23 @@ type: agent_platform
 logo: /images/floatboat.png
 url: https://floatboat.ai
 repo: null
-current_version: null
-version_tracked_at: '2026-05-09'
+current_version: v0.4.0
+
+version_tracked_at: "2026-11-17"
+
 pricing:
-  model: free
-  currency: null
-  plans:
-    - name: Free
-      price: 0
-      limits: 免费下载使用（桌面客户端）
-      limits_en: Free download (desktop client)
-  price_updated_at: '2026-05-09'
-  note: 桌面客户端；AI Agent Workspace for One-Person Companies；Combo Skills 技能复用；Tacit Engine 学习你的工作方式
-  note_en: Desktop client; AI Agent Workspace for One-Person Companies; Combo Skills for reusable capabilities; Tacit Engine learns your work patterns
+  model: subscription
+  currency: USD
+  plans: []
+  price_updated_at: "2026-11-17"
+  note: >-
+    现为日历驱动的 Agent Workspace，提供内置模型、MCP 与 Combo / Workflow Store。定价页显示订阅计费和独立的 3,000 credits / $12.99
+    补充包（有效一年）；本次公开页面未呈现基础订阅档位价格，待确认，不能视为免费无限使用。
+  note_en: >-
+    Now a calendar-driven agent workspace with built-in models, MCP and Combo/Workflow stores. Pricing shows
+    subscriptions and a separate 3,000-credit $12.99 booster (valid one year); base subscription tier prices
+    were not exposed in the public response and remain unconfirmed. Do not treat it as unlimited free use.
+
 scores:
   coding_ability: 7
   cost_efficiency: 9.5
@@ -28,7 +32,7 @@ features:
   chat: true
   agent_mode: true
   multi_file_edit: true
-  mcp_support: false
+  mcp_support: true
   sub_agent: false
   multi_agent: true
   agent_teams: true
@@ -39,48 +43,54 @@ features:
   open_source: false
   self_hosted: false
   combo_skills: true
-  tacit_engine: true
   desktop_app: true
   browser_integration: true
   context_window: 取决于所选模型
   supported_runtimes:
     - 内置 Agent 引擎
-    - OpenClaw
   supported_os:
     - macOS
     - Windows
+    - UOS
   ide_base: Agent 协作平台
+
 best_for:
-  - 一人公司需要全功能 AI 工作台
-  - 希望 AI 学习自己工作方式并自动化
-  - 需要桌面端深度集成（文件、浏览器、邮件）
+  - 需要日历触发、提前准备与任务跟进的个人或小团队
+  - 希望复用 Combo Skills 和持久工作区的用户
+
 best_for_en:
-  - Solo founders needing a full-featured AI workspace
-  - Users who want AI to learn their work patterns
-  - Desktop deep integration (files, browser, email)
+  - Individuals or small teams needing calendar-triggered preparation and follow-up
+  - Users reusing Combo Skills and persistent workspaces
+
 not_for:
-  - Web 端协作需求（仅有桌面端）
-  - 团队协作场景（定位一人公司）
+  - 需要完全离线、无需外部模型服务的用户
+  - 要求已验证的数据驻留、团队权限和服务保障的部署（需另行核实）
+
 not_for_en:
-  - Web-based collaboration needs (desktop only)
-  - Team collaboration scenarios (solo-founder focused)
+  - Users requiring fully offline operation without external model services
+  - Deployments requiring verified data residency, team permissions and service guarantees (verify separately)
+
 quick_start:
-  - floatboat.ai 下载桌面客户端
-  - 配置 AI API Key
-  - Agent Chat 界面开始对话
-  - 使用 Combo Skills 复用工作模式
+  - 从 floatboat.ai 下载 Mac / Windows / UOS 对应客户端
+  - 阅读当前订阅与 credits 限制，再选择模型和连接工具
+  - 配置工作区与日历事件，检查权限后运行 Combo / Workflow
+
 quick_start_en:
-  - Download desktop client from floatboat.ai
-  - Configure AI API key
-  - Start chatting in Agent Chat interface
-  - Use Combo Skills to reuse work patterns
+  - Download the Mac / Windows / UOS client from floatboat.ai
+  - Review subscription and credit limits, then choose models and connect tools
+  - Configure a workspace and calendar event; review permissions before running a Combo / Workflow
+
 register_url: https://floatboat.ai/download/success?from=landing
 china_note: 桌面客户端需自行下载；需自行配置 API Key
 china_note_en: Desktop client download required; requires own API key
 data_sources:
   - url: https://floatboat.ai
     type: docs
-    last_checked: '2026-05-09'
+    last_checked: "2026-11-17"
+  - url: https://floatboat.ai/pricing
+    type: pricing
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-05-09'
     type: launch
@@ -89,4 +99,4 @@ changelog:
 last_full_review: '2026-10-13'
 next_review_due: '2026-11-11'
 review_frequency_days: 30
-confidence: medium
+confidence: low
