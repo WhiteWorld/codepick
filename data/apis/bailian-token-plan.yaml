@@ -6,7 +6,8 @@ logo: /images/bailian.svg
 url: https://cn.aliyun.com/benefit/scene/tokenplan
 affiliate_url: https://cn.aliyun.com/benefit/scene/tokenplan
 repo: null
-current_version: v1
+current_version: null
+
 version_tracked_at: '2026-05-13'
 pricing:
   model: subscription
@@ -14,25 +15,38 @@ pricing:
   plans:
     - name: 标准坐席
       name_en: Standard Seat
-      price: 198
+      price: 150
       period: month
       limits: 25,000 Credits/月，单坐席
       limits_en: 25,000 Credits/month, single seat
+      per_user: true
     - name: 高级坐席
       name_en: Premium Seat
-      price: 698
+      price: 550
       period: month
       limits: 100,000 Credits/月，单坐席
       limits_en: 100,000 Credits/month, single seat
+      per_user: true
     - name: 尊享坐席
       name_en: Enterprise Seat
-      price: 1398
+      price: 1298
       period: month
       limits: 250,000 Credits/月，单坐席
       limits_en: 250,000 Credits/month, single seat
-  price_updated_at: '2026-05-13'
-  note: 面向团队 / 企业 / 一人公司的多坐席订阅；新用户首购优惠（标准 ¥148 / 高级 ¥558 / 尊享 ¥1118），3 个坐席起 9 折、5 个起 8.5 折；另有 ¥5000 共享用量包（625,000 Credits/月）用于弹性溢出。
-  note_en: Multi-seat subscription for teams / enterprises / solopreneurs; new-user discount (Standard ¥148 / Premium ¥558 / Enterprise ¥1,118), 10% off for 3+ seats and 15% off for 5+; an elastic ¥5,000 shared pack (625,000 Credits/mo) is available for overage.
+      per_user: true
+  price_updated_at: "2026-11-17"
+  note: >-
+    团队版标准/高级/尊享坐席现为 ¥150/550/1298 每月，分别 25,000/100,000/250,000 Credits；单坐席绑定单成员/独立 Key，不可共享，额度不跨坐席共享。共享用量包
+    ¥5,000/625,000 Credits，有效一个月。Credits 不等于
+    token；用完套餐和共享包后阻断，不自动转按量。未用完额度不结转。仅北京地域；个人版与团队版独立计费，旧首购/多坐席折扣未在现行权益页确认，移除。
+  note_en: >-
+    Team Standard/Premium/Enterprise seats are now ¥150/550/1298 per month for 25,000/100,000/250,000 Credits.
+    Each seat is one member with a dedicated key; keys and seat quotas cannot be shared. A shared pack is
+    ¥5,000/625,000 Credits, valid one month. Credits are not tokens. Exhausting all plan/shared credits blocks
+    calls without automatic pay-as-you-go; unused credits do not roll over. Beijing region only;
+    individual/team plans bill independently. Historical introductory/multi-seat discounts were not confirmed
+    in current entitlement docs and are removed.
+
 scores:
   coding_ability: 8.5
   cost_efficiency: 7.5
@@ -40,32 +54,34 @@ scores:
   china_friendly: 9.5
   privacy: 8
 features:
-  auto_mode: false
+  auto_mode: true
   supported_models:
+    - auto
+    - qwen4-max
+    - qwen4-max-preview (until 2026-11-25, UTC+8)
+    - qwen3.8-max
+    - qwen3.8-flash
+    - qwen3.7-plus
     - qwen3.6-plus
-    - qwen3.6-flash
+    - deepseek-v4.1-flash
     - deepseek-v4-pro
-    - deepseek-v4-flash
-    - deepseek-v3.2
+    - kimi-k2.7-code
     - kimi-k2.6
-    - kimi-k2.5
-    - glm-5.1
-    - glm-5
+    - glm-5.3
+    - glm-5.2
     - MiniMax-M2.5
-    - qwen-image-2.0
-    - qwen-image-2.0-pro
-    - wan2.7-image
-    - wan2.7-image-pro
+    - qwen-image-3.0-pro
+    - wan3.0-video
   harness_tools:
-    - 多坐席管理
-    - 共享用量包（弹性溢出）
-    - 多模型 + 多模态（文本/图像）
-    - 数据不入训
+    - 独立坐席和 Key
+    - 共享用量包（需单独购买）
+    - 多模型/多模态；auto 不支持部分参数
+    - Responses API 内置工具（按 Credits 抵扣）
   harness_tools_en:
-    - Multi-seat management
-    - Shared usage pack (elastic overage)
-    - Multi-model + multimodal (text / image)
-    - Data not used for training
+    - Per-member seats and keys
+    - Shared usage packs (purchased separately)
+    - Multiple models/modalities; auto has parameter restrictions
+    - Responses API built-in tools (charged in Credits)
   api_protocol: 兼容 OpenAI / Anthropic 协议
   supported_clients:
     - Claude Code
@@ -76,11 +92,12 @@ features:
     - Cline
     - Codex CLI
   china_native: true
+
 best_for:
   - 需要多坐席统一管理的研发团队 / 一人公司
   - 想用 Qwen / DeepSeek / Kimi / GLM / MiniMax 一站式订阅的国内团队
-  - 对数据合规与不入训敏感的企业
   - 重度使用、能吃满 Credits 的团队
+
 best_for_en:
   - Dev teams / solopreneurs that need unified multi-seat management
   - China-native teams wanting Qwen / DeepSeek / Kimi / GLM / MiniMax in one subscription
@@ -90,20 +107,30 @@ not_for:
   - 只想低月费入门的个人开发者（建议百炼 Coding Plan 个人版）
   - 只想用 Claude / GPT 原版模型的用户
   - 需要视频 / 语音多模态的多媒体场景（建议 MiniMax Token Plan）
+  - 要求所有坐席自动共享基础月额度的团队
+  - 需要把 qwen4-max-preview 当作长期稳定模型的部署（预览期至 2026-11-25，UTC+8）
+
 not_for_en:
   - Solo devs on a tight monthly budget (use Bailian Coding Plan personal version)
   - Users who only want Claude / GPT original models
   - Video / voice multimodal use cases (use MiniMax Token Plan instead)
+  - Teams expecting base monthly seat quotas to be pooled automatically
+  - Deployments relying on qwen4-max-preview as a permanent stable model (preview through 2026-11-25, UTC+8)
+
 data_sources:
   - url: https://help.aliyun.com/zh/model-studio/token-plan-overview
     type: documentation
-    last_checked: '2026-05-13'
+    last_checked: "2026-11-17"
   - url: https://cn.aliyun.com/benefit/scene/tokenplan
     type: pricing
-    last_checked: '2026-05-13'
-  - url: https://zhuanlan.zhihu.com/p/2030643575092933740
-    type: announcement
-    last_checked: '2026-05-13'
+    last_checked: "2026-11-17"
+  - url: https://help.aliyun.com/zh/model-studio/token-plan-team-overview
+    type: documentation
+    last_checked: "2026-11-17"
+  - url: https://help.aliyun.com/zh/model-studio/token-plan-usage-quota
+    type: documentation
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-05-13'
     type: announcement
@@ -113,7 +140,9 @@ changelog:
     type: pricing
     summary: 百炼 Coding Plan Lite 停止续费，团队级订阅由 Token Plan 团队版承接
     summary_en: Bailian Coding Plan Lite stopped renewal; team-grade subscriptions are now served by Token Plan team edition
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-11'
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: medium

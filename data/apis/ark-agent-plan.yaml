@@ -6,7 +6,8 @@ logo: /images/ark.svg
 url: https://ai.volcengine.com/activity/agentplan
 affiliate_url: https://ai.volcengine.com/activity/agentplan
 repo: null
-current_version: v1
+current_version: null
+
 version_tracked_at: '2026-05-13'
 pricing:
   model: subscription
@@ -15,26 +16,34 @@ pricing:
     - name: Small
       price: 40
       period: month
-      limits: 20,000 AFP/月（约 2,000 AFP/5h，7,000 AFP/周）
-      limits_en: 20,000 AFP/mo (~2,000 AFP/5h, 7,000 AFP/week)
+      limits: 20,000 AFP/月；7,000 AFP/周；2,000 AFP/5h；不支持视频生成
+      limits_en: 20,000 AFP/mo; 7,000 AFP/week; 2,000 AFP/5h; no video generation
     - name: Medium
       price: 200
       period: month
-      limits: 100,000 AFP/月，赠 7×24 智能伙伴
-      limits_en: 100,000 AFP/mo, includes 24/7 AI companion
+      limits: 100,000 AFP/月；35,000 AFP/周；10,000 AFP/5h；不支持视频生成
+      limits_en: 100,000 AFP/mo; 35,000 AFP/week; 10,000 AFP/5h; no video generation
     - name: Large
       price: 500
       period: month
-      limits: 250,000 AFP/月，赠 7×24 智能伙伴
-      limits_en: 250,000 AFP/mo, includes 24/7 AI companion
+      limits: 250,000 AFP/月；87,500 AFP/周；25,000 AFP/5h；支持视频生成（有日额度）
+      limits_en: 250,000 AFP/mo; 87,500 AFP/week; 25,000 AFP/5h; video generation with daily limits
     - name: Max
       price: 1000
       period: month
-      limits: 500,000 AFP/月，赠 7×24 智能伙伴
-      limits_en: 500,000 AFP/mo, includes 24/7 AI companion
-  price_updated_at: '2026-05-13'
-  note: 业界首个 Agent 套餐包，2026-05-11 发布；以 AFP（Agent Fuel Points）积分制计费，每天 00:00 释放库存售完即止；相较 Coding Plan，token 单价上调 2~2.5 倍，>128k 长上下文倍率 7.5 倍；Medium 及以上赠送 7×24 在线智能伙伴。
-  note_en: The industry's first Agent subscription bundle, launched 2026-05-11; billed via AFP (Agent Fuel Points) released daily at 00:00 until sold out; token unit price is 2~2.5× of the legacy Coding Plan, with a 7.5× long-context multiplier above 128k; Medium tier and above include a 24/7 AI companion.
+      limits: 500,000 AFP/月；175,000 AFP/周；50,000 AFP/5h；支持视频生成（有日额度）
+      limits_en: 500,000 AFP/mo; 175,000 AFP/week; 50,000 AFP/5h; video generation with daily limits
+  price_updated_at: "2026-11-17"
+  note: >-
+    常规定价 Small/Medium/Large/Max 为 ¥40/200/500/1000 每月，AFP 不等于 token/请求次数。Small、Medium 不含视频生成；多模态/Harness
+    的日额度为月额度一半，具体模型限制另见官方表。未开超额后付费时用尽等待恢复；开启后可能自动转后付费并产生额外账单。模型抵扣系数与活动会变化，不能沿用旧的统一 7.5 倍或赠送伙伴承诺。
+  note_en: >-
+    Standard monthly prices are ¥40/200/500/1000 for Small/Medium/Large/Max. AFP is not tokens or request
+    count. Small/Medium exclude video; multimodal/Harness daily quotas are half the monthly quota, subject to
+    the model table. Exhaustion blocks use unless overage postpaid is enabled, which can switch automatically
+    and incur extra charges. Model multipliers/promotions vary; old blanket 7.5× and companion-gift claims are
+    not retained.
+
 scores:
   coding_ability: 8.5
   cost_efficiency: 7.5
@@ -42,24 +51,28 @@ scores:
   china_friendly: 9.8
   privacy: 7
 features:
-  auto_mode: true
   supported_models:
-    - Doubao-Seed
-    - Doubao-Seedance
-    - Doubao-Seedream
-    - Doubao-embedding-vision
-    - GLM-5.1
-    - Kimi-K2.6
+    - doubao-seed-2.0-mini
+    - doubao-seed-2.1-lite
+    - doubao-seed-2.1-pro
+    - doubao-seed-evolving
+    - glm-5.3
+    - glm-5.3-flash
+    - deepseek-v4-flash
+    - doubao-seedream-5.0-flash
+    - doubao-seedance-2.5 (Large/Max)
+    - doubao-seed-tts-2.0
+    - doubao-seed-asr-2.0
   harness_tools:
-    - 联网搜索（与豆包同源）
-    - 记忆（内置 embedding）
-    - Auto 模式（按任务匹配模型）
-    - 多模态（文本/代码/图像/视频）
+    - 豆包搜索（每月 500 次免费额度）
+    - Agent 记忆
+    - AI Native 应用开发底座
+    - Agent 进化（前 50 文件免费）
   harness_tools_en:
-    - Web search (shared with Doubao)
-    - Memory (built-in embedding)
-    - Auto mode (task-aware model routing)
-    - Multimodal (text/code/image/video)
+    - Doubao Search (500 free calls/month)
+    - Agent Memory
+    - AI Native application infrastructure
+    - Agent evolution (first 50 files free)
   api_protocol: 兼容 OpenAI / Anthropic 协议
   supported_clients:
     - Claude Code
@@ -68,34 +81,35 @@ features:
     - OpenClaw
     - Hermes Agent
   china_native: true
+
 best_for:
-  - 需要多模态 + Harness 工具组合的 Agent 开发者
-  - 想用 Doubao Seedance / Seedream 等多模态模型的用户
-  - Medium 及以上预算、希望开箱即用智能伙伴
-  - 国内 Claude Code / OpenCode / Trae 用户的中转新选择
+  - 希望以 AFP 订阅使用国内模型与 Harness 的个人 Agent 用户
+  - 需要图像/语音能力的用户；视频生成需 Large/Max
+
 best_for_en:
-  - Agent developers needing multimodal + Harness tools
-  - Users wanting Doubao Seedance / Seedream and other multimodal models
-  - Medium-tier+ budget, want a turnkey 24/7 AI companion
-  - China-native Claude Code / OpenCode / Trae users seeking a new relay
+  - Individual agent users seeking AFP subscriptions for domestic models and harnesses
+  - Users needing image/audio capabilities; video requires Large/Max
+
 not_for:
-  - 只做纯文本编程、追求性价比的用户（建议选 Coding Plan）
-  - 对 token 单价敏感、常用长上下文（>128k）的重度用户
-  - 只想用 Claude / GPT 原版模型的用户
+  - 只想调用原版 Claude / GPT 的用户（协议兼容不代表模型相同）
+  - 不能接受模型变更、额度限制或误开超额后付费风险的工作负载
+  - 需要已核实的数据隔离/不入训保障的敏感代码（应另读数据授权协议）
+
 not_for_en:
-  - Pure text-only coding users on a budget (use Coding Plan instead)
-  - Heavy users sensitive to token unit price or relying on >128k context
-  - Users who only want Claude / GPT original models
+  - Users who require original Claude/GPT models (protocol compatibility does not mean identical models)
+  - Workloads unable to accept model changes, quotas or accidental overage postpaid charges
+  - >-
+    Sensitive code requiring verified data isolation/no-training guarantees (review data authorization terms
+    separately)
+
 data_sources:
   - url: https://ai.volcengine.com/activity/agentplan
     type: pricing
-    last_checked: '2026-05-13'
+    last_checked: "2026-11-17"
   - url: https://www.volcengine.com/docs/82379/2366394
     type: documentation
-    last_checked: '2026-05-13'
-  - url: https://www.ithome.com/0/948/912.htm
-    type: announcement
-    last_checked: '2026-05-13'
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-05-11'
     type: announcement
@@ -109,7 +123,9 @@ changelog:
     type: model
     summary: 包含 Doubao-Seed / Seedance / Seedream / embedding-vision，以及 GLM-5.1、Kimi-K2.6
     summary_en: Includes Doubao-Seed / Seedance / Seedream / embedding-vision, plus GLM-5.1 and Kimi-K2.6
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-11'
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: medium
