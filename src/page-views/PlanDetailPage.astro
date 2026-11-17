@@ -12,6 +12,8 @@ const { plan, lang } = Astro.props;
 
 const clientTool = getToolLocalized(plan.client, lang);
 const apiSource = getApi(plan.api);
+const apiPricing = (apiSource as any)?.pricing;
+const apiPricingNote = lang === 'en' ? (apiPricing?.note_en || apiPricing?.note) : apiPricing?.note;
 const overall = overallScore(plan.scores);
 const bestFor = plan.best_for || [];
 const quickStart = plan.quick_start || [];
@@ -143,6 +145,7 @@ const seoTitle = lang === 'zh'
           <span class="text-xs text-[var(--text-muted)]">{t('comp.difficulty', lang)} {plan.setup_difficulty}</span>
         </div>
       </div>
+      {apiPricingNote && <p class="text-sm text-[var(--text-muted)] leading-relaxed mt-4 mb-0">{apiPricingNote}</p>}
     </section>
 
     {quickStart.length > 0 && (

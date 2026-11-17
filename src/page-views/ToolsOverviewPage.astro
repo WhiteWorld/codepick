@@ -15,13 +15,13 @@ function priceLabel(tool: any): string {
   const plans = tool.pricing?.plans || [];
   const free = plans.find((p: any) => p.price === 0);
   const paid = plans.find((p: any) => typeof p.price === 'number' && p.price > 0);
-  if (free && paid) return lang === 'zh' ? `免费 / $${paid.price}起` : `Free / $${paid.price}+`;
+  const currency = tool.pricing?.currency === 'CNY' ? '¥' : tool.pricing?.currency === 'EUR' ? '€' : '$';
+  const period = paid?.period === 'year' ? (lang === 'zh' ? '/年' : '/year') : paid?.period === 'month' ? t('price.perMonth', lang) : '';
+  const paidLabel = paid ? `${currency}${paid.price}${period}` : '';
+  if (free && paid) return lang === 'zh' ? `免费 / ${paidLabel}起` : `Free / ${paidLabel}+`;
   if (free) return t('price.free', lang);
-  if (paid) {
-    const currency = tool.pricing?.currency === 'CNY' ? '¥' : '$';
-    return `${currency}${paid.price}${t('price.perMonth', lang)}`;
-  }
-  return t('price.payAsYouGo', lang);
+  if (paid) return paidLabel;
+  return tool.pricing?.model === 'pay_as_you_go' ? t('price.payAsYouGo', lang) : (lang === 'zh' ? '价格待确认' : 'Price not established');
 }
 
 function scoreColor(score: number): string {

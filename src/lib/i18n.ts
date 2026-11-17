@@ -443,8 +443,8 @@ const translations: Record<string, Record<Locale, string>> = {
   // ── Free trial CTA ───────────────────────────────────────────────────────
   'cta.freeTrial':      { zh: '免费开始', en: 'Start for Free' },
   'cta.tryNow':         { zh: '立即试用', en: 'Try Now' },
-  'cta.freeAvailable':  { zh: '提供免费版，无需信用卡', en: 'Free plan available — no credit card required' },
-  'cta.paidOnly':       { zh: '提供付费订阅，支持免费试用期', en: 'Paid subscription with free trial period' },
+  'cta.freeAvailable':  { zh: '列有免费软件或档位；适用范围和注册条件见定价说明', en: 'Free software/tier listed; check pricing scope and signup terms' },
+  'cta.paidOnly':       { zh: '价格、可用档位与试用资格以官网为准', en: 'Check official pricing, plan availability and trial eligibility' },
 
   // ── Deals page ───────────────────────────────────────────────────────────
   'deals.seoTitle':         { zh: 'AI 编程工具推广优惠汇总 | CodePick', en: 'AI Coding Tools Deals & Free Trials | CodePick' },

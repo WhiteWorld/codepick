@@ -65,12 +65,12 @@ const apiCards = [
   {
     raw: arkAgentRaw,
     accentColor: '#ef4444',
-    badge: lang === 'zh' ? '🆕 业界首个 Agent 套餐' : '🆕 First Agent Bundle',
+    badge: lang === 'zh' ? 'Agent 套餐' : 'Agent Bundle',
   },
   {
     raw: minimaxRaw,
     accentColor: '#0ea5e9',
-    badge: lang === 'zh' ? '🌐 全模态订阅' : '🌐 All-Modal Sub',
+    badge: lang === 'zh' ? '旧版 Token Plan' : 'Legacy Token Plan',
   },
   {
     raw: bailianRaw,
@@ -259,6 +259,10 @@ const howSteps = [
                 );
               })}
             </div>
+          )}
+
+          {pick(raw.pricing, 'note', lang) && (
+            <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-4">{pick(raw.pricing, 'note', lang)}</p>
           )}
 
           <!-- Models -->
