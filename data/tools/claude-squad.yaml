@@ -5,7 +5,8 @@ logo: /images/claude-squad.png
 url: https://github.com/smtg-ai/claude-squad
 repo: https://github.com/smtg-ai/claude-squad
 current_version: v1.0.20
-version_tracked_at: '2026-10-13'
+version_tracked_at: "2026-11-17"
+
 pricing:
   model: open_source
   currency: null
@@ -14,9 +15,12 @@ pricing:
       price: 0
       limits: 无限制（自备 Claude Code / Codex / Aider 等底层 CLI）
       limits_en: Unlimited (bring your own Claude Code / Codex / Aider CLI)
-  price_updated_at: '2026-05-16'
-  note: MIT 开源；本质是 tmux 多 pane 管理器，把多个 Agent CLI 放在隔离的 git worktree 里并行跑
-  note_en: MIT open source; essentially a tmux multi-pane manager that runs multiple agent CLIs in parallel isolated git worktrees
+  price_updated_at: "2026-11-17"
+  note: AGPL-3.0 开源；本质是 tmux 多 pane 管理器，把多个 Agent CLI 放在隔离的 git worktree 里并行跑
+  note_en: >-
+    AGPL-3.0 open source; essentially a tmux multi-pane manager that runs multiple agent CLIs in parallel
+    isolated git worktrees
+
 scores:
   coding_ability: 8.5
   cost_efficiency: 9.5
@@ -62,24 +66,34 @@ not_for_en:
   - Users unfamiliar with tmux (steep learning curve)
   - Users wanting a visual dashboard and graphical PR review
 quick_start:
-  - 安装：brew install claude-squad（或参考 README 用 go install）
+  - 先安装 tmux 和 GitHub CLI（gh），再运行 brew install claude-squad；cs 别名如不存在按 README 创建
   - 命令：cs（进入主界面，按 n 新建 instance）
   - 每个 instance 自动建独立 worktree + 分支
   - 可以同时启动多个不同 runtime（Claude Code / Codex / Aider 等）
-  - 用 tmux 快捷键在 instance 间切换
+  - 在 TUI 中按 Enter 附加会话、Ctrl-Q 返回、Tab 查看 diff；自动接受提示为实验功能
+
 quick_start_en:
-  - 'Install: brew install claude-squad (or use go install per README)'
-  - 'Run: cs (enters main UI, press n to create a new instance)'
+  - >-
+    Install tmux and GitHub CLI (gh), then brew install claude-squad; create the cs symlink per README if
+    needed
+  - "Run: cs (enters main UI, press n to create a new instance)"
   - Each instance auto-creates its own worktree + branch
   - Launch multiple runtimes side by side (Claude Code / Codex / Aider, etc.)
-  - Switch between instances via tmux keybindings
+  - >-
+    Use Enter to attach, Ctrl-Q to detach and Tab for diffs in the TUI; automatic prompt acceptance is
+    experimental
+
 register_url: https://github.com/smtg-ai/claude-squad
 china_note: 工具本身开源可直接安装；底层 Claude Code / Codex 调用需自行解决 API 访问
 china_note_en: Tool itself is open source and installable directly; underlying Claude Code / Codex calls require your own API access
 data_sources:
   - url: https://github.com/smtg-ai/claude-squad
     type: repo
-    last_checked: '2026-05-16'
+    last_checked: "2026-11-17"
+  - url: https://github.com/smtg-ai/claude-squad/releases/tag/v1.0.20
+    type: release
+    last_checked: "2026-11-17"
+
 changelog:
   - date: '2026-10-13'
     type: 开始跟踪版本号：v1.0.20（GitHub release 核验）
@@ -88,7 +102,9 @@ changelog:
     type: launch
     summary: 加入 CodePick Agent 并行编排器栏目
     summary_en: Added to CodePick Agent parallel orchestrator section
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-11'
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: medium
