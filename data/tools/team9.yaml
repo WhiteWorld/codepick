@@ -8,17 +8,39 @@ repo: https://github.com/team9ai/team9
 current_version: null
 version_tracked_at: '2026-05-09'
 pricing:
-  model: unknown
-  currency: null
-  plans: []
+  model: freemium
+  currency: USD
+  plans:
+    - name: Free
+      price: 0
+      period: month
+      limits: 基础组织AI workspace与社区支持；不据此承诺模型调用免费或无限额
+      limits_en: Basic organization AI workspace/community support; not a free/unlimited model-usage promise
+    - name: Pro
+      price: 19
+      period: month
+      limits: 页面标常规$19/月，目前Beta期间免费（未公布结束日）；1个OpenClaw实例，API费用/配额及席位单位需确认
+      limits_en: >-
+        Listed regular$19/month, currently waived during Beta with no published end; oneOpenClaw instance;
+        confirm API costs/quotas/seat unit
+    - name: Enterprise
+      price: Custom
+      limits: 页面列不限OpenClaw、SLA、定制和私有化，需合同确认；非本次验收上线能力
+      limits_en: >-
+        Page advertises unlimitedOpenClaw/SLA/custom/on-premises; contractual confirmation needed, not
+        acceptance-tested capabilities
   price_updated_at: "2026-11-17"
   note: >-
-    官网已介绍共享记忆、Playbooks 与运行可观测性；本次公开来源未确认套餐价格或免费额度，旧 Free Beta 零价格已移除。仓库称基于 OpenClaw，提供自托管步骤；许可证是带附加条件的 Team9
-    License，不应等同标准 Apache-2.0。
+    新找到官方/pricing页核实Free0、Pro常规$19/月且Beta暂免、Enterprise定制；不能把临时Beta免费推广为永久或包含所有模型成本。官网共享记忆/Playbooks/可观测性和仓库自托管步骤已核实；仓库仍称早期，部分电脑控制为路线图，营销方案不是上线验收。基于OpenClaw，Team9
+    License在Apache文本上附加条件，不是无条件Apache-2.0。没有核实托管部署完整留存/训练承诺或实际SLA；自托管仍可向所接模型/工具外发，不能当成零外发保证。
   note_en: >-
-    Website now documents shared memory, playbooks and runtime observability. Public sources did not establish
-    plan prices or free quotas; the old Free Beta zero price is removed. Repository describes OpenClaw-based
-    self-hosting under a Team9 license with additional conditions, not standard Apache-2.0.
+    Newly found official/pricing verifies Free0, regular Pro$19/month currently waived during Beta, and
+    customEnterprise. Temporary Beta access is not permanent free inference or inclusion of all model costs.
+    Verified shared memory/playbooks/observability and repository self-host steps; repository remains
+    early-stage and some computer control is roadmap, not acceptance-tested marketing promises.
+    OpenClaw-based, under Team9 License with Apache-based additional conditions, not unmodifiedApache-2.0.
+    Hosted retention/training guarantees and actualSLA were not verified; self-hosting can still send data to
+    connected models/tools, not zero egress.
 
 scores:
   coding_ability: 7
@@ -84,13 +106,26 @@ data_sources:
   - url: https://github.com/team9ai/team9
     type: repo
     last_checked: "2026-11-17"
+  - url: https://team9.ai/pricing
+    type: pricing
+    last_checked: "2026-11-17"
 
 changelog:
-  - date: '2026-05-09'
+  - date: "2026-11-17"
+    type: fix
+    summary: 完整文档复核：补齐官方Free/Pro/Enterprise价格与Beta暂免条件，保留源码许可限制、早期/路线图与托管隐私未保证等边界；未部署、登录或实测。
+    summary_en: >-
+      Full documentary review: officialFree/Pro/Enterprise pricing and temporaryBeta waiver resolved; preserve
+      license restrictions, early-stage/roadmap and non-guaranteed hosted privacy boundaries. No
+      deployment/sign-in/runtime test.
+  - date: "2026-05-09"
     type: launch
     summary: 加入 CodePick Agent 协作栏目
     summary_en: Added to CodePick Agent Collaboration section
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-11'
+
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: low

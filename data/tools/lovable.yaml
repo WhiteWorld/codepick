@@ -17,32 +17,57 @@ pricing:
         5 build credits/day capped30/month; monthly20 Cloud and4 AI grants; private workspace projects and
         unlimited members
     - name: Pro
-      price: null
+      price: 25
+      period: month
       per_user: false
-      limits: 按 workspace credits 定价，月度 credits 从100起，非按席位；当前美元档价未从公开卡片核实
+      limits: 起步档每月100 subscription credits；workspace无限成员，非按席位；更高credits档价格另计
       limits_en: >-
-        Workspace-credit pricing from100 monthly credits, not per-seat; current USD tier amount not verified
-        from public cards
+        Base tier100subscription credits/month; unlimited workspace members, not per-seat; higher credit tiers
+        cost more
+    - name: Pro 年付 / annual
+      price: 250
+      period: year
+      per_user: false
+      limits: 起步100 credits/月，实扣全年总额；credits逐月发放；并非每月扣年价的1/12
+      limits_en: >-
+        Base100credits/month, actual annual charge paid once; credits issued monthly, not monthly payments of
+        the annual equivalent
     - name: Business
-      price: null
+      price: 50
+      period: month
       per_user: false
-      limits: 月度 credits 从100起；SSO/角色权限、workspace 数据默认不训练；当前美元价待核实
+      limits: 起步档每月100 subscription credits；workspace无限成员，非按席位；更高credits档价格另计
       limits_en: >-
-        From100 monthly credits; SSO/roles and default workspace training exclusion; current USD price pending
-        verification
+        Base tier100subscription credits/month; unlimited workspace members, not per-seat; higher credit tiers
+        cost more
+    - name: Business 年付 / annual
+      price: 500
+      period: year
+      per_user: false
+      limits: 起步100 credits/月，实扣全年总额；credits逐月发放；并非每月扣年价的1/12
+      limits_en: >-
+        Base100credits/month, actual annual charge paid once; credits issued monthly, not monthly payments of
+        the annual equivalent
+    - name: Enterprise
+      price: Custom
+      limits: 按合同定价/额度；不默认包含每日chat/build或每月Cloud/AI赠额
+      limits_en: Contract pricing/credits; no default daily chat/build allowance or monthly Cloud/AI grants
   price_updated_at: "2026-11-17"
   note: >-
-    已核实 workspace 共享余额/无限成员，不是 Pro 每用户 $25；旧25/50美元无法从现行公开 cards 核实，暂不作为当前价。credits 同时覆盖构建、Cloud 与 app
-    AI，且不同套餐 credits 价值/消耗率可不同，不能统一换成美元或消息数。月付 credits 发放后2个月到期、年付在年周期结束后1个月到期，top-up12个月、每日额度当天到期。Free/Pro
-    自2026-09-09起内容可用于训练，免费账号级 opt-out 仅向后生效、不改变同事设置；Business/Enterprise 默认排除。完整复审日期保留等待价格核实。
+    公开定价卡片正文不足，但官方完整订阅文档的展开表已核实：Pro起步100
+    credits/月为$25月付或$250年付，Business为$50或$500年付；均按workspace而非每用户，更多credits档另计。credits覆盖构建、Cloud、app
+    AI与连接器，价值/消耗率按方案不同，不能统一换成美元或消息数。月付credits发放后2个月到期，年付在年周期结束后1个月到期；top-up12个月。Pro增购$15/50credits、Business$30/50；自动增购可选No
+    limit，可能持续扣费。每日chat/build额度于08:00
+    Asia/Shanghai刷新且不滚存，Free每日build5、每自然月最多30；Cloud/AI赠额是可变的临时安排。Free/Pro自2026-09-09起内容可训练，账号级免费opt-out仅向后生效且不改变同事设置；Business/Enterprise默认排除。
   note_en: >-
-    Verified workspace-shared balances/unlimited members, not Pro $25 per user. Current public cards did not
-    establish old$25/$50 amounts, so they are not current prices. Credits cover build/Cloud/app AI and can
-    differ in value/rate across plans, not uniformly dollars/messages. Monthly credits expire2 months after
-    issue, annual1 month after annual period ends, top-ups12 months, daily grants that day. Free/Pro content
-    may train models since2026-09-09; free account-level opt-out is forward-only and does not change
-    teammates’ settings; Business/Enterprise default exclusion. Full-review date retained pending price
-    verification.
+    Public cards were incomplete, but the official expanded subscription table verifies base100credits/month:
+    Pro$25monthly/$250annually; Business$50/$500. Workspace pricing, not per-user; larger credit tiers cost
+    more. Credits cover build/Cloud/appAI/connectors with plan-dependent rates, not uniform dollars/messages.
+    Monthly credits expire2months after issue, annual credits1month after annual term, top-ups12months. Pro
+    top-ups$15/50credits, Business$30/50; auto top-up can be set to No limit and keep charging. Daily
+    chat/build grants reset08:00 Asia/Shanghai without rollover; Free build5/day capped30/calendar month.
+    Cloud/AI grants are temporary and variable. Free/Pro content can train since2026-09-09; free account-level
+    opt-out is forward-only and does not change teammates’ settings. Business/Enterprise excluded by default.
 
 scores:
   coding_ability: 8.5
@@ -105,18 +130,30 @@ china_note_en: >-
   separately.
 
 changelog:
-  - date: '2026-05-10'
+  - date: "2026-11-17"
+    type: fix
+    summary: 完整复核：官方展开订阅表补齐workspace月/年实扣金额；核实增购费用、自动扣费、额度到期、成员/私有项目与训练opt-out，保留Cloud/MCP/安全边界修正。
+    summary_en: >-
+      Full review: official expanded tier table resolves workspace monthly/annual charges; verify
+      top-up/auto-billing/expiry, members/private projects and training opt-out; retain
+      Cloud/MCP/security-boundary corrections.
+  - date: "2026-05-10"
     type: announcement
     summary: 数据月度复核：定价不变（Pro $25/月，Business $50/月，Free 5 credits/天）；学生 .edu 邮箱可享 Pro 首年 50% 折扣；年付 Pro 每月 $20.83
-    summary_en: Monthly data review — pricing unchanged (Pro $25/mo, Business $50/mo, Free 5 credits/day); students with .edu email get 50% off Pro for first year; annual Pro billing is $20.83/mo
-  - date: '2026-04-19'
+    summary_en: >-
+      Monthly data review — pricing unchanged (Pro $25/mo, Business $50/mo, Free 5 credits/day); students with
+      .edu email get 50% off Pro for first year; annual Pro billing is $20.83/mo
+  - date: "2026-04-19"
     type: pricing
     summary: Pro 套餐价格从 $21 涨至 $25/月；Free 套餐改为每天 5 credits（原为 30 条消息/月）；引入 credits 滚存机制
-    summary_en: Pro plan price increased from $21 to $25/month; Free plan now 5 credits/day (was 30 messages/month); credit rollover introduced
-  - date: '2026-03-04'
+    summary_en: >-
+      Pro plan price increased from $21 to $25/month; Free plan now 5 credits/day (was 30 messages/month);
+      credit rollover introduced
+  - date: "2026-03-04"
     type: announcement
     summary: 首次收录
     summary_en: Initial listing
+
 data_sources:
   - url: https://lovable.dev/pricing
     type: pricing
@@ -142,8 +179,19 @@ data_sources:
   - url: https://docs.lovable.dev/features/security.md
     type: docs
     last_checked: "2026-11-17"
+  - url: https://docs.lovable.dev/introduction/subscription-plans
+    type: pricing
+    last_checked: "2026-11-17"
+  - url: https://docs.lovable.dev/introduction/credits-and-usage
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.lovable.dev/introduction/credit-top-ups
+    type: docs
+    last_checked: "2026-11-17"
 
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-11'
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: medium

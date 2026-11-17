@@ -12,17 +12,75 @@ pricing:
   plans:
     - name: Free
       price: 0
-      limits: 有限 Premium 模型用量，基础功能
-      limits_en: Limited Premium model usage, basic features
-    - name: Pro
-      price: 10
+      limits: 仅 Auto，有限用量；每月 5000 次自动补全，2 个云任务并发
+      limits_en: Auto only, limited usage; 5,000 autocompletions/month, 2 concurrent Cloud tasks
+    - name: Lite
+      price: 8
       period: month
-      annual_price: 90
-      limits: 全模型访问，SOLO 模式，每月 600 次 Premium 模型快速请求；首月 $3 优惠
-      limits_en: Full model access, SOLO mode, 600 fast Premium model requests/month; first month $3
-  price_updated_at: '2026-02-17'
-  note: 国际版，面向海外用户；首月 Pro $3，次月起 $10/月 或 $90/年；国内用户建议用 Trae CN
-  note_en: International edition for global users; first month Pro $3, then $10/mo or $90/year; China users should use Trae CN
+      limits: >-
+        每月$8 Dollar
+        Usage、无限自动补全、2云任务并发；仅限Thailand/Indonesia/Vietnam/Philippines/India/Pakistan/Turkey/Malaysia/Brazil/Colombia/Peru/Nigeria；模型调用非无限量
+      limits_en: >-
+        $8monthlyDollarUsage, unlimited autocomplete, 2concurrentCloud tasks; only
+        Thailand/Indonesia/Vietnam/Philippines/India/Pakistan/Turkey/Malaysia/Brazil/Colombia/Peru/Nigeria;
+        model calls not unlimited
+    - name: Lite 年付 / annual
+      price: 80
+      period: year
+      limits: 实际全年总额；每月$8用量，2云任务并发；Lite仍限指定地区
+      limits_en: Actual annual total; $8monthlyusage, 2concurrentCloud tasks; Lite remains region-limited
+    - name: Pro
+      price: 20
+      period: month
+      limits: 每月$20 Dollar Usage、无限自动补全、10云任务并发；新售常规月付；模型调用非无限量
+      limits_en: >-
+        $20monthlyDollarUsage, unlimited autocomplete, 10concurrentCloud tasks; standard new monthly
+        subscription; model calls not unlimited
+    - name: Pro 年付 / annual
+      price: 200
+      period: year
+      limits: 实际全年总额；每月$20用量，10云任务并发；Lite仍限指定地区
+      limits_en: Actual annual total; $20monthlyusage, 10concurrentCloud tasks; Lite remains region-limited
+    - name: Pro+
+      price: 60
+      period: month
+      limits: 每月$60 Dollar Usage、无限自动补全、15云任务并发；新售常规月付；模型调用非无限量
+      limits_en: >-
+        $60monthlyDollarUsage, unlimited autocomplete, 15concurrentCloud tasks; standard new monthly
+        subscription; model calls not unlimited
+    - name: Pro+ 年付 / annual
+      price: 600
+      period: year
+      limits: 实际全年总额；每月$60用量，15云任务并发；Lite仍限指定地区
+      limits_en: Actual annual total; $60monthlyusage, 15concurrentCloud tasks; Lite remains region-limited
+    - name: Ultra
+      price: 200
+      period: month
+      limits: 每月$200 Dollar Usage、无限自动补全、20云任务并发；新售常规月付；模型调用非无限量
+      limits_en: >-
+        $200monthlyDollarUsage, unlimited autocomplete, 20concurrentCloud tasks; standard new monthly
+        subscription; model calls not unlimited
+    - name: Ultra 年付 / annual
+      price: 2000
+      period: year
+      limits: 实际全年总额；每月$200用量，20云任务并发；Lite仍限指定地区
+      limits_en: Actual annual total; $200monthlyusage, 20concurrentCloud tasks; Lite remains region-limited
+  price_updated_at: "2026-11-17"
+  note: >-
+    国际官方完整计费文档补齐Lite$8/月或$80/年、Pro$20/$200、Pro+$60/$600、Ultra$200/$2000（年付为全年实扣）。Lite仅指定12地区；付费支持地区含香港/澳门，但未列中国大陆，不代表大陆可购买。旧Pro$10等只对符合连续续费保护的存量合同适用，旧价不等于原额度永久保留；新售不含旧首月$3/600次承诺。模型按token折成Dollar
+    Usage，超额可启用On-Demand并按$3增量扣费，税另计。Free仅Auto，SOLO属付费档；新模型还取决于旧账号迁移状态。IDE隐私模式关闭时对话/代码片段/输出可训练，须登录才生效，退出即关闭；索引可临时上传代码算嵌入，不能称全本地。云会话另存仓库/上下文/对话直至主动删除，官方声明相应云数据不用于训练。Auto-Run可在沙箱外跳过逐次检查执行高风险命令；MCP授权和工具权限需单独审查。
+  note_en: >-
+    Full international billing docs resolve Lite$8monthly/$80annually, Pro$20/$200, Pro+$60/$600,
+    Ultra$200/$2000 (annual figures are actual totals). Lite is limited to12regions; paid availability
+    listsHongKong/Macao but not mainlandChina, not a mainland purchase guarantee. OldPro$10 applies only to
+    protected uninterrupted legacy renewals; old price does not preserve old allowances forever. No
+    new-sale$3/600-request promise. Tokens convert toDollarUsage; optionalOn-Demand charges in$3increments,
+    taxes extra. FreeAuto only, SOLOpaid; new-model access depends on legacy migration. With IDEPrivacyMode
+    off, chats/snippets/outputs may train; it requires sign-in and deactivates on logout. Indexing may
+    temporarily upload code, not all-local. Cloud sessions retain repositories/context/chats until proactively
+    deleted, with vendor no-training commitment for thatCloud data. Auto-Run can skip per-command checks and
+    execute high-risk commands outside sandbox; inspect MCP grants/tool permissions separately.
+
 scores:
   coding_ability: 8
   cost_efficiency: 8.5
@@ -34,19 +92,18 @@ features:
   chat: true
   agent_mode: true
   solo_mode: true
-  builder_mode: true
-  cloud_ide: true
   sub_agent: true
-  context_compression: true
   multi_file_edit: true
   mcp_support: true
   context_window: 取决于所选模型
   supported_models:
-    - Claude Sonnet 4.5
-    - Claude Opus 4.5
-    - GPT-5
-    - Gemini 2.5 Pro
-    - Grok-4（Beta）
+    - GPT-6.1-Sol / Terra
+    - GPT-6-Astra / Sol / Luna
+    - GPT-5.6-Sol / Terra / Luna
+    - GPT-5.5
+    - GLM-5.2
+    - DeepSeek-V4.1-Flash / V4-Flash / V4-Pro
+    - Kimi-K2.7-Code
   ide_base: VS Code Fork
   supported_os:
     - macOS
@@ -54,60 +111,118 @@ features:
     - Linux
   jetbrains_support: false
   git_integration: true
+
 best_for:
-  - 海外开发者想要免费 Cursor 替代品
-  - 需要 Claude / GPT / Gemini 多模型切换
-  - 低预算（首月 $3）体验 Pro 功能
+  - 需要独立 AI IDE、接受用量预算的开发者
+  - 需要比较 Free Auto 与付费全模型/云任务并发的用户
+
 best_for_en:
-  - International developers who want a free Cursor alternative
-  - Users who need multi-model switching (Claude/GPT/Gemini)
-  - Budget-conscious users who want Pro features (first month $3)
+  - Developers seeking a standalone AI IDE with usage budgeting
+  - Users comparing Free Auto against paid models/Cloud concurrency
+
 not_for:
-  - 国内网络用户（需代理，推荐用 Trae CN）
-  - JetBrains 用户
+  - 需要大陆付费服务资格或全模型免费不限量的用户
+  - 要求代码/对话完全本地或不愿审查自动执行权限的项目
+
 not_for_en:
-  - China users (requires proxy; use Trae CN instead)
-  - JetBrains users
+  - Users requiring mainlandChina paid eligibility or unlimited free access to all models
+  - Projects requiring entirely local code/chat or unable to review auto-execution permissions
+
 quick_start:
-  - 访问 trae.ai/download，下载并安装 Trae（支持 macOS/Windows，Linux 版即将推出）
-  - 用邮箱或 GitHub 账号注册，Pro 首月仅 $3（无需 VPN 注册，但使用需代理）
-  - 打开项目，体验 SOLO 模式（上下文工程）和 Builder 模式构建应用
-  - 国内用户建议改用 Trae CN（trae.cn），完全免费且无需代理
+  - 从国际官方下载中心选择macOS12+、Windows10/11 x64或文档支持的Linux .deb/.rpm包
+  - 按官方桌面指南登录并导入本地项目；可迁移VSCode/Cursor设置，安装/登录/网络/支付均未实测
+  - 选择IDE/Agent窗口、IDE/SOLO模式，确认所在地区、账号迁移状态、共享用量及是否启用On-Demand收费
+  - 先核对隐私模式（须保持登录）、云会话存储和Auto-Run/MCP授权，再审查生成的多文件改动与测试
+
 quick_start_en:
-  - Visit trae.ai/download, download and install Trae (macOS/Windows; Linux coming soon)
-  - Sign up with email or GitHub; Pro first month is only $3 (registration may work without VPN, but usage requires proxy)
-  - Open your project and try SOLO mode (Context Engineering) and Builder mode for app building
-  - China users should use Trae CN (trae.cn) instead — completely free and no proxy needed
+  - Choose an official international macOS12+, Windows10/11x64 or documentedLinux.deb/.rpm installer
+  - >-
+    Follow official desktop sign-in/project import, optionally migrateVSCode/Cursor settings;
+    install/login/network/payment untested
+  - >-
+    ChooseIDE/Agent windows andIDE/SOLO, checking region, legacy migration, allowance and optionalOn-Demand
+    billing
+  - >-
+    Check signed-inPrivacyMode, Cloud retention andAuto-Run/MCP grants before reviewing multi-file
+    changes/tests
+
 register_url: https://trae.ai
-china_note: 国际版需要代理，国内访问不稳定；请使用 Trae CN（trae.cn）国内专属版，完全免费，豆包/DeepSeek/Kimi 模型全套
-china_note_en: International edition requires a proxy; unstable from China; use Trae CN (trae.cn) for the domestic edition — completely free with Doubao/DeepSeek/Kimi models
+china_note: 国际付费支持列表含港澳、未列中国大陆；Lite另限12地区。未实测中国大陆网络/注册/支付，也不承诺必须或无需代理。CN与国际服务/模型/价格不同，CN同样有付费积分方案。
+
+china_note_en: >-
+  International paid-region list includesHongKong/Macao, not mainlandChina; Lite has12specificregions.
+  Mainland network/registration/payment untested, no proxy requirement/no-proxy guarantee. CN has distinct
+  models/prices and paidcredit plans too.
+
 plans_using_this: []
 data_sources:
   - url: https://www.trae.ai/pricing
     type: pricing
-    last_checked: '2026-10-13'
+    last_checked: "2026-11-17"
+  - url: https://www.trae.ai/download
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.trae.ai/ide/new-plans-and-billing
+    type: pricing
+    last_checked: "2026-11-17"
+  - url: https://docs.trae.ai/ide/privacy-mode?_lang=en
+    type: privacy
+    last_checked: "2026-11-17"
+  - url: https://docs.trae.ai/ide/get-started-with-trae-desktop?_lang=en
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.trae.ai/ide/subagents
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.trae.ai/ide/built-in-agent
+    type: docs
+    last_checked: "2026-11-17"
+  - url: https://docs.trae.ai/ide/data-storage-policy-for-remote-agents
+    type: privacy
+    last_checked: "2026-11-17"
+  - url: https://docs.trae.ai/ide/auto-run-and-security
+    type: docs
+    last_checked: "2026-11-17"
+
 changelog:
-  - date: '2026-05-10'
+  - date: "2026-11-17"
+    type: fix
+    summary: >-
+      完整文档复核：国际正文由WebFetch读取（原HTTP仅返回壳），核实区域Lite/全部月年价、旧用户保护及超额扣费、当前模型、Linux/Agent/Subagents、隐私与云留存、沙箱外自动执行。未把CN文档代作国际证据。
+    summary_en: >-
+      Full documentary review: WebFetch recovered international text where HTTP returned shells; verify
+      regionalLite/allmonthlyannualprices, legacyprotection/overage, models, Linux/Agent/Subagents,
+      privacy/Cloudretention andoutside-sandboxAuto-Run. CN docs not substituted as international evidence.
+  - date: "2026-05-10"
     type: announcement
     summary: 数据月度复核：Pro 套餐每月 600 次 Premium 模型快速请求；定价不变（$10/月，首月 $3，年付 $90）；整体功能保持稳定
-    summary_en: Monthly data review — Pro plan at 600 fast Premium model requests/month; pricing unchanged ($10/mo, first month $3, or $90/year); feature set stable
-  - date: '2026-04-19'
+    summary_en: >-
+      Monthly data review — Pro plan at 600 fast Premium model requests/month; pricing unchanged ($10/mo,
+      first month $3, or $90/year); feature set stable
+  - date: "2026-04-19"
     type: announcement
     summary: 数据月度复核：Pro 套餐每月 600 次 Premium 模型快速请求；定价不变（$10/月，首月 $3）；整体功能保持稳定
-    summary_en: Monthly data review — Pro plan confirmed at 600 fast Premium model requests/month; pricing unchanged ($10/mo, first month $3); feature set stable
-  - date: '2026-03-01'
+    summary_en: >-
+      Monthly data review — Pro plan confirmed at 600 fast Premium model requests/month; pricing unchanged
+      ($10/mo, first month $3); feature set stable
+  - date: "2026-03-01"
     type: feature
     summary: TRAE 2.0 SOLO 模式上线(Context Engineering); Cloud IDE 浏览器版发布; Plan Mode、Sub Agent、DiffView、上下文压缩
-    summary_en: TRAE 2.0 SOLO mode (Context Engineering); Cloud IDE browser version launched; Plan Mode, Sub Agent, DiffView, context compression
-  - date: '2026-02-01'
+    summary_en: >-
+      TRAE 2.0 SOLO mode (Context Engineering); Cloud IDE browser version launched; Plan Mode, Sub Agent,
+      DiffView, context compression
+  - date: "2026-02-01"
     type: pricing
     summary: 国际版切换为 token 计费，推出 Free/Pro 双层级，Pro 首月 $3
     summary_en: International edition switched to token billing; Free/Pro tiers launched, Pro first month $3
-  - date: '2026-01-10'
+  - date: "2026-01-10"
     type: feature
     summary: Builder 模式上线，支持 Grok-4（Beta）模型
     summary_en: Builder mode launched, Grok-4 (Beta) model support added
-last_full_review: '2026-10-13'
-next_review_due: '2026-11-12'
+
+last_full_review: "2026-11-17"
+
+next_review_due: "2026-12-17"
+
 review_frequency_days: 30
 confidence: medium
