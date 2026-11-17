@@ -17,26 +17,26 @@ pricing:
     - name: Pro
       price: 20
       period: month
-      limits: 更高配额，可使用 OpenAI、Claude、Gemini、SpaceXAI 的前沿模型以及主流开源模型；完整模型列表；SWE-2 在 Devin Desktop 与 CLI 中免费用到 2026-10-16；含 Devin Cloud；超出后按 API 价格购买
-      limits_en: Higher quotas with frontier models from OpenAI, Claude, Gemini, and SpaceXAI plus leading open source models; full model availability; SWE-2 free in Devin Desktop and CLI through 2026-10-16; Devin Cloud included; extra usage at API pricing
+      limits: 更高配额，可使用 OpenAI、Claude、Gemini、SpaceXAI 的前沿模型以及主流开源模型；完整模型列表；SWE-2 免费使用（页面未写截止日期）；含 Devin Cloud；超出后按 API 价格购买；可用自己的 ChatGPT 计划
+      limits_en: Higher quotas with frontier models from OpenAI, Claude, Gemini, and SpaceXAI plus leading open source models; full model availability; free use of SWE-2 with no end date on the page; Devin Cloud included; extra usage at API pricing; use your ChatGPT plan
     - name: Max
       price: 200
       period: month
-      limits: Pro 全部功能，配额显著更高
-      limits_en: Everything in Pro, with significantly higher quotas
+      limits: Pro 全部功能，配额显著更高；可用自己的 ChatGPT 计划
+      limits_en: Everything in Pro, with significantly higher quotas; use your ChatGPT plan
     - name: Teams
       price: 80
       period: month
-      limits: 团队方案基础费 $80/月，另加 $40/月/全职开发席位；最多 200 用户；集中计费、管理后台与优先支持；每名全职用户自带配额
-      limits_en: $80/month team-plan base plus $40/month per full dev seat; up to 200 users; centralized billing, admin dashboard, and priority support; each full user includes their own quota
+      limits: 基础费 $80/月，另加 $40/月/全职开发席位；最多 100 用户；多人会话；每位用户在 Free 模式 2 个并发会话；SAML/OIDC SSO；3 档用量成本控制；集中账单；Slack 频道支持；可用自己的 ChatGPT 计划；每名全职用户自带配额
+      limits_en: $80/month base plus $40/month per full dev seat; up to 100 users; multiplayer sessions; 2 concurrent sessions in Free mode per user; SAML/OIDC SSO; cost controls with 3 usage tiers; centralized billing; Slack channel support; use your ChatGPT plan; each full user includes their own quota
     - name: Enterprise
       price: null
       period: month
-      limits: 联系销售；最高优先级支持、专属客户经理、SAML/OIDC SSO、集中管理、专属部署、主流模型提供商
-      limits_en: Contact sales; highest-priority support, dedicated account management, SAML/OIDC SSO, centralized admin controls, dedicated deployment, and major model providers
-  price_updated_at: '2026-10-16'
-  note: 2026-10-16 核对 https://devin.ai/pricing（windsurf.com/pricing 会转到这里）。个人档为 Free $0、Pro $20、Max $200。付费档用量按日/周自动刷新，页面没有写出具体 credit 数字。Teams 是 $80/月基础费加 $40/月/全职席位，不是单一的 $40/用户。2026-03-19 的 $15 老用户价和学生折扣没有出现在当前定价页，是否仍然有效未知。SWE-2 在 Devin Desktop 与 CLI 的免费期写到 2026-10-16。
-  note_en: 'Verified 2026-10-16 at https://devin.ai/pricing (windsurf.com/pricing redirects here). Individual tiers are Free $0, Pro $20, and Max $200. Paid allowances refresh daily and weekly; the page does not publish a credit count. Teams is an $80/month base plus $40/month per full seat, not a flat $40/user. The 2026-03-19 grandfathered $15 rate and the student discount are not on the current pricing page, so whether they still apply is unknown. Free SWE-2 in Devin Desktop and CLI is stated through 2026-10-16.'
+      limits: 联系销售；最高优先级支持、专属客户经理、SAML/OIDC SSO、SCIM、基于角色的访问控制、集中管理、专属部署、主流模型提供商
+      limits_en: Contact sales; highest-priority support, dedicated account management, SAML/OIDC SSO, SCIM, role-based access control, centralized admin controls, dedicated deployment, and major model providers
+  price_updated_at: '2026-11-17'
+  note: 2026-11-17 核对 https://devin.ai/pricing（windsurf.com/pricing 返回 308，转到这里）。个人档仍为 Free $0、Pro $20、Max $200。付费档用量按日/周自动刷新，页面仍没有写出具体 credit 数字。SWE-2 现为免费使用，页面不再写 2026-10-16 截止日期。Teams 仍是 $80/月基础费加 $40/月/全职席位，人数上限改为最多 100 用户。Pro、Max 和 Teams 写明可用自己的 ChatGPT 计划。Enterprise 仍是联系销售，对比项里有 SCIM 和基于角色的访问控制。2026-03-19 的 $15 老用户价和学生折扣没有出现在当前定价页，是否仍然有效未知。
+  note_en: 'Verified 2026-11-17 at https://devin.ai/pricing (windsurf.com/pricing returns 308 to this page). Individual tiers are still Free $0, Pro $20, and Max $200. Paid allowances still refresh daily and weekly; the page still does not publish a credit count. SWE-2 is now free use with no end date on the page. Teams is still an $80/month base plus $40/month per full seat, and the cap is now up to 100 users. Pro, Max, and Teams list use your ChatGPT plan. Enterprise is still contact sales; the compare table adds SCIM and role-based access control. The 2026-03-19 grandfathered $15 rate and the student discount are not on the current pricing page, so whether they still apply is unknown.'
 scores:
   coding_ability: 8.5
   cost_efficiency: 8
@@ -103,11 +103,15 @@ plans_using_this: []
 data_sources:
   - url: https://devin.ai/pricing
     type: pricing
-    last_checked: '2026-10-16'
+    last_checked: '2026-11-17'
   - url: https://windsurf.com/changelog
     type: changelog
     last_checked: '2026-10-13'
 changelog:
+  - date: '2026-11-17'
+    type: pricing
+    summary: devin.ai/pricing 个人价格未变：Free $0、Pro $20、Max $200。SWE-2 改为免费使用，页面不再写到 2026-10-16。Teams 仍是 $80/月基础费加 $40/月/全职席位，上限改为最多 100 用户，并列出多人会话、每位用户 Free 模式 2 个并发会话、SAML/OIDC SSO、3 档用量控制、集中账单、Slack 频道支持，以及可用自己的 ChatGPT 计划。Enterprise 对比项增加 SCIM 和基于角色的访问控制。页面仍未写出 credit 数字。
+    summary_en: 'devin.ai/pricing individual prices are unchanged: Free $0, Pro $20, and Max $200. SWE-2 is now free use, and the page no longer states an end date of 2026-10-16. Teams is still an $80/month base plus $40/month per full seat, now capped at 100 users, and lists multiplayer sessions, 2 concurrent sessions in Free mode per user, SAML/OIDC SSO, cost controls with 3 usage tiers, centralized billing, Slack channel support, and use your ChatGPT plan. The Enterprise compare items add SCIM and role-based access control. The page still does not publish a credit count.'
   - date: '2026-10-16'
     type: pricing
     summary: devin.ai/pricing 当前为 Free $0（轻度配额、模型范围有限、无限 Tab）、Pro $20、Max $200。Teams 改为 $80/月基础费加 $40/月/全职开发席位。SWE-2 在 Devin Desktop 与 CLI 免费用到 2026-10-16。页面未再写出 25 credits 或 $15 老用户价。

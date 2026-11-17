@@ -4,8 +4,8 @@ type: cli
 logo: /images/opencode.png
 url: https://opencode.ai
 repo: https://github.com/anomalyco/opencode
-current_version: v2.2.6
-version_tracked_at: '2026-11-10'
+current_version: v2.3.0
+version_tracked_at: '2026-11-17'
 pricing:
   model: free
   currency: null
@@ -53,12 +53,14 @@ not_for_en:
   - Users accustomed to GUI IDEs
   - Users who need Tab code completion
 quick_start:
-  - 安装 Bun 或 Node.js 18+，运行：bun install -g opencode-ai（或 npm install -g opencode-ai）
+  - '安装 OpenCode 2：curl -fsSL https://opencode.ai/v2/install | bash，或 npm install -g @opencode/cli，或 bun install -g --trust @opencode/cli，或 brew install anomalyco/tap/opencode-v2'
+  - npm 上的 opencode-ai 是 1.x 包（latest 仍为 1.19.5），不是这条正在跟踪的 2.x
   - 配置模型 API Key，支持 75+ 提供商：export ANTHROPIC_API_KEY=xxx 或通过 TUI 配置向导设置
   - 进入项目目录运行：opencode，进入美观的 TUI 界面
   - 国内用户推荐搭配火山方舟 Coding Plan（Lite 首月 ¥9.9 / 续费 ¥40），无需翻墙
 quick_start_en:
-  - 'Install Bun or Node.js 18+, run: bun install -g opencode-ai (or npm install -g opencode-ai)'
+  - 'Install OpenCode 2: curl -fsSL https://opencode.ai/v2/install | bash, or npm install -g @opencode/cli, or bun install -g --trust @opencode/cli, or brew install anomalyco/tap/opencode-v2'
+  - 'The npm package opencode-ai is the 1.x line (latest is still 1.19.5), not the tracked 2.x line'
   - 'Configure model API Key (supports 75+ providers): export ANTHROPIC_API_KEY=xxx or use TUI setup wizard'
   - 'cd to your project directory and run: opencode to launch the TUI interface'
   - 'China users: pair with Volcengine Ark Coding Plan (¥9.9 first month / ¥40 renewal) for access without VPN'
@@ -72,19 +74,42 @@ compatible_apis:
   - deepseek
   - ollama
 data_sources:
+  - url: https://github.com/anomalyco/opencode/releases/tag/v2.3.0
+    type: release
+    last_checked: '2026-11-17'
+  - url: https://github.com/anomalyco/opencode/releases/tag/v2.2.7
+    type: release
+    last_checked: '2026-11-17'
   - url: https://github.com/anomalyco/opencode/releases/tag/v2.2.6
     type: release
     last_checked: '2026-11-10'
   - url: https://github.com/anomalyco/opencode/releases/tag/v1.19.5
     type: release
-    last_checked: '2026-11-10'
+    last_checked: '2026-11-17'
   - url: https://github.com/anomalyco/opencode/releases
     type: release
-    last_checked: '2026-11-10'
+    last_checked: '2026-11-17'
   - url: https://opencode.ai/changelog
     type: changelog
-    last_checked: '2026-11-10'
+    last_checked: '2026-11-17'
+  - url: https://opencode.ai/terminal
+    type: documentation
+    last_checked: '2026-11-17'
+  - url: https://www.npmjs.com/package/@opencode/cli
+    type: release
+    last_checked: '2026-11-17'
+  - url: https://www.npmjs.com/package/opencode-ai
+    type: release
+    last_checked: '2026-11-17'
 changelog:
+  - date: '2026-11-13'
+    type: release
+    summary: 'v2.3.0：2.x 线最高稳定版。GitHub Release 于 2026-11-13 发布，官网 changelog 置顶同版，git tag v2.3.0 指向该版本。子 agent 默认在后台运行：立刻返回，空闲时再向父会话汇报，父会话可以同时开多个子 agent。TUI 默认把一轮工具调用和思考收成一行可折叠的活动记录。要看每一步，把 Verbosity 设为 medium 或 high，或在 TUI 配置里写 session.verbosity；已经设过的值会保留。桌面端命令面板有 Jump to message，macOS 为 Cmd+Alt+G，Windows 和 Linux 为 Ctrl+Alt+G，可在当前会话里搜索提示并跳过去。实验性开关 mcp_events 接收 MCP 事件；实验性开关 shell_timeout_background 让超时的 shell 转到后台，开关打开时，给后台命令写的显式超时会把它停掉。其余 Core、TUI 和桌面端修复见发布说明，这里不逐条改写。process-daemon-v0.5.2 和 process-daemon-v0.6.0（2026-11-16）是独立组件标签，不是 OpenCode 应用版本。2026-11-17 核对。GitHub Latest 仍是 1.x 的 v1.19.5（2026-10-28）。npm @opencode/cli 的 latest 是 2.3.0（2026-11-13）。旧包 opencode-ai 的 latest 仍是 1.19.5，没有 2.x 版本。1.x 没有高于 1.19.5 的稳定版，因此不新增 1.x 记录。current_version 是 v2.3.0。'
+    summary_en: 'v2.3.0: highest stable 2.x release. GitHub Release published 2026-11-13, the same version is the top entry on opencode.ai/changelog, and git tag v2.3.0 points at that release. Subagents run in the background by default. They return immediately, report back when they become idle, and the parent session can keep working while several run at once. The TUI summarizes each run of tool calls and thoughts into one collapsible activity row. To see every step, set Verbosity to medium or high, or set session.verbosity in the TUI config. An existing setting is kept. Desktop adds Jump to message in the command palette: Cmd+Alt+G on macOS, Ctrl+Alt+G on Windows and Linux. It searches prompts in the current session and jumps to one. The experimental mcp_events flag receives MCP events. The experimental shell_timeout_background flag moves a shell command to the background when its timeout expires. With that flag on, an explicit timeout on a background command stops it. Smaller Core, TUI, and desktop fixes in the release notes are not rewritten one by one. process-daemon-v0.5.2 and process-daemon-v0.6.0 (published 2026-11-16) are separate component tags, not the OpenCode app version. Verified 2026-11-17. GitHub Latest is still v1.19.5 on the 1.x line (published 2026-10-28). The npm @opencode/cli latest dist-tag is 2.3.0 (published 2026-11-13). The old opencode-ai package latest dist-tag is still 1.19.5, and that package has no 2.x versions. No stable 1.x release is newer than 1.19.5, so this update adds no 1.x changelog entry. current_version is v2.3.0.'
+  - date: '2026-11-10'
+    type: release
+    summary: 'v2.2.7：2.x 稳定版，介于 v2.2.6 和 v2.3.0 之间。GitHub Release 于 2026-11-10 发布，官网 changelog 有同版。GitHub Copilot 账号有 Auto 额度时，可在模型选择器里选 Auto，由 Copilot 路由按 Auto 折扣为这次会话选模型；路由失败则回到该账号的默认聊天模型。侧栏标签可右键关闭右侧标签。⌘W 在任意焦点关闭侧栏标签，⌥⌘W 或 Ctrl+Alt+W 始终关闭会话标签，⌘⇧T 重新打开最近关闭的侧栏或会话标签。标签、Home 行、项目行或收件箱卡片可以标成未读，圆点留到下次打开。两处破坏性变更影响直接使用 @opencode/ai 或 SDK 的人：ImageResponse.image 已移除，改为读 response.images[0]。插件还在加载时，agent.list 只返回已经载入的 agent；integration.list、usage.limits、vcs.init、rpc.call 和 artifact.* 不再最多等 5 秒。插件提供的条目要等对应的 *.updated 事件后再刷新。模型、provider、generate.*、voice.* 和 websearch.query 仍会等待。其余修复见发布说明，这里不逐条改写。2026-11-17 核对。GitHub Latest 仍是 1.x 的 v1.19.5（2026-10-28）。npm @opencode/cli 的 latest 是 2.3.0（2026-11-13），该包也有 2.2.7。旧包 opencode-ai 的 latest 仍是 1.19.5，没有 2.x 版本。1.x 没有高于 1.19.5 的稳定版，因此不新增 1.x 记录。current_version 是 v2.3.0。'
+    summary_en: 'v2.2.7: stable 2.x release between v2.2.6 and v2.3.0. GitHub Release published 2026-11-10, and the same version is on opencode.ai/changelog. When a GitHub Copilot account has an Auto pool, Auto in the model picker lets the Copilot router choose the model for that session at the Auto discount. If routing fails, OpenCode falls back to the account default chat model. Right-click a side panel tab to close tabs to the right. Command-W closes side panel tabs wherever focus is. Option-Command-W or Ctrl+Alt+W always closes the session tab. Command-Shift-T reopens the last closed side panel or session tab where it was. Mark as unread on a tab, Home row, project row, or inbox card keeps the dot until the next visit. Two breaking changes affect people using @opencode/ai or the SDK directly. ImageResponse.image is removed; read response.images[0] instead. While a Location is still loading plugins, agent.list returns the agents loaded so far, and integration.list, usage.limits, vcs.init, rpc.call, and artifact.* no longer wait up to 5 seconds. Refresh on the matching *.updated event for entries a plugin provides. Model, provider, generate.*, voice.*, and websearch.query endpoints still wait. Smaller fixes in the release notes are not rewritten one by one. Verified 2026-11-17. GitHub Latest is still v1.19.5 on the 1.x line (published 2026-10-28). The npm @opencode/cli latest dist-tag is 2.3.0 (published 2026-11-13); that package also has 2.2.7. The old opencode-ai package latest dist-tag is still 1.19.5, and that package has no 2.x versions. No stable 1.x release is newer than 1.19.5, so this update adds no 1.x changelog entry. current_version is v2.3.0.'
   - date: '2026-11-06'
     type: release
     summary: 'v2.2.6：2.x 线最高稳定版。GitHub Release 于 2026-11-06 发布，官网 changelog 置顶同版，git tag v2.2.6 指向该版本。GitHub Latest 仍是 1.x 的 v1.19.5（2026-10-28），npm opencode-ai 的 latest 也仍是 1.19.5，且 npm 没有 opencode-ai@2.2.6。1.x 没有高于 1.19.5 的稳定版，因此不新增 1.x 记录。current_version 停在 2.x。本版：MCP 可设 pool: true，同一配置的多个项目共用一条连接。GUI 插件可以加配色主题、改写代码块或给代码块加操作，并用原生的设置和菜单组件。手机和平板上，输入操作放到键盘上方的触控栏，按钮更大。opencode run -w 在新建的 git worktree 里开会话，--worktree=<名称> 可指定名字，不能和 --continue 或 --session 一起用。opencode run --archived 把脚本和 CI 会话直接建成已归档，不出现在收件箱、主页和会话列表，TUI 列表也不显示，--continue 会跳过。opencode run 会等本次提示启动的后台 shell、子 agent 和图片任务结束，再让模型根据结果回复后退出；等待时打印 waiting for N background job(s)（--format json 时是 background_wait 事件）。没有时间上限，一直不退出的任务（例如开发服务器或文件监视）会把这次运行留着，直到 Ctrl+C 或 SIGTERM，所以 CI 要自己设超时。SIGTERM 会取消会话及其后台任务，退出码 143。服务端把文件读取和媒体做成沙箱下载，并拒绝跨站浏览器打开或请求 /api/*，避免项目里的文件在服务源上跑脚本。Webfetch 和 Code Mode 的 fetch 拒绝带凭据的 URL，匹配权限时忽略 #fragment；Code Mode 的每次重定向都再按 webfetch 规则检查。session_move 离开当前项目前会先请求 external_directory 权限。模型调用前最多等 2 秒，让还在连接的 MCP 把工具带进第一次提示和 opencode run；本地 MCP 工作目录里的 ~ 会展开。OpenCode Console 的配置请求 5 秒超时，连接被接受但一直不返回时不再卡住启动。可以按提供商和模型设置会话预热，interval 可以写成基于缓存 TTL 的 auto。实验性 Code Mode 字节码虚拟机默认关闭，用 experimental.codemode_vm: true 或 OPENCODE_FLAGS=codemode_vm 打开。Windows 认 Microsoft Store 安装的 PowerShell 7。Azure 上的 Foundry Claude 模型可以走 Messages。新增 websearch.use 策略，OPENCODE_FLAGS=all 或 experimental.all_flags 打开全部功能开关。TUI 设置里有发送后滚动，选 Keep（session.submit_scroll: "keep"）会留在当前阅读位置。对话框或表单打开时，Ctrl+Z 仍可挂起。桌面端还有：关闭其他标签、关闭右侧标签；收件箱按未读分组，失败的运行标在标签上；MCP 登录无法自动跳转时可以粘贴回调地址；命令面板里 7 天及以上的会话显示日期；提示历史最多 200 条，超过最新 100 条后只保留没有附件的。SDK 增加 client.experimental.job.list()，可按会话、后代、类型和状态列出后台 shell、子 agent 和图片任务。其余 TUI 和桌面端的零碎修复见发布说明，这里不逐条改写。2026-11-10 核对。'

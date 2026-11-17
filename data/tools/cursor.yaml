@@ -22,8 +22,8 @@ pricing:
     - name: Premium
       price: 30
       period: month
-      limits: Plus 的 4 倍用量；最新 Grok 模型、云端 Agent 与 Automations、Origin 代码托管、Bugbot；第三方模型按 API 标价另计，不包含在月费内
-      limits_en: 4x Plus usage; latest Grok models, cloud agents and automations, Origin code hosting, Bugbot; third-party models billed separately at API list price
+      limits: Plus 的 4 倍用量；最新 Grok 模型、云端 Agent 与 Automations、Origin 代码托管、Bugbot、Grok Bot；第三方模型按 API 标价另计，不包含在月费内
+      limits_en: 4x Plus usage; latest Grok models, cloud agents and automations, Origin code hosting, Bugbot, and Grok Bot; third-party models billed separately at API list price
     - name: Super
       price: 100
       period: month
@@ -46,9 +46,9 @@ pricing:
       per_user: true
       limits: 用量池化；发票/PO；SCIM；细粒度花费控制；审计日志与服务账号；优先支持
       limits_en: Pooled usage; invoice/PO billing; SCIM; granular spend controls; audit logs and service accounts; priority support
-  price_updated_at: '2026-10-16'
-  note: 2026-10-16 核对 https://cursor.com/en/pricing。个人档为 Free $0、Plus $8、Premium $30（标为 Most popular）、Super $100、Ultra $200。用量池与 Grok 共享并按周刷新，页面没有给出各档的美元额度。Plus 只有 Grok 模型；Premium 及以上的第三方模型按 API 标价另计。Teams 为 $30+/用户/月。公开 changelog 没有新的 IDE 语义化版本，current_version 仍是上次记录的 3.5，本次没有重新确认安装包版本。旧的 Hobby / Pro $20 / Pro+ $60 与「$20 额度池、Auto 无限」已不在该定价页上。
-  note_en: 'Verified 2026-10-16 at https://cursor.com/en/pricing. Individual tiers are Free $0, Plus $8, Premium $30 (marked Most popular), Super $100, and Ultra $200. The usage pool is shared with Grok and refreshes weekly; the page does not publish a dollar allowance per tier. Plus is Grok models only; third-party models on Premium and above are billed at API list price. Teams is $30+/user/month. The public changelog does not publish a newer IDE semver, so current_version stays at the previously recorded 3.5 and the installer version was not re-confirmed. Hobby, Pro $20, Pro+ $60, and the $20 credit pool with unlimited Auto are no longer on this pricing page.'
+  price_updated_at: '2026-11-17'
+  note: 2026-11-17 再核对 https://cursor.com/en/pricing。个人档价格和档位未变：Free $0、Plus $8、Premium $30（标为 Most popular）、Super $100、Ultra $200。用量池与 Grok 共享并按周刷新，页面仍没有给出各档的美元额度。Plus 只有 Grok 模型；Premium 及以上的第三方模型按 API 标价另计。对比表写明 Grok Bot 从 Premium 起，Plus 没有。Teams 仍为 $30+/用户/月。Enterprise 仍是定制，联系销售。公开 changelog 没有新的 IDE 语义化版本，current_version 仍是上次记录的 3.5，本次没有重新确认安装包版本。旧的 Hobby / Pro $20 / Pro+ $60 与「$20 额度池、Auto 无限」已不在该定价页上。
+  note_en: 'Re-checked 2026-11-17 at https://cursor.com/en/pricing. Individual prices and tier structure are unchanged: Free $0, Plus $8, Premium $30 (marked Most popular), Super $100, and Ultra $200. The usage pool is shared with Grok and refreshes weekly; the page still does not publish a dollar allowance per tier. Plus is Grok models only; third-party models on Premium and above are billed at API list price. The comparison table lists Grok Bot starting at Premium, not Plus. Teams is still $30+/user/month. Enterprise is still custom / contact sales. The public changelog does not publish a newer IDE semver, so current_version stays at the previously recorded 3.5 and the installer version was not re-confirmed. Hobby, Pro $20, Pro+ $60, and the $20 credit pool with unlimited Auto are no longer on this pricing page.'
 scores:
   coding_ability: 9.5
   cost_efficiency: 6
@@ -123,11 +123,15 @@ plans_using_this:
 data_sources:
   - url: https://cursor.com/en/pricing
     type: pricing
-    last_checked: '2026-10-16'
+    last_checked: '2026-11-17'
   - url: https://cursor.com/changelog
     type: changelog
     last_checked: '2026-10-16'
 changelog:
+  - date: '2026-11-17'
+    type: pricing
+    summary: 再核对 cursor.com/en/pricing。Free、Plus、Premium、Super、Ultra 和 Teams 的价格与档位结构未变。对比表写明 Grok Bot 从 Premium 起；此前 Premium 的记录里没有这一条。
+    summary_en: 'Re-checked cursor.com/en/pricing. Prices and tier structure for Free, Plus, Premium, Super, Ultra, and Teams are unchanged. The comparison table lists Grok Bot starting at Premium; the previous Premium limits did not include that.'
   - date: '2026-10-16'
     type: pricing
     summary: 定价页改为与 Grok 共享的周刷新用量池。个人档为 Free $0、Plus $8（仅 Grok 模型）、Premium $30（4 倍 Plus，含云端 Agent、Origin 代码托管与 Bugbot）、Super $100（15 倍）、Ultra $200（50 倍）。Premium 及以上的第三方模型按 API 标价另计。Teams 起价 $30/用户/月。

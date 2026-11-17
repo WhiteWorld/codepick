@@ -4,8 +4,8 @@ type: cli
 logo: /images/gemini-cli.png
 url: https://github.com/google-gemini/gemini-cli
 repo: https://github.com/google-gemini/gemini-cli
-current_version: v0.67.0
-version_tracked_at: '2026-11-10'
+current_version: v0.68.0
+version_tracked_at: '2026-11-17'
 pricing:
   model: freemium
   currency: USD
@@ -90,19 +90,26 @@ china_note: 需要 Google 账号，中国大陆访问 Google 服务需要代理�
 china_note_en: Requires Google account; accessing Google services from mainland China requires a proxy; no domestic mirror; China users can try Kimi Code or Trae CN as alternatives
 plans_using_this: []
 data_sources:
-  - url: https://github.com/google-gemini/gemini-cli/releases/tag/v0.67.0
+  - url: https://github.com/google-gemini/gemini-cli/releases/tag/v0.68.0
     type: release
-    last_checked: '2026-11-10'
+    last_checked: '2026-11-17'
   - url: https://github.com/google-gemini/gemini-cli/releases
     type: release
-    last_checked: '2026-11-10'
+    last_checked: '2026-11-17'
   - url: https://www.npmjs.com/package/@google/gemini-cli
     type: release
-    last_checked: '2026-11-10'
+    last_checked: '2026-11-17'
+  - url: https://github.com/google-gemini/gemini-cli/blob/main/docs/changelogs/latest.md
+    type: changelog
+    last_checked: '2026-11-17'
   - url: https://ai.google.dev/gemini-api/docs/pricing
     type: pricing
     last_checked: '2026-08-19'
 changelog:
+  - date: '2026-11-10'
+    type: release
+    summary: 'v0.68.0：GitHub Releases 的 latest 与 npm @google/gemini-cli 的 latest 都是 0.68.0（GitHub 于 2026-11-10 发布，npm 于 2026-11-10 发布）。Release 正文主要是 pull request 列表。下面按官网 docs/changelogs/latest.md 的 highlights 写用户能碰到的变化，没有逐条打开每个 PR。新增扩展校验命令，并按扩展加锁，避免同时安装互相覆盖。加载指示器会显示 HTTP 429 的冷却倒计时。临时改用别的模型、取消请求、以及 rewind 之后，用户选中的模型仍保留。Hooks 支持 SubagentStop 事件映射。rootless Podman 沙箱带上 --userns=keep-id。另有 Windows 进程查找、libuv 文件状态，以及 glob 搜索里符号链接路径的修复。同日的 v0.69.0-preview.0（npm dist-tag preview）和 nightly 是预发布，未计入。核对时 npm nightly 仍是 0.67.0-nightly.20261104.g89e9d25d6。没有高于 0.68.0 的稳定版。2026-11-17 核对。免费层额度未重新打开 Gemini API 定价页，仍沿用上次记录。'
+    summary_en: 'v0.68.0: GitHub Releases latest and npm @google/gemini-cli latest are both 0.68.0 (GitHub published 2026-11-10, npm published 2026-11-10). The GitHub Release body is largely a pull request list. The items below are the user-facing highlights from docs/changelogs/latest.md; each linked pull request was not opened. This version adds an extension validation command and serialized per-extension install locking. The loading indicator shows the HTTP 429 cool-down countdown. The selected model is kept across a transient fallback, cancel, and rewind. Hooks map the SubagentStop event. Rootless Podman sandboxes pass --userns=keep-id. There are also Windows process-lookup, libuv file-stat, and symlink-glob fixes. v0.69.0-preview.0 from the same day (the npm preview dist-tag) and nightlies are prereleases and are not tracked. When checked, the npm nightly dist-tag was still 0.67.0-nightly.20261104.g89e9d25d6. No newer stable release was published. Verified 2026-11-17. Free-tier quotas were not re-checked against the Gemini API pricing page and still reflect the previous record.'
   - date: '2026-11-04'
     type: release
     summary: 'v0.67.0：GitHub Releases 的 latest 与 npm @google/gemini-cli 的 latest 都是 0.67.0（2026-11-04 发布）。Release 正文是 pull request 列表，没有单独摘要；下面按标题归纳用户能碰到的变化，没有逐条打开每个 PR。新增 models 命令和 --list-models，用来查看可用模型。IDE 伴侣可以通过 exec stdio 接到容器沙箱。工作区是用户主目录时不再重复加载 agent。打开文件的上下文不再包含 IDE 设置和 GEMINI.md。不可信 flag 的检查只针对外部输出，并记住已批准的 flag。原子写入尊重只读文件和硬链接。相对文件路径按当前 IDE 工作区根目录解析。非交互模式处理终止信号，取消之后不再执行工具；请求取消后停止续写流和自动 nudge。迁移旧设置时保留 ${VAR} 占位符；从 Claude 迁来的 hook 超时由秒换算为毫秒。项目花费上限错误被标成终态配额错误。ACP 权限请求带上 MCP 服务器和工具元数据。/chat list 自动补全不再插入父命令名。数字设置编辑器拒绝非有限数字。Android（Termux）上，ripgrep 可以使用受信任的系统路径。生成 diff 上下文前先把 CRLF 换行归一化。修正泰语、老挝语 SARA AM 的显示宽度，并适配把歧义宽度字符画成宽字符的终端。confirm_action 不再重复记历史和遥测。带函数调用的每个模型回合都会带上 thought signature。自定义请求头按 RFC 9110 的 token 规则拆分。扩展的 token 用量元数据会保留，并按回合对齐上报。A2A 服务器在注册路由前挂上 express.json()。同日的 v0.68.0-preview.0，以及 v0.67.0-nightly.*（核对时 npm nightly 为 0.67.0-nightly.20261104.g89e9d25d6）是预发布，未计入。没有更高的稳定版。2026-11-10 核对。免费层额度未重新打开 Gemini API 定价页，仍沿用上次记录。'

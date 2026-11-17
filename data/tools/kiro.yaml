@@ -17,35 +17,36 @@ pricing:
     - name: Pro
       price: 20
       period: month
-      limits: 1,000 credits/月，可用 premium 模型，超额 $0.04/credit
-      limits_en: 1,000 credits/mo, premium models, overage $0.04/credit
+      limits: 1,000 credits/月，可用 premium 模型，加购 $0.04/credit
+      limits_en: 1,000 credits/mo, premium models, add-on credits at $0.04/credit
     - name: Pro+
       price: 40
       period: month
-      limits: 2,000 credits/月，可用 premium 模型，超额 $0.04/credit
-      limits_en: 2,000 credits/mo, premium models, overage $0.04/credit
+      limits: 2,000 credits/月，可用 premium 模型，加购 $0.04/credit
+      limits_en: 2,000 credits/mo, premium models, add-on credits at $0.04/credit
     - name: Pro Max
       price: 100
       period: month
-      limits: 5,000 credits/月，可用 premium 模型，超额 $0.04/credit
-      limits_en: 5,000 credits/mo, premium models, overage $0.04/credit
+      limits: 5,000 credits/月，可用 premium 模型，加购 $0.04/credit
+      limits_en: 5,000 credits/mo, premium models, add-on credits at $0.04/credit
     - name: Power
       price: 200
       period: month
-      limits: 10,000 credits/月，可用 premium 模型，超额 $0.04/credit
-      limits_en: 10,000 credits/mo, premium models, overage $0.04/credit
+      limits: 10,000 credits/月，可用 premium 模型，加购 $0.04/credit
+      limits_en: 10,000 credits/mo, premium models, add-on credits at $0.04/credit
     - name: Students
       price: 0
       limits: 高校学生专属，1,000 credits/月，免费 1 年
       limits_en: University students only, 1,000 credits/mo, free for 1 year
-    - name: Enterprise
-      price: null
+    - name: Teams / Enterprise（credit pooling）
+      price: 20
       period: month
-      limits: 定制配额，团队管理
-      limits_en: Custom quota, team management
-  price_updated_at: '2026-10-16'
-  note: 2026-10-16 核对 https://kiro.dev/pricing/。付费档为 Pro $20/1,000、Pro+ $40/2,000、Pro Max $100/5,000、Power $200/10,000 credits，超额 $0.04/credit。首次用社交登录或 AWS Builder ID 升级付费可获得 $20 订阅抵扣。未用完 credits 不结转。Free 为 50 credits，可用 Claude Sonnet 4.5 与开放权重模型。符合条件的高校学生在 kiro.dev/students 可获 1 年每月 1,000 credits。
-  note_en: 'Verified 2026-10-16 at https://kiro.dev/pricing/. Paid tiers are Pro $20/1,000, Pro+ $40/2,000, Pro Max $100/5,000, and Power $200/10,000 credits, with overage at $0.04/credit. The first paid upgrade with social login or AWS Builder ID gets a $20 subscription credit. Unused credits do not roll over. Free is 50 credits with Claude Sonnet 4.5 and open-weight models. Eligible university students get 1,000 credits/month free for one year at kiro.dev/students.'
+      per_user: true
+      limits: 2 席起。$20/席/月，每席每月 500 included credits，池内共享并按账单周期按比例计入；未用完的 included credits 不结转。加购 $0.04/credit，加购额度购买后 12 个月过期。这是新 Enterprise 客户的默认且唯一模型；已有 Enterprise 可以选择加入，也可以继续使用 Pro、Pro+、Pro Max 或 Power
+      limits_en: Teams of 2 or more. $20/seat/month, 500 included credits per seat each month, pooled and prorated to the billing cycle; unused included credits do not roll over. Add-on credits are $0.04 each and expire 12 months after purchase. This is the default and only model for new Enterprise customers; existing Enterprise customers can opt in or stay on Pro, Pro+, Pro Max, or Power
+  price_updated_at: '2026-11-17'
+  note: 2026-11-17 核对 https://kiro.dev/pricing/ 与 https://kiro.dev/students/。个人档价格和 credits 未变，数字来自页面 JSON-LD：Free 50、Pro $20/1,000、Pro+ $40/2,000、Pro Max $100/5,000、Power $200/10,000。加购仍为 $0.04/credit。未用完的 included credits 不结转。第一次从 Free 升到 Pro 时，当月剩余时间免费，另有 500 trial credits，12 个月内可用；费用和 credits 按秒比例计算，trial credits 在套餐 credits 用完后使用，升级需要信用卡。若一开始就买更高档，免费的 Pro 月仍算，只付差额。2026-11-01 之前升级的人保留 $20 折扣和未用完的 credits。定价页已不再把 $20 订阅抵扣或「500 bonus credits、30 天有效」写成当前优惠。团队 credit pooling 面向 2 席及以上，也是新 Enterprise 的默认且唯一模型。FAQ 写明 credit pooling 不使用 overage；仍停在 Pro、Pro+、Pro Max 或 Power 的已有 Enterprise 可以继续使用 overage。学生计划仍有效：符合条件的高校学生一年内每月 1,000 credits。
+  note_en: 'Verified 2026-11-17 at https://kiro.dev/pricing/ and https://kiro.dev/students/. Individual prices and credit amounts are unchanged, taken from the page JSON-LD: Free 50, Pro $20/1,000, Pro+ $40/2,000, Pro Max $100/5,000, and Power $200/10,000. Add-on credits are still $0.04 each. Unused included credits do not roll over. The first upgrade from Free to Pro makes the rest of that month free and adds 500 trial credits usable within 12 months. Fees and credits are prorated, trial credits are used after plan credits, and a card is required. Starting on a higher paid plan still includes the free Pro month; you pay only the difference. People who upgraded before November 1 keep the $20 discount and unused credits. The pricing page no longer lists a $20 subscription credit, or 500 bonus credits valid for 30 days, as the current offer. Credit pooling is for teams of 2 or more and is the default and only model for new Enterprise customers. The FAQ says credit pooling does not use overages, and existing Enterprise customers who stay on Pro, Pro+, Pro Max, or Power can keep using overages. Students remains valid: eligible university students get 1,000 credits/month free for one year.'
 scores:
   coding_ability: 8.5
   cost_efficiency: 6
@@ -68,6 +69,7 @@ features:
   supported_models:
     - Auto
     - Claude Opus 5
+    - Claude Opus 5.5
     - Claude Opus 4.8
     - Claude Sonnet 5
     - Claude Sonnet 4.6
@@ -76,6 +78,7 @@ features:
     - GPT-5.6 Sol
     - GPT-5.6 Terra
     - GPT-5.6 Luna
+    - Grok 4.7
     - Qwen3 Coder Next
     - DeepSeek 3.2
     - MiniMax M2.5
@@ -106,12 +109,12 @@ not_for_en:
   - JetBrains users
 quick_start:
   - 访问 kiro.dev，下载并安装 Kiro IDE（支持 macOS/Windows/Linux）
-  - 用 AWS 账号或邮箱注册登录（新用户赠送 500 bonus credits，30 天内有效）
+  - 用 AWS 账号、社交登录或邮箱注册。第一次从 Free 升到 Pro：当月剩余时间免费，另有 500 trial credits，12 个月内可用，需要信用卡。费用和 credits 按剩余时间比例计算，trial credits 在套餐 credits 用完后使用。一开始就买更高档时，免费的 Pro 月仍算，只付差额。2026-11-01 前已升级的人保留原来的 $20 折扣
   - 打开项目，在 Spec 面板用自然语言编写需求规格，Kiro 自动分析并生成实现方案
   - 使用 Kiro CLI（kiro 命令）可在终端执行 Agent 任务
 quick_start_en:
   - Visit kiro.dev, download and install Kiro IDE (macOS/Windows/Linux)
-  - Sign up with AWS account or email (new users get 500 bonus credits, valid 30 days)
+  - 'Sign up with an AWS account, social login, or email. The first upgrade from Free to Pro makes the rest of that month free and adds 500 trial credits usable within 12 months; a card is required. Fees and credits are prorated, and trial credits are used after plan credits. Starting on a higher paid plan still includes the free Pro month; you pay only the difference. Upgrades before 2026-11-01 keep the previous $20 discount'
   - Open your project, write requirements in the Spec panel in natural language; Kiro auto-generates implementation
   - Use Kiro CLI (kiro command) to run Agent tasks in the terminal
 register_url: https://kiro.dev
@@ -121,10 +124,10 @@ plans_using_this: []
 data_sources:
   - url: https://kiro.dev/pricing/
     type: pricing
-    last_checked: '2026-10-16'
+    last_checked: '2026-11-17'
   - url: https://kiro.dev/students/
     type: pricing
-    last_checked: '2026-10-16'
+    last_checked: '2026-11-17'
   - url: https://kiro.dev/blog/introducing-kiro/
     type: changelog
     last_checked: '2026-10-13'
@@ -132,6 +135,10 @@ data_sources:
     type: documentation
     last_checked: '2026-10-13'
 changelog:
+  - date: '2026-11-17'
+    type: pricing
+    summary: 个人档价格和 credits 未变：Free 50、Pro $20/1,000、Pro+ $40/2,000、Pro Max $100/5,000、Power $200/10,000，加购仍为 $0.04/credit，未用完的 included credits 不结转。首次从 Free 升到 Pro 改为当月剩余时间免费，另加 500 trial credits（12 个月内可用）。定价页不再把 $20 订阅抵扣或 30 天 500 bonus credits 写成当前优惠；2026-11-01 前升级的人保留 $20 折扣。新增团队 credit pooling：2 席起，$20/席/月，每席每月 500 credits，池内共享。新 Enterprise 默认且只能用这一模型，已有 Enterprise 可选择加入。FAQ 写明 credit pooling 不使用 overage，仍停在个人付费档的已有 Enterprise 可以继续使用 overage。付费档文案列入 Claude Opus 5.5 和 Grok 4.7。学生计划仍是符合条件的高校学生一年内每月 1,000 credits。
+    summary_en: 'Individual prices and credit amounts are unchanged: Free 50, Pro $20/1,000, Pro+ $40/2,000, Pro Max $100/5,000, and Power $200/10,000. Add-on credits stay $0.04 each, and unused included credits do not roll over. The first upgrade from Free to Pro is now the rest of that month free plus 500 trial credits usable within 12 months. The pricing page no longer lists a $20 subscription credit, or 500 bonus credits for 30 days, as the current offer. Upgrades before 2026-11-01 keep the $20 discount. Teams credit pooling is new: 2 or more seats, $20/seat/month, 500 credits per seat each month, pooled. It is the default and only model for new Enterprise customers; existing Enterprise customers can opt in. The FAQ says credit pooling does not use overages, and existing Enterprise customers who stay on an individual paid tier can keep using overages. Paid-plan copy lists Claude Opus 5.5 and Grok 4.7. Students remains 1,000 credits/month free for one year for eligible university students.'
   - date: '2026-10-16'
     type: pricing
     summary: 定价页新增 Pro Max：$100/月、5,000 credits，超额仍为 $0.04/credit。Pro / Pro+ / Power 的价格与额度未变。FAQ 列出的可选模型包括 Auto、Claude Opus 5 / Opus 4.8 / Sonnet 5，以及 GPT-5.6 Sol、Terra、Luna。
