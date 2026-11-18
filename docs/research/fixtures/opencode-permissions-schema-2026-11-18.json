@@ -1,0 +1,180 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Unmodified properties and transitive definitions extracted from https://opencode.ai/config.json on 2026-11-18 (Asia/Shanghai). Root narrowed to the four properties used in these guide examples; this is not the complete OpenCode schema.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "JSON schema reference for configuration validation"
+    },
+    "permissions": {
+      "$ref": "#/$defs/Permission.Ruleset",
+      "description": "Ordered tool permission rules applied to agent tool use"
+    },
+    "policies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "provider.use",
+              "tool.use",
+              "integration.connect",
+              "integration.use",
+              "mcp.use",
+              "skill.use",
+              "plugin.use",
+              "websearch.use"
+            ]
+          },
+          "resource": {
+            "type": "string"
+          },
+          "effect": {
+            "type": "string",
+            "enum": [
+              "allow",
+              "deny"
+            ]
+          }
+        },
+        "required": [
+          "action",
+          "resource",
+          "effect"
+        ],
+        "additionalProperties": false
+      },
+      "description": "Ordered policies controlling access to providers, tools, and integrations"
+    },
+    "agents": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/Config.AgentEncoded"
+      },
+      "description": "Named built-in agent overrides and custom agent definitions"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "Permission.Ruleset": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Permission.Rule"
+      }
+    },
+    "Permission.Rule": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string"
+        },
+        "resource": {
+          "type": "string"
+        },
+        "effect": {
+          "$ref": "#/$defs/Permission.Effect"
+        }
+      },
+      "required": [
+        "action",
+        "resource",
+        "effect"
+      ],
+      "additionalProperties": false
+    },
+    "Permission.Effect": {
+      "type": "string",
+      "enum": [
+        "allow",
+        "deny",
+        "ask"
+      ]
+    },
+    "Config.AgentEncoded": {
+      "type": "object",
+      "properties": {
+        "model": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[^/#]+\\/[^#]+(?:#[^#]+)?$"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "providerID": {
+                  "type": "string",
+                  "pattern": "^[^/#]+$"
+                },
+                "model": {
+                  "type": "string",
+                  "pattern": "^[^#]+$"
+                },
+                "variant": {
+                  "type": "string",
+                  "pattern": "^[^#]+$"
+                }
+              },
+              "required": [
+                "providerID",
+                "model"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "request": {
+          "type": "object",
+          "properties": {
+            "headers": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "body": {
+              "type": "object"
+            }
+          },
+          "additionalProperties": false
+        },
+        "system": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "subagent",
+            "primary",
+            "all"
+          ]
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "color": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        },
+        "steps": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "exclusiveMinimum": 0
+        },
+        "disabled": {
+          "type": "boolean"
+        },
+        "permissions": {
+          "$ref": "#/$defs/Permission.Ruleset"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
