@@ -10,7 +10,7 @@ locale_strategy: mirrored
 draft: false
 ---
 
-> Review draft. Checked November 18, 2026 (Asia/Shanghai), against that day's V2 documentation and public JSON Schema. We checked structure offline; we did not start OpenCode, call a model or test runtime enforcement.
+> Checked November 18, 2026 (Asia/Shanghai), against that day's V2 documentation and public JSON Schema. We checked structure offline; we did not start OpenCode, call a model or test runtime enforcement.
 
 You asked for confirmation before pushing, but saw no prompt. Your primary agent cannot edit, yet a subagent still can. Before adding duplicate rules, **identify the loaded configurations, the last matching rule, and the agent actually taking the action.**
 

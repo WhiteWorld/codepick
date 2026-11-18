@@ -10,7 +10,7 @@ locale_strategy: mirrored
 draft: false
 ---
 
-> Review draft. Sources checked on November 18, 2026 (Asia/Shanghai). We checked official documentation and examples offline. We did not upload real files, call a model or verify a bill.
+> Sources checked on November 18, 2026 (Asia/Shanghai). We checked official documentation and examples offline. We did not upload real files, call a model or verify a bill.
 
 The model can repeat the requirements text, but misses the arrow from “rejected” back to “resubmit.” Before changing models or asking it to guess, **check the upload's `purpose`, then whether that figure reached the context at all.**
 

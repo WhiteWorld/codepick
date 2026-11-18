@@ -75,7 +75,8 @@ test('built guides preserve reviewed bodies, official links and structured artic
     const html = read(`dist/${lang}/guides/${slug}/index.html`);
     const metadata = fm(source(lang, slug));
     assert.ok(html.includes(metadata.title));
-    assert.ok(html.includes(lang === 'zh' ? '审阅稿' : 'Review draft'));
+    assert.ok(!html.includes(lang === 'zh' ? '审阅稿' : 'Review draft'));
+    assert.ok(html.includes(lang === 'zh' ? '核查日' : 'November 18, 2026'));
     assert.ok(html.includes(slug.startsWith('deepseek') ? 'rich_layout_recognition' : 'external_directory'));
     const ld = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)]
       .flatMap(([, json]) => JSON.parse(json)).find(v => v['@type'] === 'HowTo');
