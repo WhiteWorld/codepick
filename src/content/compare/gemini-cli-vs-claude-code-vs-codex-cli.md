@@ -1,123 +1,94 @@
 ---
-title: "Gemini CLI vs Claude Code vs Codex CLI：三大免费终端 Agent 对比 2026"
-description: "三款顶级终端 AI 编程工具横向对比：免费额度、模型能力、安装方式、适用场景。帮你选出最适合自己的命令行 AI 助手。"
+title: "Gemini CLI vs Claude Code vs Codex CLI：先核对登录与计费，再选终端 Agent"
+description: "Gemini CLI 个人入口已变更，Claude Code 不只支持 API Key，Codex CLI 也不只绑定 Plus。按当前官方文档比较访问资格、账单、迁移与执行权限，避免用旧免费额度做选择。"
 date: "2026-02-17"
-tags: ["gemini-cli", "claude-code", "codex-cli", "终端", "cli", "免费", "对比"]
+updated_at: "2026-11-18"
+tags: ["gemini-cli", "claude-code", "codex-cli", "终端", "cli", "对比"]
 pillar: compare
 content_status: keep
 locale_strategy: mirrored
+draft: false
 ---
 
-2025-2026 年，三大科技巨头先后推出了自己的终端 AI 编程 Agent：Google 的 Gemini CLI、Anthropic 的 Claude Code、OpenAI 的 Codex CLI。三者都在终端运行，但定价模型、免费额度和能力侧重差异显著。
+同样在终端运行，不代表登录方式、额度和账单相同。选工具之前，先确认你的账号今天还能用哪个入口，再看它是否适合你的工作流。
 
-## 一眼看懂
+**核对日期：2026-11-18（Asia/Shanghai）。** 本文核对官方公告、认证、计费与安装文档，不是性能实测。没有执行安装命令、登录账号或测试中国大陆连通性，也不据此评选“代码能力最强”。
 
-| 维度 | Gemini CLI | Claude Code | Codex CLI |
-|------|-----------|-------------|-----------|
-| 免费额度 | **1000 次/天**（个人账号） | 无独立免费层 | 需 ChatGPT Plus |
-| 最低月费 | $0 | $0（用 API Key 按量） | $20（ChatGPT Plus） |
-| 核心模型 | Gemini 2.5 Pro | Claude Opus 4.6 | o3 / o4-mini |
-| 上下文窗口 | **100 万 token** | 20 万 token | 标准 |
-| 开源 | ✅ | ✅ | ✅ |
-| 国内可用 | ❌ | ❌ | ❌ |
-| MCP 支持 | ✅ | ✅ | ✅ |
+## 先看访问资格，而不是旧免费额度
 
----
+| 要核对什么 | Gemini CLI | Claude Code | Codex CLI |
+| --- | --- | --- | --- |
+| 个人账号入口 | 原免费、Google AI Pro / Ultra 的个人入口已于 2026-06-18 停止服务请求；查看 Antigravity CLI 迁移说明 | 支持符合资格的 Claude 订阅、Console 或组织配置的云提供商，不是必须自备 API Key | 本地 CLI 支持 ChatGPT 登录或 API Key；能否使用 CLI 要看套餐的具体界面资格 |
+| 账单与额度 | 付费 Gemini / Agent Platform API Key 入口仍保留；旧 Code Assist 组织订阅另有生命周期 | 订阅、Console 和第三方提供商是不同计费路径；不要把订阅额度当作 API 余额 | API Key 使用单独的 API 账单，不消耗 ChatGPT 套餐额度；订阅额度也不等于无限任务 |
+| 新项目怎么选 | 个人新项目先评估迁移路线；组织项目先查合同和到期规则 | 先确认登录路径，再配置项目指令、MCP 和工具授权 | 先确认 CLI 资格与账单，再检查权限、模型和审查流程 |
 
-## 免费额度详解
+“客户端可安装”和“账号可以调用模型”是两件事。开源许可证也不等于免费推理：Codex 仓库使用 Apache-2.0，而 Claude Code 仓库的 LICENSE 指向商业条款，不能把三者一律标成开源免费。
 
-### Gemini CLI：最慷慨的免费层
+## Gemini CLI：区分个人迁移、组织合同和 API Key
 
-用个人 Google 账号登录即可获得：
-- **60 请求/分钟**
-- **1000 请求/天**
-- 免费使用 Gemini 2.5 Pro（市值数百美元的顶级模型）
+Google 的 [2026-05-19 公告](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli) 明确：个人免费 Code Assist、Google AI Pro 和 Ultra 的 Gemini CLI 请求在 **2026-06-18** 停止服务。因此，不应再把旧的个人免费请求数当作今天的入门方案。
 
-对绝大多数开发者来说，这已经足够日常使用，无需信用卡。
+公告保留付费 Gemini 和 Gemini Enterprise Agent Platform API Key 入口，也说明 Antigravity CLI 刚推出时**不是功能一比一替代**。迁移前检查项目指令、扩展、MCP、Hooks 和自动化脚本，不要只替换可执行文件名。
 
-### Claude Code：按量计费，无固定免费额度
+组织用户还需要看较新的 [Code Assist 停售与迁移说明](https://docs.cloud.google.com/gemini/docs/codeassist/sunset)：
 
-Claude Code 不绑定订阅，直接使用 Anthropic API Key：
-- 个人使用无固定免费额度（新账号有少量免费 credit）
-- 但有 **Max 订阅**（$100-200/月），提供高用量保障
-- 灵活性最高——用多少付多少，不浪费
+- **2026-10-09** 起不再新售 Code Assist Standard / Enterprise；新 Gemini Enterprise Standard / Plus 也不再自动包含这项权益。
+- 已有 Code Assist 订阅支持到合同结束。年付自动续订可持续到 **2027-01-31**，月付可持续到 **2027-12-31**；这些是续订边界，不是所有账号同一天停机。
+- 已有 Gemini Enterprise 订阅中的 Code Assist 权益保留至 **2027-03-31**；已有 Code Assist 订阅增加席位的边界为 **2027-01-31**。
+- Code Assist 的模型支持限制在 Gemini 3.x 系列，不能沿用旧文中的 Gemini 2.5 Pro 推荐。
 
-### Codex CLI：需要 ChatGPT Plus
+这些官方日期未标明具体时区，本文不把它们改写成某个中国时间截止时刻。五月公告中“企业访问不变”的说法，也不能覆盖后来公布的停售、续订和权益规则。
 
-- 必须有 ChatGPT Plus（$20/月）或使用 OpenAI API Key 按量计费
-- Plus 订阅包含的 Codex 额度有上限（5小时约 30-150 次任务）
-- API Key 方式灵活但 o3 模型价格较高
+## Claude Code：订阅登录和 API 计费是两条路
 
-> 💡 **零成本入门推荐**：Gemini CLI。个人 Google 账号，1000 次/天，秒杀其他两个。
+[认证文档](https://code.claude.com/docs/en/authentication) 列出 Claude Pro / Max / Ultra、团队或企业账号、Console，以及组织配置的云提供商。运行 `claude` 后可以走官方登录流程；API Key 不是所有人的必需条件。
 
----
+先选择你实际要用的计费路径。不要仅因机器上已有订阅登录，就假定 Console / API 请求免费；也不要把付费订阅写成高用量或无额度上限的保证。团队账号还受管理员配置和席位资格影响。
 
-## 模型能力对比
-
-### Gemini CLI — Gemini 2.5 Pro
-- 100 万 token 超长上下文，能一次性处理整个大型代码库
-- 内置 Google Search Grounding，可实时搜索最新文档/API
-- 多模态支持（图片理解）
-
-### Claude Code — Claude Opus 4.6
-- 代码生成质量公认顶级，尤其擅长复杂推理和架构设计
-- CLAUDE.md 项目规范机制，能深度理解项目上下文
-- Git 工作流集成最完善（commit、PR、分支管理）
-
-### Codex CLI — o3 / o4-mini
-- OpenAI 推理模型，在算法题和数学推导上有优势
-- 全屏 TUI 界面，交互体验最接近 IDE
-- 支持 MCP，可扩展外部工具
-
----
-
-## 安装方式
+[官方安装概览](https://code.claude.com/docs/en/overview) 推荐原生安装，也提供 Homebrew、WinGet 等方式。按你的系统选择安装方法，再检查版本和登录状态。例如，使用 Homebrew 的 macOS 用户可按官方文档安装：
 
 ```bash
-# Gemini CLI
-npm install -g @google/gemini-cli
-gemini  # 用 Google 账号登录即可
-
-# Claude Code
-npm install -g @anthropic-ai/claude-code
-claude  # 需要 ANTHROPIC_API_KEY
-
-# Codex CLI
-npm install -g @openai/codex
-# 或
-brew install --cask codex
-codex  # 需要 OPENAI_API_KEY 或 ChatGPT 登录
+brew install --cask claude-code
+claude --version
+claude
 ```
 
----
+这只是文档中的安装路径，不是本文完成的安装测试。项目可以用 `CLAUDE.md` 记录约束，通过 MCP 接工具；这些能力并不保证生成代码正确，也不能替代权限审查。
 
-## 适用场景对比
+## Codex CLI：不要把桌面 Free 资格当作 CLI 资格
 
-| 场景 | 推荐 |
-|------|------|
-| 零成本体验顶级模型 | **Gemini CLI** |
-| 处理超大代码库（>10万行） | **Gemini CLI**（100万 token）|
-| 复杂架构设计 / 代码重构 | **Claude Code** |
-| Git 工作流自动化 | **Claude Code** |
-| 算法/数学密集型任务 | **Codex CLI**（o3 推理）|
-| 已订阅 ChatGPT Plus | **Codex CLI**（无额外成本）|
+[Codex 认证文档](https://developers.openai.com/codex/auth/) 区分 ChatGPT 订阅登录和 API Key 按量计费，本地 CLI 支持两者。不是每个用户都必须购买 Plus，也不是所有 API Key 功能都与订阅或云端功能相同。
 
----
+[当前计费页](https://developers.openai.com/codex/pricing/) 的总说明提到 Free / Go，但具体条目把这两档的相关入口描述为 **desktop app，subject to rollout**；Plus 条目才明确列出 CLI 等界面。因此，不能仅凭页面总标题就承诺任意 Free / Go 账号可用 CLI。
 
-## 国内使用
+套餐用量还取决于模型、任务复杂度、上下文和本地或云端执行方式。旧文中的固定五小时任务数，不宜当作当前合同额度；查账号用量页和当前套餐说明。API Key 请求走独立 API 账单，不包含在 ChatGPT 订阅中。
 
-三者均需访问境外 API，国内网络无法直连：
-- Gemini CLI → Google API（被屏蔽）
-- Claude Code → Anthropic API（被屏蔽）
-- Codex CLI → OpenAI API（被屏蔽）
+[官方 CLI 文档](https://developers.openai.com/codex/cli/) 和 [仓库 README](https://github.com/openai/codex) 提供原生安装、npm 与 Homebrew 等入口。已满足 npm 环境要求的用户可按官方说明选择：
 
-国内开发者建议参考 [Cline + 火山方舟 Coding Plan](https://www.volcengine.com/L/s3lNTNYxaEc/)（[配置指南](/guides/cline-ark-setup)）。
+```bash
+npm install -g @openai/codex
+codex
+```
 
----
+启动后确认登录方式，并检查 `/status`、`/model` 和 `/permissions`。不要因为任务在本地执行，就以为模型请求不出设备；认证方式也会影响适用的数据条款。
 
-## 总结推荐
+## 用同一个小任务做自己的比较
 
-- **想免费用**：选 Gemini CLI，1000 次/天完全够用
-- **最强代码质量**：选 Claude Code，架构和重构无出其右
-- **已是 ChatGPT Plus 用户**：选 Codex CLI，附赠使用成本为零
-- **超大代码库**：Gemini CLI 的 100 万 token 上下文无可替代
+不要用固定上下文数字推导“能一次读完整个仓库”，也不要把某个厂商模型名永久绑定到客户端。实际可选模型、工具权限和额度会随账号、版本与组织配置变化。
+
+可以在独立测试仓库里比较同一个有限任务，例如“解释一个函数，并为它补两个边界条件测试”：
+
+1. 先留 Git 检查点，不放真实凭据或生产数据。
+2. 记录登录路径、所选模型、授权的目录/命令和实际费用来源。
+3. 人工审查 diff，再运行项目已有测试；记录失败，而不是只看回答是否流畅。
+4. 比较完成质量、用量和操作成本，不预设某个工具一定最强或零成本。
+
+上面是建议的验证方法，**不是本文已执行的评测结果**。中国大陆访问、账号资格和支付需要分别核实，本文不作一刀切的可用/不可用判断，也不推荐通过转售账号或非官方中转绕过地区规则。
+
+## 选择建议
+
+- **个人原 Gemini CLI 用户**：先读官方迁移公告，检查替代入口和未对齐功能；不要继续依赖历史个人免费额度。
+- **已有 Claude 订阅或组织环境**：先确认 CLI 登录与计费配置，再评估项目指令、MCP 和权限工作流。
+- **已有符合资格的 ChatGPT 套餐，或需要 API 方式自动化**：分别核对 Codex CLI 的界面资格和独立账单；不要把本地 CLI 等同云端功能全包。
+
+需要更多按工具整理的来源与限制，可查看 [Gemini CLI](/zh/tool/gemini-cli)、[Claude Code](/zh/tool/claude-code) 和 [Codex CLI](/zh/tool/codex-cli)。[Claude Code LICENSE](https://github.com/anthropics/claude-code/blob/main/LICENSE.md) 与 [Codex LICENSE](https://github.com/openai/codex/blob/main/LICENSE) 也应与服务访问资格分开阅读。
