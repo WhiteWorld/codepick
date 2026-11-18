@@ -7,7 +7,7 @@ tags: [opencode, permissions, security, workflow]
 pillar: workflow
 content_status: keep
 locale_strategy: mirrored
-draft: true
+draft: false
 ---
 
 > Review draft. Checked November 18, 2026 (Asia/Shanghai), against that day's V2 documentation and public JSON Schema. We checked structure offline; we did not start OpenCode, call a model or test runtime enforcement.

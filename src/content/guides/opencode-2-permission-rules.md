@@ -7,7 +7,7 @@ tags: [opencode, permissions, security, workflow]
 pillar: workflow
 content_status: keep
 locale_strategy: mirrored
-draft: true
+draft: false
 ---
 
 > 审阅稿。核查日：2026-11-18（北京时间）。依据当天 V2 官方文档和公开 JSON Schema；做了离线结构检查，没有启动 OpenCode、调用模型或实测拦截效果。

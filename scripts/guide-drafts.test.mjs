@@ -11,7 +11,7 @@ const fm = text => yaml.load(text.match(/^---\n([\s\S]*?)\n---/)[1]);
 const jsonBlocks = text => [...text.matchAll(/^```json\n([\s\S]*?)^```/gm)].map(([, code]) => JSON.parse(code));
 const officialLinks = text => [...new Set([...text.matchAll(/\]\((https:\/\/[^)]+)\)/g)].map(([, url]) => url))].sort();
 
-test('both complete bilingual guides remain marked as dated mirrored review drafts', () => {
+test('both reviewed bilingual guides are enabled for publication with mirrored metadata', () => {
   for (const slug of slugs) {
     const zh = source('zh', slug), en = source('en', slug);
     const a = fm(zh), b = fm(en);
@@ -19,7 +19,7 @@ test('both complete bilingual guides remain marked as dated mirrored review draf
       assert.deepEqual(a[key], b[key]);
     }
     assert.equal(a.date, '2026-11-18');
-    assert.equal(a.draft, true);
+    assert.equal(a.draft, false);
     assert.equal(a.locale_strategy, 'mirrored');
     assert.ok(zh.split('\n').length > 130 && en.split('\n').length > 130, 'complete articles, not outlines');
     assert.deepEqual(officialLinks(zh), officialLinks(en));
@@ -70,7 +70,7 @@ test('permission caveats include policy validation conflict, version gates and n
   }
 });
 
-test('built review copies keep their bodies, official links and structured article metadata', () => {
+test('built guides preserve reviewed bodies, official links and structured article metadata', () => {
   for (const lang of ['zh', 'en']) for (const slug of slugs) {
     const html = read(`dist/${lang}/guides/${slug}/index.html`);
     const metadata = fm(source(lang, slug));
@@ -87,14 +87,20 @@ test('built review copies keep their bodies, official links and structured artic
   }
 });
 
-test('drafts stay out of guide listings and RSS; related local links resolve', () => {
-  // Existing guide routes still render drafts directly: do not merge/publish before approval.
+test('published guides appear in listings, RSS and sitemap with reciprocal language routes', () => {
+  const sitemap = read('dist/sitemap-0.xml');
   for (const lang of ['zh', 'en']) {
     const index = read(`dist/${lang}/guides/index.html`);
     const rss = read(`dist/${lang}/rss.xml`);
     for (const slug of slugs) {
-      assert.ok(!index.includes(`/guides/${slug}/`));
-      assert.ok(!rss.includes(`/guides/${slug}/`));
+      const url = `https://codepick.dev/${lang}/guides/${slug}/`;
+      assert.ok(index.includes(`/${lang}/guides/${slug}/`));
+      assert.ok(rss.includes(url));
+      assert.ok(sitemap.includes(`<loc>${url}</loc>`));
+      const html = read(`dist/${lang}/guides/${slug}/index.html`);
+      assert.ok(html.includes(`<link rel="canonical" href="${url}"`));
+      const other = lang === 'zh' ? 'en' : 'zh';
+      assert.ok(html.includes(`hreflang="${other}" href="https://codepick.dev/${other}/guides/${slug}/"`));
       for (const [, target] of source(lang, slug).matchAll(/\]\((\/(?:zh|en)\/[^)#]+)\)/g)) {
         assert.ok(existsSync(new URL(`../dist${target}index.html`, import.meta.url)), target);
       }

@@ -7,7 +7,7 @@ tags: [deepseek, api, pdf, workflow]
 pillar: workflow
 content_status: keep
 locale_strategy: mirrored
-draft: true
+draft: false
 ---
 
 > 审阅稿。核查日：2026-11-18（北京时间）。本文核对官方文档，并做离线示例检查；没有上传真实文件、调用模型或验证账单。
