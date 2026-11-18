@@ -4,17 +4,34 @@ type: cli
 logo: /images/opencode.png
 url: https://opencode.ai
 repo: https://github.com/anomalyco/opencode
-current_version: v2.3.0
-version_tracked_at: '2026-11-17'
+current_version: v2.3.2
+version_tracked_at: '2026-11-18'
 pricing:
-  model: free
-  currency: null
+  model: open_source
+  currency: USD
   plans:
-    - name: 开源免费
+    - name: MIT client / BYOK
       price: 0
-      limits: 无限制（需自备 API Key）
-      limits_en: Unlimited (requires your own API Key)
-  price_updated_at: '2026-01-20'
+      limits: MIT 开源客户端；模型调用按所选提供商的价格、额度和条款计费，不是无限免费推理。
+      limits_en: MIT-licensed client; model calls follow the selected provider’s prices, limits and terms, not unlimited free inference.
+    - name: OpenCode Go
+      price: 10
+      period: month
+      limits: 可选托管模型订阅；5 小时、每周与每月共享额度，按模型折算；不是无限用量。
+      limits_en: Optional hosted-model subscription with shared five-hour, weekly and monthly allowances, weighted by model; not unlimited.
+    - name: OpenCode Go Plus
+      price: 40
+      period: month
+      limits: 可选托管模型订阅；比 Go 更高的额度，同样受共享用量窗口限制。
+      limits_en: Optional hosted-model subscription with higher allowances than Go and the same shared usage windows.
+    - name: OpenCode Go Teams (2 members)
+      price: 40
+      period: month
+      limits: 每成员每月 $20，至少 2 名成员（最低 $40/月）；每位成员独立额度，服务账号不包含。默认开启 Extra Usage，可能另扣预付余额。
+      limits_en: $20/member/month, two-member minimum ($40/month); separate member allowances, excluding service accounts. Extra Usage starts enabled and can spend prepaid credits.
+  price_updated_at: '2026-11-18'
+  note: 2026-11-18 文档复审：免费的是 MIT 客户端，不保证模型推理免费。可自接提供商，也可选 Go / Go Plus / Go Teams 或 Console 按量余额；各自账单分开。Go 的 5 小时和每周窗口分别为月额度的 20% 与 50%，切换模型共享同一额度；每周一 08:00（Asia/Shanghai）重置周额度。Extra Usage 会在限额后使用余额，Go Teams 默认开启。Console 充值另加 4.6% + $0.31 手续费。模型可用性、训练与保留条款因端点和工作区隐私设置而异，不能承诺全局零保留或中国大陆全部模型可用。V2 保留 lsp 配置但不运行语言服务器，应改用项目 lint/typecheck 命令；权限文档的默认策略较宽，不是强隔离沙箱。历史编辑评分沿用，未重新实测；本次是官方文档核对，不是性能、地区连通性或隐私合规认证。
+  note_en: 'Documentary review 2026-11-18: the MIT client is free, not necessarily model inference. Bring a provider, choose Go / Go Plus / Go Teams, or use Console pay-as-you-go credits; billing routes differ. Five-hour and weekly Go windows are 20% and 50% of the shared monthly allowance; switching models shares that allowance. Weekly reset is Monday 08:00 Asia/Shanghai. Extra Usage spends credits after limits; Go Teams starts with it enabled. Console top-ups add a 4.6% + $0.31 processing fee. Model availability, training and retention depend on endpoint and workspace privacy settings; no universal zero-retention or mainland-China availability claim. V2 preserves lsp config but runs no language servers; use project lint/typecheck commands. Documented default permissions are broad, not a hardened sandbox. Historical editorial scores retained without new hands-on testing; this review is not a performance, regional-connectivity or privacy-compliance certification.'
 scores:
   coding_ability: 7.5
   cost_efficiency: 9.5
@@ -27,8 +44,8 @@ features:
   agent_mode: true
   multi_file_edit: true
   mcp_support: true
-  context_window: 取决于所选模型
-  supported_models: 75+ 模型提供商（OpenAI / Anthropic / Gemini / Bedrock / Groq / Azure / OpenRouter）
+  context_window: Provider/model dependent / 取决于提供商与模型
+  supported_models: models.dev catalog + configured providers; project/account dependent / 依项目与账号
   ide_base: 终端 CLI (TUI)
   desktop_app: true
   supported_os:
@@ -36,44 +53,99 @@ features:
     - Windows
     - Linux
   multi_session: true
-  lsp_integration: true
+  lsp_integration: false
   tool_calling: true
 best_for:
-  - 终端党 / Vim 用户
-  - 搭配方舟 Coding Plan 的国产CLI方案
-  - 喜欢 TUI 界面的开发者
+  - 使用终端或 TUI 工作流的开发者
+  - 需要自选模型提供商、MCP 与项目级工具权限的用户
+  - 愿意核对 V1→V2 插件和服务端接口迁移的团队
 best_for_en:
-  - Terminal / Vim users
-  - China-friendly CLI setup with Volcengine Ark Coding Plan
-  - Developers who prefer TUI interfaces
+  - Developers using terminal or TUI workflows
+  - Users who need provider choice, MCP and project-level tool permissions
+  - Teams willing to validate V1→V2 plugin and server-API migration
 not_for:
-  - 习惯 GUI IDE 的用户
-  - 需要代码补全（Tab）的用户
+  - 依赖 IDE 内联 Tab 补全的用户
+  - 依赖 V1 LSP 语言服务器诊断且不能迁移到 lint/typecheck 的工作流
+  - 把默认权限当成强隔离沙箱、或要求所有模型免费无限使用的人
 not_for_en:
-  - Users accustomed to GUI IDEs
-  - Users who need Tab code completion
+  - Users requiring inline IDE Tab completion
+  - Workflows dependent on V1 LSP diagnostics that cannot move to lint/typecheck
+  - Users expecting hardened default isolation or unlimited free access to every model
 quick_start:
-  - '安装 OpenCode 2：curl -fsSL https://opencode.ai/v2/install | bash，或 npm install -g @opencode/cli，或 bun install -g --trust @opencode/cli，或 brew install anomalyco/tap/opencode-v2'
-  - npm 上的 opencode-ai 是 1.x 包（latest 仍为 1.19.5），不是这条正在跟踪的 2.x
-  - 配置模型 API Key，支持 75+ 提供商：export ANTHROPIC_API_KEY=xxx 或通过 TUI 配置向导设置
-  - 进入项目目录运行：opencode，进入美观的 TUI 界面
-  - 国内用户推荐搭配火山方舟 Coding Plan（Lite 首月 ¥9.9 / 续费 ¥40），无需翻墙
+  - 按官网安装 OpenCode 2：npm install -g @opencode/cli，或使用官网列出的原生安装方式；Windows 有独立二进制，当前不支持 Windows 包管理器安装。
+  - 2026-11-18 核对：@opencode/cli 的 latest 为 2.3.2；旧包 opencode-ai 为 1.x 维护线，latest 为 1.19.6。不要混用。
+  - 从 V1 迁移前备份配置：V1 与 V2 使用同一 opencode 命令和配置位置；插件 API、服务端 API 与终端配置存在破坏性变更。
+  - 进入项目运行 opencode，以 /connect 连接提供商，再用 /models 选择该项目可用模型；无需订阅 Go 才能使用客户端。
+  - 先核对 permissions、MCP 与提供商费用；V2 不运行 LSP，应配置项目自身的 lint、typecheck 与测试命令。
 quick_start_en:
-  - 'Install OpenCode 2: curl -fsSL https://opencode.ai/v2/install | bash, or npm install -g @opencode/cli, or bun install -g --trust @opencode/cli, or brew install anomalyco/tap/opencode-v2'
-  - 'The npm package opencode-ai is the 1.x line (latest is still 1.19.5), not the tracked 2.x line'
-  - 'Configure model API Key (supports 75+ providers): export ANTHROPIC_API_KEY=xxx or use TUI setup wizard'
-  - 'cd to your project directory and run: opencode to launch the TUI interface'
-  - 'China users: pair with Volcengine Ark Coding Plan (¥9.9 first month / ¥40 renewal) for access without VPN'
-china_note: 支持火山方舟 Coding Plan（Lite 首月 ¥9.9 / 续费 ¥40），国内直连使用 DeepSeek 等主流模型，无需翻墙；也支持阿里百炼、月之暗面等国内 API
-china_note_en: Supports Volcengine Ark Coding Plan (¥9.9 first month / ¥40 renewal) for direct access to DeepSeek and other models without VPN; also supports Alibaba Bailian, Moonshot, and other Chinese APIs
+  - Install OpenCode 2 with npm install -g @opencode/cli or another native method documented by the vendor. Windows standalone binaries exist; Windows package managers are not currently supported.
+  - 'Checked 2026-11-18: @opencode/cli latest is 2.3.2; legacy opencode-ai latest is 1.19.6 on the separate 1.x maintenance line. Do not confuse the packages.'
+  - 'Back up configuration before V1 migration: V1 and V2 share the opencode command and config locations. Plugin API, server API and terminal configuration have breaking changes.'
+  - Run opencode in a project, use /connect for a provider and /models for an available model. Go is optional, not a prerequisite for the client.
+  - Inspect permissions, MCP and provider bills first. V2 runs no LSP servers; configure the project’s lint, typecheck and test commands.
+china_note: 客户端可自接提供商或自定义兼容端点，地区资格、支付与连通性需单独验证，不能保证无需网络配置或全部模型可用。Go 的模型受工作区 Regions 与训练数据开关限制；DeepSeek 模型需要 Global 区域设置。
+china_note_en: Bring a provider or compatible custom endpoint; verify regional eligibility, payment and connectivity separately rather than assuming every model works without network configuration. Go models depend on workspace Regions and training-data settings; DeepSeek models require Global regions.
 compatible_apis:
-  - ark-coding-plan
   - openrouter
   - anthropic
   - openai
   - deepseek
   - ollama
 data_sources:
+  - url: https://github.com/anomalyco/opencode/releases/tag/v2.3.2
+    type: release
+    last_checked: '2026-11-18'
+  - url: https://github.com/anomalyco/opencode/releases/tag/v2.3.1
+    type: release
+    last_checked: '2026-11-18'
+  - url: https://github.com/anomalyco/opencode/releases/tag/v1.19.6
+    type: release
+    last_checked: '2026-11-18'
+  - url: https://opencode.ai/changelog
+    type: changelog
+    last_checked: '2026-11-18'
+  - url: https://opencode.ai/terminal
+    type: documentation
+    last_checked: '2026-11-18'
+  - url: https://opencode.ai/docs/
+    type: docs
+    last_checked: '2026-11-18'
+  - url: https://opencode.ai/docs/providers/
+    type: docs
+    last_checked: '2026-11-18'
+  - url: https://opencode.ai/docs/models/
+    type: docs
+    last_checked: '2026-11-18'
+  - url: https://opencode.ai/docs/migrate-v1/
+    type: docs
+    last_checked: '2026-11-18'
+  - url: https://opencode.ai/docs/permissions/
+    type: docs
+    last_checked: '2026-11-18'
+  - url: https://opencode.ai/docs/tools/
+    type: docs
+    last_checked: '2026-11-18'
+  - url: https://opencode.ai/docs/mcp-servers/
+    type: docs
+    last_checked: '2026-11-18'
+  - url: https://opencode.ai/docs/console/go/
+    type: pricing
+    last_checked: '2026-11-18'
+  - url: https://opencode.ai/docs/console/billing/
+    type: pricing
+    last_checked: '2026-11-18'
+  - url: https://opencode.ai/console/go
+    type: pricing
+    last_checked: '2026-11-18'
+  - url: https://raw.githubusercontent.com/anomalyco/opencode/dev/LICENSE
+    type: license
+    last_checked: '2026-11-18'
+  - url: https://registry.npmjs.org/@opencode%2Fcli
+    type: release
+    last_checked: '2026-11-18'
+  - url: https://registry.npmjs.org/opencode-ai
+    type: release
+    last_checked: '2026-11-18'
   - url: https://github.com/anomalyco/opencode/releases/tag/v2.3.0
     type: release
     last_checked: '2026-11-17'
@@ -89,12 +161,6 @@ data_sources:
   - url: https://github.com/anomalyco/opencode/releases
     type: release
     last_checked: '2026-11-17'
-  - url: https://opencode.ai/changelog
-    type: changelog
-    last_checked: '2026-11-17'
-  - url: https://opencode.ai/terminal
-    type: documentation
-    last_checked: '2026-11-17'
   - url: https://www.npmjs.com/package/@opencode/cli
     type: release
     last_checked: '2026-11-17'
@@ -102,6 +168,18 @@ data_sources:
     type: release
     last_checked: '2026-11-17'
 changelog:
+  - date: '2026-11-18'
+    type: release
+    summary: v2.3.2：官网 changelog、GitHub 稳定 Release 与 npm @opencode/cli 一致。发布说明称 GPT-6.2 的 Responses 系统提示改为前置 developer 消息，让第二步起可复用提示缓存；同时修复 webfetch 结构化结果重复 url/format。本次只核对发布说明，未实测 token 或费用节省。
+    summary_en: v2.3.2 is confirmed by the official changelog, stable GitHub release and npm @opencode/cli. Release notes describe sending the GPT-6.2 Responses system prompt as a leading developer message for prompt-cache reuse from the second step, and fixing duplicated url/format in structured webfetch output. No token or cost savings were independently measured.
+  - date: '2026-11-18'
+    type: release
+    summary: v2.3.1：超时的前台 shell 命令可转后台继续运行；自动压缩摘要可在后台生成，未使用的摘要仍会消耗 token。另有 ChatGPT 登录模型与桌面插件更新等改进，详见官方发布说明。
+    summary_en: v2.3.1 lets timed-out foreground shell commands continue in the background and writes automatic compaction summaries in the background; unused summaries still cost tokens. Other changes include ChatGPT-sign-in model availability and desktop plugin updates; see official release notes.
+  - date: '2026-11-17'
+    type: release
+    summary: 1.x 维护线发布 v1.19.6，旧 npm 包 opencode-ai 的 latest 已为 1.19.6；与 @opencode/cli 的 2.x 应用版本分开记录。
+    summary_en: The 1.x maintenance line released v1.19.6, now latest for legacy npm package opencode-ai. It is separate from the 2.x application line published as @opencode/cli.
   - date: '2026-11-13'
     type: release
     summary: 'v2.3.0：2.x 线最高稳定版。GitHub Release 于 2026-11-13 发布，官网 changelog 置顶同版，git tag v2.3.0 指向该版本。子 agent 默认在后台运行：立刻返回，空闲时再向父会话汇报，父会话可以同时开多个子 agent。TUI 默认把一轮工具调用和思考收成一行可折叠的活动记录。要看每一步，把 Verbosity 设为 medium 或 high，或在 TUI 配置里写 session.verbosity；已经设过的值会保留。桌面端命令面板有 Jump to message，macOS 为 Cmd+Alt+G，Windows 和 Linux 为 Ctrl+Alt+G，可在当前会话里搜索提示并跳过去。实验性开关 mcp_events 接收 MCP 事件；实验性开关 shell_timeout_background 让超时的 shell 转到后台，开关打开时，给后台命令写的显式超时会把它停掉。其余 Core、TUI 和桌面端修复见发布说明，这里不逐条改写。process-daemon-v0.5.2 和 process-daemon-v0.6.0（2026-11-16）是独立组件标签，不是 OpenCode 应用版本。2026-11-17 核对。GitHub Latest 仍是 1.x 的 v1.19.5（2026-10-28）。npm @opencode/cli 的 latest 是 2.3.0（2026-11-13）。旧包 opencode-ai 的 latest 仍是 1.19.5，没有 2.x 版本。1.x 没有高于 1.19.5 的稳定版，因此不新增 1.x 记录。current_version 是 v2.3.0。'
@@ -238,7 +316,7 @@ changelog:
     type: release
     summary: 'v0.0.55: 旧版本末期'
     summary_en: 'v0.0.55: final legacy release before v1.0 rewrite'
-last_full_review: '2026-10-18'
-next_review_due: '2026-11-17'
+last_full_review: '2026-11-18'
+next_review_due: '2026-12-18'
 review_frequency_days: 30
 confidence: medium

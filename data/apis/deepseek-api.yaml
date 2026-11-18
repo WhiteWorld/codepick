@@ -7,7 +7,7 @@ url: https://platform.deepseek.com/
 affiliate_url: null
 repo: null
 current_version: V4.1-Flash-1017
-version_tracked_at: '2026-10-18'
+version_tracked_at: '2026-11-18'
 pricing:
   model: pay_as_you_go
   currency: USD
@@ -22,11 +22,11 @@ pricing:
       price: $0.66 / $1.32
       price_en: $0.66 / $1.32
       period: pay_as_you_go
-      limits: 未命中输入，每百万 token，非高峰 / 高峰。缓存命中 $0.022 / $0.044，输出 $1.98 / $3.96。对应 DeepSeek-V4-Pro-0813，不支持视觉。
-      limits_en: Cache-miss input per 1M tokens, off-peak / peak. Cache hit $0.022 / $0.044, output $1.98 / $3.96. DeepSeek-V4-Pro-0813, vision not supported.
-  price_updated_at: '2026-10-18'
-  note: 官方价格页只标 USD，没有 CNY。非高峰是高峰的一半。高峰为 UTC 周一至周五 01:00–04:00 与 06:00–10:00（北京时间 09:00–12:00 与 14:00–18:00），中国法定节假日整日按非高峰。没有月费套餐。Search 与 Fetch 各 $0.75/千次成功请求；经 DeepSeek Harness、Claude Code 或 Codex 触发的服务端搜索与抓取，在 2026-11-01 00:00（北京时间）前免费。deepseek-v4-flash 与 deepseek-v4-flash-vision-exp 仍可填，模型已退役，由 V4.1-Flash-1017 按 Flash 价处理。deepseek-chat / deepseek-reasoner 原定 2026-07-24 停用，当前价格页未列出，能否调用未知。Web / App 聊天是否免费，价格页和 changelog 未写，未知。
-  note_en: The official pricing page lists USD only, not CNY. Off-peak is half of peak. Peak hours are Monday–Friday 01:00–04:00 and 06:00–10:00 UTC (09:00–12:00 and 14:00–18:00 Beijing time). Chinese public holidays are off-peak all day. There is no monthly plan. Search and Fetch are $0.75 per 1,000 successful requests. Server-side search and fetch through DeepSeek Harness, Claude Code, or Codex stay free until 00:00 Beijing time on 2026-11-01. deepseek-v4-flash and deepseek-v4-flash-vision-exp are still accepted; those models are retired and served by V4.1-Flash-1017 at the Flash price. deepseek-chat and deepseek-reasoner were scheduled to stop on 2026-07-24 and are absent from the current pricing page; whether they still respond is unknown. Whether web or app chat is free is not stated on the pricing page or changelog, so that is unknown.
+      limits: 未命中输入，每百万 token，非高峰 / 高峰。缓存命中 $0.022 / $0.044，输出 $1.98 / $3.96。对应 DeepSeek-V4-Pro-0813，不支持视觉。上下文 1M，最大输出 384K。
+      limits_en: Cache-miss input per 1M tokens, off-peak / peak. Cache hit $0.022 / $0.044, output $1.98 / $3.96. DeepSeek-V4-Pro-0813, vision not supported. 1M context, 384K max output.
+  price_updated_at: '2026-11-18'
+  note: 2026-11-18 文档复审：本条目是 USD 按量 API，不是固定月费或无限用量承诺。价格表仍列独立的 deepseek-flash（V4.1-Flash-1017）与 deepseek-v4-pro（V4-Pro-0813）；9 月旧新闻的 Pro 改路由说法与当前价格表及更新后的 changelog 冲突，以当前文档为准，未实测后端路由。非高峰价格是高峰一半；高峰为周一至周五 09:00–12:00 与 14:00–18:00（Asia/Shanghai），中国法定节假日及周末全天非高峰。Search 与 Fetch 各 $0.75/千次成功且有结果的请求；经 Harness、Claude Code 或 Codex（含 Alpha Search）触发也计费，并可能另有模型 token 费。原 2026-11-01 00:00（Asia/Shanghai）免费期已过，不应继续按免费预算。文件解析/OCR $0.225/千页；TTS 标价 $0.45/万字符、限时 $0.225；ASR 标价 $0.116/小时、限时 $0.058，文档未注明限时价格截止日。旧 Flash 模型 ID 仍兼容但已路由到当前 Flash；deepseek-chat / deepseek-reasoner 未列为当前型号，可调用性未知。集成列表仅列本次核对的官方指南，非穷尽且未经运行验证。公开通用隐私政策包含改进/训练用途、申请退出训练的权利及依目的和法律要求变化的保留期，不是 API 专属零保留保证；账号具体合同与地区连通性未核验。历史编辑评分沿用，未重新实测，不代表本次性能或隐私认证。
+  note_en: 'Documentary review 2026-11-18: this is a USD usage-based API, not a fixed monthly or unlimited plan. Current pricing still lists separate deepseek-flash (V4.1-Flash-1017) and deepseek-v4-pro (V4-Pro-0813); the older September news post’s Pro-rerouting statement conflicts with current pricing and the updated changelog. Current documentation takes precedence; backend routing was not tested. Off-peak is half of peak. Peak hours are Monday–Friday 09:00–12:00 and 14:00–18:00 Asia/Shanghai; weekends and Chinese public holidays are off-peak all day. Search and Fetch each cost $0.75 per 1,000 successful requests producing results, including calls through Harness, Claude Code or Codex (including Alpha Search), with possible additional model-token charges. The former free period ending 2026-11-01 00:00 Asia/Shanghai has expired; do not budget these calls as free. File parsing/OCR costs $0.225/1,000 pages. TTS lists $0.45/10,000 characters, temporarily $0.225; ASR lists $0.116/hour, temporarily $0.058. No end date for those temporary prices is stated. Legacy Flash IDs route to current Flash; deepseek-chat / deepseek-reasoner are not listed as current models and their availability is unknown. Listed integrations are the official guides checked here, not an exhaustive or runtime-tested list. The published general privacy policy includes improvement/training purposes, a right to opt out of training, and retention varying by purpose and legal requirements, not an API-specific zero-retention guarantee. Account-specific contracts and regional connectivity were not verified. Historical editorial scores retained without new hands-on testing, not a new performance or privacy certification.'
 scores:
   coding_ability: 9
   cost_efficiency: 8.5
@@ -38,16 +38,12 @@ features:
   supported_models:
     - deepseek-flash (V4.1-Flash-1017)
     - deepseek-v4-pro (V4-Pro-0813)
-  api_protocol: 官方支持 OpenAI + Anthropic 双协议
-  api_endpoint: https://api.deepseek.com（OpenAI）/ https://api.deepseek.com/anthropic（Anthropic）
+  api_protocol: OpenAI / Anthropic / Responses API
+  api_endpoint: https://api.deepseek.com (OpenAI) / https://api.deepseek.com/anthropic (Anthropic)
   supported_clients:
     - Claude Code
-    - Cline
-    - Roo Code
     - OpenCode
-    - Cursor
     - Codex CLI
-    - Aider
   china_native: true
 best_for:
   - 用量波动大、不想被月费套餐绑住的开发者
@@ -58,28 +54,53 @@ best_for_en:
   - People who want to call deepseek-flash or deepseek-v4-pro directly
   - Teams that need usage-based cost allocation
 not_for:
-  - 预算固定、希望可预测月费的用户（选套餐制 Coding Plan）
-  - 工作日白天（北京时间 09:00–12:00、14:00–18:00）持续跑 Agent、又把账单按非高峰估算的人
+  - 只接受固定月费、不愿管理 token 与工具调用费用的人
+  - 在工作日高峰时段持续跑 Agent、却只按非高峰或过期搜索免费政策估算账单的人
 not_for_en:
-  - Users who want a predictable monthly fee (pick a subscription Coding Plan)
-  - People who run agents through Beijing weekday peak hours and budget only the off-peak rate
+  - Users requiring a fixed monthly price instead of managing token and tool-call costs
+  - Users running agents through weekday peak hours while budgeting only off-peak rates or an expired free-search offer
 data_sources:
   - url: https://api-docs.deepseek.com/quick_start/pricing
     type: pricing
-    last_checked: '2026-10-18'
+    last_checked: '2026-11-18'
+  - url: https://api-docs.deepseek.com/quick_start/pricing.md
+    type: pricing
+    last_checked: '2026-11-18'
   - url: https://api-docs.deepseek.com/updates
     type: changelog
-    last_checked: '2026-10-18'
+    last_checked: '2026-11-18'
+  - url: https://api-docs.deepseek.com/guides/search
+    type: docs
+    last_checked: '2026-11-18'
+  - url: https://api-docs.deepseek.com/quick_start/agent_integrations/claude_code
+    type: docs
+    last_checked: '2026-11-18'
+  - url: https://api-docs.deepseek.com/quick_start/agent_integrations/codex
+    type: docs
+    last_checked: '2026-11-18'
+  - url: https://api-docs.deepseek.com/quick_start/agent_integrations/opencode
+    type: docs
+    last_checked: '2026-11-18'
   - url: https://api-docs.deepseek.com/news/news260910
     type: announcement
-    last_checked: '2026-10-18'
+    last_checked: '2026-11-18'
   - url: https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017
     type: model
-    last_checked: '2026-10-18'
+    last_checked: '2026-11-18'
   - url: https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash
     type: model
-    last_checked: '2026-10-18'
+    last_checked: '2026-11-18'
+  - url: https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html
+    type: privacy
+    last_checked: '2026-11-18'
+  - url: https://cdn.deepseek.com/policies/en-US/deepseek-terms-of-use.html
+    type: terms
+    last_checked: '2026-11-18'
 changelog:
+  - date: '2026-11-13'
+    type: feature
+    summary: 官方开放完整应用 API 能力：deepseek-flash 可在 Messages、Responses 与 Chat Completions 中使用网络搜索、深度思考搜索、文件输入、URL 阅读与安全检查参数；另有 Search、Fetch、OCR、ASR、TTS 独立接口。当前价格表增加文件解析/OCR 与语音计费，搜索和抓取已按成功且有结果的请求计费，不再沿用 11 月 1 日前的免费期。模型单价未因本次核对而改写。
+    summary_en: The official application-API release adds web/deep-thinking search, file input, URL reading and safety parameters for deepseek-flash through Messages, Responses and Chat Completions, plus standalone Search, Fetch, OCR, ASR and TTS APIs. Current pricing lists file/OCR and speech charges; search/fetch are billed for successful requests producing results rather than the expired pre-November-1 free period. This review does not change the listed model-token rates.
   - date: '2026-10-17'
     type: model
     summary: deepseek-flash 升级为 DeepSeek-V4.1-Flash-1017，调用方式和 Flash 价格不变。同日 changelog 宣布开放自研 Search API。价格页同时列出 Search 与 Fetch，各 $0.75/千次成功请求；经 Harness、Claude Code、Codex 的服务端搜索与抓取在 2026-11-01 00:00（北京时间）前免费。官方提示 DeepSeek Harness 0.2.1-rc.1 及以上对新模型体验最好。
@@ -108,7 +129,7 @@ changelog:
     type: model
     summary: API 首次提供 V4-Pro 与 V4-Flash，模型名 deepseek-v4-pro、deepseek-v4-flash。deepseek-chat 与 deepseek-reasoner 当时指向 V4-Flash 的非思考 / 思考模式，并预告 2026-07-24 停用。
     summary_en: The API first offered V4-Pro and V4-Flash as deepseek-v4-pro and deepseek-v4-flash. deepseek-chat and deepseek-reasoner then pointed at V4-Flash non-thinking and thinking modes, and were scheduled to stop on 2026-07-24.
-last_full_review: '2026-10-18'
-next_review_due: '2026-11-17'
+last_full_review: '2026-11-18'
+next_review_due: '2026-12-18'
 review_frequency_days: 30
-confidence: high
+confidence: medium
