@@ -7,7 +7,7 @@ Official public sources checked on **2026-11-18 (Asia/Shanghai)**. This is a doc
 - `src/content/compare/gemini-cli-vs-claude-code-vs-codex-cli.md`
 - `src/content/compare-en/gemini-cli-vs-claude-code-vs-codex-cli.md`
 - Existing article slugs and the original publication date (2026-02-17) remain. `updated_at` records this substantive revision.
-- No tool YAML, scores, review cadences, strict-check baselines or renderer behavior changed.
+- The initial article commit changed no tool YAML, scores, review cadences, strict-check baselines or renderer behavior. The subsequent two-record review is documented in `2026-11-18-opencode-deepseek-review.md`.
 
 ## Evidence and decisions
 
@@ -46,8 +46,10 @@ git diff --check
 
 The new regression tests cover the mirrored article's lifecycle dates, billing/surface qualifications, official citations, unchanged publication date, and built article metadata/body. They are content regressions, not product runtime tests.
 
-## Local validation result
+## Initial article-commit validation result (f6a56cd)
 
 - Build passed: 356 pages. SEO checks passed. Existing content/pricing regressions plus four new article regressions passed: 11/11.
 - Strict content and the zero-error baseline both fail on two **unchanged main-branch records**: `data/tools/opencode.yaml` and `data/apis/deepseek-api.yaml`, each due 2026-11-17. No record, cadence, checker or baseline was changed to hide these failures. A new substantive review of those records is separate from this article repair and is needed before CI can be green.
 - `git diff --exit-code origin/main -- data scripts/check-content.mjs scripts/check-content-baseline.mjs` confirmed the data and gates remain identical to main.
+
+The two initial freshness failures were subsequently resolved through substantive documentary reviews; see `2026-11-18-opencode-deepseek-review.md`. Neither the checker nor the empty baseline was changed.
