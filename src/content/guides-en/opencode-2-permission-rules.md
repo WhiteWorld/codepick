@@ -77,7 +77,7 @@ Place this in the project's `opencode.json`, or merge it into an existing `openc
 
 The intent is: ask for shell commands generally; allow two exact Git inspection commands without prompting; deny matching `git push` commands; ask for external directories; append edit and shell denials for the `reviewer` subagent.
 
-We deliberately avoid automatically allowing arbitrary `git diff *` arguments. Git's `--output` can write a file, and external diff/textconv can run programs. The exact diff command uses `--no-ext-diff --no-textconv` to narrow the allowance. **It still does not guarantee that host Git configuration or the whole process is read-only.** Other argument forms fall back to asking; do not answer “Allow always” just to save time. See the official [git diff documentation](https://git-scm.com/docs/git-diff).
+We deliberately avoid automatically allowing arbitrary `git diff *` arguments. Git's `--output` can write a file, and external diff/textconv can run programs. The exact diff command uses `--no-ext-diff --no-textconv` to narrow the allowance. **It still does not guarantee that host Git configuration or the whole process is read-only.** Other argument forms fall back to asking only in the absence of other overriding rules or applicable preexisting saved approvals; do not answer “Allow always” just to save time. See the official [git diff documentation](https://git-scm.com/docs/git-diff).
 
 This is not a guarantee that pushing is impossible. An absolute Git path, wrapper script, another tool or another network route may not match `git push *`. Such commands may fall back to asking; do not approve commands you do not understand. Enforced network or filesystem isolation needs separate operating-system/container controls.
 
@@ -108,7 +108,7 @@ This is a separate configuration fragment. For organization-level restrictions, 
 
 Its `tool.use` resource is `action:resource`. It is checked after ordinary permissions and saved approvals. A matching denial blocks rather than prompts, with an error such as `Blocked by configuration policy`; Console denials name the workspace.
 
-Policy effects are **only `allow` or `deny`, never `ask`**. An allow lifts an earlier broader policy denial but still leaves the agent's ordinary permission checks in place; it does not grant access directly. With no matching policy, existing checks continue.
+Policy effects are **only `allow` or `deny`, never `ask`**. An `allow` overrides earlier matching policy denials only when it is the final matching statement after source authority and statement order are applied, not because its pattern is more specific. The agent's ordinary permission checks still apply; it does not grant access directly. With no matching policy, existing checks continue.
 
 Saved “Allow always” approvals are durable project-scoped allows and do not override configured denials. If a restriction appears bypassed, check for a non-match, a later overriding rule, or a different agent/action actually performing the operation.
 

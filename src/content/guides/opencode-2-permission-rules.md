@@ -77,7 +77,7 @@ draft: true
 
 这份配置想表达的是：shell 通常先问；两个固定的 Git 检查命令不问；匹配到的 `git push` 拒绝；项目外路径先问；`reviewer` 子代理追加拒绝 `edit` 和 `shell`。
 
-这里刻意没有用 `git diff *` 自动放行任意参数。Git 的 `--output` 能写文件，外部 diff / textconv 也可能运行程序；固定命令使用 `--no-ext-diff --no-textconv`，缩小放行范围，**仍不保证宿主 Git 配置或整个进程只读**。其他参数版本会落回询问，不要为了省事全部点「总是允许」。Git 参数的依据见 [git diff 文档](https://git-scm.com/docs/git-diff)。
+这里刻意没有用 `git diff *` 自动放行任意参数。Git 的 `--output` 能写文件，外部 diff / textconv 也可能运行程序；固定命令使用 `--no-ext-diff --no-textconv`，缩小放行范围，**仍不保证宿主 Git 配置或整个进程只读**。在没有其他覆盖规则或匹配的既有保存批准时，其他参数版本会落回询问；不要为了省事全部点「总是允许」。Git 参数的依据见 [git diff 文档](https://git-scm.com/docs/git-diff)。
 
 这也不是「从此无法推送」：绝对路径调用 Git、包装脚本、其他工具或网络通路不一定匹配 `git push *`。它们可能落回询问；不要批准不理解的命令。需要强制断网或文件隔离时，要另做操作系统 / 容器层面的限制。
 
@@ -108,7 +108,7 @@ draft: true
 
 它匹配的是 `tool.use` 的 `动作:资源`，在普通权限与已保存批准之后再检查。匹配到拒绝时，不弹询问，而是类似 `Blocked by configuration policy` 的错误；Console 策略会标出工作区名称。
 
-`policies` 的 `effect` **只有 `allow` / `deny`，没有 `ask`**。一个 `allow` 只会解除此前较宽的策略拒绝，仍要回到代理权限判断，不会直接授权。没有匹配的策略默认允许继续走原有检查。
+`policies` 的 `effect` **只有 `allow` / `deny`，没有 `ask`**。只有当 `allow` 是按来源优先级与语句顺序评估后的最后匹配语句时，它才覆盖此前匹配的策略 `deny`；不按模式的具体程度排名。之后仍要回到代理权限判断，不会直接授权。没有匹配的策略默认允许继续走原有检查。
 
 已保存的「Allow always」是项目级持久允许规则，不会覆盖已配置的 `deny`。如果似乎绕过禁令，先查是否根本没匹配到、禁令被后续规则覆盖，或当前执行的是另一个代理 / 动作。
 

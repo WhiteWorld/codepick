@@ -32,7 +32,7 @@ The chosen client timeout `--max-time 300` is illustrative, not a vendor SLA. Th
 | https://opencode.ai/docs/permissions/ | Native V2 uses ordered `permissions` rules with `action/resource/effect`; allow/deny/ask; last match, not specificity; `*` includes slash, `?` one character; trailing shell ` *` also matches the argument-free command. Multi-resource deny/ask aggregation, default broad allow with `.env` exceptions, default external-directory allow, own subagent permissions and saved-approval limitations are documented. |
 | Same Permissions page | `~`/`$HOME` expansion applies to path-oriented actions, not raw shell text. Shell retains host filesystem/process/network authority; directory inference is best-effort. A `git push *` rule is not a complete exfiltration/network barrier. Reviewer edit/shell denials do not certify all MCP/plugin side effects are blocked. |
 | https://opencode.ai/docs/policies/ | Policies are binary and only tighten ordinary checks. Invalid statements are dropped with a server-log warning. Last match within a file; authority order is MDM, system, connected Console, global, direct configs, `.opencode` configs; outer directories outrank inner within the latter categories. Console refresh/disconnect/unreachable behavior is documentary, not observed. |
-| Same Policies page | Tool policy allow lifts a prior policy denial but does not grant ordinary permission. Actions added in 2.2.3 and `websearch.use` in 2.2.6 need sufficiently recent clients. Legacy prefixed `integration.use` converts; bare `*` no longer means deny all MCP/skills/plugins. Policies do **not** sandbox plugin code. |
+| Same Policies page | A final matching tool policy allow can override earlier matching policy denials after authority/order, but does not grant ordinary permission. Actions added in 2.2.3 and `websearch.use` in 2.2.6 need sufficiently recent clients. Legacy prefixed `integration.use` converts; bare `*` no longer means deny all MCP/skills/plugins. Policies do **not** sandbox plugin code. |
 | https://opencode.ai/docs/migrate-v1/ | Supported legacy configuration remains supported; valid native V2 canonical values take precedence when both forms coexist. The guide does not tell readers to delete all V1 fields. |
 | https://opencode.ai/config.json | Public Draft 2020-12 schema validates the three native configuration examples in each language. Only relevant unmodified properties/transitive definitions are retained in the fixture; root scope is intentionally restricted to the properties demonstrated. This is shape validation, not the CLI runtime loader. |
 | https://git-scm.com/docs/git-diff | `--output` writes a file; external diff and textconv can run programs. Example uses an exact diff command with `--no-ext-diff --no-textconv`, not a claim that `git diff *` is read-only. Even exact commands do not establish host-process isolation. |
@@ -80,7 +80,7 @@ The Node regressions check mirror metadata/examples/sources, important caveats, 
 6. No benchmark, hands-on model accuracy, bill, regional connectivity, privacy compliance or runtime security guarantee is claimed. No promotional links, score changes, fake review dates or softened gates.
 7. Leave drafts unmerged/unpublished until the requested review is accepted; `draft: true` alone does not hide direct routes in the current renderer.
 
-## Validation results
+## Initial draft validation results (2698280)
 
 Completed on 2026-11-18 (Asia/Shanghai), using Node v22.20.0, Python 3.13.5, Git 2.47.3:
 
@@ -95,3 +95,15 @@ Completed on 2026-11-18 (Asia/Shanghai), using Node v22.20.0, Python 3.13.5, Git
 - `git diff --check` / staged diff whitespace check: passed. Unchanged `data/`, checker scripts, baseline, existing content, rendering/routes, dependency manifests and CI workflow verified against live `origin/main` at `40f335e2f065cb5e08825eb31726fe960817532f`.
 
 No live API call, upload, provider account, OpenCode runtime or push-as-test was involved. The eventual normal branch push transports these requested drafts only; it is not an enforcement test or a production merge.
+
+## dig review follow-up — 2026-11-18 (Asia/Shanghai)
+
+Independent review of head `2698280` identified an ambiguous timeout-recovery step. Reopened official [File Parsing](https://api-docs.deepseek.com/guides/document_parsing), [Files API](https://api-docs.deepseek.com/guides/files_api), [Policies](https://opencode.ai/docs/policies/) and [Permissions](https://opencode.ai/docs/permissions/) for this correction.
+
+- Both DeepSeek drafts now require waiting while the disconnected request may still be processing, then reconciling the paginated stored-file list. An empty list or missing file does not prove failure; no fixed delay establishes failure either. Unresolved retries require a person's explicit acceptance of duplicate-upload/possible duplicate parsing charges. This is a **documentation-derived risk**, not an observed duplicate bill. No invented async task or progress API was added.
+- The same upload request waits for parsing completion before returning; the heading/sequence now says so directly.
+- Retention configuration is not a guarantee about training use, backup erasure or compliance. No deletion procedure or untested cleanup guarantee was added.
+- Both OpenCode drafts now state that policy `allow` overrides earlier matching denials only when it is the final match after source authority and statement ordering, not based on specificity. The ask fallback is qualified by other overriding rules and applicable saved approvals.
+- Two content/build regression tests guard these qualifications. Existing request/configuration examples and schema fixture are unchanged. No vendor API, permission runtime, lifecycle/deletion operation or billing test was run.
+
+Follow-up validation: `npm run build` passed (360 pages); SEO passed; strict content check **0 errors / 0 warnings**, unchanged baseline **0**; all Node regressions **23/23 passed** (including the two new guards); Python offline examples **6/6 passed**; `git diff --check` passed. No dependency or CI/gate changes. The original limitations and unmerged publication boundary still apply.

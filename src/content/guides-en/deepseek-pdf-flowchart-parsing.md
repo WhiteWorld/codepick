@@ -29,13 +29,13 @@ The second option does not guarantee every figure is included. The documentation
 
 A useful first question is “Which nodes and edges are in the diagram on page 3?” Ask for an implementation only after checking the answer. Treat missing details as unresolved, not as an invitation to invent them.
 
-## 2. Parsing finishes during upload; there is no documented job-polling step
+## 2. The same upload request waits for parsing to finish before returning
 
 The documented sequence is:
 
 ```text
 POST /files (purpose before file)
-  → parsing succeeds during upload → ready-to-reference file_id returned
+  → same request waits for parsing to finish → ready-to-reference file_id returned only on success
   → server-confirmed parsing failure → not stored, no parsing charge
   → client disconnect → reconcile outcome; do not assume failure
 
@@ -62,7 +62,7 @@ Keep these details:
 - `--max-time 300` is this example's chosen total client timeout, not a service guarantee. The documented document-upload limit is 120 seconds, plus up to 120 seconds of parsing after submission. Both the client and intermediate proxies need to allow for upload and parsing.
 - `--fail-with-body` makes HTTP errors fail while keeping the error body. Do not treat an error JSON response as a successful upload.
 
-Files belong to the account and are shared by API keys under that account. Keep your local original: neither the uploaded original document nor its parsing result can be downloaded. See [Files API](https://api-docs.deepseek.com/guides/files_api) for formats and storage rules.
+Files belong to the account and are shared by API keys under that account. Keep your local original: neither the uploaded original document nor its parsing result can be downloaded. This retention setting is not a guarantee about training use, backup erasure or compliance. See [Files API](https://api-docs.deepseek.com/guides/files_api) for formats and storage rules.
 
 ## 3. Reference the returned ID in the right message block
 
@@ -117,9 +117,12 @@ A disconnected client does not cancel parsing. According to the documentation, p
 A cautious recovery sequence:
 
 1. Record the purpose, filename, size and start time. Do not log sensitive document contents.
-2. After a timeout, check stored files using the [Files API listing](https://api-docs.deepseek.com/guides/files_api#list-files). It is paginated; do not inspect only the first page.
-3. Reconcile against your recorded metadata. A matching filename does not establish matching contents or provide an official idempotency guarantee. Ask a person to resolve ambiguous matches.
-4. Decide whether to re-upload only after checking for a reusable file. Do not automatically retry every timeout.
+2. While the original request may still be processing, wait rather than re-upload immediately. The documented upload and parsing limits help investigation, but a fixed waiting period cannot prove that the original request failed.
+3. After waiting, reconcile stored files using the [Files API listing](https://api-docs.deepseek.com/guides/files_api#list-files). It is paginated; do not inspect only the first page. **An empty list or missing file does not prove the original request failed**: parsing may still be in progress, and the file appears only after success.
+4. Reconcile against your recorded metadata. A matching filename does not establish matching contents or provide an official idempotency guarantee. Ask a person to resolve ambiguous matches.
+5. If the original outcome is still unresolved, do not automatically re-upload. If another upload is necessary, a person must explicitly accept the duplicate-upload and possible duplicate parsing-charge risk before deciding to proceed.
+
+This risk is inferred from the documented behavior that disconnects do not cancel parsing and files enter the stored-file list only after success. It is not an observed duplicate charge here, and it does not imply another job-progress endpoint.
 
 | Response | First checks |
 | --- | --- |

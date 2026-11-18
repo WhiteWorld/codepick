@@ -101,3 +101,38 @@ test('drafts stay out of guide listings and RSS; related local links resolve', (
     }
   }
 });
+
+test('disconnect recovery does not treat an empty list or fixed delay as proof of failure', () => {
+  for (const lang of ['zh', 'en']) {
+    const text = source(lang, slugs[0]);
+    const recovery = text.split(lang === 'zh' ? '## 超时后先对账' : '## A timeout calls for reconciliation')[1]
+      .split(lang === 'zh' ? '| 返回码 |' : '| Response |')[0];
+    const expected = lang === 'zh' ? [
+      /先等待，不要立即重传/, /不能用固定等待时长断言原请求失败/,
+      /列表为空或查无该文件，不代表原请求失败/, /它可能仍在解析/,
+      /必须由人明确接受重复上传及可能重复收取解析费的风险/,
+      /不是本文观察到了重复计费/,
+    ] : [
+      /wait rather than re-upload immediately/, /a fixed waiting period cannot prove/,
+      /An empty list or missing file does not prove the original request failed/,
+      /parsing may still be in progress/, /a person must explicitly accept the duplicate-upload and possible duplicate parsing-charge risk/,
+      /not an observed duplicate charge here/,
+    ];
+    for (const pattern of expected) assert.match(recovery, pattern);
+    assert.ok(!text.includes(lang === 'zh' ? '确认没有可复用文件后' : 'Decide whether to re-upload only after checking'));
+    const html = read(`dist/${lang}/guides/${slugs[0]}/index.html`);
+    assert.ok(html.includes(lang === 'zh' ? '列表为空或查无该文件，不代表原请求失败' : 'An empty list or missing file does not prove the original request failed'));
+  }
+});
+
+test('policy allow depends on final matching order and asking has saved-approval qualifications', () => {
+  for (const lang of ['zh', 'en']) {
+    const text = source(lang, slugs[1]);
+    assert.match(text, lang === 'zh' ? /只有当 `allow`.*最后匹配语句.*此前匹配的策略 `deny`/ : /An `allow` overrides earlier matching policy denials only when it is the final matching statement/);
+    assert.match(text, lang === 'zh' ? /不按模式的具体程度排名/ : /not because its pattern is more specific/);
+    assert.match(text, lang === 'zh' ? /没有其他覆盖规则或匹配的既有保存批准时/ : /absence of other overriding rules or applicable preexisting saved approvals/);
+    const deepseek = source(lang, slugs[0]);
+    assert.match(deepseek, lang === 'zh' ? /同一个上传请求等解析完成才返回/ : /same upload request waits for parsing to finish before returning/);
+    assert.match(deepseek, lang === 'zh' ? /不代表训练用途、备份清除或合规保证/ : /not a guarantee about training use, backup erasure or compliance/);
+  }
+});
