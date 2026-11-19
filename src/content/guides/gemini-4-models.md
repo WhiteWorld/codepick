@@ -37,7 +37,7 @@ Antigravity 里的套餐和模型入口，见 [Antigravity 工具页](/zh/tool/a
 
 | 显示名 | 模型 ID | 官方博客时间线（均为 2026 年，原文未标注时区） |
 | --- | --- | --- |
-| Gemini 4 Argon | `gemini-4-argon` | 9 月 30 日宣布；[10 月 13 日对开发者和企业开放](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/) |
+| Gemini 4 Argon | `gemini-4-argon` | 9 月 30 日宣布；[10 月 13 日开放](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/)：开发者和企业走 API；Antigravity 写的是 Ultra；Gemini 应用和 Search AI Mode 写的是 Pro 和 Ultra |
 | Gemini 4 Carbon | `gemini-4-carbon` | 10 月 28 日宣布；[11 月 10 日对付费开发者、企业和 Ultra 用户开放](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/) |
 | Gemini 4 Hydrogen | `gemini-4-hydrogen` | [11 月 12 日宣布](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/)，面向更广泛的开发者、企业和消费入口 |
 | Gemini 4 Neon | `gemini-4-neon` | [11 月 18 日宣布](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/) |
@@ -67,7 +67,7 @@ Antigravity 里的套餐和模型入口，见 [Antigravity 工具页](/zh/tool/a
 
 - **token**：模型和账单用的基本单位，不等于汉字或英文单词。同一段文字在不同模型上的 token 数可能不同。
 - **统一窗口**：输入、思考和输出共用 1,048,576 token，不是「输入 100 万，输出再另给 100 万」。
-- **长解码（long decode）**：默认一次回答（含思考）最多 65,536 token。需要更长结果时，可把上限提高到剩余窗口；官方说明往往要配合后台执行或续写协议，细节见 [长解码文档](https://aistudio.google.com/docs/long-decode)。
+- **长解码（long decode）**：型号页把默认单次输出（含思考）写成 65,536 token；需要更长结果时，可把总上限提高到剩余窗口。这是整段回答的上限，不是下面说的 hop。长解码会把生成拆成连续的 hop，也就是一次请求能写下的片段；官方说明往往要配合后台执行或续写协议。依据 [长解码文档](https://aistudio.google.com/docs/long-decode) 和 [Hydrogen 更新说明](https://aistudio.google.com/docs/whats-new-gemini-4-hydrogen)：后台执行和流式调用时，四个型号每 hop 最多 65,536。非流式且走 REST、或关闭自动续写时，Hydrogen 和 Neon 每 hop 仍最多 65,536，Carbon 和 Argon 每 hop 最多 32,768，要用 `continuation_token` 循环才能达到设定的总上限。Hydrogen 文把 Carbon / Argon 的 32,768 写成「非流式 REST hop」，长解码页总述写成「非流式 hop」，表格则写成 `automatic_continuation: false` 或 REST。不要把所有接口的 hop 大小理解成完全相同，也不要把 32,768 理解成 Carbon / Argon 的总输出上限。
 - **思考档位**：控制模型花多少内部推理。思考 token 官方按输出计价。档位越高，通常越慢、越贵，但本文没有实测这一关系。
 
 四个型号都支持代码执行、函数调用、计算机使用、结构化输出、Google 搜索 / 地图接地，以及 URL 上下文。官方模型页写明：它们不支持图像生成、音频生成和 Live API。要生成图、语音或做实时语音，需要官方目录里的其他专用型号，不在这篇的四个文本推理型号里。
@@ -105,14 +105,14 @@ API 按 token 付费。Gemini 应用、Search 的 AI Mode、Antigravity 等消�
 | --- | --- | --- | --- |
 | 免费（Google 账号） | $0 | 包含 Gemini 4 Hydrogen | Hydrogen 宣布文说，免费用户会在系统认为合适时通过自动选模型用到它；不要默认免费档有完整的手动选单。 |
 | Google AI Plus | $4.99 | Gemini 4 Hydrogen | 用量限额为免费档的 2 倍。 |
-| Google AI Pro | $19.99 | Gemini 4 Neon、Gemini 4 Hydrogen | 用量限额为免费档的 4 倍；订阅页写明包含 Google Antigravity。 |
-| Google AI Ultra 5x / 20x | $99.99 / $199.99 | 最高档使用 Gemini 4 Carbon、Neon、Hydrogen | 用量限额相对 Pro 分别为 5 倍和 20 倍；Antigravity 的 Agent 速率限制也按 5x / 20x 区分。 |
+| Google AI Pro | $19.99 | Gemini 应用：Neon、Hydrogen。套餐页还写：部分国家的 Search AI Mode 可用 Carbon，额度低于 Ultra | 用量限额为免费档的 4 倍；订阅页写明包含 Google Antigravity。 |
+| Google AI Ultra 5x / 20x | $99.99 / $199.99 | 最高档使用 Gemini 4 Carbon、Neon、Hydrogen；Search AI Mode 里的 Carbon 额度高于 Pro | 用量限额相对 Pro 分别为 5 倍和 20 倍；Antigravity 的 Agent 速率限制也按 5x / 20x 区分。 |
 
 这些美元价格来自 [Google AI 套餐页](https://one.google.com/about/google-ai-plans/) 的对照表；Ultra 的 $99.99 / $199.99 在 [订阅页](https://gemini.google/subscriptions/) 上也有。官方写明套餐因国家/地区而异，还有年龄和其他限制。本文没有核对其他地区的标价，也不把旧文案里的 $20 或 $249.99 当作当前价格。
 
-订阅页对 Gemini 应用用量的注释是：限额会考虑提示复杂度、使用的功能和对话长度；每 5 小时恢复一次，直到用完当周限额；可以用 AI credits 扩展。页面没有给出固定的「每天多少次」。Carbon 在 Search AI Mode 里还写了仅限部分国家。
+订阅页对 Gemini 应用用量的注释是：限额会考虑提示复杂度、使用的功能和对话长度；每 5 小时恢复一次，直到用完当周限额；可以用 AI credits 扩展。页面没有给出固定的「每天多少次」。[套餐页](https://one.google.com/about/google-ai-plans/) 和 [订阅页](https://gemini.google/subscriptions/) 的脚注 4 写明：Gemini 4 Carbon 和 Nano Banana Pro 在 Search 的 AI Mode 仅限部分国家。套餐说明里，Pro 写的是在 AI Mode 中可以使用 Carbon，Ultra 写的是更高额度。不要把 Pro 的 Carbon 入口理解成和 Ultra 相同，也不要默认所有国家的 Search AI Mode 都有 Carbon。
 
-关于 Argon：10 月 13 日的 Argon 上市说明曾写，Google AI Pro 和 Ultra 用户可在 Gemini 应用和 Antigravity 中使用。2026-11-19 打开的订阅页和套餐页，在当前套餐权益里写的是 Hydrogen、Neon 和 Carbon，没有列出 Argon。本文没有打开真实应用或 Antigravity 的模型列表，所以不判断 Argon 是否仍出现在某个已登录账号的下拉菜单里。做消费选型时，以当前套餐页和产品内实际可选型号为准；做 API 选型时，`gemini-4-argon` 仍是价格页上的付费型号。
+关于 Argon：10 月 13 日的 [上市说明](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/) 把入口分开写。开发者和企业走 API；Google Antigravity 写的是 Google AI Ultra 订阅用户；Gemini 应用和 Search 的 AI Mode 写的是 Google AI Pro 和 Ultra 订阅用户。不要把当时的 Antigravity 入口理解成 Pro 也可用。2026-11-19 打开的订阅页和套餐页，在当前套餐权益里写的是 Hydrogen、Neon 和 Carbon，没有列出 Argon。本文没有打开真实应用或 Antigravity 的模型列表，所以不判断 Argon 是否仍出现在某个已登录账号的下拉菜单里。做消费选型时，以当前套餐页和产品内实际可选型号为准；做 API 选型时，`gemini-4-argon` 仍是价格页上的付费型号。
 
 ## 和上一代 Gemini 比什么
 
@@ -172,7 +172,7 @@ Google 的发布博客引用了 Artificial Analysis、Vals Index 等第三方榜
 - [Gemini 4 Carbon 型号页](https://aistudio.google.com/docs/models/gemini-4-carbon) · [更新说明](https://aistudio.google.com/docs/whats-new-gemini-4-carbon)
 - [Gemini 4 Neon 型号页](https://aistudio.google.com/docs/models/gemini-4-neon) · [更新说明](https://aistudio.google.com/docs/whats-new-gemini-4-neon) · [发布博客](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/)
 - [Gemini 4 Hydrogen 型号页](https://aistudio.google.com/docs/models/gemini-4-hydrogen) · [更新说明](https://aistudio.google.com/docs/whats-new-gemini-4-hydrogen) · [发布博客](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/)
-- [Gemini 4 Argon 更新说明](https://aistudio.google.com/docs/whats-new-gemini-4-argon) · [10 月 13 日上市说明](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/)
+- [Gemini 4 Argon 型号页](https://aistudio.google.com/docs/models/gemini-4-argon) · [更新说明](https://aistudio.google.com/docs/whats-new-gemini-4-argon) · [10 月 13 日上市说明](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/)
 - [Gemini 4 Carbon 11 月 10 日上市说明](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/)
 - [Gemini 3.8 Flash 型号页](https://aistudio.google.com/docs/models/gemini-3.8-flash)
 - [Gemini 订阅](https://gemini.google/subscriptions/) · [Google AI 套餐](https://one.google.com/about/google-ai-plans/)

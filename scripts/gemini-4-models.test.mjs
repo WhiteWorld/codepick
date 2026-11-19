@@ -16,6 +16,7 @@ const OFFICIAL = [
   'https://aistudio.google.com/docs/long-decode',
   'https://aistudio.google.com/docs/models',
   'https://aistudio.google.com/docs/models/gemini-3.8-flash',
+  'https://aistudio.google.com/docs/models/gemini-4-argon',
   'https://aistudio.google.com/docs/models/gemini-4-carbon',
   'https://aistudio.google.com/docs/models/gemini-4-hydrogen',
   'https://aistudio.google.com/docs/models/gemini-4-neon',
@@ -116,6 +117,22 @@ test('Argon consumer-page gap, 3.8 Flash output cap, and GPT long-context surcha
   assert.match(en, /39\.0%/);
   assert.match(zh, /自动转到 `gemini-3\.8-flash`/);
   assert.match(en, /automatically route to `gemini-3\.8-flash`/);
+  assert.match(zh, /Antigravity 写的是 Google AI Ultra 订阅用户/);
+  assert.match(zh, /Gemini 应用和 Search 的 AI Mode 写的是 Google AI Pro 和 Ultra 订阅用户/);
+  assert.match(zh, /不要把当时的 Antigravity 入口理解成 Pro 也可用/);
+  assert.match(en, /Google Antigravity was listed for Google AI Ultra subscribers/);
+  assert.match(en, /the Gemini app and AI Mode in Search were listed for Google AI Pro and Ultra subscribers/);
+  assert.match(en, /Do not read that Antigravity access as including Pro/);
+  assert.ok(!zh.includes('Pro 和 Ultra 用户可在 Gemini 应用和 Antigravity 中使用'));
+  assert.ok(!en.includes('could use it in the Gemini app and Antigravity'));
+  assert.match(zh, /Pro 写的是在 AI Mode 中可以使用 Carbon，Ultra 写的是更高额度/);
+  assert.match(en, /Pro is described as getting access to Carbon in AI Mode, and Ultra as getting higher access/);
+  assert.match(zh, /每 hop 最多 32,768/);
+  assert.match(en, /limited to 32,768 tokens per hop/);
+  assert.match(zh, /不要把 32,768 理解成 Carbon \/ Argon 的总输出上限/);
+  assert.match(en, /do not read 32,768 as Carbon or Argon's total output limit/);
+  assert.match(zh, /`continuation_token`/);
+  assert.match(en, /`continuation_token`/);
 });
 
 test('draft guides build as direct routes but stay out of listings, RSS and sitemap lastmod set', () => {

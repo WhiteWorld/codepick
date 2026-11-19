@@ -29,6 +29,7 @@ Primary sources opened or substantially read on 2026-11-19:
 - https://aistudio.google.com/docs/pricing
 - https://aistudio.google.com/docs/rate-limits
 - https://aistudio.google.com/docs/long-decode (from search + earlier fetch excerpts)
+- https://aistudio.google.com/docs/models/gemini-4-argon
 - https://aistudio.google.com/docs/models/gemini-4-hydrogen
 - https://aistudio.google.com/docs/models/gemini-4-neon
 - https://aistudio.google.com/docs/models/gemini-4-carbon
@@ -111,3 +112,16 @@ Draft behavior after build (unchanged site rules, not modified in this change):
 - Direct routes exist: `/zh/guides/gemini-4-models/` and `/en/guides/gemini-4-models/`
 - Omitted from guide listings and RSS
 - Present in `dist/sitemap-0.xml` (known draft exposure; do not merge before review)
+
+
+## Dig review follow-up (still draft)
+
+Reviewed official pages again on 2026-11-19 (Asia/Shanghai) after dig's read-only review of `913e57cd`. No login, no API calls, no model-card body reads. The published article still does not cite Model Card conclusions.
+
+Blocking fix: the October 13 Argon post was re-opened at https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/ . The lead sentence and the "Get started today" list split access as follows: API for developers and enterprises; Google Antigravity for Google AI Ultra subscribers; the Gemini app and AI Mode in Search for Google AI Pro and Ultra subscribers. The earlier draft merged this into "Pro and Ultra in the Gemini app and Antigravity," which overstated Antigravity access. Mid-article and timeline wording now follow the official split. Current plan pages still do not list Argon; the API catalog and pricing page still do; signed-in menus were still not checked.
+
+Non-blocking follow-ups, after re-checking the cited pages:
+
+1. Footnote 4 on https://one.google.com/about/google-ai-plans/ and https://gemini.google/subscriptions/ says Gemini 4 Carbon and Nano Banana Pro in AI Mode are available in select countries. The plans-page copy gives Pro "access to the Gemini 4 Carbon model in AI Mode" and Ultra "Higher access to the Gemini 4 Carbon model in AI Mode." The table and surrounding prose now state that distinction. The pages do not, in the checked copy, give Pro Carbon in the Gemini app, so that was not added.
+2. https://aistudio.google.com/docs/whats-new-gemini-4-hydrogen and https://aistudio.google.com/docs/long-decode agree that a hop is a continuation chunk, not the total output cap. Model pages, including https://aistudio.google.com/docs/models/gemini-4-argon (opened in this pass), still list default max output 65,536 / long decode up to 1,048,576. Background and streaming hops are 65,536 for all four models. Non-streaming REST hops, or hops with `automatic_continuation: false`, are 65,536 for Hydrogen and Neon and 32,768 for Carbon and Argon. The Hydrogen guide says "non-streaming REST hop"; the long-decode overview says "non-streaming hop," and its table says `automatic_continuation: false` or REST. The article reports that wording difference and does not treat hop size as identical across interfaces, or 32,768 as a total output cap.
+3. The October 13 timeline now includes the consumer surfaces above, not only developers and enterprises. The sources list and this record now include the standalone Argon model page.
