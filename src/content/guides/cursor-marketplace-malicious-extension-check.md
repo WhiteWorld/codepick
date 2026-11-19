@@ -7,7 +7,7 @@ tags: [cursor, security, claude-code, marketplace]
 pillar: workflow
 content_status: keep
 locale_strategy: mirrored
-draft: true
+draft: false
 ---
 
 > 核查日：2026-11-19（北京时间）。依据 Cursor 在 2026-10-29 发布、2026-10-30 更新的[安全公告](https://cursor.com/blog/claude-code-extension-security-notice)，以及 2026-11-13 的[调查更新](https://cursor.com/blog/security-incident-update)。本文只整理公开说明，没有在真实电脑上运行官方检查或清理脚本，也没有独立取证。

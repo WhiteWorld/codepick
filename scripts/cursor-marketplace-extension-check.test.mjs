@@ -1,6 +1,6 @@
-// Editorial regressions only. No official remediation scripts are executed.
+// Editorial/build regressions only. Build first for publication checks. No official remediation scripts are executed.
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import test from 'node:test';
 import yaml from 'js-yaml';
 
@@ -25,6 +25,7 @@ test('bilingual Cursor extension-check guides share mirrored metadata and offici
   }
   assert.equal(a.date, '2026-11-19');
   assert.equal(a.article_type, 'howto');
+  assert.equal(a.draft, false);
   assert.equal(a.locale_strategy, 'mirrored');
   assert.ok(zh.split('\n').length > 130 && en.split('\n').length > 130, 'complete articles, not outlines');
   assert.deepEqual(officialLinks(zh), officialLinks(en));
@@ -100,4 +101,38 @@ test('failed checks, indicator scope, and host scope stay within the official no
   assert.match(en, /Do not broaden the scope to every machine that has ever run Cursor/);
   assert.ok(!en.includes('on the computer that ran Cursor,'));
   assert.ok(!en.includes('Every machine that ran Cursor during the window'));
+});
+
+test('built guides appear in listings, RSS and sitemap with reciprocal language routes', () => {
+  const sitemap = read('dist/sitemap-0.xml');
+  for (const lang of ['zh', 'en']) {
+    const index = read(`dist/${lang}/guides/index.html`);
+    const rss = read(`dist/${lang}/rss.xml`);
+    const html = read(`dist/${lang}/guides/${slug}/index.html`);
+    const metadata = fm(source(lang));
+    const url = `https://codepick.dev/${lang}/guides/${slug}/`;
+    const other = lang === 'zh' ? 'en' : 'zh';
+
+    assert.equal(metadata.draft, false);
+    assert.ok(html.includes(metadata.title));
+    assert.ok(!html.includes(lang === 'zh' ? '审阅稿' : 'Review draft'));
+    assert.ok(index.includes(`/${lang}/guides/${slug}/`));
+    assert.ok(rss.includes(url));
+    assert.ok(sitemap.includes(`<loc>${url}</loc>`));
+    assert.ok(html.includes(`<link rel="canonical" href="${url}"`));
+    assert.ok(html.includes(`hreflang="${other}" href="https://codepick.dev/${other}/guides/${slug}/"`));
+    assert.ok(html.includes(`hreflang="${lang}" href="${url}"`));
+
+    const ld = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)]
+      .flatMap(([, json]) => JSON.parse(json)).find(v => v['@type'] === 'HowTo');
+    assert.ok(ld);
+    assert.equal(ld.name, metadata.title);
+    assert.equal(ld.datePublished, '2026-11-19');
+    assert.equal(ld.inLanguage, lang === 'zh' ? 'zh-CN' : 'en');
+
+    for (const urlOfficial of officialLinks(source(lang))) assert.ok(html.includes(`href="${urlOfficial}"`));
+    for (const [, target] of source(lang).matchAll(/\]\((\/(?:zh|en)\/[^)#]+)\)/g)) {
+      assert.ok(existsSync(new URL(`../dist${target}index.html`, import.meta.url)), target);
+    }
+  }
 });

@@ -7,7 +7,7 @@ tags: [cursor, security, claude-code, marketplace]
 pillar: workflow
 content_status: keep
 locale_strategy: mirrored
-draft: true
+draft: false
 ---
 
 > Checked November 19, 2026 (Asia/Shanghai), against Cursor's [security notice](https://cursor.com/blog/claude-code-extension-security-notice) published on October 29, 2026 and updated on October 30, and the [investigation update](https://cursor.com/blog/security-incident-update) of November 13, 2026. This article only organizes public statements. It did not run the official check or remediation scripts on a real computer, and it did not perform independent forensics.
