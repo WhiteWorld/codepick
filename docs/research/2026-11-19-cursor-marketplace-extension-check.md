@@ -27,6 +27,16 @@ October 29, 2026 was still US Pacific Daylight Time (UTC-7); DST ended on Novemb
 - No independent verification of offline attacker infrastructure, script effectiveness, hash values, account notification lists, or live marketplace state.
 - Existing general security guide `ai-coding-agent-security-2026` is cross-linked and not rewritten. This article does not replace it.
 
+### Dig review follow-up (still draft)
+
+Independent content review of `a651d93c` found no blockers and asked for three clarifications, all applied in both locales after rechecking the official notice and the 2026-11-13 update:
+
+1. **A failed quick check is not a negative result.** The official macOS and Windows commands are kept verbatim. The articles now state that a permission or read error, or any other command failure, is not “no key found,” and should be handed to an administrator. The commands are not rewritten as verified scripts, and the articles still do not claim they were executed. Basis: the official “Check whether you are impacted” commands and the “If the key is found, your machine is impacted” wording; a failed read is outside a completed check.
+2. **Other official indicators are limited to evidence consistent with this payload’s execution or backdoor installation.** Ordinary SSH activity, or a single generic filename on its own, is not treated as confirmation that cleanup is required. Basis: “What you should do” item 3, “Isolate hosts showing evidence of payload execution or backdoor installation,” plus the official note that access to legitimate IP-lookup services alone is not an indicator.
+3. **Per-machine scope is the official check population, not every computer that ever ran Cursor.** Check each machine that may have installed or updated the relevant extension from that marketplace during the window; if that is unclear, use the official quick check. Basis: the official “What you should do” lead-in naming installs or updates of `Anthropic.claude-code` 2.1.312 or 2.1.313 from Cursor’s VS Code extension marketplace in the window.
+
+These are documentary clarifications. They are not a claim that scripts, infections, or cleanup effects were tested.
+
 ## Reproduction after review
 
 Once `draft` is set to `false` and review wording stays absent:

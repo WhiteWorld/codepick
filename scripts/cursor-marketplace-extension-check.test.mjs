@@ -67,3 +67,37 @@ test('evidence boundaries do not claim script execution or independent forensics
     assert.ok(!/we (ran|executed|reproduced the attack)/i.test(text));
   }
 });
+
+test('failed checks, indicator scope, and host scope stay within the official notice', () => {
+  const zh = source('zh');
+  const en = source('en');
+
+  assert.match(zh, /权限不足、文件无法读取或其他错误而失败/);
+  assert.match(zh, /不等于「没有找到密钥」/);
+  assert.match(zh, /不能当成阴性结果/);
+  assert.match(zh, /交给管理员核查/);
+  assert.match(zh, /没有把它们改写成已验证脚本/);
+  assert.match(en, /A permission or read error, or any other failure of the command/);
+  assert.match(en, /not the same as “no key found,”/);
+  assert.match(en, /must not be treated as a negative result/);
+  assert.match(en, /have an administrator investigate/);
+  assert.match(en, /does not rewrite them as verified scripts/);
+
+  assert.match(zh, /发现与此次载荷执行、后门安装相符的官方指标/);
+  assert.match(zh, /普通的 SSH 活动，或单独出现某个通用文件名，不能直接当成已经确诊、必须清理的依据/);
+  assert.match(en, /official indicators consistent with payload execution or backdoor installation from this incident/);
+  assert.match(en, /Ordinary SSH activity, or a single generic filename on its own, should not be treated as confirmation that cleanup is required/);
+
+  assert.match(zh, /在窗口内可能从该市场安装或更新过相关扩展的电脑上，先执行公告里的快速检查/);
+  assert.match(zh, /窗口内可能从该市场安装或更新过相关扩展的每一台机器都要单独检查/);
+  assert.match(zh, /记不清有没有装过，就按官方快速检查处理/);
+  assert.match(zh, /不要把范围笼统扩成所有曾经用过 Cursor 的机器/);
+  assert.ok(!zh.includes('先在这台曾经运行过 Cursor 的电脑上'));
+  assert.ok(!zh.includes('窗口里用过 Cursor 的每一台机器'));
+  assert.match(en, /on each computer that may have installed or updated the relevant extension from that marketplace during the window/);
+  assert.match(en, /Check each machine that may have installed or updated the relevant extension from that marketplace during the window/);
+  assert.match(en, /If you cannot remember, use the official quick check/);
+  assert.match(en, /Do not broaden the scope to every machine that has ever run Cursor/);
+  assert.ok(!en.includes('on the computer that ran Cursor,'));
+  assert.ok(!en.includes('Every machine that ran Cursor during the window'));
+});

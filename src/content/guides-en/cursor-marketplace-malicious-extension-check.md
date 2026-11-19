@@ -44,7 +44,7 @@ Falling outside that description is not the same as having finished a forensic r
 
 Many people no longer know whether they had 2.1.312 or 2.1.313, or whether it came from Cursor's VS Code extension marketplace. The official check population is those two versions in that window, but the quick check itself does not require reinstalling the extension or first recovering an install log.
 
-If you are unsure, the more cautious path is to run the official quick check on the computer that ran Cursor, then decide whether to move on to cleanup. Remembering a different version, or remembering an install from Open VSX or Anthropic's own distribution, is not a substitute for the official conditions. It is also not evidence that you have already ruled them out.
+If you are unsure, the more cautious path is to run the official quick check on each computer that may have installed or updated the relevant extension from that marketplace during the window, then decide whether to move on to cleanup. Remembering a different version, or remembering an install from Open VSX or Anthropic's own distribution, is not a substitute for the official conditions. It is also not evidence that you have already ruled them out.
 
 If this is a work computer or a machine other people can log into, run the check under the account that actually used Cursor. The official macOS command looks at that user's `~/.ssh/authorized_keys`. The Windows command also looks at `C:\ProgramData\ssh\administrators_authorized_keys`. Checking only your laptop does not mean the office machine has been checked.
 
@@ -69,7 +69,7 @@ $files = "$HOME\.ssh\authorized_keys", "C:\ProgramData\ssh\administrators_author
 if ($files -and (Select-String svc-telemetry $files)) { "svc-telemetry key found" } else { "No key found; machine not impacted" }
 ```
 
-Cursor says that if the key is found, the machine is impacted. This command only searches for `svc-telemetry` in those authorized-keys files. The notice also lists other files, persistence items, processes, and network indicators. “No key found” is the result of this quick check, not a complete forensic clearance on its own. This article did not run these commands on a real computer.
+Cursor says that if the key is found, the machine is impacted. This command only searches for `svc-telemetry` in those authorized-keys files. The notice also lists other files, persistence items, processes, and network indicators. “No key found” is the result of this quick check, not a complete forensic clearance on its own. A permission or read error, or any other failure of the command, is not the same as “no key found,” and must not be treated as a negative result; have an administrator investigate. The commands above are quoted from the official notice; this article does not rewrite them as verified scripts, and it did not run them on a real computer.
 
 Cursor also published the unauthorized public-key fingerprint `SHA256:0Z6R+DF64Do2nwQic8a7kkfDLNNk4IiK+2U2Rci4htk` and the reverse-tunnel key fingerprint `SHA256:KOAU57+ZG6u3MG4WwzPzPX2O5YEe9qdOC1Bl+6MVyDQ`. Use the notice for the full public key, package hashes, and network indicators.
 
@@ -77,10 +77,10 @@ Cursor also published the unauthorized public-key fingerprint `SHA256:0Z6R+DF64D
 
 Cursor is explicit: the payload drops standalone persistence that can keep running, so uninstalling the extension may not be sufficient.
 
-If the quick check finds the key, or other official indicators appear, follow the notice:
+If the quick check finds the key, or you find official indicators consistent with payload execution or backdoor installation from this incident, follow the notice:
 
 1. Isolate the host.
-2. Search endpoint, network, and extension-installation telemetry against the official indicators.
+2. Search endpoint, network, and extension-installation telemetry against the official indicators. Ordinary SSH activity, or a single generic filename on its own, should not be treated as confirmation that cleanup is required; match the evidence to payload execution or backdoor installation from this incident.
 3. Use the official remediation scripts on affected systems. On macOS, download `remediate-macos.sh` and run `bash remediate-macos.sh` as the affected user, not as root, from the folder you saved it to. On Windows, download `remediate-windows.ps1` and run `powershell -ExecutionPolicy Bypass -File .\remediate-windows.ps1` from PowerShell opened with Run as Administrator, in the folder you saved it to. Cursor says the scripts remove the malicious extension, persistence mechanisms, running tunnel processes, and the attacker's SSH key, and exit with a non-zero status if anything remains.
 4. Rotate credentials and sessions accessible from the affected host, from a trusted system. Cursor notes that the limited environment-variable collection does not rule out later credential access over the backdoor.
 5. Assess whether the host should be rebuilt.
@@ -110,7 +110,7 @@ These are official statements. We did not reproduce the attack, and we did not i
 - **This is a vulnerability in Anthropic's official extension.** Cursor says Anthropic did not publish this copy, and this was not a vulnerability in Anthropic's product.
 - **Other marketplace extensions are also unsafe.** Cursor says it validated that all other extensions were authentic and rebuilt the marketplace; that is not a sampling exercise we repeated.
 - **The official quick check printed “not impacted,” so the machine is fully clean.** That check only looks for the key comment in the named files.
-- **Checking the laptop you use most is enough.** Every machine that ran Cursor during the window needs its own check, especially shared accounts.
+- **Checking the laptop you use most is enough.** Check each machine that may have installed or updated the relevant extension from that marketplace during the window. If you cannot remember, use the official quick check. Shared accounts especially should not be skipped. Do not broaden the scope to every machine that has ever run Cursor.
 
 
 ## Do not widen the problem while you investigate
