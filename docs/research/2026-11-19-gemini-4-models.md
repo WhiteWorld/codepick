@@ -123,5 +123,22 @@ Blocking fix: the October 13 Argon post was re-opened at https://blog.google/inn
 Non-blocking follow-ups, after re-checking the cited pages:
 
 1. Footnote 4 on https://one.google.com/about/google-ai-plans/ and https://gemini.google/subscriptions/ says Gemini 4 Carbon and Nano Banana Pro in AI Mode are available in select countries. The plans-page copy gives Pro "access to the Gemini 4 Carbon model in AI Mode" and Ultra "Higher access to the Gemini 4 Carbon model in AI Mode." The table and surrounding prose now state that distinction. The pages do not, in the checked copy, give Pro Carbon in the Gemini app, so that was not added.
-2. https://aistudio.google.com/docs/whats-new-gemini-4-hydrogen and https://aistudio.google.com/docs/long-decode agree that a hop is a continuation chunk, not the total output cap. Model pages, including https://aistudio.google.com/docs/models/gemini-4-argon (opened in this pass), still list default max output 65,536 / long decode up to 1,048,576. Background and streaming hops are 65,536 for all four models. Non-streaming REST hops, or hops with `automatic_continuation: false`, are 65,536 for Hydrogen and Neon and 32,768 for Carbon and Argon. The Hydrogen guide says "non-streaming REST hop"; the long-decode overview says "non-streaming hop," and its table says `automatic_continuation: false` or REST. The article reports that wording difference and does not treat hop size as identical across interfaces, or 32,768 as a total output cap.
+2. https://aistudio.google.com/docs/whats-new-gemini-4-hydrogen and https://aistudio.google.com/docs/long-decode agree that a hop is a continuation chunk, not the total output cap. Model pages, including https://aistudio.google.com/docs/models/gemini-4-argon (opened in the previous pass), still list default max output 65,536 / long decode up to 1,048,576. See the second dig follow-up below for the corrected hop conditions; an earlier wording here over-broadened `automatic_continuation: false` so that it could be read as covering streaming hops.
 3. The October 13 timeline now includes the consumer surfaces above, not only developers and enterprises. The sources list and this record now include the standalone Argon model page.
+
+
+## Dig review follow-up 2 (still draft)
+
+Re-opened https://aistudio.google.com/docs/long-decode (Output limits table) and https://aistudio.google.com/docs/whats-new-gemini-4-hydrogen on 2026-11-19 (Asia/Shanghai). No API calls.
+
+The table row for `background: false`, `max_output_tokens` greater than 65,536, and `automatic_continuation: false` or REST says: 65,536 tokens per streaming hop (or non-streaming hop on Hydrogen and Neon), or 32,768 per non-streaming hop on Carbon and Argon, then loop with `continuation_token`. The previous article sentence "non-streaming REST, or when automatic continuation is off" incorrectly allowed 32,768 to cover streaming with `automatic_continuation: false`.
+
+Corrected wording now states:
+
+- hop is not the total output cap; default remains 65,536
+- background internal hops: 65,536
+- streaming hops stay at 65,536 even if automatic continuation is off or the call uses REST
+- 32,768 applies only to foreground non-streaming hops when automatic continuation is off or the call uses REST
+- Hydrogen and Neon non-streaming hops remain 65,536 in that same row
+- SDK default is `automatic_continuation: true`; REST or turning it off uses a `continuation_token` loop
+- The Hydrogen migration bullet still describes Carbon/Argon 32,768 only as a "non-streaming REST hop" and does not mention streaming; that wording difference is retained

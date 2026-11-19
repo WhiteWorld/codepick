@@ -67,7 +67,7 @@ Antigravity 里的套餐和模型入口，见 [Antigravity 工具页](/zh/tool/a
 
 - **token**：模型和账单用的基本单位，不等于汉字或英文单词。同一段文字在不同模型上的 token 数可能不同。
 - **统一窗口**：输入、思考和输出共用 1,048,576 token，不是「输入 100 万，输出再另给 100 万」。
-- **长解码（long decode）**：型号页把默认单次输出（含思考）写成 65,536 token；需要更长结果时，可把总上限提高到剩余窗口。这是整段回答的上限，不是下面说的 hop。长解码会把生成拆成连续的 hop，也就是一次请求能写下的片段；官方说明往往要配合后台执行或续写协议。依据 [长解码文档](https://aistudio.google.com/docs/long-decode) 和 [Hydrogen 更新说明](https://aistudio.google.com/docs/whats-new-gemini-4-hydrogen)：后台执行和流式调用时，四个型号每 hop 最多 65,536。非流式且走 REST、或关闭自动续写时，Hydrogen 和 Neon 每 hop 仍最多 65,536，Carbon 和 Argon 每 hop 最多 32,768，要用 `continuation_token` 循环才能达到设定的总上限。Hydrogen 文把 Carbon / Argon 的 32,768 写成「非流式 REST hop」，长解码页总述写成「非流式 hop」，表格则写成 `automatic_continuation: false` 或 REST。不要把所有接口的 hop 大小理解成完全相同，也不要把 32,768 理解成 Carbon / Argon 的总输出上限。
+- **长解码（long decode）**：型号页把默认单次输出（含思考）写成 65,536 token。需要更长结果时，把 `max_output_tokens` 提到 65,536 以上，再用后台执行或前台续写，整段回答可以写到剩余窗口。hop 是一次请求写下的片段，不是总上限。依据 [长解码文档](https://aistudio.google.com/docs/long-decode) 的 Output limits 表：后台执行时，内部每 hop 最多 65,536。流式调用时，即使关闭自动续写或走 REST，每 hop 也仍是 65,536。32,768 只适用于前台非流式 hop，并且关闭自动续写或走 REST（表中对应 `background: false` 且 `max_output_tokens` 大于 65,536）；这时 Carbon 和 Argon 每 hop 最多 32,768，Hydrogen 和 Neon 仍是 65,536。官方 SDK 默认 `automatic_continuation: true`，会自动续写；走 REST 或关闭自动续写时，要用 `continuation_token` 循环。Hydrogen 更新说明只把 Carbon / Argon 的 32,768 写成「非流式 REST hop」，没有把流式写进去。不要把 32,768 理解成总输出上限。
 - **思考档位**：控制模型花多少内部推理。思考 token 官方按输出计价。档位越高，通常越慢、越贵，但本文没有实测这一关系。
 
 四个型号都支持代码执行、函数调用、计算机使用、结构化输出、Google 搜索 / 地图接地，以及 URL 上下文。官方模型页写明：它们不支持图像生成、音频生成和 Live API。要生成图、语音或做实时语音，需要官方目录里的其他专用型号，不在这篇的四个文本推理型号里。

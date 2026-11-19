@@ -129,10 +129,20 @@ test('Argon consumer-page gap, 3.8 Flash output cap, and GPT long-context surcha
   assert.match(en, /Pro is described as getting access to Carbon in AI Mode, and Ultra as getting higher access/);
   assert.match(zh, /每 hop 最多 32,768/);
   assert.match(en, /limited to 32,768 tokens per hop/);
-  assert.match(zh, /不要把 32,768 理解成 Carbon \/ Argon 的总输出上限/);
-  assert.match(en, /do not read 32,768 as Carbon or Argon's total output limit/);
+  assert.match(zh, /只适用于前台非流式 hop，并且关闭自动续写或走 REST/);
+  assert.match(en, /applies only to foreground non-streaming hops when automatic continuation is off or you use REST/);
+  assert.match(zh, /流式调用时，即使关闭自动续写或走 REST，每 hop 也仍是 65,536/);
+  assert.match(en, /Streaming hops stay at 65,536 even if automatic continuation is off or you use REST/);
+  assert.match(zh, /后台执行时，内部每 hop 最多 65,536/);
+  assert.match(en, /background execution uses internal hops of up to 65,536 tokens/);
+  assert.match(zh, /官方 SDK 默认 `automatic_continuation: true`/);
+  assert.match(en, /defaults to `automatic_continuation: true`/);
+  assert.match(zh, /不要把 32,768 理解成总输出上限/);
+  assert.match(en, /Do not read 32,768 as the total output limit/);
   assert.match(zh, /`continuation_token`/);
   assert.match(en, /`continuation_token`/);
+  assert.ok(!zh.includes('非流式且走 REST、或关闭自动续写时'));
+  assert.ok(!en.includes('On non-streaming REST calls, or when automatic continuation is off'));
 });
 
 test('draft guides build as direct routes but stay out of listings, RSS and sitemap lastmod set', () => {
