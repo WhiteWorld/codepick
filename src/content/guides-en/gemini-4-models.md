@@ -7,7 +7,7 @@ tags: [gemini, gemini-4, model-comparison, api, pricing]
 pillar: compare
 content_status: keep
 locale_strategy: mirrored
-draft: true
+draft: false
 ---
 
 > Checked on November 19, 2026 (Asia/Shanghai), against Google's official blogs, the [Gemini API models page](https://aistudio.google.com/docs/models), [Latest Gemini models](https://aistudio.google.com/docs/latest-model), [developer pricing](https://aistudio.google.com/docs/pricing), [rate limits](https://aistudio.google.com/docs/rate-limits), the [Gemini subscriptions page](https://gemini.google/subscriptions/), and the [Google AI plans page](https://one.google.com/about/google-ai-plans/). For peer models, we also opened Anthropic's [Claude pricing](https://platform.claude.com/docs/en/about-claude/pricing) and [Sonnet 5.5 overview](https://platform.claude.com/docs/en/models/sonnet-5-5/overview), plus OpenAI's [API pricing](https://developers.openai.com/api/docs/pricing) and [GPT-6.2 Sol page](https://developers.openai.com/api/docs/models/gpt-6.2-sol). This article only organizes public pages. It did not call the Gemini, Claude, or OpenAI APIs, did not use any API keys, and did not independently measure speed, coding quality, or cost.

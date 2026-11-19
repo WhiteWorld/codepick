@@ -7,7 +7,7 @@ tags: [gemini, gemini-4, model-comparison, api, pricing]
 pillar: compare
 content_status: keep
 locale_strategy: mirrored
-draft: true
+draft: false
 ---
 
 > 核查日：2026-11-19（北京时间）。依据 Google 官方博客、[Gemini API 模型页](https://aistudio.google.com/docs/models)、[最新模型说明](https://aistudio.google.com/docs/latest-model)、[开发者价格页](https://aistudio.google.com/docs/pricing)、[速率限制](https://aistudio.google.com/docs/rate-limits)、[Gemini 订阅页](https://gemini.google/subscriptions/) 和 [Google AI 套餐页](https://one.google.com/about/google-ai-plans/)。对照型号另打开了 Anthropic 的 [Claude 价格页](https://platform.claude.com/docs/en/about-claude/pricing)、[Sonnet 5.5 说明](https://platform.claude.com/docs/en/models/sonnet-5-5/overview)，以及 OpenAI 的 [API 价格页](https://developers.openai.com/api/docs/pricing) 和 [GPT-6.2 Sol 说明](https://developers.openai.com/api/docs/models/gpt-6.2-sol)。本文只整理公开页面，没有调用 Gemini、Claude 或 OpenAI 的 API，没有使用密钥，也没有独立跑速度、代码或费用测试。

@@ -1,4 +1,4 @@
-// Editorial/build regressions only. Build first for publication-path checks. No API or paid calls.
+// Editorial/build regressions only. Build first for publication checks. No API or paid calls.
 import assert from 'node:assert/strict';
 import { existsSync } from 'node:fs';
 import { readFileSync } from 'node:fs';
@@ -48,7 +48,7 @@ test('bilingual Gemini 4 guides share mirrored metadata and official links', () 
   }
   assert.equal(a.date, '2026-11-19');
   assert.equal(a.article_type, 'explainer');
-  assert.equal(a.draft, true);
+  assert.equal(a.draft, false);
   assert.equal(a.locale_strategy, 'mirrored');
   assert.equal(a.pillar, 'compare');
   assert.ok(zh.split('\n').length > 150 && en.split('\n').length > 150, 'complete articles, not outlines');
@@ -145,27 +145,36 @@ test('Argon consumer-page gap, 3.8 Flash output cap, and GPT long-context surcha
   assert.ok(!en.includes('On non-streaming REST calls, or when automatic continuation is off'));
 });
 
-test('draft guides build as direct routes but stay out of listings, RSS and sitemap lastmod set', () => {
-  const sitemapPath = new URL('../dist/sitemap-0.xml', import.meta.url);
-  if (!existsSync(new URL('../dist/zh/guides/index.html', import.meta.url))) {
-    return; // build has not been run in this workspace yet
-  }
-  const sitemap = existsSync(sitemapPath) ? read('dist/sitemap-0.xml') : '';
+test('built guides appear in listings, RSS and sitemap with reciprocal language routes', () => {
+  const sitemap = read('dist/sitemap-0.xml');
   for (const lang of ['zh', 'en']) {
-    const url = `https://codepick.dev/${lang}/guides/${slug}/`;
-    const page = `dist/${lang}/guides/${slug}/index.html`;
-    const list = read(`dist/${lang}/guides/index.html`);
+    const index = read(`dist/${lang}/guides/index.html`);
     const rss = read(`dist/${lang}/rss.xml`);
-    assert.equal(fm(source(lang)).draft, true);
-    assert.ok(existsSync(new URL(`../${page}`, import.meta.url)), `${page} should exist as a direct draft route`);
-    const html = read(page);
+    const html = read(`dist/${lang}/guides/${slug}/index.html`);
+    const metadata = fm(source(lang));
+    const url = `https://codepick.dev/${lang}/guides/${slug}/`;
+    const other = lang === 'zh' ? 'en' : 'zh';
+
+    assert.equal(metadata.draft, false);
+    assert.ok(html.includes(metadata.title));
     assert.ok(!html.includes(lang === 'zh' ? '审阅稿' : 'Review draft'));
-    assert.ok(!list.includes(url), `${lang} listing should omit the draft`);
-    assert.ok(!rss.includes(url), `${lang} RSS should omit the draft`);
-    // lastmod map skips drafts; the sitemap plugin may still emit the built route.
-    // Record the actual sitemap behavior without treating either outcome as a publication signal.
-    if (sitemap.includes(`<loc>${url}</loc>`)) {
-      assert.ok(true, `${lang} draft URL is present in sitemap (known direct-route exposure)`);
+    assert.ok(index.includes(`/${lang}/guides/${slug}/`));
+    assert.ok(rss.includes(url));
+    assert.ok(sitemap.includes(`<loc>${url}</loc>`));
+    assert.ok(html.includes(`<link rel="canonical" href="${url}"`));
+    assert.ok(html.includes(`hreflang="${other}" href="https://codepick.dev/${other}/guides/${slug}/"`));
+    assert.ok(html.includes(`hreflang="${lang}" href="${url}"`));
+
+    const ld = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)]
+      .flatMap(([, json]) => JSON.parse(json)).find(v => v['@type'] === 'TechArticle');
+    assert.ok(ld);
+    assert.equal(ld.name, metadata.title);
+    assert.equal(ld.datePublished, '2026-11-19');
+    assert.equal(ld.inLanguage, lang === 'zh' ? 'zh-CN' : 'en');
+
+    for (const urlOfficial of officialLinks(source(lang))) assert.ok(html.includes(`href="${urlOfficial}"`));
+    for (const [, target] of source(lang).matchAll(/\]\((\/(?:zh|en)\/[^)#]+)\)/g)) {
+      assert.ok(existsSync(new URL(`../dist${target}index.html`, import.meta.url)), target);
     }
   }
 });
