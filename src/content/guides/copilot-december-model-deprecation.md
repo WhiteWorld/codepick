@@ -11,7 +11,7 @@ draft: true
 faq:
   - q: "个人年付是不是这 6 个模型都不用改？"
     a: |
-      不是。公告只写了 Claude Haiku 4.5 会留给个人 GitHub Copilot 年付订阅，这条例外不适用于这些客户。其他五个模型没有这条例外。公告也没有把例外写到团队、Business 或 Enterprise 里的 Haiku 4.5。
+      不是。公告只写了 Claude Haiku 4.5 会留给个人 GitHub Copilot 年付订阅，对这类客户，Haiku 4.5 的下线不适用。其他五个模型没有这条例外。公告也没有把例外写到团队、Business 或 Enterprise 里的 Haiku 4.5。
   - q: "Kimi K3 该换成哪个？"
     a: |
       公告里的建议替代写的是 To be announced，也就是尚未公布。本文不推测该换哪个，请以之后的官方说明为准。
