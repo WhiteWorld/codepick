@@ -7,7 +7,7 @@ tags: [copilot, model-deprecation]
 pillar: workflow
 content_status: keep
 locale_strategy: mirrored
-draft: true
+draft: false
 faq:
   - q: "If I pay annually as an individual, can I ignore all six models?"
     a: |

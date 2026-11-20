@@ -1,4 +1,4 @@
-// Editorial/build regressions only. Source checks do not require draft:false. No Copilot or paid API calls.
+// Editorial/build regressions only. Build first for publication checks. No Copilot or paid API calls.
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import test from 'node:test';
@@ -34,7 +34,7 @@ test('bilingual Copilot December deprecation guides share mirrored metadata and 
   }
   assert.equal(a.date, '2026-11-20');
   assert.equal(a.article_type, 'howto');
-  assert.equal(a.draft, true);
+  assert.equal(a.draft, false);
   assert.equal(a.locale_strategy, 'mirrored');
   assert.deepEqual(a.tags, ['copilot', 'model-deprecation']);
   assert.ok(zh.split('\n').length > 80 && en.split('\n').length > 80, 'complete articles, not outlines');
@@ -142,27 +142,36 @@ test('articles disclose that the supported-models retirement history checked on 
   assert.ok(zh.includes('GA') && en.includes('GA'));
 });
 
-test('draft guides stay out of listings and RSS when a build is present', () => {
-  const zhMeta = fm(source('zh'));
-  const enMeta = fm(source('en'));
-  assert.equal(zhMeta.draft, true);
-  assert.equal(enMeta.draft, true);
-
-  const indexPath = new URL('../dist/zh/guides/index.html', import.meta.url);
-  if (!existsSync(indexPath)) return;
-
+test('built guides appear in listings, RSS and sitemap with reciprocal language routes', () => {
+  const sitemap = read('dist/sitemap-0.xml');
   for (const lang of ['zh', 'en']) {
+    const index = read(`dist/${lang}/guides/index.html`);
+    const rss = read(`dist/${lang}/rss.xml`);
+    const html = read(`dist/${lang}/guides/${slug}/index.html`);
+    const metadata = fm(source(lang));
     const url = `https://codepick.dev/${lang}/guides/${slug}/`;
-    assert.ok(!read(`dist/${lang}/guides/index.html`).includes(`/${lang}/guides/${slug}/`), `${lang} draft must stay out of the guide index`);
-    assert.ok(!read(`dist/${lang}/rss.xml`).includes(url), `${lang} draft must stay out of RSS`);
+    const other = lang === 'zh' ? 'en' : 'zh';
 
-    const built = new URL(`../dist/${lang}/guides/${slug}/index.html`, import.meta.url);
-    if (!existsSync(built)) continue;
-    const html = readFileSync(built, 'utf8');
-    assert.ok(html.includes(fm(source(lang)).title));
+    assert.equal(metadata.draft, false);
+    assert.ok(html.includes(metadata.title));
     assert.ok(!html.includes(lang === 'zh' ? '审阅稿' : 'Review draft'));
-    for (const urlOfficial of officialLinks(source(lang))) {
-      assert.ok(html.includes(`href="${urlOfficial}"`), `${lang} built page should keep ${urlOfficial}`);
+    assert.ok(index.includes(`/${lang}/guides/${slug}/`));
+    assert.ok(rss.includes(url));
+    assert.ok(sitemap.includes(`<loc>${url}</loc>`));
+    assert.ok(html.includes(`<link rel="canonical" href="${url}"`));
+    assert.ok(html.includes(`hreflang="${other}" href="https://codepick.dev/${other}/guides/${slug}/"`));
+    assert.ok(html.includes(`hreflang="${lang}" href="${url}"`));
+
+    const ld = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)]
+      .flatMap(([, json]) => JSON.parse(json)).find(v => v['@type'] === 'HowTo');
+    assert.ok(ld);
+    assert.equal(ld.name, metadata.title);
+    assert.equal(ld.datePublished, '2026-11-20');
+    assert.equal(ld.inLanguage, lang === 'zh' ? 'zh-CN' : 'en');
+
+    for (const urlOfficial of officialLinks(source(lang))) assert.ok(html.includes(`href="${urlOfficial}"`));
+    for (const [, target] of source(lang).matchAll(/\]\((\/(?:zh|en)\/[^)#]+)\)/g)) {
+      assert.ok(existsSync(new URL(`../dist${target}index.html`, import.meta.url)), target);
     }
   }
 });

@@ -7,7 +7,7 @@ tags: [copilot, model-deprecation]
 pillar: workflow
 content_status: keep
 locale_strategy: mirrored
-draft: true
+draft: false
 faq:
   - q: "个人年付是不是这 6 个模型都不用改？"
     a: |

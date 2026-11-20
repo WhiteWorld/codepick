@@ -64,9 +64,13 @@ Changes in the new bilingual guide only:
 
 `draft: true` is unchanged.
 
+## Publication
+
+After dig confirmed `1a403528b73634491219c1fc29ac01e97e2c6f9f` has no remaining content blockers, `draft` was set to `false` so the guides can appear in listings, RSS, and the sitemap. Reviewed article bodies and the evidence conclusions above are unchanged.
+
 ## Local check commands
 
-These are valid while the guides remain `draft: true`. Listings and RSS correctly omit the draft. The current site still builds draft guide HTML (getStaticPaths does not filter `draft`) and the sitemap plugin therefore emits those URLs; the lastmod helper skips drafts, but that does not drop the URL. This existing build behavior was not changed. Do not treat sitemap presence as publication, and do not weaken the SEO check to hide it.
+After publication, listings, RSS, and the sitemap should include these guides. Run the publication regressions in `scripts/copilot-december-model-deprecation.test.mjs` after a full build.
 
 ```sh
 npm run build
