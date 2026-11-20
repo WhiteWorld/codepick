@@ -51,6 +51,19 @@ The 2026-11-20 supported-models availability table still lists Grok 4.5 as GA, a
 - How Copilot Free / Student auto model selection will behave on the deprecation date is unknown.
 - The supported-models retirement history, checked on 2026-11-20, had not yet listed the December 14 wave.
 
+
+## Dig follow-up (f6f1219)
+
+dig independently reviewed `f6f1219660efa1af04177367412a47338ec27b3c` and found no content blockers, with three non-blocking suggestions. The three official pages were opened again on **2026-11-20 (Asia/Shanghai)** before the wording was changed. The changelog footnote still limits the Claude Haiku 4.5 exception to individual GitHub Copilot subscribers on annual plans. The configure-access page still talks about an organization or enterprise and Copilot Business / Copilot Enterprise seats; it does not use a plan name equivalent to a bare “团队 / team.” The supported-models page still lists Grok 4.5 as GA in the current availability table, and the Model retirement history still has no Grok 4.5 row (the 2026-10-19 history rows are Gemini 3.7 Flash, GPT-5 mini, GPT-5.4, GPT-5.4 mini, and GPT-5.5). The existing checklist was not edited.
+
+Changes in the new bilingual guide only:
+
+1. The lead now states the individual annual Haiku 4.5 exception, and that the other five models have no such exception.
+2. “团队 / team” in the exception-scope sentences is now “团队或组织使用 / team or organization use,” so it is not read as an official plan name. “客户团队 / account team” is unchanged.
+3. Cross-links to the 2026-10-22 checklist now say that check date is earlier than this article, and that Grok 4.5 follows the supported-models page opened on 2026-11-20. The articles do not rewrite the checklist and do not reopen the older changelogs.
+
+`draft: true` is unchanged.
+
 ## Local check commands
 
 These are valid while the guides remain `draft: true`. Listings and RSS correctly omit the draft. The current site still builds draft guide HTML (getStaticPaths does not filter `draft`) and the sitemap plugin therefore emits those URLs; the lastmod helper skips drafts, but that does not drop the URL. This existing build behavior was not changed. Do not treat sitemap presence as publication, and do not weaken the SEO check to hide it.

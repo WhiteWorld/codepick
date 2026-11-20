@@ -11,7 +11,7 @@ draft: true
 faq:
   - q: "If I pay annually as an individual, can I ignore all six models?"
     a: |
-      No. The changelog only says Claude Haiku 4.5 will remain available to individual GitHub Copilot subscribers on annual plans, and that this deprecation does not apply to those customers. The other five models have no such exception. The post also does not extend the exception to team, Business, or Enterprise use of Haiku 4.5.
+      No. The changelog only says Claude Haiku 4.5 will remain available to individual GitHub Copilot subscribers on annual plans, and that this deprecation does not apply to those customers. The other five models have no such exception. The post also does not extend the exception to team or organization use, or to Business or Enterprise use of Haiku 4.5.
   - q: "What should I switch Kimi K3 to?"
     a: |
       The changelog lists the suggested alternative as “To be announced.” This article does not guess a replacement. Wait for a later official update.
@@ -25,9 +25,9 @@ faq:
 
 > Checked November 20, 2026 (Asia/Shanghai), against that day's GitHub [December model deprecation changelog](https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december/) and the [supported Copilot models](https://docs.github.com/en/copilot/reference/ai-models/supported-models) page. Admin configuration is taken only from the wording on [Configuring access to AI models](https://docs.github.com/en/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models). We did not open an organization or enterprise console. This article did not sign in to Copilot, test a model picker or policy switch, or call paid APIs.
 
-If a workflow, integration, or model selector still points at the six display names below, it will need a change by **2026-12-14**. The changelog says GitHub will deprecate these models across all GitHub Copilot experiences, including Copilot Chat, inline edits, ask and agent modes, and code completions. The post does not give a time of day or a timezone for that date, and this article does not invent a cutoff minute in China time.
+If a workflow, integration, or model selector still points at the six display names below, it will need a change by **2026-12-14**. The exception is Claude Haiku 4.5 for individual annual subscribers: the changelog says it will remain available to individual GitHub Copilot subscribers on annual plans, and that this deprecation does not apply to those customers. The other five models have no such exception. The changelog says GitHub will deprecate these models across all GitHub Copilot experiences, including Copilot Chat, inline edits, ask and agent modes, and code completions. The post does not give a time of day or a timezone for that date, and this article does not invent a cutoff minute in China time.
 
-For the product and plan overview, see the [Copilot tool page](/en/tool/copilot/). This guide covers only the December 14 wave. For earlier waves, and for how to search a repository for pinned names or IDs, see the [model deprecation checklist](/en/guides/model-deprecation-checklist/). This article does not replace that checklist.
+For the product and plan overview, see the [Copilot tool page](/en/tool/copilot/). This guide covers only the December 14 wave. For earlier waves, and for how to search a repository for pinned names or IDs, see the [model deprecation checklist](/en/guides/model-deprecation-checklist/). That checklist was last checked on 2026-10-22, earlier than this article. For Grok 4.5, follow the [supported-models page](https://docs.github.com/en/copilot/reference/ai-models/supported-models) opened on 2026-11-20. This article does not replace that checklist.
 
 ## The official table
 
@@ -44,7 +44,7 @@ The source is the [changelog dated November 13, 2026](https://github.blog/change
 
 \*The changelog footnote: Claude Haiku 4.5 will remain available to individual GitHub Copilot subscribers on annual plans. The deprecation of Claude Haiku 4.5 does not apply to these customers.
 
-That exception covers only Claude Haiku 4.5 for individual subscribers on annual plans. It does not cover the other five models. The post also does not extend it to team, Business, or Enterprise use of Haiku 4.5.
+That exception covers only Claude Haiku 4.5 for individual subscribers on annual plans. It does not cover the other five models. The post also does not extend it to team or organization use, or to Business or Enterprise use of Haiku 4.5.
 
 For Kimi K3, the official suggested alternative is “To be announced.” This article does not guess a substitute.
 
@@ -81,7 +81,7 @@ Keep the two pages separate. Do not merge them into one table.
 - The December 14 date, the six display names, and the specific suggested alternatives (for example Gemini 4 Hydrogen, not a generic “latest Gemini” label) come from the [changelog](https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december/).
 - On the [supported-models page](https://docs.github.com/en/copilot/reference/ai-models/supported-models) opened on 2026-11-20, the current availability table still lists all six as GA. The Model retirement history on the same page includes the 2026-11-16 wave and earlier retirements, but it does not yet have rows for 2026-12-14. That history table often uses wording such as “Latest … model” for older waves. Do not substitute that generic wording for the changelog’s named alternatives.
 
-The 2026-11-16 wave has already passed. For that wave and the earlier 2026-10-19 batch, see the [model deprecation checklist](/en/guides/model-deprecation-checklist/). This article does not repeat those tables, and it did not reopen those older changelog posts.
+The 2026-11-16 wave has already passed. For that wave and the earlier 2026-10-19 batch, see the [model deprecation checklist](/en/guides/model-deprecation-checklist/). That checklist was last checked on 2026-10-22, earlier than this article. The supported-models page opened on 2026-11-20 still lists Grok 4.5 as GA in the current availability table, and the retirement history has no Grok 4.5 row; for Grok 4.5, follow that page. This article does not change the checklist’s wording, does not repeat those tables, and did not reopen those older changelog posts.
 
 ## A short note if you switch to Fable 5.2
 

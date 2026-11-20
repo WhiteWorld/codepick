@@ -11,7 +11,7 @@ draft: true
 faq:
   - q: "个人年付是不是这 6 个模型都不用改？"
     a: |
-      不是。公告只写了 Claude Haiku 4.5 会留给个人 GitHub Copilot 年付订阅，对这类客户，Haiku 4.5 的下线不适用。其他五个模型没有这条例外。公告也没有把例外写到团队、Business 或 Enterprise 里的 Haiku 4.5。
+      不是。公告只写了 Claude Haiku 4.5 会留给个人 GitHub Copilot 年付订阅，对这类客户，Haiku 4.5 的下线不适用。其他五个模型没有这条例外。公告也没有把例外写到团队或组织使用，以及 Business 或 Enterprise 里的 Haiku 4.5。
   - q: "Kimi K3 该换成哪个？"
     a: |
       公告里的建议替代写的是 To be announced，也就是尚未公布。本文不推测该换哪个，请以之后的官方说明为准。
@@ -25,9 +25,9 @@ faq:
 
 > 核查日：2026-11-20（北京时间）。依据当天打开的 GitHub [12 月模型下线公告](https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december/) 和 [Copilot 支持的模型](https://docs.github.com/en/copilot/reference/ai-models/supported-models)。管理员侧的配置说明，只对照 [配置模型访问](https://docs.github.com/en/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models) 页上的原文，没有打开组织或企业控制台。本文没有登录 Copilot、没有实测模型选择器或策略开关，也没有调用付费接口。
 
-工作流、集成或模型选择器如果还指着下面这 6 个显示名，到 **2026-12-14** 就需要改。公告写的是：将在所有 GitHub Copilot 体验中下线这些模型，范围包括 Copilot Chat、inline edits、ask 和 agent 模式，以及 code completions。页上没有写当天几点、按哪个时区截止，本文不自行换算成北京时间的某一分钟。
+工作流、集成或模型选择器如果还指着下面这 6 个显示名，到 **2026-12-14** 就需要改。例外是个人年付订阅里的 Claude Haiku 4.5：公告写明，它会留给个人 GitHub Copilot 年付订阅，这次下线不适用于这些客户。其他五个模型没有这条例外。公告写的是：将在所有 GitHub Copilot 体验中下线这些模型，范围包括 Copilot Chat、inline edits、ask 和 agent 模式，以及 code completions。页上没有写当天几点、按哪个时区截止，本文不自行换算成北京时间的某一分钟。
 
-Copilot 的产品和订阅说明见 [Copilot 工具页](/zh/tool/copilot/)。这篇文章只覆盖 12 月 14 日这一批。更早的批次，以及仓库里怎么搜写死的名字或 ID，见 [模型下线自查清单](/zh/guides/model-deprecation-checklist/)。本文不替代那份清单。
+Copilot 的产品和订阅说明见 [Copilot 工具页](/zh/tool/copilot/)。这篇文章只覆盖 12 月 14 日这一批。更早的批次，以及仓库里怎么搜写死的名字或 ID，见 [模型下线自查清单](/zh/guides/model-deprecation-checklist/)。那份清单的核查日是 2026-10-22，比本文早；Grok 4.5 以 2026-11-20 打开的 [支持模型页](https://docs.github.com/en/copilot/reference/ai-models/supported-models) 为准。本文不替代那份清单。
 
 ## 官方下线表
 
@@ -44,7 +44,7 @@ Copilot 的产品和订阅说明见 [Copilot 工具页](/zh/tool/copilot/)。这
 
 \*公告脚注：Claude Haiku 4.5 会留给个人 GitHub Copilot 年付订阅。Claude Haiku 4.5 的下线不适用于这些客户。
 
-这条例外只覆盖个人年付订阅里的 Claude Haiku 4.5。其他五个模型没有这条例外。公告也没有把例外写到团队、Business 或 Enterprise 里的 Haiku 4.5。
+这条例外只覆盖个人年付订阅里的 Claude Haiku 4.5。其他五个模型没有这条例外。公告也没有把例外写到团队或组织使用，以及 Business 或 Enterprise 里的 Haiku 4.5。
 
 Kimi K3 的建议替代，官方写的是 To be announced。本文不猜测该换哪个。
 
@@ -81,7 +81,7 @@ Copilot Business 和 Copilot Enterprise 不能只看个人侧。公告写了默�
 - 12 月 14 日的日期、六行显示名，以及具体的建议替代（例如 Gemini 4 Hydrogen，而不是「最新 Gemini」这种泛称），以 [changelog](https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december/) 为准。
 - 2026-11-20 打开的 [支持模型页](https://docs.github.com/en/copilot/reference/ai-models/supported-models) 里，当前可用表仍把这六个列为 GA；但同页的 Model retirement history 只列到了 2026-11-16 那一批，以及更早的下线，还没有 2026-12-14 的行。历史表里对旧批次常用 “Latest … model” 这种写法，不能拿来替换 changelog 里的具体替代名。
 
-11 月 16 日那一批已经过了下线日。细节和更早的 10 月 19 日批次，见 [模型下线自查清单](/zh/guides/model-deprecation-checklist/)。本文不再抄那两张表，也没有为写这篇文章重新打开那两则旧公告。
+11 月 16 日那一批已经过了下线日。细节和更早的 10 月 19 日批次，见 [模型下线自查清单](/zh/guides/model-deprecation-checklist/)。该清单核查日是 2026-10-22，早于本文。2026-11-20 打开的支持模型页仍把 Grok 4.5 列在当前可用表里，状态是 GA，下线历史里也没有 Grok 4.5 这一行；Grok 4.5 以这页为准。本文不改那份清单的正文，也不再抄那两张表，也没有为写这篇文章重新打开那两则旧公告。
 
 ## 换到 Fable 5.2 时要知道的一句说明
 

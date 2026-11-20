@@ -81,8 +81,8 @@ test('articles keep the six official display names, dates, alternatives, and Hai
     assert.match(
       text,
       lang === 'zh'
-        ? /没有把例外写到团队、Business 或 Enterprise/
-        : /does not extend it to team, Business, or Enterprise/,
+        ? /没有把例外写到团队或组织使用，以及 Business 或 Enterprise/
+        : /does not extend (it|the exception) to team or organization use, or to Business or Enterprise/,
     );
     assert.match(
       text,
@@ -91,6 +91,29 @@ test('articles keep the six official display names, dates, alternatives, and Hai
         : /does not guess a substitute/,
     );
   }
+});
+
+
+test('intro states the individual annual Haiku 4.5 exception, and checklist links note the earlier check date and Grok 4.5 source', () => {
+  const zh = source('zh');
+  const en = source('en');
+  assert.match(zh, /例外是个人年付订阅里的 Claude Haiku 4.5/);
+  assert.match(zh, /其他五个模型没有这条例外/);
+  assert.match(en, /The exception is Claude Haiku 4.5 for individual annual subscribers/);
+  assert.match(en, /The other five models have no such exception/);
+  assert.ok(zh.includes('团队或组织使用'));
+  assert.ok(!zh.includes('写到团队、Business'));
+  assert.ok(en.includes('team or organization use'));
+  assert.ok(!en.includes('to team, Business, or Enterprise'));
+  assert.match(zh, /那份清单的核查日是 2026-10-22，比本文早|该清单核查日是 2026-10-22，早于本文/);
+  assert.match(en, /That checklist was last checked on 2026-10-22, earlier than this article/);
+  assert.match(zh, /Grok 4.5 以 2026-11-20 打开的 .*支持模型页.* 为准/);
+  assert.match(zh, /仍把 Grok 4.5 列在当前可用表里，状态是 GA，下线历史里也没有 Grok 4.5 这一行/);
+  assert.match(en, /For Grok 4.5, follow the .*supported-models page.* opened on 2026-11-20/);
+  assert.match(en, /still lists Grok 4.5 as GA in the current availability table, and the retirement history has no Grok 4.5 row/);
+  assert.match(zh, /本文不改那份清单的正文/);
+  assert.match(en, /does not change the checklist/);
+  assert.ok(!zh.includes('审阅稿') && !en.includes('Review draft'));
 });
 
 test('evidence boundaries do not invent model IDs or claim a live Copilot or paid API test', () => {
