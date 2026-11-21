@@ -69,8 +69,8 @@ test('review limitations and historical-score caveats are visible, even without 
     assert.ok(page('en', tool.id).html.includes('Historical editorial scores retained'), tool.id);
     assert.ok(page('zh', tool.id).html.includes('历史编辑评分沿用'), tool.id);
   }
-  // Includes the Nov18 full documentary OpenCode review, in addition to the prior 37.
-  assert.equal(reviewed, 38);
+  // Includes the Nov21 full documentary VibeKit review, in addition to the prior 38.
+  assert.equal(reviewed, 39);
   assert.ok(page('en', 'conductor').html.includes('list no subscription amounts'));
 });
 

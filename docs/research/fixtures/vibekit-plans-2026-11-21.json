@@ -1,0 +1,150 @@
+{
+  "fetched_at_asia_shanghai": "2026-11-21 10:29 CST (UTC+8)",
+  "source_url": "https://vibekit.bot/api/v1/plans",
+  "http_status": 200,
+  "note": "Public unauthenticated official plans endpoint used by /public/checkout-prices.js. Stripe price IDs redacted. checkoutPricing.checkedAt values are from the vendor response (UTC).",
+  "response": {
+    "checkoutPricing": {
+      "starter": {
+        "available": true,
+        "priceId": "<redacted-stripe-price-id>",
+        "amount": 9.99,
+        "currency": "USD",
+        "displayPrice": "$9.99",
+        "checkedAt": "2026-11-21T02:26:11.734Z"
+      },
+      "builder": {
+        "available": true,
+        "priceId": "<redacted-stripe-price-id>",
+        "amount": 24.99,
+        "currency": "USD",
+        "displayPrice": "$24.99",
+        "checkedAt": "2026-11-21T02:26:11.727Z"
+      },
+      "pro": {
+        "available": true,
+        "priceId": "<redacted-stripe-price-id>",
+        "amount": 49.99,
+        "currency": "USD",
+        "displayPrice": "$49.99",
+        "checkedAt": "2026-11-21T02:26:11.733Z"
+      }
+    },
+    "plans": [
+      {
+        "id": "free",
+        "name": "Free",
+        "price": 0,
+        "sessions": 10,
+        "hostedApps": 2,
+        "memory": 512
+      },
+      {
+        "id": "starter",
+        "name": "Starter",
+        "price": 9.99,
+        "sessions": -1,
+        "hostedApps": 3,
+        "memory": 512,
+        "overage": 0,
+        "includedCredits": 3,
+        "features": [
+          "$3/mo AI credit included",
+          "1 always-on app",
+          "Database included",
+          "Unlimited sessions",
+          "Unlimited custom domains"
+        ]
+      },
+      {
+        "id": "builder",
+        "name": "Builder",
+        "price": 24.99,
+        "sessions": -1,
+        "hostedApps": 5,
+        "memory": 512,
+        "overage": 0,
+        "includedCredits": 20,
+        "features": [
+          "$20/mo AI credit included",
+          "2 always-on apps",
+          "Database included",
+          "Unlimited sessions",
+          "Unlimited custom domains",
+          "7d logs",
+          "AI auto-healing"
+        ]
+      },
+      {
+        "id": "pro",
+        "name": "Pro",
+        "price": 49.99,
+        "sessions": -1,
+        "hostedApps": 10,
+        "memory": 1024,
+        "overage": 0,
+        "includedCredits": 25,
+        "features": [
+          "$25/mo AI credit included",
+          "3 always-on apps",
+          "Database included",
+          "Phone line included (60 min/mo)",
+          "Unlimited sessions",
+          "1 GB + 0.5 vCPU per app",
+          "Unlimited custom domains",
+          "7d logs",
+          "AI auto-healing"
+        ]
+      }
+    ],
+    "topUpPacks": [
+      {
+        "id": "topup_10",
+        "amount": 10,
+        "price": 10,
+        "description": "Add $10 in credits"
+      },
+      {
+        "id": "topup_25",
+        "amount": 25,
+        "price": 25,
+        "description": "Add $25 in credits"
+      },
+      {
+        "id": "topup_50",
+        "amount": 50,
+        "price": 50,
+        "description": "Add $50 in credits"
+      }
+    ],
+    "sessionPacks": [
+      {
+        "id": "topup_5",
+        "amount": 5,
+        "price": 5,
+        "description": "Add $5 in credits"
+      },
+      {
+        "id": "topup_15",
+        "amount": 15,
+        "price": 15,
+        "description": "Add $15 in credits"
+      },
+      {
+        "id": "topup_50",
+        "amount": 50,
+        "price": 50,
+        "description": "Add $50 in credits"
+      }
+    ],
+    "containerAddons": [
+      {
+        "size": "boost",
+        "memory": 1024,
+        "cpu": 0.5,
+        "price": 8,
+        "description": "Boost (0.5 vCPU + 1GB, +$8/mo)"
+      }
+    ]
+  }
+}
