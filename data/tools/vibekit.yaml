@@ -4,7 +4,7 @@ type: web
 url: https://vibekit.bot
 repo: null
 current_version: null
-version_tracked_at: '2026-08-20'
+version_tracked_at: '2026-11-21'
 
 pricing:
   model: subscription
@@ -13,21 +13,143 @@ pricing:
     - name: Free
       price: 0
       period: month
-      limits: 10 AI 会话/月，2 个托管应用，1 个配对远端 agent，512MB 内存，数据库 $3/月附加，1 小时日志保留
-      limits_en: 10 AI sessions/mo, 2 hosted apps, 1 linked remote agent, 512MB memory, DB $3/mo add-on, 1h log retention
-    - name: Builder
-      price: 19.99
+      limits: >-
+        10 个 AI 会话（滚动 30 天窗口，不滚存；超额可用余额按 $0.50/会话，BYOK 回合不按会话计量），2 个工作区（托管应用、agent
+        对话和 Remote 配对电脑共用限额），512MB 内存，10GB 工作区磁盘，无自定义域名，无常驻 always-on，数据库 $3/月附加，日志保留
+        7 天，定时任务不限次数但最短间隔 6 小时，应用带 “Built with VibeKit” 徽章，每应用每天最多 10 封邮件（同一收件人计 1 封），电话线路为
+        $9.99/月附加
+      limits_en: >-
+        10 AI sessions on a rolling 30-day window with no rollover ($0.50/session from credits after that;
+        BYOK turns are not session-metered), 2 workspaces (hosted apps, agent chats and Remote-paired
+        computers share one limit), 512MB memory, 10GB workspace disk, no custom domains, no always-on
+        apps, database $3/mo add-on, 7-day log retention, unlimited schedules at most every 6 hours,
+        “Built with VibeKit” badge, 10 app emails/day per app (one per recipient), phone line $9.99/mo
+        add-on
+    - name: Starter
+      price: 9.99
       period: month
-      limits: 无限 AI 会话，3 个托管应用，3 个远端 agent，1 自定义域名，3 个定时任务，数据库含，24 小时日志保留；每月含 $20 AI 额度
-      limits_en: Unlimited AI sessions, 3 hosted apps, 3 remote agents, 1 custom domain, 3 scheduled tasks, DB included, 24h log retention; $20/mo AI credit included
+      limits: >-
+        每月含 $3 AI/付费工具额度，无限 AI 会话，3 个工作区，512MB，10GB 磁盘，无限自定义域名，1 个 always-on 应用，数据库含，日志
+        7 天，定时任务不限次数（最短间隔 15 分钟），无徽章，每应用每天 100 封邮件，电话线路仍为 $9.99/月附加
+      limits_en: >-
+        $3/mo included credit for AI and paid tools, unlimited AI sessions, 3 workspaces, 512MB, 10GB
+        disk, unlimited custom domains, 1 always-on app, database included, 7-day logs, unlimited
+        schedules (minimum interval 15 minutes), no badge, 100 app emails/day per app, phone line still
+        $9.99/mo add-on
+    - name: Builder
+      price: 24.99
+      period: month
+      limits: >-
+        每月含 $20 AI/付费工具额度，无限 AI 会话，5 个工作区，512MB，10GB 磁盘，无限自定义域名，2 个 always-on 应用，数据库含，日志
+        7 天，定时任务不限次数（最短间隔 15 分钟），无徽章，每应用每天 500 封邮件，文档写明 auto-healing，电话线路仍为 $9.99/月附加
+      limits_en: >-
+        $20/mo included credit for AI and paid tools, unlimited AI sessions, 5 workspaces, 512MB, 10GB
+        disk, unlimited custom domains, 2 always-on apps, database included, 7-day logs, unlimited
+        schedules (minimum interval 15 minutes), no badge, 500 app emails/day per app, auto-healing is
+        documented, phone line still $9.99/mo add-on
     - name: Pro
       price: 49.99
       period: month
-      limits: 无限 AI 会话，10 个托管应用，10 个远端 agent，无限自定义域名，1GB 内存 + 0.5 vCPU/应用，数据库含，7 天日志保留；每月含 $20 AI 额度
-      limits_en: Unlimited AI sessions, 10 hosted apps, 10 remote agents, unlimited custom domains, 1GB memory + 0.5 vCPU per app, DB included, 7-day log retention; $20/mo AI credit included
-  price_updated_at: '2026-08-20'
-  note: BYOK 无加价（连自己的 Anthropic/OpenAI key，按提供商费率计费，平台另收 hosting/持久 agent 费）；也可充 USD 余额按会话付费
-  note_en: BYOK with zero markup (connect your own Anthropic/OpenAI key, billed at provider rates; platform charges for hosting/persistent agents); or top up USD and pay per session
+      limits: >-
+        每月含 $25 AI/付费工具额度，无限 AI 会话，10 个工作区，每应用 1GB 内存 + 0.5 vCPU，10GB 磁盘，无限自定义域名，3 个
+        always-on 应用，数据库含，含一条电话线路（每月 60 分钟），日志 7 天，定时任务不限次数（最短间隔 15 分钟），无徽章，每应用每天 1,000
+        封邮件，文档写明 auto-healing
+      limits_en: >-
+        $25/mo included credit for AI and paid tools, unlimited AI sessions, 10 workspaces, 1GB memory +
+        0.5 vCPU per app, 10GB disk, unlimited custom domains, 3 always-on apps, database included, one
+        phone line included (60 minutes/month), 7-day logs, unlimited schedules (minimum interval 15
+        minutes), no badge, 1,000 app emails/day per app, auto-healing is documented
+  price_updated_at: '2026-11-21'
+  note: >-
+    公开订阅金额以 2026-11-21 打开的官方 SKILL.md 价目表、llms.txt / llms-full.txt（写明 accurate as of
+    2026-11）、定价页正文/FAQ，以及定价页脚本调用的公开接口 GET /api/v1/plans 交叉核对：Free $0，Starter $9.99/月，Builder
+    $24.99/月（原 2026-08-20 记录为 $19.99），Pro $49.99/月。定价页卡片上的付费档会显示 “Loading
+    price…”，由 /public/checkout-prices.js 读取上述接口的 checkoutPricing 再写入；官网 SoftwareApplication
+    JSON-LD 只给 Free 写了 price: 0，付费档有币种和说明但没有嵌入订阅金额，不能把结构化数据当成完整价目。美国 App Store 产品说明列出的
+    Starter/Builder/Pro 月费与上述美元标价一致，经 Apple ID 按月自动续订；其他店面/税/汇率未核，Apple 购项退款走
+    Apple，官方不能代取消 Apple 订阅。工作区把托管应用、agent 对话和 Remote 配对电脑算在同一限额内，不能再按“托管应用数 + 远端
+    agent 数”分列。一条会话通常以约 30 分钟活动为上限；Free 的 10 次会话按滚动 30
+    天窗口重置且不滚存，超额从余额按 $0.50/会话计，BYOK 回合不按会话计量。付费档每月授予一次包含额度（Starter $3、Builder $20、Pro
+    $25），Stripe 与 Apple 两条计费轨道均如此。定价页 FAQ 与 SKILL.md 写包含额度按月重置、不滚存；2026-11-03
+    生效的条款写：不会滚成更大的一笔新授予，但一旦入账即与其他余额一样，在账户有效期内不过期、无现金价值、不可退。两者不完全相同，未在账户内核实实际结算，不能择一写成已验证规则。购买的充值额度在账户有效期内不过期；定价页与
+    SKILL.md 广告 $10 / $25 / $50。同一公开 /plans 接口另有 sessionPacks（$5 / $15 /
+    $50），SKILL.md 的 POST /credits 示例仍写 sessions_10|sessions_30|sessions_100，不能把这三套包装成已核实的当前结账SKU。可选附加：Boost
+    $8/月（单应用升到 1GB + 0.5 vCPU，Pro 已含），Free 数据库 $3/月（付费档已含），电话线路
+    $9.99/月（美国号码、每月 60 分钟，Pro 已含一条；通话中的 agent 用量仍按自己的 key 或余额计）。always-on
+    随付费档提供（1/2/3）；旧的每应用 $14.99/月 always-on 附加仅仍向旧版 iPhone 应用上的 Free
+    应用及已订阅用户出售。取消后在下一计费周期降为 Free，托管应用可继续在线，但失去更高会话和工作区限额；无法律或
+    Apple 决定要求时不提供周期内部分退款。已消耗余额原则上不可退（计费错误或法律另有规定除外）；未使用的已购余额可在购买 30
+    日内邮件申请退款（法律禁止的除外）；赠送/推广/推荐额度无现金价值、不可退。注册时邮箱核验后，“符合条件的账户”可获 $1.00
+    赠送额度，不是人人自动到账，亦不可当成现金。BYOK（Anthropic / OpenAI 的 API key 或订阅
+    OAuth）官方写对推理零加价，且不经过 OpenRouter；无
+    BYOK 时走平台余额，经 OpenRouter，条款写当前加价 20%。可选付费工具即使用了 BYOK，仍从 VibeKit
+    余额扣费（经 Composio，同样含当前 20%
+    加价），有余额的账户默认开启，可在 agent 设置中关闭。免费模型池由第三方轮换运营，其数据/训练条款各异。支持渠道为应用内客服聊天，各档相同，未公布正式
+    SLA。新应用域名文档写 .vibekit.page（2026 年 11 月前创建的仍用
+    .vibekit.bot）；条款（生效 2026-11-03）仍写子域为 .vibekit.bot，以较新的产品文档为准并保留条款差异。代码在已连接
+    GitHub 时放在用户自己的仓库，否则在 VibeKit GitHub
+    组织的私有仓库，不能写成“始终在用户自己的 GitHub 上”。官方 CLI 安装以 SKILL.md 为准：npm install -g
+    vibekit-cli（已核 0.4.7，2026-10-29 UTC）；MCP 为 vibekit-mcp 0.8.2（2026-11-16
+    UTC）；Remote 为 vibekit-agent 1.8.4（2026-11-03 UTC）。llms.txt 仍写 npm install -g
+    vibekit，但 npm 上的 vibekit 0.0.4 是无关的 superagent-ai
+    沙箱 SDK，官方 llms-full.txt 已声明同名不同产品，不要装错。产品没有单一公开版本号；美国 App Store 列表在核查时显示
+    Version 1.5.3（发布说明时间 2026-11-17 15:56:40 UTC，即 2026-11-17 23:56:40
+    Asia/Shanghai），不能当作整站/CLI/MCP 的统一版本。托管在 AWS Fargate us-east-2。历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
+  note_en: >-
+    Public subscription amounts were cross-checked on 2026-11-21 from the official SKILL.md price table,
+    llms.txt / llms-full.txt (which says “accurate as of 2026-11”), the pricing-page copy/FAQ, and the
+    public GET /api/v1/plans endpoint that the pricing page script calls: Free $0, Starter $9.99/mo,
+    Builder $24.99/mo (the 2026-08-20 record listed $19.99), Pro $49.99/mo. Paid plan cards on the
+    pricing page say “Loading price…” until /public/checkout-prices.js writes checkoutPricing from that
+    endpoint. The site’s SoftwareApplication JSON-LD sets price: 0 only on Free; paid offers have a
+    currency and description but no embedded subscription amount, so schema.org data is not a complete
+    price list. The US App Store listing states the same Starter/Builder/Pro monthly amounts, billed as
+    auto-renewing Apple ID subscriptions; other storefronts, tax and FX were not checked. Apple-purchase
+    refunds go through Apple, and the vendor cannot cancel an Apple subscription for you. Workspaces
+    count hosted apps, agent chats and Remote-paired computers under one limit; do not keep the older
+    separate “hosted apps + remote agents” split. A session is typically capped at about 30 minutes of
+    activity. The Free 10-session cap resets on a rolling 30-day window with no rollover; further Free
+    sessions cost $0.50 from credits, and BYOK turns are not session-metered. Paid plans grant included
+    credit once per paid billing period on both the Stripe and Apple rails ($3 Starter, $20 Builder, $25
+    Pro). The pricing FAQ and SKILL.md say that included credit resets monthly with no rollover. The
+    terms effective 2026-11-03 say it does not roll over into a larger grant, but once granted it stays
+    like other credit, does not expire while the account is active, and has no cash value or refund.
+    Those statements are not identical; in-account settlement was not verified, so neither wording is
+    treated as a confirmed operational rule. Purchased top-up credits do not expire while the account is
+    active; the pricing page and SKILL.md advertise $10 / $25 / $50 packs. The same public /plans
+    response also lists sessionPacks at $5 / $15 / $50, and the SKILL.md POST /credits example still
+    uses sessions_10|sessions_30|sessions_100. Do not treat those three catalogs as one verified
+    checkout SKU list. Add-ons: Boost $8/mo (1GB + 0.5 vCPU for one app, included on Pro), Database
+    $3/mo on Free (included on paid plans), Phone line $9.99/mo (a US number, 60 minutes/month, one line
+    included on Pro; agent work on a call still bills your key or credits). Always-on slots come with
+    paid plans (1/2/3). The older $14.99/mo per-app always-on add-on is still sold only for Free apps on
+    older iPhone app versions, and is kept for people who already have it. After cancellation, the
+    account drops to Free on the next billing cycle; hosted apps stay live, but the higher session and
+    workspace limits end. No partial-period refunds except where required by law or by Apple’s decision.
+    Consumed credits are generally non-refundable except for billing errors or where law requires;
+    unused purchased credits remain refundable within 30 days of purchase by emailing support, except
+    where prohibited. Promotional, signup and referral credits have no cash value and are not
+    refundable. After email verification, “eligible accounts” may receive a $1.00 grant; it is not an
+    automatic credit for every signup and is not cash. BYOK (Anthropic / OpenAI API keys or subscription
+    OAuth) is documented as zero markup on inference and as bypassing OpenRouter. Without BYOK,
+    platform-credit calls go through OpenRouter with a documented 20% platform markup. Optional paid
+    tools are still billed against VibeKit credits even with BYOK (via Composio, including the current
+    20% markup); they default on for accounts that have credits and can be turned off in agent settings.
+    The free-model pool is a rotating set of third-party operators, each with its own data/training
+    terms. Support is in-app chat on every plan, including Free; no formal SLA is published. Product
+    docs say new apps use .vibekit.page (apps created before November 2026 stay on .vibekit.bot); the
+    terms effective 2026-11-03 still describe the subdomain as .vibekit.bot. Prefer the newer product
+    docs for the current hostname and keep the terms discrepancy visible. Code lives in the user’s own
+    GitHub repository if one is connected, otherwise in a private repository in VibeKit’s GitHub
+    organization; do not describe that as “always on the user’s GitHub.” Official CLI install follows
+    SKILL.md: npm install -g vibekit-cli (0.4.7, 2026-10-29 UTC). MCP is vibekit-mcp 0.8.2 (2026-11-16
+    UTC). Remote is vibekit-agent 1.8.4 (2026-11-03 UTC). llms.txt still says npm install -g vibekit, but
+    the npm package vibekit 0.0.4 is the unrelated superagent-ai sandbox SDK; official llms-full.txt
+    already warns about the name collision. There is no single public product version. The US App Store
+    listing showed Version 1.5.3 at review time (release timestamp 2026-11-17 15:56:40 UTC, 2026-11-17
+    23:56:40 Asia/Shanghai); that is not a unified version for the website, CLI or MCP. Hosting is on
+    AWS Fargate in us-east-2. Historical editorial scores retained, not newly measured or re-rated; not
+    a fresh performance or cost benchmark.
 
 scores:
   coding_ability: 7
@@ -45,27 +167,134 @@ features:
   builder_mode: true
   ide_base: "iOS App + Web + CLI + REST API + MCP"
   supported_models:
-    - Claude (BYOK)
-    - GPT (BYOK)
+    - Claude (BYOK API key or Claude subscription OAuth)
+    - GPT / Codex (BYOK API key or ChatGPT-subscription Codex sign-in)
+    - Platform-credit models via OpenRouter (documented as including Anthropic, OpenAI, Google, DeepSeek, xAI and Z.ai; availability varies and was not inventory-tested)
+    - Free-model pool (rotating third-party operators; not a fixed model list)
   supported_os:
-    - iOS（原生 App）
+    - iOS（原生 App；美国 App Store 写明需 iOS 17 或更高，并列出 iPhone / iPad / iPod touch）
     - Web
+    - CLI / MCP（经官方 npm 包，不是原生 Android 或桌面 App）
   native_mobile: true
 
 best_for:
-  - 手机优先的「每个应用一个持久 agent」托管构建
-  - 不想保持本机在线的云端/托管运行时
-  - BYOK 控制 AI 成本
-  - 注意：原生仅 iOS，无 Android
+  - 希望用原生 iOS 或网页驱动、每个应用有一个常驻托管 agent，并能接受云端托管运行时的人
+  - 能管理统一工作区限额，并接受 BYOK 或平台余额（含文档中的加价与付费工具扣费）来控制 AI 费用的人
+  - 需要把应用部署到平台域名、可选自定义域名和付费档附带的托管 Postgres 的 Web 应用场景
+best_for_en:
+  - People who want a native iOS or web control surface for a persistent hosted agent per app and can accept a cloud runtime
+  - People who can manage the shared workspace cap and will use BYOK or platform credits (including the documented markup and paid-tool charges) to control AI cost
+  - Web-app workflows that need platform hosting, optional custom domains, and the managed Postgres included on paid plans
 
-last_full_review: '2026-08-20'
-next_review_due: '2026-11-20'
-confidence: medium
+not_for:
+  - 需要官方原生 Android 客户端的人（目前没有）
+  - 要求完全离线、或不能接受代码、密钥、远程对话经 VibeKit 服务器及美国区域处理的环境
+  - 把 Remote 配对本机当成零外发或系统沙箱，又不能接受消息仍经厂商服务器存储的部署
+  - 需要已公布正式 SLA，或不能接受免费模型池/OpenRouter 路径各自数据条款的团队
+not_for_en:
+  - People who need an official native Android app (none is published)
+  - Environments that must stay fully offline, or that cannot allow code, keys or remote-agent messages to be processed by VibeKit servers in the United States
+  - Deployments that treat a Remote-paired local machine as zero egress or an OS sandbox, even though those messages still pass through and are stored on vendor servers
+  - Teams that need a published formal SLA, or that cannot accept the separate data terms of the free-model pool or the OpenRouter path
+
+quick_start:
+  - 在 vibekit.bot 或美国 App Store 的 VibeKit 应用注册，并在账户里核对当前订阅、附加项和余额，不要只看旧价目
+  - 若用官方 CLI，按文档安装 vibekit-cli，不要执行 npm install -g vibekit（那是同名的无关包）
+  - 在 iOS 或网页的个人资料/设置中连接 Anthropic 或 OpenAI（BYOK），或确认将使用平台余额/免费模型池及其数据条款
+  - 创建应用后检查工作区占用（应用、对话、Remote 电脑同一限额），再按需部署或配对本机 agent
+  - 发布前自行审查生成代码、密钥和环境变量；本文没有代为安装或做安全测试
+quick_start_en:
+  - Sign up at vibekit.bot or from the US App Store VibeKit app, and check the current subscription, add-ons and credits in the account rather than an older price card
+  - If you use the official CLI, install vibekit-cli as documented; do not run npm install -g vibekit (that is an unrelated package with the same name)
+  - Connect Anthropic or OpenAI (BYOK) in iOS or web profile/settings, or confirm that you will use platform credits or the free-model pool and accept those data terms
+  - After creating an app, check workspace usage (apps, chats and Remote computers share one cap) before deploying or pairing a local agent
+  - Review generated code, secrets and environment variables before publishing; this review did not install the product or run a security test
+
+register_url: https://vibekit.bot
+china_note: >-
+  本次未验证中国大陆网络可达性或 Stripe / Apple 支付。托管在 AWS us-east-2，数据在美国处理；电话线路为美国号码。条款含美国出口管制与制裁限制。模型商、OpenRouter
+  与免费模型池的地区和数据政策仍各自适用。
+china_note_en: >-
+  Mainland China reachability and Stripe / Apple payment were not tested. Hosting is on AWS us-east-2, and
+  data is processed in the United States; the phone-line add-on is a US number. The terms include US export
+  and sanctions restrictions. Model-provider, OpenRouter and free-pool regional and data policies still
+  apply separately.
+
+changelog:
+  - date: '2026-11-21'
+    type: fix
+    summary: >-
+      完整文档复核：按官方价目表与公开 /plans 接口更新 Starter $9.99 / Builder $24.99 / Pro $49.99
+      及统一工作区限额；披露平台加价、付费工具扣费、包含额度条款差异、密钥与仓库存放、以及 npm 同名包冲突。历史评分沿用，未做新实测。
+    summary_en: >-
+      Documentary review: update Starter $9.99 / Builder $24.99 / Pro $49.99 and the unified workspace
+      cap from the official table and public /plans API; disclose platform markup, paid-tool charges, the
+      included-credit wording conflict, key and repo storage, and the npm name collision. Historical
+      scores retained; not newly measured.
 
 data_sources:
   - url: https://vibekit.bot/pricing
     type: pricing
-    last_checked: '2026-08-20'
+    last_checked: '2026-11-21'
+  - url: https://vibekit.bot/api/v1/plans
+    type: pricing
+    last_checked: '2026-11-21'
+  - url: https://vibekit.bot/public/checkout-prices.js
+    type: pricing
+    last_checked: '2026-11-21'
   - url: https://vibekit.bot
     type: product
-    last_checked: '2026-08-20'
+    last_checked: '2026-11-21'
+  - url: https://vibekit.bot/SKILL.md
+    type: docs
+    last_checked: '2026-11-21'
+  - url: https://docs.vibekit.bot/
+    type: docs
+    last_checked: '2026-11-21'
+  - url: https://vibekit.bot/llms.txt
+    type: docs
+    last_checked: '2026-11-21'
+  - url: https://vibekit.bot/llms-full.txt
+    type: docs
+    last_checked: '2026-11-21'
+  - url: https://vibekit.bot/privacy
+    type: privacy
+    last_checked: '2026-11-21'
+  - url: https://vibekit.bot/terms
+    type: docs
+    last_checked: '2026-11-21'
+  - url: https://vibekit.bot/byok-ai-agent
+    type: docs
+    last_checked: '2026-11-21'
+  - url: https://vibekit.bot/claude-code-remote
+    type: docs
+    last_checked: '2026-11-21'
+  - url: https://vibekit.bot/ios-ai-agent
+    type: docs
+    last_checked: '2026-11-21'
+  - url: https://apps.apple.com/us/app/vibekit-ai-app-builder/id6760206636
+    type: docs
+    last_checked: '2026-11-21'
+  - url: https://registry.npmjs.org/vibekit-cli
+    type: docs
+    last_checked: '2026-11-21'
+  - url: https://registry.npmjs.org/vibekit-mcp
+    type: docs
+    last_checked: '2026-11-21'
+  - url: https://registry.npmjs.org/vibekit-agent
+    type: docs
+    last_checked: '2026-11-21'
+  - url: https://registry.npmjs.org/vibekit
+    type: docs
+    last_checked: '2026-11-21'
+  - url: https://vibekit.bot/status
+    type: docs
+    last_checked: '2026-11-21'
+  - url: https://vibekit.bot/about
+    type: docs
+    last_checked: '2026-11-21'
+
+last_full_review: '2026-11-21'
+next_review_due: '2026-12-21'
+review_frequency_days: 30
+confidence: medium
