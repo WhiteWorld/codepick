@@ -20,7 +20,7 @@ faq:
       Do not assume that. The migration page says that when you manually migrate remote WebSocket or SSE definitions, change url or httpUrl to serverUrl. The MCP page says something different: remote servers must use Streamable HTTP; set the endpoint in serverUrl (url also works); the legacy HTTP+SSE transport and the httpUrl field are not supported. This article did not test whether renaming the field alone is enough.
   - q: "Is there a one-click rollback? Will the first agy run overwrite my old files?"
     a: |
-      The official migration page does not give a one-click rollback command. It also does not say clearly whether first-launch onboarding rewrites the original Gemini files in place, so back them up first. Do not treat “overwrite the file with defaults” on a corrupted settings.json, or /rewind for conversation history in the CLI reference, as a migration rollback.
+      The official migration page does not give a one-click rollback command. It also does not say clearly whether first-launch onboarding rewrites the original Gemini files in place, so back them up first. Do not treat “overwrite the file with defaults” when settings.json isn’t valid JSON, or when a key has the wrong type or an unrecognized value, or /rewind for conversation history in the CLI reference, as a migration rollback.
 ---
 
 > Checked on 2026-11-21 (Beijing time). This article follows the Google pages opened that day: [Migrating from Gemini CLI](https://antigravity.google/docs/cli/gcli-migration/), [MCP](https://antigravity.google/docs/mcp/), [Plugins](https://antigravity.google/docs/plugins/), [Skills](https://antigravity.google/docs/skills/), [Customization discovery](https://antigravity.google/docs/customization-discovery?tab=cli), the 2026-05-19 [Antigravity CLI introduction](https://antigravity.google/blog/introducing-google-antigravity-cli/), and the [transition announcement](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/). We did not install Antigravity CLI or Gemini CLI, did not run `agy` or `agy plugin import gemini`, did not sign in, did not migrate a real profile, and did not test whether an MCP server connects or whether a theme or experimental overlay is actually dropped. Commands, paths, and field names are taken only from the official docs. This article does not invent flags or rollback commands that those pages do not show.
@@ -37,7 +37,7 @@ For installation, use the official [download page](https://antigravity.google/do
 
 The official migration page does not say clearly whether first-launch onboarding rewrites the original Gemini files in place. Treat that as unknown. Copy a backup first, then start `agy` for the first time.
 
-At minimum, copy the locations named on the migration and plugins pages:
+At minimum, copy the locations named on the migration and plugins pages, plus workspace `.agents/` (which is not under `.gemini/`):
 
 - Global settings: `~/.gemini/settings.json` (the migration page says legacy MCP entries lived in this file)
 - Global rules: `~/.gemini/GEMINI.md` (migration page). The customization-discovery page also names `~/.gemini/AGENTS.md`, which the migration page does not list
@@ -45,12 +45,13 @@ At minimum, copy the locations named on the migration and plugins pages:
 - Extensions directory: `~/.gemini/extensions/` (on the [plugins page](https://antigravity.google/docs/plugins/), this is the source for `agy plugin import gemini`)
 - Workspace rules: `GEMINI.md` and `AGENTS.md` in the project
 - Workspace skills: `.gemini/skills/`
+- Workspace `.agents/` (the customization-discovery page puts workspace customizations in this directory, and the skills and hooks pages also name paths under it; it is not inside `.gemini/`. The migration page names `.agents/skills/` inside it)
 
-If you have other files under `~/.gemini/` or the project `.gemini/` directory, back those up too. This article did not inventory a live install, so it does not claim this list is complete.
+If you have other files under `~/.gemini/`, the project `.gemini/` directory, or workspace `.agents/`, back those up too. This article did not inventory a live install, so it does not claim this list is complete.
 
 Only after that backup should you look at the two official steps below. They are procedures from the docs, not results we ran:
 
-1. The migration page says that the first time you run `agy` in an environment that still has legacy configuration, the CLI detects those profiles and shows an interactive checklist. You can choose which extensions and global configurations to convert. Active session tokens are migrated into the operating system’s keyring. Default visual parameters and rendering buffers are mapped onto the new settings profile.
+1. The migration page says that the first time you run `agy` in an environment that still has legacy configuration, the CLI detects those profiles and shows an interactive checklist. You can choose which extensions and global configurations to convert. Active session tokens are migrated into the operating system’s keyring. Restoring backup files is not the same as undoing those keyring-side changes; the official migration page does not give a command to reverse them, and this article does not invent one. Default visual parameters and rendering buffers are mapped onto the new settings profile.
 2. To convert extensions to plugins by hand, the official command is `agy plugin import gemini`.
 
 The settings page puts Antigravity CLI’s own preferences at `~/.gemini/antigravity-cli/settings.json` and keybindings at `~/.gemini/antigravity-cli/keybindings.json`. Those paths come from the [settings page](https://antigravity.google/docs/settings?tab=cli), not from the migration page wording. The migration page only says the values are mapped to “your new settings profile” and does not name that file.
@@ -165,7 +166,7 @@ Use the following only to compare your backups and moves against the official pa
 
 ## Rollback and how far you can keep the old config
 
-The official migration page does not give a one-click rollback command. On the settings page, “Overwrite the file with defaults” is a recovery action for a corrupted Antigravity `settings.json`: after confirmation, the CLI saves a copy as `settings.json.corrupted.<timestamp>` and resets every setting to its default. In the CLI reference, `/rewind` rolls back conversation history. Neither is a way to move configuration back to Gemini CLI.
+The official migration page does not give a one-click rollback command. On the settings page, “Overwrite the file with defaults” is a recovery action when an Antigravity `settings.json` isn’t valid JSON, or a key has the wrong type or an unrecognized value: after confirmation, the CLI saves a copy as `settings.json.corrupted.<timestamp>` and resets every setting to its default. In the CLI reference, `/rewind` rolls back conversation history. Neither is a way to move configuration back to Gemini CLI.
 
 What you can do is keep a complete backup, then start first-launch onboarding. If the result is not what you wanted, restore the original files from that backup. Do not look for an uninstall or rollback command this article invented. We did not test uninstall, and we did not test rollback.
 

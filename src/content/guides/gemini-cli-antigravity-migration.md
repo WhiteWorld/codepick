@@ -20,7 +20,7 @@ faq:
       不能这样推断。迁移页要求手动迁移远程 WebSocket 或 SSE 定义时，把 url 或 httpUrl 改成 serverUrl。MCP 页则另有一句：远程必须用 Streamable HTTP，serverUrl（并写 url also works），旧的 HTTP+SSE 和 httpUrl 不受支持。两页说法不完全相同，本文没有测过只改字段名能不能连通。
   - q: "官方有没有一键回滚？第一次运行 agy 会不会改掉旧文件？"
     a: |
-      官方迁移页没有给出一键回滚命令。第一次 onboarding 会不会就地改写原来的 Gemini 配置，文档也没有写清，因此先复制备份再启动。不要把设置页里损坏 settings.json 时的“用默认值覆盖”，或 CLI 参考里回退对话的 /rewind，当成配置迁移的回滚办法。
+      官方迁移页没有给出一键回滚命令。第一次 onboarding 会不会就地改写原来的 Gemini 配置，文档也没有写清，因此先复制备份再启动。不要把设置页里 settings.json 出现无效 JSON、类型错误或无法识别的值时的“用默认值覆盖”，或 CLI 参考里回退对话的 /rewind，当成配置迁移的回滚办法。
 ---
 
 > 核查日：2026-11-21（北京时间）。依据当天打开的 Google [从 Gemini CLI 迁移](https://antigravity.google/docs/cli/gcli-migration/)、[MCP](https://antigravity.google/docs/mcp/)、[插件](https://antigravity.google/docs/plugins/)、[Skills](https://antigravity.google/docs/skills/)、[自定义发现](https://antigravity.google/docs/customization-discovery?tab=cli) 和 2026-05-19 的 [Antigravity CLI 介绍](https://antigravity.google/blog/introducing-google-antigravity-cli/)、[迁移公告](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/)。本文没有安装 Antigravity CLI 或 Gemini CLI，没有执行 `agy` 或 `agy plugin import gemini`，没有登录，没有迁移真实配置，也没有测试 MCP 能否连通、主题或实验性 overlay 是否真的会丢。命令、路径和字段名只引用官方文档，不编造未出现的旗标或回滚命令。
@@ -37,7 +37,7 @@ faq:
 
 官方迁移页没有写清：第一次 onboarding 会不会就地改写原来的 Gemini 配置。这一点按未知处理。所以先复制备份，再启动第一次 `agy`。
 
-迁移页和插件页点名的、迁移前应先复制的位置至少包括：
+迁移前应先复制的位置至少包括迁移页、插件页点名的路径，以及工作区 `.agents/`（它不在 `.gemini/` 下）：
 
 - 全局设置：`~/.gemini/settings.json`（迁移页写，旧的 MCP 就写在这个文件里）
 - 全局规则：`~/.gemini/GEMINI.md`（迁移页）。自定义发现页另外写了 `~/.gemini/AGENTS.md`，迁移页没写这一项
@@ -45,12 +45,13 @@ faq:
 - 扩展目录：`~/.gemini/extensions/`（见[插件页](https://antigravity.google/docs/plugins/)，作为 `agy plugin import gemini` 的来源）
 - 工作区规则：项目里的 `GEMINI.md`、`AGENTS.md`
 - 工作区 skills：`.gemini/skills/`
+- 工作区 `.agents/`（自定义发现页把工作区自定义放在这个目录，Skills 页和 Hooks 页也写了其中的子路径；它不在 `.gemini/` 下。迁移页点名的是其中的 `.agents/skills/`）
 
-如果你在 `~/.gemini/` 或项目 `.gemini/` 下还有其他文件，也一并备份。本文没有对着一台真实安装做过完整盘点，所以不会假装这就是全部。
+如果你在 `~/.gemini/`、项目 `.gemini/` 或工作区 `.agents/` 下还有其他文件，也一并备份。本文没有对着一台真实安装做过完整盘点，所以不会假装这就是全部。
 
 备份完成后再谈两件事，都只是文档里的步骤，不是我们跑过的结果：
 
-1. 迁移页写：第一次在含有旧配置的环境里执行 `agy`，如果检测到旧配置，会给出交互式清单。你可以选择要转换的扩展和全局配置；活跃的 session tokens 会迁到系统 keyring；视觉和渲染的默认参数会映射到新的设置配置。
+1. 迁移页写：第一次在含有旧配置的环境里执行 `agy`，如果检测到旧配置，会给出交互式清单。你可以选择要转换的扩展和全局配置；活跃的 session tokens 会迁到系统 keyring；视觉和渲染的默认参数会映射到新的设置配置。恢复备份文件并不等于撤销 keyring 侧的变化；官方迁移页没有给出撤销这些变化的命令，本文也不编造回滚命令。
 2. 若要手动把扩展转成插件，官方命令是 `agy plugin import gemini`。
 
 设置页把 Antigravity CLI 自己的配置写在 `~/.gemini/antigravity-cli/settings.json`，快捷键在 `~/.gemini/antigravity-cli/keybindings.json`。这两条路径出现在[设置页](https://antigravity.google/docs/settings?tab=cli)，不是迁移页原文。迁移页只说会映射到“新的 settings profile”，没有写出这个文件名。
@@ -165,7 +166,7 @@ MCP 页里还有 App、IDE 的点击路径。那是给对应界面看的，不�
 
 ## 回滚和保留旧配置的边界
 
-官方迁移页没有给出一键回滚命令。设置页里“用默认值覆盖文件”，针对的是损坏的 Antigravity `settings.json`：确认后会另存 `settings.json.corrupted.<timestamp>`，再重置为默认值。CLI 参考里的 `/rewind` 是回退对话历史。这两项都不是把配置迁回 Gemini CLI 的办法。
+官方迁移页没有给出一键回滚命令。设置页里“用默认值覆盖文件”，针对的是 Antigravity `settings.json` 出现无效 JSON、类型错误或无法识别的值：确认后会另存 `settings.json.corrupted.<timestamp>`，再重置为默认值。CLI 参考里的 `/rewind` 是回退对话历史。这两项都不是把配置迁回 Gemini CLI 的办法。
 
 因此，能做的是：先保留完整备份，再启动第一次 onboarding。如果迁移结果不符合预期，用备份里的原文件恢复，而不是寻找一条我们编出来的卸载或回滚命令。本文没有测试卸载，也没有测试回滚。
 
