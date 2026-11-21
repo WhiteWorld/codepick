@@ -7,7 +7,7 @@ tags: [gemini-cli, antigravity, migration]
 pillar: workflow
 content_status: keep
 locale_strategy: mirrored
-draft: true
+draft: false
 faq:
   - q: "GEMINI.md 和 AGENTS.md 要不要改写？"
     a: |

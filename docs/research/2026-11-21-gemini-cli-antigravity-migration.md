@@ -6,7 +6,7 @@ Official public sources checked on **2026-11-21 (Asia/Shanghai)**. This is a doc
 
 - New bilingual guide: `src/content/guides/gemini-cli-antigravity-migration.md`
 - English mirror: `src/content/guides-en/gemini-cli-antigravity-migration.md`
-- Publication date is 2026-11-21. Keep `draft: true` until dig review has no blockers and the article is enabled for publication.
+- Publication date is 2026-11-21. `draft` is now `false` after dig independently reviewed `932ffb29c680c8e13010237edb6a688ef49084bd` with no content blockers.
 - Cross-link, and do not rewrite: `gemini-cli-vs-claude-code-vs-codex-cli` (login/billing and the 2026-05-19 / 2026-06-18 consumer timeline) and `antigravity-vs-cursor` (product comparison and the 2026-10-16 pricing check).
 - Tool entries `gemini-cli` and `antigravity` are cross-linked only. No tool YAML, scores, or pricing notes are changed.
 - No install, login, `agy`, `agy plugin import gemini`, real config migration, MCP connectivity test, theme/overlay test, paid API call, or cloud agent.
@@ -57,3 +57,7 @@ dig's independent content review of `1e6c84a` had no blockers. Three non-blockin
 1. Backup lists now include workspace `.agents/`, which official discovery/skills/hooks pages place outside `.gemini/`. The list is still explicitly incomplete.
 2. FAQ and body wording no longer narrow the settings-page recovery screen to a “corrupted” / damaged `settings.json`. Official settings text names three triggers: a key with the wrong type, an unrecognized value, or a file that isn’t valid JSON.
 3. After the official sentence that active session tokens are migrated into the OS keyring, both articles now say that restoring backup files is not the same as undoing keyring-side changes, and they still invent no rollback command.
+
+## Publication enablement
+
+dig independently reviewed `932ffb29c680c8e13010237edb6a688ef49084bd` with no blockers. Both language files are set to `draft: false` for publication. Reviewed article facts and untested boundaries are unchanged. No install, login, or live migration was performed.

@@ -51,7 +51,7 @@ const PATHS = [
 
 const COMMANDS = ['agy plugin import gemini', '/mcp', '/rewind'];
 
-test('bilingual Gemini CLI to Antigravity migration guides share mirrored draft metadata and official links', () => {
+test('bilingual Gemini CLI to Antigravity migration guides share mirrored metadata and official links', () => {
   const zh = source('zh');
   const en = source('en');
   const a = fm(zh);
@@ -63,7 +63,7 @@ test('bilingual Gemini CLI to Antigravity migration guides share mirrored draft 
   assert.equal(a.article_type, 'howto');
   assert.equal(a.pillar, 'workflow');
   assert.equal(a.content_status, 'keep');
-  assert.equal(a.draft, true);
+  assert.equal(a.draft, false);
   assert.equal(a.locale_strategy, 'mirrored');
   assert.deepEqual(a.tags, ['gemini-cli', 'antigravity', 'migration']);
   assert.equal(a.faq.length, 4);
@@ -223,28 +223,32 @@ test('evidence boundaries do not claim a live install, migration, or invented ro
   }
 });
 
-test('draft guides build article pages but stay out of listings and RSS', () => {
+test('built guides appear in listings, RSS and sitemap with reciprocal language routes', () => {
   const sitemap = read('dist/sitemap-0.xml');
   for (const lang of ['zh', 'en']) {
     const index = read(`dist/${lang}/guides/index.html`);
     const rss = read(`dist/${lang}/rss.xml`);
-    const page = `dist/${lang}/guides/${slug}/index.html`;
-    assert.ok(existsSync(new URL(`../${page}`, import.meta.url)), page);
-    const html = read(page);
+    const html = read(`dist/${lang}/guides/${slug}/index.html`);
     const metadata = fm(source(lang));
     const url = `https://codepick.dev/${lang}/guides/${slug}/`;
+    const other = lang === 'zh' ? 'en' : 'zh';
 
-    assert.equal(metadata.draft, true);
+    assert.equal(metadata.draft, false);
     assert.ok(html.includes(metadata.title));
     assert.ok(!html.includes(lang === 'zh' ? '审阅稿' : 'Review draft'));
-    assert.ok(!index.includes(`/${lang}/guides/${slug}/`));
-    assert.ok(!rss.includes(url));
-    // The sitemap integration currently serializes all built pages. lastmodMap
-    // skips drafts, so a draft URL may appear without <lastmod>.
-    if (sitemap.includes(`<loc>${url}</loc>`)) {
-      const after = sitemap.split(`<loc>${url}</loc>`)[1].slice(0, 40);
-      assert.ok(!after.startsWith('<lastmod>'), `draft ${url} should have no lastmod`);
-    }
+    assert.ok(index.includes(`/${lang}/guides/${slug}/`));
+    assert.ok(rss.includes(url));
+    assert.ok(sitemap.includes(`<loc>${url}</loc>`));
+    assert.ok(html.includes(`<link rel="canonical" href="${url}"`));
+    assert.ok(html.includes(`hreflang="${other}" href="https://codepick.dev/${other}/guides/${slug}/"`));
+    assert.ok(html.includes(`hreflang="${lang}" href="${url}"`));
+
+    const ld = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)]
+      .flatMap(([, json]) => JSON.parse(json)).find(v => v['@type'] === 'HowTo');
+    assert.ok(ld);
+    assert.equal(ld.name, metadata.title);
+    assert.equal(ld.datePublished, '2026-11-21');
+    assert.equal(ld.inLanguage, lang === 'zh' ? 'zh-CN' : 'en');
 
     for (const urlOfficial of officialLinks(source(lang))) {
       assert.ok(html.includes(`href="${urlOfficial}"`), `${lang} html missing ${urlOfficial}`);

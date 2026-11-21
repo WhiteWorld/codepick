@@ -92,7 +92,7 @@ Scores are unchanged and disclosed as historical editorial judgments. Confidence
 - Added bilingual notes, `not_for`, `quick_start`, `china_note`, changelog, explicit 30-day cadence, and official sources with `last_checked: 2026-11-21`.
 - Advanced `last_full_review` to 2026-11-21 and `next_review_due` to 2026-12-21 only after this review.
 
-Checker thresholds, baseline, workflows, and tests were not changed as part of this data review.
+Checker thresholds, baseline, and workflows were not changed as part of this data review. Test logic was not changed; only the historical-score disclosure set count was increased.
 
 ## Validation
 

@@ -7,7 +7,7 @@ tags: [gemini-cli, antigravity, migration]
 pillar: workflow
 content_status: keep
 locale_strategy: mirrored
-draft: true
+draft: false
 faq:
   - q: "Do GEMINI.md and AGENTS.md need to be rewritten?"
     a: |
