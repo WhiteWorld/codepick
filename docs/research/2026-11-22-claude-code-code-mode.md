@@ -22,10 +22,10 @@ Raw fetches (HTML, response headers, timestamps, and markdown Accept responses) 
 | [Permissions](https://code.claude.com/docs/en/permissions) | 200 | Linked for deny/ask rules and Bash-rule limits already summarized on the Code Mode page |
 | [Permission modes](https://code.claude.com/docs/en/permission-modes) | 200 | Linked for auto mode and “actions no mode auto-approves” |
 | [Hooks](https://code.claude.com/docs/en/hooks) | 200 | Linked for PreToolUse / PostToolUse; hook-failure version notes stay on the Code Mode troubleshooting page |
-| [Sandboxing](https://code.claude.com/docs/en/sandboxing) | 200 | Confirms the sandbox covers shell commands only; file tools, MCP servers, and hooks run outside it; Code Mode unsandboxed retries in auto mode are deferred to the Code Mode page |
+| [Sandboxing](https://code.claude.com/docs/en/sandboxing) | 200 | Confirms the sandbox covers shell commands only; file tools, MCP servers, and hooks run outside it; Code Mode unsandboxed retries in auto mode are deferred to the Code Mode page. Recheck also uses the platform limit: macOS, Linux, and WSL2; native Windows commands run unsandboxed |
 | [Managed settings](https://code.claude.com/docs/en/managed-settings) | 200 | Linked as the delivery mechanism for the official org-block `env` example on the Code Mode page |
 | [Environment variables](https://code.claude.com/docs/en/env-vars) | 200 | Linked for `CLAUDE_CODE_EXPERIMENTAL_CODE_MODE` |
-| [Changelog](https://code.claude.com/docs/en/changelog) | 200, last-modified 2026-11-21 20:58:33 GMT | Opened to confirm Code Mode is still documented in current notes; not used as a substitute for the Code Mode page |
+| [Changelog](https://code.claude.com/docs/en/changelog) | 200, last-modified 2026-11-21 20:58:33 GMT | Morning capture confirmed Code Mode is still in current notes. The post-review recheck also uses 2.1.329 and 2.1.327 start-condition bullets, placed beside the Code Mode page rather than as a substitute |
 | [v2.1.323 release](https://github.com/anthropics/claude-code/releases/tag/v2.1.323) | 200 | Minimum version named on the Code Mode page |
 | [v2.1.330 release](https://github.com/anthropics/claude-code/releases/tag/v2.1.330) | 200 via /latest | Latest GitHub release seen on 2026-11-22 |
 
@@ -36,6 +36,20 @@ Raw fetches (HTML, response headers, timestamps, and markdown Accept responses) 
 - Speed, cost, reliability, or safety effectiveness
 - A recommendation to switch release channels just to get the experiment
 
+
+## Recheck after dig review (2026-11-22)
+
+dig's independent content review of `22e734387c5e1c92b60aa71a23992a6be3424e9e` reported no blockers and four non-blocking suggestions. Official sources were re-opened on **2026-11-22 10:27 (Asia/Shanghai)** and saved under `/workspace/codepick-evidence-2026-11-22/recheck-2026-11-22-1027/`. Markdown bodies for Code Mode (en, zh-CN), changelog, sandboxing, and env-vars were byte-identical to the morning captures (SHA-256 unchanged). HTTP 200. Code Mode English HTML last-modified 2026-11-21 20:58:22 GMT; changelog HTML 2026-11-21 20:58:33 GMT; sandbox HTML 2026-11-21 20:58:23 GMT.
+
+The bilingual draft was revised only on those four points. `draft: true` and the review-draft wording stay. Untested boundaries stay: no install, no `CLAUDE_CODE_EXPERIMENTAL_CODE_MODE` in a live shell, no `claude` session, and no live auto mode, hook, or sandbox run. Checker thresholds, baseline, and workflows were not changed. Test logic was not relaxed; assertions were added for the new documentary facts, and the Chinese classifier wording was updated to match the revised prose.
+
+| Point | Official source, as re-opened | Change in both articles |
+| --- | --- | --- |
+| Startup settings vs changelog | The Code Mode requirements sentence still says you can't start with an API key helper, OpenTelemetry export, or `DISABLE_TELEMETRY`, and the [doesn't-start table](https://code.claude.com/docs/en/code-mode#code-mode-doesnt-start) still lists `it doesn't yet work with an installed mod`. Changelog **2.1.329** (19 Nov 2026) says: "Added support for turning on Code Mode while OpenTelemetry events and metrics are enabled; each tool call the code makes sends its events; tracing still keeps it off" and "Changed Code Mode to also start when telemetry, nonessential traffic or feature flags are turned off; an administrator can keep it off in managed settings." Changelog **2.1.327** (17 Nov 2026) says: "Changed Code Mode to no longer refuse to start when an installed mod hooks tool calls; an administrator can still keep Code Mode off in managed settings." | Name both pages. Do not treat the Code Mode list as an unconditional ban on v2.1.329 or later. Do not decide which page wins. |
+| Account-not-open message | Version bullet: "An older version starts without Code Mode, with or without the reason `it isn't open to your account yet`." Table: if you see `it isn't open to your account in this version` or `it isn't open to your account yet`, update if older than v2.1.323; otherwise check the network and start again; if the reason stays, try again another day. | Split the older-version silent start from those two reason strings. On v2.1.323 or later, the messages are not by themselves proof the install is too old. |
+| Sandbox platforms | [Sandboxing](https://code.claude.com/docs/en/sandboxing): "The sandbox runs on macOS, Linux, and WSL2. On native Windows, Claude Code runs commands unsandboxed. To use the sandbox on a Windows machine, run Claude Code inside a WSL2 distribution." | Add this platform limit next to the existing "sandbox covers shell commands only" note. |
+| Chinese classifier wording | The official Chinese limits line still says the classifier "审查的是代码，而不是每个工具调用". "整段" is our wording and can be read as the whole session. | In the Chinese FAQ, heading, body, description, and limits list, say "每一段即将运行的代码". English already said "each piece of code before it runs" and was left unchanged. |
+
 ## Review status
 
-Draft for dig content review. Do not publish until `draft: false`, review-draft wording is removed, checks pass, and production pages are verified.
+Draft for a further dig content review of this revision. Do not publish until `draft: false`, review-draft wording is removed, checks pass, and production pages are verified.

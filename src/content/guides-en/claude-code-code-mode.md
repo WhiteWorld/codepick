@@ -37,7 +37,7 @@ This is not a performance review, and it does not argue that you should switch t
 
 ## Check whether you can turn it on
 
-The [Code Mode page](https://code.claude.com/docs/en/code-mode) opened on 2026-11-22 lists the requirements in some detail. If they are not met, an older version may start without Code Mode, sometimes with the reason `it isn't open to your account yet`.
+The [Code Mode page](https://code.claude.com/docs/en/code-mode) opened on 2026-11-22 lists the requirements in some detail. An older version starts without Code Mode, with or without the reason `it isn't open to your account yet`. The same page's troubleshooting table lists `it isn't open to your account yet` and `it isn't open to your account in this version` as their own reasons: if your version is older than v2.1.323, update; if you are already on v2.1.323 or later and still see either message, the official advice is to check your network connection and start again, and if the reason stays, try again another day. Seeing those messages is not, by itself, proof that the install is too old. This article did not see those prompts.
 
 According to that page, you need all of the following:
 
@@ -46,7 +46,9 @@ According to that page, you need all of the following:
 - Your organization does not use the HIPAA configuration or zero data retention.
 - The model is Claude Opus 5.5, Sonnet 5.5, Haiku 5.5, or Fable 5.2.
 - The surface is an interactive `claude` session in a terminal. The docs say Code Mode does not work with the VS Code panel, the Desktop app, or cloud sessions. The install must be the native build. On Windows, Git for Windows must be installed.
-- Some settings also prevent it from starting. The page names an API key helper, OpenTelemetry export, and `DISABLE_TELEMETRY`. If it still does not start, use the official [Code Mode doesn't start](https://code.claude.com/docs/en/code-mode#code-mode-doesnt-start) table. This article does not retell that table line by line, and did not walk through it on a live machine.
+- Some settings also prevent startup, according to the Code Mode page. It still names an API key helper, OpenTelemetry export, and `DISABLE_TELEMETRY`; the [Code Mode doesn't start](https://code.claude.com/docs/en/code-mode#code-mode-doesnt-start) table also lists `it doesn't yet work with an installed mod` for a mod that checks tool calls. This article does not retell that table line by line, and did not walk through it on a live machine.
+
+The [changelog](https://code.claude.com/docs/en/changelog) opened the same day does not treat that list as an unconditional ban on v2.1.329 or later. v2.1.329 says you can turn on Code Mode while OpenTelemetry events and metrics are enabled (each tool call the code makes sends its events), but tracing still keeps it off; it also starts when telemetry, nonessential traffic, or feature flags are turned off, and an administrator can keep it off in managed settings. v2.1.327 says Code Mode no longer refuses to start when an installed mod hooks tool calls; an administrator can still keep it off in managed settings. The two pages disagree. This article did not test which page actually applies, and it does not decide the conflict.
 
 Agent teams have one more display-mode limit: in the default in-process display mode, teammates run in Code Mode; in split panes, they start without it. This article did not observe either display.
 
@@ -139,7 +141,7 @@ The [Code Mode page](https://code.claude.com/docs/en/code-mode) says your [sandb
 
 The same page says that if you want a command to stay in the sandbox when the code asks to run it unsandboxed, you should turn on strict sandbox mode. In auto mode, the classifier reviews the code that makes the request, and the command has no separate review.
 
-The [sandbox page](https://code.claude.com/docs/en/sandboxing) itself also says the sandbox covers shell commands only, and that file tools, MCP servers, and hooks run outside it. That matches the boundary on the Code Mode page. Do not read “sandbox is on” as “this JavaScript is inside the sandbox.”
+The [sandbox page](https://code.claude.com/docs/en/sandboxing) itself also says the sandbox covers shell commands only, and that file tools, MCP servers, and hooks run outside it. That matches the boundary on the Code Mode page. Do not read “sandbox is on” as “this JavaScript is inside the sandbox.” The same page says the sandbox runs on macOS, Linux, and WSL2; on native Windows, Claude Code runs commands unsandboxed. To use the sandbox on a Windows machine, the official instruction is to run Claude Code inside a WSL2 distribution.
 
 ## Limits you have to accept
 

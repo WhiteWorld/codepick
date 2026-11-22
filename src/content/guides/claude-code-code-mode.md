@@ -1,6 +1,6 @@
 ---
 title: "Claude Code 的 Code Mode 怎么开，自动模式会检查什么"
-description: "核查日 2026-11-22。按当天打开的官方 Code Mode、权限和沙箱文档，整理开启方法、恢复会话条件，以及自动模式改为审查整段代码后的权限边界。没有安装或启动 Claude Code，也没有打开 Code Mode 会话。"
+description: "核查日 2026-11-22。按当天打开的官方 Code Mode、权限和沙箱文档，整理开启方法、恢复会话条件，以及自动模式改为审查每一段即将运行的代码后的权限边界。没有安装或启动 Claude Code，也没有打开 Code Mode 会话。"
 date: "2026-11-22"
 article_type: howto
 tags: [claude-code, code-mode, permissions]
@@ -17,7 +17,7 @@ faq:
       按当天打开的要求清单，Code Mode 需要 Claude 订阅或 Console 账户。不能通过网关、Amazon Bedrock、AWS 上的 Claude Platform、Google Cloud 的 Agent Platform、Microsoft Foundry，或 Google Cloud 上由 Anthropic 管理的 Claude Models 使用。本文没有在这些入口上试过。
   - q: "打开自动模式后，是不是每条命令都不再检查了？"
     a: |
-      不是。自动模式的分类器审查的是整段即将运行的代码，不是每一条工具调用，也看不到运行时才算出来的值，比如从搜索结果里取出的路径。官方仍写明：deny 和 ask 规则，以及 PreToolUse hook，会按工具常用名（如 Bash 或 MCP 工具名）检查代码里的每次调用。必须拦住的调用，要靠规则或 hook，不能只靠分类器。本文没有跑过自动模式。
+      不是。自动模式的分类器审查的是每一段即将运行的代码，不是每一条工具调用，也看不到运行时才算出来的值，比如从搜索结果里取出的路径。官方仍写明：deny 和 ask 规则，以及 PreToolUse hook，会按工具常用名（如 Bash 或 MCP 工具名）检查代码里的每次调用。必须拦住的调用，要靠规则或 hook，不能只靠分类器。本文没有跑过自动模式。
   - q: "为什么恢复会话被拒绝了？"
     a: |
       官方警告：之后要用 claude --continue 或 claude --resume 恢复 Code Mode 会话时，必须继续把 CLAUDE_CODE_EXPERIMENTAL_CODE_MODE 设为 1。关掉之后，Claude Code 会拒绝恢复。反过来，当初没开 Code Mode 的会话，即使后来设了这个变量，也会在不开 Code Mode 的情况下恢复。本文没有实际恢复过会话。
@@ -37,7 +37,7 @@ Code Mode 会改变 Claude 使用工具的方式。平常是一次请求一个�
 
 ## 先确认你能不能开
 
-2026-11-22 打开的 [Code Mode 页](https://code.claude.com/docs/en/code-mode) 把门槛写得很具体。对不上时，旧版本可能会直接在不开 Code Mode 的情况下启动，有时附带原因 `it isn't open to your account yet`。
+2026-11-22 打开的 [Code Mode 页](https://code.claude.com/docs/en/code-mode) 把门槛写得很具体。旧版本会在不开 Code Mode 的情况下启动，可能附带、也可能不附带原因 `it isn't open to your account yet`。同一页的故障表还把 `it isn't open to your account yet` 和 `it isn't open to your account in this version` 列为单独原因：若版本低于 v2.1.323，先更新；若已是 v2.1.323 或更高仍出现这两句，官方让你检查网络并重新启动，若原因仍在，改日再试。因此，看到这两句并不必然表示版本过旧。本文没有遇到过这些提示。
 
 按文档，至少要同时满足这些条件：
 
@@ -46,7 +46,9 @@ Code Mode 会改变 Claude 使用工具的方式。平常是一次请求一个�
 - 组织没有启用 HIPAA 配置，也没有启用零数据保留（zero data retention）。
 - 模型是 Claude Opus 5.5、Sonnet 5.5、Haiku 5.5 或 Fable 5.2。
 - 入口是终端里的交互式 `claude` 会话。文档写明：VS Code 面板、Desktop 应用或云端会话不能用 Code Mode。安装必须是官方说的原生构建。Windows 还需要已安装 Git for Windows。
-- 某些设置开启时也启动不了，文档点名的包括 API 密钥助手（api key helper）、OpenTelemetry 导出，以及 `DISABLE_TELEMETRY`。对不上时，以官方页的 [Code Mode 无法启动](https://code.claude.com/docs/en/code-mode#code-mode-doesnt-start) 对照表为准，本文不逐条复述，也没有按表排查过真实环境。
+- 某些设置开启时，Code Mode 页仍写启动不了，点名的包括 API 密钥助手（api key helper）、OpenTelemetry 导出和 `DISABLE_TELEMETRY`；[无法启动对照表](https://code.claude.com/docs/en/code-mode#code-mode-doesnt-start)里还有 `it doesn't yet work with an installed mod`（检查工具调用的已安装 mod）。本文不逐条复述该表，也没有按表排查过真实环境。
+
+同一天打开的 [changelog](https://code.claude.com/docs/en/changelog) 并不把上述清单写成 v2.1.329 及以上的无条件禁令。v2.1.329 写：OpenTelemetry 的 events 和 metrics 开启时也可以打开 Code Mode（代码里的每次工具调用会发送这些事件），但 tracing 仍会阻止启动；关掉 telemetry、非必要流量或 feature flags 时也可以启动，管理员仍可在托管设置里保持关闭。v2.1.327 写：已安装的 mod 挂钩工具调用时不再拒绝启动，管理员同样可在托管设置里禁用。两页说法不一致。本文没有实测哪一页最终生效，因此不替文档冲突做裁决。
 
 agent teams 还有一条显示方式限制：文档写，默认的进程内显示模式下，队友以 Code Mode 运行；分屏窗格里的队友则在不开 Code Mode 的情况下启动。本文没有观察过这两种显示。
 
@@ -105,7 +107,7 @@ Code Mode (experimental) is on · this session can be resumed only with Code Mod
 
 文档还补了两点：已经在 Code Mode 会话里的人会继续留到退出或重启；此后不能恢复这些会话，直到这个 `0` 被拿掉。托管设置不能反过来帮用户打开 Code Mode。
 
-## 自动模式检查的是整段代码，不是每一条调用
+## 自动模式检查的是每一段即将运行的代码，不是每一条调用
 
 这是打开之前最需要看清的变化。
 
@@ -113,7 +115,7 @@ Code Mode (experimental) is on · this session can be resumed only with Code Mod
 
 代码里的每次工具调用，仍会以该工具的常用名（如 `Bash`，或 MCP 工具名）走过你的 `deny`、`ask` [权限规则](https://code.claude.com/docs/en/permissions) 和 `PreToolUse` [hook](https://code.claude.com/docs/en/hooks)。
 
-除此之外，自动模式的分类器审查的是整段代码，而不是每一条工具调用。它看不到运行时才算出来的值，比如从搜索输出里取出的路径。所以，必须控制的调用，要靠规则或 hook，不能只交给分类器。
+除此之外，自动模式的分类器审查的是每一段即将运行的代码，而不是每一条工具调用。它看不到运行时才算出来的值，比如从搜索输出里取出的路径。所以，必须控制的调用，要靠规则或 hook，不能只交给分类器。
 
 官方还提示：如果你用 hook 去允许或阻止 shell 命令，应检查命令的每个部分。在 Code Mode 里，在名为 `app` 的文件夹中执行的 `git push`，可能会以 `cd 'app' && git push` 的形式到达 hook。Bash 规则匹配的是命令文本，无论开不开 Code Mode，Claude 都可能把被拒绝的命令写成规则匹配不到的形式。不依赖命令文本的限制，文档指向[沙箱](https://code.claude.com/docs/en/sandboxing)。这些都是文档里的规则说明，不是本文在真实 hook 里看到的请求。
 
@@ -139,14 +141,14 @@ Code Mode (experimental) is on · this session can be resumed only with Code Mod
 
 同一页还写：若希望代码请求“在沙箱外运行某条命令”时，命令仍留在沙箱内，需打开严格沙箱模式。在自动模式里，分类器审查的是发出该请求的那一段代码，这条命令没有单独再审一次。
 
-[沙箱页](https://code.claude.com/docs/en/sandboxing)本身也写：沙箱只覆盖 shell 命令；文件工具、MCP 服务器和 hook 在沙箱外。这和 Code Mode 页的边界是一致的，不要把“已经开了沙箱”理解成整段 JavaScript 都在沙箱里。
+[沙箱页](https://code.claude.com/docs/en/sandboxing)本身也写：沙箱只覆盖 shell 命令；文件工具、MCP 服务器和 hook 在沙箱外。这和 Code Mode 页的边界是一致的，不要把“已经开了沙箱”理解成这段 JavaScript 都在沙箱里。该页还写明：沙箱可在 macOS、Linux 和 WSL2 上运行；原生 Windows 上的命令没有沙箱。若要在 Windows 机器上使用沙箱，官方办法是在 WSL2 发行版里运行 Claude Code。
 
 ## 还要接受这些限制
 
 打开之前，官方让你先确认能接受这些限制：
 
 - 只能在终端里、并且 Code Mode 仍开启时恢复该会话。
-- 自动模式的分类器审查的是代码，不是每一条工具调用。
+- 自动模式的分类器审查的是每一段即将运行的代码，不是每一条工具调用。
 - 除非代码可以在后台运行，否则你要等它跑完，并且会在 10 分钟后停止。
 - `PreToolUse` hook 如果没完成，例如超时，你可能会看到工具调用被拒绝。hook 失败后的默认行为在不同版本里有过调整，以官方故障排除为准。
 - 不能使用 Remote Control、Claude in Chrome，或 computer use（计算机使用）。

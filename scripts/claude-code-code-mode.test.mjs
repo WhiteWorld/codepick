@@ -35,6 +35,7 @@ const REQUIRED = [
   'v2.1.326',
   'v2.1.327',
   'v2.1.328',
+  'v2.1.329',
   'v2.1.330',
   'Opus 5.5',
   'Sonnet 5.5',
@@ -56,6 +57,8 @@ const REQUIRED = [
   '/feedback',
   "cd 'app' && git push",
   'it isn\'t open to your account yet',
+  'it isn\'t open to your account in this version',
+  'it doesn\'t yet work with an installed mod',
 ];
 
 test('bilingual Claude Code Code Mode guides share mirrored metadata and official links', () => {
@@ -121,7 +124,7 @@ test('articles lock official versions, variables, limits, and evidence boundarie
     assert.match(
       text,
       lang === 'zh'
-        ? /审查的是整段(?:即将运行的)?代码，而不是每一条工具调用|审查的是整段代码，而不是每一条工具调用/
+        ? /审查的是每一段即将运行的代码，而不是每一条工具调用/
         : /reviews each piece of code before it runs, not each tool call/,
     );
     assert.match(
@@ -149,6 +152,60 @@ test('articles lock official versions, variables, limits, and evidence boundarie
     assert.match(
       text,
       lang === 'zh' ? /两小时/ : /two hours/,
+    );
+    assert.match(
+      text,
+      lang === 'zh'
+        ? /并不把上述清单写成 v2\.1\.329 及以上的无条件禁令/
+        : /does not treat that list as an unconditional ban on v2\.1\.329 or later/,
+    );
+    assert.match(
+      text,
+      lang === 'zh'
+        ? /tracing 仍会阻止启动/
+        : /tracing still keeps it off/,
+    );
+    assert.match(
+      text,
+      lang === 'zh'
+        ? /关掉 telemetry、非必要流量或 feature flags 时也可以启动/
+        : /telemetry, nonessential traffic, or feature flags are turned off/,
+    );
+    assert.match(
+      text,
+      lang === 'zh'
+        ? /已安装的 mod 挂钩工具调用时不再拒绝启动/
+        : /no longer refuses to start when an installed mod hooks tool calls/,
+    );
+    assert.match(
+      text,
+      lang === 'zh'
+        ? /不替文档冲突做裁决/
+        : /does not decide the conflict/,
+    );
+    assert.match(
+      text,
+      lang === 'zh'
+        ? /并不必然表示版本过旧/
+        : /not, by itself, proof that the install is too old/,
+    );
+    assert.match(
+      text,
+      lang === 'zh'
+        ? /检查网络并重新启动，若原因仍在，改日再试/
+        : /check your network connection and start again, and if the reason stays, try again another day/,
+    );
+    assert.match(
+      text,
+      lang === 'zh'
+        ? /沙箱可在 macOS、Linux 和 WSL2 上运行/
+        : /the sandbox runs on macOS, Linux, and WSL2/,
+    );
+    assert.match(
+      text,
+      lang === 'zh'
+        ? /原生 Windows 上的命令没有沙箱/
+        : /on native Windows, Claude Code runs commands unsandboxed/,
     );
   }
 });
