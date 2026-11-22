@@ -7,7 +7,7 @@ tags: [claude-code, code-mode, permissions]
 pillar: workflow
 content_status: keep
 locale_strategy: mirrored
-draft: true
+draft: false
 faq:
   - q: "克隆下来的仓库会不会替我打开 Code Mode？"
     a: |
@@ -24,8 +24,6 @@ faq:
 ---
 
 > 核查日：2026-11-22（北京时间）。依据当天打开的 Anthropic 官方 [Code Mode 英文页](https://code.claude.com/docs/en/code-mode)、[Code Mode 中文页](https://code.claude.com/docs/zh-CN/code-mode)，以及 [权限](https://code.claude.com/docs/en/permissions)、[权限模式](https://code.claude.com/docs/en/permission-modes)、[Hooks](https://code.claude.com/docs/en/hooks)、[沙箱](https://code.claude.com/docs/en/sandboxing)、[托管设置](https://code.claude.com/docs/en/managed-settings)、[环境变量](https://code.claude.com/docs/en/env-vars) 和 [changelog](https://code.claude.com/docs/en/changelog)。版本信息对照 GitHub 上的 [v2.1.323](https://github.com/anthropics/claude-code/releases/tag/v2.1.323) 和当天看到的最新发布 [v2.1.330](https://github.com/anthropics/claude-code/releases/tag/v2.1.330)。本文没有安装或启动 Claude Code，没有打开 Code Mode 会话，没有跑自动模式、hook 或沙箱，也没有调用付费接口。命令、变量名和限制只引用官方文档，不编造未出现的旗标。
-
-本稿为审阅稿，尚未发布。
 
 Code Mode 会改变 Claude 使用工具的方式。平常是一次请求一个工具，看完结果再决定下一步。打开之后，Claude 会先写一段 JavaScript，由 Claude Code 在当前会话里执行；一段代码里可以连续或并行调用多个工具，再把需要的结果交回给 Claude。
 

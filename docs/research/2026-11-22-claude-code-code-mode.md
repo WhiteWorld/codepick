@@ -50,6 +50,10 @@ The bilingual draft was revised only on those four points. `draft: true` and the
 | Sandbox platforms | [Sandboxing](https://code.claude.com/docs/en/sandboxing): "The sandbox runs on macOS, Linux, and WSL2. On native Windows, Claude Code runs commands unsandboxed. To use the sandbox on a Windows machine, run Claude Code inside a WSL2 distribution." | Add this platform limit next to the existing "sandbox covers shell commands only" note. |
 | Chinese classifier wording | The official Chinese limits line still says the classifier "审查的是代码，而不是每个工具调用". "整段" is our wording and can be read as the whole session. | In the Chinese FAQ, heading, body, description, and limits list, say "每一段即将运行的代码". English already said "each piece of code before it runs" and was left unchanged. |
 
+## Publication enablement
+
+dig independently reviewed `c42a9b86974ba0c77c65d929f623e76ee25b1258` with no remaining blockers. Both language files are set to `draft: false` for publication, and the “审阅稿” / “Review draft” sentences are removed. Reviewed article facts and untested boundaries are unchanged. No install, login, or Code Mode session was performed.
+
 ## Review status
 
-Draft for a further dig content review of this revision. Do not publish until `draft: false`, review-draft wording is removed, checks pass, and production pages are verified.
+Publication enablement only. Do not treat this note as a merge authorization; production pages still need verification after merge.

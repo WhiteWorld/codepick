@@ -73,7 +73,7 @@ test('bilingual Claude Code Code Mode guides share mirrored metadata and officia
   assert.equal(a.article_type, 'howto');
   assert.equal(a.pillar, 'workflow');
   assert.equal(a.content_status, 'keep');
-  assert.equal(a.draft, true);
+  assert.equal(a.draft, false);
   assert.equal(a.locale_strategy, 'mirrored');
   assert.deepEqual(a.tags, ['claude-code', 'code-mode', 'permissions']);
   assert.equal(a.faq.length, 4);
@@ -84,7 +84,7 @@ test('bilingual Claude Code Code Mode guides share mirrored metadata and officia
   for (const lang of ['zh', 'en']) {
     const text = source(lang);
     assert.ok(!text.includes(`](/${lang === 'zh' ? 'en' : 'zh'}/`), 'internal links keep the reader locale');
-    assert.ok(text.includes(lang === 'zh' ? '审阅稿' : 'Review draft'));
+    assert.ok(!text.includes(lang === 'zh' ? '审阅稿' : 'Review draft'));
     for (const route of [
       `/${lang}/compare/claude-code-vs-cursor/`,
       `/${lang}/compare/claude-code-vs-codex/`,
@@ -232,36 +232,41 @@ test('JSON examples are identical and match the official settings samples', () =
   });
 });
 
-test('built draft pages keep official facts, HowTo metadata and language alternates, and stay out of listings', () => {
+test('built guides appear in listings, RSS and sitemap with reciprocal language routes', () => {
+  const sitemap = read('dist/sitemap-0.xml');
+  const zhUrl = `https://codepick.dev/zh/guides/${slug}/`;
   for (const lang of ['zh', 'en']) {
     const text = source(lang);
     const metadata = fm(text);
     const html = read(`dist/${lang}/guides/${slug}/index.html`);
+    const url = `https://codepick.dev/${lang}/guides/${slug}/`;
+    const other = lang === 'zh' ? 'en' : 'zh';
+    const index = read(`dist/${lang}/guides/index.html`);
+    const rss = read(`dist/${lang}/rss.xml`);
+
+    assert.equal(metadata.draft, false);
     assert.ok(html.includes(metadata.title));
-    assert.ok(html.includes(lang === 'zh' ? '审阅稿' : 'Review draft'));
+    assert.ok(!html.includes(lang === 'zh' ? '审阅稿' : 'Review draft'));
     assert.ok(html.includes(lang === 'zh' ? '核查日' : 'Checked on 2026-11-22'));
     assert.ok(html.includes('CLAUDE_CODE_EXPERIMENTAL_CODE_MODE'));
+    assert.ok(index.includes(`/${lang}/guides/${slug}/`));
+    assert.ok(rss.includes(url));
+    assert.ok(sitemap.includes(`<loc>${url}</loc>`));
+    assert.ok(html.includes(`<link rel="canonical" href="${url}"`));
+    assert.ok(html.includes(`hreflang="${lang}" href="${url}"`));
+    assert.ok(html.includes(`hreflang="${other}" href="https://codepick.dev/${other}/guides/${slug}/"`));
+    assert.ok(html.includes(`hreflang="x-default" href="${zhUrl}"`));
+
     const ld = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)]
       .flatMap(([, json]) => JSON.parse(json)).find(v => v['@type'] === 'HowTo');
     assert.ok(ld);
     assert.equal(ld.name, metadata.title);
     assert.equal(ld.datePublished, '2026-11-22');
     assert.equal(ld.inLanguage, lang === 'zh' ? 'zh-CN' : 'en');
-    for (const url of officialLinks(text)) assert.ok(html.includes(`href="${url}"`));
-    const pageUrl = `https://codepick.dev/${lang}/guides/${slug}/`;
-    assert.ok(html.includes(`<link rel="canonical" href="${pageUrl}"`));
-    const other = lang === 'zh' ? 'en' : 'zh';
-    if (metadata.draft) {
-      assert.ok(html.includes(`hreflang="${lang}" href="${pageUrl}"`));
-    } else {
-      assert.ok(html.includes(`hreflang="${other}" href="https://codepick.dev/${other}/guides/${slug}/"`));
-    }
+
+    for (const official of officialLinks(text)) assert.ok(html.includes(`href="${official}"`), `${lang} html missing ${official}`);
     for (const [, target] of text.matchAll(/\]\((\/(?:zh|en)\/[^)#]+)\)/g)) {
       assert.ok(existsSync(new URL(`../dist${target}index.html`, import.meta.url)), target);
     }
-    const index = read(`dist/${lang}/guides/index.html`);
-    const rss = read(`dist/${lang}/rss.xml`);
-    assert.ok(!index.includes(`/${lang}/guides/${slug}/`), 'draft stays off the guides index');
-    assert.ok(!rss.includes(pageUrl), 'draft stays out of RSS');
   }
 });

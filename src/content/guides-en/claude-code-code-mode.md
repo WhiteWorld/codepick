@@ -7,7 +7,7 @@ tags: [claude-code, code-mode, permissions]
 pillar: workflow
 content_status: keep
 locale_strategy: mirrored
-draft: true
+draft: false
 faq:
   - q: "Can a repository I clone turn Code Mode on for me?"
     a: |
@@ -24,8 +24,6 @@ faq:
 ---
 
 > Checked on 2026-11-22 (Beijing time). This article is based on Anthropic's official [Code Mode page](https://code.claude.com/docs/en/code-mode) and the [Chinese Code Mode page](https://code.claude.com/docs/zh-CN/code-mode) opened that day, plus [permissions](https://code.claude.com/docs/en/permissions), [permission modes](https://code.claude.com/docs/en/permission-modes), [hooks](https://code.claude.com/docs/en/hooks), [sandboxing](https://code.claude.com/docs/en/sandboxing), [managed settings](https://code.claude.com/docs/en/managed-settings), [environment variables](https://code.claude.com/docs/en/env-vars), and the [changelog](https://code.claude.com/docs/en/changelog). Version notes were checked against the GitHub releases for [v2.1.323](https://github.com/anthropics/claude-code/releases/tag/v2.1.323) and the latest release seen that day, [v2.1.330](https://github.com/anthropics/claude-code/releases/tag/v2.1.330). This article did not install or start Claude Code, did not open a Code Mode session, did not run auto mode, hooks, or the sandbox, and did not call a paid API. Commands, variable names, and limits are taken only from the official docs. This article does not invent flags those pages do not show.
-
-This is a Review draft and has not been published.
 
 Code Mode changes how Claude uses its tools. Without it, Claude requests one tool at a time, reads the result, and then decides what to do next. With it on, Claude writes a piece of JavaScript, and Claude Code runs that code in your current session. One script can make several tool calls in sequence or in parallel, then return only the output Claude needs to read.
 
