@@ -153,8 +153,42 @@ test('articles lock official versions, conflicts, and evidence boundaries', () =
     assert.match(
       text,
       lang === 'zh'
-        ? /代理可以读取并操作这些页面|代理能够读取并操作这份持久配置里已经登录的页面/
+        ? /代理可以读取并操作这些页面|代理能够读取并操作这份持久配置档案里已经登录的页面/
         : /the agent can read and drive signed-in pages in that persistent profile/,
+    );
+    assert.match(
+      text,
+      lang === 'zh' ? /桌面浏览器配置档案/ : /one persistent desktop profile/,
+    );
+    assert.match(
+      text,
+      lang === 'zh' ? /部署地址或域名/ : /deployment URL or domain/,
+    );
+    assert.match(
+      text,
+      lang === 'zh' ? /本文的建议/ : /this article's recommendations/,
+    );
+    assert.match(
+      text,
+      lang === 'zh' ? /被标为 pinned/ : /are marked pinned/,
+    );
+    assert.match(
+      text,
+      lang === 'zh' ? /会被跳过（skipped）|会被跳过/ : /are skipped/,
+    );
+    assert.match(
+      text,
+      lang === 'zh'
+        ? /两边表述并不完全相同，本文不做裁决|两边表述不完全相同，本文没有跑过插件更新，也不做裁决/
+        : /do not fully agree/,
+    );
+    assert.ok(
+      !text.includes(
+        lang === 'zh'
+          ? '只写名称、钉死精确版本、其他标签（例如 `@next`）、Git 标签或提交哈希，**不会**自己更新。`opencode plugin update` 仍可手动更新这类来源。Plugins 页还写：`plugin check` 仍会报告它们的更新。'
+          : 'A bare name, an exact version, another tag such as `@next`, a Git tag, or a commit hash does **not** update itself. `opencode plugin update` can still update those by hand. The Plugins page also says `plugin check` still reports updates for them.',
+      ),
+      `${lang} must not lump exact versions and commit hashes into the plugin check / plugin update claim`,
     );
     assert.match(
       text,

@@ -14,7 +14,7 @@ faq:
       No. The 2.4.0 changelog, opened on 2026-11-24, says GitHub Copilot no longer reads GITHUB_TOKEN. Set COPILOT_GITHUB_TOKEN, or sign in with OAuth. The Providers page only documents the device OAuth flow and does not mention that environment variable. This article did not test either method, so it does not treat the changelog as a guarantee that COPILOT_GITHUB_TOKEN works in every setup, and it does not treat the Providers page as a ban on that variable.
   - q: "Will my plugins update themselves?"
     a: |
-      It depends how the plugin source is written. If it is name@latest, a version range (for example name@^1.2.0), a Git branch, or a Git semver: range, OpenCode checks on startup and every 24 hours, installs a newer matching version, and reloads it. A bare name, an exact version, another tag such as @next, a Git tag, or a commit hash does not update itself; opencode plugin update can still update those by hand. This article did not run a plugin update.
+      It depends how the plugin source is written. If it is name@latest, a version range (for example name@^1.2.0), a Git branch, or a Git semver: range, OpenCode checks on startup and every 24 hours, installs a newer matching version, and reloads it. A bare name, another tag such as @next, or a Git tag does not update itself; the Plugins page says plugin check still reports their updates and plugin update can still install them. Exact versions and commit hashes are marked pinned on the Plugins page, which also says local plugins and exact package revisions are skipped by plugin check / plugin update. The 2.4.0 changelog groups those with a bare name and says opencode plugin update can still update them by hand. The two pages do not fully agree, and this article did not run a plugin update, so it does not decide the conflict.
   - q: "I do not want automations. How do I turn them off?"
     a: |
       The 2.4.0 changelog says to set "automations": false in your config. Manage them with /automation. On the check date, addresses such as https://opencode.ai/docs/automations/ returned 404; no separate automations docs page was found. This article did not create or turn off automations.
@@ -50,11 +50,13 @@ If Copilot has no models after the upgrade, start with the Providers troubleshoo
 
 ## Plugins that follow a version now update themselves
 
-This is also a 2.4.0 upgrade note. The [Plugins](https://opencode.ai/docs/plugins/) page is more detailed, and the two agree on the points that matter here.
+This is also a 2.4.0 upgrade note. The [Plugins](https://opencode.ai/docs/plugins/) page is more detailed. The two pages agree on which sources update themselves. They do not fully agree on whether exact versions and commit hashes can be handled by `plugin check` / `plugin update`, and this article does not decide that conflict.
 
 If a plugin is written as `name@latest`, a version range (the changelog example is `name@^1.2.0`; the Plugins page also lists `name@~1.2.0`, `name@1.x`, and `name@>=1.2.0 <2`), a Git branch, or a Git `semver:` range, OpenCode checks it on startup and every 24 hours, installs a newer match, and reloads it. Ranges never leave their range. If a new version fails to load, the previous one keeps running and stays installed.
 
-A bare name, an exact version, another tag such as `@next`, a Git tag, or a commit hash does **not** update itself. `opencode plugin update` can still update those by hand. The Plugins page also says `plugin check` still reports updates for them.
+The 2.4.0 changelog groups a bare name, an exact version, another tag such as `@next`, a Git tag, or a commit hash, and says they do **not** update themselves; it also says `opencode plugin update` can still update those by hand.
+
+The Plugins page splits them. A bare name (`name`), a repository such as `github:acme/plugin`, another tag such as `name@next`, or a Git tag does not update itself, but `plugin check` still reports their updates and `plugin update` can still install them. Exact versions and commit hashes are marked pinned. The same page also says local plugins and exact package revisions are skipped by `plugin check` / `plugin update`.
 
 Look at your plugin list before you upgrade. If a source uses `@latest`, a range, or a branch, it may move to a newer version without a separate action from you. That is documented behavior, not advice to pin every plugin, and not a judgment about any plugin's safety. This article did not run `plugin check` or `plugin update`.
 
@@ -105,7 +107,7 @@ This article did not connect to or probe any MCP server.
 
 ## If you used `opencode service set password`, check logs and consider rotating it
 
-One 2.4.0 fix is that `opencode service set password` had been writing the password to the CLI log. If you used that command on an older version, the fix is one reason to upgrade. You should also check the related logs and consider rotating that password.
+One 2.4.0 fix is that `opencode service set password` had been writing the password to the CLI log. If you used that command on an older version, the fix is one reason to upgrade. Checking the related logs, and considering rotating that password, are this article's recommendations, not steps given in the official changelog.
 
 This article did not inspect anyone's logs, and it does not claim that every older install leaked a password. It only records that the changelog describes this write-to-log problem, and that it has been fixed.
 

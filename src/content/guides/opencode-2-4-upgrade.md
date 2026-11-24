@@ -14,13 +14,13 @@ faq:
       不行。2026-11-24 打开的 2.4.0 更新说明写明：GitHub Copilot 不再读取 GITHUB_TOKEN，应设置 COPILOT_GITHUB_TOKEN，或改用 OAuth 登录。Providers 页只写了设备 OAuth 流程，没有提到这个环境变量。两种办法本文都没有实测，不能把更新说明写成「COPILOT_GITHUB_TOKEN 在每种环境都能用」的保证，也不能把 Providers 页写成禁止使用该变量。
   - q: "我的插件会不会自己更新？"
     a: |
-      要看你怎么写插件来源。写成 name@latest、版本范围（例如 name@^1.2.0）、Git 分支或 Git 的 semver: 范围时，OpenCode 会在启动时以及之后每 24 小时检查，装上较新的匹配版本并重新加载。只写名称、钉死精确版本、其他标签（例如 @next）、Git 标签或提交哈希，不会自己更新；仍可用 opencode plugin update 手动更新。本文没有跑过插件更新。
+      要看你怎么写插件来源。写成 name@latest、版本范围（例如 name@^1.2.0）、Git 分支或 Git 的 semver: 范围时，OpenCode 会在启动时以及之后每 24 小时检查，装上较新的匹配版本并重新加载。只写名称、其他标签（例如 @next）或 Git 标签，不会自己更新；Plugins 页写 plugin check 仍会报告它们的更新，plugin update 仍可手动安装。精确版本和提交哈希在 Plugins 页被标为 pinned，该页还写本地插件和精确的包修订在 plugin check / plugin update 时会被跳过；2.4.0 更新说明则把它们和只写名称等一并写成仍可用 plugin update 手动更新。两边表述不完全相同，本文没有跑过插件更新，也不做裁决。
   - q: "不想用 Automations，怎么关掉？"
     a: |
       2.4.0 更新说明写：在配置里设置 "automations": false 即可关掉；日常管理用 /automation。当天打开 https://opencode.ai/docs/automations/ 等文档地址返回 404，没有找到独立说明页。本文没有创建或关闭过 Automations。
   - q: "Desktop 的内置浏览器和 Browse 是一回事吗？"
     a: |
-      官方页面是分开写的，没有把它们说成同一个产品。2.4.0 更新说明里的内置浏览器属于 Desktop，使用一份持久的桌面配置；Browse 页写的是一个 MCP 服务加上 Chromium 扩展，用来操作你正在用的浏览器。导入登录状态后，代理可以读取并操作这份持久配置里已登录的页面。这是文档里的行为说明，不是实测结论。Desktop 上「清除浏览数据」现在会先询问。
+      官方页面是分开写的，没有把它们说成同一个产品。2.4.0 更新说明里的内置浏览器属于 Desktop，使用一份持久的桌面浏览器配置档案（官方原文是 persistent desktop profile）；Browse 页写的是一个 MCP 服务加上 Chromium 扩展，用来操作你正在用的浏览器。导入登录状态后，代理可以读取并操作这份持久配置档案里已登录的页面。这是文档里的行为说明，不是实测结论。Desktop 上「清除浏览数据」现在会先询问。
 ---
 
 > 核查日：2026-11-24（北京时间）。依据当天打开的官方 [2.4.0 更新说明](https://opencode.ai/changelog/v2.4.0)、[更新说明目录](https://opencode.ai/changelog)、[2.4.1 更新说明](https://opencode.ai/changelog/v2.4.1)、[Providers](https://opencode.ai/docs/providers/)、[SDK](https://opencode.ai/sdk)、[Config](https://opencode.ai/docs/config/)、[Desktop](https://opencode.ai/desktop)、[Browse](https://opencode.ai/product/browse)、[Permissions](https://opencode.ai/docs/permissions/)、[MCP servers](https://opencode.ai/docs/mcp-servers/) 和 [Plugins](https://opencode.ai/docs/plugins/)。本文没有安装或启动 OpenCode，没有登录任何账号，没有实测 GitHub Copilot、Automations、内置浏览器、插件自动更新或 `opencode service set password`，也没有调用付费接口，也没有做运行时安全测试。命令、变量名和限制只引用当天打开的官方页面，不编造未出现的配置项。
@@ -37,7 +37,7 @@ faq:
 
 [2.4.0 更新说明](https://opencode.ai/changelog/v2.4.0)写：「GitHub Copilot no longer reads `GITHUB_TOKEN`. Set `COPILOT_GITHUB_TOKEN` or sign in with OAuth.」同一页的修复说明补充：`GITHUB_TOKEN` 常常被 Git 工具或 GitHub Actions 设置，但并不带 Copilot 权限；现在改为读取 `COPILOT_GITHUB_TOKEN`。
 
-同一天打开的 [Providers](https://opencode.ai/docs/providers/) 页，Copilot 小节写的是设备 OAuth，而不是手动填写 API 密钥。流程是：运行 `/connect`，选择 GitHub Copilot，再选 Login with GitHub Copilot，然后打开 `/models`。企业版需要按提示填写部署地址。故障排除表里，「Copilot has no models」对应的建议是：确认当前 OAuth 账号拥有 Copilot Chat 权限；模型同步失败会记成 `failed to sync GitHub Copilot models`。
+同一天打开的 [Providers](https://opencode.ai/docs/providers/) 页，Copilot 小节写的是设备 OAuth，而不是手动填写 API 密钥。流程是：运行 `/connect`，选择 GitHub Copilot，再选 Login with GitHub Copilot，然后打开 `/models`。企业版需要按提示填写部署地址或域名。故障排除表里，「Copilot has no models」对应的建议是：确认当前 OAuth 账号拥有 Copilot Chat 权限；模型同步失败会记成 `failed to sync GitHub Copilot models`。
 
 这两页存在文档冲突，需要并存，不能由本文裁决：
 
@@ -50,11 +50,13 @@ faq:
 
 ## 插件如果写了会跟随的版本，会自己更新
 
-这也是 2.4.0 的升级说明，[Plugins](https://opencode.ai/docs/plugins/) 页有更细的写法，两边在要点上一致。
+这也是 2.4.0 的升级说明。[Plugins](https://opencode.ai/docs/plugins/) 页写得更细。哪些来源会自己更新，两边一致；精确版本和提交哈希能不能用 `plugin check` / `plugin update` 处理，两边表述并不完全相同，本文不做裁决。
 
 写成 `name@latest`、版本范围（更新说明举的例子是 `name@^1.2.0`；Plugins 页还写了 `name@~1.2.0`、`name@1.x`、`name@>=1.2.0 <2`）、Git 分支，或 Git 的 `semver:` 范围时，OpenCode 会在启动时以及之后每 24 小时检查；若有较新的匹配版本，会安装并重新加载。范围不会超出自己的范围。新版本加载失败时，继续使用并保留原来的版本。
 
-只写名称、钉死精确版本、其他标签（例如 `@next`）、Git 标签或提交哈希，**不会**自己更新。`opencode plugin update` 仍可手动更新这类来源。Plugins 页还写：`plugin check` 仍会报告它们的更新。
+2.4.0 更新说明把只写名称、钉死精确版本、其他标签（例如 `@next`）、Git 标签或提交哈希一并写成**不会**自己更新，并写 `opencode plugin update` 仍可手动更新这类来源。
+
+Plugins 页分得更细：只写名称（`name`）、仓库写法（例如 `github:acme/plugin`）、其他标签（例如 `name@next`）或 Git 标签，不会自己更新，但 `plugin check` 仍会报告它们的更新，`plugin update` 仍可安装更新。精确版本和提交哈希则被标为 pinned（钉死）；同一页还写：本地插件和精确的包修订在 `plugin check` / `plugin update` 时会被跳过（skipped）。
 
 升级前看一下插件列表。若写的是 `@latest`、范围或分支，升级后它可能在你不知情时换到较新版本。这是文档里的行为，不是建议你必须改成钉死版本，也不是对某个插件安全性的判断。本文没有执行 `plugin check` 或 `plugin update`。
 
@@ -83,9 +85,9 @@ faq:
 
 ## 内置浏览器会沿用导入的登录状态
 
-2.4.0 更新说明的首条是 Desktop 的内置浏览器：可以从 Chrome、Edge、Firefox 或 Safari 导入登录状态和浏览历史；也可以从 Chromium 浏览器，或 Chrome / Edge 商店添加扩展。这些都放在**一份持久的桌面配置**里：聊天里的链接会以已登录状态打开，标签页在重启后仍在，代理可以读取并操作这些页面，而不用你再切换应用。
+2.4.0 更新说明的首条是 Desktop 的内置浏览器：可以从 Chrome、Edge、Firefox 或 Safari 导入登录状态和浏览历史；也可以从 Chromium 浏览器，或 Chrome / Edge 商店添加扩展。这些都放在**一份持久的桌面浏览器配置档案**里（官方原文是 persistent desktop profile）：聊天里的链接会以已登录状态打开，标签页在重启后仍在，代理可以读取并操作这些页面，而不用你再切换应用。
 
-这是文档写明的行为，不是恐吓。导入登录状态，就表示代理能够读取并操作这份持久配置里已经登录的页面。官方页面没有另外给出一套缓解措施，本文也不编造。同一份 2.4.0 说明还写：Desktop 上「Clear browsing data」（清除浏览数据）现在会先询问，而不是第一次点击就清掉全部数据。
+这是文档写明的行为，不是恐吓。导入登录状态，就表示代理能够读取并操作这份持久配置档案里已经登录的页面。官方页面没有另外给出一套缓解措施，本文也不编造。同一份 2.4.0 说明还写：Desktop 上「Clear browsing data」（清除浏览数据）现在会先询问，而不是第一次点击就清掉全部数据。
 
 不要把内置浏览器和 [Browse](https://opencode.ai/product/browse) 混成一个产品。[Desktop](https://opencode.ai/desktop) 页既提到内置浏览器，又另列了 Browse：「Let your agent use your real browser, with your logins and tabs.」Browse 页把自己写成一个 MCP 服务加上 Chromium 扩展，用来操作你正在用的浏览器（列举了 Chrome、Edge、Brave、Arc 等）。两页没有把它们说成同一件事。本文没有打开过 Desktop 内置浏览器，也没有安装或使用 Browse。
 
@@ -103,9 +105,9 @@ faq:
 
 本文没有连接或探测任何 MCP 服务。
 
-## 若用过 `opencode service set password`，先看日志并考虑更换密码
+## 若用过 `opencode service set password`，可检查日志并考虑更换密码
 
-2.4.0 的一则修复是：`opencode service set password` 先前会把密码写进 CLI 日志。若你在更早的版本用过这条命令，升级是理由之一；同时也应检查相关日志，并考虑更换那条密码。
+2.4.0 的一则修复是：`opencode service set password` 先前会把密码写进 CLI 日志。若你在更早的版本用过这条命令，升级是理由之一。检查相关日志、并考虑更换那条密码，是本文的建议，不是官方更新说明里给出的操作步骤。
 
 本文没有查看任何人的日志，也不能据此说「每一个旧安装都泄露过密码」。只是文档记录了这个写入日志的问题，并且已经修复。
 

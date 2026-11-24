@@ -29,7 +29,7 @@ None of the official responses included a `Last-Modified` header. The HTTP `Date
 | [Browse](https://opencode.ai/product/browse.md) (canonical cite: https://opencode.ai/product/browse) | 200 | MCP server plus a Chromium extension for the user's real browser. Not described as the Desktop built-in browser |
 | [Permissions](https://opencode.ai/docs/permissions/) | 200 | Linked for rule mapping / saved approvals; the article defers rule-order questions to the existing in-site permissions guide |
 | [MCP servers](https://opencode.ai/docs/mcp-servers/) | 200 | `protocol` field: `legacy` (default), `auto`, or `2026-07-28`. Default is the classic `initialize` handshake; `auto` probes and falls back. With `pool` set, an unset `protocol` means `auto` |
-| [Plugins](https://opencode.ai/docs/plugins/) | 200 | Auto-update rules agree with the 2.4.0 changelog and add extra range examples (`~`, `1.x`, `>=...<2`) and the `plugin check` note |
+| [Plugins](https://opencode.ai/docs/plugins/) | 200 | Auto-update for `name@latest`, ranges, Git branches, and Git `semver:` ranges agrees with the 2.4.0 changelog, with extra range examples (`~`, `1.x`, `>=...<2`). For sources that do not follow a version, the pages diverge: the changelog lumps a bare name, an exact version, another tag such as `@next`, a Git tag, or a commit hash, and says `plugin update` can still update those by hand. The Plugins page splits them: a bare name / repository / other npm tags such as `name@next` / Git tags stay on the installed version; `plugin check` still reports their updates and `plugin update` installs them; "Exact versions and commit hashes are pinned." The same Manage section also says "Local plugins and exact package revisions are skipped." Rechecked 2026-11-24 10:29 Asia/Shanghai; Accept-markdown SHA-256 identical to the morning capture |
 | https://opencode.ai/docs/automations/ | 302 then **404** | No dedicated automations docs page on the check date |
 | https://opencode.ai/docs/automation/ | 302 then **404** | Same |
 | https://opencode.ai/docs/schedules/ | 302 then **404** | Same |
@@ -45,12 +45,16 @@ None of the official responses included a `Last-Modified` header. The HTTP `Date
 
 4. **TUI plugin OpenTUI floor.** 2.4.0 says `@opencode/plugin` needs OpenTUI 0.9.4 or later. 2.4.1 says support starts at 0.8.0 again, so plugins capped below 0.9 can install. The article names both notes and does not choose a version for a given plugin.
 
+5. **Pinned plugins vs `plugin check` / `plugin update`.** The 2.4.0 changelog groups a bare name, an exact version, another tag such as `@next`, a Git tag, or a commit hash, and says they do not update themselves; it also says `opencode plugin update` still updates those by hand. The Plugins page agrees that those sources do not auto-update, but then splits them: bare name / repository / other tags such as `name@next` / Git tags can still be reported by `plugin check` and installed by `plugin update`; exact versions and commit hashes are pinned; "Local plugins and exact package revisions are skipped." The article presents both wordings and does not decide, with a test, which command result applies to an exact version or commit hash.
+
 ## Not claimed
 
 - Any live OpenCode install, login, Copilot OAuth or `COPILOT_GITHUB_TOKEN` result
 - That `COPILOT_GITHUB_TOKEN` works in every setup, or that the Providers page forbids it
-- Any live automation, plugin auto-update, built-in browser, Browse, MCP probe, or `opencode service set password` run
+- Any live automation, plugin auto-update, `plugin check`, `plugin update`, built-in browser, Browse, MCP probe, or `opencode service set password` run
+- That `plugin check` or `plugin update` still applies to exact versions or commit hashes, or any verdict between the 2.4.0 changelog and the Plugins page on that point
 - That every older install leaked a password, or that anyone's logs were inspected
+- That checking logs or rotating a password after the `opencode service set password` fix is an official changelog step; the article labels those as its own recommendations
 - A default-behavior verdict on MCP `protocol` when the changelog and the MCP docs disagree
 - That readers must be on 2.4.1 for the 2.4.0 notes to apply, except where a 2.4.1 note specifically applies (macOS 12 session save; the OpenTUI 0.8.0 plugin note)
 - Speed, cost, reliability, or security effectiveness
@@ -58,6 +62,18 @@ None of the official responses included a `Last-Modified` header. The HTTP `Date
 - Invented mitigations for imported browser sign-ins beyond what the official pages document ("Clear browsing data asks first")
 - A refresh of `data/tools/opencode.yaml`
 
+## Recheck after independent content review
+
+On 2026-11-24 10:29 Asia/Shanghai, the Plugins, Providers, and v2.4.0 changelog pages were fetched again with `Accept: text/markdown`. All three markdown bodies were SHA-256 identical to the morning captures (HTTP 200; HTTP `Date` Tue, 24 Nov 2026 02:29:45 GMT). Evidence: `/workspace/codepick-evidence-2026-11-24/recheck-2026-11-24-1028/`.
+
+Revisions after that recheck, still as a review draft:
+
+- Split exact versions and commit hashes from bare name / `@next` / Git tags, and present the changelog wording next to the Plugins "pinned" / "skipped" wording without adjudicating an untested command result.
+- Label "check related logs / consider rotating that password" as this article's recommendations, not official changelog steps.
+- Chinese only: add "或域名" to the GitHub Enterprise deployment-address sentence, matching the Providers line "enter the deployment URL or domain when prompted" already used in English.
+- Chinese only: render "one persistent desktop profile" as 桌面浏览器配置档案, so it is not read as generic desktop-app settings.
+- No added `registerCodeBlockRenderer` scope. No install, login, or live command run. `draft: true` and the review-draft wording stay.
+
 ## Review status
 
-Draft for review. `draft: true` and the 「审阅稿」 / "Review draft" wording stay. Do not treat this note as a publication or merge authorization.
+Draft for a further content review. `draft: true` and the 「审阅稿」 / "Review draft" wording stay. Do not treat this note as a publication or merge authorization.
