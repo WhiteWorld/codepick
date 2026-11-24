@@ -79,7 +79,7 @@ faq:
 
 这是更新说明里的字段，不是从 [Config](https://opencode.ai/docs/config/) 页抄来的示例。核对当天，Config 页没有 Automations 专节；`https://opencode.ai/docs/automations/`、`https://opencode.ai/docs/automation/` 和 `https://opencode.ai/docs/schedules/` 均返回 404，没有找到独立文档页。本文没有创建、批准或关闭过 Automations，也没有验证这个字段在每一种配置来源里的合并结果。
 
-另外，[SDK](https://opencode.ai/sdk) 页在 **v2.3.1**（2026-11-18）的说明里写道：实验性的 schedules 现在改成了 automations，由 `automations` 开关控制（旧的 `schedules` 开关仍可用）；仍在进行或已暂停的普通提示词日程会保留；带条件或运行次数限制的，以及已经结束的，会被丢弃。这条**不在** 2.4.0 更新说明页上。若你是从 2.3.1 之前的版本直接升到 2.4，这条迁移说明可能在 2.3.1 时就已经适用。本文没有核对应个安装里还留着哪些旧日程。
+另外，[SDK](https://opencode.ai/sdk) 页在 **v2.3.1**（2026-11-18）的说明里写道：实验性的 schedules 现在改成了 automations，由 `automations` 开关控制（旧的 `schedules` 开关仍可用）；仍在进行或已暂停的普通提示词日程会保留；带条件或运行次数限制的，以及已经结束的，会被丢弃。这条**不在** 2.4.0 更新说明页上。若你是从 2.3.1 之前的版本直接升到 2.4，这条迁移说明可能在 2.3.1 时就已经适用。本文没有核对这个安装里还留着哪些旧日程。
 
 ## 内置浏览器会沿用导入的登录状态
 
