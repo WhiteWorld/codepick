@@ -1,0 +1,139 @@
+id: happy
+name: Happy
+type: agent_platform
+url: https://happy.engineering/
+repo: https://github.com/slopus/happy-desktop
+current_version: v2026.11.4
+version_tracked_at: "2026-11-24"
+
+tagline: 开源桌面 harness，用你已有的 Claude、Codex 或 Grok 等订阅，在团队工作区与默认系统沙箱中运行 agent；曾用名 Happy Coder。
+tagline_en: An open-source desktop harness that runs agents on subscriptions you already have, such as Claude, Codex, or Grok, in a team workspace with a default OS sandbox. Formerly Happy Coder.
+
+unscored: true
+unscored_reason: >-
+  2026-11-24（Asia/Shanghai）仅根据官网、对照页与 GitHub 仓库/Release 做文档核查，未安装桌面或手机应用，未登录或搭建团队服务，也未测试默认沙箱或官方仍标为 beta 的路径，因此不给出评分。
+unscored_reason_en: >-
+  Documentary review on 2026-11-24 (Asia/Shanghai) from the official site, comparison page, and GitHub repositories/releases only. The desktop and mobile apps were not installed, no team service was signed into or set up, and the default sandbox and officially beta paths were not tested, so no scores are given.
+
+pricing:
+  model: open_source
+  currency: null
+  plans:
+    - name: 开源免费
+      name_en: Open source, free
+      price: 0
+      limits: 官方写明没有 Happy 模型套餐，也不向 Happy 粘贴密钥；使用你已有的厂商订阅，模型费用另计。
+      limits_en: Official materials say there is no Happy model plan and you should not paste keys into Happy. Use subscriptions you already have; model costs are separate.
+  price_updated_at: "2026-11-24"
+  note: >-
+    当前产品是 MIT 开源桌面应用 slopus/happy-desktop（LICENSE 2026-11-24 核对）。手机、原 CLI 与中继仍在 slopus/happy（同样 MIT）。官方已将原 CLI（`happy` / 旧称 Happy Coder）标为维护模式，新功能在桌面应用。最新桌面正式版 v2026.11.4（发布 2026-11-18 20:00，Asia/Shanghai）。原 CLI 最近一次正式版为 cli-1.2.5（2026-09-22），不宜再当作当前产品主入口。个人桌面官方写的是复用你已有的厂商订阅；这与团队服务器不同：2026-11-24 重开的 https://happy.engineering/guides/team-server/ 写明 provider 登录属于服务器服务账户，成员自己的订阅不被使用，任意成员可切换 Full access，并且还没有 remove-member 或逐成员权限。以上为官方文档陈述，本站未搭建或实测团队服务，不能当成安全保证。
+  note_en: >-
+    The current product is the MIT desktop app slopus/happy-desktop (LICENSE rechecked on 2026-11-24). Mobile, the original CLI, and the relay remain in slopus/happy (also MIT). Official materials mark the original CLI (`happy` / formerly Happy Coder) as maintenance mode, with new work on the desktop app. Latest stable desktop release is v2026.11.4 (published 2026-11-18 20:00 Asia/Shanghai). The original CLI's latest stable tag is cli-1.2.5 (2026-09-22) and should not be treated as the current primary product. Official desktop copy says you reuse subscriptions you already have; that is not the team-server model. The official team-server guide at https://happy.engineering/guides/team-server/, reopened on 2026-11-24, says provider sign-ins belong to the server's service account, members' own subscriptions are not used, any member can switch a session to Full access, and there is not yet a remove-member action or per-member permissions. These are official statements. This site did not set up or test a team server and does not treat them as a safety guarantee.
+
+features:
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: true
+  multi_agent: true
+  agent_teams: true
+  open_source: true
+  self_hosted: true
+  mobile_monitoring: true
+  supported_runtimes:
+    - Claude
+    - Codex
+    - Grok
+  supported_os:
+    - macOS
+    - Windows
+    - Linux
+    - iOS
+    - Android
+  ide_base: Agent 桌面 harness（团队工作区）
+  ide_base_en: Agent desktop harness (team workspace)
+
+best_for:
+  - 想用已有 Claude / Codex / Grok 等订阅、并需要团队工作区或默认可用系统沙箱的人
+  - 需要 macOS、Windows 或 Linux 桌面，并希望有加密手机端的人
+  - 可以把团队服务自托管、成员用自己的 Happy 账号加入的团队（须同时阅读官方团队信任边界，见限制说明）
+best_for_en:
+  - People who want to use existing Claude, Codex, or Grok subscriptions and need a team workspace or a default OS sandbox
+  - Users who need a macOS, Windows, or Linux desktop app and want an encrypted mobile client
+  - Teams that can self-host the team service and have members join with their own Happy accounts, after reading the official team trust boundary
+not_for:
+  - 仍把 Happy 只当成旧版 Happy Coder「手机包装 CLI」的人——当前主产品是桌面应用
+  - 依赖原 `happy` CLI 新功能的人（官方已标维护模式）
+  - 把官方仍标为 beta 的厂商原生循环或部分 ACP / Antigravity 路径当成已验证能力的人
+  - 需要逐成员厂商额度或权限隔离，或把团队登录理解成“每人使用自己的 Claude / Codex / Grok 额度且不可切换 Full access”的人
+not_for_en:
+  - Readers who still think of Happy only as the older Happy Coder mobile wrapper around a CLI — the current primary product is the desktop app
+  - People who need new features in the original `happy` CLI (officially in maintenance mode)
+  - Anyone treating vendor-native loops or some ACP / Antigravity paths, which official docs still mark as beta, as verified capabilities
+  - Teams that need per-member vendor quotas or permission isolation, or that read team sign-in as “each member spends their own Claude / Codex / Grok quota and cannot switch to Full access”
+
+pros:
+  - 官方强调使用已有订阅，没有 Happy 模型套餐，也不要求向 Happy 粘贴密钥
+  - 桌面支持 macOS / Windows / Linux，并有团队服务与默认系统沙箱的官方说明
+  - 当前桌面仓库与原 CLI / 手机仓库均 MIT 开源，许可可核对
+cons:
+  - 原 CLI 处于维护模式，站内若仍只写「手机 + Web 客户端」会过时
+  - 部分厂商原生循环以及 ACP / Antigravity 路径官方仍标 beta，本次未测
+  - 官方团队服务器说明：工作消耗的是服务器服务账户的 Claude / Codex / Grok 额度，不用成员自己的订阅；任意成员可把会话切到 Full access（会去掉沙箱）；目前还没有 remove-member 或逐成员权限。官方写明团队服务器是给彼此信任的人用的。本站未搭建或实测，不构成安全背书
+pros_en:
+  - Official materials emphasize using subscriptions you already have, with no Happy model plan and no requirement to paste keys into Happy
+  - Desktop officially supports macOS, Windows, and Linux, and describes a team service and a default OS sandbox
+  - Both the current desktop repository and the original CLI / mobile repository are MIT licensed and can be checked
+cons_en:
+  - The original CLI is in maintenance mode; older site copy that only describes a mobile + web client is outdated
+  - Some vendor-native loops and ACP / Antigravity paths are still officially marked beta and were not tested here
+  - Official team-server docs say every member's work spends the server service account's Claude, Codex, and Grok quota, not members' own subscriptions; any member can switch a session to Full access, which removes the sandbox; there is not yet a remove-member action or per-member permissions. Official docs say a team server is for people who trust each other. This site did not set up or test a team server and does not endorse it as safe
+
+quick_start:
+  - 以下为官方文档中的入口，本站未执行、未验证能否跑通
+  - 从 https://happy.engineering/ 或 slopus/happy-desktop 的 GitHub Releases 获取桌面正式版 v2026.11.4
+  - 使用你已有的厂商订阅登录，不要向 Happy 粘贴密钥（以官方说明为准）
+  - 原 `happy` CLI 官方已标维护模式，不宜再当作新功能入口
+quick_start_en:
+  - The following are official documented entry points; this site did not run or verify them
+  - Get stable desktop v2026.11.4 from https://happy.engineering/ or GitHub Releases on slopus/happy-desktop
+  - Sign in with a vendor subscription you already have, and do not paste keys into Happy (per official documentation)
+  - The original `happy` CLI is officially in maintenance mode and should not be used as the entry point for new features
+
+register_url: https://happy.engineering/
+china_note: 桌面应用可从官网或 GitHub Releases 下载；底层厂商订阅的登录、网络和支付需自行解决。国内可用性未实测，也未给出国内体验评分。
+china_note_en: The desktop app can be downloaded from the official site or GitHub Releases. Sign-in, network access, and payment for underlying vendor subscriptions are your responsibility. Availability in mainland China was not tested, and no China-access score is given.
+
+data_sources:
+  - url: https://happy.engineering/
+    type: docs
+    last_checked: "2026-11-24"
+  - url: https://happy.engineering/t3-code/
+    type: docs
+    last_checked: "2026-11-24"
+  - url: https://github.com/slopus/happy-desktop
+    type: repo
+    last_checked: "2026-11-24"
+  - url: https://github.com/slopus/happy-desktop/releases/tag/v2026.11.4
+    type: release
+    last_checked: "2026-11-24"
+  - url: https://github.com/slopus/happy
+    type: repo
+    last_checked: "2026-11-24"
+  - url: https://raw.githubusercontent.com/slopus/happy-desktop/main/LICENSE
+    type: docs
+    last_checked: "2026-11-24"
+  - url: https://happy.engineering/guides/team-server/
+    type: docs
+    last_checked: "2026-11-24"
+  - url: https://happy.engineering/permissions/
+    type: docs
+    last_checked: "2026-11-24"
+
+changelog:
+  - date: '2026-11-24'
+    type: announcement
+    summary: 按官方公开资料做文档收录，未安装或实测，不给出评分。
+    summary_en: Added as a documentary listing from official public sources. Not installed or tested; no scores given.
+
+confidence: low

@@ -34,6 +34,11 @@ const translations: Record<string, Record<Locale, string>> = {
   'score.china':          { zh: '国内', en: 'China' },
   'score.chinaFriendly':  { zh: '国内体验', en: 'China Access' },
   'score.overall':        { zh: '综合', en: 'Overall' },
+  'score.unscored':       { zh: '未评分', en: 'Unscored' },
+  'score.pendingTest':    { zh: '待实测', en: 'Not yet tested' },
+  'score.unscoredNote':   { zh: '本条目仅根据官方公开资料做文档收录，尚未安装或实测，因此不显示评分，也不进入评分排序或均分。', en: 'This entry is a documentary listing from official public sources. It has not been installed or tested, so it has no scores and is excluded from score rankings and averages.' },
+  'meta.sourcesChecked':  { zh: '资料已核对', en: 'Sources checked' },
+  'feature.unknown':      { zh: '未核实', en: 'Not verified' },
 
   // ── Type labels (shared across PlanCard, ToolCard, FilterBar, etc.) ───
   'type.ide':         { zh: 'IDE', en: 'IDE' },

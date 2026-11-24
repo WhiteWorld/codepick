@@ -1,0 +1,130 @@
+id: orca
+name: Orca
+type: agent_platform
+url: https://orca.dev/
+repo: https://github.com/stablyai/orca
+current_version: v1.4.272
+version_tracked_at: "2026-11-24"
+
+tagline: 开源 agent 开发环境：可接入任意 CLI agent，在并行 worktree 中工作，并支持桌面、手机和远程运行时。
+tagline_en: An open-source agent development environment. It can attach to any CLI agent, work in parallel git worktrees, and supports desktop, mobile, and remote runtimes.
+
+unscored: true
+unscored_reason: >-
+  2026-11-24（Asia/Shanghai）仅根据官网与 GitHub 仓库/Release 做文档核查，未安装桌面或移动端，未登录或付费，也未测试远程运行时或 Slack / Linear / GitHub bot 集成，因此不给出评分。仓库星标数只作观察值，不用作质量或活跃度依据。
+unscored_reason_en: >-
+  Documentary review on 2026-11-24 (Asia/Shanghai) from the official site and GitHub repository/releases only. The desktop and mobile apps were not installed, no account was signed into or paid for, and remote runtimes or Slack / Linear / GitHub bot integrations were not tested, so no scores are given. Repository star counts are observations only and are not used as a quality or activity signal.
+
+pricing:
+  model: open_source
+  currency: null
+  plans:
+    - name: 开源免费
+      name_en: Open source, free
+      price: 0
+      limits: 应用本身无产品订阅；需自备 CLI agent 的订阅或登录，模型费用另计。
+      limits_en: The app itself has no product subscription. You must bring CLI-agent subscriptions or logins; model costs are separate.
+  price_updated_at: "2026-11-24"
+  note: >-
+    MIT 开源（Copyright Lovecast Inc.，2026-11-24 核对仓库 LICENSE）。官网列出 Claude Code、Codex、Grok、Cursor、Copilot、OpenCode 等，并写可接入任意 CLI agent。最新正式版 v1.4.272（发布 2026-11-23 20:35，Asia/Shanghai）；同日另有 Android 预发布（如 android-v0.0.70），不能当作桌面正式版。
+  note_en: >-
+    MIT licensed (copyright Lovecast Inc.; LICENSE rechecked on 2026-11-24). The official site lists Claude Code, Codex, Grok, Cursor, Copilot, OpenCode, and others, and says any CLI agent can be attached. Latest stable release is v1.4.272 (published 2026-11-23 20:35 Asia/Shanghai). There were also Android prereleases that day (for example android-v0.0.70), which are not the stable desktop release.
+
+features:
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: true
+  git_integration: true
+  multi_agent: true
+  parallel_execution: true
+  git_worktree_isolation: true
+  mobile_monitoring: true
+  open_source: true
+  supported_runtimes:
+    - Claude Code
+    - Codex
+    - Grok
+    - Cursor
+    - Copilot
+    - OpenCode
+    - any CLI agent
+  supported_os:
+    - macOS
+    - Windows
+    - Linux
+    - iOS
+    - Android
+  ide_base: Agent 开发环境（桌面 / 手机 / 远程）
+  ide_base_en: Agent development environment (desktop / mobile / remote)
+
+best_for:
+  - 想在并行 worktree 里使用任意 CLI agent，并且需要 Windows 桌面支持的人
+  - 希望同一环境覆盖桌面、手机和远程运行时的人
+  - 官方还提到可从 Slack、Linear、GitHub 把任务交给 bot——适合关心这一方向、但接受本次未测的人
+best_for_en:
+  - People who want to use any CLI agent in parallel worktrees and need Windows desktop support
+  - Users who want one environment that covers desktop, mobile, and remote runtimes
+  - People interested in the official Slack, Linear, and GitHub bot-task flow, and who accept that it was not tested here
+not_for:
+  - 只想要一个很窄的「已登录 agent 控制平面」、不需要 IDE / 远程 bot 方向的人
+  - 需要本站已实测远程运行时或工单集成的人
+  - 把仓库星标或其他推广数字当成质量评分的人
+not_for_en:
+  - People who only want a narrow control plane over already signed-in agents and do not want the broader IDE / remote-bot direction
+  - Readers who need this site to have tested remote runtimes or issue-tracker integrations
+  - Anyone treating repository stars or other promotional figures as a quality score
+
+pros:
+  - 官方支持任意 CLI agent 与并行 worktree，并明确提供 Windows 桌面
+  - 桌面、手机和远程运行时是官方产品范围，而不是只做本机会话列表
+  - MIT 开源，正式版 Release 可核对
+cons:
+  - 品类比单纯的控制平面更宽，能力边界需要按官方说明逐项看，不能默认全部已验证
+  - 远程运行时以及 Slack / Linear / GitHub bot 集成本次未测
+  - Android 预发布与桌面正式版并存，不能把预发布当成已核验的正式移动端版本
+pros_en:
+  - Officially supports any CLI agent and parallel worktrees, and explicitly offers a Windows desktop app
+  - Desktop, mobile, and remote runtimes are part of the official product scope, not only a local session list
+  - MIT licensed, with stable releases that can be checked
+cons_en:
+  - The category is broader than a pure control plane; each capability has to be read from official docs and should not be assumed verified
+  - Remote runtimes and Slack / Linear / GitHub bot integrations were not tested here
+  - Android prereleases exist alongside the stable desktop release and should not be treated as a verified stable mobile version
+
+quick_start:
+  - 以下为官方文档中的入口，本站未执行、未验证能否跑通
+  - 从 https://orca.dev/ 或 GitHub Releases 获取桌面正式版 v1.4.272
+  - 接入你已安装的 CLI agent，并在工作区中使用并行 worktree（以官方说明为准）
+  - 远程运行时或 bot 集成需另按官方文档配置；本次未测
+quick_start_en:
+  - The following are official documented entry points; this site did not run or verify them
+  - Get stable desktop v1.4.272 from https://orca.dev/ or GitHub Releases
+  - Attach CLI agents you already have installed and use parallel worktrees in the workspace (per official documentation)
+  - Remote runtimes or bot integrations need separate official setup; they were not tested here
+
+register_url: https://orca.dev/
+china_note: 可从官网或 GitHub Releases 下载；底层 CLI agent 的登录、网络和支付需自行解决。国内可用性未实测，也未给出国内体验评分。
+china_note_en: You can download the app from the official site or GitHub Releases. Sign-in, network access, and payment for underlying CLI agents are your responsibility. Availability in mainland China was not tested, and no China-access score is given.
+
+data_sources:
+  - url: https://orca.dev/
+    type: docs
+    last_checked: "2026-11-24"
+  - url: https://github.com/stablyai/orca
+    type: repo
+    last_checked: "2026-11-24"
+  - url: https://github.com/stablyai/orca/releases/tag/v1.4.272
+    type: release
+    last_checked: "2026-11-24"
+  - url: https://raw.githubusercontent.com/stablyai/orca/main/LICENSE
+    type: docs
+    last_checked: "2026-11-24"
+
+changelog:
+  - date: '2026-11-24'
+    type: announcement
+    summary: 按官方公开资料做文档收录，未安装或实测，不给出评分。
+    summary_en: Added as a documentary listing from official public sources. Not installed or tested; no scores given.
+
+confidence: low

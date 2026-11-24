@@ -12,7 +12,7 @@ draft: false
 
 ## Paseo 是什么
 
-[Paseo](https://paseo.sh/)（GitHub：[getpaseo/paseo](https://github.com/getpaseo/paseo)，AGPL-3.0）是一款**自托管、开源的 coding agent 编排工具**。它在你自己的机器上跑一个本地服务（daemon），把 Claude Code、Codex、GitHub Copilot、OpenCode、Pi 等 **39 种 agent CLI** 统一管理起来，然后通过 **iOS / Android / 桌面（macOS、Windows、Linux）/ Web / CLI** 全端接入。
+[Paseo](https://paseo.sh/)（GitHub：[getpaseo/paseo](https://github.com/getpaseo/paseo)，Apache-2.0，以 2026-11-24 仓库 LICENSE / README 为准）是一款**自托管、开源的 coding agent 编排工具**。它在你自己的机器上跑一个本地服务（daemon），把 Claude Code、Codex、GitHub Copilot、OpenCode、Pi 等 **39 种 agent CLI** 统一管理起来，然后通过 **iOS / Android / 桌面（macOS、Windows、Linux）/ Web / CLI** 全端接入。
 
 和 Conductor 这类“Mac 桌面编排器”不同，Paseo 的核心是 **daemon + 多端 client** 架构：
 
@@ -23,10 +23,12 @@ draft: false
 它不是又一个 AI 编程工具，而是架在官方 agent CLI 之上的**控制平面**：底层还是你订阅/使用的 Claude Code、Codex、Copilot 等官方工具。
 
 > 核查时间：2026-08-12。本文事实来自 paseo.sh 官网、官方文档与 GitHub README；GitHub star、版本号、App Store 状态变化很快，不作为核心判断依据。
+>
+> 许可资料更正（2026-11-24，Asia/Shanghai）：当日重新打开 getpaseo/paseo 的 `LICENSE` 与 README，除第三方组件外正文均为 Apache License, Version 2.0。2026-08-12 撰写时记录的是 AGPL-3.0；下文凡陈述「当前许可」之处已按 2026-11-24 官方文本改为 Apache-2.0，并不回溯改写 2026-08-12 的核查日期，也未重核文中其它事实（包括当时记录的 agent CLI 数量）。
 
 ## 为什么值得关注
 
-1. **开源 + 无遥测**：AGPL-3.0 开源，官方明确不采集遥测、不强制登录。对在意代码和数据留在自己机器的开发者很友好。
+1. **开源 + 无遥测**：Apache-2.0 开源（2026-11-24 仓库 LICENSE / README；2026-08-12 本稿原记 AGPL-3.0），官方明确不采集遥测、不强制登录。对在意代码和数据留在自己机器的开发者很友好。
 2. **多 agent 并行 + 隔离**：每个 workspace 一个独立 git worktree 和分支，agent 互不干扰；每个 worktree 还有独立的本地 dev server 地址，并行任务不抢端口。
 3. **全端 + 移动端对等**：手机端与桌面端功能一致，这在同类工具里很少见。
 4. **生态与自动化**：支持定时任务（cron）、skills、MCP、浏览器窗格、TypeScript SDK、CLI 脚本化、Hub、Docker 部署。
@@ -61,7 +63,7 @@ Paseo 的本地服务叫 **daemon**，是唯一真正运行 agent 的进程。�
 
 | 工具 | 定位 | 代码在哪跑 | 平台 | 开源/许可 | 手机端 | 定价 |
 |---|---|---|---|---|---|---|
-| **Paseo** | 自托管远程编排 daemon | 本机 / 自托管 / Docker | macOS、Windows、Linux + iOS/Android/Web/CLI | AGPL-3.0 | 原生 iOS+Android | 免费（赞助） |
+| **Paseo** | 自托管远程编排 daemon | 本机 / 自托管 / Docker | macOS、Windows、Linux + iOS/Android/Web/CLI | Apache-2.0（2026-11-24 LICENSE / README；2026-08-12 原记 AGPL-3.0） | 原生 iOS+Android | 免费（赞助） |
 | [Conductor](https://www.conductor.build/) | Mac 并行编排桌面 App | 本机 Mac | macOS | 闭源 | 无 | 免费（底层 Agent 自付） |
 | [Superset](https://superset.sh/) | agentic IDE，并行跑 100+ CLI agent | 本机 + 远程 host | macOS 桌面（远程经 CLI/SDK/MCP） | Elastic License 2.0 | 无原生 App | 免费单席位/local |
 | [OpenChamber](https://github.com/openchamber/openchamber) | 开源 workspace：桌面/浏览器/移动 PWA | 本机 / 远端 | 桌面 + Web + VS Code 扩展 + 移动 PWA | MIT | PWA | 开源免费 |

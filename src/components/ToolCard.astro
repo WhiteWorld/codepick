@@ -1,6 +1,7 @@
 ---
 import ScoreBar from './ScoreBar.astro';
 import { t, localePath, type Locale } from '../lib/i18n';
+import { hasNumericToolScores } from '../lib/data';
 
 interface Props {
   tool: any;
@@ -9,7 +10,7 @@ interface Props {
 const { tool, lang = 'zh' } = Astro.props;
 
 const meta = tool.meta || {};
-const scores = tool.scores || {};
+const scored = hasNumericToolScores(tool);
 ---
 
 <a href={localePath(`/tool/${tool.id}`, lang)} class="card p-5 no-underline group block">
@@ -25,12 +26,19 @@ const scores = tool.scores || {};
   {tool.tagline && (
     <p class="text-xs text-[var(--text-muted)] mb-3 m-0 line-clamp-2 leading-relaxed">{tool.tagline}</p>
   )}
-  <div class="flex flex-col gap-2">
-    <ScoreBar label={t('score.coding', lang)} score={scores.coding_ability ?? 5} color="auto" />
-    <ScoreBar label={t('score.costEfficiency', lang)} score={scores.cost_efficiency ?? 5} color="auto" />
-    <ScoreBar label={t('score.flexibility', lang)} score={scores.flexibility ?? 5} color="auto" />
-    <ScoreBar label={t('score.china', lang)} score={scores.china_friendly ?? 5} color="auto" />
-  </div>
+  {scored ? (
+    <div class="flex flex-col gap-2">
+      <ScoreBar label={t('score.coding', lang)} score={tool.scores.coding_ability} color="auto" />
+      <ScoreBar label={t('score.costEfficiency', lang)} score={tool.scores.cost_efficiency} color="auto" />
+      <ScoreBar label={t('score.flexibility', lang)} score={tool.scores.flexibility} color="auto" />
+      <ScoreBar label={t('score.china', lang)} score={tool.scores.china_friendly} color="auto" />
+    </div>
+  ) : (
+    <div class="text-xs text-[var(--text-muted)] leading-relaxed" data-score-state="unscored">
+      <p class="m-0 font-medium text-[var(--text-secondary)]">{t('score.unscored', lang)} · {t('score.pendingTest', lang)}</p>
+      <p class="m-0 mt-1">{t('score.unscoredNote', lang)}</p>
+    </div>
+  )}
   {(meta.last_verified || meta.confidence) && (
     <div class="mt-3 flex flex-wrap gap-1.5">
       {meta.last_verified && <span class="meta-tag">{t('meta.verified', lang)} {meta.last_verified}</span>}

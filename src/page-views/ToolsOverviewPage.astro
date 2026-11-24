@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getAllToolsLocalized } from '../lib/data';
+import { getAllToolsLocalized, hasNumericToolScores, compareToolsByScoreField } from '../lib/data';
 import { t, localePath, type Locale } from '../lib/i18n';
 
 interface Props { lang: Locale }
@@ -9,7 +9,7 @@ const { lang } = Astro.props;
 const allTools = getAllToolsLocalized(lang);
 const siteUrl = 'https://codepick.dev';
 const pagePath = localePath('/tools/overview', lang);
-const tools = [...allTools].sort((a, b) => (b.scores.coding_ability ?? 0) - (a.scores.coding_ability ?? 0));
+const tools = [...allTools].sort((a, b) => compareToolsByScoreField(a, b, 'coding_ability'));
 
 function priceLabel(tool: any): string {
   const plans = tool.pricing?.plans || [];
@@ -119,12 +119,20 @@ const dtCards = [
           </tr>
         </thead>
         <tbody>
-          {tools.map(tool => (
+          {tools.map(tool => {
+            const scored = hasNumericToolScores(tool);
+            const coding = scored ? (tool as any).scores.coding_ability : null;
+            const cost = scored ? (tool as any).scores.cost_efficiency : null;
+            const flex = scored ? (tool as any).scores.flexibility : null;
+            const china = scored ? (tool as any).scores.china_friendly : null;
+            const unanswered = t('score.unscored', lang);
+            return (
             <tr
-              data-coding={String((tool as any).scores.coding_ability ?? 0)}
-              data-cost={String((tool as any).scores.cost_efficiency ?? 0)}
-              data-flex={String((tool as any).scores.flexibility ?? 0)}
-              data-china={String((tool as any).scores.china_friendly ?? 0)}
+              data-coding={coding === null ? '' : String(coding)}
+              data-cost={cost === null ? '' : String(cost)}
+              data-flex={flex === null ? '' : String(flex)}
+              data-china={china === null ? '' : String(china)}
+              data-score-state={scored ? 'scored' : 'unscored'}
             >
               <td>
                 <a href={localePath(`/tool/${tool.id}`, lang)} class="text-[var(--brand-400)] no-underline hover:underline font-medium">
@@ -135,20 +143,21 @@ const dtCards = [
                 <span class="tag text-xs">{t(`ovType.${(tool as any).type}`, lang) || (tool as any).type}</span>
               </td>
               <td class="text-center text-[var(--text-muted)] text-xs">{priceLabel(tool as any)}</td>
-              <td class={`text-center font-bold ${scoreColor((tool as any).scores.coding_ability ?? 0)}`}>
-                {(tool as any).scores.coding_ability ?? '—'}
+              <td class={coding === null ? 'text-center text-[var(--text-muted)] text-xs' : `text-center font-bold ${scoreColor(coding)}`}>
+                {coding === null ? unanswered : coding}
               </td>
-              <td class={`text-center font-bold ${scoreColor((tool as any).scores.cost_efficiency ?? 0)}`}>
-                {(tool as any).scores.cost_efficiency ?? '—'}
+              <td class={cost === null ? 'text-center text-[var(--text-muted)] text-xs' : `text-center font-bold ${scoreColor(cost)}`}>
+                {cost === null ? unanswered : cost}
               </td>
-              <td class={`text-center font-bold ${scoreColor((tool as any).scores.flexibility ?? 0)}`}>
-                {(tool as any).scores.flexibility ?? '—'}
+              <td class={flex === null ? 'text-center text-[var(--text-muted)] text-xs' : `text-center font-bold ${scoreColor(flex)}`}>
+                {flex === null ? unanswered : flex}
               </td>
-              <td class={`text-center font-bold ${scoreColor((tool as any).scores.china_friendly ?? 0)}`}>
-                {(tool as any).scores.china_friendly ?? '—'}
+              <td class={china === null ? 'text-center text-[var(--text-muted)] text-xs' : `text-center font-bold ${scoreColor(china)}`}>
+                {china === null ? unanswered : china}
               </td>
             </tr>
-          ))}
+            );
+          })}
         </tbody>
       </table>
     </div>
@@ -213,8 +222,13 @@ const dtCards = [
     function sortTable() {
       const rows = Array.from(tbody.querySelectorAll<HTMLTableRowElement>('tr'));
       rows.sort((a, b) => {
-        const av = parseFloat(a.dataset[sortCol] ?? '0');
-        const bv = parseFloat(b.dataset[sortCol] ?? '0');
+        const av = parseFloat(a.dataset[sortCol] ?? '');
+        const bv = parseFloat(b.dataset[sortCol] ?? '');
+        const aMissing = !Number.isFinite(av);
+        const bMissing = !Number.isFinite(bv);
+        if (aMissing && bMissing) return 0;
+        if (aMissing) return 1;
+        if (bMissing) return -1;
         return sortDir * (bv - av);
       });
       rows.forEach(r => tbody.appendChild(r));

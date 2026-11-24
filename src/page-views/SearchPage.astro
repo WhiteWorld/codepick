@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
-import { getAllToolsLocalized, getAllPlansLocalized, overallScore } from '../lib/data';
+import { getAllToolsLocalized, getAllPlansLocalized, overallScore, hasNumericToolScores } from '../lib/data';
 import { getCollection } from 'astro:content';
 
 interface Props { lang: Locale }
@@ -30,7 +30,7 @@ const searchIndex = [
     description: t.tagline,
     tags: [...(t.best_for || []), t.type],
     url: localePath(`/tool/${t.id}`, lang),
-    score: overallScore(t.scores),
+    score: hasNumericToolScores(t) ? overallScore(t.scores) : undefined,
   })),
   ...plans.map(p => ({
     type: 'plan' as const,

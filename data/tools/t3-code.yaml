@@ -1,0 +1,133 @@
+id: t3-code
+name: T3 Code
+type: agent_platform
+url: https://t3.codes/
+repo: https://github.com/pingdotgg/t3code
+current_version: v0.1.11
+version_tracked_at: "2026-11-24"
+
+tagline: 开源 coding agent 控制平面：在本机运行你已安装并登录的 agent，用桌面、Web 或手机查看线程、审批权限并提交变更。
+tagline_en: An open-source coding-agent control plane. It runs agents you already installed and signed into, then lets you inspect threads, approve permissions, and submit changes from desktop, web, or mobile.
+
+unscored: true
+unscored_reason: >-
+  2026-11-24（Asia/Shanghai）仅根据官网、下载页与 GitHub 仓库/Release 做文档核查，未安装桌面或移动端、未登录、未付费，也未测试局域网 / Tailscale / T3 Connect 或任何 agent 工作流，因此不给出评分。
+unscored_reason_en: >-
+  Documentary review on 2026-11-24 (Asia/Shanghai) from the official site, download page, and GitHub repository/releases only. The desktop and mobile apps were not installed, and no sign-in, payment, LAN / Tailscale / T3 Connect, or agent workflow was tested, so no scores are given.
+
+pricing:
+  model: open_source
+  currency: null
+  plans:
+    - name: 开源免费
+      name_en: Open source, free
+      price: 0
+      limits: 控制平面本身无产品订阅；需自备至少一种已安装并登录的 coding agent，模型或订阅费用另计。
+      limits_en: The control plane itself has no product subscription; you must bring at least one installed, signed-in coding agent. Model or subscription costs are separate.
+  price_updated_at: "2026-11-24"
+  note: >-
+    MIT 开源（Copyright T3 Tools Inc.，2026-11-24 核对仓库 LICENSE）。官方写明不转售 token，使用你已有的订阅或登录。这不是 T3 Stack / create-t3-app。产品仍为 0.1.x：最新正式版 v0.1.11（发布 2026-11-20 15:38，Asia/Shanghai）；同日 GitHub 另有 nightly 预发布（如 v0.1.12-nightly.20261124.5178），不能当作正式版。
+  note_en: >-
+    MIT licensed (copyright T3 Tools Inc.; LICENSE rechecked on 2026-11-24). Official materials say it does not resell tokens and uses subscriptions or logins you already have. This is not the T3 Stack or create-t3-app. The product is still 0.1.x: latest stable release v0.1.11 (published 2026-11-20 15:38 Asia/Shanghai). GitHub also had nightly prereleases that day (for example v0.1.12-nightly.20261124.5178), which are not the stable release.
+
+features:
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: true
+  git_integration: true
+  multi_agent: true
+  git_worktree_isolation: true
+  mobile_monitoring: true
+  open_source: true
+  supported_runtimes:
+    - Claude Code
+    - Codex
+    - Cursor
+    - OpenCode
+    - Grok Build
+    - Antigravity
+    - Kiro
+    - Pi
+    - Muse Code
+    - fx
+    - any ACP agent
+  supported_os:
+    - macOS
+    - Windows
+    - Linux
+    - iOS
+    - Android
+  ide_base: Agent 控制平面（桌面 / Web / 手机）
+  ide_base_en: Agent control plane (desktop / web / mobile)
+
+best_for:
+  - 已经在用 Claude Code、Codex、Cursor 或 OpenCode 等 agent、想用一个界面同时看会话和权限的人
+  - 需要 macOS、Windows 或 Linux 桌面，并希望有 Web、iOS 或 Android 客户端的人
+  - 希望控制平面开源、不另买一层 token 转售的人
+best_for_en:
+  - People already using agents such as Claude Code, Codex, Cursor, or OpenCode who want one place to inspect sessions and permissions
+  - Users who need a macOS, Windows, or Linux desktop app and also want web, iOS, or Android clients
+  - Users who want an open-source control plane and do not want a separate token-resale layer
+not_for:
+  - 尚未安装并登录任何 coding agent 的人（官方前提是本机已有可用 agent）
+  - 把 T3 Code 误认为 T3 Stack / create-t3-app 的人
+  - 需要已经过实测评分或把 0.1.x 当成稳定成熟套件的人
+not_for_en:
+  - People who have not already installed and signed into a coding agent (the official premise is that an agent is already available locally)
+  - Anyone looking for the T3 Stack or create-t3-app
+  - Readers who need tested scores, or who treat a 0.1.x product as a mature, guaranteed suite
+
+pros:
+  - 官方定位清晰：控制已安装并登录的 agent，而不是再卖一层模型额度
+  - 官方列出可驱动多种 agent（README 还写任何 ACP agent），并提供桌面、Web、手机和 `t3` CLI
+  - MIT 开源，仓库与正式 Release 可核对
+cons:
+  - 必须先有至少一种已登录的 agent，本身不提供模型
+  - 仍是 0.1.x，正式版与 nightly 并存，稳定性和功能完整性未在本站实测
+  - 官方提到的局域网、Tailscale 或 T3 Connect 远程方式本次未测
+pros_en:
+  - Officially a control plane over agents you already installed and signed into, not a resale layer for model quota
+  - Official docs list many supported agents (the README also says any ACP agent) and offer desktop, web, mobile, and a `t3` CLI
+  - MIT licensed, with a public repository and stable releases that can be checked
+cons_en:
+  - You must already have at least one signed-in agent; it does not provide a model itself
+  - Still 0.1.x, with stable and nightly builds in parallel; stability and feature completeness were not tested here
+  - Official LAN, Tailscale, or T3 Connect remote options were not tested in this review
+
+quick_start:
+  - 以下为官方文档中的安装入口，本站未执行、未验证能否跑通
+  - 从 https://t3.codes/ 下载 macOS、Windows 或 Linux 桌面版，或使用官方 iOS / Android 客户端
+  - 官方还提供 `t3` CLI / `npx t3@latest`（本次未运行）
+  - 本机先安装并登录至少一种支持的 coding agent，再在 T3 Code 中查看会话
+quick_start_en:
+  - The following are official documented entry points; this site did not run or verify them
+  - Download the macOS, Windows, or Linux desktop app from https://t3.codes/, or use the official iOS / Android clients
+  - Official materials also mention a `t3` CLI / `npx t3@latest` (not run in this review)
+  - Install and sign into at least one supported coding agent locally, then inspect sessions in T3 Code
+
+register_url: https://t3.codes/
+china_note: 桌面与客户端可从官网或仓库下载；底层各 agent 的登录、网络和支付需自行解决。国内可用性未实测，也未给出国内体验评分。
+china_note_en: The desktop app and clients can be downloaded from the official site or repository. Sign-in, network access, and payment for underlying agents are your responsibility. Availability in mainland China was not tested, and no China-access score is given.
+
+data_sources:
+  - url: https://t3.codes/
+    type: docs
+    last_checked: "2026-11-24"
+  - url: https://github.com/pingdotgg/t3code
+    type: repo
+    last_checked: "2026-11-24"
+  - url: https://github.com/pingdotgg/t3code/releases/tag/v0.1.11
+    type: release
+    last_checked: "2026-11-24"
+  - url: https://raw.githubusercontent.com/pingdotgg/t3code/main/LICENSE
+    type: docs
+    last_checked: "2026-11-24"
+
+changelog:
+  - date: '2026-11-24'
+    type: announcement
+    summary: 按官方公开资料做文档收录，未安装或实测，不给出评分。
+    summary_en: Added as a documentary listing from official public sources. Not installed or tested; no scores given.
+
+confidence: low

@@ -16,12 +16,16 @@ export interface Tool {
     currency: string;
     plans: { name: string; price: number | string; limits?: string }[];
   };
-  scores: {
+  scores?: {
     coding_ability: number;
     cost_efficiency: number;
     flexibility: number;
     china_friendly: number;
+    privacy?: number;
   };
+  /** When true, or when the four pillar scores are absent, the tool is unscored / pending testing. */
+  unscored?: boolean;
+  unscored_reason?: string;
   features: string[];
   compatible_apis?: string[];
   supported_ides?: string[];
@@ -197,11 +201,58 @@ export function getPlanWithDetails(id: string) {
   };
 }
 
-// 计算综合分
-export function overallScore(scores: Plan['scores'] | Tool['scores']): number {
-  const vals = Object.values(scores).filter(v => typeof v === 'number');
+// 计算综合分。调用方若传入工具分数，须先用 hasNumericToolScores() 确认；
+// 本函数不改方案 YAML 缺分时 normalizePlan() 默认 5 的既有行为。
+export function overallScore(scores: Plan['scores'] | Tool['scores'] | undefined | null): number {
+  if (!scores || typeof scores !== 'object') return 0;
+  const vals = Object.values(scores).filter((v) => typeof v === 'number' && Number.isFinite(v));
   if (vals.length === 0) return 0;
   return Math.round((vals.reduce((a, b) => a + b, 0) / vals.length) * 10) / 10;
+}
+
+export const TOOL_SCORE_FIELDS = ['coding_ability', 'cost_efficiency', 'flexibility', 'china_friendly'] as const;
+
+/** Treat explicit true, the string "true", or any unexpected non-false flag as unscored (fail closed). */
+export function hasUnscoredFlag(tool: { unscored?: unknown } | null | undefined): boolean {
+  if (!tool || !('unscored' in tool) || tool.unscored == null) return false;
+  if (tool.unscored === false) return false;
+  if (tool.unscored === true) return true;
+  if (typeof tool.unscored === 'string' && tool.unscored.trim().toLowerCase() === 'true') return true;
+  return true;
+}
+
+/** True only when a tool has all four numeric pillar scores and is not marked unscored. */
+export function hasNumericToolScores(tool: { scores?: unknown; unscored?: unknown } | null | undefined): boolean {
+  if (!tool || hasUnscoredFlag(tool)) return false;
+  const scores = tool.scores;
+  if (!scores || typeof scores !== 'object') return false;
+  return TOOL_SCORE_FIELDS.every((key) => {
+    const value = (scores as Record<string, unknown>)[key];
+    return typeof value === 'number' && Number.isFinite(value);
+  });
+}
+
+export function toolScoreField(
+  tool: { scores?: any; unscored?: boolean } | null | undefined,
+  field: string,
+): number | null {
+  if (!hasNumericToolScores(tool)) return null;
+  const value = tool?.scores?.[field];
+  return typeof value === 'number' && Number.isFinite(value) ? value : null;
+}
+
+/** Scored tools first, descending by field (same order as the old numeric sort among themselves). Unscored tools last, by name. */
+export function compareToolsByScoreField(
+  a: { name?: string; id?: string; scores?: any; unscored?: boolean },
+  b: { name?: string; id?: string; scores?: any; unscored?: boolean },
+  field: string,
+): number {
+  const aScore = toolScoreField(a, field);
+  const bScore = toolScoreField(b, field);
+  if (aScore !== null && bScore !== null) return bScore - aScore;
+  if (aScore !== null) return -1;
+  if (bScore !== null) return 1;
+  return String(a.name || a.id || '').localeCompare(String(b.name || b.id || ''));
 }
 
 // 数据新鲜度检查
@@ -223,6 +274,54 @@ function localized(obj: any, field: string, lang: Locale): any {
   return obj?.[field];
 }
 
+/** Translation-only sibling keys such as ide_base_en must not drive classification or feature-table labels. */
+export function isLocalizationMetaKey(key: string): boolean {
+  return typeof key === 'string' && key.endsWith('_en');
+}
+
+/** Canonical (unlocalized) feature text. Category filters must use this, not a display translation. */
+export function canonicalFeatureText(
+  toolOrFeatures: { features?: any } | Record<string, unknown> | null | undefined,
+  key: string,
+): string {
+  if (!toolOrFeatures || typeof toolOrFeatures !== 'object') return '';
+  const maybeFeatures = (toolOrFeatures as any).features;
+  const features = maybeFeatures && typeof maybeFeatures === 'object' && !Array.isArray(maybeFeatures)
+    ? maybeFeatures
+    : toolOrFeatures;
+  const value = (features as any)?.[key];
+  return value == null ? '' : String(value);
+}
+
+/** Feature-table entries with *_en metadata omitted and display values localized. */
+export function visibleFeatureEntries(features: any, lang: Locale): { key: string; value: unknown }[] {
+  if (!features || typeof features !== 'object' || Array.isArray(features)) return [];
+  const entries: { key: string; value: unknown }[] = [];
+  for (const [key, raw] of Object.entries(features)) {
+    if (isLocalizationMetaKey(key)) continue;
+    const value = localized(features, key, lang);
+    entries.push({ key, value: value === undefined ? raw : value });
+  }
+  return entries;
+}
+
+/** Word-boundary "cli" so substrings such as "client" / "multi-client" do not match. */
+const CLI_TOKEN = /(?:^|[^a-z])cli(?:[^a-z]|$)/i;
+
+/** Terminal directory membership from type and canonical ide_base, independent of UI language. */
+export function isTerminalCategoryTool(tool: { type?: string; features?: any } | null | undefined): boolean {
+  if (!tool) return false;
+  if (tool.type === 'cli') return true;
+  const ideBase = canonicalFeatureText(tool, 'ide_base').toLowerCase();
+  return ideBase.includes('终端') || ideBase.includes('tui') || CLI_TOKEN.test(ideBase);
+}
+
+/** VS Code directory membership from canonical ide_base, independent of UI language. */
+export function isVscodeCategoryTool(tool: { features?: any } | null | undefined): boolean {
+  const ideBase = canonicalFeatureText(tool, 'ide_base').toLowerCase();
+  return ideBase.includes('vs code') || ideBase.includes('vscode');
+}
+
 /** Get all tools with locale-resolved text fields */
 export function getAllToolsLocalized(lang: Locale): Tool[] {
   return getAllTools().map(raw => {
@@ -239,15 +338,23 @@ export function getAllToolsLocalized(lang: Locale): Tool[] {
         note: localized(tool.pricing, 'note', lang),
         plans: (tool.pricing.plans || []).map((p: any) => ({
           ...p,
+          name: localized(p, 'name', lang) ?? p.name,
           limits: localized(p, 'limits', lang),
         })),
       } : tool.pricing,
+      // Keep canonical feature fields (ide_base, flags). Display translations live in
+      // *_en siblings and are resolved at render time. Do not overwrite structural
+      // fields with localized prose, or category membership will change by language.
+      features: tool.features && typeof tool.features === 'object' && !Array.isArray(tool.features)
+        ? { ...tool.features }
+        : tool.features,
       changelog: (tool.changelog || []).map((c: any) => ({
         ...c,
         summary: localized(c, 'summary', lang),
       })),
       quick_start: localized(tool, 'quick_start', lang) ?? tool.quick_start ?? [],
       china_note: localized(tool, 'china_note', lang) ?? tool.china_note ?? '',
+      unscored_reason: localized(tool, 'unscored_reason', lang) ?? tool.unscored_reason ?? '',
     } as Tool;
   });
 }

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ToolCard from '../components/ToolCard.astro';
-import { getAllToolsLocalized } from '../lib/data';
+import { getAllToolsLocalized, compareToolsByScoreField, hasNumericToolScores } from '../lib/data';
 import { t, localePath, type Locale } from '../lib/i18n';
 
 interface Props { lang: Locale }
@@ -9,8 +9,8 @@ const { lang } = Astro.props;
 
 const allTools = getAllToolsLocalized(lang);
 const tools = allTools
-  .filter(tool => (tool.scores.china_friendly ?? 0) >= 7)
-  .sort((a, b) => (b.scores.china_friendly ?? 0) - (a.scores.china_friendly ?? 0));
+  .filter(tool => hasNumericToolScores(tool) && tool.scores.china_friendly >= 7)
+  .sort((a, b) => compareToolsByScoreField(a, b, 'china_friendly'));
 
 const siteUrl = 'https://codepick.dev';
 const pagePath = localePath('/tools/china', lang);
