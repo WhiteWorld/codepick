@@ -6,7 +6,7 @@ Official public sources checked on **2026-11-24 (Asia/Shanghai)**. This is a doc
 
 - New bilingual guide: `src/content/guides/opencode-2-4-upgrade.md`
 - English mirror: `src/content/guides-en/opencode-2-4-upgrade.md`
-- Publication date is 2026-11-24. `draft` is `true` pending independent content review.
+- Publication date is 2026-11-24. After dig's review of `a215247ad9ec4385e70955201732aa3703bc8726`, `draft` is set to `false` for publication.
 - Cross-link, and do not rewrite: `opencode-2-permission-rules` and the `opencode` tool entry.
 - No tool YAML, scores, baselines, workflows, or unrelated files are changed.
 - No install, no login, no live Copilot / automation / built-in browser / plugin-update / `opencode service set password` run, no paid API calls, and no runtime security test.
@@ -74,6 +74,10 @@ Revisions after that recheck, still as a review draft:
 - Chinese only: render "one persistent desktop profile" as 桌面浏览器配置档案, so it is not read as generic desktop-app settings.
 - No added `registerCodeBlockRenderer` scope. No install, login, or live command run. `draft: true` and the review-draft wording stay.
 
+## Publication enablement
+
+dig independently reviewed `a215247ad9ec4385e70955201732aa3703bc8726` with no remaining blockers and no new suggestions. Both language files are set to `draft: false` for publication, and the “审阅稿” / “Review draft” sentences are removed. Reviewed article facts and untested boundaries are unchanged. No install, login, plugin update, or `opencode service set password` run was performed.
+
 ## Review status
 
-Draft for a further content review. `draft: true` and the 「审阅稿」 / "Review draft" wording stay. Do not treat this note as a publication or merge authorization.
+Publication enablement only. Do not treat this note as a merge authorization; production pages still need verification after merge.

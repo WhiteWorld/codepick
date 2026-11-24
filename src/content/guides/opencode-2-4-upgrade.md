@@ -7,7 +7,7 @@ tags: [opencode, upgrade, github-copilot]
 pillar: workflow
 content_status: keep
 locale_strategy: mirrored
-draft: true
+draft: false
 faq:
   - q: "升级后 Copilot 不能用了，把 GITHUB_TOKEN 再设一次就行吗？"
     a: |
@@ -24,8 +24,6 @@ faq:
 ---
 
 > 核查日：2026-11-24（北京时间）。依据当天打开的官方 [2.4.0 更新说明](https://opencode.ai/changelog/v2.4.0)、[更新说明目录](https://opencode.ai/changelog)、[2.4.1 更新说明](https://opencode.ai/changelog/v2.4.1)、[Providers](https://opencode.ai/docs/providers/)、[SDK](https://opencode.ai/sdk)、[Config](https://opencode.ai/docs/config/)、[Desktop](https://opencode.ai/desktop)、[Browse](https://opencode.ai/product/browse)、[Permissions](https://opencode.ai/docs/permissions/)、[MCP servers](https://opencode.ai/docs/mcp-servers/) 和 [Plugins](https://opencode.ai/docs/plugins/)。本文没有安装或启动 OpenCode，没有登录任何账号，没有实测 GitHub Copilot、Automations、内置浏览器、插件自动更新或 `opencode service set password`，也没有调用付费接口，也没有做运行时安全测试。命令、变量名和限制只引用当天打开的官方页面，不编造未出现的配置项。
-
-本稿为审阅稿，尚未发布。
 
 升级到 OpenCode 2.4 后，若你一直靠环境变量里的 `GITHUB_TOKEN` 使用 GitHub Copilot，它可能突然不再工作。这不是偶然：2.4.0 更新说明写明，GitHub Copilot 不再读取 `GITHUB_TOKEN`。
 

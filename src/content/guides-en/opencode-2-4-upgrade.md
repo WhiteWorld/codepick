@@ -7,7 +7,7 @@ tags: [opencode, upgrade, github-copilot]
 pillar: workflow
 content_status: keep
 locale_strategy: mirrored
-draft: true
+draft: false
 faq:
   - q: "Copilot stopped working after the upgrade. Can I just set GITHUB_TOKEN again?"
     a: |
@@ -24,8 +24,6 @@ faq:
 ---
 
 > Checked on 2026-11-24 (Beijing time). This article is based on the official [v2.4.0 changelog](https://opencode.ai/changelog/v2.4.0), the [changelog index](https://opencode.ai/changelog), the [v2.4.1 changelog](https://opencode.ai/changelog/v2.4.1), [Providers](https://opencode.ai/docs/providers/), the [SDK](https://opencode.ai/sdk), [Config](https://opencode.ai/docs/config/), [Desktop](https://opencode.ai/desktop), [Browse](https://opencode.ai/product/browse), [Permissions](https://opencode.ai/docs/permissions/), [MCP servers](https://opencode.ai/docs/mcp-servers/), and [Plugins](https://opencode.ai/docs/plugins/), all opened that day. This article did not install or start OpenCode, did not sign in to any account, did not run GitHub Copilot, automations, the built-in browser, plugin auto-update, or `opencode service set password`, did not call a paid API, and did not run a runtime security test. Commands, variable names, and limits are taken only from the official pages opened that day. This article does not invent config keys those pages do not show.
-
-This is a Review draft and has not been published.
 
 After you upgrade to OpenCode 2.4, GitHub Copilot may stop working if you have been using the `GITHUB_TOKEN` environment variable. That is not accidental: the 2.4.0 changelog says GitHub Copilot no longer reads `GITHUB_TOKEN`.
 
