@@ -20,6 +20,7 @@ pricing:
   currency: null
   plans:
     - name: 开源免费
+      name_en: Open source, free
       price: 0
       limits: 控制平面本身可免费自托管；需自备已安装的 agent CLI，模型或订阅费用另计。
       limits_en: The control plane itself can be self-hosted at no product charge. You must bring installed agent CLIs; model or subscription costs are separate.
@@ -30,11 +31,11 @@ pricing:
     On 2026-11-24 the getpaseo/paseo LICENSE and README were reopened; both state that, aside from third-party components, Paseo is licensed under Apache License, Version 2.0. The site's 2026-08-12 guide recorded AGPL-3.0, which was the wording in that draft at the time and is not the current license. The README also says there is no telemetry and no forced login. Latest stable release is v0.17.4 (published 2026-11-24 06:34 Asia/Shanghai).
 
 features:
-  code_completion: false
   chat: true
   agent_mode: true
   multi_file_edit: true
   mcp_support: true
+  git_integration: true
   multi_agent: true
   parallel_execution: true
   git_worktree_isolation: true
@@ -54,6 +55,7 @@ features:
     - iOS
     - Android
   ide_base: 自托管 Agent daemon（多端客户端）
+  ide_base_en: Self-hosted agent daemon (multi-client)
 
 best_for:
   - 希望 agent 继续跑在自己的机器上，并用手机、桌面或 Web 远程接管会话的人

@@ -205,16 +205,25 @@ export function getPlanWithDetails(id: string) {
 // 本函数不改方案 YAML 缺分时 normalizePlan() 默认 5 的既有行为。
 export function overallScore(scores: Plan['scores'] | Tool['scores'] | undefined | null): number {
   if (!scores || typeof scores !== 'object') return 0;
-  const vals = Object.values(scores).filter(v => typeof v === 'number');
+  const vals = Object.values(scores).filter((v) => typeof v === 'number' && Number.isFinite(v));
   if (vals.length === 0) return 0;
   return Math.round((vals.reduce((a, b) => a + b, 0) / vals.length) * 10) / 10;
 }
 
 export const TOOL_SCORE_FIELDS = ['coding_ability', 'cost_efficiency', 'flexibility', 'china_friendly'] as const;
 
+/** Treat explicit true, the string "true", or any unexpected non-false flag as unscored (fail closed). */
+export function hasUnscoredFlag(tool: { unscored?: unknown } | null | undefined): boolean {
+  if (!tool || !('unscored' in tool) || tool.unscored == null) return false;
+  if (tool.unscored === false) return false;
+  if (tool.unscored === true) return true;
+  if (typeof tool.unscored === 'string' && tool.unscored.trim().toLowerCase() === 'true') return true;
+  return true;
+}
+
 /** True only when a tool has all four numeric pillar scores and is not marked unscored. */
-export function hasNumericToolScores(tool: { scores?: unknown; unscored?: boolean } | null | undefined): boolean {
-  if (!tool || tool.unscored === true) return false;
+export function hasNumericToolScores(tool: { scores?: unknown; unscored?: unknown } | null | undefined): boolean {
+  if (!tool || hasUnscoredFlag(tool)) return false;
   const scores = tool.scores;
   if (!scores || typeof scores !== 'object') return false;
   return TOOL_SCORE_FIELDS.every((key) => {
@@ -281,9 +290,14 @@ export function getAllToolsLocalized(lang: Locale): Tool[] {
         note: localized(tool.pricing, 'note', lang),
         plans: (tool.pricing.plans || []).map((p: any) => ({
           ...p,
+          name: localized(p, 'name', lang) ?? p.name,
           limits: localized(p, 'limits', lang),
         })),
       } : tool.pricing,
+      features: tool.features && typeof tool.features === 'object' && !Array.isArray(tool.features) ? {
+        ...tool.features,
+        ide_base: localized(tool.features, 'ide_base', lang) ?? tool.features.ide_base,
+      } : tool.features,
       changelog: (tool.changelog || []).map((c: any) => ({
         ...c,
         summary: localized(c, 'summary', lang),

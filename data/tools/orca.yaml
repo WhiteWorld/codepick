@@ -20,6 +20,7 @@ pricing:
   currency: null
   plans:
     - name: 开源免费
+      name_en: Open source, free
       price: 0
       limits: 应用本身无产品订阅；需自备 CLI agent 的订阅或登录，模型费用另计。
       limits_en: The app itself has no product subscription. You must bring CLI-agent subscriptions or logins; model costs are separate.
@@ -30,10 +31,11 @@ pricing:
     MIT licensed (copyright Lovecast Inc.; LICENSE rechecked on 2026-11-24). The official site lists Claude Code, Codex, Grok, Cursor, Copilot, OpenCode, and others, and says any CLI agent can be attached. Latest stable release is v1.4.272 (published 2026-11-23 20:35 Asia/Shanghai). There were also Android prereleases that day (for example android-v0.0.70), which are not the stable desktop release.
 
 features:
-  code_completion: false
   chat: true
   agent_mode: true
   multi_file_edit: true
+  mcp_support: true
+  git_integration: true
   multi_agent: true
   parallel_execution: true
   git_worktree_isolation: true
@@ -51,7 +53,10 @@ features:
     - macOS
     - Windows
     - Linux
+    - iOS
+    - Android
   ide_base: Agent 开发环境（桌面 / 手机 / 远程）
+  ide_base_en: Agent development environment (desktop / mobile / remote)
 
 best_for:
   - 想在并行 worktree 里使用任意 CLI agent，并且需要 Windows 桌面支持的人

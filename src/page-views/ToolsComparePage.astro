@@ -8,6 +8,17 @@ const { lang } = Astro.props;
 
 const allTools = getAllToolsLocalized(lang);
 
+/** Explicit YAML true/false only. Missing keys and non-boolean values are unknown, not "unsupported". */
+function featureFlag(features: any, key: string): boolean | null {
+  if (!features || typeof features !== 'object' || Array.isArray(features) || !Object.prototype.hasOwnProperty.call(features, key)) {
+    return null;
+  }
+  const value = features[key];
+  if (value === true) return true;
+  if (value === false) return false;
+  return null;
+}
+
 // Build a compact JSON payload for client-side use
 const toolsData = allTools.map((tool: any) => ({
   id: tool.id,
@@ -35,13 +46,13 @@ const toolsData = allTools.map((tool: any) => ({
     china_friendly: tool.scores.china_friendly,
   } : null,
   features: {
-    code_completion: !!(tool.features?.code_completion),
-    chat: !!(tool.features?.chat),
-    agent_mode: !!(tool.features?.agent_mode),
-    multi_file_edit: !!(tool.features?.multi_file_edit),
-    mcp_support: !!(tool.features?.mcp_support),
-    git_integration: !!(tool.features?.git_integration),
-    jetbrains_support: !!(tool.features?.jetbrains_support),
+    code_completion: featureFlag(tool.features, 'code_completion'),
+    chat: featureFlag(tool.features, 'chat'),
+    agent_mode: featureFlag(tool.features, 'agent_mode'),
+    multi_file_edit: featureFlag(tool.features, 'multi_file_edit'),
+    mcp_support: featureFlag(tool.features, 'mcp_support'),
+    git_integration: featureFlag(tool.features, 'git_integration'),
+    jetbrains_support: featureFlag(tool.features, 'jetbrains_support'),
   },
   best_for: Array.isArray(tool.best_for) ? tool.best_for : [],
 }));
@@ -225,7 +236,9 @@ const webPageSchema = {
         <td class="text-[var(--text-muted)]">${label}</td>
         ${toolObjs.map(t => {
           const v = t.features[key];
-          return `<td>${v ? '<span style="color:#4ade80">✓</span>' : '<span style="color:#6b7280">—</span>'}</td>`;
+          if (v === true) return `<td><span style="color:#4ade80">✓</span></td>`;
+          if (v === false) return `<td><span style="color:#6b7280">—</span></td>`;
+          return `<td class="text-[var(--text-muted)] text-xs">${lang === 'zh' ? '未核实' : 'Not verified'}</td>`;
         }).join('')}
       </tr>`);
     }

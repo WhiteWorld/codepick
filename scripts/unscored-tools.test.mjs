@@ -220,3 +220,95 @@ describe('built pages hide fake scores for unscored tools and keep scored tools 
     }
   });
 });
+
+
+describe('PR169 follow-up regressions', () => {
+  test('Nimbalyst supported_os and SoftwareApplication.operatingSystem omit Android and include iOS', () => {
+    const tool = loadTool('nimbalyst');
+    assert.ok(Array.isArray(tool.features.supported_os));
+    assert.ok(tool.features.supported_os.includes('iOS'));
+    assert.ok(!tool.features.supported_os.includes('Android'));
+    for (const lang of ['zh', 'en']) {
+      const { app, html } = page(lang, 'nimbalyst');
+      assert.equal(typeof app.operatingSystem, 'string');
+      assert.match(app.operatingSystem, /iOS/);
+      assert.doesNotMatch(app.operatingSystem, /Android/);
+      assert.doesNotMatch(html, /macOS, Windows, Linux, iOS, Android/);
+    }
+  });
+
+  test('comparator payload uses null for unknown features and official true for documented Git/MCP', () => {
+    for (const lang of ['zh', 'en']) {
+      const html = listPage(lang, 'tools/compare');
+      const tools = extractCompareTools(html);
+      const byId = new Map(tools.map((tool) => [tool.id, tool]));
+      const expectedTrue = {
+        't3-code': ['git_integration', 'mcp_support'],
+        nimbalyst: ['git_integration', 'mcp_support'],
+        paseo: ['git_integration', 'mcp_support'],
+        orca: ['git_integration', 'mcp_support'],
+        happy: ['mcp_support'],
+      };
+      for (const [id, keys] of Object.entries(expectedTrue)) {
+        const tool = byId.get(id);
+        assert.ok(tool, `${lang} compare payload missing ${id}`);
+        for (const key of keys) {
+          assert.equal(tool.features[key], true, `${lang} ${id} ${key}`);
+        }
+        assert.equal(tool.features.jetbrains_support, null, `${lang} ${id} jetbrains must stay unknown`);
+        assert.equal(tool.features.code_completion, null, `${lang} ${id} code_completion must stay unknown`);
+      }
+      assert.equal(byId.get('happy').features.git_integration, null, `${lang} Happy git_integration was not independently confirmed`);
+      const parallel = byId.get('parallel-code');
+      assert.ok(parallel, `${lang} compare payload missing parallel-code`);
+      assert.equal(parallel.features.mcp_support, false, `${lang} explicit false must stay false, not unknown`);
+
+    }
+  });
+
+  test('Nimbalyst pricing lists Individual $0 and Teams $20/$200 with dated Beta-free wording', () => {
+    const tool = loadTool('nimbalyst');
+    const prices = (tool.pricing.plans || []).map((plan) => plan.price);
+    assert.deepEqual(prices.sort((a, b) => a - b), [0, 20, 200]);
+    const individual = tool.pricing.plans.find((plan) => plan.price === 0);
+    const monthly = tool.pricing.plans.find((plan) => plan.price === 20);
+    const yearly = tool.pricing.plans.find((plan) => plan.price === 200);
+    assert.equal(individual.name_en, 'Individual');
+    assert.equal(monthly.name_en, 'Teams');
+    assert.equal(monthly.period, 'month');
+    assert.equal(yearly.period, 'year');
+    assert.equal(tool.pricing.currency, 'USD');
+    assert.match(tool.pricing.note, /https:\/\/nimbalyst.com\/pricing\//);
+    assert.match(tool.pricing.note, /Free during Beta/);
+    assert.match(tool.pricing.note_en, /Free during Beta/);
+    assert.match(tool.pricing.note, /2026-11-24/);
+    const sources = (tool.data_sources || []).map((item) => item.url);
+    assert.ok(sources.includes('https://nimbalyst.com/pricing/'));
+    for (const lang of ['zh', 'en']) {
+      const { html, app } = page(lang, 'nimbalyst');
+      const offerPrices = (app.offers || []).map((offer) => offer.price).sort((a, b) => a - b);
+      assert.deepEqual(offerPrices, [0, 20, 200], `${lang} JSON-LD offers`);
+      if (lang === 'en') {
+        assert.ok(html.includes('Individual'));
+        assert.doesNotMatch(html, />开源免费</);
+        assert.ok(html.includes('Visual agent workspace (Crystal successor)') || html.includes('Visual agent workspace'));
+        assert.doesNotMatch(html, /可视化 Agent 工作区（Crystal 继任）/);
+      } else {
+        assert.ok(html.includes('个人') || html.includes('Individual'));
+      }
+    }
+  });
+
+  test('English pages for the five tools do not keep Chinese plan names or ide_base', () => {
+    const ids = UNSCORED_IDS;
+    for (const id of ids) {
+      const { html } = page('en', id);
+      assert.doesNotMatch(html, />开源免费</, id);
+      assert.doesNotMatch(html, /Agent 控制平面（桌面 \/ Web \/ 手机）/);
+      assert.doesNotMatch(html, /Agent 桌面 harness（团队工作区）/);
+      assert.doesNotMatch(html, /自托管 Agent daemon（多端客户端）/);
+      assert.doesNotMatch(html, /可视化 Agent 工作区（Crystal 继任）/);
+      assert.doesNotMatch(html, /Agent 开发环境（桌面 \/ 手机 \/ 远程）/);
+    }
+  });
+});
