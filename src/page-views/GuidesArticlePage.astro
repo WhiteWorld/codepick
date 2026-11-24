@@ -4,7 +4,7 @@ import TableOfContents from '../components/TableOfContents.astro';
 import ShareBar from '../components/ShareBar.astro';
 import PlanCard from '../components/PlanCard.astro';
 import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
-import { getAllToolsLocalized, getAllPlansLocalized, overallScore } from '../lib/data';
+import { getAllToolsLocalized, getAllPlansLocalized, overallScore, hasNumericToolScores } from '../lib/data';
 import { relatedPlansForGuide } from '../lib/guide-conversion';
 import { getCollection, render } from 'astro:content';
 
@@ -264,7 +264,7 @@ const jsonLdList = [articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema]
                 {tool.name.charAt(0)}
               </div>
               <div class="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-400)] transition-colors">{tool.name}</div>
-              <div class="text-xs text-[var(--text-muted)] mt-1">{t('score.overall', lang)} {overallScore(tool.scores).toFixed(1)}</div>
+              <div class="text-xs text-[var(--text-muted)] mt-1">{hasNumericToolScores(tool) ? `${t('score.overall', lang)} ${overallScore(tool.scores).toFixed(1)}` : `${t('score.unscored', lang)} · ${t('score.pendingTest', lang)}`}</div>
             </a>
           ))}
         </div>

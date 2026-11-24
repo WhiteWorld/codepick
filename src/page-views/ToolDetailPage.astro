@@ -5,7 +5,7 @@ import ToolCard from '../components/ToolCard.astro';
 import PlanCard from '../components/PlanCard.astro';
 import Comments from '../components/Comments.astro';
 import ShareBar from '../components/ShareBar.astro';
-import { getAllToolsLocalized, getAllPlansLocalized, isFresh } from '../lib/data';
+import { getAllToolsLocalized, getAllPlansLocalized, isFresh, hasNumericToolScores } from '../lib/data';
 import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
 import { getCollection } from 'astro:content';
 import type { Tool } from '../lib/data';
@@ -65,7 +65,14 @@ const relatedTools = allTools
     (t as any).type === toolType ||
     (toolIdeBase && ((t as any).features?.ide_base || '').toLowerCase() === toolIdeBase)
   ))
-  .sort((a, b) => (b.scores.coding_ability ?? 0) - (a.scores.coding_ability ?? 0))
+  .sort((a, b) => {
+    const aScore = hasNumericToolScores(a) ? a.scores.coding_ability : null;
+    const bScore = hasNumericToolScores(b) ? b.scores.coding_ability : null;
+    if (aScore !== null && bScore !== null) return bScore - aScore;
+    if (aScore !== null) return -1;
+    if (bScore !== null) return 1;
+    return String(a.name || a.id).localeCompare(String(b.name || b.id));
+  })
   .slice(0, 3);
 
 // 包含此工具的方案
@@ -116,16 +123,18 @@ const softwareAppSchema: object = {
   operatingSystem: ((tool as any).features?.supported_os || ['macOS', 'Windows', 'Linux']).join(', '),
   description: toolDescription,
   inLanguage: lang === 'zh' ? 'zh-CN' : 'en',
-  aggregateRating: (tool as any).scores ? {
-    '@type': 'AggregateRating',
-    ratingValue: Math.round(
-      ((tool as any).scores.coding_ability + (tool as any).scores.cost_efficiency +
-       (tool as any).scores.flexibility + (tool as any).scores.china_friendly) / 4 * 10
-    ) / 10,
-    bestRating: 10,
-    worstRating: 1,
-    ratingCount: 1,
-  } : undefined,
+  ...(hasNumericToolScores(tool) ? {
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: Math.round(
+        ((tool as any).scores.coding_ability + (tool as any).scores.cost_efficiency +
+         (tool as any).scores.flexibility + (tool as any).scores.china_friendly) / 4 * 10
+      ) / 10,
+      bestRating: 10,
+      worstRating: 1,
+      ratingCount: 1,
+    },
+  } : {}),
   offers: pricingPlans.some((p: any) => typeof p.price === 'number' && Number.isFinite(p.price)) ? pricingPlans.filter((p: any) => typeof p.price === 'number' && Number.isFinite(p.price)).map((p: any) => ({
     '@type': 'Offer',
     name: p.name,
@@ -247,7 +256,9 @@ const allJsonLd = [softwareAppSchema, breadcrumbSchema, ...(faqSchema ? [faqSche
           {lastVerified && (
             <span class={`inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full border ${fresh ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' : 'bg-amber-500/10 text-amber-400 border-amber-500/20'}`}>
               <span class={`w-1.5 h-1.5 rounded-full ${fresh ? 'bg-emerald-500' : 'bg-amber-500'}`}></span>
-              {lang === 'zh' ? '数据已核验' : 'Verified'} {lastVerified}
+              {hasNumericToolScores(tool)
+                ? (lang === 'zh' ? '数据已核验' : 'Verified')
+                : t('meta.sourcesChecked', lang)} {lastVerified}
               {!fresh && ` · ${lang === 'zh' ? '待更新' : 'Stale'}`}
             </span>
           )}
@@ -256,19 +267,28 @@ const allJsonLd = [softwareAppSchema, breadcrumbSchema, ...(faqSchema ? [faqSche
     </div>
 
     <!-- Scores -->
-    {(tool as any).scores && (
+    {hasNumericToolScores(tool) ? (
       <section class="card p-6 mb-8">
         <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">{t('section.scores', lang)}</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div class="flex flex-col gap-3">
-            <ScoreBar label={t('score.codingAbility', lang)} score={(tool as any).scores.coding_ability ?? 5} color="auto" />
-            <ScoreBar label={t('score.costEfficiency', lang)} score={(tool as any).scores.cost_efficiency ?? 5} color="auto" />
+            <ScoreBar label={t('score.codingAbility', lang)} score={(tool as any).scores.coding_ability} color="auto" />
+            <ScoreBar label={t('score.costEfficiency', lang)} score={(tool as any).scores.cost_efficiency} color="auto" />
           </div>
           <div class="flex flex-col gap-3">
-            <ScoreBar label={t('score.flexibility', lang)} score={(tool as any).scores.flexibility ?? 5} color="auto" />
-            <ScoreBar label={t('score.chinaFriendly', lang)} score={(tool as any).scores.china_friendly ?? 5} color="auto" />
+            <ScoreBar label={t('score.flexibility', lang)} score={(tool as any).scores.flexibility} color="auto" />
+            <ScoreBar label={t('score.chinaFriendly', lang)} score={(tool as any).scores.china_friendly} color="auto" />
           </div>
         </div>
+      </section>
+    ) : (
+      <section class="card p-6 mb-8" data-score-state="unscored">
+        <h2 class="text-lg font-semibold text-[var(--text-primary)] mb-4 mt-0">{t('section.scores', lang)}</h2>
+        <p class="text-sm font-medium text-[var(--text-primary)] m-0 mb-2">{t('score.unscored', lang)} · {t('score.pendingTest', lang)}</p>
+        <p class="text-sm text-[var(--text-secondary)] m-0 mb-2">{t('score.unscoredNote', lang)}</p>
+        {(tool as any).unscored_reason && (
+          <p class="text-sm text-[var(--text-muted)] m-0">{(tool as any).unscored_reason}</p>
+        )}
       </section>
     )}
 

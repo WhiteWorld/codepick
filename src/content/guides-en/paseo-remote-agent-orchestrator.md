@@ -12,7 +12,7 @@ draft: false
 
 ## What Is Paseo?
 
-[Paseo](https://paseo.sh/) (GitHub: [getpaseo/paseo](https://github.com/getpaseo/paseo), AGPL-3.0) is a **self-hosted, open-source orchestrator for coding agents**. It runs a local service (the daemon) on your own machine that manages **39 agent CLIs** — Claude Code, Codex, GitHub Copilot, OpenCode, Pi, and more — and exposes them through **iOS / Android / desktop (macOS, Windows, Linux) / web / CLI** clients.
+[Paseo](https://paseo.sh/) (GitHub: [getpaseo/paseo](https://github.com/getpaseo/paseo), Apache-2.0 as of the 2026-11-24 repository LICENSE / README) is a **self-hosted, open-source orchestrator for coding agents**. It runs a local service (the daemon) on your own machine that manages **39 agent CLIs** — Claude Code, Codex, GitHub Copilot, OpenCode, Pi, and more — and exposes them through **iOS / Android / desktop (macOS, Windows, Linux) / web / CLI** clients.
 
 Unlike Mac-only desktop orchestrators such as Conductor, Paseo is built around a **daemon + multi-client** architecture:
 
@@ -23,10 +23,12 @@ Unlike Mac-only desktop orchestrators such as Conductor, Paseo is built around a
 It is not another AI coding tool — it is a **control plane** on top of official agent CLIs. The underlying agents are still the Claude Code, Codex, or Copilot you already subscribe to and use.
 
 > Research timestamp: 2026-08-12. Facts in this guide come from paseo.sh, the official docs, and the GitHub README. GitHub stars, version numbers, and app-store status change quickly, so they are not used as the main ranking signal.
+>
+> License correction (2026-11-24, Asia/Shanghai): the getpaseo/paseo `LICENSE` and README were reopened that day. Apart from third-party components, both state Apache License, Version 2.0. The 2026-08-12 draft recorded AGPL-3.0. Present-tense "current license" wording below has been updated to Apache-2.0 from the 2026-11-24 official text. This does not rewrite the 2026-08-12 research date, and other facts in the guide (including the agent CLI count recorded at the time) were not re-verified.
 
 ## Why It Matters
 
-1. **Open source + no telemetry**: AGPL-3.0, and the project states no telemetry, tracking, or forced login. Friendly if you care about keeping code and data on your own machines.
+1. **Open source + no telemetry**: Apache-2.0 (repository LICENSE / README as of 2026-11-24; this guide originally recorded AGPL-3.0 on 2026-08-12), and the project states no telemetry, tracking, or forced login. Friendly if you care about keeping code and data on your own machines.
 2. **Parallel agents with isolation**: each workspace gets its own git worktree and branch, so agents don't collide; each worktree also gets its own local dev-server URL, so parallel tasks don't fight over ports.
 3. **Full platform coverage with mobile parity**: the phone app has the same feature set as desktop, which is rare in this category.
 4. **Ecosystem and automation**: scheduled tasks (cron), skills, MCP, a browser pane, a TypeScript SDK, a scriptable CLI, a Hub, and Docker deployment.
@@ -61,7 +63,7 @@ These tools all live in the "parallel / remote control for coding agents" catego
 
 | Tool | Positioning | Where code runs | Platforms | Open source / license | Mobile | Pricing |
 |---|---|---|---|---|---|---|
-| **Paseo** | Self-hosted remote orchestration daemon | Local / self-hosted / Docker | macOS, Windows, Linux + iOS/Android/Web/CLI | AGPL-3.0 | Native iOS + Android | Free (sponsored) |
+| **Paseo** | Self-hosted remote orchestration daemon | Local / self-hosted / Docker | macOS, Windows, Linux + iOS/Android/Web/CLI | Apache-2.0 (LICENSE / README as of 2026-11-24; originally recorded as AGPL-3.0 on 2026-08-12) | Native iOS + Android | Free (sponsored) |
 | [Conductor](https://www.conductor.build/) | Mac parallel orchestration desktop app | Local Mac | macOS | Closed source | No | Free (you pay the underlying agents) |
 | [Superset](https://superset.sh/) | Agentic IDE orchestrating 100+ CLI agents | Local + remote hosts | macOS desktop (remote via CLI/SDK/MCP) | Elastic License 2.0 | No native app | Free single seat / local |
 | [OpenChamber](https://github.com/openchamber/openchamber) | Open-source workspace: desktop/browser/mobile PWA | Local / remote | Desktop + Web + VS Code extension + mobile PWA | MIT | PWA | Open source, free |

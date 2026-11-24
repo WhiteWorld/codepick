@@ -18,12 +18,14 @@ pricing:
   price_updated_at: "2026-11-17"
   note: >-
     历史 MIT 开源桌面 App；Crystal 已弃用并被 Nimbalyst 替代。此条保留 Crystal v0.3.5 的历史信息，不代表 Nimbalyst 的价格、许可或功能。底层 Agent
-    费用另计。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。
+    费用另计。 历史编辑评分沿用，未做新的实测或重评，不代表本次性能或性价比基准。2026-11-24 已另设 Nimbalyst
+    文档收录条目（未安装、未评分），见站内 /zh/tool/nimbalyst/；本条仍只保留 Crystal 历史信息。
   note_en: >-
     Historical MIT desktop app. Crystal is deprecated and replaced by Nimbalyst. This entry retains historical
     Crystal v0.3.5 information, not Nimbalyst pricing, license or features. Underlying agent fees are
     separate. Historical editorial scores retained, not newly measured or re-rated; not a fresh performance or
-    cost benchmark.
+    cost benchmark. On 2026-11-24 a separate documentary Nimbalyst entry was added (not installed, unscored)
+    at /en/tool/nimbalyst/; this entry still retains Crystal historical information only.
 
 scores:
   coding_ability: 8.5
@@ -98,6 +100,10 @@ data_sources:
     last_checked: "2026-11-17"
 
 changelog:
+  - date: '2026-11-24'
+    type: announcement
+    summary: 补充指向新设 Nimbalyst 文档收录条目（该条目未评分）的交叉引用；本条 Crystal 历史评分与 v0.3.5 叙述未改。
+    summary_en: Added a cross-reference to the new documentary Nimbalyst tool entry (unscored). This Crystal entry's historical scores and v0.3.5 narrative are unchanged.
   - date: '2026-10-13'
     type: 开始跟踪版本号：v0.3.5（GitHub release 核验）
     summary: 'Started tracking version: v0.3.5 (verified via GitHub releases)'

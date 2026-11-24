@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ToolCard from '../components/ToolCard.astro';
-import { getAllToolsLocalized } from '../lib/data';
+import { getAllToolsLocalized, compareToolsByScoreField } from '../lib/data';
 import { t, localePath, type Locale } from '../lib/i18n';
 
 interface Props { lang: Locale }
@@ -11,7 +11,7 @@ const allTools = getAllToolsLocalized(lang);
 const tools = allTools.filter(tool => {
   const plans = (tool as any).pricing?.plans || [];
   return plans.some((p: any) => p.price === 0 || p.price === '0' || p.price === 'free');
-}).sort((a, b) => (b.scores.cost_efficiency ?? 0) - (a.scores.cost_efficiency ?? 0));
+}).sort((a, b) => compareToolsByScoreField(a, b, 'cost_efficiency'));
 
 const siteUrl = 'https://codepick.dev';
 const pagePath = localePath('/tools/free', lang);

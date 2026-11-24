@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getAllPlansLocalized, getAllToolsLocalized, overallScore } from '../lib/data';
+import { getAllPlansLocalized, getAllToolsLocalized, overallScore, hasNumericToolScores } from '../lib/data';
 import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
 import { clusterGuides } from '../lib/guide-clusters';
 import { getCollection } from 'astro:content';
@@ -76,7 +76,7 @@ const typeBadgeLabel: Record<ContentType, string> = {
 const categories = [
   { label: t('cat.allToolsLabel', lang), href: '/tools',  count: tools.length },
   { label: t('cat.freeLabel', lang),     href: '/tools/free',  count: tools.filter((tool: any) => tool.pricing?.plans?.some((p: any) => p.price === 0)).length },
-  { label: t('cat.chinaLabel', lang),    href: '/tools/china', count: tools.filter((tool: any) => tool.scores?.china_friendly >= 7).length },
+  { label: t('cat.chinaLabel', lang),    href: '/tools/china', count: tools.filter((tool: any) => hasNumericToolScores(tool) && tool.scores.china_friendly >= 7).length },
   { label: t('cat.agentLabel', lang),    href: '/agents',      count: tools.filter((tool: any) => tool.type === 'agent_platform').length },
 ];
 

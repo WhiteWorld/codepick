@@ -1,0 +1,131 @@
+id: paseo
+name: Paseo
+type: agent_platform
+url: https://paseo.sh/
+repo: https://github.com/getpaseo/paseo
+current_version: v0.17.4
+version_tracked_at: "2026-11-24"
+
+tagline: 自托管 daemon：在你自己的机器上运行已安装的 coding agent，再用桌面、Web、CLI 或手机客户端接管会话。
+tagline_en: A self-hosted daemon that runs coding agents already installed on your own machine, then lets desktop, web, CLI, or mobile clients take over the sessions.
+
+unscored: true
+unscored_reason: >-
+  2026-11-24（Asia/Shanghai）仅根据官网、仓库 LICENSE / README 与 GitHub Release 做文档核查，未安装或运行 daemon，未登录，也未核对当前支持的 agent CLI 完整清单，因此不给出评分。
+unscored_reason_en: >-
+  Documentary review on 2026-11-24 (Asia/Shanghai) from the official site, the repository LICENSE / README, and GitHub releases only. The daemon was not installed or run, no account was signed into, and the current full list of supported agent CLIs was not re-enumerated, so no scores are given.
+
+pricing:
+  model: open_source
+  currency: null
+  plans:
+    - name: 开源免费
+      price: 0
+      limits: 控制平面本身可免费自托管；需自备已安装的 agent CLI，模型或订阅费用另计。
+      limits_en: The control plane itself can be self-hosted at no product charge. You must bring installed agent CLIs; model or subscription costs are separate.
+  price_updated_at: "2026-11-24"
+  note: >-
+    2026-11-24 重新打开 getpaseo/paseo 的 LICENSE 与 README，二者均写明除第三方组件外，Paseo 以 Apache License, Version 2.0 授权。站内 2026-08-12 指南曾记录 AGPL-3.0，那是当时文稿中的许可陈述，不能当作今日许可。README 还写无遥测、无强制登录。最新正式版 v0.17.4（发布 2026-11-24 06:34，Asia/Shanghai）。
+  note_en: >-
+    On 2026-11-24 the getpaseo/paseo LICENSE and README were reopened; both state that, aside from third-party components, Paseo is licensed under Apache License, Version 2.0. The site's 2026-08-12 guide recorded AGPL-3.0, which was the wording in that draft at the time and is not the current license. The README also says there is no telemetry and no forced login. Latest stable release is v0.17.4 (published 2026-11-24 06:34 Asia/Shanghai).
+
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  mcp_support: true
+  multi_agent: true
+  parallel_execution: true
+  git_worktree_isolation: true
+  mobile_monitoring: true
+  open_source: true
+  self_hosted: true
+  supported_runtimes:
+    - Claude Code
+    - Codex
+    - GitHub Copilot
+    - OpenCode
+    - Pi
+  supported_os:
+    - macOS
+    - Windows
+    - Linux
+    - iOS
+    - Android
+  ide_base: 自托管 Agent daemon（多端客户端）
+
+best_for:
+  - 希望 agent 继续跑在自己的机器上，并用手机、桌面或 Web 远程接管会话的人
+  - 需要自托管、在意无遥测和无强制登录官方声明的人
+  - 已经在用 Claude Code、Codex、Copilot 或 OpenCode 等 CLI，想把它们接到同一控制平面的人
+best_for_en:
+  - People who want agents to keep running on their own machine and to take over sessions from mobile, desktop, or the web
+  - Users who need self-hosting and care about the official no-telemetry, no-forced-login statements
+  - People already using CLIs such as Claude Code, Codex, Copilot, or OpenCode who want them on one control plane
+not_for:
+  - 不想运维本机或服务器 daemon、更想要纯托管 SaaS 的人
+  - 需要本站实测评分，或需要一份已核对的当前 agent CLI 完整清单的人
+not_for_en:
+  - People who do not want to operate a local or server daemon and would rather use a fully hosted SaaS product
+  - Readers who need tested scores from this site, or a re-verified complete list of current agent CLIs
+
+pros:
+  - 官方架构是自托管 daemon + 多端客户端，代码和凭据留在你的机器上
+  - README 明确写无遥测、无强制登录；2026-11-24 的 LICENSE / README 为 Apache-2.0
+  - 有 iOS / Android 原生客户端，并与站内已有 Paseo 指南对应
+cons:
+  - 必须自己运行 daemon，机器安全即凭据安全
+  - 2026-08-12 指南中的 AGPL-3.0 与今日官方文本不一致，读者需以当前 LICENSE 为准
+  - 「支持多少种 CLI」的当前完整清单本次未重新清点，不能沿用旧文数字当作已核实事实
+pros_en:
+  - Official architecture is a self-hosted daemon plus multi-client access, with code and credentials staying on your machine
+  - The README explicitly states no telemetry and no forced login; the LICENSE / README as of 2026-11-24 are Apache-2.0
+  - There are native iOS and Android clients, and the site already has a Paseo guide
+cons_en:
+  - You must run the daemon yourself; machine security is credential security
+  - The AGPL-3.0 wording in the 2026-08-12 guide does not match today's official text; use the current LICENSE
+  - The current complete list of supported CLIs was not re-enumerated here, so older counts should not be treated as re-verified
+
+quick_start:
+  - 以下为官方文档中的入口，本站未执行、未验证能否跑通
+  - 从 https://paseo.sh/download 或 GitHub Releases 获取正式版 v0.17.4
+  - 在本机或服务器上启动 daemon，再用桌面、Web、CLI 或手机客户端连接
+  - 先安装并登录你要管理的 agent CLI；凭据留在运行 daemon 的机器上
+quick_start_en:
+  - The following are official documented entry points; this site did not run or verify them
+  - Get stable v0.17.4 from https://paseo.sh/download or GitHub Releases
+  - Start the daemon on your machine or server, then connect with the desktop, web, CLI, or mobile clients
+  - Install and sign into the agent CLIs you want to manage; credentials stay on the machine that runs the daemon
+
+register_url: https://paseo.sh/
+china_note: 可从官网或 GitHub 下载并自托管；底层 agent CLI 的登录、网络和支付需自行解决。国内可用性未实测，也未给出国内体验评分。
+china_note_en: You can download and self-host from the official site or GitHub. Sign-in, network access, and payment for underlying agent CLIs are your responsibility. Availability in mainland China was not tested, and no China-access score is given.
+
+data_sources:
+  - url: https://paseo.sh/
+    type: docs
+    last_checked: "2026-11-24"
+  - url: https://paseo.sh/download
+    type: docs
+    last_checked: "2026-11-24"
+  - url: https://github.com/getpaseo/paseo
+    type: repo
+    last_checked: "2026-11-24"
+  - url: https://github.com/getpaseo/paseo/releases/tag/v0.17.4
+    type: release
+    last_checked: "2026-11-24"
+  - url: https://raw.githubusercontent.com/getpaseo/paseo/main/LICENSE
+    type: docs
+    last_checked: "2026-11-24"
+  - url: https://raw.githubusercontent.com/getpaseo/paseo/main/README.md
+    type: docs
+    last_checked: "2026-11-24"
+
+changelog:
+  - date: '2026-11-24'
+    type: announcement
+    summary: 按官方公开资料做文档收录；许可按当日 LICENSE / README 记为 Apache-2.0。未安装或实测，不给出评分。
+    summary_en: Added as a documentary listing from official public sources. The license is recorded as Apache-2.0 from that day's LICENSE / README. Not installed or tested; no scores given.
+
+confidence: low

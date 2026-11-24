@@ -52,7 +52,7 @@ coding agent 改变了这个问题。Claude Code、Codex CLI、OpenCode、Gemini
 |---|---|---|---|
 | [Codex Remote connections](https://developers.openai.com/codex/remote-connections) | OpenAI 官方能力：用 ChatGPT iOS/Android App 连接 Mac/Windows 上的 Codex App host，继续线程、发指令、批权限、看 diff/终端/截图 | 已经用 Codex App，并希望手机接管本机或远程主机项目的人 | 手机接入从 Codex App 设置，不能从 Codex CLI 或 IDE Extension 直接设置；host 需要在线、醒着、同账号/同 workspace |
 | [Claude Code Remote Control](https://code.claude.com/docs/en/remote-control) | 官方能力：把 Claude 手机 App 或 `claude.ai/code` 连接到本机 Claude Code 会话 | 只用 Claude Code、想要官方方案的人 | 仅 Claude Code；会话仍跑在你的电脑上；需要订阅账号登录，不支持 API key |
-| [Paseo](https://github.com/getpaseo/paseo) | 自托管 daemon，一个界面管理 Claude Code、Codex、Copilot、OpenCode、Pi 等 39 种 agent；支持 iOS、Android、桌面、Web、CLI，手机端与桌面功能对等 | 想同时跑多个 agent、跨设备管理、在意代码留在本机的人 | 需要自托管 daemon；AGPL-3.0、无遥测；agent 凭据留在本机，机器安全即凭据安全 |
+| [Paseo](https://github.com/getpaseo/paseo) | 自托管 daemon，一个界面管理 Claude Code、Codex、Copilot、OpenCode、Pi 等 39 种 agent；支持 iOS、Android、桌面、Web、CLI，手机端与桌面功能对等 | 想同时跑多个 agent、跨设备管理、在意代码留在本机的人 | 需要自托管 daemon；Apache-2.0（2026-11-24 LICENSE / README；旧文曾记 AGPL-3.0）、无遥测；agent 凭据留在本机，机器安全即凭据安全 |
 | [Happy](https://github.com/slopus/happy) | Claude Code / Codex 的移动端和 Web 客户端，通过 `happy claude` / `happy codex` 包装启动 | 想用手机接管 Claude Code 或 Codex，并重视推送和加密的人 | 依赖 Happy 的 CLI/同步组件；不是通用终端 |
 | [CC Pocket](https://github.com/K9i-0/ccpocket) | Codex 和 Claude 的移动/桌面客户端，通过自托管 Bridge Server 连接 | Codex + Claude 双修，想在手机上看 diff、批权限、管理 worktree 的人 | 需要 Node.js 和 bridge；远程访问官方建议用 Tailscale |
 | [MobileCLI](https://github.com/MobileCLI/mobilecli) | Rust daemon + React Native App，把 Claude Code、Codex、Gemini CLI 或普通终端流到手机 | 喜欢“真实终端流”的人 | 终端流自托管，推送经 Expo；不要把端口裸露到公网 |

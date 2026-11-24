@@ -1,0 +1,122 @@
+id: nimbalyst
+name: Nimbalyst
+type: agent_platform
+url: https://nimbalyst.com/
+repo: https://github.com/nimbalyst/nimbalyst
+current_version: v0.83.0
+version_tracked_at: "2026-11-24"
+
+tagline: Crystal 的官方继任产品：开源可视化工作区，在并行 session 里审阅 markdown、设计稿、图和 diff。
+tagline_en: The official successor to Crystal. An open-source visual workspace for reviewing markdown, design comps, diagrams, and diffs across parallel sessions.
+
+unscored: true
+unscored_reason: >-
+  2026-11-24（Asia/Shanghai）仅根据官网与 GitHub 仓库/Release 做文档核查，未安装桌面或伴生手机应用，未登录，也未测试 OpenCode / Copilot 的 alpha 路径，因此不给出评分。本条不沿用 Crystal 的历史编辑评分。
+unscored_reason_en: >-
+  Documentary review on 2026-11-24 (Asia/Shanghai) from the official site and GitHub repository/releases only. The desktop app and companion mobile apps were not installed, no account was signed into, and the OpenCode / Copilot alpha paths were not tested, so no scores are given. This entry does not reuse Crystal's historical editorial scores.
+
+pricing:
+  model: open_source
+  currency: null
+  plans:
+    - name: 开源免费
+      price: 0
+      limits: 桌面应用本身无产品订阅；底层 agent 的订阅或 API 费用另计。
+      limits_en: The desktop app itself has no product subscription; underlying agent subscription or API costs are separate.
+  price_updated_at: "2026-11-24"
+  note: >-
+    MIT 开源（Copyright Nimbalyst Inc.，2026-11-24 核对仓库 LICENSE）。官方与站内 Crystal 条目均把它写为 Crystal 的继任；Crystal 条目仍只保留 v0.3.5 的历史信息，不能代表 Nimbalyst。最新正式版 v0.83.0（发布 2026-11-10 08:50，Asia/Shanghai）；另有预发布 v0.84.4（发布 2026-11-24 04:02，Asia/Shanghai），不能当作正式版。仓库说明中 OpenCode、GitHub Copilot 仍为 alpha。
+  note_en: >-
+    MIT licensed (copyright Nimbalyst Inc.; LICENSE rechecked on 2026-11-24). Official materials and the site's Crystal entry describe it as Crystal's successor. The Crystal entry still retains historical v0.3.5 information only and does not represent Nimbalyst. Latest stable release is v0.83.0 (published 2026-11-10 08:50 Asia/Shanghai). There was also prerelease v0.84.4 (published 2026-11-24 04:02 Asia/Shanghai), which is not the stable release. The repository still marks OpenCode and GitHub Copilot as alpha.
+
+features:
+  code_completion: false
+  chat: true
+  agent_mode: true
+  multi_file_edit: true
+  multi_agent: true
+  parallel_execution: true
+  git_worktree_isolation: true
+  mobile_monitoring: true
+  open_source: true
+  supported_os:
+    - macOS
+    - Windows
+    - Linux
+    - iOS
+    - Android
+  ide_base: 可视化 Agent 工作区（Crystal 继任）
+
+best_for:
+  - 需要可视化工作区来并行审阅文档、设计稿、图和 diff 的人
+  - 正在离开已弃用的 Crystal、想查看继任产品官方定位的人
+  - 需要 macOS、Windows 或 Linux 桌面，并了解手机只是伴生端的人
+best_for_en:
+  - People who want a visual workspace to review documents, design comps, diagrams, and diffs in parallel
+  - People leaving deprecated Crystal who want the official successor's positioning
+  - Users who need a macOS, Windows, or Linux desktop app and understand that mobile is a companion client
+not_for:
+  - 把手机应用当成可以单独替代桌面控制平面的人
+  - 需要把 OpenCode 或 GitHub Copilot 当作已稳定、非 alpha 能力的人
+  - 希望本条沿用 Crystal 历史评分的人——Nimbalyst 尚未实测，没有评分
+not_for_en:
+  - People who treat the mobile apps as a standalone replacement for the desktop workspace
+  - Anyone who needs OpenCode or GitHub Copilot support treated as stable rather than alpha
+  - Readers hoping this entry reuses Crystal's historical scores — Nimbalyst has not been tested and has no scores
+
+pros:
+  - 官方明确是 Crystal 的继任，可补上「旧工具已弃用、继任者没有条目」的缺口
+  - MIT 开源桌面应用，平台覆盖 macOS / Windows / Linux，并有手机伴生应用
+  - 定位侧重可视化审阅与并行 session，和纯控制平面有所区别
+cons:
+  - OpenCode、GitHub Copilot 在仓库说明里仍是 alpha，本次未测
+  - 手机是桌面工作区的伴生端，不是独立的控制平面替代品
+  - 正式版与预发布并存，不能把 v0.84.x 预发布当成已核验的正式版本
+pros_en:
+  - Officially the successor to Crystal, filling the gap left when the older tool was deprecated without its own successor entry
+  - MIT-licensed desktop app covering macOS, Windows, and Linux, with companion mobile apps
+  - Positioned around visual review and parallel sessions, which is distinct from a pure control plane
+cons_en:
+  - OpenCode and GitHub Copilot are still alpha in the repository notes and were not tested here
+  - Mobile is a companion to the desktop workspace, not a standalone control-plane replacement
+  - Stable and prerelease builds exist in parallel; v0.84.x prereleases should not be treated as verified stable versions
+
+quick_start:
+  - 以下为官方文档中的入口，本站未执行、未验证能否跑通
+  - 从 https://nimbalyst.com/ 或 GitHub Releases 获取正式版 v0.83.0；若看到 v0.84.x，需注意官方仍标为预发布
+  - 在 macOS、Windows 或 Linux 上安装桌面应用后再视需要使用伴生手机端
+  - 不要把本条当作 Crystal 评分或安装步骤的延续
+quick_start_en:
+  - The following are official documented entry points; this site did not run or verify them
+  - Get stable v0.83.0 from https://nimbalyst.com/ or GitHub Releases; if you see v0.84.x, note that it is still marked as a prerelease
+  - Install the desktop app on macOS, Windows, or Linux before using the companion mobile apps if needed
+  - Do not treat this entry as a continuation of Crystal's scores or install steps
+
+register_url: https://nimbalyst.com/
+china_note: 桌面应用可从官网或 GitHub Releases 下载；底层 agent 的登录、网络和支付需自行解决。国内可用性未实测，也未给出国内体验评分。
+china_note_en: The desktop app can be downloaded from the official site or GitHub Releases. Sign-in, network access, and payment for underlying agents are your responsibility. Availability in mainland China was not tested, and no China-access score is given.
+
+data_sources:
+  - url: https://nimbalyst.com/
+    type: docs
+    last_checked: "2026-11-24"
+  - url: https://github.com/nimbalyst/nimbalyst
+    type: repo
+    last_checked: "2026-11-24"
+  - url: https://github.com/nimbalyst/nimbalyst/releases/tag/v0.83.0
+    type: release
+    last_checked: "2026-11-24"
+  - url: https://github.com/nimbalyst/nimbalyst/releases/tag/v0.84.4
+    type: release
+    last_checked: "2026-11-24"
+  - url: https://raw.githubusercontent.com/nimbalyst/nimbalyst/main/LICENSE
+    type: docs
+    last_checked: "2026-11-24"
+
+changelog:
+  - date: '2026-11-24'
+    type: announcement
+    summary: 按官方公开资料做文档收录，作为 Crystal 继任产品的独立条目。未安装或实测，不给出评分，也不沿用 Crystal 历史分数。
+    summary_en: Added as a documentary listing from official public sources, as a separate successor entry to Crystal. Not installed or tested; no scores given, and Crystal's historical scores are not reused.
+
+confidence: low

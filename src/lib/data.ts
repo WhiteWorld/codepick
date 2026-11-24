@@ -16,12 +16,16 @@ export interface Tool {
     currency: string;
     plans: { name: string; price: number | string; limits?: string }[];
   };
-  scores: {
+  scores?: {
     coding_ability: number;
     cost_efficiency: number;
     flexibility: number;
     china_friendly: number;
+    privacy?: number;
   };
+  /** When true, or when the four pillar scores are absent, the tool is unscored / pending testing. */
+  unscored?: boolean;
+  unscored_reason?: string;
   features: string[];
   compatible_apis?: string[];
   supported_ides?: string[];
@@ -197,11 +201,49 @@ export function getPlanWithDetails(id: string) {
   };
 }
 
-// 计算综合分
-export function overallScore(scores: Plan['scores'] | Tool['scores']): number {
+// 计算综合分。调用方若传入工具分数，须先用 hasNumericToolScores() 确认；
+// 本函数不改方案 YAML 缺分时 normalizePlan() 默认 5 的既有行为。
+export function overallScore(scores: Plan['scores'] | Tool['scores'] | undefined | null): number {
+  if (!scores || typeof scores !== 'object') return 0;
   const vals = Object.values(scores).filter(v => typeof v === 'number');
   if (vals.length === 0) return 0;
   return Math.round((vals.reduce((a, b) => a + b, 0) / vals.length) * 10) / 10;
+}
+
+export const TOOL_SCORE_FIELDS = ['coding_ability', 'cost_efficiency', 'flexibility', 'china_friendly'] as const;
+
+/** True only when a tool has all four numeric pillar scores and is not marked unscored. */
+export function hasNumericToolScores(tool: { scores?: unknown; unscored?: boolean } | null | undefined): boolean {
+  if (!tool || tool.unscored === true) return false;
+  const scores = tool.scores;
+  if (!scores || typeof scores !== 'object') return false;
+  return TOOL_SCORE_FIELDS.every((key) => {
+    const value = (scores as Record<string, unknown>)[key];
+    return typeof value === 'number' && Number.isFinite(value);
+  });
+}
+
+export function toolScoreField(
+  tool: { scores?: any; unscored?: boolean } | null | undefined,
+  field: string,
+): number | null {
+  if (!hasNumericToolScores(tool)) return null;
+  const value = tool?.scores?.[field];
+  return typeof value === 'number' && Number.isFinite(value) ? value : null;
+}
+
+/** Scored tools first, descending by field (same order as the old numeric sort among themselves). Unscored tools last, by name. */
+export function compareToolsByScoreField(
+  a: { name?: string; id?: string; scores?: any; unscored?: boolean },
+  b: { name?: string; id?: string; scores?: any; unscored?: boolean },
+  field: string,
+): number {
+  const aScore = toolScoreField(a, field);
+  const bScore = toolScoreField(b, field);
+  if (aScore !== null && bScore !== null) return bScore - aScore;
+  if (aScore !== null) return -1;
+  if (bScore !== null) return 1;
+  return String(a.name || a.id || '').localeCompare(String(b.name || b.id || ''));
 }
 
 // 数据新鲜度检查
@@ -248,6 +290,7 @@ export function getAllToolsLocalized(lang: Locale): Tool[] {
       })),
       quick_start: localized(tool, 'quick_start', lang) ?? tool.quick_start ?? [],
       china_note: localized(tool, 'china_note', lang) ?? tool.china_note ?? '',
+      unscored_reason: localized(tool, 'unscored_reason', lang) ?? tool.unscored_reason ?? '',
     } as Tool;
   });
 }

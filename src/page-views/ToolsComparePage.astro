@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getAllToolsLocalized } from '../lib/data';
+import { getAllToolsLocalized, hasNumericToolScores } from '../lib/data';
 import { t, localePath, type Locale } from '../lib/i18n';
 
 interface Props { lang: Locale }
@@ -27,12 +27,13 @@ const toolsData = allTools.map((tool: any) => ({
     if (paid) return paidLabel;
     return tool.pricing?.model === 'pay_as_you_go' ? t('price.payAsYouGo', lang) : (lang === 'zh' ? '价格待确认' : 'Price not established');
   })(),
-  scores: {
-    coding_ability: tool.scores?.coding_ability ?? 0,
-    cost_efficiency: tool.scores?.cost_efficiency ?? 0,
-    flexibility: tool.scores?.flexibility ?? 0,
-    china_friendly: tool.scores?.china_friendly ?? 0,
-  },
+  scored: hasNumericToolScores(tool),
+  scores: hasNumericToolScores(tool) ? {
+    coding_ability: tool.scores.coding_ability,
+    cost_efficiency: tool.scores.cost_efficiency,
+    flexibility: tool.scores.flexibility,
+    china_friendly: tool.scores.china_friendly,
+  } : null,
   features: {
     code_completion: !!(tool.features?.code_completion),
     chat: !!(tool.features?.chat),
@@ -209,7 +210,10 @@ const webPageSchema = {
       rows.push(`<tr>
         <td class="text-[var(--text-muted)]">${label}</td>
         ${toolObjs.map(t => {
-          const s = t.scores[key];
+          const s = t.scored && t.scores ? t.scores[key] : null;
+          if (s == null || !Number.isFinite(s)) {
+            return `<td class="text-[var(--text-muted)] text-xs">${lang === 'zh' ? '未评分' : 'Unscored'}</td>`;
+          }
           return `<td><span style="color:${scoreColor(s)};font-weight:600">${s}</span><span class="text-[var(--text-muted)] text-xs">/10</span></td>`;
         }).join('')}
       </tr>`);
