@@ -5,7 +5,7 @@ import ToolCard from '../components/ToolCard.astro';
 import PlanCard from '../components/PlanCard.astro';
 import Comments from '../components/Comments.astro';
 import ShareBar from '../components/ShareBar.astro';
-import { getAllToolsLocalized, getAllPlansLocalized, isFresh, hasNumericToolScores } from '../lib/data';
+import { getAllToolsLocalized, getAllPlansLocalized, isFresh, hasNumericToolScores, visibleFeatureEntries, canonicalFeatureText } from '../lib/data';
 import { t, localePath, getCollectionName, type Locale } from '../lib/i18n';
 import { getCollection } from 'astro:content';
 import type { Tool } from '../lib/data';
@@ -25,7 +25,7 @@ const pricingCurrency = (tool as any).pricing?.currency || 'USD';
 const currencySymbol = pricingCurrency === 'CNY' ? '¥' : pricingCurrency === 'EUR' ? '€' : pricingCurrency === 'USD' ? '$' : `${pricingCurrency} `;
 const formatPlanPrice = (p: any) => `${currencySymbol}${p.price}${p.period === 'year' ? (lang === 'zh' ? '/年' : '/year') : p.period === 'month' ? t('price.perMonth', lang) : ''}`;
 
-// features 是对象 {key: value}，转为展示列表
+// features 是对象 {key: value}，转为展示列表。跳过 ide_base_en 等翻译元数据，展示值按语言解析。
 const rawFeatures = (tool as any).features || {};
 const featureKeys = [
   'code_completion', 'chat', 'agent_mode', 'multi_file_edit', 'mcp_support',
@@ -36,7 +36,7 @@ const featureKeys = [
 
 let featureItems: {label: string, value: string}[] = [];
 if (typeof rawFeatures === 'object' && !Array.isArray(rawFeatures)) {
-  for (const [k, v] of Object.entries(rawFeatures)) {
+  for (const { key: k, value: v } of visibleFeatureEntries(rawFeatures, lang)) {
     const label = featureKeys.includes(k) ? t(`feature.${k}`, lang) : k;
     if (v === true) featureItems.push({label, value: '✅'});
     else if (v === false) featureItems.push({label, value: '—'});
@@ -59,11 +59,11 @@ const hasFree = pricingPlans.some((p: any) => p.price === 0);
 // 相关工具：同 type 或同 ide_base，排除自身，最多 3 个
 const allTools = getAllToolsLocalized(lang);
 const toolType = (tool as any).type;
-const toolIdeBase = ((tool as any).features?.ide_base || '').toLowerCase();
+const toolIdeBase = canonicalFeatureText(tool, 'ide_base').toLowerCase();
 const relatedTools = allTools
   .filter(t => t.id !== tool.id && (
     (t as any).type === toolType ||
-    (toolIdeBase && ((t as any).features?.ide_base || '').toLowerCase() === toolIdeBase)
+    (toolIdeBase && canonicalFeatureText(t, 'ide_base').toLowerCase() === toolIdeBase)
   ))
   .sort((a, b) => {
     const aScore = hasNumericToolScores(a) ? a.scores.coding_ability : null;

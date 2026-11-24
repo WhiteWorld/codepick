@@ -1,17 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ToolCard from '../components/ToolCard.astro';
-import { getAllToolsLocalized, compareToolsByScoreField } from '../lib/data';
+import { getAllToolsLocalized, compareToolsByScoreField, isTerminalCategoryTool } from '../lib/data';
 import { t, localePath, type Locale } from '../lib/i18n';
 
 interface Props { lang: Locale }
 const { lang } = Astro.props;
 
 const allTools = getAllToolsLocalized(lang);
-const tools = allTools.filter(tool => {
-  const ideBase = ((tool as any).features?.ide_base || '').toLowerCase();
-  return tool.type === 'cli' || ideBase.includes('终端') || ideBase.includes('tui') || ideBase.includes('cli');
-}).sort((a, b) => compareToolsByScoreField(a, b, 'coding_ability'));
+const tools = allTools.filter(isTerminalCategoryTool)
+  .sort((a, b) => compareToolsByScoreField(a, b, 'coding_ability'));
 
 const siteUrl = 'https://codepick.dev';
 const pagePath = localePath('/tools/terminal', lang);

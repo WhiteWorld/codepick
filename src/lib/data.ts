@@ -274,6 +274,54 @@ function localized(obj: any, field: string, lang: Locale): any {
   return obj?.[field];
 }
 
+/** Translation-only sibling keys such as ide_base_en must not drive classification or feature-table labels. */
+export function isLocalizationMetaKey(key: string): boolean {
+  return typeof key === 'string' && key.endsWith('_en');
+}
+
+/** Canonical (unlocalized) feature text. Category filters must use this, not a display translation. */
+export function canonicalFeatureText(
+  toolOrFeatures: { features?: any } | Record<string, unknown> | null | undefined,
+  key: string,
+): string {
+  if (!toolOrFeatures || typeof toolOrFeatures !== 'object') return '';
+  const maybeFeatures = (toolOrFeatures as any).features;
+  const features = maybeFeatures && typeof maybeFeatures === 'object' && !Array.isArray(maybeFeatures)
+    ? maybeFeatures
+    : toolOrFeatures;
+  const value = (features as any)?.[key];
+  return value == null ? '' : String(value);
+}
+
+/** Feature-table entries with *_en metadata omitted and display values localized. */
+export function visibleFeatureEntries(features: any, lang: Locale): { key: string; value: unknown }[] {
+  if (!features || typeof features !== 'object' || Array.isArray(features)) return [];
+  const entries: { key: string; value: unknown }[] = [];
+  for (const [key, raw] of Object.entries(features)) {
+    if (isLocalizationMetaKey(key)) continue;
+    const value = localized(features, key, lang);
+    entries.push({ key, value: value === undefined ? raw : value });
+  }
+  return entries;
+}
+
+/** Word-boundary "cli" so substrings such as "client" / "multi-client" do not match. */
+const CLI_TOKEN = /(?:^|[^a-z])cli(?:[^a-z]|$)/i;
+
+/** Terminal directory membership from type and canonical ide_base, independent of UI language. */
+export function isTerminalCategoryTool(tool: { type?: string; features?: any } | null | undefined): boolean {
+  if (!tool) return false;
+  if (tool.type === 'cli') return true;
+  const ideBase = canonicalFeatureText(tool, 'ide_base').toLowerCase();
+  return ideBase.includes('终端') || ideBase.includes('tui') || CLI_TOKEN.test(ideBase);
+}
+
+/** VS Code directory membership from canonical ide_base, independent of UI language. */
+export function isVscodeCategoryTool(tool: { features?: any } | null | undefined): boolean {
+  const ideBase = canonicalFeatureText(tool, 'ide_base').toLowerCase();
+  return ideBase.includes('vs code') || ideBase.includes('vscode');
+}
+
 /** Get all tools with locale-resolved text fields */
 export function getAllToolsLocalized(lang: Locale): Tool[] {
   return getAllTools().map(raw => {
@@ -294,10 +342,12 @@ export function getAllToolsLocalized(lang: Locale): Tool[] {
           limits: localized(p, 'limits', lang),
         })),
       } : tool.pricing,
-      features: tool.features && typeof tool.features === 'object' && !Array.isArray(tool.features) ? {
-        ...tool.features,
-        ide_base: localized(tool.features, 'ide_base', lang) ?? tool.features.ide_base,
-      } : tool.features,
+      // Keep canonical feature fields (ide_base, flags). Display translations live in
+      // *_en siblings and are resolved at render time. Do not overwrite structural
+      // fields with localized prose, or category membership will change by language.
+      features: tool.features && typeof tool.features === 'object' && !Array.isArray(tool.features)
+        ? { ...tool.features }
+        : tool.features,
       changelog: (tool.changelog || []).map((c: any) => ({
         ...c,
         summary: localized(c, 'summary', lang),

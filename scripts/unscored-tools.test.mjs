@@ -27,6 +27,24 @@ function listPage(lang, path) {
   return readFileSync(new URL(`../dist/${lang}/${path}/index.html`, import.meta.url), 'utf8');
 }
 
+function categoryListing(lang, path) {
+  const html = listPage(lang, path);
+  const schemas = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)]
+    .flatMap(([, value]) => JSON.parse(value));
+  const itemList = schemas.find((schema) => schema['@type'] === 'ItemList');
+  const jsonLdIds = (itemList?.itemListElement || [])
+    .map((item) => {
+      const match = String(item.url || '').match(/\/tool\/([^/]+)\/?$/);
+      return match ? match[1] : null;
+    })
+    .filter(Boolean)
+    .sort();
+  const cardIds = [...html.matchAll(/<a href="\/(?:zh|en)\/tool\/([^/]+)\/"[^>]*class="card /g)]
+    .map((match) => match[1])
+    .sort();
+  return { html, cardIds, jsonLdIds, numberOfItems: itemList?.numberOfItems };
+}
+
 function extractCompareTools(html) {
   const assignment = html.match(/const toolsJson = ((?:"(?:\\.|[^"\\])*")|(?:'([^'\\]|\\.)*'));/);
   if (assignment) {
@@ -309,6 +327,48 @@ describe('PR169 follow-up regressions', () => {
       assert.doesNotMatch(html, /自托管 Agent daemon（多端客户端）/);
       assert.doesNotMatch(html, /可视化 Agent 工作区（Crystal 继任）/);
       assert.doesNotMatch(html, /Agent 开发环境（桌面 \/ 手机 \/ 远程）/);
+    }
+  });
+
+  test('bilingual category directories have identical tool membership and JSON-LD counts', () => {
+    const paths = ['tools/terminal', 'tools/vscode', 'tools/builder', 'tools/china', 'tools/free', 'agents'];
+    for (const path of paths) {
+      const zh = categoryListing('zh', path);
+      const en = categoryListing('en', path);
+      assert.deepEqual(zh.cardIds, en.cardIds, `${path} card ids should not change with language`);
+      assert.deepEqual(zh.jsonLdIds, en.jsonLdIds, `${path} JSON-LD ids should not change with language`);
+      assert.equal(zh.numberOfItems, en.numberOfItems, `${path} numberOfItems`);
+      assert.equal(zh.cardIds.length, zh.numberOfItems, `${path} zh card count vs JSON-LD`);
+      assert.equal(en.cardIds.length, en.numberOfItems, `${path} en card count vs JSON-LD`);
+      assert.deepEqual(zh.cardIds, zh.jsonLdIds, `${path} zh cards vs JSON-LD`);
+    }
+    const terminal = categoryListing('en', 'tools/terminal');
+    assert.ok(!terminal.cardIds.includes('paseo'), 'Paseo must not enter the terminal directory because of "multi-client"');
+    assert.ok(!terminal.jsonLdIds.includes('paseo'));
+  });
+
+  test('tool detail feature tables hide *_en translation keys and still show localized ide_base', () => {
+    const expectedEn = {
+      't3-code': 'Agent control plane (desktop / web / mobile)',
+      happy: 'Agent desktop harness (team workspace)',
+      paseo: 'Self-hosted agent daemon (multi-client)',
+      nimbalyst: 'Visual agent workspace (Crystal successor)',
+      orca: 'Agent development environment (desktop / mobile / remote)',
+    };
+    const toolRoot = new URL('../dist/zh/tool/', import.meta.url);
+    const toolIds = readdirSync(toolRoot, { withFileTypes: true })
+      .filter((entry) => entry.isDirectory())
+      .map((entry) => entry.name);
+    for (const lang of ['zh', 'en']) {
+      for (const id of toolIds) {
+        const { html } = page(lang, id);
+        assert.doesNotMatch(html, />[a-z0-9_]+_en</, `${lang} ${id} must not render raw *_en keys`);
+        assert.doesNotMatch(html, /ide_base_en/, `${lang} ${id} must not leak ide_base_en`);
+      }
+    }
+    for (const [id, text] of Object.entries(expectedEn)) {
+      const { html } = page('en', id);
+      assert.ok(html.includes(text), `en ${id} should still show localized ide_base`);
     }
   });
 });
