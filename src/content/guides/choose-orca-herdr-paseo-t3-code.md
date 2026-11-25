@@ -20,10 +20,10 @@ faq:
       就当天打开的官方说明，这四款控制面或工作区客户端本身都是开源免费：Orca 和 T3 Code 为 MIT，Herdr 为 Apache-2.0，Paseo 除第三方组件外为 Apache-2.0。它们都写明使用你已有的助手订阅或账号，不把底层模型费用算进「免费」。T3 Code 文档另外写了 T3 Connect 默认最多关联 3 台机器，付费的 T3 Chat 方案可以把上限提高到 10 或 100 台；这是账号额度说明，不是模型价格，本文没有注册或付费验证。
   - q: "关上手电脑窗口，任务还会继续跑吗？"
     a: |
-      要看你用的是哪一种运行方式，不能一概而论。Herdr 官方写：助手跑在本机的 herdr-core 里，退出或更新窗口不会停掉它们；但机器重启或 herdr-core 停止后，它不会自动把进行中的助手恢复起来。Paseo 的 daemon 才是真正跑助手的进程，客户端只是连上去。Orca 若只用本机桌面，文档把本地写成默认路径；若要在笔记本休眠后继续，文档指向 Remote Orca Server 或 SSH 主机。T3 Code 的远程文档写：对端机器必须保持运行且可访问；只保存登录状态并不会自动启动服务。以上都是文档中的行为说明，不是实测。
+      要看你用的是哪一种运行方式，不能一概而论。Herdr 官方写：助手跑在本机的 herdr-core 里，退出或更新窗口不会停掉它们；但机器重启或 herdr-core 停止后，新桌面应用不会自动把进行中的助手恢复起来。原终端版 TUI 则写，重启机器后会恢复布局并继续会话，不要把两种产品混在一起看。Paseo 的 daemon 才是真正跑助手的进程，客户端只是连上去。Orca 若只用本机桌面，文档把本地写成默认路径；若要在笔记本休眠后继续，文档指向 Remote Orca Server 或 SSH 主机。T3 Code 的远程文档写：对端机器必须保持运行且可访问；只保存登录状态并不会自动启动服务。以上都是文档中的行为说明，不是实测。
 ---
 
-> 核查日：2026-11-25（北京时间）。依据当天打开的 [Orca](https://orca.dev/)、[Supported agents](https://orca.dev/docs/agents/supported)、[Agents and sessions](https://orca.dev/docs/model/agents-sessions)、[Worktrees](https://orca.dev/docs/model/worktrees)、[Ways to run Orca](https://orca.dev/docs/ways-to-run)、[Orchestration](https://orca.dev/docs/cli/orchestration)、[Mobile companion](https://orca.dev/docs/mobile)、[Bot security](https://orca.dev/docs/bots/security)、[Herdr](https://herdr.dev/)、[herdr-core](https://herdr.dev/core/)、[Herdr Mobile](https://herdr.dev/mobile/)、[Download](https://herdr.dev/download/)、[Privacy](https://herdr.dev/privacy/)、[Herdr TUI](https://herdr.dev/tui/)、[Herdr 安全说明](https://github.com/herdrdev/herdr-app/blob/master/docs/security.md)、[Paseo](https://paseo.sh/)、[Security](https://paseo.sh/docs/security)、[Git worktrees](https://paseo.sh/docs/worktrees)、[Orchestration](https://paseo.sh/docs/orchestration)、[T3 Code](https://t3.codes/)、[T3 Code README](https://github.com/pingdotgg/t3code/blob/main/README.md)、[Remote access](https://github.com/pingdotgg/t3code/blob/main/docs/user/remote-access.md)、[Permission modes](https://github.com/pingdotgg/t3code/blob/main/docs/user/permission-modes.md)、[Source control](https://github.com/pingdotgg/t3code/blob/main/docs/user/source-control.md)，以及对应仓库的 LICENSE 与当天的 GitHub 正式版本。本稿是待独立内容审阅的审阅稿，尚未正式发布。本文没有安装或启动这些产品，没有登录任何账号，没有付费调用，也没有做功能或运行时安全实测。版本号只采用当天看到的正式版本，预发布和 nightly 不当正式版。
+> 核查日：2026-11-25（北京时间）。依据当天打开的 [Orca](https://orca.dev/)、[Supported agents](https://orca.dev/docs/agents/supported)、[Agents and sessions](https://orca.dev/docs/model/agents-sessions)、[Worktrees](https://orca.dev/docs/model/worktrees)、[Ways to run Orca](https://orca.dev/docs/ways-to-run)、[Orchestration](https://orca.dev/docs/cli/orchestration)、[Mobile companion](https://orca.dev/docs/mobile)、[Bot security](https://orca.dev/docs/bots/security)、[Herdr](https://herdr.dev/)、[herdr-core](https://herdr.dev/core/)、[Herdr Mobile](https://herdr.dev/mobile/)、[Download](https://herdr.dev/download/)、[Privacy](https://herdr.dev/privacy/)、[Herdr TUI](https://herdr.dev/tui/)、[Herdr 安全说明](https://github.com/herdrdev/herdr-app/blob/master/docs/security.md)、[Paseo](https://paseo.sh/)、[Security](https://paseo.sh/docs/security)、[Git worktrees](https://paseo.sh/docs/worktrees)、[Orchestration](https://paseo.sh/docs/orchestration)、[T3 Code](https://t3.codes/)、[T3 Code README](https://github.com/pingdotgg/t3code/blob/main/README.md)、[Remote access](https://github.com/pingdotgg/t3code/blob/main/docs/user/remote-access.md)、[Permission modes](https://github.com/pingdotgg/t3code/blob/main/docs/user/permission-modes.md)、[Source control](https://github.com/pingdotgg/t3code/blob/main/docs/user/source-control.md)、[Outside agents](https://github.com/pingdotgg/t3code/blob/main/docs/user/outside-agents.md)、[Workflows](https://github.com/pingdotgg/t3code/blob/main/docs/user/workflows.md)，以及对应仓库的 LICENSE 与当天的 GitHub 正式版本。本稿是待独立内容审阅的审阅稿，尚未正式发布。本文没有安装或启动这些产品，没有登录任何账号，没有付费调用，也没有做功能或运行时安全实测。版本号只采用当天看到的正式版本，预发布和 nightly 不当正式版。
 
 这四款工具看起来很像：都可以在你自己的订阅上，同时跑 Claude Code、Codex、OpenCode 这类编程助手。真正要先分清的是三件事：谁来分工、任务在哪台机器上继续跑、改完的代码怎么审。
 
@@ -35,23 +35,25 @@ faq:
 
 | 产品 | 当天看到的最新正式版 | 许可 |
 | --- | --- | --- |
-| Orca | GitHub 正式版 [v1.4.274](https://github.com/stablyai/orca/releases)，发布于 2026-11-25 06:52（北京时间）。同日仍有 Android 预发布，不能当桌面正式版。 | MIT，Copyright Lovecast Inc. |
+| Orca | GitHub 正式版 [v1.4.274](https://github.com/stablyai/orca/releases)，发布于 2026-11-25 06:52（北京时间）。Android 预发布 android-v0.0.70 发布于 2026-11-24 09:09（北京时间），不能当桌面正式版。 | MIT，Copyright Lovecast Inc. |
 | Herdr 桌面应用 | 仓库标签 [v0.1.18](https://github.com/herdrdev/herdr-app)，提交时间 2026-11-24 20:05（北京时间）。分发走 [releases.herdr.dev](https://herdr.dev/download/)，GitHub Releases 列表当天为空。运行时 [herdr-core](https://github.com/herdrdev/herdr-core) 标签仍为 v0.1.22（提交时间 2026-11-23 03:10，北京时间）。原终端版 Herdr TUI 最新正式版仍是 [v0.9.5](https://github.com/herdrdev/herdr/releases)（2026-10-15）。 | Apache-2.0 |
 | Paseo | 官网与 GitHub 最新正式版 [v0.17.4](https://github.com/getpaseo/paseo/releases)，发布于 2026-11-24 06:34（北京时间）。 | 除第三方组件外为 Apache-2.0，见仓库 [LICENSE](https://github.com/getpaseo/paseo) |
 | T3 Code | 最新正式版仍为 [v0.1.11](https://github.com/pingdotgg/t3code/releases)，发布于 2026-11-20 15:38（北京时间）。当天另有 v0.1.12 的 nightly，官方标为预发布，不能当正式版。 | MIT，Copyright T3 Tools Inc. |
 
 ## 先看一张对照表
 
-下面只整理当天官方文档里能对上的差别。空缺处是本文没有在官方页核到同等表述，不是实测失败。
+下面只整理当天官方文档里能对上的差别。某一产品没有写到与其他产品同等的官方表述，只说明本文没有在对应官方页核到，不是实测失败。
 
 | 问题 | Orca | Herdr | Paseo | T3 Code |
 | --- | --- | --- | --- | --- |
 | 主要定位 | 围绕独立 git worktree 的开发环境，带终端、差异审阅和内置浏览器 | 窗口关掉后，任务仍在本机 herdr-core 里跑 | 自托管 daemon；桌面、网页、手机和 CLI 都是客户端 | 开源控制平面，统一管理多种助手的会话、审批和提交 |
-| 谁来分工 | 多任务可并行；另有实验性编排（Run / Task / Dispatch）。当天文档写编排面板和开关暂时不可用 | 明确支持一个助手再派助手、等待并收回报告；不是所有助手都能正确上报状态 | 可委派、并行，也可跨机器；内置 Paseo tools 默认关闭，需在设置里打开 | 更偏人来切换和交接助手；README 把它写成控制平面，而不是自动团队 |
+| 谁来分工 | 多任务可并行；另有实验性编排（Run / Task / Dispatch）。当天文档写编排面板和开关暂时不可用 | 明确支持一个助手再派助手、等待并收回报告；不是所有助手都能正确上报状态 | 可委派、并行，也可跨机器；内置 Paseo tools 默认关闭，需在设置里打开 | 文档写了线程内 subagents，交接可用 t3_thread_launch 启动线程，再跟 t3_thread_wait 或 t3_thread_read。另有可串联多个助手、并按步骤新开带 worktree 线程的 Workflows，但是早期 Labs 功能，默认关闭。不能据此当成会自动拆任务并保证汇总的成熟自动团队 |
 | 任务在哪继续跑 | 本地桌面是默认路径；SSH 主机、Remote Orca Server、实验性 Cloud VM / 按工作区环境可选 | 跑在 herdr-core；也可经 SSH 把其他机器加进同一侧栏 | daemon 在你指定的机器上跑；客户端连上去 | 对端机器必须保持运行且可访问；T3 Connect 或局域网配对 |
 | 远程和手机 | 桌面支持 macOS / Windows / Linux。手机 companion 为 beta，由已配对的桌面拥有会话，官方写它不是完整编辑器 | 手机经 SSH 直连你的 herdr-core，官方写没有 Herdr 账号、也没有他们的服务器夹在中间；不支持 TUI 里的会话 | 官方把手机端写成完整应用。新安装默认关闭中继；启用后走端到端加密中继 | 桌面、网页和手机。T3 Connect 需要登录；默认最多关联 3 台机器 |
 | 默认权限 | 新启动会预填各助手的跳过审批参数，可在设置里改成手动。Bot 的默认聊天权限是 Full access | 模组是受信任的 JavaScript，没有逐条程序或网络请求提示；官方写这不是安全边界 | 密码认证默认不加密流量。绑定到网络地址时需另设密码；官方建议中继或 VPN 来加密 | 新线程的初始默认是 Full access，可在设置里改 |
 | 费用 | 客户端 MIT，官方写免费开源；助手走你自己的订阅和账号。官方写它不出售托管 VPS，Cloud VM 用你自己的云账号 | 官方 FAQ 写免费，Apache-2.0。桌面遥测默认开启，可在设置关闭 | 控制面开源免费；README 写没有遥测、跟踪或强制登录。底层订阅另计 | 不转售 token，使用你已登录的助手。T3 Connect 机器数量上限与是否联动付费 T3 Chat 有关 |
+
+表中「默认权限」对照的不是同一层开关：Orca 和 T3 Code 写的是助手执行命令或改文件前要不要审批，Herdr 写的是模组作为受信任代码的信任边界，Paseo 写的是密码认证和绑定地址这类网络通信层。
 
 按需求选：**要在独立分支里写代码并审改动，看 Orca；要关掉窗口任务还继续跑、并且需要助手再派助手，看 Herdr；要桌面、网页和手机都用同一套自托管环境，看 Paseo；要把多种已登录助手放在同一个控制面里管理，看 T3 Code。** 这是根据官方定位做的对照，不是性能或安全性排名。
 
@@ -65,13 +67,13 @@ faq:
 
 Orca 可以并行跑多个 worktree 里的助手，这是它的常规用法。另外还有一层实验性编排：[Orchestration](https://orca.dev/docs/cli/orchestration) 写明包含 Run、Task、Dispatch、受监督的 worker 和决策门；使用前要在 Settings → Experimental 打开。同一页写：实验性 Orchestration 面板及其开关暂时不可用（temporarily unavailable）。CLI 仍可与正在运行的 Orca 运行时通信。不要把「面板暂时不可用」写成功能已经取消，也不要写成当天已经在界面里用过。
 
-[T3 Code README](https://github.com/pingdotgg/t3code/blob/main/README.md) 把它定义为开源控制平面：在一个界面里编排多种助手，使用你已有的订阅。它强调权限模式、差异审阅、提交和开 PR，而不是自动把工作拆给一个「团队」并保证汇总。本文没有把它理解成成熟的自动协作系统。
+[T3 Code README](https://github.com/pingdotgg/t3code/blob/main/README.md) 把它定义为开源控制平面：在一个界面里编排多种助手，使用你已有的订阅。它强调权限模式、差异审阅、提交和开 PR。官方 [Outside agents](https://github.com/pingdotgg/t3code/blob/main/docs/user/outside-agents.md) 还写明：部分工具只适用于在 T3 线程内运行的助手，其中包含 subagents；交接工作应先用 t3_thread_launch 启动线程，再用 t3_thread_wait 或 t3_thread_read 跟进，而不是 create_threads 或 delegate_task。[Workflows](https://github.com/pingdotgg/t3code/blob/main/docs/user/workflows.md) 写它可以用 TypeScript 脚本串联多个助手，每个 agent 步骤可新开带自己 workspace（例如 worktree）的线程；但这是早期 Labs 功能，需在 Settings → Labs → Workflows 打开，默认关闭。这些是已文档化的委派能力，并不保证会自动拆任务并汇总结果，本文也不把它理解成成熟的自动协作系统。
 
 ## 任务在哪台机器上继续跑
 
 如果只在笔记本的图形窗口里开助手，窗口一关或电脑一休眠，结果可能完全不同。
 
-Herdr 的重点就在这里。[官网](https://herdr.dev/) 写：助手跑在 herdr-core 这个本机小服务里，不在窗口里；退出、更新或让应用崩溃，终端仍停在原处。但同一页 FAQ 也写了边界：机器重启或 herdr-core 停止后，程序会停掉；窗格会在同一目录里回到一个 shell，Herdr **不会**自动重启助手或恢复进行中的工作，需要你再启动一次。其他机器可通过 SSH 加进同一侧栏。
+Herdr 的重点就在这里。[官网](https://herdr.dev/) 写：助手跑在 herdr-core 这个本机小服务里，不在窗口里；退出、更新或让应用崩溃，终端仍停在原处。但同一页 FAQ 也写了边界：机器重启或 herdr-core 停止后，程序会停掉；窗格会在同一目录里回到一个 shell，新桌面应用 **不会**自动重启助手或恢复进行中的工作，需要你再启动一次。这与原 [TUI](https://herdr.dev/tui/) 不同：终端版写，重启机器后 Herdr 会恢复布局并继续会话。不要把 TUI 的恢复行为算到新 core 头上。其他机器可通过 SSH 加进同一侧栏。
 
 Paseo 把架构写成类似 Docker 的客户端-服务器：[Security](https://paseo.sh/docs/security) 写，daemon 才是管理助手生命周期的进程，手机、CLI 或网页都是连上它的客户端。新安装默认关闭中继；配对时会先询问。官方中继被写成「设计上不可信」，流量在手机和 daemon 之间端到端加密。直接连接默认只监听 `127.0.0.1:6767`。若绑定到局域网或 `0.0.0.0`，应设置密码；文档明确写：密码认证防止未授权客户端控制助手，**并不加密流量**。在不信任的网络上，文档建议改用中继或 Tailscale 这类 VPN。
 
@@ -101,7 +103,7 @@ Orca 的 [Bot security](https://orca.dev/docs/bots/security) 写：Orca 的默�
 
 Herdr 的 [安全说明](https://github.com/herdrdev/herdr-app/blob/master/docs/security.md) 写：模组是运行在应用内的受信任 JavaScript，可以按你的环境运行程序、请求网址、读文件；没有针对每个程序或网络请求的许可提示。官方写「这不是安全边界」，安装前应像阅读自己会执行的脚本一样阅读模组。桌面遥测默认开启，每天发送一份匿名用量报告，不含终端内容、文件名或提示词，可在 Settings → Privacy 关闭，或在 `settings.json` 里设置 `"telemetry": false`。
 
-Paseo 的密码认证和绑定地址已经在上一节说明。另外，README 写它没有遥测、跟踪或强制登录；这是仓库当天的说明，不是对你这台机器的检查结果。
+Paseo 的密码认证和绑定地址已经在上一节说明。另外，README 写它没有遥测、跟踪或强制登录；这是仓库当天的说明，不是对你这台机器的检查结果。本文只按当天打开的 Herdr 与 Paseo 官方说明核对了遥测表述，没有用同一口径逐项排查 Orca 和 T3 Code。
 
 ## 不要认错名字
 

@@ -35,6 +35,7 @@ Unless noted, official pages returned HTTP 200 with no redirect. HTTP `Date` on 
 | [Herdr](https://herdr.dev/) | 200 | Agents run in herdr-core, not in the window. FAQ: TUI is a separate product and does not share agents; reboot does not auto-resume an agent; free and open source; platforms include macOS (Apple silicon), Linux, Windows, and phone apps |
 | [herdr-core](https://herdr.dev/core/) | 200 | An agent can start helpers, wait, and read results. Status comes from OSC 7501, not screen scraping |
 | [Herdr Mobile](https://herdr.dev/mobile/) | 200 | Phone talks to herdr-core over SSH; no Herdr account and no Herdr server in the middle; does not work with TUI |
+| [Herdr TUI](https://herdr.dev/tui/) | 200 | Original terminal product. "restart the machine and Herdr brings the layout back and resumes their sessions." This resume claim is not the herdr-core / new desktop FAQ |
 | [Download](https://herdr.dev/download/) and [Privacy](https://herdr.dev/privacy/) | 200 | Distribution via releases.herdr.dev. Desktop sends one anonymous daily usage report by default; can be turned off |
 | [security.md](https://github.com/herdrdev/herdr-app/blob/master/docs/security.md) | 200 | Mods are trusted JavaScript; "That is not a security boundary." Telemetry on by default |
 | [Paseo Security](https://paseo.sh/docs/security) | 200 | Daemon/clients. Relay off on new installs; relay untrusted by design and end-to-end encrypted. Password auth does not encrypt traffic. Default listen `127.0.0.1:6767` |
@@ -44,7 +45,9 @@ Unless noted, official pages returned HTTP 200 with no redirect. HTTP `Date` on 
 | [T3 Code](https://t3.codes/), [README](https://github.com/pingdotgg/t3code/blob/main/README.md) | 200 | "Open-source control plane." "T3 Code does not resell tokens." Each thread can work in its own worktree |
 | [Remote access](https://github.com/pingdotgg/t3code/blob/main/docs/user/remote-access.md) | 200 | Host must stay running. T3 Connect requires sign-in. Saving a sign-in does not start a server. Default cap 3 machines; paid T3 Chat can raise it |
 | [Permission modes](https://github.com/pingdotgg/t3code/blob/main/docs/user/permission-modes.md) | 200 | Initial default for new threads is Full access |
-| GitHub stable releases / tags | API 200 | Orca v1.4.274 (2026-11-25 06:52 Asia/Shanghai). Herdr app tag v0.1.18 (2026-11-24 20:05). herdr-core v0.1.22. Paseo v0.17.4. T3 Code stable still v0.1.11; v0.1.12 nightlies are prerelease |
+| [Outside agents](https://github.com/pingdotgg/t3code/blob/main/docs/user/outside-agents.md) | 200 | Some tools, including subagents, only work for an agent running inside a T3 thread. "To hand off work, start a thread with `t3_thread_launch`, then follow it with `t3_thread_wait` or `t3_thread_read`." |
+| [Workflows](https://github.com/pingdotgg/t3code/blob/main/docs/user/workflows.md) | 200 | A TypeScript script that chains agents. An `agent` step can launch a new thread with its own `workspace` (such as a worktree). Early Labs feature, off by default |
+| GitHub stable releases / tags | API 200 | Orca desktop stable v1.4.274 (`published_at` 2026-11-24T22:52:16Z, 2026-11-25 06:52 Asia/Shanghai). Orca Android prerelease android-v0.0.70 (`published_at` 2026-11-24T01:09:26Z, 2026-11-24 09:09 Asia/Shanghai); not treated as the desktop stable version. Herdr app tag v0.1.18 (2026-11-24 20:05). herdr-core v0.1.22. Paseo v0.17.4. T3 Code stable still v0.1.11; v0.1.12 nightlies are prerelease |
 
 ## Source wording left in the article without a verdict
 
@@ -56,6 +59,8 @@ Unless noted, official pages returned HTTP 200 with no redirect. HTTP `Date` on 
 
 4. **T3 Connect machine caps.** Documented as 3 by default, 10 or 100 with paid T3 Chat plans. Not registered or paid-verified.
 
+5. **T3 documented delegation.** Outside-agents and Workflows pages document in-thread subagents, `t3_thread_launch` / `t3_thread_wait` / `t3_thread_read` handoff, and default-off early Labs workflows. The article records those capabilities. It still does not treat them as a mature automatic team that splits work and guarantees a roll-up.
+
 ## Not claimed
 
 - Any live install, login, pairing, SSH, relay, T3 Connect, Cloud VM, or phone session
@@ -65,3 +70,23 @@ Unless noted, official pages returned HTTP 200 with no redirect. HTTP `Date` on 
 - That Herdr TUI, HerdOS, or T3 Stack is the same product as the tools compared here
 - A refresh of `data/tools/*.yaml` versions or scores
 - Coverage of Happy, Nimbalyst, or Conductor beyond a short "not in this comparison" note
+- That T3's documented delegation is a mature automatic collaboration system
+- A same-scope telemetry review of Orca and T3 Code; telemetry wording was checked only in the Herdr and Paseo official sources opened that day
+
+## Review revisions (2026-11-25 10:35 Asia/Shanghai)
+
+Independent content review of `1f0d62d` asked for two publication blockers and several non-blocking clarifications. This revision keeps `draft: true`, review-draft wording, and the no-install / no-login / no-runtime-test boundary. No tool YAML, scores, or baselines were changed.
+
+Re-opened official sources (HTTP 200; HTTP `Date` Wed, 25 Nov 2026 02:34:57–02:35:00 GMT, 10:34–10:35 Asia/Shanghai). Raw bodies, headers, curl metadata, and checksums are in `/workspace/codepick-evidence-2026-11-25/github/`:
+
+- `t3-outside-agents.md` from https://raw.githubusercontent.com/pingdotgg/t3code/main/docs/user/outside-agents.md (sha256 `43f50440525003090548ea5e00ddfe9bc9b8623db13f5513672969bb9f8155bc`)
+- `t3-workflows.md` from https://raw.githubusercontent.com/pingdotgg/t3code/main/docs/user/workflows.md (sha256 `3fd67eb42c7fc5fcfef7ba62c66b05035d8befe198c5c343cac50a8ca13cd8f9`)
+- `orca-release-v1.4.274.json` and `orca-release-android-v0.0.70.json` from the GitHub Releases API. Times match the morning `orca-releases.json` payload: desktop stable 2026-11-25 06:52 Asia/Shanghai; Android prerelease 2026-11-24 09:09 Asia/Shanghai. The earlier "same day" Android wording was therefore inaccurate in Beijing time.
+
+Article changes:
+
+1. Widen T3 "who assigns work" in both locales to the documented in-thread subagents and handoff tools, plus default-off early Labs workflows. Keep the not-a-mature-automatic-team boundary, in the same disclosure register as Paseo's default-off tools and Orca's experimental orchestration.
+2. Replace the Orca Android "same day" note with the exact android-v0.0.70 timestamp.
+3. Minimally adopt non-blocking notes: the default-permissions row mixes execution approval, Herdr mod trust, and Paseo's network layer, and is labeled as not the same kind of switch; "no equivalent official statement" is not a live-test failure and no longer points at a blank table cell; Herdr TUI resume-on-reboot is contrasted with herdr-core not resuming; telemetry wording is marked as Herdr/Paseo only, not a four-tool same-scope review.
+
+Local checks after this revision (2026-11-25, Asia/Shanghai): `npm run build` **384 pages**; `npm run check:seo` **pass**; `npm run content:check -- --strict` **0 errors / 0 warnings**; `npm run content:check:baseline` **0 current / 0 approved / 0 unexpected**; `node --test scripts/*.test.mjs` **85 pass / 0 fail**; `git diff --check` **pass**. Workflow, checker, baseline, and `data/tools/*.yaml` files are unchanged.

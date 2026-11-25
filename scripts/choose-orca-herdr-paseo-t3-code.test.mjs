@@ -20,9 +20,11 @@ const OFFICIAL = [
   'https://github.com/herdrdev/herdr-core',
   'https://github.com/herdrdev/herdr/releases',
   'https://github.com/pingdotgg/t3code/blob/main/README.md',
+  'https://github.com/pingdotgg/t3code/blob/main/docs/user/outside-agents.md',
   'https://github.com/pingdotgg/t3code/blob/main/docs/user/permission-modes.md',
   'https://github.com/pingdotgg/t3code/blob/main/docs/user/remote-access.md',
   'https://github.com/pingdotgg/t3code/blob/main/docs/user/source-control.md',
+  'https://github.com/pingdotgg/t3code/blob/main/docs/user/workflows.md',
   'https://github.com/pingdotgg/t3code/releases',
   'https://github.com/stablyai/orca/releases',
   'https://herdr.dev/',
@@ -62,6 +64,12 @@ const REQUIRED = [
   '127.0.0.1:6767',
   't3 up',
   'Enable Paseo tools',
+  'android-v0.0.70',
+  '2026-11-24 09:09',
+  't3_thread_launch',
+  't3_thread_wait',
+  't3_thread_read',
+  'subagents',
 ];
 
 test('bilingual orchestrator comparison guides share mirrored metadata and official links', () => {
@@ -104,6 +112,12 @@ test('the comparison does not treat a worktree as an OS sandbox or invent unpaid
     assert.match(text, /T3 Chat/);
     assert.ok(!/500,000|Tolerated by over/.test(text), 'no homepage marketing metrics');
     assert.ok(!/utm_source=/.test(text), 'no promotional query parameters');
+    assert.ok(!text.includes(lang === 'zh' ? '同日仍有 Android' : 'existed the same day'));
+    assert.ok(!text.includes(lang === 'zh' ? '更偏人来切换' : 'More about a person switching'));
+    assert.ok(!text.includes(lang === 'zh' ? '空缺处' : 'A blank in the narrative'));
+    assert.ok(text.includes(lang === 'zh' ? '不是同一层开关' : 'not one kind of switch'));
+    assert.ok(text.includes(lang === 'zh' ? '没有用同一口径逐项排查' : 'did not do a same-scope review'));
+    assert.ok(text.includes(lang === 'zh' ? '会恢复布局并继续会话' : 'brings the layout back and resumes'));
   }
 });
 
