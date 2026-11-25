@@ -6,7 +6,7 @@ Official public sources checked on **2026-11-25 (Asia/Shanghai)**. This is a doc
 
 - New bilingual guide: `src/content/guides/choose-orca-herdr-paseo-t3-code.md`
 - English mirror: `src/content/guides-en/choose-orca-herdr-paseo-t3-code.md`
-- Publication date is 2026-11-25. The files stay `draft: true` with review-draft wording until independent content review is complete.
+- Publication date is 2026-11-25. After dig's review of `65fa286c6ded317c20672ed351aa64e9b2a7bcb6`, `draft` is set to `false` for publication.
 - Cross-link, and do not rewrite: `paseo-remote-agent-orchestrator`, `agent-collaboration-platform-types`, and the unscored tool entries `orca`, `paseo`, and `t3-code`.
 - Herdr had no in-site tool page on the check date; the articles cite only official Herdr pages and repositories.
 - No tool YAML, scores, baselines, workflows, or unrelated files are changed.
@@ -90,3 +90,9 @@ Article changes:
 3. Minimally adopt non-blocking notes: the default-permissions row mixes execution approval, Herdr mod trust, and Paseo's network layer, and is labeled as not the same kind of switch; "no equivalent official statement" is not a live-test failure and no longer points at a blank table cell; Herdr TUI resume-on-reboot is contrasted with herdr-core not resuming; telemetry wording is marked as Herdr/Paseo only, not a four-tool same-scope review.
 
 Local checks after this revision (2026-11-25, Asia/Shanghai): `npm run build` **384 pages**; `npm run check:seo` **pass**; `npm run content:check -- --strict` **0 errors / 0 warnings**; `npm run content:check:baseline` **0 current / 0 approved / 0 unexpected**; `node --test scripts/*.test.mjs` **85 pass / 0 fail**; `git diff --check` **pass**. Workflow, checker, baseline, and `data/tools/*.yaml` files are unchanged.
+
+## Publication enablement
+
+dig independently reviewed `65fa286c6ded317c20672ed351aa64e9b2a7bcb6` with no remaining content blockers and no new substantive deviations. Both language files are set to `draft: false` for publication, and the “审阅稿” / “Review draft” sentences are removed. Reviewed article facts, the 2026-11-25 check date, and untested boundaries are unchanged. No install, login, or runtime security test was performed. Publication changes are limited to frontmatter, the unpublished-draft sentence, tests, and this research status. Do not treat this note as a merge authorization; production pages still need verification after merge.
+
+Local checks after publication enablement (2026-11-25, Asia/Shanghai): `npm run build` **384 pages**; `npm run check:seo` **pass**; `npm run content:check -- --strict` **0 errors / 0 warnings**; `npm run content:check:baseline` **0 current / 0 approved / 0 unexpected**; `node --test scripts/*.test.mjs` **85 pass / 0 fail**; `git diff --check` **pass**. Workflow, checker, baseline, and `data/tools/*.yaml` files are unchanged.

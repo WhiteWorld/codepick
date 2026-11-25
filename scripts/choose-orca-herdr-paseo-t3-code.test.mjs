@@ -84,7 +84,7 @@ test('bilingual orchestrator comparison guides share mirrored metadata and offic
   assert.equal(a.article_type, 'review');
   assert.equal(a.pillar, 'workflow');
   assert.equal(a.content_status, 'keep');
-  assert.equal(a.draft, true);
+  assert.equal(a.draft, false);
   assert.equal(a.locale_strategy, 'mirrored');
   assert.deepEqual(a.tags, ['orca', 'herdr', 'paseo', 't3-code', 'comparison']);
   assert.equal(a.faq.length, 4);
@@ -97,7 +97,7 @@ test('bilingual orchestrator comparison guides share mirrored metadata and offic
     const other = lang === 'zh' ? 'en' : 'zh';
     assert.ok(!text.includes('](/' + other + '/'), 'internal links keep the reader locale');
     for (const value of REQUIRED) assert.ok(text.includes(value), lang + ': ' + value);
-    assert.ok(text.includes(lang === 'zh' ? '审阅稿' : 'Review draft'));
+    assert.ok(!text.includes(lang === 'zh' ? '审阅稿' : 'Review draft'));
     assert.ok(text.includes(lang === 'zh' ? '没有安装' : 'did not install'));
     assert.ok(text.includes(lang === 'zh' ? '不能被转写成' : 'cannot be rewritten as'));
   }
@@ -121,29 +121,35 @@ test('the comparison does not treat a worktree as an OS sandbox or invent unpaid
   }
 });
 
-test('built review draft pages keep official links and stay out of listings, RSS and sitemap', () => {
+test('built guides appear in listings, RSS and sitemap with reciprocal language routes', () => {
   const sitemap = read('dist/sitemap-0.xml');
+  const zhUrl = 'https://codepick.dev/zh/guides/' + slug + '/';
   for (const lang of ['zh', 'en']) {
     const metadata = fm(source(lang));
     const html = read('dist/' + lang + '/guides/' + slug + '/index.html');
     const index = read('dist/' + lang + '/guides/index.html');
     const rss = read('dist/' + lang + '/rss.xml');
     const url = 'https://codepick.dev/' + lang + '/guides/' + slug + '/';
+    const other = lang === 'zh' ? 'en' : 'zh';
+    assert.equal(metadata.draft, false);
     assert.ok(html.includes(metadata.title));
-    assert.ok(html.includes(lang === 'zh' ? '审阅稿' : 'Review draft'));
+    assert.ok(!html.includes(lang === 'zh' ? '审阅稿' : 'Review draft'));
     assert.ok(html.includes('v1.4.274'));
+    assert.ok(index.includes('/' + lang + '/guides/' + slug + '/'), 'published guide appears in the listing');
+    assert.ok(rss.includes(url), 'published guide appears in RSS');
+    const loc = '<loc>' + url + '</loc>';
+    assert.ok(sitemap.includes(loc), 'published guide appears in the sitemap');
+    const after = sitemap.split(loc)[1].slice(0, 40);
+    assert.ok(after.trimStart().startsWith('<lastmod>'), 'published sitemap entry has lastmod');
+    assert.ok(html.includes('<link rel="canonical" href="' + url + '"'));
+    assert.ok(html.includes('hreflang="' + lang + '" href="' + url + '"'));
+    assert.ok(html.includes('hreflang="' + other + '" href="https://codepick.dev/' + other + '/guides/' + slug + '/"'));
+    assert.ok(html.includes('hreflang="x-default" href="' + zhUrl + '"'));
     const ld = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)]
       .flatMap(([, json]) => JSON.parse(json)).find(v => v['@type'] === 'Article' || v['@type'] === 'TechArticle');
     assert.ok(ld);
     assert.equal(ld.name || ld.headline, metadata.title);
     assert.equal(ld.datePublished, '2026-11-25');
-    assert.ok(!index.includes('/' + lang + '/guides/' + slug + '/'), 'draft stays off the listing');
-    assert.ok(!rss.includes(url), 'draft stays out of RSS');
-    const loc = '<loc>' + url + '</loc>';
-    if (sitemap.includes(loc)) {
-      const after = sitemap.split(loc)[1].slice(0, 20);
-      assert.ok(!after.trimStart().startsWith('<lastmod>'), 'draft sitemap entry has no lastmod');
-    }
     for (const href of officialLinks(source(lang))) assert.ok(html.includes('href="' + href + '"'), href);
     for (const [, target] of source(lang).matchAll(/\]\((\/(?:zh|en)\/[^)#]+)\)/g)) {
       assert.ok(existsSync(new URL('../dist' + target + 'index.html', import.meta.url)), target);
