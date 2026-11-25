@@ -1,0 +1,125 @@
+---
+title: "How should you choose among Orca, Herdr, Paseo, and T3 Code?"
+description: "Checked on 2026-11-25. Based on the official sites, docs, licenses, and latest stable GitHub releases opened that day: how Orca, Herdr, Paseo, and T3 Code differ on who assigns work, where tasks keep running, how you review changes, and the default permission and cost boundaries. This article did not install, sign in to, or run these products."
+date: "2026-11-25"
+article_type: review
+tags: [orca, herdr, paseo, t3-code, comparison]
+pillar: workflow
+content_status: keep
+locale_strategy: mirrored
+draft: true
+faq:
+  - q: "Is a separate workspace or git worktree a system security sandbox?"
+    a: |
+      No. Orca's worktree page says a separate checkout means parallel agents "never step on each other's files." The Agents and sessions page then calls the worktree itself the sandbox, to explain why new launches pre-fill permission-bypass flags. Paseo's Isolation: New worktree setting also means a separate directory and branch. T3 Code's README says each thread can work in its own worktree. These are repository file isolations. They do not prove that an agent cannot reach other files, secrets, or the network. This article did not run a runtime security test.
+  - q: "Is Herdr the same as the old terminal app? Can it be confused with HerdOS or T3 Stack?"
+    a: |
+      They are not the same product. Herdr's FAQ says Herdr TUI is the original terminal app with its own server, and the new desktop app is built on herdr-core; the two do not share agents. The phone app talks only to herdr-core and does not support TUI. HerdOS is a different GitHub Actions-oriented orchestration tool, not Herdr. T3 Code is T3 Tools Inc.'s control plane for coding agents; the site and repository do not describe it as T3 Stack.
+  - q: "Do these tools charge for themselves? Are model costs included?"
+    a: |
+      On the official pages opened that day, the four control-plane or workspace clients themselves are free and open source: MIT for Orca and T3 Code, Apache-2.0 for Herdr, and Apache-2.0 for Paseo except third-party components. All of them say you use your existing agent subscriptions or accounts, so model costs are not included in that "free." T3 Code's docs also say T3 Connect links up to 3 machines by default, and a paid T3 Chat plan can raise the cap to 10 or 100 machines. That is an account-limit note, not a model price, and this article did not register or pay to verify it.
+  - q: "If I close the laptop window, do the tasks keep running?"
+    a: |
+      It depends on the run mode; there is no single answer. Herdr's docs say agents run in herdr-core on the machine, so quitting or updating the window does not stop them; after a reboot or if herdr-core stops, it does not automatically resume an agent that was in progress. In Paseo, the daemon is the process that actually runs agents, and clients only connect to it. If you use Orca only as a local desktop app, the docs treat local as the default path; to keep going after the laptop sleeps, they point to a Remote Orca Server or an SSH host. T3 Code's remote-access docs say the other machine must stay running and reachable; saving a sign-in alone does not start a server. These are documented behaviors, not live test results.
+---
+
+> Checked on 2026-11-25 (Beijing time). Based on the official pages opened that day: [Orca](https://orca.dev/), [Supported agents](https://orca.dev/docs/agents/supported), [Agents and sessions](https://orca.dev/docs/model/agents-sessions), [Worktrees](https://orca.dev/docs/model/worktrees), [Ways to run Orca](https://orca.dev/docs/ways-to-run), [Orchestration](https://orca.dev/docs/cli/orchestration), [Mobile companion](https://orca.dev/docs/mobile), [Bot security](https://orca.dev/docs/bots/security), [Herdr](https://herdr.dev/), [herdr-core](https://herdr.dev/core/), [Herdr Mobile](https://herdr.dev/mobile/), [Download](https://herdr.dev/download/), [Privacy](https://herdr.dev/privacy/), [Herdr TUI](https://herdr.dev/tui/), [Herdr security notes](https://github.com/herdrdev/herdr-app/blob/master/docs/security.md), [Paseo](https://paseo.sh/), [Security](https://paseo.sh/docs/security), [Git worktrees](https://paseo.sh/docs/worktrees), [Orchestration](https://paseo.sh/docs/orchestration), [T3 Code](https://t3.codes/), [T3 Code README](https://github.com/pingdotgg/t3code/blob/main/README.md), [Remote access](https://github.com/pingdotgg/t3code/blob/main/docs/user/remote-access.md), [Permission modes](https://github.com/pingdotgg/t3code/blob/main/docs/user/permission-modes.md), and [Source control](https://github.com/pingdotgg/t3code/blob/main/docs/user/source-control.md), plus the matching repository LICENSE files and the stable GitHub releases seen that day. This is a Review draft pending independent content review, and it is not published yet. This article did not install or start these products, did not sign in to any account, did not make paid calls, and did not run feature or runtime security tests. Version numbers use only the stable releases seen that day; prerelease and nightly builds are not treated as official stable versions.
+
+These four tools look similar: each can run coding agents such as Claude Code, Codex, and OpenCode on subscriptions you already have. The differences that matter first are three questions: who assigns the work, where a task keeps running, and how you review the resulting changes.
+
+This is not a performance ranking, and it is not an install review. The site already has a more operational [Paseo remote agent orchestrator guide](/en/guides/paseo-remote-agent-orchestrator/). This article only compares the four tools and does not repeat that walkthrough. The earlier [types of agent collaboration platforms](/en/guides/agent-collaboration-platform-types/) covers products such as Slock and Multica, which are not the same category as these coding-agent workspaces. The Orca, Paseo, and T3 Code tool pages are currently unscored documentary listings: [Orca](/en/tool/orca/), [Paseo](/en/tool/paseo/), and [T3 Code](/en/tool/t3-code/). Herdr had no tool page on the site that day, so this article cites only its official site and repositories.
+
+## Stable versions checked that day
+
+These versions mark the check date. They are not quality scores.
+
+| Product | Latest stable release seen that day | License |
+| --- | --- | --- |
+| Orca | GitHub stable [v1.4.274](https://github.com/stablyai/orca/releases), published at 2026-11-25 06:52 Beijing time. Android prereleases existed the same day and are not the desktop stable version. | MIT, Copyright Lovecast Inc. |
+| Herdr desktop app | Repository tag [v0.1.18](https://github.com/herdrdev/herdr-app), commit time 2026-11-24 20:05 Beijing time. Builds are distributed from [releases.herdr.dev](https://herdr.dev/download/); the GitHub Releases list was empty that day. The runtime [herdr-core](https://github.com/herdrdev/herdr-core) tag was still v0.1.22 (commit time 2026-11-23 03:10 Beijing time). The original terminal product, Herdr TUI, was still at stable [v0.9.5](https://github.com/herdrdev/herdr/releases) (2026-10-15). | Apache-2.0 |
+| Paseo | Latest stable release on the site and GitHub: [v0.17.4](https://github.com/getpaseo/paseo/releases), published at 2026-11-24 06:34 Beijing time. | Apache-2.0 except third-party components; see the repository [LICENSE](https://github.com/getpaseo/paseo) |
+| T3 Code | The latest stable release was still [v0.1.11](https://github.com/pingdotgg/t3code/releases), published at 2026-11-20 15:38 Beijing time. Nightly builds of v0.1.12 existed that day and were marked prerelease, so they are not treated as the official stable version. | MIT, Copyright T3 Tools Inc. |
+
+## Start with a comparison table
+
+The table only records differences that official docs supported that day. A blank in the narrative below means this article did not find an equivalent official statement, not that a live test failed.
+
+| Question | Orca | Herdr | Paseo | T3 Code |
+| --- | --- | --- | --- | --- |
+| Main role | A development environment organized around git worktrees, with terminals, diff review, and a built-in browser | Tasks keep running in herdr-core on the machine after you close the window | A self-hosted daemon; desktop, web, phone, and CLI are all clients | An open-source control plane for sessions, approvals, and commits across coding agents |
+| Who assigns work | Many tasks can run in parallel. There is also experimental orchestration (Run / Task / Dispatch). The docs that day said the orchestration panel and its switch were temporarily unavailable | An agent can start helpers, wait, and read back their results. Not every agent reports status correctly | Delegation and parallelism are documented, including across machines. Built-in Paseo tools are off by default and must be enabled in settings | More about a person switching and handing off agents. The README calls it a control plane, not an automatic team |
+| Where work keeps running | Local desktop is the default path; SSH hosts, a Remote Orca Server, and experimental Cloud VM / per-workspace environments are optional | Runs in herdr-core; other machines can join the same sidebar over SSH | The daemon runs on a machine you choose; clients connect to it | The other machine must stay running and reachable; T3 Connect or LAN pairing |
+| Remote and phone | Desktop supports macOS, Windows, and Linux. The phone companion is beta, the paired desktop owns the sessions, and the docs say it is not a full editor | The phone talks to your herdr-core over SSH. The docs say there is no Herdr account and no Herdr server in the middle. TUI sessions are not supported | The official README calls the mobile app the full app. Relay is off by default on new installs; when enabled, it uses an end-to-end encrypted relay | Desktop, web, and phone. T3 Connect requires a sign-in. The default cap is 3 linked machines |
+| Default permissions | New launches pre-fill each agent's permission-bypass flag; you can switch to manual in settings. A bot's default chat permission is Full access | Mods are trusted JavaScript with no per-program or per-request prompt. The docs say this is not a security boundary | Password authentication does not encrypt traffic. Set a password if you bind to a network address; the docs recommend the relay or a VPN for encryption | The initial default for new threads is Full access. You can change it in settings |
+| Cost | The client is MIT and officially described as free and open source; agents use your own subscriptions and accounts. The docs say Orca does not sell managed VPS hosting, and Cloud VMs use your cloud account | The FAQ says it is free, under Apache-2.0. Desktop telemetry is on by default and can be turned off in settings | The control plane is free and open source. The README says there is no telemetry, tracking, or forced log-in. Underlying subscriptions are separate | It does not resell tokens and drives agents you are already signed in to. T3 Connect machine limits can change if you link a paid T3 Chat plan |
+
+A practical way to choose: **use Orca if you want to write and review changes in separate branches; use Herdr if work should keep running after you close the window, and you want one agent to assign work to others; use Paseo if you want one self-hosted environment on desktop, web, and phone; use T3 Code if you want one control plane for several agents you already pay for.** That is a reading of official positioning, not a ranking of speed or security.
+
+## Who assigns work is not the same question as running agents in parallel
+
+Being able to open several agents at once only means they can run side by side. It does not mean the software will split the work, wait on dependencies, or summarize the results for you.
+
+[Herdr core](https://herdr.dev/core/) is the most direct on this point: an agent can start helpers, give them work, wait, and read what they did. Helpers belong to the agent that started them, report back when they finish, and stop when it stops. The site also says only agents that speak the open status protocol OSC 7501 show a reliable "working, done, or needs you" state in the list. An agent that does not speak it still runs, just without a status. This article did not verify whether any particular agent already implements that protocol.
+
+[Paseo's orchestration page](https://paseo.sh/docs/orchestration) also documents delegation, parallelism, sending prompts between agents, and starting work on another machine. Built-in Paseo tools (MCP) are off by default. You turn on **Enable Paseo tools** under Settings → your host → Agents, then start a new agent or reload an existing one before the tools are injected. Starting a worker with the CLI does not require enabling tool injection. These are documented defaults, not a verdict on how well the feature works.
+
+Orca can run agents in several worktrees in parallel; that is its ordinary workflow. It also has an experimental orchestration layer. [Orchestration](https://orca.dev/docs/cli/orchestration) describes Runs, Tasks, Dispatches, supervised workers, and decision gates, and says you must enable it under Settings → Experimental first. The same page says the experimental Orchestration panel and its switch are temporarily unavailable. The CLI can still talk to a running Orca runtime. Do not read "temporarily unavailable" as a statement that the feature has been removed, and do not read it as a claim that this article used the panel.
+
+The [T3 Code README](https://github.com/pingdotgg/t3code/blob/main/README.md) defines it as an open-source control plane: orchestrate several agents in one surface, using subscriptions you already have. It emphasizes permission modes, diff review, commits, and opening a pull request, not automatically splitting work for a "team" and guaranteeing a roll-up. This article does not treat it as a mature automatic collaboration system.
+
+## Where a task keeps running
+
+If you only open agents in a graphical window on a laptop, closing that window or letting the machine sleep can lead to very different outcomes.
+
+That is Herdr's main point. The [site](https://herdr.dev/) says agents run in herdr-core, a small server on your machine, not in the window; quitting, updating, or crashing the app leaves every terminal where it was. The same FAQ also states the limit: if the machine reboots or herdr-core stops, the programs stop too. The panes come back with a shell in the same folder, but Herdr **does not** restart an agent or resume work in progress; you start it again. Other machines can join the same sidebar over SSH.
+
+Paseo describes a client-server design similar to Docker. [Security](https://paseo.sh/docs/security) says the daemon is the process that manages agent lifecycles, and the phone, CLI, or web UI only connect to it. Relay is off on new installations; Paseo asks before enabling it during pairing. The official relay is described as untrusted by design, with end-to-end encryption between the phone and the daemon. A direct connection listens on `127.0.0.1:6767` by default. If you bind to a LAN address or `0.0.0.0`, set a password. The docs are explicit: password authentication stops unauthorized clients from controlling your agents, and **does not encrypt traffic**. On an untrusted network, they recommend the relay or a VPN such as Tailscale.
+
+Orca's [Ways to run](https://orca.dev/docs/ways-to-run) maps four paths: the local desktop, an SSH target, a Remote Orca Server, and on-demand Cloud VM / per-workspace environments (labeled Experimental in settings). The page says Orca does not sell managed VPS hosting, and remote modes use machines and cloud accounts you control. Local is the default path for most people. If you want agents to keep running after the laptop sleeps, or you want a phone to rejoin the same sessions, the docs point to a Remote Orca Server. The phone [companion](https://orca.dev/docs/mobile) was still marked beta that day. The paired desktop owns the sessions, and the page says the app is intentionally not a full editor.
+
+T3 Code's [Remote access](https://github.com/pingdotgg/t3code/blob/main/docs/user/remote-access.md) page says the machine you connect to must stay running and reachable. T3 Connect can avoid router forwarding, but you sign in and enable it on the host; on the command line the command is `t3 up`. Saving a sign-in alone does not start a server. Closing the desktop app's last window stops its local server. T3 Connect accounts can link up to 3 machines by default (phones and browsers do not count). The docs say a paid T3 Chat plan raises the limit to 10 machines with Pro, or 100 with Premier. This article did not register for T3 Connect or verify those caps.
+
+## How you review changes, and why a worktree is not a system sandbox
+
+All four describe "review the diff, then decide what to merge" as part of the workflow. It is easy to over-read what that isolation means.
+
+Orca's [Worktrees](https://orca.dev/docs/model/worktrees) page says each task gets its own on-disk copy and branch, and that this is "what makes parallel agents safe — they never step on each other's files." In the same product, [Agents and sessions](https://orca.dev/docs/model/agents-sessions) states the intent: "the worktree itself is the sandbox," which is why every supported agent is launched with a full-autonomy flag already applied — `--dangerously-skip-permissions` for Claude, `--dangerously-bypass-approvals-and-sandbox` for Codex, `--yolo` for Gemini and several others. [Supported agents](https://orca.dev/docs/agents/supported) gives the same reason: worktrees are disposable, so an agent can experiment in its own checkout without you re-confirming every shell command, and you can still cherry-pick or discard the diff before merging. Settings → Agents → Agent Permissions can switch uncustomized launches between Yolo and Manual. That is a documented default. It cannot be rewritten as "this is an operating-system sandbox, and the agent cannot reach files or credentials outside the worktree." The official Codex flag name even includes bypass sandbox. This article did not verify how far those flags actually isolate a real machine.
+
+Paseo's [Git worktrees](https://paseo.sh/docs/worktrees) page says that when Isolation is set to New worktree, Paseo creates a separate directory and branch so parallel agents never step on each other. That is also git workspace isolation. The Docker self-hosting notes add that container user isolation is not a substitute for careful mounts, and agents can still access whatever code and credentials you mount into the container.
+
+T3 Code's README says each thread can work in its own worktree, review the diff, then commit, push, and open a pull request with one button. [Source control](https://github.com/pingdotgg/t3code/blob/main/docs/user/source-control.md) adds turn-by-turn review and how to connect GitHub, GitLab, and other hosts. That is a review-and-publish flow, not a sandbox test result.
+
+The Herdr desktop and core pages opened that day do not describe a first-class worktree workflow in the same terms as Orca or Paseo. The original [TUI](https://herdr.dev/tui/) is a separate product. Workspace commands documented for the terminal app should not be assumed for the new desktop app.
+
+## Default permissions worth seeing first
+
+Besides Orca's pre-filled permission-bypass flags, a few other defaults are easy to miss.
+
+T3 Code's [Permission modes](https://github.com/pingdotgg/t3code/blob/main/docs/user/permission-modes.md) page says the mode applies to a thread, and the initial default for new threads is **Full access**. You can change that under Settings → Threads → New threads → Permissions. Full access allows commands and edits without approval prompts. Providers do not all enforce the same mode in the same way; the page lists the differences. This article did not switch modes for a live comparison.
+
+Orca's [Bot security](https://orca.dev/docs/bots/security) page says Orca's default chat permission is Full access, so a new bot starts there too unless you change it. In Full access, the agent does not stop to ask before running commands or editing files. If other people can ask the bot, or if it reads mail, issues, or messages from outside, the docs recommend switching it to Ask for approval.
+
+Herdr's [security notes](https://github.com/herdrdev/herdr-app/blob/master/docs/security.md) say a mod is trusted JavaScript running inside the app. It can run programs with your environment, fetch URLs, and read files, and there is no permission prompt for each program or network request. The page says this is not a security boundary; read a mod before installing it, and treat it like a shell script you would run yourself. Desktop usage telemetry is on by default and sends a small daily anonymous report that does not include terminal text, file names, or prompts. You can turn it off in Settings → Privacy, or set `"telemetry": false` in `settings.json`.
+
+Paseo's password and bind-address rules are in the previous section. The README also says Paseo has no telemetry, tracking, or forced log-ins. That is the repository wording on the check date, not a scan of your machine.
+
+## Names that are easy to mix up
+
+- **The Herdr desktop app and Herdr TUI are not the same product.** The FAQ says the TUI is the original terminal app with its own server, and the new app is built on herdr-core. They do not share agents. The phone talks only to herdr-core and cannot see sessions started in the TUI.
+- **HerdOS is not Herdr.** It is a different product. A similar name is not evidence that they are the same tool.
+- **T3 Code is not T3 Stack.** It is T3 Tools Inc.'s control plane for coding agents, and the source is MIT-licensed. The repository also says the MIT license covers the source code only, not the T3 Code name or marks.
+- **"Free" refers only to the control plane or client itself.** Subscriptions or API usage for Claude, Codex, Gemini, and similar tools are separate. Orca Cloud VMs are also billed to your own cloud account.
+
+On 2026-11-24 the site also listed nearby tools such as Happy and Nimbalyst, likewise as unscored documentary entries. They are not part of this four-tool comparison, and this article does not cover them.
+
+## What this article did not do
+
+This article did not install, sign in to, or start Orca, Herdr, Paseo, or T3 Code. It did not run agents, a relay, T3 Connect, SSH, a Cloud VM, or phone pairing on a real machine, did not make a paid purchase, and did not run a runtime security test. Therefore:
+
+- it does not rate speed, reliability, actual cost, or whether isolation works;
+- it does not decide whether a given agent already implements Herdr's OSC 7501 status reporting;
+- it does not treat Orca's wording that "the worktree itself is the sandbox" as a system-sandbox conclusion;
+- it does not treat the experimental orchestration panel's "temporarily unavailable" note as a removal, or as evidence that the panel was used here;
+- it does not update versions or scores on the tool pages, and it does not describe unscored listings as product tests.
+
+For Paseo install and remote-connection steps, the [Paseo remote agent orchestrator guide](/en/guides/paseo-remote-agent-orchestrator/) remains the walkthrough. Its current-license wording was already corrected to Apache-2.0 on 2026-11-24, and this article matches that correction.
